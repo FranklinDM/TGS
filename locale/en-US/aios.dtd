@@ -38,6 +38,8 @@
 <!ENTITY button.pageinfo.tooltip "Display extensive information about a web page">
 <!ENTITY button.console.label "Error Console">
 <!ENTITY button.console.tooltip "Open the Error Console, which tracks problems with source code">
+<!ENTITY button.cookies.label "Cookies">
+<!ENTITY button.cookies.tooltip "Manage individual cookies">
 <!ENTITY keys.modifiers "accel shift">
 <!ENTITY keys.sidebar "VK_F4">
 <!ENTITY keys.options "VK_F4">
@@ -46,6 +48,7 @@
 <!ENTITY keys.addons "A">
 <!ENTITY keys.multipanel "M">
 <!ENTITY keys.pageinfo "P">
+<!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "Left Beside Sidebar">
 <!ENTITY toolbar.pos.sidebarright.label "Right Beside Sidebar">
 <!ENTITY toolbar.pos.sidebartop.label "Above Sidebar">

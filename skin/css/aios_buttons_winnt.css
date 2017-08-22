@@ -43,6 +43,9 @@ toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):-moz-lwtheme-b
 #toolbar-button {
     -moz-image-region: rect(1px,  215px,  17px,  199px);
 }
+#cookies-button {
+    -moz-image-region: rect(1px,  233px,  17px,  217px);
+}
 menuitem[key="aiosKey_panelTab1"], menuitem[key="aiosKey_panelTab2"], menuitem#aios-sidebar-mitem-show, menuitem#aios-sidebar-mitem-hide, menuitem[key="aiosKey_prefs"] {
     list-style-image: url(../icons/panels_menus.png);
 }
