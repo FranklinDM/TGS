@@ -92,6 +92,9 @@
 
                     <menuitem type="radio" label="about:mozilla" tooltiptext="&about.mozilla.tooltip;" checked="false"
                         oncommand="aios_setMultiPanel('about:mozilla'); event.stopPropagation();" />
+
+                    <menuitem type="radio" label="about:palemoon" tooltiptext="&about.palemoon.tooltip;" checked="false"
+                        oncommand="aios_setMultiPanel('about:palemoon'); event.stopPropagation();" />
                 </menupopup>
 
             </toolbarbutton>
