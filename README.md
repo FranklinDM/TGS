@@ -1,29 +1,26 @@
-All-in-One Sidebar (AiOS) - a sidebar extension for Mozilla Firefox
+The Good 'ol Sidebar (TGS) - a sidebar extension for Pale Moon
 ===================================================================
 
-This is the repository of the sidebar extension called All-in-One Sidebar which is hosted at [addons.mozilla.org/firefox/addon/all-in-one-sidebar/](https://addons.mozilla.org/firefox/addon/all-in-one-sidebar/)
-
-More information available on the [project homepage](http://firefox.exxile.net/aios/index.php). There is also a [forum for comments, bug reports and more](http://firefox.exxile.net/forum/).
+This is the repository of the sidebar extension called The Good 'ol Sidebar, a fork of [All-in-One Sidebar](http://firefox.exxile.net/aios/index.php), an extension originally made for Mozilla Firefox, which is now discontinued.
 
 You are cordially invited to contribute to the project. :-)
-
 
 Build the extension
 -------------------
 
-To build an installable `.xpi` extension for Firefox:
+To build an installable `.xpi` extension for Pale Moon:
 
 ### All operation systems
 
 1. clone this repository
 2. zip the contents of the repository (excluding `.git`, `build.sh` and `README.md`) and rename the `.zip` extension to `.xpi`
-3. open/install the resulting `.xpi` file with Firefox
+3. open/install the resulting `.xpi` file with Pale Moon
 
 ### Mac OS X
 
 1. clone this repository
 2. execute `./build.sh` at the repository root
-3. open/install the resulting `all_in_one_sidebar-dev-build-fx.xpi` file with Firefox
+3. open/install the resulting `all_in_one_sidebar-dev-build-fx.xpi` file with Pale Moon
 
 ### Ubuntu Linux
 
@@ -43,22 +40,15 @@ Links
 Issues
 -------
 
-Please use the [issues system of GitHub](https://github.com/AddonLab/AiOS/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
+Please use the [issues system of GitHub](https://github.com/FranklinDM/TES/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
 
-
-Author
-------
-
-This is a one-man show by Ingo Wennemaring, Hamburg/Germany
-
-* [About me and the beginning of AiOS](https://addons.mozilla.org/firefox/addon/all-in-one-sidebar/developers)
-* [Follow me on Twitter](https://twitter.com/addonlab)
 
 
 License:
 --------
 
-&copy; 2005+ Ingo Wennemaring
+Portions &copy; 2017+ FranklinDM
+Portions &copy; 2005+ Ingo Wennemaring
 
 GNU General Public License, Version 2.0
 
