@@ -48,6 +48,7 @@ License:
 --------
 
 Portions &copy; 2017+ FranklinDM
+
 Portions &copy; 2005+ Ingo Wennemaring
 
 GNU General Public License, Version 2.0
