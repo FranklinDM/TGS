@@ -34,12 +34,16 @@ page[aios-inSidebar] #header-utils-btn {
     min-width: 0;
 }
 page[aios-inSidebar] #updates-container {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 page[aios-inSidebar] #updates-container .button-box {
-    padding: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
 }
-page[aios-inSidebar] #updates-container #updates-close-btn {
+page[aios-inSidebar] #updates-container button.button-link {
+    margin-left: 5px;
+}
+page[aios-inSidebar] #updates-container #close-btn {
     display: block !important;
 }
 page[aios-inSidebar] .view-header {
