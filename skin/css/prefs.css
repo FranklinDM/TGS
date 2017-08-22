@@ -81,10 +81,6 @@ prefwindow:-moz-system-metric(windows-default-theme) .labelTipElem box {
     height: 27px;
     background-position: 0 -31px;
 }
-prefwindow:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] .labelTipElem box {
-    height: 27px;
-    background-position: 0 -59px;
-}
 prefwindow[aios-appOS="Darwin"] .labelTipElem box {
     height: 28px;
     background-position: -260px 0;

@@ -50,24 +50,10 @@ page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"] #places-toolba
 page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"] #viewButton dropmarker image {
     margin: 0 2px 0 3px;
 }
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #bookmarks-view, page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #historyTree {
-    background-color: #efedea;
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] {
-    -moz-appearance: none !important;
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #bookmarks-view, page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #historyTree {
-    background-color: #EDECEF;
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #places-toolbar {
-    -moz-appearance: none;
-    border-bottom: 1px solid Threedshadow;
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #bookmarks-view, page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #historyTree {
+page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #bookmarks-view, page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #historyTree {
     background-color: #EEF3FA;
 }
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #places-toolbar {
+page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #places-toolbar {
     background: #eef3fa;
 }
 page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="Darwin"] #places-toolbar {

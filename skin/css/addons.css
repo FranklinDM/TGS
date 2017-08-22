@@ -307,22 +307,10 @@ page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"] #view-port-con
     background-color: transparent;
     background-image: none;
 }
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] {
-    background-color: #efedea;
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #header {
-    background-color: -moz-dialog;
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] {
-    background-color: #EDECEF;
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #header {
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) {
+page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) {
     background-color: #EEF3FA;
 }
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) .view-header, page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #search-filter {
+page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) .view-header, page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #search-filter {
     background-color: #ccd9ea;
 }
 page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="Darwin"] {

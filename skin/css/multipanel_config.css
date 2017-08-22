@@ -18,10 +18,6 @@ window[aios-appDefTheme="true"] #configTree treechildren {
 window[aios-appDefTheme="true"][aios-appOSVersion="Windows NT 5.1"] #filterRow {
     border-bottom: 1px solid ThreedShadow;
 }
-window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #filterRow {
-    -moz-appearance: none;
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
 window[aios-appDefTheme="true"][aios-appOS="Darwin"] #filterRow {
     padding-bottom: 5px;
     background-color: #D4DDE5;

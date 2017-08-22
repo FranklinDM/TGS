@@ -46,13 +46,6 @@ window[aios-appDefTheme="true"] #security-privacy-groupbox row:first-child {
 window[aios-appDefTheme="true"][aios-appOS="WINNT"] #topBar {
     padding-top: 1px;
 }
-window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] deck, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #feedListbox *, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #permList {
-    background-color: #efedea;
-}
-window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] deck groupbox, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] deck groupbox caption, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #feedListbox * groupbox, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #feedListbox * groupbox caption, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #permList groupbox, window[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #permList groupbox caption {
-    -moz-appearance: none;
-    background-color: #efedea;
-}
 window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #permList {
     border-top: 1px solid Threedshadow;
 }
@@ -62,10 +55,7 @@ window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-d
 window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #mainDeck {
     border-top: 1px solid ThreedHighlight;
 }
-window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] deck, window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #feedListbox *, window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #permList {
-    background-color: #EDECEF;
-}
-window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) deck, window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #feedListbox *, window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #permList {
+window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) deck, window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #feedListbox *, window[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #permList {
     background-color: #EEF3FA;
 }
 window[aios-appDefTheme="true"][aios-appOS="Darwin"] {

@@ -70,28 +70,14 @@ richlistitem:not([selected=true])[state="1"]>hbox>vbox>hbox:nth-child(even), ric
 *[aios-appDefTheme="true"][aios-appOS="WINNT"] richlistitem:not([selected="true"])[state="1"]:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.6);
 }
-*[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #downloadView {
-    -moz-appearance: none;
-    border-top: 1px solid ThreedShadow;
-    background-color: #efedea;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #search {
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #downloadView {
-    background-color: #EDECEF;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] richlistitem[selected="true"] {
-    background: #CAD3E1 none;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #search {
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #search {
     background-color: #eef3fa;
     border-bottom: 1px solid ThreedShadow;
 }
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #downloadView {
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #downloadView {
     background-color: #EEF3FA;
 }
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) richlistitem[selected="true"] {
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) richlistitem[selected="true"] {
     color: #000000;
     background: #CBD8E8 none;
 }

@@ -108,37 +108,10 @@ toolbox {
 *[aios-appDefTheme="true"][aios-appOS="WINNT"] .console-row .text-link:hover, *[aios-appDefTheme="true"][aios-appOS="WINNT"] .console-row[selected="true"] .text-link:hover {
     color: #3DA1FF !important;
 }
-*[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] .console-box {
-    background-color: #efedea;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #ToolbarEval {
-    padding-top: 1px;
-    padding-bottom: 2px;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #ToolbarEval #TextboxEval {
-    height: 26px;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #console-toolbox {
-    -moz-appearance: none;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #ToolbarEval {
-    padding-top: 1px;
-    padding-bottom: 2px;
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #ToolbarEval #TextboxEval {
-    height: 22px;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] .console-box {
-    background-color: #EDECEF;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] .console-row[selected="true"] {
-    background: #CAD3E1 none;
-}
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #ToolbarEval, *[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) .console-box {
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #ToolbarEval, *[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) .console-box {
     background-color: #eef3fa;
 }
-*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) .console-row[selected="true"] {
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) .console-row[selected="true"] {
     background: #CBD8E8 none;
 }
 *[aios-appDefTheme="true"][aios-appOS="Darwin"] window#JSConsoleWindow, *[aios-appDefTheme="true"][aios-appOS="Darwin"] #ConsoleBox, *[aios-appDefTheme="true"][aios-appOS="Darwin"] #ToolbarExt, *[aios-appDefTheme="true"][aios-appOS="Darwin"] #ToolbarEval {

@@ -49,14 +49,7 @@ page[aios-appDefTheme="true"][aios-appOS="WINNT"] .toolbarbutton-1 label {
     padding-left: 4px;
     padding-right: 1px;
 }
-page[aios-appDefTheme="true"][aios-appOS="WINNT"][aios-appOSVersion="Windows NT 5.1"] #commandBar {
-    padding-top: 2px;
-}
-page[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #commandBar {
-    padding-top: 1px;
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-page[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #commandBar {
+page[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #commandBar {
     background-color: #eef3fa;
 }
 page[aios-appDefTheme="true"][aios-appOS="Darwin"] #commandBar {

@@ -50,21 +50,13 @@ window[aios-appDefTheme="true"] #aios-toolbar[posMode="4"] {
 window[aios-appDefTheme="true"] #aios-toolbar[posMode="5"] {
     border-top: 1px solid ThreedShadow;
 }
-window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #aios-toggle-toolbox, window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #aios-toolbox-left, window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #aios-toolbox-right {
-    -moz-appearance: none;
-    background-image: -moz-linear-gradient(135deg,  rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] sidebarheader, window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #aios-toolbox-sidebartop, window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #aios-toolbox-sidebartop2, window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aios-appOSVersion="Windows NT 5.1"] #aios-toolbox-sidebarbottom {
-    -moz-appearance: none;
-    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5),  rgba(255, 255, 255, 0));
-}
-window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"])[aiosOpen="true"][aiosOrient="left"] #aios-toolbar[posMode="2"] {
+window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aiosOpen="true"][aiosOrient="left"] #aios-toolbar[posMode="2"] {
     padding-right: 2px;
 }
-window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #sidebar-splitter[grippy="true"] {
+window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #sidebar-splitter[grippy="true"] {
     margin: 0;
 }
-window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme):not([aios-appOSVersion="Windows NT 5.1"]) #sidebar-splitter[grippy="true"][orient="horizontal"] {
+window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #sidebar-splitter[grippy="true"][orient="horizontal"] {
     background-color: #EEF3FA;
     border-left: 1px solid #A9B7C9;
 }
