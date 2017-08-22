@@ -18,13 +18,6 @@ var AiOS_HELPER = {
 
     },
 
-    initOnDOMLoaded: function() {
-
-        AiOS_HELPER.aiosToolbar = document.getElementById('aios-toolbar');
-        AiOS_HELPER.sbhToolbar = document.getElementById('aios-sbhtoolbar');
-
-    },
-
     rememberAppInfo: function(aObj) {
 
         aObj.setAttribute('aios-appVendor', this.appInfo.vendor);
@@ -33,22 +26,11 @@ var AiOS_HELPER = {
         aObj.setAttribute('aios-appOSVersion', this.osVersion);
         aObj.setAttribute('aios-appDefTheme', this.defTheme);
 
-    },
-
-    unload: function() {
-        window.removeEventListener("DOMContentLoaded", AiOS_HELPER.initOnDOMLoaded);
-        //window.removeEventListener("load", AiOS_HELPER.initOnLoad);
-        window.removeEventListener("unload", AiOS_HELPER.unload);
     }
 
 };
 
 AiOS_HELPER.init();
-
-window.addEventListener("DOMContentLoaded", AiOS_HELPER.initOnDOMLoaded, false);
-window.addEventListener("unload", AiOS_HELPER.unload, false);
-
-
 
 // globale Variablen und Funktionen zur Ueberwachung auf Progress-Veraenderungen
 // Verwendung in pageInfo.xul
@@ -115,6 +97,13 @@ function aios_addTab(aUrl) {
         //alert(browser.getBrowserAtIndex(i).currentURI.spec);
 
         var isPermaTab = (browser.tabContainer.childNodes[i].getAttribute('isPermaTab')) ? true : false;
+        //alert(isPermaTab);
+
+        /*var attribs = browser.tabContainer.childNodes[i].attributes;
+        //var attribs = browser.mCurrentTab.attributes;
+        for(var a = 0; a < attribs.length; a++) {
+            alert(attribs[a].name + ": " + attribs[a].value);
+        }*/
 
         // wenn der Tab leer ist
         if(browserDoc.location.href == "about:blank" && browser.selectedTab.getAttribute('openBy') != "aios" && !isPermaTab && emptyTab == null)
@@ -300,6 +289,29 @@ function aios_openDialog(which, args) {
 
     if(which == "prefs" || which == "about") openDialog(theUrl, theId, theFeatures, theArgs);
     else toOpenWindowByType(theId, theUrl, theFeatures);
+}
+
+
+/*
+    prueft welche Elemente angezeigt werden sollen
+        => Aufruf jeweils durch Initialisierung
+*/
+function aios_synchElements(aElems) {
+    var elem, child, childElems, childMode;
+
+    for(var i = 0; i < aElems.length; i++) {
+        elem = document.getElementById(aElems[i]);
+
+        if(elem) {
+
+            childElems = elem.getAttribute('aiosChilds');
+
+            if(childElems) {
+                childMode = !aios_getBoolean(elem, 'checked');
+                aios_toggleChilds(childElems, childMode);
+            }
+        }
+    }
 }
 
 

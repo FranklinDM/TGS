@@ -52,6 +52,11 @@ style       chrome://browser/content/browser.xul                       chrome://
 overlay     chrome://browser/content/bookmarks/bookmarksPanel.xul      chrome://aios/content/places.xul
 style       chrome://browser/content/bookmarks/bookmarksPanel.xul      chrome://aios/skin/css/places.css
 
+overlay     chrome://global/content/customizeToolbar.xul               chrome://aios/content/aios_customize.xul
+style       chrome://global/content/customizeToolbar.xul               chrome://aios/skin/css/aios_buttons_generic.css
+style       chrome://global/content/customizeToolbar.xul               chrome://aios/skin/css/aios_buttons_winnt.css       os=WINNT
+style       chrome://global/content/customizeToolbar.xul               chrome://aios/skin/css/aios_buttons_darwin.css      os=Darwin
+
 overlay     chrome://browser/content/history/history-panel.xul         chrome://aios/content/places.xul
 style       chrome://browser/content/history/history-panel.xul         chrome://aios/skin/css/places.css
 

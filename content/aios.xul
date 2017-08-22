@@ -20,7 +20,6 @@
     <script type="application/x-javascript" src="chrome://aios/content/_lib.js" />
     <script type="application/x-javascript" src="chrome://aios/content/multipanel.js" />
 
-    <script type="application/x-javascript" src="chrome://aios/content/aios.js" />
     <script type="application/x-javascript" src="chrome://aios/content/aios_old.js" />
     <script type="application/x-javascript" src="chrome://aios/content/aios_fx.js" />
     <script type="application/x-javascript" src="chrome://aios/content/aios_tbx.js" />
