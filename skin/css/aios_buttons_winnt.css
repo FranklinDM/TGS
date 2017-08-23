@@ -1,14 +1,8 @@
-toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
     list-style-image: url(../icons/toolbar_windows.png);
 }
-toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):-moz-lwtheme-brighttext {
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):-moz-lwtheme-brighttext {
     list-style-image: url(../icons/toolbar_windows_inverted.png);
-}
-#bookmarks-button {
-    -moz-image-region: rect(1px,  17px,  17px,  1px);
-}
-#history-button {
-    -moz-image-region: rect(1px,  35px,  17px,  19px);
 }
 #addons-button {
     -moz-image-region: rect(1px,  71px,  17px,  55px);
