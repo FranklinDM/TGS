@@ -1,13 +1,13 @@
 <!ENTITY loading.label "loading panel…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar Options…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar Options…">
 <!ENTITY menu.togglebar.label "Sidebar Switch">
 <!ENTITY menu.grippy.label "Sidebar Grippy">
-<!ENTITY toolbar.name "All-in-One Sidebar Toolbar">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
-<!ENTITY sbhtoolbar.name "Sidebarheader Toolbar">
-<!ENTITY sbhtoolbar.label "Sidebarheader">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Toggle elements controlled by All-in-One Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar Toolbar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
+<!ENTITY sbhtoolbar.name "Sidebar Header Toolbar">
+<!ENTITY sbhtoolbar.label "Sidebar Header">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Toggle elements controlled by The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Toggle Sidebar and Toolbar">
 <!ENTITY button.switch.tooltip2 "Toggle Toolbar">
 <!ENTITY button.switch.tooltip3 "Toggle Sidebar">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Maximum width">
 <!ENTITY button.menu.label "Sidebar Panels">
 <!ENTITY button.menu.tooltip "All available Sidebar Panels">
-<!ENTITY button.toolbar.label "AiOS-Toolbar">
-<!ENTITY button.toolbar.tooltip "Toggle AiOS-Toolbar">
+<!ENTITY button.toolbar.label "TGS Toolbar">
+<!ENTITY button.toolbar.tooltip "Toggle TGS Toolbar">
 <!ENTITY button.paneltab.label "PanelTab">
 <!ENTITY button.paneltab.tooltip1 "Open Content of Tab in Sidebar">
 <!ENTITY button.paneltab.tooltip2 "Open Content of Sidebar in a New Tab">
@@ -32,7 +32,7 @@
 <!ENTITY button.tooltip.window "Open in a Window">
 <!ENTITY button.tooltip.tab "Open in a New Tab">
 <!ENTITY button.addons.label "Add-ons">
-<!ENTITY button.addons.tooltip "Display installed extensions and themes">
+<!ENTITY button.addons.tooltip "Display installed add-ons">
 <!ENTITY button.multipanel.label "MultiPanel">
 <!ENTITY button.multipanel.tooltip "Display websites and browser information">
 <!ENTITY button.pageinfo.tooltip "Display extensive information about a web page">

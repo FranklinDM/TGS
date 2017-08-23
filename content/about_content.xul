@@ -37,11 +37,10 @@
 
                     <separator class="groove" />
 
-                    <hbox id="paypal" align="center" onclick="aios_addTab('http://firefox.exxile.net/paypal.php');">
+                    <vbox id="cred" align="center">
                         <description value="&create.desc;" />
-                        <spacer flex="1" />
-                        <image src="chrome://aios/skin/img/paypal.gif" />
-                    </hbox>
+                        <description value="&aioscr.desc;" />
+                    </vbox>
                 </tabpanel>
 
 <!-- HELP -->

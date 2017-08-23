@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – Options">
+<!ENTITY title "The Good 'ol Sidebar – Options">
 <!ENTITY restart "Changes require a browser restart">
 <!ENTITY settings "Settings">
 <!ENTITY settings.default "Restore Defaults…">
@@ -45,7 +45,7 @@
 <!ENTITY gen.init.sidebar "Open Sidebar (Sidebar Switch, Toggle Button, Shortcut)">
 <!ENTITY gen.init.sidebar.restore "Restore the Remembered Panel">
 <!ENTITY gen.switch.autoshow "Show/hide Sidebar automatically (mouse contact instead of mouse click)">
-<!ENTITY gen.switch.onlymax "Only if Browser is Maximised or in Full Screen Mode">
+<!ENTITY gen.switch.onlymax "Only if Browser is Maximized or in Full Screen Mode">
 <!ENTITY gen.switch.delay "Delay">
 <!ENTITY gen.switch.delayUnit "milliseconds">
 <!ENTITY gen.switch.hide "Hide Sidebar if the mouse cursor…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Toggle Sidebar">
 <!ENTITY cmode.desc "Customize which elements should be affected if opening or closing the sidebar with different methods.">
 <!ENTITY cmode.key.label "Shortcut (F4)">
-<!ENTITY cmode.tbb.label "AiOS Button">
+<!ENTITY cmode.tbb.label "TGS Button">
 <!ENTITY cmode.close.label "Close Button">
 <!ENTITY cmode.mode1.label "Only the Sidebar">
 <!ENTITY cmode.mode2.label "The Sidebar and the Toolbar">

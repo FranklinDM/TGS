@@ -2,7 +2,7 @@
 /*
  *  AiOS
  **/
-pref("extensions.{097d3191-e6fa-4728-9826-b533d755359d}.description", "chrome://aios/locale/lib.properties");
+pref("extensions.tgsidebar@franklindm.description", "chrome://aios/locale/lib.properties");
 pref("extensions.aios.changelog", "");
 pref("extensions.aios.infotips", true);
 pref("extensions.aios.vbuttons", true);

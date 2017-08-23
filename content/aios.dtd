@@ -1,11 +1,11 @@
 
-<!ENTITY about1.link            "http://firefox.exxile.net/aios/index.php">
+<!ENTITY about1.link            "https://franklindm.github.io/docs/tgsidebar">
 <!ENTITY about2.link            "http://firefox.exxile.net/aios/features.php">
 <!ENTITY about3.link            "http://firefox.exxile.net/aios/faq.php">
-<!ENTITY about4.link            "http://firefox.exxile.net/aios/knownissues.php">
+<!ENTITY about4.link            "https://github.com/FranklinDM/TGS/wiki/Known-Issues">
 <!ENTITY about5.link            "http://firefox.exxile.net/forum/index.php">
-<!ENTITY about6.link            "http://firefox.exxile.net/aios/changelog.php">
-<!ENTITY about7.link            "http://firefox.exxile.net/aios/todo.php">
+<!ENTITY about6.link            "https://github.com/FranklinDM/TGS/blob/master/CHANGELOG.md">
+<!ENTITY about7.link            "https://github.com/FranklinDM/TGS/labels/planned feature">
 
 <!ENTITY contrib1.name          "alta88">
 <!ENTITY contrib1.ext           "TotalToolbar">
