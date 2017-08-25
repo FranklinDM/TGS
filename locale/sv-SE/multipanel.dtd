@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Visar vilka alternativ som användes för att kompilera denna version">
 <!ENTITY about.about.tooltip "Visar version samt upphovsrättsinformation">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Visar en lista med de som bidragit till Mozilla">
+<!ENTITY about.credits.tooltip "Visar en lista med de som bidragit till Pale Moon">
 <!ENTITY about.license.tooltip "Visar Mozillas licensavtal">
-<!ENTITY about.mozilla.tooltip "Visar en sida ur den fiktiva Mozilla-boken">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Kom ihåg senast visade innehåll">

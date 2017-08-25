@@ -1,16 +1,19 @@
-<!ENTITY title "Acerca de All-in-One Sidebar">
+<!ENTITY title "Acerca de The Good 'ol Sidebar">
 <!ENTITY settings "Opciones">
 <!ENTITY close "Cerrar">
 <!ENTITY tab.about "Acerca de">
+<!ENTITY tab.help "Ayuda">
 <!ENTITY tab.contrib "Colaboradores">
 <!ENTITY tab.trans "Traductores">
-<!ENTITY about.desc "All-in-One Sidebar le permite abrir varias ventanas como paneles laterales, y cambiar rápidamente entre ellos. De este modo acaba con el caos de las ventanas. Además de marcadores o historial, abre otras ventanas como descargas, complementos y más en el panel lateral.">
-<!ENTITY create.desc "creada por Ingo Wennemaring, Hamburgo [Alemania]">
+<!ENTITY about.desc "The Good 'ol Sidebar le permite abrir varias ventanas como paneles laterales, y cambiar rápidamente entre ellos. De este modo acaba con el caos de las ventanas. Además de marcadores o historial, abre otras ventanas como descargas, complementos y más en el panel lateral.">
+<!ENTITY create.desc "Creada por FranklinDM, forked from the now defunct All-in-One Sidebar">
+<!ENTITY aioscr.desc "which is creada por Ingo Wennemaring, Hamburgo [Alemania]">
+<!ENTITY help.desc "You will find many information about this addon on the website:">
 <!ENTITY about1.name "Página web - Información completa general">
 <!ENTITY about2.name "Opciones - Todas las opciones de All-in-One Sidebar">
 <!ENTITY about3.name "FAQ - Las respuestas a las preguntas más frecuentes">
 <!ENTITY about4.name "Aspectos conocidos - Descripción y resolución de problemas">
-<!ENTITY about5.name "Foro - opiniones, informe de fallos, arreglo de temas y otros">
+<!ENTITY about5.name "Support topic - Opiniones, informe de fallos, arreglo de temas y otros">
 <!ENTITY about6.name "Changelog - Historial y cambios">
 <!ENTITY about7.name "To-do - Opciones y mejoras previstas">
 <!ENTITY contrib.desc "Agradezco a los siguientes desarrolladores por la inspiración y ayuda (orden alfabético):">

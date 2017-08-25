@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "A program felépítése/fordítása során alkalmazott kapcsolók és beállítások megjelenítése">
 <!ENTITY about.about.tooltip "Verzió- és jogi információk megjelenítése">
 <!ENTITY about.robots.tooltip "Kapcsford: Látogatásunk békés és jó szándékú!">
-<!ENTITY about.credits.tooltip "A Mozilla összes hozzájárulójának listája">
+<!ENTITY about.credits.tooltip "A Pale Moon összes hozzájárulójának listája">
 <!ENTITY about.license.tooltip "A Mozilla Public License megjelenítése">
-<!ENTITY about.mozilla.tooltip "Egy oldal megjelenítése a Mozilla könyvéből">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Legutolsó megjelenített tartalom eltárolása">

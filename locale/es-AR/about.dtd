@@ -2,15 +2,18 @@
 <!ENTITY settings "Configuración…">
 <!ENTITY close "Cerrar">
 <!ENTITY tab.about "Acerca de">
+<!ENTITY tab.help "Ayuda">
 <!ENTITY tab.contrib "Contribuyeron">
 <!ENTITY tab.trans "Traductores">
-<!ENTITY about.desc "La barra lateral de All-in-One le permite abrir varias ventanas como paneles laterales, y rápidamente alternar entre ellos. Así le ponemos fin al caos de ventanas! Adicionalmente a los marcadores y al historial, puede abrir dialogos como ser descargas, agregados y mucho mas en la barra lateral.">
-<!ENTITY create.desc "creado por Ingo Wennemaring, Hamburgo [Alemania]">
+<!ENTITY about.desc "La barra lateral de The Good 'ol le permite abrir varias ventanas como paneles laterales, y rápidamente alternar entre ellos. Así le ponemos fin al caos de ventanas! Adicionalmente a los marcadores y al historial, puede abrir dialogos como ser descargas, agregados y mucho mas en la barra lateral.">
+<!ENTITY create.desc "Creado por FranklinDM, forked from the now defunct All-in-One Sidebar">
+<!ENTITY aioscr.desc "which is creado por Ingo Wennemaring, Hamburgo [Alemania]">
+<!ENTITY help.desc "You will find many information about this addon on the website:">
 <!ENTITY about1.name "Página Principal - mucha información de un vistazo">
-<!ENTITY about2.name "Características - todas las características de All-in-One Sidebar">
+<!ENTITY about2.name "Características - todas las características de The Good 'ol Sidebar">
 <!ENTITY about3.name "FAQ - Preguntas más frecuentes y sus respuestas">
 <!ENTITY about4.name "Problemas conocidos - descripciones y modo de corregirlos">
-<!ENTITY about5.name "Foros - discusiones, reporte de fallas, ajustes entre otras cosas">
+<!ENTITY about5.name "Support topic - discusiones, reporte de fallas, ajustes entre otras cosas">
 <!ENTITY about6.name "Registro de Cambios - Historial de modificaciones">
 <!ENTITY about7.name "To-do - Características y mejoras planeadas">
 <!ENTITY contrib.desc "Quiero agradecer a los siguientes desarrolladores por su inspiración y contribución de porciones de código (en orden alfabético):">

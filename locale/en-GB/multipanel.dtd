@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Shows the arguments and options used to compile the build in use">
 <!ENTITY about.about.tooltip "Shows version information and copyright information">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Shows a list of all those who contributed to Mozilla">
+<!ENTITY about.credits.tooltip "Shows a list of all those who contributed to Pale Moon">
 <!ENTITY about.license.tooltip "Shows the Mozilla Public Licence">
-<!ENTITY about.mozilla.tooltip "Shows a page from the fictional Book of Mozilla">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Remember Last Shown Content">

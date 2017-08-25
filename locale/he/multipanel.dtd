@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "הצגת משתנים ואפשרויות המשמשים לההדיר את הגרסה שבשימוש">
 <!ENTITY about.about.tooltip "הצגת מידע על הגרסה, ומידע על זכויות היוצרים">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "הצגת רשימה של תורמים למוזילה">
+<!ENTITY about.credits.tooltip "Shows a list of all those who contributed to Pale Moon">
 <!ENTITY about.license.tooltip "הצגת את הרישיון הציבורי של מוזילה">
-<!ENTITY about.mozilla.tooltip "הצגת העמוד הבדיוני מספר מוזילה">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "זכור את התוכן המוצג אחרון">
