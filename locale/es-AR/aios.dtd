@@ -1,11 +1,13 @@
 <!ENTITY loading.label "cargando panel…">
-<!ENTITY menu.prefs.label "Opciones de All-in-One Sidebar…">
+<!ENTITY menu.prefs.label "Opciones de The Good 'ol Sidebar…">
 <!ENTITY menu.togglebar.label "Selector de Barra Lateral">
 <!ENTITY menu.grippy.label "Panel Lateral Grippy">
-<!ENTITY toolbar.name "Barra de Herramientas de All-in-One Sidebar">
+<!ENTITY toolbar.name "Barra de Herramientas de The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Encabezado de la Barra Lateral de Herramientas">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Intercambia los elementos controlados por All-in-One Sidebar">
+<!ENTITY sbhtoolbar.label "Barra lateral">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Intercambia los elementos controlados por The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Alternar entre Barra Lateral y Barra de Herramientas">
 <!ENTITY button.switch.tooltip2 "Alternar Barra de Herramientas">
 <!ENTITY button.switch.tooltip3 "Alternar Barra Lateral">
@@ -16,8 +18,8 @@
 <!ENTITY sidebar.width.max "Ancho Máximo">
 <!ENTITY button.menu.label "Paneles de Barra Lateral">
 <!ENTITY button.menu.tooltip "Todos los Paneles de Barra Lateral disponibles">
-<!ENTITY button.toolbar.label "AiOS - Barra de Herramientas">
-<!ENTITY button.toolbar.tooltip "Alternar AiOS - Barra de Herramientas">
+<!ENTITY button.toolbar.label "TGS - Barra de Herramientas">
+<!ENTITY button.toolbar.tooltip "Alternar TGS - Barra de Herramientas">
 <!ENTITY button.paneltab.label "Panel de Pestañas">
 <!ENTITY button.paneltab.tooltip1 "Abrir el Contenido de la Pestaña en la Barra Lateral">
 <!ENTITY button.paneltab.tooltip2 "Abrir el Contenido de la Barra Lateral en una Nueva Pestaña">
@@ -36,6 +38,8 @@
 <!ENTITY button.pageinfo.tooltip "Ver informaciones, Formularios, Enlaces, Contenido y Seguridad">
 <!ENTITY button.console.label "Consola de Errores">
 <!ENTITY button.console.tooltip "Abrir la Consola de Errores, que nos muestra los problemas con el código fuente">
+<!ENTITY button.cookies.label "Cookies">
+<!ENTITY button.cookies.tooltip "Manage individual cookies">
 <!ENTITY keys.modifiers "acelerar cambio">
 <!ENTITY keys.sidebar "VK_F4">
 <!ENTITY keys.options "VK_F4">
@@ -44,6 +48,7 @@
 <!ENTITY keys.addons "A">
 <!ENTITY keys.multipanel "M">
 <!ENTITY keys.pageinfo "P">
+<!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "A la izquerda del Barra Lateral">
 <!ENTITY toolbar.pos.sidebarright.label "A la derecha del Barra Lateral">
 <!ENTITY toolbar.pos.sidebartop.label "Encima del Barra Lateral">

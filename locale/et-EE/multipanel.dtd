@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Näitab kasutusel oleva versiooni kompileerimisel kasutatud väärtusi ja seadeid">
 <!ENTITY about.about.tooltip "Näitab infot versiooni ja autorikaitse kohta">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Näitab Mozilla arendamisse panustanute nimekirja">
+<!ENTITY about.credits.tooltip "Näitab Pale Moon arendamisse panustanute nimekirja">
 <!ENTITY about.license.tooltip "Näitab Mozilla Avalikku Litsentsi">
-<!ENTITY about.mozilla.tooltip "Näitab lehte kujuteldavast Mozilla raamatust">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Jäta viimati näidatud sisu meelde">

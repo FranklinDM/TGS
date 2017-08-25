@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Προβάλει τους ορισμούς και τις επιλογές που χρησιμοποιήθηκαν για την δημιουργία της τρέχουσας έκδοσης">
 <!ENTITY about.about.tooltip "Προβάλει πληροφορίες τρέχουσας έκδοσης και πνευματικών δικαιωμάτων">
 <!ENTITY about.robots.tooltip "Βασικές αρχές ρομποτικής">
-<!ENTITY about.credits.tooltip "Προβάλει μια λίστα των συντελεστών του οργανισμού Mozilla">
+<!ENTITY about.credits.tooltip "Προβάλει μια λίστα των συντελεστών του οργανισμού Pale Moon">
 <!ENTITY about.license.tooltip "Προβάλει την άδεια χρήσης Mozilla Public License">
-<!ENTITY about.mozilla.tooltip "Προβάλει μια σελίδα από την «υποτιθέμενη» Βίβλο Mozilla">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Διατήρηση πιό πρόσφατα προβεβλημένου περιεχομένου">

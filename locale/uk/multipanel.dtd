@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Показує аргументи та налаштування, використані для компіляції версії, що використовується">
 <!ENTITY about.about.tooltip "Показує інформацію про версію та авторські права">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Показує перелік всіх, хто співпрацює з Mozilla">
+<!ENTITY about.credits.tooltip "Показує перелік всіх, хто співпрацює з Pale Moon">
 <!ENTITY about.license.tooltip "Показує публічну ліцензію Mozilla Public License">
-<!ENTITY about.mozilla.tooltip "Показує сторінку з фантастичної Книги Mozilla">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Пам\'ятати останній показаний вміст">

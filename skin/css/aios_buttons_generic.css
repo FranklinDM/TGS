@@ -1,14 +1,8 @@
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
     list-style-image: url(../icons/toolbar_darwin.png);
 }
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):-moz-lwtheme-brighttext {
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):-moz-lwtheme-brighttext {
     list-style-image: url(../icons/toolbar_darwin_inverted.png);
-}
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #bookmarks-button {
-    -moz-image-region: rect(0,  16px,  16px,  0);
-}
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #history-button {
-    -moz-image-region: rect(0,  32px,  16px,  16px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #addons-button {
     -moz-image-region: rect(0,  64px,  16px,  48px);
@@ -64,7 +58,7 @@ window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKe
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toolbar[orient="vertical"] toolbarbutton {
     margin: 2px 1px;
 }
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#bookmarks-button):not(#history-button):not(#downloads-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon {
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#bookmarks-button):not(#history-button):not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon {
     opacity: 0.8;
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .toolbarbutton-icon, window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .dropmarker-icon {

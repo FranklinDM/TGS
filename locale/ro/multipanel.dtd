@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Afișează argumentele și opțiunile folosite la compilarea versiunii curente">
 <!ENTITY about.about.tooltip "Afișează informații despre versiune și drepturile de autor">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Afișează lista tuturor colaboratorilor Mozilla">
+<!ENTITY about.credits.tooltip "Afișează lista tuturor colaboratorilor Pale Moon">
 <!ENTITY about.license.tooltip "Afișează Licența publică Mozilla">
-<!ENTITY about.mozilla.tooltip "Afișează citate din „Cartea Mozillei“">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Memorează ultimul conținut afișat">

@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "显示使用的编译参数和选项(about:buildconfig)">
 <!ENTITY about.about.tooltip "显示版本与版权信息(about:)">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "显示 Mozilla 贡献者名单(about:credits)">
+<!ENTITY about.credits.tooltip "显示 Pale Moon 贡献者名单(about:credits)">
 <!ENTITY about.license.tooltip "显示 Mozilla Public License (about:license)">
-<!ENTITY about.mozilla.tooltip "显示虚构的《Mozilla 之书》中的一页(about:mozilla)">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "记住上一次显示的内容">

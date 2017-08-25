@@ -6,6 +6,7 @@
 <!ENTITY about.tooltip "ブラウザに関する情報を表示します">
 <!ENTITY about.config.tooltip "設定上の構成及び変数のインタフェースを表示します">
 <!ENTITY about.plugins.tooltip "インストール済のプラグイン情報を表示します">
+<!ENTITY about.support.tooltip "Shows application basics, extensions, and modified preferences">
 <!ENTITY about.cache.tooltip "メモリ及びディスク・キャッシュに関する情報を表示します">
 <!ENTITY about.cache.disk.tooltip "ディスク上の個別キャッシュを表示します">
 <!ENTITY about.cache.memory.tooltip "メモリ上の個別キャッシュを表示します">
@@ -14,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "ビルド情報について表示します">
 <!ENTITY about.about.tooltip "バージョン及び著作権情報について表示します">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Mozilla に貢献した人々のリストを表示します">
+<!ENTITY about.credits.tooltip "Pale Moon に貢献した人々のリストを表示します">
 <!ENTITY about.license.tooltip "Mozilla のパブリックライセンスを表示します">
-<!ENTITY about.mozilla.tooltip "Mozilla の伝説本ページを表示します">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "最後に表示したコンテンツを記憶する">

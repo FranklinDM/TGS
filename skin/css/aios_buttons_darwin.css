@@ -1,14 +1,8 @@
-toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
     list-style-image: url(../icons/toolbar_darwin.png);
 }
-toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):-moz-lwtheme-brighttext {
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):-moz-lwtheme-brighttext {
     list-style-image: url(../icons/toolbar_darwin_inverted.png);
-}
-#bookmarks-button {
-    -moz-image-region: rect(0,  16px,  16px,  0);
-}
-#history-button {
-    -moz-image-region: rect(0,  32px,  16px,  16px);
 }
 #addons-button {
     -moz-image-region: rect(0,  64px,  16px,  48px);
@@ -64,16 +58,16 @@ menuitem[key="aiosKey_prefs"] {
 #aios-toolbar[orient="vertical"] toolbarbutton {
     margin: 2px 1px;
 }
-window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon, window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(:-moz-lwtheme-brighttext):hover image.toolbarbutton-icon:-moz-window-inactive {
+window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon, window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext):hover image.toolbarbutton-icon:-moz-window-inactive {
     opacity: 0.7;
 }
-window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon:-moz-window-inactive {
+window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon:-moz-window-inactive {
     opacity: 0.3;
 }
-window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(:-moz-lwtheme-brighttext)[checked="true"] image.toolbarbutton-icon, window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(:-moz-lwtheme-brighttext)[checked="true"]:hover image.toolbarbutton-icon:-moz-window-inactive {
+window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext)[checked="true"] image.toolbarbutton-icon, window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext)[checked="true"]:hover image.toolbarbutton-icon:-moz-window-inactive {
     opacity: 1;
 }
-window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(:-moz-lwtheme-brighttext)[checked="true"] image.toolbarbutton-icon:-moz-window-inactive {
+window[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext)[checked="true"] image.toolbarbutton-icon:-moz-window-inactive {
     opacity: 0.5;
 }
 window[aios-appDefTheme="true"] toolbarbutton[type="menu-button"][checked="true"] .toolbarbutton-menubutton-button, window[aios-appDefTheme="true"] toolbarbutton[type="menu-button"][checked="true"] .toolbarbutton-menubutton-dropmarker {

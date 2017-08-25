@@ -6,6 +6,7 @@
 <!ENTITY about.tooltip "Viser diverse information om browseren">
 <!ENTITY about.config.tooltip "Viser en brugerflade for gennemsyn og indstilling af en bred vifte af konfigurationsvariabler">
 <!ENTITY about.plugins.tooltip "Viser information om alle installerede plug-ins">
+<!ENTITY about.support.tooltip "Shows application basics, extensions, and modified preferences">
 <!ENTITY about.cache.tooltip "Viser information om Cache Servicen for både hukommelse og disk-cache (mellemlagre)">
 <!ENTITY about.cache.disk.tooltip "Viser individuelle emner på disk">
 <!ENTITY about.cache.memory.tooltip "Viser individuelle emner i hukommelsen">
@@ -14,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Viser argumenter og indstillinger brugt til at kompilere den aktive build">
 <!ENTITY about.about.tooltip "Viser versioninformation og copyrightinformation">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
-<!ENTITY about.credits.tooltip "Viser en liste over alle dem der har bidraget til Mozilla">
+<!ENTITY about.credits.tooltip "Viser en liste over alle dem der har bidraget til Pale Moon">
 <!ENTITY about.license.tooltip "Viser Mozilla Public-licensen">
 <!ENTITY about.mozilla.tooltip "Viser en side fra den fiktive Mozilla Bog">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Husk senest viste indhold">

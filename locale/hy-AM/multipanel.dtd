@@ -15,7 +15,8 @@
 <!ENTITY about.buildconfig.tooltip "Ցույց տալ ծրագրի կառուցման արգումենտները և նախընտրանքները">
 <!ENTITY about.about.tooltip "Ցույց տալ տարբերակը և հեղինակային իրավունքները">
 <!ENTITY about.robots.tooltip "Գխկ!Կլաատու բարադա գիկու!">
-<!ENTITY about.credits.tooltip "Ցույց տալ Mozillaի ստեղծման մասնակիցների ցուցակը">
+<!ENTITY about.credits.tooltip "Shows a list of all those who contributed to Pale Moon">
 <!ENTITY about.license.tooltip "Ցույց տալ Mozilla Public License-ը">
-<!ENTITY about.mozilla.tooltip "Ցույց տալ մտածածին Book of Mozilla գրքի էջը">
+<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
+<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Հիշել վերջին ցուցադրված պարունակությունը">
