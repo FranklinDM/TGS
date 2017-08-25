@@ -158,6 +158,10 @@ sidebarheader>.close-icon.tabbable {
 .tabs-closebutton {
 	display: none;
 }
+/* remove border from close icon */
+#sidebarclose-button {
+  border: none;
+}
 #aios-sbhtoolbox, #aios-sbhtoolbar {
     -moz-appearance: none;
     min-width: 30px;
