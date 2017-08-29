@@ -59,7 +59,7 @@ function aios_getObjects() {
 */
 function aios_initSidebar() {
     aios_getObjects();
-
+	
     // MacOS X => Tastaturkuerzel ersetzen (Strg. wird durch Command ersetzt und Umschalt durch das Symbol dafuer)
     if(AiOS_HELPER.os == "Darwin") {
         aios_replaceKey('switch-tooltip-box', 'r2c2', 'command');
@@ -77,6 +77,9 @@ function aios_initSidebar() {
         aios_replaceKey('sidebarheader-tooltip-box', 'r1c2', 'shift');
     }
 
+	// Set appInfo to main browser window (needed for css)
+    AiOS_HELPER.rememberAppInfo(fx_mainWindow);
+	
     // Sidebar li. oder re.
     // Eigenschaftenzuweisung fuer CSS (LTR <=> RTL; Sidebar links <=> rechts)
     aios_setSidebarOrient();
