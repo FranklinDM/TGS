@@ -20,7 +20,7 @@ To build an installable `.xpi` extension for Pale Moon:
 
 1. clone this repository
 2. execute `./build.sh` at the repository root
-3. open/install the resulting `all_in_one_sidebar-dev-build-fx.xpi` file with Pale Moon
+3. open/install the resulting `tgs_sidebar-dev-build-fx.xpi` file with Pale Moon
 
 ### Ubuntu Linux
 
