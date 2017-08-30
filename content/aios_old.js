@@ -59,7 +59,7 @@ function aios_getObjects() {
 */
 function aios_initSidebar() {
     aios_getObjects();
-
+	
     // MacOS X => Tastaturkuerzel ersetzen (Strg. wird durch Command ersetzt und Umschalt durch das Symbol dafuer)
     if(AiOS_HELPER.os == "Darwin") {
         aios_replaceKey('switch-tooltip-box', 'r2c2', 'command');
@@ -77,6 +77,9 @@ function aios_initSidebar() {
         aios_replaceKey('sidebarheader-tooltip-box', 'r1c2', 'shift');
     }
 
+	// Set appInfo to main browser window (needed for css)
+    AiOS_HELPER.rememberAppInfo(fx_mainWindow);
+	
     // Sidebar li. oder re.
     // Eigenschaftenzuweisung fuer CSS (LTR <=> RTL; Sidebar links <=> rechts)
     aios_setSidebarOrient();
@@ -247,6 +250,29 @@ function aios_initSidebar() {
     // vertikale Bookmarkleiste?
     // Attribut der Bookmarks-Leiste entfernen. Wenn sie auf der AiOS-Toolbar platziert wird, kann man per CSS die Orientation bestimmen.
     if(document.getElementById('PlacesToolbarItems')) document.getElementById('PlacesToolbarItems').removeAttribute('orient');
+	
+	// Observe browser panel to find when downloads-indicator becomes an element
+	// create an observer instance
+	var observer = new MutationObserver(function(mutations) {
+	  mutations.forEach(function(mutation) {
+		if (document.getElementById('downloads-indicator') != null) {
+			var downloadinc = document.getElementById('downloads-indicator');
+			// This effectively disables download popups and may break other add-ons which override the oncommand attribute
+			if (AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar') == true) {
+				// Show in sidebar
+				downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) toggleSidebar('viewDownloadsSidebar'); return true;");
+			} else {
+				// Show in downloads (inside library)
+				downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) BrowserDownloadsUI(); return true;");
+			}
+		}
+	  });    
+	});
+
+	// configuration of the observer:
+	var config = { attributes: false, childList: true, characterData: false, subtree: true };
+	// pass in the target node, as well as the observer options
+	observer.observe(document.getElementById('browser-panel'), config);
 
     initialised = true;
 }
