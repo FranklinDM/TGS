@@ -250,6 +250,29 @@ function aios_initSidebar() {
     // vertikale Bookmarkleiste?
     // Attribut der Bookmarks-Leiste entfernen. Wenn sie auf der AiOS-Toolbar platziert wird, kann man per CSS die Orientation bestimmen.
     if(document.getElementById('PlacesToolbarItems')) document.getElementById('PlacesToolbarItems').removeAttribute('orient');
+	
+	// Observe browser panel to find when downloads-indicator becomes an element
+	// create an observer instance
+	var observer = new MutationObserver(function(mutations) {
+	  mutations.forEach(function(mutation) {
+		if (document.getElementById('downloads-indicator') != null) {
+			var downloadinc = document.getElementById('downloads-indicator');
+			// This effectively disables download popups and may break other add-ons which override the oncommand attribute
+			if (AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar') == true) {
+				// Show in sidebar
+				downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) toggleSidebar('viewDownloadsSidebar'); return true;");
+			} else {
+				// Show in downloads (inside library)
+				downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) BrowserDownloadsUI(); return true;");
+			}
+		}
+	  });    
+	});
+
+	// configuration of the observer:
+	var config = { attributes: false, childList: true, characterData: false, subtree: true };
+	// pass in the target node, as well as the observer options
+	observer.observe(document.getElementById('browser-panel'), config);
 
     initialised = true;
 }
