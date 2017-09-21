@@ -1,10 +1,10 @@
 
-<!ENTITY about1.link            "https://franklindm.github.io/docs/tgsidebar">
+<!ENTITY about1.link            "https://github.com/FranklinDM/TGS/wiki/">
 <!ENTITY about2.link            "https://github.com/FranklinDM/TGS/wiki/Features">
 <!ENTITY about3.link            "https://github.com/FranklinDM/TGS/wiki/FAQ">
 <!ENTITY about4.link            "https://github.com/FranklinDM/TGS/wiki/Known-Issues">
-<!ENTITY about5.link            "https://example.com/">
-<!ENTITY about6.link            "https://github.com/FranklinDM/TGS/blob/master/CHANGELOG.md">
+<!ENTITY about5.link            "https://forum.palemoon.org/viewtopic.php?f=46&p=122332">
+<!ENTITY about6.link            "https://github.com/FranklinDM/TGS/wiki/Changelog">
 <!ENTITY about7.link            "https://github.com/FranklinDM/TGS/labels/planned feature">
 
 <!ENTITY contrib1.name          "alta88">
