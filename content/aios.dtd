@@ -3,7 +3,7 @@
 <!ENTITY about2.link            "https://github.com/FranklinDM/TGS/wiki/Features">
 <!ENTITY about3.link            "https://github.com/FranklinDM/TGS/wiki/FAQ">
 <!ENTITY about4.link            "https://github.com/FranklinDM/TGS/wiki/Known-Issues">
-<!ENTITY about5.link            "https://forum.palemoon.org/viewtopic.php?f=46&p=122332">
+<!ENTITY about5.link            "https://forum.palemoon.org/viewtopic.php?f=46&amp;p=122332">
 <!ENTITY about6.link            "https://github.com/FranklinDM/TGS/wiki/Changelog">
 <!ENTITY about7.link            "https://github.com/FranklinDM/TGS/labels/planned feature">
 
