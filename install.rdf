@@ -12,7 +12,7 @@
 
         <em:icon64URL>chrome://aios/skin/icons/icon64.png</em:icon64URL>
         <em:aboutURL>chrome://aios/content/about.xul</em:aboutURL>
-        <em:homepageURL>http://franklindm.github.io/docs/tgsidebar</em:homepageURL>
+        <em:homepageURL>https://github.com/FranklinDM/TGS/wiki/</em:homepageURL>
         <em:optionsURL>chrome://aios/content/prefs/prefs.xul</em:optionsURL>
 
         <em:targetApplication>
