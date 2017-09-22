@@ -6,27 +6,30 @@ if(document.getElementById('web-panels-browser')) webPanel = document.getElement
 
 
 /*
-    Initialisierung
-        => Aufruf durch onload in console.xul
+	Initialization
+		=> Called by onload
 */
 function aios_init() {
-    // Sidebar-/Fenster-Titel setzen
+    // Set sidebar/window title
     aios_setSBLabel();
 
-    // Buttons aktivieren/deaktivieren
+    // Activate/deactivate buttons
     aios_setOptions();
 
     window.setTimeout(function() {
         aios_setSSR();
     }, 50);
+	
+	// Set linked btn attribute
+	document.getElementById("aios-linkedbtn").setAttribute("checked", webPanel.getAttribute("linkedopt")); 
 
-    // fuer CSS-Zwecke speichern
+    // For CSS purposes
     AiOS_HELPER.rememberAppInfo( document.getElementById('webpanels-window') );
 }
 
 
 /*
-    modifizierte Original-Ueberwachungsfunktion aus web-panels.js
+    Modified original monitoring function from web-panels.js
 */
 var panelProgressListener = {
     onProgressChange: function(aWebProgress, aRequest, aCurSelfProgress, aMaxSelfProgress,
@@ -36,34 +39,55 @@ var panelProgressListener = {
     onStateChange: function(aWebProgress, aRequest, aStateFlags, aStatus) {
         if(!aRequest) return;
 
-        // Sidebar-/Fenster-Titel setzen
+        // Set sidebar/window title
         aios_setSBLabel();
-
-        // Small Screen Rendering?
-        //aios_setSSR();
-
-        // Buttons aktivieren/deaktivieren
-        //aios_setOptions();
-
-        //ignore local/resource:/chrome: files
+		
+        // Ignore local/resource:/chrome: files
         if(aStatus == NS_NET_STATUS_READ_FROM || aStatus == NS_NET_STATUS_WROTE_TO) return;
 
         const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
         const nsIChannel = Components.interfaces.nsIChannel;
+		
+		// Stop/reload command vars
+		var stp = document.getElementById('Browser:Stop');
+		var	rld = document.getElementById('Browser:Reload');
 
         if(aStateFlags & nsIWebProgressListener.STATE_START && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
             if(window.parent.document.getElementById('sidebar-throbber'))
                 window.parent.document.getElementById('sidebar-throbber').setAttribute("loading", "true");
+				stp.setAttribute('disabled', 'false');
+				rld.setAttribute('disabled', 'true');
         }
         else if(aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
             if(window.parent.document.getElementById('sidebar-throbber'))
                 window.parent.document.getElementById('sidebar-throbber').removeAttribute("loading");
+				stp.setAttribute('disabled', 'true');
+				rld.setAttribute('disabled', 'false');
         }
     },
 
     onLocationChange: function(aWebProgress, aRequest, aLocation) {
-        // Buttons aktivieren/deaktivieren
+		// Activate/deactivate buttons
         aios_setOptions();
+		var asc = aLocation;
+		// Change urlbar link when browser panel location changes
+		document.getElementById("urlbar").value = asc.spec;
+		// And set last valid URI also
+		WebPanels.lastValidURI = asc;
+		// Set vars for back/forward commands
+		var bcb = document.getElementById('Browser:Back');
+		var fwb = document.getElementById('Browser:Forward');
+		// Work around for broken back/forward button states
+		// TODO: Use diff. style w/o using if/else statements
+		if (webPanel.canGoBack)
+			bcb.setAttribute('disabled', 'false');
+		else
+			bcb.setAttribute('disabled', 'true');
+		
+		if (webPanel.canGoForward)
+			fwb.setAttribute('disabled', 'false');
+		else
+			fwb.setAttribute('disabled', 'true');
     },
 
     onStatusChange: function(aWebProgress, aRequest, aStatus, aMessage) {
@@ -86,14 +110,14 @@ var panelProgressListener = {
 
 
 /*
-    Oeffnet im MultiPanel die im Browser angezeigte Webseite
-        => Aufruf durch Buttons, aios_panelTab()
+	Opens the web page displayed in the browser in the MultiPanel
+		=> Call by buttons, aios_panelTab()
 */
 function aios_setMultiPanel(aMode) {
     var label, panelLoc;
     var aios_CONTENT = AiOS_HELPER.mostRecentWindow.document.getElementById('content');
 
-    // about:-Eintraege
+    // about: entries
     if(aMode.indexOf("about:") == 0 && aMode != "about:blank") {
         panelLoc = (aMode == "about:config") ? "chrome://global/content/config.xul" : aMode;
         label = aMode;
@@ -105,28 +129,28 @@ function aios_setMultiPanel(aMode) {
             label = aios_CONTENT.selectedTab.label;
         } catch(e) { }
 
-        // ich bin das MultiPanel im Tab
+        // I am the MultiPanel in the tab
         if(top.toString() == "[object Window]" && AiOS_HELPER.mostRecentWindow.aiosLastSelTab) {
             panelLoc = AiOS_HELPER.mostRecentWindow.aiosLastSelTab.document.location.href;
         }
     }
 
-    // wenn auf "Page" geklickt wird, waehrend im Tab das MultiPanel geladen ist
+    // when "Page" is clicked, while in the tab the MultiPanel is loaded
     if(panelLoc == "chrome://browser/content/web-panels.xul") {
         panelLoc = aios_CONTENT.contentDocument.getElementById('web-panels-browser').getAttribute('cachedurl');
     }
 
     var newLabel = "";
 
-    // MultiPanel oeffnen bzw. Inhalt laden
+	// Open MultiPanel or load contents
     if(top.document.getElementById('sidebar') && top.toString() != "[object Window]")   top.openWebPanel(newLabel, panelLoc);
     else webPanel.contentDocument.location.href = panelLoc;
 }
 
 
 /*
-    aktiviert/deaktiviert die Toolbarbuttons und Radio-Menuitems (about)
-        => Aufruf durch onLocationChange() wenn sich MultiPanel-URL aendert (panelProgressListener)
+	Activates/deactivates the Toolbar Buttons and Radio-Menu Items (about)
+		=> Calling onLocationChange() when MultiPanel URL changes (panelProgressListener)
 */
 function aios_setOptions() {
 
@@ -169,8 +193,8 @@ function aios_setOptions() {
 
 
 /*
-    Sidebar-Label einstellen
-        => Aufruf durch onload-Event und onStateChange() wenn sich MultiPanel-URL aendert (panelProgressListener)
+	Sidebar label
+		=> Invoked by onload event and onStateChange() when multiPanel URL changes (panelProgressListener)
 */
 function aios_setSBLabel() {
     var newLabel = "";
@@ -194,9 +218,9 @@ function aios_setSBLabel() {
 
 
 /*
-    Small Screen Rendering ein/aus
-        => Aufruf durch onStateChange() wenn sich MultiPanel-URL aendert (panelProgressListener)
-        Original-Code in Teilen von: Daniel Glazman <glazman@netscape.com>
+	Small Screen Rendering on/off
+		=> Invoked by onStateChange() when MultiPanel URL changes (panelProgressListener)
+		Original code in parts of: Daniel Glazman <glazman@netscape.com>
 */
 function aios_setSSR() {
     //if(!aios_getBoolean("ssr-mitem", "checked")) return false;
@@ -259,7 +283,78 @@ function aios_unloadMultiPanel() {
     }
 }
 
-
 function aios_getPageOptions() {
     document.getElementById('ssrSidebar-mitem').setAttribute('disabled', !aios_getBoolean("ssr-mitem", "checked"));
+}
+
+/*
+	WebPanel functions
+	Code borrowed from an older version of Firefox
+*/
+var WebPanels = {
+	
+  get URLBar() { return document.getElementById("urlbar"); },
+
+  _lastValidURI: null,
+  get lastValidURI() { return this._lastValidURI; },
+  set lastValidURI(val) { this._lastValidURI = val; },
+
+  sanitizeURL: function mp_sanitizeURL(strl) {
+    // Fix and check the url typed into the address bar for any errors
+	return Services.uriFixup.createFixupURI(strl, 8);
+  },
+  
+  toggleLinked: function mp_toggleLinked() {
+    var btn = document.getElementById("aios-linkedbtn");
+    if (btn.getAttribute("checked") == "true") {
+      btn.setAttribute("checked", "false");
+    } else {
+      btn.setAttribute("checked", "true");
+    }
+	// instead of using a pref, simply persist the attribute
+	webPanel.setAttribute('linkedopt', btn.getAttribute("checked"));
+  },
+  
+  onContentAreaClick: function mp_onContentAreaClick(ev, bool) {
+    var btn = document.getElementById("aios-linkedbtn");
+    if (btn.getAttribute("checked") == "true") {
+	  // If checked, open link in current tab
+      return window.parent.contentAreaClick(ev, bool);
+    } else {
+	  // If no, just do nothing
+      return;
+    }
+  },
+  
+  onTextReverted: function mp_onTextReverted() {  
+    // Setup variables
+    var url = this.lastValidURI;
+    var throbberElement = window.parent.document.getElementById("sidebar-throbber");
+    var isScrolling = this.URLBar.popupOpen;
+
+    // Don't revert to last valid url unless page is NOT loading
+    // and user is NOT key-scrolling through autocomplete list
+    if ((!throbberElement || !throbberElement.hasAttribute("loading")) && !isScrolling) {
+      if (url != "about:blank") {
+        this.URLBar.value = url.spec;
+        this.URLBar.select();
+      
+       // If about:blank, urlbar becomes ""  
+      } else 
+        this.URLBar.value = "";
+    }
+
+    // Tell widget to revert to last typed text only if the user
+    // was scrolling when they hit escape
+    return !isScrolling;
+  },
+
+  onTextEntered: function mp_onTextEntered(event) {
+	// Sanitize the URL
+	var url = this.sanitizeURL(this.URLBar.value);
+	this.lastValidURI = url;
+	
+    // Load the typed url, if blank, don't do anything
+	webPanel.contentDocument.location.href = url.spec;
+  }
 }
