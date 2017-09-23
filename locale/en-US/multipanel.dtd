@@ -20,3 +20,4 @@
 <!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
 <!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
 <!ENTITY tools.remlast.label "Remember Last Shown Content">
+<!ENTITY tools.linked.label "Open links in current tab">

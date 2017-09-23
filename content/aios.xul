@@ -160,7 +160,7 @@
 
     <!-- AIOS-Toolbar-Buttons -->
     <toolbarpalette id="BrowserToolbarPalette">
-        <toolbarbutton id="sidebarclose-button" class="close-icon"
+        <toolbarbutton id="sidebarclose-button" class="tabs-closebutton close-icon"
             oncommand="aios_toggleSidebar(this);" ondblclick="event.stopPropagation();"
             tooltiptext="&sidebarCloseButton.tooltip;" label="&sidebarCloseButton.tooltip;" />
 

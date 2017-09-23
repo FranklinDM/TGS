@@ -55,6 +55,9 @@ var AiOS_Addons = {};
         nav = nav_tmp.ownerDocument.getAnonymousNodes(nav_tmp);
         nav[0].setAttribute("orient", "horizontal");
         nav[0].setAttribute("style", "overflow:hidden;");
+		
+		// Set orient of detail-autoUpdate to vertical
+		document.getElementById('detail-autoUpdate').setAttribute('orient', 'vertical');
 
         // Toolbar mit Suchfeld usw. verschieben
         before = document.getElementById("view-port-container");

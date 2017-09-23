@@ -152,15 +152,8 @@ sidebarheader {
 #sidebars-titlebutton>label:-moz-lwtheme {
     color: highlighttext;
 }
-sidebarheader>.close-icon.tabbable {
+sidebarheader>.tabs-closebutton {
     display: none;
-}
-.tabs-closebutton {
-	display: none;
-}
-/* remove border from close icon */
-#sidebarclose-button {
-  border: none;
 }
 #aios-sbhtoolbox, #aios-sbhtoolbar {
     -moz-appearance: none;
