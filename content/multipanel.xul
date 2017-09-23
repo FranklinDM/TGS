@@ -38,6 +38,7 @@
 				 disabled="true">
 		  <observes element="Browser:Forward" attribute="disabled"/>
 		</command>
+		<!-- Observe hidden property so we can hide stop/reload when not in use -->
 		<command id="Browser:ReloadOrDuplicate"
 				 oncommand="PanelBrowserReload(event)"
 				 disabled="true" hidden="false">
@@ -99,6 +100,10 @@
 					 enablehistory="true"
 					 ontextreverted="return WebPanels.onTextReverted();"
 					 ontextentered="return WebPanels.onTextEntered(param);">
+				<hbox id="urlbar-icons">
+					<!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
+					<image id="lock-icon" onclick="BrowserPageInfo(webPanel.contentDocument); event.stopPropagation();"/>
+				</hbox>
 			</textbox>
 		  </toolbaritem>
 		  

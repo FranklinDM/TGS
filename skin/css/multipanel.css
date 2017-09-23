@@ -97,3 +97,21 @@ page[aios-appDefTheme="true"][aios-appOS="Darwin"] toolbarbutton#toolsButton lab
 page[aios-appDefTheme="true"][aios-appOS="Darwin"] toolbarbutton#toolsButton .dropmarker-icon {
     margin: 2px 0 0 1px;
 }
+
+/* padlock icons */
+#lock-icon[level="ev"] {
+  list-style-image: url("chrome://browser/content/padlock_mod_ev.png");
+}
+#lock-icon[level="high"] {
+  list-style-image: url("chrome://browser/content/padlock_mod_https.png");
+}
+#lock-icon[level="low"], #lock-icon[level="mixed"] {
+  list-style-image: url("chrome://browser/content/padlock_mod_low.png");
+}
+#lock-icon[level="broken"] {
+  list-style-image: url("chrome://browser/content/padlock_mod_broken.png");
+}
+/* padlock image region */
+#lock-icon {
+  -moz-image-region: rect(0, 16px, 16px, 0);
+}

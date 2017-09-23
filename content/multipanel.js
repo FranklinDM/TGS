@@ -1,3 +1,5 @@
+let Cc = Components.classes;
+let Ci = Components.interfaces;
 
 var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
 
@@ -45,8 +47,8 @@ var panelProgressListener = {
         // Ignore local/resource:/chrome: files
         if(aStatus == NS_NET_STATUS_READ_FROM || aStatus == NS_NET_STATUS_WROTE_TO) return;
 
-        const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
-        const nsIChannel = Components.interfaces.nsIChannel;
+        const nsIWebProgressListener = Ci.nsIWebProgressListener;
+        const nsIChannel = Ci.nsIChannel;
 		
 		// Stop/reload command vars
 		var stp = document.getElementById('Browser:Stop');
@@ -100,16 +102,87 @@ var panelProgressListener = {
     },
 
     onSecurityChange: function(aWebProgress, aRequest, aState) {
+        // aState is defined as a bitmask that may be extended in the future.
+        // We filter out any unknown bits before testing for known values.
+        const wpl = Ci.nsIWebProgressListener;
+        const wpl_security_bits = wpl.STATE_IS_SECURE |
+                                  wpl.STATE_IS_BROKEN |
+                                  wpl.STATE_IS_INSECURE |
+                                  wpl.STATE_IDENTITY_EV_TOPLEVEL |
+                                  wpl.STATE_SECURE_HIGH |
+                                  wpl.STATE_SECURE_MED |
+                                  wpl.STATE_SECURE_LOW;
+		// Security level var
+		var level;
+		// Identify current security level
+		switch (aState & wpl_security_bits) {
+		  case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_HIGH | wpl.STATE_IDENTITY_EV_TOPLEVEL:
+			level = "ev";
+			break;
+		  case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_HIGH:
+		    level = "high";
+			break;
+		  case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_MED:
+		  case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_LOW:
+			level = "low";
+			break;
+		  case wpl.STATE_IS_BROKEN | wpl.STATE_SECURE_LOW:
+			level = "mixed";
+			break;
+		  case wpl.STATE_IS_BROKEN:
+		    level = "broken";
+			break;
+		  default: // should not be reached
+		    level = null;
+			break;
+		}
+		// Set padlock tooltip & icon
+		this.setPadlockLevel(level);
     },
 
     QueryInterface: function(aIID) {
-        if(aIID.equals(Components.interfaces.nsIWebProgressListener) ||
-            aIID.equals(Components.interfaces.nsISupportsWeakReference) ||
-            aIID.equals(Components.interfaces.nsISupports))
+        if(aIID.equals(Ci.nsIWebProgressListener) ||
+            aIID.equals(Ci.nsISupportsWeakReference) ||
+            aIID.equals(Ci.nsISupports))
             return this;
 
         throw Components.results.NS_NOINTERFACE;
-    }
+    },
+	
+	// Padlock code borrowed from browser's padlock module
+	setPadlockLevel: function(level) {
+     let secbut = document.getElementById("lock-icon");
+     var sectooltip = "";
+
+     if (level) {
+       secbut.setAttribute("level", level);
+       secbut.hidden = false;
+     } else {
+       secbut.hidden = true;
+       secbut.removeAttribute("level");
+     }
+	 // Should be localizaed browser-side
+     switch (level) {
+       case "ev":
+         sectooltip = "Extended Validated";
+         break;
+       case "high":
+         sectooltip = "Secure";
+         break;
+       case "low":
+         sectooltip = "Weak security";
+         break;
+       case "mixed":
+         sectooltip = "Mixed mode (partially encrypted)";
+         break;
+       case "broken":
+         sectooltip = "Not secure";
+         break;
+       default:
+         sectooltip = "";
+     }
+     secbut.setAttribute("tooltiptext", sectooltip);
+	}
 };
 
 
