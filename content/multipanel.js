@@ -57,12 +57,16 @@ var panelProgressListener = {
                 window.parent.document.getElementById('sidebar-throbber').setAttribute("loading", "true");
 				stp.setAttribute('disabled', 'false');
 				rld.setAttribute('disabled', 'true');
+				stp.setAttribute('hidden', 'false');
+				rld.setAttribute('hidden', 'true');
         }
         else if(aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
             if(window.parent.document.getElementById('sidebar-throbber'))
                 window.parent.document.getElementById('sidebar-throbber').removeAttribute("loading");
 				stp.setAttribute('disabled', 'true');
 				rld.setAttribute('disabled', 'false');
+				stp.setAttribute('hidden', 'true');
+				rld.setAttribute('hidden', 'false');
         }
     },
 

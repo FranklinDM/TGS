@@ -40,8 +40,15 @@
 		</command>
 		<command id="Browser:ReloadOrDuplicate"
 				 oncommand="PanelBrowserReload(event)"
-				 disabled="true">
+				 disabled="true" hidden="false">
 		  <observes element="Browser:Reload" attribute="disabled"/>
+		  <observes element="Browser:Reload" attribute="hidden"/>
+		</command>
+		<command id="Browser:StopOrDuplicate"
+				 oncommand="PanelBrowserStop();"
+				 disabled="true" hidden="true">
+		  <observes element="Browser:Stop" attribute="disabled"/>
+		  <observes element="Browser:Stop" attribute="hidden"/>
 		</command>
 	</commandset>
 	
@@ -71,7 +78,7 @@
 						 tooltiptext="&forwardButton.tooltip;"/>			 
 		  <toolbarbutton id="stop-button" class="toolbarbutton-1"
 						 label="&stopCmd.label;"
-						 command="Browser:Stop"
+						 command="Browser:StopOrDuplicate"
 						 tooltiptext="&stopButton.tooltip;"/>
 		  <toolbarbutton id="reload-button" class="toolbarbutton-1"
 						 label="&reloadCmd.label;"
