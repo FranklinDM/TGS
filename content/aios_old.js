@@ -211,7 +211,7 @@ function aios_initSidebar() {
 
         Components.utils.import("resource://gre/modules/AddonManager.jsm");
 
-        AddonManager.getAddonByID("{097d3191-e6fa-4728-9826-b533d755359d}", function(addon) {
+        AddonManager.getAddonByID("tgsidebar@franklindm", function(addon) {
             var aiosVersion = addon.version;
 
             if(aiosVersion && (aiosVersion != changelog)) {
@@ -226,8 +226,8 @@ function aios_initSidebar() {
 
                 // wenn das speichern der aktuellen Version geklappt hat
                 if(changelog_new === aiosVersion && gBrowser) {
-                    var hp = "http://www.exxile.de/aios_installed.htm?v=" + aiosVersion;
-                    if(aiosUpdated) hp = "http://www.exxile.de/aios_updated.htm?v=" + aiosVersion;
+                    var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog"; //?v=" + aiosVersion;
+                    if(aiosUpdated) hp = "https://github.com/FranklinDM/TGS/wiki/Changelog"; //?v=" + aiosVersion;
 
                     window.setTimeout(function() {
                         gBrowser.loadTabs(new Array(hp), false);
