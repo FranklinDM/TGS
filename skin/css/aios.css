@@ -197,17 +197,11 @@ window[aiosOrient="right"][aiosMode="ltr"] #browser * {
     border-top: none;
     border-bottom: 1px solid ThreedDarkShadow;
 }
-window[onclose="PrintUtils.exitPrintPreview();
-     return false;
-    "] #aios-toggle-toolbox, window[onclose="PrintUtils.exitPrintPreview();
-     return false;
-    "] #sidebar-box, window[onclose="PrintUtils.exitPrintPreview();
-     return false;
-    "] #aios-toolbox-left, window[onclose="PrintUtils.exitPrintPreview();
-     return false;
-    "] #aios-toolbox-right, window[onclose="PrintUtils.exitPrintPreview();
-     return false;
-    "] #sidebar-splitter {
+window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toggle-toolbox,
+window[onclose="PrintUtils.exitPrintPreview(); return false;"] #sidebar-box,
+window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox-left,
+window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox-right,
+window[onclose="PrintUtils.exitPrintPreview(); return false;"] #sidebar-splitter {
     display: none;
 }
 sidebarheader #tt-toolbox-sidebarheader {
