@@ -52,6 +52,7 @@ pref("extensions.aios.fs.restore", true);
 /*
  *  Panels
  **/
+pref("extensions.aios.dm.observer", true);
 pref("extensions.aios.dm.sidebar", true);
 pref("extensions.aios.dm.layout", true);
 pref("extensions.aios.dm.layoutall", false);
