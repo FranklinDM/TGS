@@ -580,6 +580,9 @@
             <preference id="COOpen"         type="bool"     name="extensions.aios.co.sidebar" />
             <preference id="COLayout"       type="bool"     name="extensions.aios.co.layout" />
 
+            <preference id="KSOpen"         type="bool"     name="extensions.aios.ks.sidebar" />
+            <preference id="KSLayout"       type="bool"     name="extensions.aios.ks.layout" />
+			
             <preference id="PanelTabReverse"    type="bool"     name="extensions.aios.paneltab.reverse" />
             <preference id="PanelTabBMM"    type="bool"     name="extensions.aios.paneltab.bm" />
         </preferences>
@@ -727,6 +730,15 @@
 
                             <vbox class="indent" aiosAdvanced="true">
                                 <checkbox preference="COLayout" label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+						
+                        <groupbox>
+                            <caption label="&button.cookies.label;" />
+                            <checkbox preference="KSOpen" label="&misc.enablesidebar.label; *" aiosChilds="KSLayout" oncommand="aios_checkboxObserver(this);" />
+
+                            <vbox class="indent" aiosAdvanced="true">
+                                <checkbox id="obj-KSLayout" preference="KSLayout" label="&misc.layout.label;" />
                             </vbox>
                         </groupbox>
 

@@ -73,6 +73,9 @@ style       about:downloads                                            chrome://
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/multipanel.xul
 style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/css/multipanel.css
 
+overlay     chrome://browser/content/preferences/cookies.xul           chrome://aios/content/cookies.xul
+style       chrome://browser/content/preferences/cookies.xul           chrome://aios/skin/css/cookies.css
+
 overlay     chrome://global/content/config.xul                         chrome://aios/content/multipanel_config.xul
 style       chrome://global/content/config.xul                         chrome://aios/skin/css/multipanel_config.css
 

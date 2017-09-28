@@ -1,0 +1,18 @@
+window[aios-inSidebar] button[oncommand="close();"],
+window[aios-inSidebar] resizer,
+window[aios-inSidebar] #cookiesIntro {
+	display: none;
+}
+
+window[aios-inSidebar] .contentPane {
+	margin: 0 !important;
+}
+
+@media (-moz-windows-default-theme) {
+  @media (-moz-os-version: windows-vista),
+         (-moz-os-version: windows-win7) {
+    window[aios-inSidebar] {
+      background-color: #EEF3FA;
+    }
+  }
+}

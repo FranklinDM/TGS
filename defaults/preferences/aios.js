@@ -79,6 +79,9 @@ pref("extensions.aios.co.sidebar", true);
 pref("extensions.aios.co.layout", true);
 pref("extensions.aios.co.layoutall", false);
 
+pref("extensions.aios.ks.sidebar", true);
+pref("extensions.aios.ks.layout", true);
+pref("extensions.aios.ks.layoutall", false);
 
 /*
  *  Menus

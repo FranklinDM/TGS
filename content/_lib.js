@@ -446,7 +446,7 @@ function aios_setTargets() {
     targets['mp'] = new Array('Tools:MultiPanel',   'viewWebPanelsSidebar',     'multipanel');
     targets['pi'] = new Array('View:PageInfo',      'viewPageInfoSidebar',      'pageinfo');
     targets['co'] = new Array('Tools:Console',      'viewConsoleSidebar',       'console');
-    targets['ck'] = new Array('View:Cookies',       'viewCookiesSidebar',       'cookies');
+    targets['ks'] = new Array('View:Cookies',       'viewCookiesSidebar',       'cookies');
 
     if(document.getElementById('viewConsole2Sidebar'))
         targets['co'] = new Array('Tools:Console', 'viewConsole2Sidebar', 'console');
