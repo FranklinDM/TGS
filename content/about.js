@@ -7,7 +7,7 @@ var AiOS_About = {};
 
         Components.utils.import("resource://gre/modules/AddonManager.jsm");
 
-        AddonManager.getAddonByID("{097d3191-e6fa-4728-9826-b533d755359d}",
+        AddonManager.getAddonByID("tgsidebar@franklindm",
             function(addon) {
 
                 document.getElementById("aboutHeader").setAttribute("title", addon.name);
