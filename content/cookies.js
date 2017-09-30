@@ -28,8 +28,6 @@ function aios_init() {
 		=> Called by aios_init()
 */
 function aios_sidebarLayout() {
-	// Tell that we're currently in sidebar (or use SB layout)
-	cookieWindow.setAttribute('aios-inSidebar', 'true');
     // Activate CSS for sidebar optimizations
     aios_addCSS("cookies.css", cookieWindow);
 }
