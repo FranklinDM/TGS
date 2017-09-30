@@ -96,11 +96,16 @@ function aios_initSidebar() {
         aios_setConfSidebarWidth();
     }
 
-
     // legt commands (Ziele) fuer Manager und Fenster lt. Einstellungen fest
     window.setTimeout(function() {
         aios_setTargets();
     }, 50);
+	
+	// Call lwtheme color handler (in response to bug 483972)
+	lwthemeColorHandler();
+	// Observe lwtheme styling updates/changes
+	var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+	observerService.addObserver(lwthemeObserver, "lightweight-theme-styling-update", false);
 
     // Autohide-Feature initialisieren
     aios_initAutohide();
@@ -822,4 +827,29 @@ function aios_BrowserFullScreen() {
     aios_adjustToolboxWidth(false);
 
     return true;
+}
+
+/*
+	Lightweight themes observer
+*/
+var lwthemeObserver = {
+  observe : function(aSubject, aTopic, aData) {
+    if (aTopic == "lightweight-theme-styling-update") {
+		lwthemeColorHandler();
+    }
+  }
+}
+
+/*
+	Lightweight themes color handler
+	* When lwbg pref = true, will enforce the persona's defined bg color
+	* When lwbg pref = false & ccl has value, will use the custom color defined by ccl
+	* When lwbg pref = false & ccl has no value, fall back to using transparent
+*/
+function lwthemeColorHandler() {
+  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.lwbg");
+  var ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.lwcolor");
+  if (lwbg) fx_browser.style.backgroundColor = fx_mainWindow.style.backgroundColor;
+  else if (ccl != "") fx_browser.style.backgroundColor = ccl;
+  else fx_browser.style.backgroundColor = 'transparent';
 }
