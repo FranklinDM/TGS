@@ -1,0 +1,70 @@
+richlistitem:not([selected=true]) {
+    min-height: 0 !important;
+    padding: 5px;
+}
+richlistitem:not([selected=true]) .downloadTypeIcon {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+}
+*[aios-appDefTheme="true"] richlistitem .downloadDisplayName {
+    font-size: 11px;
+}
+*[aios-appDefTheme="true"] richlistitem:-moz-any([selected=true],[state="-1"],[state="0"],[state="4"]) .downloadDisplayName {
+    font-size: 13px;
+}
+*[aios-appDefTheme="true"] richlistitem[selected=true] .downloadDetails {
+    font-size: 11px;
+}
+*[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="-1"], *[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="0"], *[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="4"] {
+    color: #006600;
+    background-color: #ECFFEC;
+}
+*[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="2"], *[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="3"] {
+    color: #660000;
+    background-color: #FFECEC;
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"] #search {
+    padding: 0 1px 1px 1px;
+    border-top: 1px solid ThreedHighlight;
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"] richlistitem {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"] richlistitem[selected="true"] {
+    outline: 0;
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"] richlistitem:not([selected="true"])[state="1"] {
+    background-color: #FFFFFF;
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"] richlistitem:not([selected="true"])[state="1"]:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #search {
+    background-color: #eef3fa;
+    border-bottom: 1px solid ThreedShadow;
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #downloadView {
+    background-color: #EEF3FA;
+}
+*[aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) richlistitem[selected="true"] {
+    color: #000000;
+    background: #CBD8E8 none;
+}
+*[aios-appDefTheme="true"][aios-appOS="Darwin"] richlistitem[state="1"]:not([selected=true]) {
+    background-color: #FFFFFF;
+}
+*[aios-appDefTheme="true"][aios-appOS="Darwin"] richlistitem[state="1"]:not([selected=true]):nth-child(odd) {
+    background-color: #ECF3FE;
+}
+*[aios-appDefTheme="true"][aios-appOS="Darwin"] richlistitem[selected=true] {
+    color: #000;
+    background-color: #aab8c6;
+}
+*[aios-appDefTheme="true"][aios-appOS="Darwin"] richlistitem[selected=true] .name {
+    text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
+}
+*[aios-appDefTheme="true"][aios-appOS="Darwin"] richlistitem[selected=true] .status, *[aios-appDefTheme="true"][aios-appOS="Darwin"] richlistitem[selected=true] .dateTime {
+    color: #000 !important;
+}

@@ -1,7 +1,8 @@
+Components.utils.import("resource://gre/modules/Downloads.jsm");
 
 /*
-    modifiziert das Firefox-Sidebar-Menue
-        => Aufruf durch aios_initSidebar() und aios_getSidebarMenu() (Menuebutton-Events 'onpopupshowing')
+	Modifies the Firefox Sidebar menu
+		=> Calling aios_initSidebar() and aios_getSidebarMenu() (MenuButton Events 'onpopupshowing')
 */
 function aios_modSidebarMenu() {
     aios_getObjects();
@@ -9,14 +10,14 @@ function aios_modSidebarMenu() {
     var actSidebar = aios_remLastSidebar();
     var command, commandParent;
 
-    // jeden einzelnen Menuepunkt uebernehmen oder ggfs. abaendern
+	// take over every single menu item or change it if necessary
     for(var i = 0; i < fx_sidebarMenu.childNodes.length; i++) {
         command = null;
         commandParent = null;
         var broadcaster = null;
         var item = fx_sidebarMenu.childNodes[i];
 
-        // Icons ein- oder ausblenden
+        // Show or hide the icons
         try {
             var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.icons');
             var theClass = (enable_icons) ? '' : 'aios-noIcons';
@@ -26,7 +27,7 @@ function aios_modSidebarMenu() {
         }
         catch(e) { }
 
-        // nur, wenn es kein Separator o.ae. ist
+		// only if there is no separator or the like
         if(item.getAttribute('observes') && document.getElementById(item.getAttribute('observes'))) {
             broadcaster = document.getElementById(item.getAttribute('observes'));
 
@@ -52,11 +53,11 @@ function aios_modSidebarMenu() {
             commandParent = item;
         }
 
-        // Label als Tooltip verwenden, wenn kein Tooltiptext eingestellt wurde
+		// Use the label as a tooltip if no tooltip text has been set
         if(!item.getAttribute('tooltiptext') && item.getAttribute('label'))
             item.setAttribute('tooltiptext', item.getAttribute('label'));
 
-        // den Menuepunkt der aktuellen Sidebar aktivieren/deaktivieren
+        // Enable/disable the menu item of the current sidebar
         if(command && commandParent) {
 
             try {
@@ -75,7 +76,7 @@ function aios_modSidebarMenu() {
     //     mitemsep1.setAttribute('hidden', true);
 
 
-    // Menueeintraege anzeigen/verbergen (Sidebar oeffnen/schliessen und Einstellungen) und verschieben
+	// Show/hide menu entries (open/close the sidebar and settings) and move
     //var showhideMenuseparator = document.getElementById('aios-sidebar-mitem-sep0');
     var paneltabMitem1 = document.getElementById('aios-sidebar-mitem-paneltab1');
     var paneltabMitem2 = document.getElementById('aios-sidebar-mitem-paneltab2');
@@ -86,7 +87,7 @@ function aios_modSidebarMenu() {
     var entries = new Array();
     entries[0] = new Array( "showhide", "paneltab1", "paneltab2", "prefs" );
 
-    // Eintraege/Icons ein- oder ausblenden
+	// Show/hide entries/icons
     try {
         var enable_showhide = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.showhide');
         var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.entries');
@@ -569,64 +570,53 @@ function aios_setTargets() {
         }
     }
 
-
-    // Oeffnen des Download-Fensters verhindern, wenn die Sidebar genutzt werden soll
+    // Prevent opening the download window if the sidebar is to be used
     if(AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar')) AiOS_HELPER.prefService.setBoolPref("browser.download.manager.showWhenStarting", false);
 
+	// Set list of all downloads
+	var adlist = Downloads.getList(Downloads.ALL);
+	var view = {
+		onDownloadAdded: download => aios_DownloadObserver('added'),
+		onDownloadChanged: download => aios_DownloadObserver('changed')
+	};
+	adlist.then(obj => obj.addView(view));
 
-    // Download-Observer hinzufuegen, falls Downloads in der Sidebar geoeffnet werden sollen
-    var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-
-    observerService.addObserver(aios_DownloadObserver, "dl-start",  false);
-    observerService.addObserver(aios_DownloadObserver, "dl-done",  false);
-
-    // Observer beim Schliessen des Fensters wieder loeschen
+    // Remove the view when the window is closed
     window.addEventListener("unload", function() {
-        if(aios_DownloadObserver) {
-            var aios_myOs = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-            aios_myOs.removeObserver(aios_DownloadObserver, "dl-start");
-            aios_myOs.removeObserver(aios_DownloadObserver, "dl-done");
-            aios_DownloadObserver = null;
-        }
-
+		adlist.then(obj => obj.removeView(view));
     }, false);
-
-
 
     return true;
 }
 
 /*
-    Oeffnet die Sidebar,
-        1. wenn ein Download gestartet wird ...
-        2. der Manager geoeffnet werden soll und ...
-        3. das Ziel die Sidebar sein soll
+	Opens the sidebar,
+		1. when a download is started ...
+        2. The manager is to be opened and ...
+        3. the goal is to open the sidebar
 */
-var aios_DownloadObserver = {
-    observe: function (aSubject, aTopic, aState) {
+function aios_DownloadObserver(aTopic) {
+	var autoOpen = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoopen');
+	var autoClose = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoclose');
+	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIWebNavigation).QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
 
-        var autoOpen = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoopen');
-        var autoClose = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoclose');
-        var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIWebNavigation).QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
+	switch (aTopic) {
+		case "added":
+			var comElem = document.getElementById('Tools:Downloads');
+			if(autoOpen && comElem.getAttribute('oncommand').indexOf('viewDownloadsSidebar') >= 0) {
+				// AiOS_HELPER.windowWatcher.activeWindow prevents the sidebar from being opened in any window
+				if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar("viewDownloadsSidebar", true);
+			}
+			break;
 
-        switch (aTopic) {
-            case "dl-start":
-                var comElem = document.getElementById('Tools:Downloads');
-                if(autoOpen && comElem.getAttribute('oncommand').indexOf('viewDownloadsSidebar') >= 0) {
-                    // AiOS_HELPER.windowWatcher.activeWindow verhindert, dass die Sidebar in jedem Fenster geoeffnet wird
-                    if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar("viewDownloadsSidebar", true);
-                }
-                break;
-
-            case "dl-done":
-                var sideSrc = document.getElementById('sidebar').getAttribute('src');
-                if(autoOpen && autoClose && sideSrc.indexOf('downloads.xul') >= 0) {
-                    if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar();
-                }
-                break;
-        }
-    }
-};
+		case "changed":
+			var sideSrc = document.getElementById('sidebar').getAttribute('src');
+			if(autoOpen && autoClose && sideSrc.indexOf('about:downloads') >= 0) {
+				if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar();
+			}
+			break;
+	}
+}
 
 
 /*

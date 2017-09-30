@@ -259,18 +259,12 @@ function aios_initSidebar() {
 		  mutations.forEach(function(mutation) {
 			if (document.getElementById('downloads-indicator') != null) {
 				var downloadinc = document.getElementById('downloads-indicator');
-				// This effectively disables download popups and may break other add-ons which override the oncommand attribute
-				if (AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar') == true) {
-					// Show in sidebar
-					downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) toggleSidebar('viewDownloadsSidebar'); return true;");
-				} else {
-					// Show in downloads (inside library)
-					downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) BrowserDownloadsUI(); return true;");
-				}
+				// This effectively disables download popups and may break other add-ons which override this attribute
+				downloadinc.setAttribute('observes', 'viewDownloadsSidebar');
+				downloadinc.setAttribute('command', 'Tools:Downloads');
 			}
 		  });    
 		});
-
 		// configuration of the observer:
 		var config = { attributes: false, childList: true, characterData: false, subtree: true };
 		// pass in the target node, as well as the observer options
