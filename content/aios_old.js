@@ -231,8 +231,9 @@ function aios_initSidebar() {
 
                 // wenn das speichern der aktuellen Version geklappt hat
                 if(changelog_new === aiosVersion && gBrowser) {
-                    var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog"; //?v=" + aiosVersion;
-                    if(aiosUpdated) hp = "https://github.com/FranklinDM/TGS/wiki/Changelog"; //?v=" + aiosVersion;
+					aiosVersionDotless = aiosVersion.split('.').join("");
+                    var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
+                    if(aiosUpdated) hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
 
                     window.setTimeout(function() {
                         gBrowser.loadTabs(new Array(hp), false);
