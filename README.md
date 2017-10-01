@@ -13,7 +13,7 @@ To build an installable `.xpi` extension for Pale Moon:
 ### All operation systems
 
 1. clone this repository
-2. zip the contents of the repository (excluding `.git`, `build.sh` and `README.md`) and rename the `.zip` extension to `.xpi`
+2. zip the contents of the repository (excluding `.git`, `.gitignore`, `build.sh`, `CHANGELOG.md`, and `README.md`) and rename the `.zip` extension to `.xpi`
 3. open/install the resulting `.xpi` file with Pale Moon
 
 ### Mac OS X
@@ -43,7 +43,6 @@ Issues
 Please use the [issues system of GitHub](https://github.com/FranklinDM/TES/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
 
 
-
 License:
 --------
 
@@ -51,6 +50,6 @@ Portions &copy; 2017+ FranklinDM
 
 Portions &copy; 2005+ Ingo Wennemaring
 
-GNU General Public License, Version 2.0
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+> GNU General Public License, Version 2.0
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

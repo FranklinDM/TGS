@@ -1,6 +1,6 @@
 #!/bin/bash
 
-XPI_FILE=tgs_sidebar-dev-build-fx
+XPI_FILE=tgs_sidebar-dev-build-pm
 
 echo "- Removing old xpi file"
 rm $XPI_FILE.xpi
