@@ -830,26 +830,31 @@ function aios_BrowserFullScreen() {
 }
 
 /*
-	Lightweight themes observer
+	Lightweight themes styling update observer
 */
 var lwthemeObserver = {
   observe : function(aSubject, aTopic, aData) {
     if (aTopic == "lightweight-theme-styling-update") {
-		lwthemeColorHandler();
+        window.setTimeout(function() {
+			lwthemeColorHandler();
+        }, 100);
     }
   }
 }
 
 /*
-	Lightweight themes color handler
+	Lightweight themes background handler
 	* When lwbg pref = true, will enforce the persona's defined bg color
-	* When lwbg pref = false & ccl has value, will use the custom color defined by ccl
+	* When lwbg pref = true & rpt = true, will repeat the persona's defined header image
+	* When lwbg pref = false & ccl has value, will use the custom background defined by ccl
 	* When lwbg pref = false & ccl has no value, fall back to using transparent
 */
 function lwthemeColorHandler() {
-  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.lwbg");
-  var ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.lwcolor");
-  if (lwbg) fx_browser.style.backgroundColor = fx_mainWindow.style.backgroundColor;
-  else if (ccl != "") fx_browser.style.backgroundColor = ccl;
-  else fx_browser.style.backgroundColor = 'transparent';
+  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg");
+  var ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg");
+  var rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
+  if (lwbg) fx_browser.style.background = fx_mainWindow.style.backgroundColor;
+  if (lwbg & rpt) fx_browser.style.background = fx_mainWindow.style.backgroundImage;
+  else if (ccl != "") fx_browser.style.background = ccl;
+  else fx_browser.style.background = null;
 }
