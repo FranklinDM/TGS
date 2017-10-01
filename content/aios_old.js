@@ -853,8 +853,8 @@ function lwthemeColorHandler() {
   var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg");
   var ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg");
   var rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
-  if (lwbg) fx_browser.style.background = fx_mainWindow.style.backgroundColor;
   if (lwbg & rpt) fx_browser.style.background = fx_mainWindow.style.backgroundImage;
+  else if (lwbg) fx_browser.style.background = fx_mainWindow.style.backgroundColor;
   else if (ccl != "") fx_browser.style.background = ccl;
   else fx_browser.style.background = null;
 }
