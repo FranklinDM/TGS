@@ -106,9 +106,8 @@ function aios_modSidebarMenu() {
     catch(e) { }
 
 
-    // Menueeintraege ganz nach unten verschieben, wenn das Menue noch nicht bearbeitet wurde
+    // Move menu entries all the way down if the menu has not been edited yet
     if(!aios_getBoolean(fx_sidebarMenu, 'aios-modified')) {
-
         //fx_sidebarMenu.appendChild(showhideMenuseparator);
         fx_sidebarMenu.appendChild(paneltabMitem1);
         fx_sidebarMenu.appendChild(paneltabMitem2);
@@ -117,14 +116,14 @@ function aios_modSidebarMenu() {
         fx_sidebarMenu.appendChild(prefsMitem);
     }
 
-    // Sidebarmenue als bearbeitet merken
+    // Remember the sidebar menu as edited
     fx_sidebarMenu.setAttribute('aios-modified', true);
 }
 
 
 /*
-    Eintraege/Icons ein- oder ausblenden
-        => Aufruf durch aios_modSidebarMenu()
+	Show or hide entries / icons
+		=> Called by aios_modSidebarMenu()
 */
 function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
     var prefPre = prefPre_tmp;
@@ -140,24 +139,24 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
 
             for(var j = 0; j < entries[i].length; j++) {
                 var pref = false;
-                // Pref fuer jeden Eintrag einlesen
+                // Read the pref for each entry
                 if(enable_entries) pref = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + entries[i][j]);
 
-                // Eintraege ein- oder ausblenden
+                // Show or hide entries
                 var theID = IDPre + entries[i][j];
                 if(document.getElementById(theID)) {
-                    // falls es mehrere davon gibt => z.B. wegen CompactMenu
+                    // if there are several of them => e.g. because of CompactMenu
                     var items = document.getElementsByAttribute('id', theID);
                     for(var xy = 0; xy < items.length; xy++) {
                         items[xy].hidden = !pref;
                     }
                 }
 
-                // aktivierte Eintraege je Gruppe zaehlen
+                // Select activated entries per group
                 if(!returnVals[i]) returnVals[i] = 0;
                 if(pref) returnVals[i]++;
 
-                // Icons ein- oder ausblenden
+                // Show or hide the icons
                 if(document.getElementById(IDPre + entries[i][j])) {
                     var elem = document.getElementById(IDPre + entries[i][j]);
 
@@ -166,7 +165,7 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
                 }
             }
 
-            // Separator ein- oder ausblenden
+            // Show or hide the separator
             var sep = IDPre + "sep" + i;
             if(document.getElementById(sep)) document.getElementById(sep).hidden = !(returnVals[i] > 0);
         }
@@ -178,11 +177,11 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
 
 
 /*
-    Oeffnet die Tab-URL in der Sidebar oder die Sidebar-URL in einem neuen Tab
-        => Aufruf durch <command id="aiosCmd_panelTab1">
-                                        <command id="aiosCmd_panelTab2">
-                                        <toolbarbutton id="paneltab-button">
-             in aios.xul
+	Opens the Tab URL in the Sidebar or the Sidebar URL in a new tab
+		=>  Called by	<command id = "aiosCmd_panelTab1">
+						<command id = "aiosCmd_panelTab2">
+						<toolbarbutton id = "paneltab-button">
+			in aios.xul
 */
 var aiosNewTab, aiosSidebarTitle;
 function aios_panelTab(event) {
@@ -202,7 +201,7 @@ function aios_panelTab(event) {
         // metaKey = Mac
         if((event.ctrlKey && event.button == 0) || (event.metaKey && event.button == 0) || event.button == 1) mode = "tab";
 
-        // Button-Funktion umkehren?
+        // Invert the button function?
         if(ptReverse) {
             mode = "tab";
             if((event.shiftKey && event.button == 0)) mode = "window";
@@ -210,7 +209,7 @@ function aios_panelTab(event) {
             if((event.ctrlKey && event.button == 0) || (event.metaKey && event.button == 0) || event.button == 1) mode = "sidebar";
         }
 
-        // Rechtsklick?
+        // Right click?
         if(enable_rightclick && event.button == 2)  mode = "window";
     }
 
@@ -218,22 +217,22 @@ function aios_panelTab(event) {
 
 
     /*
-        in SIDEBAR oeffnen
+        Open in Sidebar
     */
     if(mode == "sidebar") {
         var tabHref = top.window.content.location.href;
 
-        // interne FF-Quellen (chrome:/)
+        // Internal sources (chrome:/)
         if(tabHref.indexOf("chrome:/") >= 0) {
             theSidebar = aios_isSidebar(tabHref);
 
-            // bei "richtigem" Sidebar-Panel den Sidebar-Toggle-Befehl anwenden
+            // In the "right" sidebar panel, use the sidebar toggle command
             if(theSidebar) {
                 toggleSidebar(theSidebar, true);
             }
-            // keine Sidebar (aber chrome://)
+            // no sidebar (but chrome: //)
             else {
-                // aktive Sidebar deaktivieren und persists loeschen
+                // disable active sidebar and delete persists
                 if(document.getElementById(theSidebar)) {
                     document.getElementById(theSidebar).removeAttribute('checked');
                     document.getElementById("sidebar").removeAttribute("src");
@@ -250,13 +249,13 @@ function aios_panelTab(event) {
         else if(tabHref.indexOf("about:") >= 0) {
             aios_setMultiPanel(tabHref);
         }
-        // normale Webseite
+        // normal Website
         else {
             aios_setMultiPanel('page');
         }
     }
     /*
-        in TAB oder FENSTER oeffnen
+		Open in Tab or Window
     */
     else {
         var newSrc;
@@ -272,7 +271,7 @@ function aios_panelTab(event) {
             var panelHref = panelDoc.location.href;
         }
 
-        // Bookmark-Manager statt Panel?
+        // Bookmark Manager instead of Panel?
         if(sidebarHref == "chrome://browser/content/bookmarks/bookmarksPanel.xul") {
             try {
                 var enable_bmm = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.bm");
@@ -280,12 +279,12 @@ function aios_panelTab(event) {
             catch(e) { }
             newSrc = (enable_bmm) ? "chrome://browser/content/places/places.xul" : sidebarHref;
         }
-        // statt MultiPanel-XUL die im Panel geoeffnete Webseite oeffnen
+        // instead of MultiPanel-XUL open the web page opened in the panel
         else if(sidebarHref == "chrome://browser/content/web-panels.xul" && mode == "tab") newSrc = panelHref;
-        // alle anderen
+        // all other
         else newSrc = sidebarHref;
 
-        // in TAB oeffnen
+        // open in TAB
         if(mode == "tab") {
             aiosNewTab = aios_addTab(newSrc);
 
@@ -297,10 +296,10 @@ function aios_panelTab(event) {
 
             }
         }
-        // in FENSTER oeffnen
+        // Open in Window
         else {
-            // wird zur Abfrage in addons/downlaods_....xul und downloads.js benoetigt
-            // sonst wuerden extra geoeffnete Fenster (Downloads, Add-ons) sofort wieder geschlossen
+			// is required for the query in addons / downlaods _.... xul and downloads.js
+            // otherwise, windows (downloads, add-ons) would be closed again immediately
             AiOS_HELPER.mostRecentWindow.aiosIsWindow = true;
             window.setTimeout(function() {
                 AiOS_HELPER.mostRecentWindow.aiosIsWindow = false;
@@ -318,26 +317,22 @@ function aios_panelTab(event) {
 
 
 /*
-
+	If it is a "real" sidebar panel (existing broadcaster)
+		=> apply the correct sidebar toggle command
 */
 function aios_isSidebar(aHref) {
-    // wenn es ein "richtiges" Sidebar-Panel ist (vorhandener broadcaster)
-    // => richtigen Sidebar-Toggle-Befehl anwenden
-    //var isSidebar = null;
     var theSidebar = null;
     var allSidebars = AiOS_HELPER.mostRecentWindow.document.getElementsByAttribute('group', 'sidebar');
 
     for(var i = 0; i < allSidebars.length; i++) {
-
-        // muss eine ID haben, darf keinen observer haben (Menueeintraege usw.) und muss eine Sidebar-URL haben
+		// must have an ID, can not have an observer (menu entries, etc.) and must have a sidebar URL
         if(allSidebars[i].id && !allSidebars[i].getAttribute('observes') && allSidebars[i].getAttribute('sidebarurl')) {
 
-            // aktive Sidebar merken
+            // remember the active sidebar
             if(aios_getBoolean(allSidebars[i].id, 'checked')) theSidebar = allSidebars[i].id;
 
             if(aHref == allSidebars[i].getAttribute('sidebarurl')) {
                 return allSidebars[i].id;
-            //isSidebar = true;
             }
         }
     }
@@ -347,8 +342,8 @@ function aios_isSidebar(aHref) {
 
 
 /*
-    Oeffnet div. Fenster u. Manager per Original-Anweisung
-        Aufruf durch Toolbarbuttons und Menueeintraege
+	Opens various windows & manager by original instruction
+		Invoked by toolbarbuttons and menu entries
 */
 function aios_contextEvent(event, which) {
     try {
@@ -357,42 +352,46 @@ function aios_contextEvent(event, which) {
     catch(e) { }
 
     //alert("Maus: " + event.button + "\nShift: " + event.shiftKey + "\nCtrl: " + event.ctrlKey + "\nAlt: " + event.altKey + "\nMeta: " + event.metaKey);
+	
+	// Only left click (Meta Key = Mac)
+    if(event.button == 0 && (!event.shiftKey && !event.ctrlKey && !event.metaKey)) return false;
 
-    if(event.button == 0 && (!event.shiftKey && !event.ctrlKey && !event.metaKey)) return false;      // nur Linksklick (metaKey = Mac)
+	// Right click not allowed
+    if(!enable_rightclick && event.button == 2) return false;
 
-    if(!enable_rightclick && event.button == 2) return false;                       // Rechtsklick nicht erlaubt
-
-    if(!event || typeof which != "object") return false;                            // kein empfangenes Event
+	// No received event
+    if(!event || typeof which != "object") return false;
 
     var mWindow = document.getElementById('main-window');
     if(mWindow && mWindow.getAttribute('chromehidden').indexOf('extrachrome') >= 0) return false; // in einem JS-PopUp
 
-    // Objekt ermitteln, welches das Attribut mit Befehl enthaelt (zuvor in aios_setTargets() gesetzt)
+	// Determine object containing the attribute with command [previously set in aios_setTargets()]
     var cmdObj;
     if(which.getAttribute('command')) cmdObj = document.getElementById(which.getAttribute('command'));
     if(!cmdObj && which.getAttribute('observes')) cmdObj = document.getElementById(which.getAttribute('observes'));
 
-    // Modus ermitteln
+	// Select mode
     var mode = "sidebar";
 
-    // Shift+Linksklick => neues Fenster
+    // Shift + Left click => new window
     if((event.shiftKey && event.button == 0) || (enable_rightclick && event.button == 2)) {
         if(aios_getBoolean(cmdObj, 'aios_inSidebar') || cmdObj.getAttribute('group') == "sidebar") mode = "window";
     }
 
-    // Ctrl+Linksklick oder Mittelklick => neuer Tab (metaKey = Mac)
+    // Ctrl + left click or middle click => new tab (Meta Key = Mac)
     if((event.ctrlKey && event.button == 0) || (event.metaKey && event.button == 0) || event.button == 1) mode = "tab";
 
     if(!cmdObj) return false;
 
-    // Befehl ausfuehren
+    // Execute order
     switch(mode) {
         case "sidebar":
             toggleSidebar(cmdObj.getAttribute('aios_sbCmd'));
             break;
 
-        case "window":      // wird zur Abfrage in addons/downloads_....xul und downloads.js benoetigt
-            // sonst wuerden extra geoeffnete Fenster (Downloads, Add-ons) sofort wieder geschlossen
+        case "window":
+			// is required to query in addons / downloads _.... xul and downloads.js
+            // otherwise, windows (downloads, add-ons) would be closed again immediately
             AiOS_HELPER.mostRecentWindow.aiosIsWindow = true;
             window.setTimeout(function() {
                 AiOS_HELPER.mostRecentWindow.aiosIsWindow = false;
@@ -405,7 +404,7 @@ function aios_contextEvent(event, which) {
             toOpenWindowByType(winID, winSRC, "width="+winWidth+",height="+winHeight+",chrome,titlebar,toolbar,resizable,centerscreen,dialog=no");
 
             break;
-
+	
         case "tab":
             aios_addTab(cmdObj.getAttribute('aios_sbUri'));
             break;
@@ -416,15 +415,15 @@ function aios_contextEvent(event, which) {
 
 
 /*
-    legt commands fuer Fenster fest, die lt. Einstellungen in der Sidebar geoeffnet werden sollen
-        => dynamisch per JS, damit keinerlei Veraenderungen vorgenommen werden, wenn es nicht in der Sidebar geoeffnet werden soll
-                => bessere Kompatibilitaet mit anderen Erweiterungen
-        => Aufruf durch aios_initSidebar()
+	Sets commands for windows, which should be opened according to settings in the sidebar
+		=> dynamically via JS, so that no changes are made if it is not to be opened in the sidebar
+			=> better compatibility with other extensions
+		=> Called by aios_initSidebar()
 */
 function aios_setTargets() {
     var objects, i;
 
-    // weise den Menueelementen der Fehlerkonsole, des Seitenquelltextes und der Seiteninformationen die entsprechenden commands zu
+	// assign the respective commands to the menu elements of the error console, the page source text, and the page information
     if( document.getElementById('javascriptConsole') ) {
         document.getElementById('javascriptConsole').removeAttribute('oncommand');
         document.getElementById('javascriptConsole').setAttribute('command', 'Tools:Console');
@@ -452,7 +451,7 @@ function aios_setTargets() {
     if(document.getElementById('viewConsole2Sidebar'))
         targets['co'] = new Array('Tools:Console', 'viewConsole2Sidebar', 'console');
 
-    // informative Tooltips und Funktionsumkehrung (PanelTab) aktivieren?
+	// activate informative tooltips and function reversal (PanelTab)?
     var prefInfotip = false;
     var ptReverse = false;
     try {
@@ -478,7 +477,7 @@ function aios_setTargets() {
     catch(e) { }
 
     for(var obj in targets) {
-        // in Sidebar oeffnen?
+        // Open in sidebar?
         var prefSidebar;
         try {
             if(obj != "ad") prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(obj + ".sidebar");
@@ -488,8 +487,8 @@ function aios_setTargets() {
         }
         catch(e) { }
 
-        var ffObj = document.getElementById(targets[obj][0]);           // Original-Objekt
-        var sbObj = document.getElementById(targets[obj][1]);           // Sidebar-Objekt
+        var ffObj = document.getElementById(targets[obj][0]);           	// Original object
+        var sbObj = document.getElementById(targets[obj][1]);           	// Sidebar object
         var tpObj = document.getElementById(targets[obj][2] + "-tooltip");  // Tooltip
         var btObj = document.getElementById(targets[obj][2] + "-button");   // Button
 
@@ -508,29 +507,27 @@ function aios_setTargets() {
 
             newCmd = newObj.getAttribute('oncommand');
 
-            // verhindern dass zwei Befehle ausgefuehrt werden, wenn eine Taste mitgedrueckt wird
+			// prevent two commands from being executed when a key is pressed
             newCmd = "if(aios_preventDblCmd(event)) " + newCmd + " return true;";
 
-            // Befehl zuweisen
+            // assign command
             ffObj.setAttribute('oncommand', newCmd);
 
-
-            // Befehle merken
-            //  => fuer Context-Funktionen - aios_contextEvent() - abfragbar
-            //  => zuweisbar, wenn nicht mehr in Sidebar geoeffnet werden soll
+			// remembering commands
+            // => for context functions - aios_contextEvent() - can be queried
+            // => if you do not want to open in Sidebar anymore
             if(!aios_getBoolean(ffObj, 'modByAIOS')) {
-                // fuer Klicks auf Toolbarbuttons und Menueeintraege
+                // for clicks on toolbarbuttons and menu entries
                 ffObj.setAttribute('aios_sbUri', sbObj.getAttribute('sidebarurl'));
                 ffObj.setAttribute('aios_sbCmd', targets[obj][1]);
                 ffObj.setAttribute('aios_inSidebar', prefSidebar);
 
-                // fuer Klicks auf Menueeintraege in den Sidebarmenues => siehe aios_preventDblCmd()
+                // for clicks on menuesintraege in the sidebarmenues => see aios_preventDblCmd()
                 sbObj.setAttribute('aios_sbUri', sbObj.getAttribute('sidebarurl'));
                 sbObj.setAttribute('oncommand', "if(aios_preventDblCmd(event)) " + sbObj.getAttribute('oncommand'));
             }
 
-
-            // Tooltiptext entfernen, um Info-Tooltips sichtbar zu machen (in Schleife, weil es mehrere Buttons mit der gleichen ID geben kann)
+            // Remove Tooltiptext to make info tooltips visible (looped because there may be several buttons with the same ID)
             //if(prefInfotip && btObj) btObj.removeAttribute('tooltiptext');
             if(prefInfotip && btObj) {
                 objects = document.getElementsByAttribute('id', btObj.id);
@@ -539,24 +536,24 @@ function aios_setTargets() {
                 }
             }
 
-            // "alte" Tooltip-Zeilen entfernen (sonst werden sie mit jedem Funktionsaufruf zusaetzlich eingefuegt)
+            // remove "old" tooltip lines (otherwise they will be inserted with each function call)
             if(tpObj.childNodes.length > 1) tpObj.removeChild(tpObj.childNodes[1]);
 
-            // Rechtsklick im Tooltip aktivieren
+            // Activate right click in the tooltip
             if(enable_rightclick)
                 newTp.setAttribute('r3c2', newTp.getAttribute('r3c2') + newTp.getAttribute('rightclick'));
 
-            // Tooltip zuweisen
+            // Assign tooltip
             tpObj.appendChild(newTp);
 
-            // Kontext-Menue der Toolbarbuttons deaktivieren, wenn Rechtsklick erlaubt ist
+            // Disable context menu of the toolbarbuttons, if right-click is allowed
             if(btObj && enable_rightclick) btObj.setAttribute('context', '');
 
             ffObj.setAttribute('modByAIOS', true);
         }
     }
 
-    // Kontext-Menue des PanelTab buttons deaktivieren, wenn Rechtsklick erlaubt ist
+    // Disable context menu of the PanelTab buttons if right-click is allowed
     if(enable_rightclick && document.getElementById('paneltab-button')) {
         document.getElementById('paneltab-button').setAttribute('context', '');
         var pttt1 = document.getElementById('paneltab-tooltip').firstChild;
@@ -620,8 +617,8 @@ function aios_DownloadObserver(aTopic) {
 
 
 /*
-  verhindert, dass bei Klick + Shift oder Strg der normale Command-Befehl und die Doppelfunktion ausgefuehrt wird
-    => Aufruf durch die
+	Prevents the normal Command command and the double function from being executed by clicking + Shift or Ctrl
+		=> Called by sidebar buttons, assigned as first part of oncommand
 */
 function aios_preventDblCmd(ev) {
     // metaKey = Mac
@@ -633,8 +630,8 @@ function aios_preventDblCmd(ev) {
 
 
 /*
-    prueft, ob das Browserfenster maximiert ist oder sich im Vollbildmodus befindet
-        => Aufruf durch aios_checkThinSwitch()
+	Checks whether the browser window is maximized or is in full-screen mode
+		=> Called by aios_checkThinSwitch()
 */
 function aios_isWinMax() {
     var windowMax = document.getElementById('main-window').getAttribute('sizemode') == "maximized";
@@ -648,7 +645,7 @@ function aios_isWinMax() {
 
 
 /*
-    prueft, ob die Sidebar gerade sichtbar/unsichtbar ist => abhaengig von der Sidebar-Methode
+	Check if the sidebar is just visible / invisible => depending on the sidebar method
 */
 function aios_isSidebarHidden() {
     aios_getObjects();
@@ -658,22 +655,22 @@ function aios_isSidebarHidden() {
     }
     catch(e) { }
 
-    // CollapseByStyle-Methode if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.getAttribute('style') != "");
+    // CollapseByStyle-Method if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.getAttribute('style') != "");
     if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.collapsed);
     else return fx_sidebarBox.hidden;
 }
 
 
 /*
-    Autohide-Feature initialisieren
-        => Aufruf durch aios_initSidebar() und aios_savePrefs()
+	Initialize the AutoHide feature
+		=> Called by aios_initSidebar() and aios_savePrefs()
 */
 var aiosFocus = true;
 function aios_initAutohide() {
-    // Zustand des Autohide-Buttons einstellen
+    // Set the state of the autohide button
     document.getElementById('aios-enableAutohide').setAttribute('checked', AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.autoshow"));
 
-    // Autohide-Feature-Funktion hinzufuegen
+    // Add autohide feature/command
     fx_sidebarBox.addEventListener("mouseover", function() {
         if(document.getElementById('appcontent'))
             document.getElementById('appcontent').addEventListener("mouseover", aios_autoShowHide, true);
@@ -689,8 +686,8 @@ function aios_initAutohide() {
 
 
 /*
-    Autohide ein- bzw. ausschalten per Toolbarbutton
-        => Aufruf durch broadcaster 'aios-enableAutohide'
+	Switch AutoHide on or off using the toolbar button
+		=> Call through broadcaster 'aios-enableAutohide'
 */
 function aios_toggleAutohide(which) {
     try {
