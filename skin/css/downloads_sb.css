@@ -1,0 +1,31 @@
+richlistitem:not([selected=true]) {
+    padding: 5px;
+}
+#downloadsRichListBox > richlistitem.download {
+    height: auto;
+}
+richlistitem:not([selected=true]) .downloadTypeIcon {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+/* Applies only to default theme */
+window[aios-appDefTheme="true"] richlistitem .downloadDisplayName {
+    font-size: 11px;
+}
+window[aios-appDefTheme="true"] richlistitem[selected=true] .downloadDisplayName {
+    font-size: 13px;
+}
+window[aios-appDefTheme="true"] richlistitem:not([selected=true]):not([state="1"]) {
+    color: #660000;
+    background-color: #FFECEC;
+}
+window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="-1"],
+window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="0"],
+window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="4"],
+window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="5"] {
+    color: #006600;
+    background-color: #ECFFEC;
+}

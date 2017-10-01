@@ -11,7 +11,7 @@ var AiOS_Addons = {};
     };
 
 
-    this.isInSidebar = (top.document.getElementById('sidebar-box') || debug) ? true : false;
+    this.isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
 
     // Initialization
     this.initialize = function() {
@@ -23,8 +23,7 @@ var AiOS_Addons = {};
             fn.apply(ns);
         }
 
-        var self = AiOS_Addons,
-            debug = false;
+        var self = AiOS_Addons;
 
         if(self.isInSidebar) self.setSidebarLayout();
 

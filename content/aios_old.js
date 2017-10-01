@@ -96,11 +96,16 @@ function aios_initSidebar() {
         aios_setConfSidebarWidth();
     }
 
-
     // legt commands (Ziele) fuer Manager und Fenster lt. Einstellungen fest
     window.setTimeout(function() {
         aios_setTargets();
     }, 50);
+	
+	// Call lwtheme color handler (in response to bug 483972)
+	lwthemeColorHandler();
+	// Observe lwtheme styling updates/changes
+	var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+	observerService.addObserver(lwthemeObserver, "lightweight-theme-styling-update", false);
 
     // Autohide-Feature initialisieren
     aios_initAutohide();
@@ -211,7 +216,7 @@ function aios_initSidebar() {
 
         Components.utils.import("resource://gre/modules/AddonManager.jsm");
 
-        AddonManager.getAddonByID("{097d3191-e6fa-4728-9826-b533d755359d}", function(addon) {
+        AddonManager.getAddonByID("tgsidebar@franklindm", function(addon) {
             var aiosVersion = addon.version;
 
             if(aiosVersion && (aiosVersion != changelog)) {
@@ -226,8 +231,9 @@ function aios_initSidebar() {
 
                 // wenn das speichern der aktuellen Version geklappt hat
                 if(changelog_new === aiosVersion && gBrowser) {
-                    var hp = "http://www.exxile.de/aios_installed.htm?v=" + aiosVersion;
-                    if(aiosUpdated) hp = "http://www.exxile.de/aios_updated.htm?v=" + aiosVersion;
+					aiosVersionDotless = aiosVersion.split('.').join("");
+                    var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
+                    if(aiosUpdated) hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
 
                     window.setTimeout(function() {
                         gBrowser.loadTabs(new Array(hp), false);
@@ -251,28 +257,25 @@ function aios_initSidebar() {
     // Attribut der Bookmarks-Leiste entfernen. Wenn sie auf der AiOS-Toolbar platziert wird, kann man per CSS die Orientation bestimmen.
     if(document.getElementById('PlacesToolbarItems')) document.getElementById('PlacesToolbarItems').removeAttribute('orient');
 	
-	// Observe browser panel to find when downloads-indicator becomes an element
-	// create an observer instance
-	var observer = new MutationObserver(function(mutations) {
-	  mutations.forEach(function(mutation) {
-		if (document.getElementById('downloads-indicator') != null) {
-			var downloadinc = document.getElementById('downloads-indicator');
-			// This effectively disables download popups and may break other add-ons which override the oncommand attribute
-			if (AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar') == true) {
-				// Show in sidebar
-				downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) toggleSidebar('viewDownloadsSidebar'); return true;");
-			} else {
-				// Show in downloads (inside library)
-				downloadinc.setAttribute("oncommand", "if(aios_preventDblCmd(event)) BrowserDownloadsUI(); return true;");
+	// Check if observer is enabled
+	if (AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.observer') == true) {
+		// Observe browser panel to find when downloads-indicator becomes an element
+		// create an observer instance
+		var observer = new MutationObserver(function(mutations) {
+		  mutations.forEach(function(mutation) {
+			if (document.getElementById('downloads-indicator') != null) {
+				var downloadinc = document.getElementById('downloads-indicator');
+				// This effectively disables download popups and may break other add-ons which override this attribute
+				downloadinc.setAttribute('observes', 'viewDownloadsSidebar');
+				downloadinc.setAttribute('command', 'Tools:Downloads');
 			}
-		}
-	  });    
-	});
-
-	// configuration of the observer:
-	var config = { attributes: false, childList: true, characterData: false, subtree: true };
-	// pass in the target node, as well as the observer options
-	observer.observe(document.getElementById('browser-panel'), config);
+		  });    
+		});
+		// configuration of the observer:
+		var config = { attributes: false, childList: true, characterData: false, subtree: true };
+		// pass in the target node, as well as the observer options
+		observer.observe(document.getElementById('browser-panel'), config);
+	}
 
     initialised = true;
 }
@@ -825,4 +828,34 @@ function aios_BrowserFullScreen() {
     aios_adjustToolboxWidth(false);
 
     return true;
+}
+
+/*
+	Lightweight themes styling update observer
+*/
+var lwthemeObserver = {
+  observe : function(aSubject, aTopic, aData) {
+    if (aTopic == "lightweight-theme-styling-update") {
+        window.setTimeout(function() {
+			lwthemeColorHandler();
+        }, 100);
+    }
+  }
+}
+
+/*
+	Lightweight themes background handler
+	* When lwbg pref = true, will enforce the persona's defined bg color
+	* When lwbg pref = true & rpt = true, will repeat the persona's defined header image
+	* When lwbg pref = false & ccl has value, will use the custom background defined by ccl
+	* When lwbg pref = false & ccl has no value, fall back to using transparent
+*/
+function lwthemeColorHandler() {
+  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg");
+  var ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg");
+  var rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
+  if (lwbg & rpt) fx_browser.style.background = fx_mainWindow.style.backgroundImage;
+  else if (lwbg) fx_browser.style.background = fx_mainWindow.style.backgroundColor;
+  else if (ccl != "") fx_browser.style.background = ccl;
+  else fx_browser.style.background = null;
 }

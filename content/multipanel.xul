@@ -95,7 +95,8 @@
 					 autocompletesearchparam="enable-actions"
 					 autocompletepopup="PopupAutoCompleteRichResult"
 					 completeselectedindex="true"
-					 showcommentcolumn="true"                    
+					 clickSelectsAll="true"
+					 showcommentcolumn="true"
 					 tabscrolling="true"
 					 enablehistory="true"
 					 ontextreverted="return WebPanels.onTextReverted();"
@@ -170,7 +171,7 @@
 					</menu>
                 </menupopup>
           </toolbarbutton>
-		  <toolbarbutton id="toolsButton" type="menu" label="&menu.tools.label;" tooltiptext="&menu.tools.label;">
+		  <toolbarbutton id="toolsButton" class="toolbarbutton-1 aios-tbutton" type="menu" label="&menu.tools.label;" tooltiptext="&menu.tools.label;">
                 <menupopup id="toolsPopUp">
                     <menuitem id="aios-remMultiPanel" type="checkbox" checked="true" persist="checked" autocheck="false"
                         label="&tools.remlast.label;" tooltiptext="&tools.remlast.label;"

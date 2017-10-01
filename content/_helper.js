@@ -279,6 +279,12 @@ function aios_openDialog(which, args) {
             theId = "aiosGlobal:History";
             theFeatures = "width=640,height=480,chrome,resizable,centerscreen";
             break;
+			
+		case "cookies":
+			theUrl = "chrome://browser/content/preferences/cookies.xul";
+			theId = "Browser:Cookies";
+			theFeatures = "";
+			break;
 
         case "multipanel":
             theUrl = "chrome://browser/content/web-panels.xul";

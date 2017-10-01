@@ -1,26 +1,18 @@
-
 window.addEventListener("DOMContentLoaded", aios_init, false);
 
-var aios_managerWindow, aios_posElem, aios_Interval;
-var aios_IntervalCount = 0;
-
+var aios_managerWindow, downloads_box;
 var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
 
-
-/* Fix fuer Clean-Button im Downloads-Panel */
-if(aios_inSidebar) window.arguments = [];
-
-
 function aios_init() {
-    var enable_sidebar, enable_count, enable_layout, enable_layoutall;
+    var enable_sidebar, enable_count, enable_layout, enable_layoutall, sidesrc;
 
-    // Menueleiste unter Mac OS X ausblenden
+    // Hide the menu bar under Mac OS X
     aios_hideMacMenubar();
 
-    aios_managerWindow = document.getElementById("downloadManager");
-    aios_posElem = document.getElementById("downloadView");
+    aios_managerWindow = document.getElementById("contentAreaDownloadsView");
+	downloads_box = document.getElementById("downloadsRichListBox");
 
-    // fuer CSS-Zwecke speichern
+    // For CSS purposes
     AiOS_HELPER.rememberAppInfo( aios_managerWindow );
 
     try {
@@ -33,133 +25,98 @@ function aios_init() {
         return false;
     }
 
-    // Sidebar-Layout
+    // Sidebar layout
     if((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
 
-    // Elemente zaehlen und anzeigen
-    if(enable_count) {
-        // beim Aufbau der Downloadliste den Titel aktualisieren
-        var orig_stepListBuilder = stepListBuilder;
-        stepListBuilder = function(aNumItems) {
-            orig_stepListBuilder(aNumItems);
-            aios_countItems();
-        };
-
-        // bei neuen Downloads oder Statuswechseln den Titel aktualisieren
-        // https://developer.mozilla.org/en/DOM/Mutation_events
-        // https://developer.mozilla.org/en/DOM/DOM_Mutation_Observers
-        var dm = Components.classes["@mozilla.org/download-manager;1"]
-                 .getService(Components.interfaces.nsIDownloadManager);
-
-        dm.addListener({
-            onStateChange : function(state, dl) { aios_countItems(); },
-            onDownloadStateChange : function(state, dl) { aios_countItems(); }
-        });
-
-        // beim Loeschen der Downloadliste den Titel aktualisieren
-        var orig_clearDownloadList = clearDownloadList;
-        clearDownloadList = function() {
-            orig_clearDownloadList();
-            aios_countItems();
-        };
+    // Count and display elements
+    if (enable_count) {
+		// create an observer instance
+		var observer = new MutationObserver(function(mutations) { aios_countItems(); if(!enable_count) { aios_removeCount(); } });
+		// configuration of the observer:
+		var config = { attributes: true, childList: true, characterData: true, subtree: true };
+		// pass in the target node, as well as the observer options
+		observer.observe(downloads_box, config);
     }
     else {
-        // Zahl im Titel entfernen
-        // => noetig nur direkt nach der Deaktivierung der Option, weil im Broadcaster die Anzahl gespeichert ist
-        if(top.document.getElementById('sidebar-title')) {
-            var title = top.document.getElementById('sidebar-title').getAttribute("value");
-
-            if(title.indexOf(" [") > 0) {
-                var newTitle = title.substring(0, title.indexOf(" ["));
-                top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-
-                if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
-            }
-        }
+		// remove downloads count
+		aios_removeCount();
     }
 
     if(document.getElementById("searchbox")) {
-
         window.setTimeout(function() {
             document.getElementById("searchbox").focus();
         }, 50);
-
     }
 
-    // Tastaturkuerzel entfernen, um nicht die des Hauptbrowsers zu blockieren
+	// Remove the keyboard shortcut so as not to block the main browser
     if(aios_inSidebar) aios_removeAccesskeys();
 
     return true;
 }
 
-
-/*
-    aktiviert das an die Sidebar angepasste Layout
-        => Aufruf durch aios_init()
-*/
-function aios_sidebarLayout() {
-    var cmdBar, i;
-
-    // CSS fuer Sidebar-Optimierungen aktivieren
-    aios_addCSS("downloads.css", aios_managerWindow);
-
-    cmdBar = document.getElementById("search");
-
-    // Toolbar nach oben versetzen
-    aios_managerWindow.insertBefore(cmdBar, aios_posElem);
-
-
-    // Buttons durch Toolbarbuttons ersetzen
-    var tbChilds = cmdBar.childNodes;
-    var tbutton, tobserver;
-    for(i = 0; i < tbChilds.length; i++) {
-
-        if(tbChilds[i].tagName == "button") {
-            tbutton = document.createElement("toolbarbutton");
-
-            for(var j = 0; j < tbChilds[i].attributes.length; j++) {
-                tbutton.setAttribute(tbChilds[i].attributes[j].name, tbChilds[i].attributes[j].value);
-            }
-
-            tbChilds[i].parentNode.replaceChild(tbutton, tbChilds[i]);
-        }
-    }
+function aios_removeCount() {
+	// Will only set this if in sidebar
+	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
+	var title, newTitle;
+	// Remove the number in the title
+	// => is required only after deactivating the option because the number is stored in the Broadcaster
+	if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
+		if(top.document.getElementById('sidebar-title'))
+		{
+			title = top.document.getElementById('sidebar-title').getAttribute("value");
+			
+			if(title.indexOf(" [") > 0) {
+				newTitle = title.substring(0, title.indexOf(" ["));
+				top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+				
+				if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+			}
+		}
+	} else {
+		title = document.title;
+		if(title.indexOf(" [") > 0) {
+			newTitle = title.substring(0, title.indexOf(" ["));
+			document.title = newTitle;
+		}
+	}
 }
 
 
 /*
-    zaehlt und zeigt die aktivierten und deaktivierten Extensions im Sidebartitel an
-        => Aufruf durch aios_init()
+	Activates the layout adapted to the sidebar
+		=> Called by aios_init()
+*/
+function aios_sidebarLayout() {
+    // Activate CSS for sidebar optimizations
+    aios_addCSS("downloads_sb.css", aios_managerWindow);
+}
+
+
+/*
+	Displays the activated and deactivated extensions in the sidebar title
+		=> Called by aios_init()
 */
 function aios_countItems() {
     if(!AiOS_HELPER.mostRecentWindow.document) return false;
 
-    // Fix fuer MR Tech Local Install
+    // Fix for MR Tech Local Install
     var li_count = false;
 
-    if(typeof Local_Install == "object") {
+    if (typeof Local_Install == "object") {
         var li_gPrefBranch = AiOS_HELPER.prefService.getBranch("local_install.");
         li_count = li_gPrefBranch.getBoolPref("showManagerTotals");
         if(li_count) return false;
         else Local_Install.setWindowTitle = function(){};
     }
 
-    // bisherigen Titel feststellen
+    // previous title
     var newTitle;
     var origTitle = "";
-    if(AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar")) origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
+    if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar"))
+	origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
 
-    if(document.getElementById("viewGroup")) {
-        if(document.getElementById("viewGroup").selectedItem) {
-            var viewTitle = document.getElementById("viewGroup").selectedItem.getAttribute('label');
-            origTitle = origTitle + " - " + viewTitle;
-        }
-    }
-
-    // Elemente zaehlen
-    //var exts = aios_filterItems(aios_boxElem.childNodes, function(c){ return c.nodeName == "richlistitem" });
+    // Count elements
     var exts = aios_filterItems();
-
     var str_count = "";
 
     var list_downloading = 0;
@@ -168,6 +125,7 @@ function aios_countItems() {
 
     for(var i = 0; i < exts.length; i++) {
         var state = exts[i].getAttribute('state');
+		var hasState = exts[i].hasAttribute('state');
 
         // downloading => starting + downloading + paused + downloading
         if(state == "-1" || state == "0" || state == "4" || state == "5") list_downloading++;
@@ -177,44 +135,54 @@ function aios_countItems() {
 
         // failed => failed + canceled
         if(state == "2" || state == "3") list_failed++;
+		
+		// some items don't have the state attribute, list as failed
+		if(hasState == false) list_failed++;
     }
-
+	
     str_count = list_done;
     if(list_downloading > 0 || list_failed > 0) str_count = str_count + "/" + list_downloading;
     if(list_failed > 0) str_count = str_count + "/" + list_failed;
 
-    newTitle = origTitle + " [" + str_count + "]";
-
-    // Titel und Label setzen
+	newTitle = origTitle + " [" + str_count + "]";
+	
+    // Set title and label
     document.title = newTitle;
+	
+	// Will only set this if in sidebar
+	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
 
-    if(top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-
-    // Sidebartitel im Broadcaster speichern, damit er beim Schliessen/oeffnen der Sidebar wiederhergestellt werden kann
-    if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+	if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
+		if(top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+	}
+	
+    // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
+    if (aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
 
     return true;
 }
 
 
-/*
-    Original-Code by Caio Chassot
-        Slim_Extension_List_0.1
-        http://v2studio.com/k/moz/
+function aios_search(term) {
+	downloads_box._placesView.searchTerm = term;
+}
 
-        => Aufruf durch aios_init()
+function aios_clear() {
+	downloads_box.clearSelection();
+	downloads_box._placesView.doCommand("downloadsCmd_clearDownloads");
+	aios_countItems();
+}
 
-function aios_filterItems(l,f) {
-    var r = [];
-    if (!f) f = function(v){return v};
-    for (var i=0; i<l.length; i++) if (f(l[i])) r.push(l[i]);
-    return r;
+/* 
+	Original code by Caio Chassot: Slim_Extension_List_0.1
+	http://v2studio.com/k/moz/
+		=> Called by aios_init()
 }*/
 function aios_filterItems() {
     var r = [];
     var childs;
 
-    childs = document.getElementById("downloadView").childNodes;
+    childs = downloads_box.childNodes;
 
     for (var i = 0; i < childs.length; i++) {
         if (childs[i].nodeName == "richlistitem" && childs[i].getAttribute('hidden') != "true") {
@@ -223,38 +191,4 @@ function aios_filterItems() {
     }
 
     return r;
-}
-
-
-/*
-    legt den Sidebartitel fest (nur bei Add-ons)
-        => Aufruf durch aios_init() und onclick-Handler auf den Radio-Buttons
-*/
-function aios_setTitle(aObj) {
-    if(typeof Local_Install == "object") return false;
-
-    if(!AiOS_HELPER.mostRecentWindow.document) return false;
-
-    var newTitle;
-    var origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
-
-    var viewTitle;
-
-    // Label des zukuenftigen Panels (ausgeloest nur durch Klick auf Radio-Button)
-    if(typeof aObj == "object") viewTitle = aObj.getAttribute('label');
-    // Label des selektierten Radio-Buttons
-    else if(document.getElementById("viewGroup")) viewTitle = document.getElementById("viewGroup").selectedItem.getAttribute('label');
-
-    newTitle = origTitle + " - " + viewTitle;
-
-    // Titel und Label setzen
-    //document.title = newTitle;
-
-    if(!top.document.getElementById('sidebar-title')) return false;
-    top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-
-    // Sidebartitel im Broadcaster speichern, damit er beim Schliessen/oeffnen der Sidebar wiederhergestellt werden kann
-    if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
-
-    return true;
 }

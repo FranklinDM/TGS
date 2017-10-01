@@ -129,18 +129,19 @@ function onLoadPageInfo() {
     gStrings.notSet = gBundle.getString("notset");
     gStrings.mediaImg = gBundle.getString("mediaImg");
     gStrings.mediaBGImg = gBundle.getString("mediaBGImg");
+    gStrings.mediaBorderImg = gBundle.getString("mediaBorderImg");
+    gStrings.mediaListImg = gBundle.getString("mediaListImg");
+    gStrings.mediaCursor = gBundle.getString("mediaCursor");
     gStrings.mediaObject = gBundle.getString("mediaObject");
     gStrings.mediaEmbed = gBundle.getString("mediaEmbed");
     gStrings.mediaLink = gBundle.getString("mediaLink");
     gStrings.mediaInput = gBundle.getString("mediaInput");
-    //@line 292 "e:\builds\moz2_slave\rel-cen-w32-bld\build\browser\base\content\pageinfo\pageInfo.js"
     gStrings.mediaVideo = gBundle.getString("mediaVideo");
     gStrings.mediaAudio = gBundle.getString("mediaAudio");
-    //@line 295 "e:\builds\moz2_slave\rel-cen-w32-bld\build\browser\base\content\pageinfo\pageInfo.js"
-
+	
     var args = "arguments" in window &&
-    window.arguments.length >= 1 &&
-    window.arguments[0];
+			   window.arguments.length >= 1 &&
+			   window.arguments[0];
 
     // mod by eXXile
     if(aios_inSidebar) {
@@ -151,7 +152,6 @@ function onLoadPageInfo() {
         gWindow = AiOS_HELPER.mostRecentWindow.content.window;
     }
     else if(aios_inTab) {
-
         gDocument = AiOS_HELPER.mostRecentWindow.aiosLastSelTab.document;
         gWindow = AiOS_HELPER.mostRecentWindow.content.window;
     }
@@ -170,8 +170,8 @@ function onLoadPageInfo() {
     /* Select the requested tab, if the name is specified */
     loadTab(args);
     Components.classes["@mozilla.org/observer-service;1"]
-    .getService(Components.interfaces.nsIObserverService)
-    .notifyObservers(window, "page-info-dialog-loaded", null);
+					  .getService(Components.interfaces.nsIObserverService)
+					  .notifyObservers(window, "page-info-dialog-loaded", null);
 }
 
 
@@ -179,18 +179,17 @@ var security = {
     // Display the server certificate (static)
     viewCert : function () {
         var cert = security._cert;
-        //viewCertHelper(window, cert);
-
+        
         // mod by eXXile
         if(aios_inSidebar) viewCertHelper(AiOS_HELPER.mostRecentWindow.content.window, cert);
         else if(aios_inTab) viewCertHelper(AiOS_HELPER.mostRecentWindow.aiosLastSelTab.window, cert);
         else viewCertHelper(window, cert);
-    // endmod by eXXile
+		// endmod by eXXile
     },
 
     _getSecurityInfo : function() {
         const nsIX509Cert = Components.interfaces.nsIX509Cert;
-        //mod by exxile const nsIX509CertDB = Components.interfaces.nsIX509CertDB;
+        const nsIX509CertDB = Components.interfaces.nsIX509CertDB;
         const nsX509CertDB = "@mozilla.org/security/x509certdb;1";
         const nsISSLStatusProvider = Components.interfaces.nsISSLStatusProvider;
         const nsISSLStatus = Components.interfaces.nsISSLStatus;
@@ -212,6 +211,9 @@ var security = {
 
         var isBroken =
         (ui.state & Components.interfaces.nsIWebProgressListener.STATE_IS_BROKEN);
+		var isMixed =
+		(ui.state & (Components.interfaces.nsIWebProgressListener.STATE_LOADED_MIXED_ACTIVE_CONTENT |
+					 Components.interfaces.nsIWebProgressListener.STATE_LOADED_MIXED_DISPLAY_CONTENT));
         var isInsecure =
         (ui.state & Components.interfaces.nsIWebProgressListener.STATE_IS_INSECURE);
         var isEV =
@@ -230,30 +232,57 @@ var security = {
                 cAName : issuerName,
                 encryptionAlgorithm : undefined,
                 encryptionStrength : undefined,
-                isBroken : isBroken,
+				encryptionSuite : undefined,
+				version: undefined,
+				isBroken : isBroken,
+				isMixed : isMixed,
                 isEV : isEV,
                 cert : cert,
                 fullLocation : gWindow.location
             };
 
+			var version;
             try {
                 retval.encryptionAlgorithm = status.cipherName;
                 retval.encryptionStrength = status.secretKeyLength;
+				retval.encryptionSuite = status.cipherSuite;
+				version = status.protocolVersion;
             }
             catch (e) {
             }
+			
+			switch (version) {
+				case nsISSLStatus.SSL_VERSION_3:
+				  retval.version = "SSL 3";
+				  break;
+				case nsISSLStatus.TLS_VERSION_1:
+				  retval.version = "TLS 1.0";
+				  break;
+				case nsISSLStatus.TLS_VERSION_1_1:
+				  retval.version = "TLS 1.1";
+				  break;
+				case nsISSLStatus.TLS_VERSION_1_2:
+				  retval.version = "TLS 1.2"
+				  break;
+				case nsISSLStatus.TLS_VERSION_1_3:
+				  retval.version = "TLS 1.3"
+				  break;
+			}
 
             return retval;
         } else {
             return {
-                hostName : hName,
-                cAName : "",
-                encryptionAlgorithm : "",
-                encryptionStrength : 0,
-                isBroken : isBroken,
-                isEV : isEV,
-                cert : null,
-                fullLocation : gWindow.location
+				hostName : hName,
+				cAName : "",
+				encryptionAlgorithm : "",
+				encryptionStrength : 0,
+				encryptionSuite : "",
+				version: "",
+				isBroken : isBroken,
+				isMixed : isMixed,
+				isEV : isEV,
+				cert : null,
+				fullLocation : gWindow.location 
             };
         }
     },

@@ -15,6 +15,10 @@ pref("extensions.aios.gen.orient", 1);
 pref("extensions.aios.collapse", true);
 pref("extensions.aios.rightclick", false);
 
+pref("extensions.aios.lw.defaultbg", true);
+pref("extensions.aios.lw.custombg", "");
+pref("extensions.aios.lw.repeat", false);
+
 pref("extensions.aios.gen.width.minVal", 200);
 pref("extensions.aios.gen.width.minUnit", "px");
 pref("extensions.aios.gen.width.defVal", 300);
@@ -52,6 +56,7 @@ pref("extensions.aios.fs.restore", true);
 /*
  *  Panels
  **/
+pref("extensions.aios.dm.observer", true);
 pref("extensions.aios.dm.sidebar", true);
 pref("extensions.aios.dm.layout", true);
 pref("extensions.aios.dm.layoutall", false);
@@ -78,6 +83,9 @@ pref("extensions.aios.co.sidebar", true);
 pref("extensions.aios.co.layout", true);
 pref("extensions.aios.co.layoutall", false);
 
+pref("extensions.aios.ks.sidebar", true);
+pref("extensions.aios.ks.layout", true);
+pref("extensions.aios.ks.layoutall", false);
 
 /*
  *  Menus

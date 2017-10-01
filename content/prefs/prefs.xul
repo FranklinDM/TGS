@@ -580,6 +580,9 @@
             <preference id="COOpen"         type="bool"     name="extensions.aios.co.sidebar" />
             <preference id="COLayout"       type="bool"     name="extensions.aios.co.layout" />
 
+            <preference id="KSOpen"         type="bool"     name="extensions.aios.ks.sidebar" />
+            <preference id="KSLayout"       type="bool"     name="extensions.aios.ks.layout" />
+			
             <preference id="PanelTabReverse"    type="bool"     name="extensions.aios.paneltab.reverse" />
             <preference id="PanelTabBMM"    type="bool"     name="extensions.aios.paneltab.bm" />
         </preferences>
@@ -638,7 +641,6 @@
                             <caption label="&tab.gen.behavior;" />
                             <checkbox preference="DMOpen" label="&misc.enablesidebar.label; *" aiosChilds="DMLayout, DMAutoOpen, DMAutoClose" oncommand="aios_checkboxObserver(this);" />
 
-<!--
                             <vbox class="indent">
                                 <checkbox preference="DMAutoOpen" label="&misc.dm.autoopen.label;" aiosChilds="DMAutoClose" oncommand="aios_checkboxObserver(this);" />
                                 <vbox class="indent">
@@ -649,15 +651,12 @@
                             <vbox class="indent spacer" aiosAdvanced="true">
                                 <checkbox preference="DMLayout" label="&misc.layout.label;" />
                             </vbox>
--->
                         </groupbox>
 
-<!--
                         <groupbox>
                             <caption label="&tab.gen.appearance;" />
                             <checkbox preference="DMCount" label="&misc.count.label;" />
                         </groupbox>
--->
                     </vbox>
 
                     <spacer flex="1" />
@@ -727,6 +726,15 @@
 
                             <vbox class="indent" aiosAdvanced="true">
                                 <checkbox preference="COLayout" label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+						
+                        <groupbox>
+                            <caption label="&button.cookies.label;" />
+                            <checkbox preference="KSOpen" label="&misc.enablesidebar.label; *" aiosChilds="KSLayout" oncommand="aios_checkboxObserver(this);" />
+
+                            <vbox class="indent" aiosAdvanced="true">
+                                <checkbox id="obj-KSLayout" preference="KSLayout" label="&misc.layout.label;" />
                             </vbox>
                         </groupbox>
 

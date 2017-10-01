@@ -1,0 +1,13 @@
+window button[oncommand="close();"],
+window resizer,
+window #cookiesIntro {
+	display: none;
+}
+
+window .contentPane {
+	margin: 0 !important;
+}
+
+window[aios-appDefTheme="true"] {
+    background-color: #EEF3FA;
+}
