@@ -31,32 +31,15 @@ function aios_init() {
     // Count and display elements
     if (enable_count) {
 		// create an observer instance
-		var observer = new MutationObserver(function(mutations) {
-			sideSrc = top.document.getElementById('sidebar').getAttribute('src');
-			if (sideSrc.indexOf('about:downloads') >= 0) {
-				aios_countItems();
-			}
-			});
+		var observer = new MutationObserver(function(mutations) { aios_countItems(); if(!enable_count) { aios_removeCount(); } });
 		// configuration of the observer:
 		var config = { attributes: true, childList: true, characterData: true, subtree: true };
 		// pass in the target node, as well as the observer options
 		observer.observe(downloads_box, config);
-        // Update the title when creating the download list
-		aios_countItems();
     }
     else {
-		// Remove the number in the title
-        // => is required only after deactivating the option because the number is stored in the Broadcaster
-        if(top.document.getElementById('sidebar-title')) {
-            var title = top.document.getElementById('sidebar-title').getAttribute("value");
-
-            if(title.indexOf(" [") > 0) {
-                var newTitle = title.substring(0, title.indexOf(" ["));
-                top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-
-                if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
-            }
-        }
+		// remove downloads count
+		aios_removeCount();
     }
 
     if(document.getElementById("searchbox")) {
@@ -69,6 +52,33 @@ function aios_init() {
     if(aios_inSidebar) aios_removeAccesskeys();
 
     return true;
+}
+
+function aios_removeCount() {
+	// Will only set this if in sidebar
+	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
+	var title, newTitle;
+	// Remove the number in the title
+	// => is required only after deactivating the option because the number is stored in the Broadcaster
+	if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
+		if(top.document.getElementById('sidebar-title'))
+		{
+			title = top.document.getElementById('sidebar-title').getAttribute("value");
+			
+			if(title.indexOf(" [") > 0) {
+				newTitle = title.substring(0, title.indexOf(" ["));
+				top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+				
+				if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+			}
+		}
+	} else {
+		title = document.title;
+		if(title.indexOf(" [") > 0) {
+			newTitle = title.substring(0, title.indexOf(" ["));
+			document.title = newTitle;
+		}
+	}
 }
 
 
@@ -102,8 +112,8 @@ function aios_countItems() {
     // previous title
     var newTitle;
     var origTitle = "";
-    if(AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar"))
-		origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
+    if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar"))
+	origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
 
     // Count elements
     var exts = aios_filterItems();
@@ -134,16 +144,20 @@ function aios_countItems() {
     if(list_downloading > 0 || list_failed > 0) str_count = str_count + "/" + list_downloading;
     if(list_failed > 0) str_count = str_count + "/" + list_failed;
 
-	//	var str_count = exts.length;
 	newTitle = origTitle + " [" + str_count + "]";
 	
     // Set title and label
     document.title = newTitle;
+	
+	// Will only set this if in sidebar
+	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
 
-    if(top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-
+	if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
+		if(top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+	}
+	
     // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
-    if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+    if (aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
 
     return true;
 }
@@ -177,34 +191,4 @@ function aios_filterItems() {
     }
 
     return r;
-}
-
-/*
-	Sets the sidebar title (only for add-ons)
-		=> Called by aios_init() and onclick handler on the radio buttons
-*/
-function aios_setTitle(aObj) {
-    if(typeof Local_Install == "object") return false;
-
-    if(!AiOS_HELPER.mostRecentWindow.document) return false;
-
-    var newTitle;
-    var origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
-
-    var viewTitle;
-
-    // Label of the future panel (triggered only by clicking on radio button)
-    if(typeof aObj == "object") viewTitle = aObj.getAttribute('label');
-    // Label of the selected radio button
-    else if(document.getElementById("viewGroup")) viewTitle = document.getElementById("viewGroup").selectedItem.getAttribute('label');
-
-    newTitle = origTitle + " - " + viewTitle;
-
-    if(!top.document.getElementById('sidebar-title')) return false;
-    top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-
-    // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
-    if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
-
-    return true;
 }
