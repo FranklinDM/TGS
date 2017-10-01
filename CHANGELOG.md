@@ -1,6 +1,34 @@
 
 # Changelog
 
+### 1.0.4 (10.01.2017)
+* Minor: Fix #26 - Use lwtheme's background color in browser element
+  * Use the lightweight theme's defined background color by default and set it as the background of the browser element: a workaround to the half cut background image.
+  * There are some hidden preferences regarding this, check the hidden settings page of the wiki.
+* Major: Fix #25 - Restore features of Downloads panel
+  * Restores the following features:
+  * Optimized downloads sidebar layout
+  * Downloads count, search, and clear all downloads.css
+  * Open downloads sidebar when downloading something (and close when finished)
+  * There is no need to install a separate add-on to search or clear downloads list
+* Minor: Improve dl-indicator command replacement logic (or whatever you call it)
+* Minor: Fix #24 - update local copy of pageinfo.js
+  * In previous versions, you will see (null) in some parts
+* Minor: Fix broken changelog mechanism (you will now see a changelog on update)
+* Minor: Sidebar panel should be hidden during print preview
+  * CSS style for this wasn't properly put during the unminification
+* Minor: Put downloads override under a pref
+* Minor: Resolve #23 - Follow up to cookies panel implementation
+  * Optimize cookie panel layout for the sidebar
+  * Allow it to either open in sidebar/dialog
+  * Add it to the options window
+* Minor: Show version in about window
+  * Was gone because it's searching for AiOS add-on id.
+  * In previous versions, will instead show AiOS' version when installed alongside TGS
+* Ignore: Clicking on MultiPanel urlbar selects all text
+* Ignore: Fix JS errors in add-ons panel
+  * Remove undefined debug variable
+
 ### 1.0.3 (09.23.2017)
 * Minor: Fix #21 Missing tab bar close button when using TMP
   * Reverse a crude workaround applied in the past which hides .tab-closebutton in entirety instead of just hiding it when it appears inside the sidebar header, which causes the close button everywhere to be gone (ex. TMP).
