@@ -5,6 +5,7 @@
 pref("extensions.tgsidebar@franklindm.description", "chrome://aios/locale/lib.properties");
 pref("extensions.aios.changelog", "");
 pref("extensions.aios.infotips", true);
+pref("extensions.aios.switchtip", true);
 pref("extensions.aios.vbuttons", true);
 
 

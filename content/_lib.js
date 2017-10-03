@@ -452,23 +452,25 @@ function aios_setTargets() {
         targets['co'] = new Array('Tools:Console', 'viewConsole2Sidebar', 'console');
 
 	// activate informative tooltips and function reversal (PanelTab)?
-    var prefInfotip = false, ptReverse = false, mbSeparate = false, enable_rightclick = false;
+    var prefInfotip = false, ptReverse = false, mbSeparate = false, enable_rightclick = false, switchTip = true;
     try {
         prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
         ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
 		mbSeparate = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.mbSep");
 		enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
+		switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
 
         if(prefInfotip) {
             if(elem_switch) elem_switch.removeAttribute('tooltiptext');
 
-            //if(document.getElementById('paneltab-button')) document.getElementById('paneltab-button').removeAttribute('tooltiptext');
             // in Schleife, weil es mehrere Buttons mit der gleichen ID geben kann
             objects = document.getElementsByAttribute('id', 'paneltab-button');
             for(i = 0; i < objects.length; i++) {
                 objects[i].removeAttribute('tooltiptext');
             }
         }
+		
+		if (!switchTip) if (elem_switch) elem_switch.removeAttribute('tooltip');
 
         if(document.getElementById('paneltab-button')) {
             if(ptReverse) document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip-reverse');
@@ -574,7 +576,6 @@ function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
             }
 
             // Remove Tooltiptext to make info tooltips visible (looped because there may be several buttons with the same ID)
-            //if(prefInfotip && btObj) btObj.removeAttribute('tooltiptext');
             if(prefInfotip && btObj) {
                 objects = document.getElementsByAttribute('id', btObj.id);
                 for(i = 0; i < objects.length; i++) {
