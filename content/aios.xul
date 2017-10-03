@@ -108,6 +108,15 @@
         <command id="Tools:MultiPanel" oncommand="aios_openDialog('multipanel');" />
         <command id="Tools:Console" oncommand="toJavaScriptConsole();" />
 
+        <command id="View:Bookmarks-tb" oncommand="aios_openDialog('bookmarks');" />
+        <command id="View:History-tb" oncommand="aios_openDialog('history');" />
+        <command id="View:Cookies-tb" oncommand="aios_openDialog('cookies');" />
+		<command id="View:PageInfo-tb" oncommand="BrowserPageInfo();"/>
+        <command id="Tools:MultiPanel-tb" oncommand="aios_openDialog('multipanel');" />
+        <command id="Tools:Console-tb" oncommand="toJavaScriptConsole();" />
+	    <command id="Tools:Downloads-tb" oncommand="BrowserDownloadsUI();"/>
+		<command id="Tools:Addons-tb" oncommand="BrowserOpenAddonsMgr();"/>
+		
         <command id="aiosCmd_panelTab1" oncommand="aios_panelTab('sidebar');" />
         <command id="aiosCmd_panelTab2" oncommand="aios_panelTab('tab');" />
         <command id="aiosCmd_prefs" oncommand="aios_openDialog('prefs');" />
@@ -166,27 +175,27 @@
 
         <toolbarbutton id="bookmarks-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
             label="&bookmarksButton.label;" tooltip="bookmarks-tooltip" tooltiptext="&bookmarksButton.label;"
-            command="View:Bookmarks">
+            command="View:Bookmarks-tb">
             <observes element="viewBookmarksSidebar" attribute="checked" />
             <observes element="viewBookmarksSidebar" attribute="onclick" />
         </toolbarbutton>
 
         <toolbarbutton id="history-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
             label="&historyButton.label;" tooltip="history-tooltip" tooltiptext="&historyButton.label;"
-            command="View:History">
+            command="View:History-tb">
             <observes element="viewHistorySidebar" attribute="checked" />
             <observes element="viewHistorySidebar" attribute="onclick" />
         </toolbarbutton>
 
         <toolbarbutton id="downloads-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
             label="&downloads.label;" tooltip="downloads-tooltip" tooltiptext="&downloads.label;"
-            command="Tools:Downloads">
+            command="Tools:Downloads-tb">
             <observes element="viewDownloadsSidebar" attribute="checked" />
             <observes element="viewDownloadsSidebar" attribute="onclick" />
         </toolbarbutton>
 
         <toolbarbutton id="addons-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
-            command="Tools:Addons"
+            command="Tools:Addons-tb"
             ondragenter="toggleSidebar('viewAddonsSidebar', true);"
             label="&button.addons.label;" tooltip="addons-tooltip" tooltiptext="&button.addons.tooltip;">
             <observes element="viewAddonsSidebar" attribute="checked" />
@@ -194,28 +203,28 @@
         </toolbarbutton>
 
         <toolbarbutton id="multipanel-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
-            command="Tools:MultiPanel"
+            command="Tools:MultiPanel-tb"
             label="&button.multipanel.label;" tooltip="multipanel-tooltip" tooltiptext="&button.multipanel.tooltip;">
             <observes element="viewWebPanelsSidebar" attribute="checked" />
             <observes element="viewWebPanelsSidebar" attribute="onclick" />
         </toolbarbutton>
 
         <toolbarbutton id="pageinfo-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
-            command="View:PageInfo"
+            command="View:PageInfo-tb"
             label="&pageInfoCmd.label;" tooltip="pageinfo-tooltip" tooltiptext="&button.pageinfo.tooltip;">
             <observes element="viewPageInfoSidebar" attribute="checked" />
             <observes element="viewPageInfoSidebar" attribute="onclick" />
         </toolbarbutton>
 
         <toolbarbutton id="cookies-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
-            command="View:Cookies"
+            command="View:Cookies-tb"
             label="&button.cookies.label;" tooltip="cookies-tooltip" tooltiptext="&button.cookies.tooltip;">
             <observes element="viewCookiesSidebar" attribute="checked" />
             <observes element="viewCookiesSidebar" attribute="onclick" />
         </toolbarbutton>
 		
         <toolbarbutton id="console-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
-            command="Tools:Console"
+            command="Tools:Console-tb"
             label="&button.console.label;" tooltip="console-tooltip" tooltiptext="&button.console.tooltip;">
             <observes element="viewConsoleSidebar" attribute="checked" />
             <observes element="viewConsole2Sidebar" attribute="checked" />

@@ -12,6 +12,7 @@ pref("extensions.aios.vbuttons", true);
  *  General
  **/
 pref("extensions.aios.gen.orient", 1);
+pref("extensions.aios.gen.mbSep", false);
 pref("extensions.aios.collapse", true);
 pref("extensions.aios.rightclick", false);
 

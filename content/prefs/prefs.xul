@@ -98,6 +98,7 @@
             <preference id="cmodeClose"     type="int"          name="extensions.aios.cmode.close" />
 
             <preference id="SBCollapsing"   type="bool"         name="extensions.aios.collapse" />
+			<preference id="SBIntercept"	type="bool"			name="extensions.aios.gen.mbSeparate" />
         </preferences>
 
         <tooltip id="minWidthHint" class="labelTipElem">
@@ -260,6 +261,7 @@
                     <vbox class="aiosSizeBox">
 
 <!-- Startup -->
+                        <checkbox preference="SBIntercept" label="&gen.mbSeparate;" />
 
                         <groupbox>
                             <caption label="&gen.init.caption;" />
@@ -350,7 +352,7 @@
 
                             <checkbox preference="FSSidebar" label="&sidebar.close.label;" />
                             <checkbox preference="FSToolbar" label="&gen.init.toolbar.hide.label;" />
-                            <checkbox preference="FSSwitch" label="&gen.init.switch.hide.label;" aiosAdvanced="true" />
+                            <checkbox preference="FSSwitch"  label="&gen.init.switch.hide.label;" aiosAdvanced="true" />
                             <checkbox preference="FSRestore" label="&gen.fs.off;" aiosAdvanced="true" />
 
                         </groupbox>

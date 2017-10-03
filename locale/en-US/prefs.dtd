@@ -54,6 +54,7 @@
 <!ENTITY gen.switch.thin "Enable Thin Sidebar Switch">
 <!ENTITY gen.switch.width "Width of the Sidebar Switch">
 <!ENTITY gen.switch.twidth "Width of the Thin Sidebar Switch">
+<!ENTITY gen.mbSeparate "Don't open in sidebar panel when opened from menu/key shortcuts">
 <!ENTITY cmode.caption "Toggle Sidebar">
 <!ENTITY cmode.desc "Customize which elements should be affected if opening or closing the sidebar with different methods.">
 <!ENTITY cmode.key.label "Shortcut (F4)">

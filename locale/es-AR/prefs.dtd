@@ -53,6 +53,7 @@
 <!ENTITY gen.switch.thin "Habilitar Comando de Barra Lateral Delgada">
 <!ENTITY gen.switch.width "Ancho del Selector de la Barra Lateral">
 <!ENTITY gen.switch.twidth "Ancho del Selector Fino de la Barra Lateral">
+<!ENTITY gen.mbSeparate "Don't open in sidebar panel when opened from menu/key shortcuts">
 <!ENTITY cmode.caption "Intercambiar Barra Lateral">
 <!ENTITY cmode.desc "Personalizar cuales elementos se deben alterar si se abre o cierra la barra lateral con métodos diferentes">
 <!ENTITY cmode.key.label "Atajo (F4)">

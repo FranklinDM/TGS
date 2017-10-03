@@ -53,6 +53,7 @@
 <!ENTITY gen.switch.thin "Habilitar el selector fino del panel lateral">
 <!ENTITY gen.switch.width "Ancho del selector del panel lateral">
 <!ENTITY gen.switch.twidth "Ancho del selector fino del panel lateral">
+<!ENTITY gen.mbSeparate "Don't open in sidebar panel when opened from menu/key shortcuts">
 <!ENTITY cmode.caption "Activar panel lateral">
 <!ENTITY cmode.desc "Permite personalizar qué elementos se verán afectados al abrir o cerrar el panel con diferentes métodos.">
 <!ENTITY cmode.key.label "Método abreviado (F4)">
