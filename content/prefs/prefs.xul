@@ -12,7 +12,6 @@
     <!ENTITY % commonDTD SYSTEM "chrome://aios/content/aios.dtd"> %commonDTD;
     <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
     <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
-    <!ENTITY % webpanelDTD SYSTEM "chrome://aios/locale/webpanel.dtd"> %webpanelDTD;
 ]>
 
 <prefwindow id="aiosPreferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -26,7 +25,7 @@
     onload = "aios_initPrefs();"
     ondialogaccept = "aios_savePrefs();"
     ondialogextra1 = "aios_applyPrefs();"
-    ondialogdisclosure = "aios_addTab('http://firefox.exxile.net/aios/faq.php');">
+    ondialogdisclosure = "aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ');">
 
     <box>
 
@@ -461,7 +460,7 @@
                                 <description width="100%" flex="1" align="center">&cmode.desc;</description>
 
                                 <toolbarbutton style="float:right;" class="labelTip info" tooltiptext="&misc.enablelink.tooltip;"
-                                    oncommand="aios_addTab('http://firefox.exxile.net/aios/faq.php#operabehav');" />
+                                    oncommand="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ#what-is-operas-behavior');" />
                             </hbox>
 
                             <grid flex="1">
@@ -541,7 +540,7 @@
                                 <description width="100%" flex="1" align="center">&special.collapsing.desc;</description>
 
                                 <toolbarbutton style="float:right;" class="labelTip info" tooltiptext="&misc.enablelink.tooltip;"
-                                    oncommand="aios_addTab('http://firefox.exxile.net/aios/faq.php#collapsing');" />
+                                    oncommand="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ#what-does-sidebar-collapsing-mean');" />
                             </hbox>
 
                             <checkbox id="obj-SBCollapsing" preference="SBCollapsing" label="&special.collapsing.label;" flex="1" />
