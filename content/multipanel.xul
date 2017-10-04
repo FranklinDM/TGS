@@ -100,8 +100,11 @@
 					 tabscrolling="true"
 					 enablehistory="true"
 					 ontextreverted="return WebPanels.onTextReverted();"
-					 ontextentered="return WebPanels.onTextEntered(param);">
+					 ontextentered="return WebPanels.onTextEntered(param);"
+					 ondrop="return WebPanels.onTextDrop(event);">
 				<hbox id="urlbar-icons">
+					<!-- Throbber for out-of-sidebar situations -->
+					<image id="sidebar-throbber"/>
 					<!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
 					<image id="lock-icon" onclick="BrowserPageInfo(webPanel.contentDocument); event.stopPropagation();"/>
 				</hbox>
@@ -187,5 +190,4 @@
     </page>
 
     <browser id="web-panels-browser" persist="cachedurl linkedopt" type="content" onclick="WebPanels.onContentAreaClick(event, true);"/>
-
 </overlay>

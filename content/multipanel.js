@@ -24,6 +24,9 @@ function aios_init() {
 	
 	// Set linked btn attribute
 	document.getElementById("aios-linkedbtn").setAttribute("checked", webPanel.getAttribute("linkedopt")); 
+	
+	// Set URLBar value to cached one
+	WebPanels.URLBar.value = webPanel.getAttribute("cachedurl");
 
     // For CSS purposes
     AiOS_HELPER.rememberAppInfo( document.getElementById('webpanels-window') );
@@ -77,23 +80,15 @@ var panelProgressListener = {
         aios_setOptions();
 		var asc = aLocation;
 		// Change urlbar link when browser panel location changes
-		document.getElementById("urlbar").value = asc.spec;
-		// And set last valid URI also
+		WebPanels.URLBar.value = asc.spec;
+		// And set last valid URI also (for text reverted)
 		WebPanels.lastValidURI = asc;
 		// Set vars for back/forward commands
 		var bcb = document.getElementById('Browser:Back');
 		var fwb = document.getElementById('Browser:Forward');
-		// Work around for broken back/forward button states
-		// TODO: Use diff. style w/o using if/else statements
-		if (webPanel.canGoBack)
-			bcb.setAttribute('disabled', 'false');
-		else
-			bcb.setAttribute('disabled', 'true');
-		
-		if (webPanel.canGoForward)
-			fwb.setAttribute('disabled', 'false');
-		else
-			fwb.setAttribute('disabled', 'true');
+		// Work around for broken back/forward button states		
+		fwb.setAttribute('disabled', !webPanel.canGoForward);
+		bcb.setAttribute('disabled', !webPanel.canGoBack);
     },
 
     onStatusChange: function(aWebProgress, aRequest, aStatus, aMessage) {
@@ -219,6 +214,8 @@ function aios_setMultiPanel(aMode) {
 
     var newLabel = "";
 
+	WebPanels.URLBar.value = panelLoc;
+	
 	// Open MultiPanel or load contents
     if(top.document.getElementById('sidebar') && top.toString() != "[object Window]")   top.openWebPanel(newLabel, panelLoc);
     else webPanel.contentDocument.location.href = panelLoc;
@@ -433,5 +430,17 @@ var WebPanels = {
 	
     // Load the typed url, if blank, don't do anything
 	webPanel.contentDocument.location.href = url.spec;
+  },
+  
+  onTextDrop: function mp_onTextDrop(event) {
+	// Get dropped text
+	var data = event.dataTransfer.getData("Text");
+
+	// Sanitize the URL
+	var url = this.sanitizeURL(data);
+	this.lastValidURI = url;
+	
+    // Load the typed url, if blank, don't do anything
+	webPanel.contentDocument.location.href = url.spec;	
   }
 }
