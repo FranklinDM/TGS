@@ -3,6 +3,8 @@ window.addEventListener("load", aios_initSidebar, false);
 window.addEventListener("resize", aios_checkThinSwitch, false);
 window.addEventListener("fullscreen", aios_BrowserFullScreen, false);
 //window.addEventListener("mozfullscreenchange", aios_BrowserFullScreen, false);
+window.addEventListener("beforecustomization", aios_customizeStart, false);
+window.addEventListener("aftercustomization", aios_customizeEnd, false);
 
 // sonst werden neu definierte Shortcuts bei Browser-Neustart zurueckgesetzt
 extLoad.add(30, function() {
@@ -828,6 +830,32 @@ function aios_BrowserFullScreen() {
     aios_adjustToolboxWidth(false);
 
     return true;
+}
+
+var aswTemp; // Temporary variable for autoshow
+
+/*
+	Before customization event
+*/
+function aios_customizeStart(e) {
+	if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow')) {
+		// Temporarily disable autoshow feature
+		AiOS_HELPER.prefBranchAiOS.setBoolPref('gen.switch.autoshow', false);
+		// Set temporary variable
+		aswTemp = true;
+	}
+}
+
+/*
+	After customization event
+*/
+function aios_customizeEnd(e) {
+	if (aswTemp) {
+		// Re-enable autoshow feature
+		window.setTimeout(function() {
+			AiOS_HELPER.prefBranchAiOS.setBoolPref('gen.switch.autoshow', true);
+		}, 200);
+	}
 }
 
 /*
