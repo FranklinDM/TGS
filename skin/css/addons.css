@@ -7,7 +7,7 @@ page[aios-inSidebar] .main-content, page[aios-inSidebar] .view-pane>.list>scroll
 page[aios-inSidebar] #nav-header {
     display: none;
 }
-page[aios-inSidebar]>hbox {
+page[aios-inSidebar] > hbox {
     -moz-box-orient: vertical;
 }
 page[aios-inSidebar] #categories {

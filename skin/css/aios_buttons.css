@@ -40,7 +40,11 @@ toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks
 #cookies-button {
     -moz-image-region: rect(1px,  233px,  17px,  217px);
 }
-menuitem[key="aiosKey_panelTab1"], menuitem[key="aiosKey_panelTab2"], menuitem#aios-sidebar-mitem-show, menuitem#aios-sidebar-mitem-hide, menuitem[key="aiosKey_prefs"] {
+menuitem[key="aiosKey_panelTab1"],
+menuitem[key="aiosKey_panelTab2"],
+menuitem[key="aiosKey_prefs"], 
+menuitem #aios-sidebar-mitem-show, 
+menuitem #aios-sidebar-mitem-hide {
     list-style-image: url(../icons/panels_menus.png);
 }
 menuitem[key="aiosKey_panelTab1"] {
@@ -49,10 +53,10 @@ menuitem[key="aiosKey_panelTab1"] {
 menuitem[key="aiosKey_panelTab2"] {
     -moz-image-region: rect(16px,  32px,  32px,  16px);
 }
-menuitem#aios-sidebar-mitem-hide {
+menuitem #aios-sidebar-mitem-hide {
     -moz-image-region: rect(16px,  48px,  32px,  32px);
 }
-menuitem#aios-sidebar-mitem-show {
+menuitem #aios-sidebar-mitem-show {
     -moz-image-region: rect(16px,  64px,  32px,  48px);
 }
 menuitem[key="aiosKey_prefs"] {

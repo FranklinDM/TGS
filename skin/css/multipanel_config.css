@@ -15,9 +15,6 @@ window[aios-appDefTheme="true"] #configTree {
 window[aios-appDefTheme="true"] #configTree treechildren {
     margin-left: 5px;
 }
-window[aios-appDefTheme="true"][aios-appOSVersion="Windows NT 5.1"] #filterRow {
-    border-bottom: 1px solid ThreedShadow;
-}
 window[aios-appDefTheme="true"][aios-appOS="Darwin"] #filterRow {
     padding-bottom: 5px;
     background-color: #D4DDE5;

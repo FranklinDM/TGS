@@ -8,6 +8,6 @@ window .contentPane {
 	margin: 0 !important;
 }
 
-window[aios-appDefTheme="true"] {
+window[aios-inSidebar][aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) {
     background-color: #EEF3FA;
 }

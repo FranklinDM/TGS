@@ -1,9 +1,9 @@
-richlistitem:not([selected=true]) {
-    padding: 5px;
-}
+/* Don't enforce a height and use 0 padding for smaller items */
 #downloadsRichListBox > richlistitem.download {
     height: auto;
+	padding: 0;
 }
+/* Smaller icon when not selected */
 richlistitem:not([selected=true]) .downloadTypeIcon {
     width: 16px;
     height: 16px;

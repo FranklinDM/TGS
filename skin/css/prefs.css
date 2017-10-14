@@ -81,11 +81,7 @@ prefwindow:-moz-system-metric(windows-default-theme) .labelTipElem box {
     height: 27px;
     background-position: 0 -31px;
 }
-prefwindow[aios-appOS="Darwin"] .labelTipElem box {
-    height: 28px;
-    background-position: -260px 0;
-}
-prefwindow:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) .labelTipElem box {
+prefwindow:not([aios-appOS="WINNT"]) .labelTipElem box {
     height: 30px;
     background-position: -520px 0;
 }
@@ -99,7 +95,13 @@ toolbarbutton.info {
 toolbarbutton.info label {
     display: none;
 }
-.aiosAdvanced label, *[aiosAdvanced="true"] caption label, *[aiosAdvanced="true"]>label, checkbox[aiosAdvanced="true"] label, vbox[aiosAdvanced="true"]>checkbox label, vbox[aiosAdvanced="true"] radio label, vbox[aiosAdvanced="true"]>hbox>checkbox label {
+.aiosAdvanced label,
+*[aiosAdvanced="true"] caption label,
+*[aiosAdvanced="true"] > label,
+checkbox[aiosAdvanced="true"] label,
+vbox[aiosAdvanced="true"] > checkbox label,
+vbox[aiosAdvanced="true"] radio label,
+vbox[aiosAdvanced="true"] > hbox > checkbox label {
     color: #FF0000;
 }
 #aiosPreferences #aiosAbout #aboutHeader, #aiosPreferences #aiosAbout #aboutHeaderMac {
@@ -162,12 +164,6 @@ toolbarbutton.info label {
 }
 #aiosAbout vbox.websites toolbarbutton:hover label {
     text-decoration: underline;
-}
-#aiosAbout #paypal {
-    cursor: pointer;
-}
-#aiosAbout #paypal image {
-    margin-left: 10px;
 }
 #aiosAbout separator.groove {
     margin: 10px 0 !important;

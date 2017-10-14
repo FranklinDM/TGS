@@ -1,43 +1,47 @@
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
-    list-style-image: url(../icons/toolbar_darwin.png);
+    list-style-image: url(../icons/toolbar_windows.png);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button):-moz-lwtheme-brighttext {
-    list-style-image: url(../icons/toolbar_darwin_inverted.png);
+    list-style-image: url(../icons/toolbar_windows_inverted.png);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #addons-button {
-    -moz-image-region: rect(0,  64px,  16px,  48px);
+    -moz-image-region: rect(1px,  71px,  17px,  55px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #multipanel-button {
-    -moz-image-region: rect(0,  80px,  16px,  64px);
+    -moz-image-region: rect(1px,  89px,  17px,  73px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #pageinfo-button {
-    -moz-image-region: rect(0,  96px,  16px,  80px);
+    -moz-image-region: rect(1px,  107px,  17px,  91px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #console-button {
-    -moz-image-region: rect(0,  112px,  16px,  96px);
+    -moz-image-region: rect(1px,  125px,  17px,  109px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #paneltab-button {
-    -moz-image-region: rect(0,  128px,  16px,  112px);
+    -moz-image-region: rect(1px,  143px,  17px,  127px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebars-button {
-    -moz-image-region: rect(0,  144px,  16px,  128px);
+    -moz-image-region: rect(1px,  161px,  17px,  145px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebars-button dropmarker {
     display: none;
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebars-togglebutton {
-    -moz-image-region: rect(0,  160px,  16px,  144px);
+    -moz-image-region: rect(1px,  179px,  17px,  163px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #autohide-button {
-    -moz-image-region: rect(0,  176px,  16px,  160px);
+    -moz-image-region: rect(1px,  197px,  17px,  181px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolbar-button {
-    -moz-image-region: rect(0,  192px,  16px,  176px);
+    -moz-image-region: rect(1px,  215px,  17px,  199px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #cookies-button {
-    -moz-image-region: rect(0,  208px,  16px,  192px);
+    -moz-image-region: rect(1px,  233px,  17px,  217px);
 }
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab1"], window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab2"], window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem#aios-sidebar-mitem-show, window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem#aios-sidebar-mitem-hide, window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_prefs"] {
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab1"],
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab2"],
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem #aios-sidebar-mitem-show,
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem #aios-sidebar-mitem-hide,
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_prefs"] {
     list-style-image: url(../icons/panels_menus.png);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab1"] {
@@ -46,10 +50,10 @@ window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKe
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab2"] {
     -moz-image-region: rect(48px,  32px,  64px,  16px);
 }
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem#aios-sidebar-mitem-hide {
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem #aios-sidebar-mitem-hide {
     -moz-image-region: rect(48px,  48px,  64px,  32px);
 }
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem#aios-sidebar-mitem-show {
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem #aios-sidebar-mitem-show {
     -moz-image-region: rect(48px,  64px,  64px,  48px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_prefs"] {
@@ -57,9 +61,6 @@ window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKe
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toolbar[orient="vertical"] toolbarbutton {
     margin: 2px 1px;
-}
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#bookmarks-button):not(#history-button):not(#downloads-button):not(#bookmarks-button):not(#history-button):not(:-moz-lwtheme-brighttext) image.toolbarbutton-icon {
-    opacity: 0.8;
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .toolbarbutton-icon, window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .dropmarker-icon {
     background-image: none !important;
