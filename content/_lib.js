@@ -506,8 +506,8 @@ function aios_setTargets() {
 	// Set list of all downloads
 	var adlist = Downloads.getList(Downloads.ALL);
 	var view = {
-		onDownloadAdded: download => aios_DownloadObserver('added'),
-		onDownloadChanged: download => aios_DownloadObserver('changed')
+		onDownloadAdded: function(download) { aios_DownloadObserver('added', download) },
+		onDownloadChanged: function(download) { aios_DownloadObserver('changed', download) }
 	};
 	adlist.then(obj => obj.addView(view));
 
@@ -607,11 +607,11 @@ function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
         2. The manager is to be opened and ...
         3. the goal is to open the sidebar
 */
-function aios_DownloadObserver(aTopic) {
+function aios_DownloadObserver(aTopic, aDownload) {
 	var autoOpen = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoopen');
 	var autoClose = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoclose');
 	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIWebNavigation).QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
-
+	
 	switch (aTopic) {
 		case "added":
 			var comElem = document.getElementById('Tools:Downloads');
@@ -619,14 +619,18 @@ function aios_DownloadObserver(aTopic) {
 				// AiOS_HELPER.windowWatcher.activeWindow prevents the sidebar from being opened in any window
 				if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar("viewDownloadsSidebar", true);
 			}
-			break;
-
+		break;
+		
 		case "changed":
-			var sideSrc = document.getElementById('sidebar').getAttribute('src');
-			if(autoOpen && autoClose && sideSrc.indexOf('about:downloads') >= 0) {
-				if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar();
+			// Add a check since without if statement, downloads sidebar would automagically close even if
+			// the download isn't done yet (in progress)
+			if (aDownload.succeeded) {
+				var sideSrc = document.getElementById('sidebar').getAttribute('src');
+				if(autoOpen && autoClose && sideSrc.indexOf('about:downloads') >= 0) {
+					if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar();
+				}
 			}
-			break;
+		break;
 	}
 }
 
