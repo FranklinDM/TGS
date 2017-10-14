@@ -150,10 +150,11 @@ function aios_countItems() {
     document.title = newTitle;
 	
 	// Will only set this if in sidebar
-	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
-
-	if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
-		if(top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+	if (aios_inSidebar) {
+		sideSrc = top.document.getElementById('sidebar').getAttribute('src');
+		if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
+			if (top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+		}
 	}
 	
     // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
