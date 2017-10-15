@@ -5,37 +5,37 @@ window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolba
     list-style-image: url(../icons/toolbar_windows_inverted.png);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #addons-button {
-    -moz-image-region: rect(1px,  71px,  17px,  55px);
+    -moz-image-region: rect(0px,  72px,  18px,  54px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #multipanel-button {
-    -moz-image-region: rect(1px,  89px,  17px,  73px);
+    -moz-image-region: rect(0px,  90px,  18px,  72px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #pageinfo-button {
-    -moz-image-region: rect(1px,  107px,  17px,  91px);
+    -moz-image-region: rect(0px,  108px,  18px,  90px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #console-button {
-    -moz-image-region: rect(1px,  125px,  17px,  109px);
+    -moz-image-region: rect(0px,  126px,  18px,  108px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #paneltab-button {
-    -moz-image-region: rect(1px,  143px,  17px,  127px);
+    -moz-image-region: rect(0px,  144px,  18px,  126px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebars-button {
-    -moz-image-region: rect(1px,  161px,  17px,  145px);
+    -moz-image-region: rect(0px,  162px,  18px,  144px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebars-button dropmarker {
     display: none;
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebars-togglebutton {
-    -moz-image-region: rect(1px,  179px,  17px,  163px);
+    -moz-image-region: rect(0px,  180px,  18px,  162px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #autohide-button {
-    -moz-image-region: rect(1px,  197px,  17px,  181px);
+    -moz-image-region: rect(0px,  198px,  18px,  180px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolbar-button {
-    -moz-image-region: rect(1px,  215px,  17px,  199px);
+    -moz-image-region: rect(0px,  216px,  18px,  198px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #cookies-button {
-    -moz-image-region: rect(1px,  233px,  17px,  217px);
+    -moz-image-region: rect(0px,  234px,  18px,  216px);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab1"],
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab2"],
