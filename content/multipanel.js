@@ -30,6 +30,9 @@ function aios_init() {
 
     // For CSS purposes
     AiOS_HELPER.rememberAppInfo( document.getElementById('webpanels-window') );
+	
+	// If URL is blank, go to about:blank
+	if (WebPanels.URLBar.value == "") webPanel.contentDocument.location.href = "about:blank";
 }
 
 
@@ -64,6 +67,7 @@ var panelProgressListener = {
 				rld.setAttribute('disabled', 'true');
 				stp.setAttribute('hidden', 'false');
 				rld.setAttribute('hidden', 'true');
+				aios_setSSR();
         }
         else if(aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
             if(window.parent.document.getElementById('sidebar-throbber'))
@@ -72,6 +76,7 @@ var panelProgressListener = {
 				rld.setAttribute('disabled', 'false');
 				stp.setAttribute('hidden', 'true');
 				rld.setAttribute('hidden', 'false');
+				aios_setSSR();
         }
     },
 
@@ -89,7 +94,7 @@ var panelProgressListener = {
 		// Work around for broken back/forward button states		
 		fwb.setAttribute('disabled', !webPanel.canGoForward);
 		bcb.setAttribute('disabled', !webPanel.canGoBack);
-    },
+	},
 
     onStatusChange: function(aWebProgress, aRequest, aStatus, aMessage) {
         // Small Screen Rendering?
@@ -196,7 +201,7 @@ function aios_setMultiPanel(aMode) {
     }
     // WebPanel-Page
     else {
-        try {
+        try {	
             panelLoc = aios_CONTENT.currentURI.spec;
             label = aios_CONTENT.selectedTab.label;
         } catch(e) { }
@@ -297,21 +302,15 @@ function aios_setSBLabel() {
 		Original code in parts of: Daniel Glazman <glazman@netscape.com>
 */
 function aios_setSSR() {
-    //if(!aios_getBoolean("ssr-mitem", "checked")) return false;
-
     var ssrURL = "chrome://aios/skin/css/multipanel_ssr.css";
 
     try {
         var doc = webPanel.contentDocument;
-    //var docRoot = doc.documentElement;    // Abfrage verursacht bei einigen Seiten einen groesser skalierten Text ???
-    //var docRootName = docRoot.nodeName.toLowerCase();
     } catch(e) { }
 
-    //if(!doc || !docRoot || !docRootName || !doc.body || !aios_getBoolean("page-button", "checked")) return false;
     if(!doc || !doc.body || !aios_getBoolean("page-button", "checked")) return false;
 
     // is the document using frames ? we don't like frames for the moment
-    //if(docRootName == "html" && doc.body.nodeName.toLowerCase() == "frameset") {
     if(doc.body.nodeName.toLowerCase() == "frameset") {
         dump("Small Screen Rendering, No frames allowed");
         return false;
@@ -320,19 +319,18 @@ function aios_setSSR() {
     var styleSheets = doc.styleSheets;
     for(var i = 0; i < styleSheets.length; ++i) {
         var currentStyleSheet = styleSheets[i];
-
         if(/multipanel_ssr/.test(currentStyleSheet.href)) {
             currentStyleSheet.disabled = !aios_getBoolean("ssr-mitem", "checked");
-            var aiosSidebar = aios_getBoolean("ssr-mitem", "checked") && aios_getBoolean("ssrSidebar-mitem", "checked");
-            doc.body.setAttribute('aiosSidebar', aiosSidebar);
-            return true;
+			if (aios_getBoolean("ssr-mitem", "checked") && aios_getBoolean("ssrSidebar-mitem", "checked")) {
+				doc.body.setAttribute('aiosSidebar', true);
+			}
+			return true;
         }
     }
 
     // we have to attach the stylesheet to the document...
     // what's the document root ? html ?
-    //if(docRootName == "html" && aios_getBoolean("ssr-mitem", "checked")) {
-    if(aios_getBoolean("ssr-mitem", "checked")) {
+    if (aios_getBoolean("ssr-mitem", "checked")) {
         // let's create a link element
         var headElement = doc.getElementsByTagName("head")[0];
         var linkElement = doc.createElement("link");
@@ -351,8 +349,8 @@ function aios_setSSR() {
     MultiPanel-Unload
 */
 function aios_unloadMultiPanel() {
-    if(webPanel && !aios_getBoolean("aios-remMultiPanel", "checked")) {
-        webPanel.setAttribute('cachedurl', '');
+    if (webPanel && !aios_getBoolean("aios-remMultiPanel", "checked")) {
+		webPanel.setAttribute('cachedurl', '');
         document.persist('web-panels-browser', "cachedurl");
     }
 }
@@ -412,10 +410,10 @@ var WebPanels = {
       if (url != "about:blank") {
         this.URLBar.value = url.spec;
         this.URLBar.select();
-      
-       // If about:blank, urlbar becomes ""  
-      } else 
+      } else {
+		// If about:blank, urlbar becomes ""  
         this.URLBar.value = "";
+	  }
     }
 
     // Tell widget to revert to last typed text only if the user
