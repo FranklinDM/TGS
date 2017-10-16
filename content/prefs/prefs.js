@@ -131,7 +131,7 @@ function aios_exportSettings(aMode) {
     aiosExport[0]+= "                  The Good 'ol Sidebar - Settings\n";
     aiosExport[0]+= "-----------------------------------------------------------------------\n";
     aiosExport[0]+= "          " + sDate + ", " + sTtime + " (" + sGMT + ")\n";
-    aiosExport[0]+= "          TGS " + AiOS_HELPER.prefBranchAiOS.getCharPref('changelog') + ", " + AiOS_HELPER.appInfo.vendor + " " + AiOS_HELPER.appInfo.version + ", " + AiOS_HELPER.os + ", " + AiOS_HELPER.prefBranch.getCharPref('general.skins.selectedSkin') + "\n";
+    aiosExport[0]+= "          TGS " + AiOS_HELPER.prefBranchAiOS.getCharPref('changelog') + ", " + AiOS_HELPER.appInfo.name + " " + AiOS_HELPER.appInfo.version + ", " + AiOS_HELPER.os + ", " + AiOS_HELPER.prefBranch.getCharPref('general.skins.selectedSkin') + "\n";
     aiosExport[0]+= "-----------------------------------------------------------------------";
 
     var count = {
@@ -211,12 +211,17 @@ function aios_importSettings() {
     var i;
     var aiosImport = new Array;
     var appendFilters = null;
+	let isMatch = false;
 
-    if(pattern[1].indexOf("The Good 'ol Sidebar - Settings") < 0 && pattern[1].indexOf("The Good 'ol Sidebar - Settings") < 0) {
-        alert(strings.getString('prefs.invalid'));
-        return false;
-    }
-
+	// Check if it matches TGS/AiOS pattern
+    if (pattern[1].indexOf("The Good 'ol Sidebar - Settings") >= 0) isMatch = true;
+	if (pattern[1].indexOf("All-in-One Sidebar - Settings") >= 0 || pattern[1].indexOf("All-In-One Sidebar - Settings") >= 0) isMatch = true;
+	
+	if (!isMatch) {
+		alert(strings.getString('prefs.invalid'));
+		return false;
+	}
+	
     if(!confirm(strings.getString('prefs.import'))) return false;
 
     for(i = 6; i < pattern.length; i++) {
@@ -229,7 +234,7 @@ function aios_importSettings() {
         }
     }
 
-    if(pattern[1].indexOf("The Good 'ol Sidebar - Settings") >= 0 || pattern[1].indexOf("The Good 'ol Sidebar - Settings") >= 0) {
+    if(isMatch) {
         for(i = 6; i < aiosImport.length; i++) {
             try {
                 switch(AiOS_HELPER.prefBranchAiOS.getPrefType(aiosImport[i][0])) {
