@@ -65,6 +65,7 @@ pref("extensions.aios.dm.layoutall", false);
 pref("extensions.aios.dm.autoopen", true);
 pref("extensions.aios.dm.autoclose", false);
 pref("extensions.aios.dm.count", true);
+pref("extensions.aios.dm.loadall", true);
 
 pref("extensions.aios.em.sidebar", true);
 pref("extensions.aios.em.count", true);

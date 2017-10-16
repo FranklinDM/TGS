@@ -506,8 +506,8 @@ function aios_setTargets() {
 	// Set list of all downloads
 	var adlist = Downloads.getList(Downloads.ALL);
 	var view = {
-		onDownloadAdded: function(download) { aios_DownloadObserver('added', download) },
-		onDownloadChanged: function(download) { aios_DownloadObserver('changed', download) }
+		onDownloadAdded:   download => aios_DownloadObserver('added', download),
+		onDownloadChanged: download => aios_DownloadObserver('changed', download)
 	};
 	adlist.then(obj => obj.addView(view));
 

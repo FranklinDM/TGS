@@ -2,9 +2,10 @@ window.addEventListener("DOMContentLoaded", aios_init, false);
 
 var aios_managerWindow, downloads_box;
 var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+var sideSrc = null;
 
 function aios_init() {
-    var enable_sidebar, enable_count, enable_layout, enable_layoutall, sidesrc;
+    var enable_sidebar, enable_count, enable_layout, enable_layoutall, enable_loadall;
 
     // Hide the menu bar under Mac OS X
     aios_hideMacMenubar();
@@ -20,6 +21,7 @@ function aios_init() {
         enable_count = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.count");
         enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layout");
         enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layoutall");
+		enable_loadall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.loadall");
     }
     catch(e) {
         return false;
@@ -31,11 +33,20 @@ function aios_init() {
     // Count and display elements
     if (enable_count) {
 		// create an observer instance
-		var observer = new MutationObserver(function(mutations) { aios_countItems(); if(!enable_count) { aios_removeCount(); } });
+		var observer = new MutationObserver(function(mutations) {
+			window.setTimeout(function() {
+				aios_countItems(); 
+				if(!enable_count) { aios_removeCount(); } 
+			}, 500); 
+		});
 		// configuration of the observer:
 		var config = { attributes: true, childList: true, characterData: true, subtree: true };
 		// pass in the target node, as well as the observer options
 		observer.observe(downloads_box, config);
+		// Stop observing when window is closed
+		window.addEventListener("unload", function() {
+			observer.disconnect();
+		}, false);
     }
     else {
 		// remove downloads count
@@ -50,6 +61,9 @@ function aios_init() {
 
 	// Remove the keyboard shortcut so as not to block the main browser
     if(aios_inSidebar) aios_removeAccesskeys();
+	
+	// Try to load all richlist items..
+	if(enable_loadall) aios_updateList();
 
     return true;
 }
@@ -60,7 +74,7 @@ function aios_removeCount() {
 	var title, newTitle;
 	// Remove the number in the title
 	// => is required only after deactivating the option because the number is stored in the Broadcaster
-	if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
+	if (sideSrc != null && sideSrc.indexOf('about:downloads') >= 0) {
 		if(top.document.getElementById('sidebar-title'))
 		{
 			title = top.document.getElementById('sidebar-title').getAttribute("value");
@@ -81,7 +95,6 @@ function aios_removeCount() {
 	}
 }
 
-
 /*
 	Activates the layout adapted to the sidebar
 		=> Called by aios_init()
@@ -91,6 +104,16 @@ function aios_sidebarLayout() {
     aios_addCSS("downloads_sb.css", aios_managerWindow);
 }
 
+function aios_updateList() {
+	window.setTimeout(function() {
+		var nodes = downloads_box.childNodes;
+		for (var node of nodes) {
+			if (node._shell) {
+				node._shell.ensureActive();
+			}
+		}
+	}, 100);
+}
 
 /*
 	Displays the activated and deactivated extensions in the sidebar title
@@ -150,11 +173,9 @@ function aios_countItems() {
     document.title = newTitle;
 	
 	// Will only set this if in sidebar
-	if (aios_inSidebar) {
-		sideSrc = top.document.getElementById('sidebar').getAttribute('src');
-		if (sideSrc.indexOf('about:downloads') >= 0 && sideSrc != null) {
-			if (top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-		}
+	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
+	if (sideSrc != null && sideSrc.indexOf('about:downloads') >= 0) {
+		if (top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
 	}
 	
     // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
@@ -181,13 +202,11 @@ function aios_clear() {
 }*/
 function aios_filterItems() {
     var r = [];
-    var childs;
+    var nodes = downloads_box.childNodes;
 
-    childs = downloads_box.childNodes;
-
-    for (var i = 0; i < childs.length; i++) {
-        if (childs[i].nodeName == "richlistitem" && childs[i].getAttribute('hidden') != "true") {
-            r.push(childs[i]);
+	for (var node of nodes) {
+        if (node.nodeName == "richlistitem" && node.getAttribute('hidden') != "true") {
+            r.push(node);
         }
     }
 
