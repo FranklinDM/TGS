@@ -185,7 +185,7 @@
                                         </hbox>
 
                                         <hbox>
-                                            <textbox id="obj-minWidthVal" preference="minWidthVal" onblur="aios_checkWidthVal('min');" />
+                                            <textbox id="obj-minWidthVal" preference="minWidthVal" onblur="aios_checkWidthVal('min');" type="number" min="0" />
 
                                             <menulist id="obj-minWidthUnit" preference="minWidthUnit" flex="1">
                                                 <menupopup>
@@ -207,7 +207,7 @@
                                         </hbox>
 
                                         <hbox>
-                                            <textbox id="obj-defWidthVal" preference="defWidthVal" onblur="aios_checkWidthVal('def');" />
+                                            <textbox id="obj-defWidthVal" preference="defWidthVal" onblur="aios_checkWidthVal('def');" type="number" min="0" />
 
                                             <menulist id="obj-defWidthUnit" preference="defWidthUnit" flex="1">
                                                 <menupopup>
@@ -229,7 +229,7 @@
                                         </hbox>
 
                                         <hbox>
-                                            <textbox id="obj-maxWidthVal" preference="maxWidthVal" onblur="aios_checkWidthVal('max');" />
+                                            <textbox id="obj-maxWidthVal" preference="maxWidthVal" onblur="aios_checkWidthVal('max');" type="number" min="0" />
 
                                             <menulist id="obj-maxWidthUnit" preference="maxWidthUnit" flex="1">
                                                 <menupopup>
@@ -378,7 +378,7 @@
 
                                 <hbox align="center" style="margin-top: 5px;">
                                     <label value="&gen.switch.delay;:" />
-                                    <textbox preference="SSDelay" size="2" />
+                                    <textbox preference="SSDelay" size="2" type="number" min="0" />
                                     <label value="&gen.switch.delayUnit;" />
                                 </hbox>
 
@@ -396,7 +396,6 @@
                         </groupbox>
 
 <!-- Appearance -->
-
                         <groupbox>
                             <caption label="&tab.gen.appearance;" />
 
@@ -419,7 +418,7 @@
                                         <label value="&gen.switch.width;:" />
 
                                         <hbox align="center">
-                                            <textbox preference="SSWidth" size="1" />
+                                            <textbox preference="SSWidth" size="1" type="number" min="0" />
                                             <label value="&gen.width.px;" />
                                         </hbox>
                                     </row>
@@ -428,7 +427,7 @@
                                         <label value="&gen.switch.twidth;:" />
 
                                         <hbox align="center">
-                                            <textbox preference="SSThinWidth" size="1" />
+                                            <textbox preference="SSThinWidth" size="1" type="number" min="0" />
                                             <label value="&gen.width.px;" />
                                         </hbox>
                                     </row>
