@@ -3,13 +3,6 @@
     height: auto;
 	padding: 0;
 }
-/* Smaller icon when not selected */
-richlistitem:not([selected=true]) .downloadTypeIcon {
-    width: 16px;
-    height: 16px;
-    min-width: 16px;
-    min-height: 16px;
-}
 
 /* Applies only to default theme */
 window[aios-appDefTheme="true"] richlistitem .downloadDisplayName {
