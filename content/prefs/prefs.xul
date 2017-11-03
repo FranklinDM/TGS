@@ -90,6 +90,9 @@
             <preference id="SSThinWidth"    type="int"          name="extensions.aios.gen.switch.twidth" />
             <preference id="SSThin"         type="bool"         name="extensions.aios.gen.switch.thin" />
             <preference id="SSThinMax"      type="bool"         name="extensions.aios.gen.switch.thinmax" />
+			
+            <preference id="SSDrag"         type="bool"         name="extensions.aios.gen.switch.drag" />
+            <preference id="SSDragDelay"    type="int"          name="extensions.aios.gen.switch.dragdelay" />
 
             <preference id="cmodeKey"       type="int"          name="extensions.aios.cmode.key" />
             <preference id="cmodeSwitch"    type="int"          name="extensions.aios.cmode.switch" />
@@ -359,17 +362,20 @@
                     </vbox>
                 </tabpanel>
 
-
-
+				
+				
 <!-- TAB: Sidebar-Switch -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox">
-
-<!-- Behavior -->
-                        <groupbox>
-                            <caption label="&tab.gen.behavior;" />
-
+						<tabbox>
+						  <tabs>
+							<tab label="&tab.gen.behavior;"/>
+							<tab label="&tab.gen.appearance;"/>
+						  </tabs>
+						  <tabpanels>
+							<!-- Behavior -->
+							<tabpanel orient="vertical">
                             <checkbox label="&gen.switch.autoshow;" preference="SSAutoshow"
                                 oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSDelay,SSHidemethod1,SSHidemethod2" />
 
@@ -392,13 +398,20 @@
 
                                 </vbox>
                             </vbox>
+							
+                            <checkbox label="&gen.switch.drag;" preference="SSDrag"
+                                oncommand="aios_checkboxObserver(this);" aiosChilds="SSDragDelay" />
+                            <vbox class="indent">
+                                <hbox align="center" style="margin-top: 5px;">
+                                    <label value="&gen.switch.delay;:" />
+                                    <textbox preference="SSDragDelay" size="2" type="number" min="0" />
+                                    <label value="&gen.switch.delayUnit;" />
+                                </hbox>							
+                            </vbox>
 
-                        </groupbox>
-
-<!-- Appearance -->
-                        <groupbox>
-                            <caption label="&tab.gen.appearance;" />
-
+							</tabpanel>
+							<!-- Appearance -->
+							<tabpanel orient="vertical">
                             <checkbox preference="SSThin" label="&gen.switch.thin;"
                                 oncommand="aios_checkboxObserver(this);" aiosChilds="SSThinMax" />
 
@@ -434,10 +447,11 @@
 
                                 </rows>
                             </grid>
-
-                        </groupbox>
-
-            <!-- Fix fuer die Hoehe des Shortcut-Panels => sonst wird die letzte Textzeile "Tipp: ...keyconfig..." abgeschnitten -->
+							</tabpanel>
+						  </tabpanels>
+						</tabbox>
+						
+						<!-- Fix for the height of the shortcut panel => otherwise the last line of text "Tip: ... keyconfig ..." will be cut off -->
                         <description style="visibility:hidden;">.</description>
 
                     </vbox>

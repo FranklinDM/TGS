@@ -113,7 +113,7 @@ function aios_initSidebar() {
 	// Collapse the sidebar instead of closing it
 	var lp;
 
-	if(aios_collapseSidebar) {
+	if (aios_collapseSidebar) {
 		// Reset the hidden attribute in any case
 		document.getElementById('sidebar-box').setAttribute('hidden', false);
 
@@ -185,11 +185,15 @@ function aios_initSidebar() {
 	//fx_sidebarMenu.addEventListener('popupshowing', aios_modSidebarMenu, false);
 
 	// Disable drag-and-drop functionality for the sidebar toggle switch?
+	// And/or set delay for this d-and-d func?
 	try {
 		var switchDrag = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.drag");
 		var switchDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.delay");
+		var switchDragDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.dragdelay");
 
-		if(!switchDrag) elem_switch.removeAttribute('ondragenter');
+		if (switchDragDelay != 0) elem_switch.setAttribute('ondragenter',
+		"window.setTimeout(function() { aios_toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
+		if (!switchDrag) elem_switch.removeAttribute('ondragenter');
 	}
 	catch(e) { }
 
