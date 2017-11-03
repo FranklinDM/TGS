@@ -45,10 +45,11 @@
 <!ENTITY gen.init.sidebar "Open Sidebar (Sidebar Switch, Toggle Button, Shortcut)">
 <!ENTITY gen.init.sidebar.restore "Restore the Remembered Panel">
 <!ENTITY gen.switch.autoshow "Show/hide Sidebar automatically (mouse contact instead of mouse click)">
+<!ENTITY gen.switch.drag "Show the Sidebar automatically when dragging something over the sidebar switch">
 <!ENTITY gen.switch.onlymax "Only if Browser is Maximised or in Full Screen Mode">
 <!ENTITY gen.switch.delay "Delay">
 <!ENTITY gen.switch.delayUnit "milliseconds">
-<!ENTITY gen.switch.hide "Hide Sidebar if the mouse cursor…">
+<!ENTITY gen.switch.hide "Hide Sidebar if the mouse cursor:">
 <!ENTITY gen.switch.hideBar "is moved back to the webpage">
 <!ENTITY gen.switch.hidePage "is held on the Sidebar Switch">
 <!ENTITY gen.switch.thin "Enable Thin Sidebar Switch">

@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar - Opciones">
+<!ENTITY title "The Good 'ol Sidebar - Opciones">
 <!ENTITY restart "Los cambios requieren reiniciar el navegador">
 <!ENTITY settings "Configuración">
 <!ENTITY settings.default "Restablecer los Valores por Defecto">
@@ -21,6 +21,7 @@
 <!ENTITY tab.menus "Menues">
 <!ENTITY tab.menus.sidebar "Barra Lateral">
 <!ENTITY tab.keys "Atajos">
+<!ENTITY tab.about "Acerca de/Ayuda">
 <!ENTITY gen.orient.caption "Orientación">
 <!ENTITY gen.orient.label "Mostrar barra lateral">
 <!ENTITY gen.orient.left "a la izquerda">
@@ -43,17 +44,18 @@
 <!ENTITY gen.init.mode1 "Recuperar el Estado Memorizado">
 <!ENTITY gen.init.sidebar "Abrir Barra Lateral (Activador de Barra Lateral, Botón de Intercambiar, Atajos)">
 <!ENTITY gen.init.sidebar.restore "Restablecer el Último Panel Memorizado">
-<!ENTITY gen.switch.autoshow "Mostrar/esconder la Barra Lateral automaticamente (al tocar con el cursor del mouse en lugar de hacer click)">
+<!ENTITY gen.switch.autoshow "Mostrar/esconder la Barra Lateral automáticamente (al tocar con el cursor del mouse en lugar de hacer click)">
+<!ENTITY gen.switch.drag "Mostrar la Barra Lateral automáticamente al arrastrar algo sobre el activador de la barra lateral">
 <!ENTITY gen.switch.onlymax "Solamente si el navegador está Maximizado o en el Modo Pantalla Completa">
 <!ENTITY gen.switch.delay "Retardo">
 <!ENTITY gen.switch.delayUnit "milisegundos">
-<!ENTITY gen.switch.hide "Esconder la Barra Lateral cuando el cursor del mouse…">
+<!ENTITY gen.switch.hide "Esconder la Barra Lateral cuando el cursor del mouse:">
 <!ENTITY gen.switch.hideBar "retorna a la página web">
 <!ENTITY gen.switch.hidePage "se mantiene sobre el Selector la Barra Lateral">
 <!ENTITY gen.switch.thin "Habilitar Comando de Barra Lateral Delgada">
 <!ENTITY gen.switch.width "Ancho del Selector de la Barra Lateral">
 <!ENTITY gen.switch.twidth "Ancho del Selector Fino de la Barra Lateral">
-<!ENTITY gen.mbSeparate "Don't open in sidebar panel when opened from menu/key shortcuts">
+<!ENTITY gen.mbSeparate "No abrir en el panel de la barra lateral cuando se abre desde el menú/atajos de teclado">
 <!ENTITY cmode.caption "Intercambiar Barra Lateral">
 <!ENTITY cmode.desc "Personalizar cuales elementos se deben alterar si se abre o cierra la barra lateral con métodos diferentes">
 <!ENTITY cmode.key.label "Atajo (F4)">
