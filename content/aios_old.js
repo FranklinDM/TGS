@@ -433,9 +433,9 @@ function aios_toggleOperaMode(aForcePanel, aForceOpen) {
 	else {
 		// If the sidebar is visible
 		if (!aios_isSidebarHidden()) {
-			fx_sidebarBox.setAttribute("aiosShouldOpen", true);								 // Remember the state of the sidebar (visible)
-			document.persist(fx_sidebarBox.id, 'aiosShouldOpen');							 // Persist attribute 'aiosShouldOpen'
-			toggleSidebar();																 // Hide Sidebar
+			fx_sidebarBox.setAttribute("aiosShouldOpen", true);								// Remember the state of the sidebar (visible)
+			document.persist(fx_sidebarBox.id, 'aiosShouldOpen');							// Persist attribute 'aiosShouldOpen'
+			toggleSidebar();																// Hide Sidebar
 		}
 		else {
 			if (lastPanel == "") toggleSidebar(openPanel);
@@ -455,11 +455,11 @@ function aios_getSidebarMenu(aPopup) {
 	// Modify menu (deactivate active menu item, Ez Sidebar-Fix etc.)
 	aios_modSidebarMenu();
 
-	while(aPopup.hasChildNodes()) {
+	while (aPopup.hasChildNodes()) {
 		aPopup.removeChild(aPopup.firstChild);
 	}
 
-	for(var i = 0; i < fx_sidebarMenu.childNodes.length; i++) {
+	for (var i = 0; i < fx_sidebarMenu.childNodes.length; i++) {
 		aPopup.appendChild(fx_sidebarMenu.childNodes[i].cloneNode(true));
 	}
 }
