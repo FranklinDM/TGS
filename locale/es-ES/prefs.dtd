@@ -81,9 +81,9 @@
 <!ENTITY menus.sidebar.entrydeac "Deshabilitar la entrada del panel activo">
 <!ENTITY misc.enablesidebar.label "Abrir en el panel lateral">
 <!ENTITY misc.layout.label "Optimización del panel lateral">
-<!ENTITY misc.dm.overlay "Cambiar las opciones para el comportamiento del panel lateral">
 <!ENTITY misc.dm.autoopen.label "Mostrar el panel lateral de descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarlo cuando todas las descargas hayan terminado">
+<!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
 <!ENTITY misc.colors.label "Habilitar los fondos de colores basados en el estado actual">
 <!ENTITY misc.count.label "Mostrar número de elementos">
 <!ENTITY misc.enablelink.tooltip "Pulse aquí para más información (enlace a las FAQs)">

@@ -5,7 +5,7 @@ var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false
 var sideSrc = null;
 
 function aios_init() {
-	var enable_sidebar, enable_count, enable_layout, enable_layoutall, enable_loadall;
+	var enable_sidebar, enable_count, enable_layout, enable_layoutall, enable_loadall, enable_shading;
 
 	// Hide the menu bar under Mac OS X
 	aios_hideMacMenubar();
@@ -22,13 +22,15 @@ function aios_init() {
 		enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layout");
 		enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layoutall");
 		enable_loadall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.loadall");
+		enable_shading = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.shading");
 	}
 	catch(e) {
 		return false;
 	}
 
 	// Sidebar layout
-	if((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
+	if ((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
+	if (enable_shading) aios_managerWindow.setAttribute('aios-downloadShade', true);
 
 	// Count and display elements
 	if (enable_count) {
