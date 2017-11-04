@@ -486,7 +486,7 @@ function aios_autoShowHide(mode) {
 	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
 	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
 
-	//alert(mode);
+	//console.log(mode);
 
 	// Feature not activated, feature should only at max. Window grab, window does not have the focus
 	if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus) return false;
