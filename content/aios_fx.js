@@ -22,93 +22,68 @@
  *                 it changes the sidebar's visibility.
  *  - group        this attribute must be set to "sidebar".
  */
-// modified by exxile
-//    => original: function toggleSidebar(commandID, forceOpen) {
-if(aios_collapseSidebar) toggleSidebar = function(commandID, forceOpen) {
-// end modified by exxile
-
+// If sidebar collapsing is enabled, use modified function
+if (aios_collapseSidebar) toggleSidebar = function(commandID, forceOpen) {
   var sidebarBox = document.getElementById("sidebar-box");
   if (!commandID)
-    commandID = sidebarBox.getAttribute("sidebarcommand");
+	commandID = sidebarBox.getAttribute("sidebarcommand");
 
-  // added by exxile
-  //    => sonst gibt es Fehler bei der 2. Druckvorschau, wenn SidebarCollapsing aktiv ist und die Sidebar zugeklappt
-  //    => commandID ist in diesem Fall nicht definiert
+  // Otherwise there will be errors in the second print preview when SidebarCollapsing is active and the sidebar is collapsed
+  // => commandID is not defined in this case
   if(!commandID) return;
-  // end added by exxile
-
+  
   var sidebarBroadcaster = document.getElementById(commandID);
   var sidebar = document.getElementById("sidebar"); // xul:browser
   var sidebarTitle = document.getElementById("sidebar-title");
   var sidebarSplitter = document.getElementById("sidebar-splitter");
 
   if (sidebarBroadcaster.getAttribute("checked") == "true") {
-    if (!forceOpen) {
-      // Replace the document currently displayed in the sidebar with about:blank
-      // so that we can free memory by unloading the page. We need to explicitly
-      // create a new content viewer because the old one doesn't get destroyed
-      // until about:blank has loaded (which does not happen as long as the
-      // element is hidden).
+	if (!forceOpen) {
+	  // Replace the document currently displayed in the sidebar with about:blank
+	  // so that we can free memory by unloading the page. We need to explicitly
+	  // create a new content viewer because the old one doesn't get destroyed
+	  // until about:blank has loaded (which does not happen as long as the
+	  // element is hidden).
 
-      // commented by exxile
-      // sidebar.setAttribute("src", "about:blank");
-      // sidebar.docShell.createAboutBlankContentViewer(null);
-      // end commented by exxile
+	  sidebarBroadcaster.removeAttribute("checked");
+	  sidebarBox.setAttribute("sidebarcommand", "");
 
-      sidebarBroadcaster.removeAttribute("checked");
-      sidebarBox.setAttribute("sidebarcommand", "");
+	  // AiOS: Simply collapse the sidebar
+	  sidebarBox.removeAttribute('hidden');
+	  sidebarBox.collapsed = true;
 
-      // commented by exxile
-      // sidebarTitle.value = "";
-      // sidebarBox.hidden = true;
-      // end commented by exxile
-
-      // added by exxile
-      sidebarBox.removeAttribute('hidden');
-      sidebarBox.collapsed = true;
-      // CollapseByStyle-Methode sidebarBox.setAttribute('style', 'display:none;');
-      // end added by exxile
-
-      sidebarSplitter.hidden = true;
-      gBrowser.selectedBrowser.focus();
-    } else {
-      fireSidebarFocusedEvent();
-    }
-    return;
+	  sidebarSplitter.hidden = true;
+	  gBrowser.selectedBrowser.focus();
+	} else {
+	  fireSidebarFocusedEvent();
+	}
+	return;
   }
 
-  // now we need to show the specified sidebar
-
-  // ..but first update the 'checked' state of all sidebar broadcasters
+  // Now we need to show the specified sidebar
+  // But first update the 'checked' state of all sidebar broadcasters
   var broadcasters = document.getElementsByAttribute("group", "sidebar");
   for (let broadcaster of broadcasters) {
-    // skip elements that observe sidebar broadcasters and random
-    // other elements
-    if (broadcaster.localName != "broadcaster")
-      continue;
+	// skip elements that observe sidebar broadcasters and other random elements
+	if (broadcaster.localName != "broadcaster")
+	  continue;
 
-    if (broadcaster != sidebarBroadcaster)
-      broadcaster.removeAttribute("checked");
-    else
-      sidebarBroadcaster.setAttribute("checked", "true");
+	if (broadcaster != sidebarBroadcaster)
+	  broadcaster.removeAttribute("checked");
+	else
+	  sidebarBroadcaster.setAttribute("checked", "true");
   }
 
-  // commented by exxile
-  // sidebarBox.hidden = false;
-  // end commented by exxile
-
-  // added by exxile
+  // AiOS: Uncollapsed and unhide the sidebar
   sidebarBox.removeAttribute('hidden');
   sidebarBox.removeAttribute('collapsed');
-  // CollapseByStyle-Methode sidebarBox.removeAttribute('style');
-  // end added by exxile
 
   sidebarSplitter.hidden = false;
 
   var url = sidebarBroadcaster.getAttribute("sidebarurl");
   var title = sidebarBroadcaster.getAttribute("sidebartitle");
   if (!title)
-    title = sidebarBroadcaster.getAttribute("label");
+	title = sidebarBroadcaster.getAttribute("label");
   sidebar.setAttribute("src", url); // kick off async load
   sidebarBox.setAttribute("sidebarcommand", sidebarBroadcaster.id);
   sidebarTitle.value = title;
@@ -121,12 +96,7 @@ if(aios_collapseSidebar) toggleSidebar = function(commandID, forceOpen) {
   sidebarBox.setAttribute("src", url);
 
   if (sidebar.contentDocument.location.href != url)
-    sidebar.addEventListener("load", sidebarOnLoad, true);
+	sidebar.addEventListener("load", sidebarOnLoad, true);
   else // older code handled this case, so we do it too
-    fireSidebarFocusedEvent();
-
-// modified by exxile
-//    => original: }
+	fireSidebarFocusedEvent();
 };
-// end modified by exxile
-//

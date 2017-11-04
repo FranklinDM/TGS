@@ -61,7 +61,7 @@ function aios_initSidebar() {
 	aios_getObjects();
 
 	// MacOS X => replace keyboard shortcut (Ctrl is replaced by Command and toggle by the icon for it)
-	if(AiOS_HELPER.os == "Darwin") {
+	if (AiOS_HELPER.os == "Darwin") {
 		aios_replaceKey('switch-tooltip-box', 'r2c2', 'command');
 		aios_replaceKey('template-sidebar-tooltip-box', 'r2c2', 'command');
 		aios_replaceKey('template-window-tooltip-box', 'r2c2', 'command');
@@ -815,9 +815,9 @@ var lwthemeObserver = {
 	* When lwbg pref = false & ccl has no value, fall back to using transparent
 */
 function lwthemeColorHandler() {
-  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg");
-  var ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg");
-  var rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
+  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg"),
+	  ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg"),
+	  rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
   if (lwbg & rpt) fx_browser.style.background = fx_mainWindow.style.backgroundImage;
   else if (lwbg) fx_browser.style.background = fx_mainWindow.style.backgroundColor;
   else if (ccl != "") fx_browser.style.background = ccl;

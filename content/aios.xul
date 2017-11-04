@@ -30,7 +30,7 @@
         <stringbundle id="aiosProperties" src="chrome://aios/content/aios.properties" />
     </stringbundleset>
 
-    <!-- AiOS-Broadcaster -->
+    <!-- AiOS Broadcaster -->
     <broadcasterset id="mainBroadcasterSet">
 
         <broadcaster id="viewBookmarksSidebar"
@@ -82,7 +82,7 @@
             label="&button.console.label;" tooltiptext="&button.console.tooltip;" />
 
 
-        <!-- broadcaster mit gespeichertem Wunsch-Toolbar-Zustand, gespeichert durch onpopupshowing-Handler im menuitem des toolbar-Menues -->
+        <!-- broadcaster with saved toolbar state saved by onpopupshowing handler in menuitem of toolbar menu -->
         <broadcaster id="aios-viewToolbar" type="checkbox" checked="true" persist="checked"
             oncommand="aios_toggleElement(this); aios_toggleToolbar(this); event.stopPropagation();" />
 
@@ -100,7 +100,7 @@
     </broadcasterset>
 
 
-    <!-- Kommandos -->
+    <!-- Commands -->
     <commandset id="mainCommandSet">
         <command id="View:Bookmarks" oncommand="aios_openDialog('bookmarks');" />
         <command id="View:History" oncommand="aios_openDialog('history');" />
@@ -123,7 +123,7 @@
     </commandset>
 
 
-    <!-- Tastaturkommandos -->
+    <!-- Keyboard Commands -->
     <keyset id="mainKeyset">
         <key id="aiosKey_addons" modifiers="&keys.modifiers;" key="&keys.addons;" command="Tools:Addons" />
         <key id="aiosKey_multiPanel" modifiers="&keys.modifiers;" key="&keys.multipanel;" command="Tools:MultiPanel" />
@@ -140,12 +140,12 @@
         <menuitem id="menu_pageInfo" key="aiosKey_pageInfo" />
     </menupopup>
 
-    <!-- Sidebar-Status auf Veraenderungen ueberwachen -->
+    <!-- Monitor sidebar status for changes -->
     <vbox id="sidebar-box">
         <!--
-            Darwin: => bei staendiger Ueberwachung der beiden Attribute startet Fx immer mit geoeffneter Sidebar
-                    => ohne Ueberwachung und deaktiviertem SidebarCollapsing fehlt die Ausfuehrung der Funktion,
-                       was dazu fuehrt, dass u.a. die Grippy-Pfeile nicht korrekt gewechselt werden
+            Darwin: => With the constant monitoring of the two attributes, browser always starts with the sidebar open
+                    => Without monitoring and deactivated Sidebar Collapsing, the execution of the function is missing,
+                       which leads to the Grippy arrows not being changed correctly
         -->
         <observes id="aios_observeHidden" element="sidebar-box" attribute="hidden"
             onbroadcast="if(!aios_collapseSidebar) aios_observeSidebar('hidden');" />
@@ -153,10 +153,7 @@
         <observes id="aios_observeCollapsed" element="sidebar-box" attribute="collapsed"
             onbroadcast="if(aios_collapseSidebar) aios_observeSidebar('collapsed');" />
 
-        <!-- CollapseByStyle-Methode <observes id="aios_observeStyle" element="sidebar-box" attribute="style"
-            onbroadcast="if(aios_collapseSidebar) aios_observeSidebar('style');" />-->
-
-        <!-- "src"-Status der Sidebar ueberwachen => letzte Sidebar merken -->
+        <!-- Monitor src status of sidebar => remember last sidebar -->
         <observes element="sidebar" attribute="src" onbroadcast="aios_remLastSidebar();" />
     </vbox>
 
@@ -167,7 +164,7 @@
     </splitter>
 
 
-    <!-- AIOS-Toolbar-Buttons -->
+    <!-- AiOS Toolbar Buttons -->
     <toolbarpalette id="BrowserToolbarPalette">
         <toolbarbutton id="sidebarclose-button" class="tabs-closebutton close-icon"
             oncommand="aios_toggleSidebar(this);" ondblclick="event.stopPropagation();"
@@ -243,7 +240,7 @@
             <menupopup onpopupshowing="aios_getSidebarMenu(this);" oncommand="event.stopPropagation();" />
         </toolbarbutton>
 
-        <!-- ueber tooltip oder tooltiptext wird in aios_setTargets() [_lib.js] entschieden -->
+        <!-- Use tooltip or tooltiptext as defined in aios_setTargets() [_lib.js] -->
         <toolbarbutton id="paneltab-button" class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
             label="&button.paneltab.label;" onclick="aios_panelTab(event);"
             tooltip="paneltab-tooltip" tooltiptext="&button.paneltab.tooltip1; / &button.paneltab.tooltip2;" />
@@ -327,7 +324,7 @@
                 <menuitem id="aios-sbhview-mitem4" type="checkbox"
                     oncommand="aios_setToolbarView(4, this); event.stopPropagation();" label="&useSmallIcons.label;" />
 
-                <!-- Sidebarheader-toolbar: verursacht u.a. Bug #4 => http://aios.16bugs.com/projects/3730/bugs/61501 -->
+                <!-- Sidebar Header toolbar: causes Bug #4 => http://aios.16bugs.com/projects/3730/bugs/61501 -->
                 <menuseparator id="aios-sbhcustomize-separator"/>
 
                 <menuitem id="aios-sbhcustomize-mitem" label="&viewCustomizeToolbar.label;" accesskey="&viewCustomizeToolbar.accesskey;"
@@ -359,7 +356,7 @@
             </tooltip>
 
 
-            <!-- Tooltips fuer PanelTab werden nach Einstellung der 'Reverse'-Funktion in prefs.js gesetzt => aios_savePrefs() -->
+            <!-- Tooltips for PanelTab are set in prefs.js after setting the 'Reverse' function => aios_savePrefs() -->
             <tooltip id="paneltab-tooltip">
                 <box    id="paneltab-tooltip-box"
                         r1c1="&button.paneltab.tooltip1;:"  r1c2="&leftclick;"
@@ -418,22 +415,19 @@
     </window>
 
 
-    <!-- Fx-Menue: Ansicht -->
+    <!-- Browser menu: view -->
     <menupopup id="menu_viewPopup">
         <menuitem observes="aios-viewTogglebar" position="3" />
         <menuitem observes="aios-viewGrippy" position="5" />
     </menupopup>
 
-
-    <!-- Fx-Menue: Ansicht > Symbolleisten -->
+    <!-- Browser menu: View > Toolbars -->
     <menu id="viewToolbarsMenu" onpopupshowing="onViewToolbarsPopupShowing(event); aios_addToolbarMitem(this);" />
 
-
-    <!-- Fx-Menue: Toolbarkontextmenue -->
+    <!-- Browser menu: Toolbar context menu -->
     <menupopup id="toolbar-context-menu" onpopupshowing="onViewToolbarsPopupShowing(event); aios_addToolbarMitem(this);" />
 
-
-    <!-- Fx-Menue: Ansicht > Sidebar - popupshowing-Ueberwachung in aios_initSidebar() (hier wg. Komp. mit MenuManipulator) -->
+    <!-- Browser menu: View > Sidebar - popupshowing monitoring in aios_initSidebar() (compatible with MenuManipulator) -->
     <menupopup id="viewSidebarMenu" onpopupshowing="aios_modSidebarMenu();">
 
         <menuitem id="downloads-mitem" observes="viewDownloadsSidebar" position="3" key="key_openDownloads" />
@@ -471,20 +465,20 @@
 
     <hbox id="browser">
 
-        <!-- fuer CSS benoetigt -->
+        <!-- Needed for CSS -->
         <observes element="aios-toolbar" attribute="posMode" />
 
-        <!-- Sidebar-Switch -->
+        <!-- Sidebar Switch -->
         <toolbox id="aios-toggle-toolbox" insertafter="browser-border-start" class="chromeclass-toolbar"
             persist="hidden fsToolbar fsToolbarMode fsToolbarIconsize fsSidebar fsSwitch">
 
-            <!-- Fenstermodus fuer schmalen Umschalter ueberwachen (maximized, normal, minimized) -->
+            <!-- Monitor window mode for narrow switch (maximized, normal, minimized) -->
             <observes element="main-window" attribute="sizemode" onbroadcast="aios_checkThinSwitch();" />
 
             <toolbar id="aios-toggle-toolbar" class="chromeclass-toolbar" flex="1"
                 style="min-width: 6px; max-width: 6px;" persist="style" fullscreentoolbar="true">
 
-            <!-- ueber tooltip oder tooltiptext wird in aios_setTargets() [_lib.js] entschieden -->
+            <!-- The tooltip or tooltiptext is defined in aios_setTargets() [_lib.js] -->
                 <grippy flex="1" id="aios-toggle-button" tooltip="switch-tooltip" tooltiptext="&button.toggle.tooltip;"
                     onclick="aios_controlSwitch(event, this);"
                     onmouseover="aios_autoShowHide('switch'); event.stopPropagation();"
@@ -497,20 +491,20 @@
         </toolbox>
 
 
-        <!-- TOOLBOX LINKS NEBEN DER SIDEBAR -->
+        <!-- TOOLBOX LEFT SIDE OF THE SIDEBAR -->
         <toolbox id="aios-toolbox-left" class="chromeclass-toolbar"
             insertbefore="sidebar-box"
             defaultmode="icons"
             vertical="true">
 
-            <!-- mode und iconsize noetig, um Optionen im Konfigrationsdialog syncron zu halten  -->
+            <!-- mode and iconsize to keep options in the configuration dialog in sync -->
             <observes element="aios-toolbar" attribute="mode" />
             <observes element="aios-toolbar" attribute="defaultmode" />
             <observes element="aios-toolbar" attribute="iconsize" />
 
             <!--
-                => die Toolbox darf beim Start nicht 'hidden sein', weil sonst die Toolbar nicht befuellt wird
-                => die Toolbox darf nicht 'collapsed' sein, weil sonst die Sidebar nicht skalierbar ist
+                => The toolbox must not be 'hidden' at startup, otherwise the toolbar will not be filled
+                => The toolbox must not be 'collapsed', otherwise the sidebar will not be scalable
             -->
 
             <toolbar id="aios-toolbar" class="chromeclass-toolbar"
@@ -537,7 +531,7 @@
         </toolbox>
 
 
-        <!-- TOOLBOX RECHTS NEBEN DER SIDEBAR -->
+        <!-- TOOLBOX RIGHT SIDE OF THE SIDEBAR -->
         <toolbox id="aios-toolbox-right" insertbefore="sidebar-splitter" defaultmode="icons" class="chromeclass-toolbar" vertical="true" palette="BrowserToolbarPalette">
 
             <observes element="aios-toolbar" attribute="mode" />
@@ -545,8 +539,8 @@
             <observes element="aios-toolbar" attribute="iconsize" />
 
             <!--
-                => die Toolbox darf beim Start nicht 'hidden sein', weil sonst die Toolbar nicht befuellt wird
-                => die Toolbox darf nicht 'collapsed' sein, weil sonst die Sidebar nicht skalierbar ist
+                => The toolbox must not be 'hidden' at startup, otherwise the toolbar will not be filled
+                => The toolbox must not be 'collapsed', otherwise the sidebar will not be scalable
             -->
 
             <toolbarset />
@@ -555,7 +549,7 @@
 
         <vbox id="sidebar-box" checked="true">
 
-            <!-- TOOLBOX UeBER DER SIDEBAR -->
+            <!-- TOOLBOX ABOVE THE SIDEBAR -->
             <toolbox id="aios-toolbox-sidebartop" position="1" defaultmode="icons" palette="BrowserToolbarPalette">
                 <observes element="aios-toolbar" attribute="mode" />
                 <observes element="aios-toolbar" attribute="defaultmode" />
@@ -564,10 +558,10 @@
                 <toolbarset />
             </toolbox>
 
-            <!-- SIDEBARHEADER -->
+            <!-- SIDEBAR HEADER -->
             <sidebarheader id="sidebar-header" tooltip="sidebarheader-tooltip">
 
-                <!-- Attribut wird in CSS benoetigt (aios.css) -->
+                <!-- Attribute is required in CSS (aios.css) -->
                 <observes element="aios-sbhtoolbar" attribute="iconsize" />
 
                 <toolbarbutton id="sidebars-titlebutton" type="menu" ondblclick="this.childNodes[1].hidePopup();" flex="1" position="1">

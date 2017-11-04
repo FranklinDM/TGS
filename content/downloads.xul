@@ -9,10 +9,10 @@
 
 <overlay id="aios_DownloadsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
-    <script type="application/x-javascript" src="chrome://aios/content/downloads.js" />
+	<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
+	<script type="application/x-javascript" src="chrome://aios/content/downloads.js" />
 
-    <window id="contentAreaDownloadsView">
+	<window id="contentAreaDownloadsView">
 		  <toolbox id="commandBar" position="1">
 			<toolbar id="main-bar">
 			  <textbox id="searchbox"
@@ -25,10 +25,10 @@
 					   collection="downloads"/>
 			  <toolbarbutton id="clearListButton"
 					  oncommand="aios_clear();"
-					  
+
 					  tooltiptext="&clearDownloadsButton.tooltip;"/>
 			</toolbar>
 		  </toolbox>
-    </window>
+	</window>
 
 </overlay>

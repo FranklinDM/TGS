@@ -5,39 +5,39 @@ var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false
 var sideSrc = null;
 
 function aios_init() {
-    var enable_sidebar, enable_count, enable_layout, enable_layoutall, enable_loadall;
+	var enable_sidebar, enable_count, enable_layout, enable_layoutall, enable_loadall;
 
-    // Hide the menu bar under Mac OS X
-    aios_hideMacMenubar();
+	// Hide the menu bar under Mac OS X
+	aios_hideMacMenubar();
 
-    aios_managerWindow = document.getElementById("contentAreaDownloadsView");
+	aios_managerWindow = document.getElementById("contentAreaDownloadsView");
 	downloads_box = document.getElementById("downloadsRichListBox");
 
-    // For CSS purposes
-    AiOS_HELPER.rememberAppInfo( aios_managerWindow );
+	// For CSS purposes
+	AiOS_HELPER.rememberAppInfo( aios_managerWindow );
 
-    try {
-        enable_sidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.sidebar");
-        enable_count = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.count");
-        enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layout");
-        enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layoutall");
+	try {
+		enable_sidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.sidebar");
+		enable_count = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.count");
+		enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layout");
+		enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layoutall");
 		enable_loadall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.loadall");
-    }
-    catch(e) {
-        return false;
-    }
+	}
+	catch(e) {
+		return false;
+	}
 
-    // Sidebar layout
-    if((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
+	// Sidebar layout
+	if((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
 
-    // Count and display elements
-    if (enable_count) {
+	// Count and display elements
+	if (enable_count) {
 		// create an observer instance
 		var observer = new MutationObserver(function(mutations) {
 			window.setTimeout(function() {
-				aios_countItems(); 
-				if(!enable_count) { aios_removeCount(); } 
-			}, 500); 
+				aios_countItems();
+				if(!enable_count) { aios_removeCount(); }
+			}, 500);
 		});
 		// configuration of the observer:
 		var config = { attributes: true, childList: true, characterData: true, subtree: true };
@@ -47,25 +47,25 @@ function aios_init() {
 		window.addEventListener("unload", function() {
 			observer.disconnect();
 		}, false);
-    }
-    else {
+	}
+	else {
 		// remove downloads count
 		aios_removeCount();
-    }
+	}
 
-    if(document.getElementById("searchbox")) {
-        window.setTimeout(function() {
-            document.getElementById("searchbox").focus();
-        }, 50);
-    }
+	if(document.getElementById("searchbox")) {
+		window.setTimeout(function() {
+			document.getElementById("searchbox").focus();
+		}, 50);
+	}
 
 	// Remove the keyboard shortcut so as not to block the main browser
-    if(aios_inSidebar) aios_removeAccesskeys();
-	
+	if(aios_inSidebar) aios_removeAccesskeys();
+
 	// Try to load all richlist items..
 	if(enable_loadall) aios_updateList();
 
-    return true;
+	return true;
 }
 
 function aios_removeCount() {
@@ -78,11 +78,11 @@ function aios_removeCount() {
 		if(top.document.getElementById('sidebar-title'))
 		{
 			title = top.document.getElementById('sidebar-title').getAttribute("value");
-			
+
 			if(title.indexOf(" [") > 0) {
 				newTitle = title.substring(0, title.indexOf(" ["));
 				top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
-				
+
 				if(aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
 			}
 		}
@@ -100,8 +100,8 @@ function aios_removeCount() {
 		=> Called by aios_init()
 */
 function aios_sidebarLayout() {
-    // Activate CSS for sidebar optimizations
-    aios_addCSS("downloads_sb.css", aios_managerWindow);
+	// Activate CSS for sidebar optimizations
+	aios_addCSS("downloads_sb.css", aios_managerWindow);
 }
 
 function aios_updateList() {
@@ -120,68 +120,68 @@ function aios_updateList() {
 		=> Called by aios_init()
 */
 function aios_countItems() {
-    if(!AiOS_HELPER.mostRecentWindow.document) return false;
+	if(!AiOS_HELPER.mostRecentWindow.document) return false;
 
-    // Fix for MR Tech Local Install
-    var li_count = false;
+	// Fix for MR Tech Local Install
+	var li_count = false;
 
-    if (typeof Local_Install == "object") {
-        var li_gPrefBranch = AiOS_HELPER.prefService.getBranch("local_install.");
-        li_count = li_gPrefBranch.getBoolPref("showManagerTotals");
-        if(li_count) return false;
-        else Local_Install.setWindowTitle = function(){};
-    }
+	if (typeof Local_Install == "object") {
+		var li_gPrefBranch = AiOS_HELPER.prefService.getBranch("local_install.");
+		li_count = li_gPrefBranch.getBoolPref("showManagerTotals");
+		if(li_count) return false;
+		else Local_Install.setWindowTitle = function(){};
+	}
 
-    // previous title
-    var newTitle;
-    var origTitle = "";
-    if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar"))
+	// previous title
+	var newTitle;
+	var origTitle = "";
+	if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar"))
 	origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
 
-    // Count elements
-    var exts = aios_filterItems();
-    var str_count = "";
+	// Count elements
+	var exts = aios_filterItems();
+	var str_count = "";
 
-    var list_downloading = 0;
-    var list_done = 0;
-    var list_failed = 0;
+	var list_downloading = 0;
+	var list_done = 0;
+	var list_failed = 0;
 
-    for(var i = 0; i < exts.length; i++) {
-        var state = exts[i].getAttribute('state');
+	for(var i = 0; i < exts.length; i++) {
+		var state = exts[i].getAttribute('state');
 		var hasState = exts[i].hasAttribute('state');
 
-        // downloading => starting + downloading + paused + downloading
-        if(state == "-1" || state == "0" || state == "4" || state == "5") list_downloading++;
+		// downloading => starting + downloading + paused + downloading
+		if(state == "-1" || state == "0" || state == "4" || state == "5") list_downloading++;
 
-        // done => done
-        if(state == "1") list_done++;
+		// done => done
+		if(state == "1") list_done++;
 
-        // failed => failed + canceled
-        if(state == "2" || state == "3") list_failed++;
-		
+		// failed => failed + canceled
+		if(state == "2" || state == "3") list_failed++;
+
 		// some items don't have the state attribute, list as failed
 		if(hasState == false) list_failed++;
-    }
-	
-    str_count = list_done;
-    if(list_downloading > 0 || list_failed > 0) str_count = str_count + "/" + list_downloading;
-    if(list_failed > 0) str_count = str_count + "/" + list_failed;
+	}
+
+	str_count = list_done;
+	if(list_downloading > 0 || list_failed > 0) str_count = str_count + "/" + list_downloading;
+	if(list_failed > 0) str_count = str_count + "/" + list_failed;
 
 	newTitle = origTitle + " [" + str_count + "]";
-	
-    // Set title and label
-    document.title = newTitle;
-	
+
+	// Set title and label
+	document.title = newTitle;
+
 	// Will only set this if in sidebar
 	if (aios_inSidebar) sideSrc = top.document.getElementById('sidebar').getAttribute('src');
 	if (sideSrc != null && sideSrc.indexOf('about:downloads') >= 0) {
 		if (top.document.getElementById('sidebar-title')) top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
 	}
-	
-    // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
-    if (aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
 
-    return true;
+	// store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
+	if (aios_inSidebar) AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+
+	return true;
 }
 
 
@@ -195,20 +195,20 @@ function aios_clear() {
 	aios_countItems();
 }
 
-/* 
+/*
 	Original code by Caio Chassot: Slim_Extension_List_0.1
 	http://v2studio.com/k/moz/
 		=> Called by aios_init()
 }*/
 function aios_filterItems() {
-    var r = [];
-    var nodes = downloads_box.childNodes;
+	var r = [];
+	var nodes = downloads_box.childNodes;
 
 	for (var node of nodes) {
-        if (node.nodeName == "richlistitem" && node.getAttribute('hidden') != "true") {
-            r.push(node);
-        }
-    }
+		if (node.nodeName == "richlistitem" && node.getAttribute('hidden') != "true") {
+			r.push(node);
+		}
+	}
 
-    return r;
+	return r;
 }
