@@ -667,7 +667,6 @@ function aios_isSidebarHidden() {
     }
     catch(e) { }
 
-    // CollapseByStyle-Method if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.getAttribute('style') != "");
     if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.collapsed);
     else return fx_sidebarBox.hidden;
 }
