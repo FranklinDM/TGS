@@ -475,7 +475,7 @@ function aios_setTargets() {
 	// Modify the toolbar button's command set
 	aios_ModifyCommandSet(targets, prefInfotip, objects, i, false);
 	// If mbSeparate is = false, modify also the main command set
-	if (!mbSeparate) {
+	if (mbSeparate === false) {
 		aios_ModifyCommandSet(targets, prefInfotip, objects, i, true);
 	}
 	

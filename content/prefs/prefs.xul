@@ -100,7 +100,7 @@
 			<preference id="cmodeClose"     type="int"          name="extensions.aios.cmode.close" />
 
 			<preference id="SBCollapsing"   type="bool"         name="extensions.aios.collapse" />
-			<preference id="SBIntercept"	type="bool"			name="extensions.aios.gen.mbSeparate" />
+			<preference id="SBIntercept"	type="bool"			name="extensions.aios.gen.mbSep" />
 		</preferences>
 
 		<tooltip id="minWidthHint" class="labelTipElem">
