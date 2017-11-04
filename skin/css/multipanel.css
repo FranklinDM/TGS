@@ -1,63 +1,64 @@
 #commandBar {
-    padding: 1px 2px 2px 2px;
+	padding: 1px 2px 2px 2px;
 }
 #ssrSidebar-mitem {
-    margin-left: 13px;
+	margin-left: 13px;
 }
 #page-button .toolbarbutton-menubutton-button, #about-button .toolbarbutton-menubutton-button, #toolsButton {
-    -moz-box-orient: horizontal;
-    list-style-image: url(../icons/panels_menus.png);
+	-moz-box-orient: horizontal;
+	list-style-image: url(../icons/panels_menus.png);
 }
 page #page-button .toolbarbutton-menubutton-button {
-    -moz-image-region: rect(0,  80px,  16px,  64px);
+	-moz-image-region: rect(0,  80px,  16px,  64px);
 }
 page #about-button .toolbarbutton-menubutton-button {
-    -moz-image-region: rect(0,  96px,  16px,  80px);
+	-moz-image-region: rect(0,  96px,  16px,  80px);
 }
 page #toolsButton {
-    -moz-image-region: rect(0,  16px,  16px,  0);
+	-moz-image-region: rect(0,  16px,  16px,  0);
 }
 page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #page-button .toolbarbutton-menubutton-button {
-    -moz-image-region: rect(64px,  80px,  80px,  64px);
+	-moz-image-region: rect(64px,  80px,  80px,  64px);
 }
 page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #about-button .toolbarbutton-menubutton-button {
-    -moz-image-region: rect(64px,  96px,  80px,  80px);
+	-moz-image-region: rect(64px,  96px,  80px,  80px);
 }
 page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolsButton {
-    -moz-image-region: rect(64px,  16px,  80px,  0);
+	-moz-image-region: rect(64px,  16px,  80px,  0);
 }
 page[aios-appDefTheme="true"] #commandBar {
-    border-top: 1px solid ThreedHighlight;
-    border-bottom: 1px solid ThreedShadow;
+	border-top: 1px solid ThreedHighlight;
+	border-bottom: 1px solid ThreedShadow;
 }
 page[aios-appDefTheme="true"] #toolsButton dropmarker image {
-    margin: 0 2px 0 3px;
+	margin: 0 2px 0 3px;
 }
 page[aios-appDefTheme="true"] .toolbarbutton-1 {
-    margin-right: 5px;
+	margin-right: 5px;
 }
 page[aios-appDefTheme="true"] .toolbarbutton-1 label {
-    padding-left: 4px;
-    padding-right: 1px;
+	padding-left: 4px;
+	padding-right: 1px;
 }
 page[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #commandBar {
-    background-color: #eef3fa;
+	background-color: #eef3fa;
 }
 
 /* padlock icons */
 #lock-icon[level="ev"] {
-  list-style-image: url("chrome://browser/content/padlock_mod_ev.png");
+	list-style-image: url("chrome://browser/content/padlock_mod_ev.png");
 }
 #lock-icon[level="high"] {
-  list-style-image: url("chrome://browser/content/padlock_mod_https.png");
+	list-style-image: url("chrome://browser/content/padlock_mod_https.png");
 }
 #lock-icon[level="low"], #lock-icon[level="mixed"] {
-  list-style-image: url("chrome://browser/content/padlock_mod_low.png");
+	list-style-image: url("chrome://browser/content/padlock_mod_low.png");
 }
 #lock-icon[level="broken"] {
-  list-style-image: url("chrome://browser/content/padlock_mod_broken.png");
+	list-style-image: url("chrome://browser/content/padlock_mod_broken.png");
 }
+
 /* padlock image region */
 #lock-icon {
-  -moz-image-region: rect(0, 16px, 16px, 0);
+	-moz-image-region: rect(0, 16px, 16px, 0);
 }

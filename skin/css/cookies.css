@@ -9,5 +9,5 @@ window .contentPane {
 }
 
 window[aios-inSidebar][aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) {
-    background-color: #EEF3FA;
+	background-color: #EEF3FA;
 }

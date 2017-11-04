@@ -1,7 +1,7 @@
 Components.utils.import("resource://gre/modules/Downloads.jsm");
 
 /*
-	Modifies the Firefox Sidebar menu
+	Modifies the Sidebar menu
 		=> Calling aios_initSidebar() and aios_getSidebarMenu() (MenuButton Events 'onpopupshowing')
 */
 function aios_modSidebarMenu() {

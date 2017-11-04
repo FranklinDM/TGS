@@ -62,7 +62,6 @@ var aiosProgListener = {
 		return 0;
 	},
 
-	// For definitions of the remaining functions see XulPlanet.com
 	onProgressChange: function() {
 		return 0;
 	},
@@ -316,9 +315,9 @@ function aios_synchElements(aElems) {
 function aios_toggleElement(aMenuitem) {
 	var menuitem;
 
-	if(typeof aMenuitem != "object") aMenuitem = document.getElementById(aMenuitem);
+	if (typeof aMenuitem != "object") aMenuitem = document.getElementById(aMenuitem);
 
-	if(aMenuitem.getAttribute('observes')) {
+	if (aMenuitem.getAttribute('observes')) {
 		menuitem = document.getElementById(aMenuitem.getAttribute('observes'));
 	}
 	else {
@@ -340,21 +339,21 @@ function aios_toggleElement(aMenuitem) {
 function aios_toggleChilds(childElems, childMode) {
 	var child_str, child;
 
-	if(childElems != "") {
+	if (childElems != "") {
 		var childElems_arr = childElems.split(",");
 
-		for(var i = 0; i < childElems_arr.length; i++) {
+		for (var i = 0; i < childElems_arr.length; i++) {
 			child_str = childElems_arr[i].replace(/ /, "");
 
 			var idChilds_arr = document.getElementsByAttribute('id', child_str);
 
 			// If there is only one element with the ID
-			if(idChilds_arr.length == 1) {
+			if (idChilds_arr.length == 1) {
 				child = document.getElementById(child_str);
 			}
 			// If there are several elements with the ID
 			else {
-				for(var j = 0; j < idChilds_arr.length; j++) {
+				for (var j = 0; j < idChilds_arr.length; j++) {
 					// Take that on the AIOS toolbar
 					if (idChilds_arr[j].parentNode.id == "aios-toolbar") child = idChilds_arr[j];
 				}
@@ -382,6 +381,6 @@ function aios_removeAccesskeys() {
  * Hides the Mac menu bar in some cases
  **/
 function aios_hideMacMenubar() {
-	if(document.getElementById('main-menubar'))
+	if (document.getElementById('main-menubar'))
 		document.getElementById('main-menubar').style.display = "none";
 }

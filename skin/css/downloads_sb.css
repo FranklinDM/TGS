@@ -1,24 +1,26 @@
 /* Don't enforce a height and use 0 padding for smaller items */
 #downloadsRichListBox > richlistitem.download {
-    height: auto;
+	height: auto;
 	padding: 0;
 }
 
 /* Applies only to default theme */
 window[aios-appDefTheme="true"] richlistitem .downloadDisplayName {
-    font-size: 11px;
+	font-size: 11px;
 }
 window[aios-appDefTheme="true"] richlistitem[selected=true] .downloadDisplayName {
-    font-size: 13px;
+	font-size: 13px;
 }
-window[aios-appDefTheme="true"] richlistitem:not([selected=true]):not([state="1"]) {
-    color: #660000;
-    background-color: #FFECEC;
+
+/* Applies only when shading pref is enabled */
+window[aios-downloadShade="true"] richlistitem:not([selected=true]):not([state="1"]) {
+	color: #660000;
+	background-color: #FFECEC;
 }
-window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="-1"],
-window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="0"],
-window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="4"],
-window[aios-appDefTheme="true"] richlistitem:not([selected=true])[state="5"] {
-    color: #006600;
-    background-color: #ECFFEC;
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="-1"],
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="0"],
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="4"],
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="5"] {
+	color: #006600;
+	background-color: #ECFFEC;
 }

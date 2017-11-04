@@ -1,9 +1,12 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-window[aiosOrient="left"] toolbox#aios-toggle-toolbox, window[aiosOrient="left"] toolbox#aios-toggle-toolbox>toolbar#aios-toggle-toolbar {
+
+window[aiosOrient="left"] toolbox #aios-toggle-toolbox,
+window[aiosOrient="left"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-toolbar {
     margin: 0 !important;
     border-left: none !important;
 }
-window[aiosOrient="right"] toolbox#aios-toggle-toolbox, window[aiosOrient="right"] toolbox#aios-toggle-toolbox>toolbar#aios-toggle-toolbar {
+window[aiosOrient="right"] toolbox #aios-toggle-toolbox,
+window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-toolbar {
     margin: 0 !important;
     border-right: none !important;
 }
@@ -29,7 +32,8 @@ window[aiosOrient="right"] toolbox#aios-toggle-toolbox, window[aiosOrient="right
 #aios-toolbar[orient="horizontal"] {
     padding: 0 1px 1px 0;
 }
-#aios-toolbar-contextmenu dialogheader, #aios-sbhtoolbar-contextmenu dialogheader {
+#aios-toolbar-contextmenu dialogheader,
+#aios-sbhtoolbar-contextmenu dialogheader {
     margin: 0 0 7px 0;
     padding: 2px 0;
     font-weight: bold;
@@ -50,16 +54,20 @@ window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
 #aios-toolbar[orient="vertical"][mode="text"] toolbarbutton .toolbarbutton-text {
     text-align: left;
 }
-#aios-toolbar[orient="vertical"] toolbarspacer, #aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-spacer"] {
+#aios-toolbar[orient="vertical"] toolbarspacer,
+#aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-spacer"] {
     height: 21px;
 }
-#aios-toolbar toolbarspring, #aios-toolbar toolbarpaletteitem[id^="wrapper-spring"] {
+#aios-toolbar toolbarspring,
+#aios-toolbar toolbarpaletteitem[id^="wrapper-spring"] {
     -moz-box-flex: 1000;
 }
-#aios-toolbar toolbarseparator, #aios-toolbar toolbarpaletteitem[id^="wrapper-separator"] {
+#aios-toolbar toolbarseparator,
+#aios-toolbar toolbarpaletteitem[id^="wrapper-separator"] {
     margin: 0 0 1px 1px;
 }
-#aios-toolbar[orient="vertical"] toolbarseparator, #aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-separator"] {
+#aios-toolbar[orient="vertical"] toolbarseparator,
+#aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-separator"] {
     -moz-appearance: none;
     height: 2px;
     max-height: 2px;
@@ -94,34 +102,44 @@ window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
     border-color: transparent;
     border-bottom-color: #000000;
 }
-#aios-toggle-toolbox grippy, #sidebar-splitter grippy {
+#aios-toggle-toolbox grippy,
+#sidebar-splitter grippy {
     -moz-binding: url("chrome://aios/content/aios.xml#aiosGrippy");
     cursor: pointer;
     background: transparent none no-repeat center;
 }
-#aios-toggle-toolbox grippy:hover, #sidebar-splitter grippy:hover {
+#aios-toggle-toolbox grippy:hover,
+#sidebar-splitter grippy:hover {
     background-color: -moz-MenuHover;
 }
 #sidebar-splitter[orient="horizontal"] grippy {
     min-width: 5px;
     min-height: 119px;
 }
-#aios-toggle-toolbox grippy, #sidebar-splitter[orient="horizontal"] grippy, window[aiosOrient="right"][aiosOpen="false"] #aios-toggle-toolbox grippy, window[aiosOrient="right"][aiosOpen="false"] #sidebar-splitter[orient="horizontal"] grippy {
+#aios-toggle-toolbox grippy,
+#sidebar-splitter[orient="horizontal"] grippy,
+window[aiosOrient="right"][aiosOpen="false"] #aios-toggle-toolbox grippy,
+window[aiosOrient="right"][aiosOpen="false"] #sidebar-splitter[orient="horizontal"] grippy {
     background-image: url(../img/grippy-left.gif);
 }
-window[aiosOpen="false"] #aios-toggle-toolbox grippy, window[aiosOpen="false"] #sidebar-splitter[orient="horizontal"] grippy, window[aiosOrient="right"] #aios-toggle-toolbox grippy, window[aiosOrient="right"] #sidebar-splitter[orient="horizontal"] grippy {
+window[aiosOpen="false"] #aios-toggle-toolbox grippy,
+window[aiosOpen="false"] #sidebar-splitter[orient="horizontal"] grippy,
+window[aiosOrient="right"] #aios-toggle-toolbox grippy,
+window[aiosOrient="right"] #sidebar-splitter[orient="horizontal"] grippy {
     background-image: url(../img/grippy-right.gif);
 }
-.aios-noIcons>.menu-iconic-left image {
+.aios-noIcons > .menu-iconic-left image {
     display: none;
 }
 #personal-bookmarks, #PlacesToolbarItems {
     -moz-box-orient: horizontal;
 }
-#aios-toolbar[orient="vertical"] #personal-bookmarks, #aios-toolbar[orient="vertical"] #PlacesToolbarItems {
+#aios-toolbar[orient="vertical"] #personal-bookmarks,
+#aios-toolbar[orient="vertical"] #PlacesToolbarItems {
     -moz-box-orient: vertical;
 }
-#aios-toolbar[orient="vertical"][mode="icons"] label, #aios-toolbar[orient="vertical"][mode="icons"] .chevron>label {
+#aios-toolbar[orient="vertical"][mode="icons"] label,
+#aios-toolbar[orient="vertical"][mode="icons"] .chevron>label {
     display: none !important;
 }
 #aios-toolbar[orient="vertical"][mode="icons"] menupopup label {
@@ -143,16 +161,16 @@ sidebarheader {
 #sidebar-title {
     display: none !important;
 }
-#sidebars-titlebutton>label {
+#sidebars-titlebutton > label {
     padding-top: 2px;
     padding-bottom: 2px;
     padding-right: 10px;
     background: url(../img/arrow.gif) no-repeat right 8px;
 }
-#sidebars-titlebutton>label:-moz-lwtheme {
+#sidebars-titlebutton > label:-moz-lwtheme {
     color: highlighttext;
 }
-sidebarheader>.tabs-closebutton {
+sidebarheader > .tabs-closebutton {
     display: none;
 }
 #aios-sbhtoolbox, #aios-sbhtoolbar {
@@ -184,14 +202,15 @@ window[aiosOrient="right"][aiosMode="ltr"] #browser * {
     margin: 0;
     padding: 1px 3px;
 }
-#aiosPopupset tooltip label[value=""], #aiosPopupset tooltip label:not([value]) {
+#aiosPopupset tooltip label[value=""],
+#aiosPopupset tooltip label:not([value]) {
     display: none;
 }
 #aiosPopupset tooltip label:not([class="odd"]) {
     border-top: 1px dotted ThreedDarkShadow;
     border-bottom: 1px dotted ThreedDarkShadow;
 }
-#aiosPopupset tooltip>label:not([class="odd"]) {
+#aiosPopupset tooltip > label:not([class="odd"]) {
     margin-bottom: 5px;
     padding: 2px 3px 4px 3px;
     border-top: none;
@@ -216,7 +235,8 @@ sidebarheader #tt-toolbox-sidebarheader {
 menuitem[id="menu_dmtSidebar"] {
     display: none !important;
 }
-menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:show"], menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:hide"] {
+menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:show"],
+menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:hide"] {
     display: none !important;
 }
 window:not([windowtype="mozilla:sidebar"]) #ezsidebar-panels-button {
@@ -225,10 +245,20 @@ window:not([windowtype="mozilla:sidebar"]) #ezsidebar-panels-button {
 window[persona] #browser, window[lwtheme="true"] #browser {
     border-top: none !important;
 }
-window[persona] #aios-toggle-toolbar, window[persona] #aios-toolbar, window[persona] sidebarheader, window[persona]:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"], window[persona] #sidebar-splitter[orient="horizontal"] hbox, window[lwtheme="true"] #aios-toggle-toolbar, window[lwtheme="true"] #aios-toolbar, window[lwtheme="true"] sidebarheader, window[lwtheme="true"]:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"], window[lwtheme="true"] #sidebar-splitter[orient="horizontal"] hbox {
+window[persona] #aios-toggle-toolbar,
+window[persona] #aios-toolbar,
+window[persona] sidebarheader,
+window[persona]:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"],
+window[persona] #sidebar-splitter[orient="horizontal"] hbox,
+window[lwtheme="true"] #aios-toggle-toolbar,
+window[lwtheme="true"] #aios-toolbar,
+window[lwtheme="true"] sidebarheader,
+window[lwtheme="true"]:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"],
+window[lwtheme="true"] #sidebar-splitter[orient="horizontal"] hbox {
     border: none !important;
     background-color: transparent !important;
 }
-window[persona] #sidebar-splitter[orient="horizontal"], window[lwtheme="true"] #sidebar-splitter[orient="horizontal"] {
+window[persona] #sidebar-splitter[orient="horizontal"],
+window[lwtheme="true"] #sidebar-splitter[orient="horizontal"] {
     -moz-appearance: none !important;
 }
