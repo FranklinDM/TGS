@@ -11,31 +11,12 @@
 
 		<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
 		<script type="application/x-javascript" src="chrome://aios/content/prefs/_keyconfig.js"/>
-
-		<script>
-			<![CDATA[
-
-			var gStrings = {
-
-				warn: "&keyconfig.warn;",
-				used: "&keyconfig.used;",
-				onreset: "&keyconfig.onreset;",
-				unrecognized: "&keyconfig.unrecognized;"
-			}
-
-			var keyname = {
-				"BrowserReload();": "key_reload",
-				cmd_handleBackspace: "goBackKb"
-			}
-
-			]]>
-		</script>
-
+		
 		<stringbundleset>
 			<stringbundle id="platformKeys" src="chrome://global-platform/locale/platformKeys.properties"/>
 			<stringbundle id="localeKeys" src="chrome://global/locale/keys.properties"/>
+			<stringbundle id="keyMsgs" src="chrome://aios/locale/keyconf.properties"/>
 		</stringbundleset>
-
 
 		<preferences>
 

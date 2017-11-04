@@ -19,17 +19,31 @@ var gPlatformKeys = new Object();
 var gVKNames = [];
 var gReverseNames;
 
+var gStrings = {
+	used: "",
+	onreset: "",
+	unrecognized: ""
+}
+
+var keyname = {
+	"BrowserReload();": "key_reload",
+	cmd_handleBackspace: "goBackKb"
+}
+
 function aios_initKeys() {
 	if (!target) return;
 
-	if (!gPrefService.prefHasUserValue("extensions.aios.keyconf.version"))
-		gPrefService.setIntPref("extensions.aios.keyconf.version","1");
 	gUnicodeConverter.charset = "UTF-8";
 
 	keyTree = document.getElementById("key-tree");
 	gEditbox = document.getElementById("editbox");
 	gEdit = document.getElementById("edit");
 	gLocaleKeys = document.getElementById("localeKeys");
+	
+	var keyMsgs = document.getElementById("keyMsgs");
+	gStrings.used		  = keyMsgs.getString("keyconfig.used");
+	gStrings.onreset 	  = keyMsgs.getString("keyconfig.onreset");
+	gStrings.unrecognized = keyMsgs.getString("keyconfig.unrecognized");
 
 	var platformKeys = document.getElementById("platformKeys");
 	gPlatformKeys.shift = platformKeys.getString("VK_SHIFT");
@@ -328,6 +342,7 @@ var keyView = {
 	getParentIndex: function() { return -1; },
 
 	getCellProperties: function(row,col,props) {
+		/* throws props is undefined?
 		var key = gKeys[row];
 		if (key.hardcoded) props.AppendElement(gAtomService.getAtom("hardcoded"));
 		if (key.pref[0] == "!") props.AppendElement(gAtomService.getAtom("disabled"));
@@ -335,6 +350,7 @@ var keyView = {
 		if (key.pref.length) props.AppendElement(gAtomService.getAtom("user"));
 		if ((col.id || col) == "shortcut" && gUsedKeys[key.shortcut].length > 1)
 			props.AppendElement(gAtomService.getAtom("duplicate"));
+		*/
 	},
 	getColumnProperties: function(){},
 	selectionChanged: function() {

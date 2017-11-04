@@ -72,9 +72,6 @@
 <!ENTITY keyconfig.disable "Deshabilitar">
 <!ENTITY keyconfig.reset "Resetear">
 <!ENTITY keyconfig.warn "Los cambios sólo afectarán a las nuevas ventanas">
-<!ENTITY keyconfig.onreset "Se requiere reiniciar el navegador">
-<!ENTITY keyconfig.unrecognized "Desconocido($1)">
-<!ENTITY keyconfig.used "Ésta tecla ya está en uso por:\\n\\n\\t$1\\n\\nPodría estar activo aún.">
 <!ENTITY menus.sidebar.desc "Personalizar las entradas en el menú &quot;Ver&gt;Barra Lateral&quot;y en los menues desplegables de los botoner de la barra lateral.">
 <!ENTITY menus.icons.label "Mostrar Íconos">
 <!ENTITY menus.entries.label "Mostrar Entradas">
