@@ -377,11 +377,9 @@
 							<!-- Behavior -->
 							<tabpanel orient="vertical">
 							<checkbox label="&gen.switch.autoshow;" preference="SSAutoshow"
-								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSDelay,SSHidemethod1,SSHidemethod2" />
+								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSDelay,SSHidemethod1,SSHidemethod2,SSHidemethod3" />
 
-							<vbox class="indent">
-								<checkbox label="&gen.switch.onlymax;" preference="SSOnlymax" />
-
+							<vbox class="indent">								
 								<hbox align="center" style="margin-top: 5px;">
 									<label value="&gen.switch.delay;:" />
 									<textbox preference="SSDelay" size="2" type="number" min="0" />
@@ -394,6 +392,7 @@
 									<radiogroup class="indent" preference="SSHidemethod">
 										<radio id="SSHidemethod1" label="&gen.switch.hideBar;" value="1" />
 										<radio id="SSHidemethod2" label="&gen.switch.hidePage;" value="2" />
+										<radio id="SSHidemethod3" label="&gen.switch.hideNone;" value="3" />
 									</radiogroup>
 
 								</vbox>

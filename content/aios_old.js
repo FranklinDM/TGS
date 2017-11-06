@@ -220,7 +220,7 @@ function aios_initSidebar() {
 
 				// If saving the current version worked fine
 				if (changelog_new === aiosVersion && gBrowser) {
-					aiosVersionDotless = aiosVersion.split('.').join("");
+					let aiosVersionDotless = aiosVersion.split('.').join("");
 					var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
 					if (aiosUpdated) hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
 
@@ -489,14 +489,15 @@ function aios_autoShowHide(mode) {
 	//console.log(mode);
 
 	// Feature not activated, feature should only at max. Window grab, window does not have the focus
-	if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus) return false;
-
+	if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus || aiosCustomize) return false;
+	
 	/*
 	 *	Triggered by the switch
 	 **/
 	if (mode == "switch") {
+		// This won't be reached if the switch is invisible
 		// If sidebar should be visible and not hidden => ignore it
-		if (!aios_isSidebarHidden() && hidemethod == 1) return false;
+		if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3)) return false;
 
 		// Show/hide after a certain time
 		aios_autoTimeout = window.setTimeout(function() {
@@ -768,7 +769,7 @@ function aios_BrowserFullScreen() {
 	return true;
 }
 
-var aswTemp; // Temporary variable for autoshow
+var aiosCustomize; // Temporary variable for autoshow
 
 /*
 	Before customization event
@@ -778,7 +779,7 @@ function aios_customizeStart(e) {
 		// Temporarily disable autoshow feature
 		AiOS_HELPER.prefBranchAiOS.setBoolPref('gen.switch.autoshow', false);
 		// Set temporary variable
-		aswTemp = true;
+		aiosCustomize = true;
 	}
 }
 
@@ -786,9 +787,10 @@ function aios_customizeStart(e) {
 	After customization event
 */
 function aios_customizeEnd(e) {
-	if (aswTemp) {
+	if (aiosCustomize) {
 		// Re-enable autoshow feature
 		window.setTimeout(function() {
+			aiosCustomize = false;
 			AiOS_HELPER.prefBranchAiOS.setBoolPref('gen.switch.autoshow', true);
 		}, 500);
 	}
