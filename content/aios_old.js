@@ -489,7 +489,7 @@ function aios_autoShowHide(mode) {
 	//console.log(mode);
 
 	// Feature not activated, feature should only at max. Window grab, window does not have the focus
-	if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus || aiosCustomize) return false;
+	if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus) return false;
 	
 	/*
 	 *	Triggered by the switch
@@ -769,31 +769,20 @@ function aios_BrowserFullScreen() {
 	return true;
 }
 
-var aiosCustomize; // Temporary variable for autoshow
-
 /*
 	Before customization event
 */
 function aios_customizeStart(e) {
-	if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow')) {
-		// Temporarily disable autoshow feature
-		AiOS_HELPER.prefBranchAiOS.setBoolPref('gen.switch.autoshow', false);
-		// Set temporary variable
-		aiosCustomize = true;
-	}
+	// Force show AiOS toolbar
+	aios_toggleToolbar(true);
 }
 
 /*
 	After customization event
 */
 function aios_customizeEnd(e) {
-	if (aiosCustomize) {
-		// Re-enable autoshow feature
-		window.setTimeout(function() {
-			aiosCustomize = false;
-			AiOS_HELPER.prefBranchAiOS.setBoolPref('gen.switch.autoshow', true);
-		}, 500);
-	}
+	// Force show AiOS toolbar
+	aios_toggleToolbar(false);
 }
 
 /*
