@@ -1,6 +1,7 @@
 toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
 	list-style-image: url(../icons/toolbar_windows.png);
 }
+toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button),
 toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
 	list-style-image: url(../icons/toolbar_windows_inverted.png);
 }
@@ -25,7 +26,8 @@ toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-bu
 #sidebars-button dropmarker {
 	display: none;
 }
-#nav-bar #sidebars-button.toolbarbutton-1[type=menu]>.toolbarbutton-icon, #nav-bar #sidebars-button.toolbarbutton-1[type=menu]>.toolbarbutton-text {
+#nav-bar #sidebars-button.toolbarbutton-1[type=menu] > .toolbarbutton-icon,
+#nav-bar #sidebars-button.toolbarbutton-1[type=menu] > .toolbarbutton-text {
 	-moz-padding-end: 7px !important;
 }
 #sidebars-togglebutton {
