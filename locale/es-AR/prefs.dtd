@@ -47,6 +47,8 @@
 <!ENTITY gen.switch.autoshow "Mostrar/esconder la Barra Lateral automáticamente (al tocar con el cursor del mouse en lugar de hacer click)">
 <!ENTITY gen.switch.drag "Mostrar la Barra Lateral automáticamente al arrastrar algo sobre el activador de la barra lateral">
 <!ENTITY gen.switch.onlymax "Solamente si el navegador está Maximizado o en el Modo Pantalla Completa">
+<!ENTITY gen.switch.invtrigger "Invisible sidebar switch trigger (Sidebar Switch width must be 0)">
+<!ENTITY gen.switch.invwidth "Hover area">
 <!ENTITY gen.switch.delay "Retardo">
 <!ENTITY gen.switch.delayUnit "milisegundos">
 <!ENTITY gen.switch.hide "Esconder la Barra Lateral cuando el cursor del mouse:">

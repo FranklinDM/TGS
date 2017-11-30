@@ -84,6 +84,8 @@
 
 			<preference id="SSAutoshow"     type="bool"         name="extensions.aios.gen.switch.autoshow" />
 			<preference id="SSOnlymax"      type="bool"         name="extensions.aios.gen.switch.onlymax" />
+			<preference id="SSInvTrg"       type="bool"         name="extensions.aios.gen.switch.invtrigger" />
+			<preference id="SSInvWidth"     type="int"          name="extensions.aios.gen.switch.invwidth" />
 			<preference id="SSDelay"        type="int"          name="extensions.aios.gen.switch.delay" />
 			<preference id="SSHidemethod"   type="int"          name="extensions.aios.gen.switch.hidemethod" />
 			<preference id="SSWidth"        type="int"          name="extensions.aios.gen.switch.width" />
@@ -377,9 +379,18 @@
 							<!-- Behavior -->
 							<tabpanel orient="vertical">
 							<checkbox label="&gen.switch.autoshow;" preference="SSAutoshow"
-								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSDelay,SSHidemethod1,SSHidemethod2,SSHidemethod3" />
+								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSInvTrg,SSInvWidth,SSDelay,SSHidemethod1,SSHidemethod2,SSHidemethod3" />
 
-							<vbox class="indent">								
+							<vbox class="indent">
+								<checkbox label="&gen.switch.onlymax;" preference="SSOnlymax" />
+								
+								<checkbox label="&gen.switch.invtrigger;" preference="SSInvTrg" oncommand="aios_checkboxObserver(this);" aiosChilds="SSInvWidth" />
+								<hbox align="center" class="indent">
+									<label value="&gen.switch.invwidth;:" />
+									<textbox preference="SSInvWidth" size="2" type="number" min="1" />
+									<label value="&gen.width.px;" />
+								</hbox>
+								
 								<hbox align="center" style="margin-top: 5px;">
 									<label value="&gen.switch.delay;:" />
 									<textbox preference="SSDelay" size="2" type="number" min="0" />

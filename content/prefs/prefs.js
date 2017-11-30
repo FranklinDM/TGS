@@ -527,6 +527,7 @@ function aios_savePrefs() {
 	AiOS_HELPER.mostRecentWindow.aios_checkThinSwitch();
 	if(AiOS_HELPER.mostRecentWindow.aios_setSidebarOrient) AiOS_HELPER.mostRecentWindow.aios_setSidebarOrient();
 	if(AiOS_HELPER.mostRecentWindow.aios_initAutohide) AiOS_HELPER.mostRecentWindow.aios_initAutohide();
+	if(AiOS_HELPER.mostRecentWindow.aios_initInvTrg) AiOS_HELPER.mostRecentWindow.aios_initInvTrg();
 
 	// Bugfix...
 	// sonst wird das Kontextmenue der Erweiterung angezeigt,

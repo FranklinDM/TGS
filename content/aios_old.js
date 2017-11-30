@@ -103,12 +103,16 @@ function aios_initSidebar() {
 
 	// Call lwtheme color handler (in response to bug 483972)
 	lwthemeColorHandler();
+	
 	// Observe lwtheme styling updates/changes
 	var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
 	observerService.addObserver(lwthemeObserver, "lightweight-theme-styling-update", false);
 
 	// Initialize autohide feature
 	aios_initAutohide();
+	
+	// Initialize invisible sidebar switch trigger feature
+	aios_initInvTrg();
 
 	// Collapse the sidebar instead of closing it
 	var lp;
@@ -485,7 +489,8 @@ function aios_autoShowHide(mode) {
 	var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
 	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
 	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
-
+	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
+	var triggerZone = 2 * AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
 	//console.log(mode);
 
 	// Feature not activated, feature should only at max. Window grab, window does not have the focus
@@ -518,6 +523,8 @@ function aios_autoShowHide(mode) {
 	 *	Triggered by the content area
 	 **/
 	else {
+		// Cancel autohide if within trigger zone and invisible trigger is enabled
+		if (invTrg && (mode.clientX <= triggerZone)) return;
 		if (!aios_isSidebarHidden() && hidemethod == 1) {
 			// Delete event on "appcontent" again, otherwise the sidebar would be displayed again
 			// => mouse-over the sidebar (in aios_initSidebar()) adds this feature back to the "appcontent"
@@ -538,6 +545,53 @@ function aios_autoShowHide(mode) {
 	return true;
 }
 
+/*
+	Shows/hides the sidebar when the mouse moves over the trigger zone inside the content area
+		=> Called by mouse-move of the 'appcontent' element
+		
+		=> aios_initSidebar() adds a mouse-move event to the "appcontent" object, ...
+		=> this event calls this function
+*/
+var aios_invCursorTZ = false;
+var aios_invTimeout;
+function aios_invisibleTrigger(mode) {
+	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
+	var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
+	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
+
+	console.log(mode);
+
+	// Feature not activated, trigger width is 0, or if window is not focused, return.
+	if (!invTrg || invWidth == 0 || !aiosFocus) return false;
+	
+	let triggerZone = 2 * invWidth;
+	if (mode.clientX <= triggerZone && !aios_invCursorTZ)
+	{
+		if (aios_isSidebarHidden()) {
+			console.log('app content: event deleted');
+			// Delete event on "appcontent" again, otherwise the sidebar would be displayed again
+			// => mouse-over the sidebar (in aios_initSidebar()) adds this feature back to the "appcontent"
+			document.getElementById('appcontent').removeEventListener("mousemove", aios_invisibleTrigger, true);
+		}
+			
+		// I am in trigger zone
+		aios_invCursorTZ = true;
+
+		// Show/hide after a certain time
+		aios_invTimeout = window.setTimeout(function() {
+			aios_toggleSidebar('switch');
+			aios_invCursorTZ = false;
+		}, delay);
+
+		// Remove the timeout when the mouse comes back in the sidebar
+		fx_sidebarBox.addEventListener("mouseover", function(){
+			window.clearTimeout(aios_invTimeout);
+		}, true);
+	}
+	if (mode.clientX > triggerZone) {
+		aios_invCursorTZ = false;
+	}
+}
 
 /*
 	Activates/deactivates the Sidebar/Toolbar/Switch depending on the item and settings

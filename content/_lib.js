@@ -695,6 +695,19 @@ function aios_initAutohide() {
     }, true);
 }
 
+function aios_initInvTrg() {
+	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
+	if (!invTrg) return;
+	if (document.getElementById('appcontent'))
+		document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
+
+    // Add invisible trigger event restorer
+    fx_sidebarBox.addEventListener("mouseover", function() {
+        if(document.getElementById('appcontent'))
+            document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
+    }, true);
+}
+
 
 /*
 	Switch AutoHide on or off using the toolbar button
