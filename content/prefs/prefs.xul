@@ -156,7 +156,7 @@
 								<rows>
 
 									<row align="center">
-										<label value="&gen.orient.label;" />
+										<label value="&gen.orient.label;:" />
 
 										<menulist preference="sidebarOrient">
 											<menupopup>
@@ -293,7 +293,6 @@
 
 									<row align="center">
 										<label value="&gen.init.toolbar.label;" />
-
 										<menulist preference="toolbarInit">
 											<menupopup>
 												<menuitem label="&gen.init.mode1;" value="2" />
@@ -383,29 +382,33 @@
 
 							<vbox class="indent">
 								<checkbox label="&gen.switch.onlymax;" preference="SSOnlymax" />
-								
-								<checkbox label="&gen.switch.invtrigger;" preference="SSInvTrg" oncommand="aios_checkboxObserver(this);" aiosChilds="SSInvWidth" />
-								<hbox align="center" class="indent">
-									<label value="&gen.switch.invwidth;:" />
-									<textbox preference="SSInvWidth" size="2" type="number" min="1" />
-									<label value="&gen.width.px;" />
-								</hbox>
-								
+																
 								<hbox align="center" style="margin-top: 5px;">
 									<label value="&gen.switch.delay;:" />
 									<textbox preference="SSDelay" size="2" type="number" min="0" />
 									<label value="&gen.switch.delayUnit;" />
 								</hbox>
 
-								<vbox style="margin-top: 5px;" aiosAdvanced="true">
-									<label value="&gen.switch.hide;" />
+								<vbox style="margin-top: 5px;">
+									<grid flex="1">
+										<columns>
+											<column style="width:&gen.column1;px;" />
+											<column flex="1" />
+										</columns>
+										<rows>
+											<row align="center">
+												<label value="&gen.switch.hide;" />
 
-									<radiogroup class="indent" preference="SSHidemethod">
-										<radio id="SSHidemethod1" label="&gen.switch.hideBar;" value="1" />
-										<radio id="SSHidemethod2" label="&gen.switch.hidePage;" value="2" />
-										<radio id="SSHidemethod3" label="&gen.switch.hideNone;" value="3" />
-									</radiogroup>
-
+												<menulist preference="SSHidemethod">
+													<menupopup>
+														<menuitem id="SSHidemethod1" label="&gen.switch.hideBar;" value="1" />
+														<menuitem id="SSHidemethod2" label="&gen.switch.hidePage;" value="2" />
+														<menuitem id="SSHidemethod3" label="&gen.switch.hideNone;" value="3" />
+													</menupopup>
+												</menulist>
+											</row>
+										</rows>
+									</grid>
 								</vbox>
 							</vbox>
 
@@ -428,6 +431,13 @@
 							<vbox class="indent">
 								<checkbox preference="SSThinMax" label="&gen.switch.onlymax;" />
 							</vbox>
+
+							<checkbox label="&gen.switch.invtrigger;" preference="SSInvTrg" oncommand="aios_checkboxObserver(this);" aiosChilds="SSInvWidth" />
+								<hbox align="center" class="indent">
+									<label value="&gen.switch.invwidth;:" />
+									<textbox preference="SSInvWidth" size="2" type="number" min="1" />
+									<label value="&gen.width.px;" />
+								</hbox>
 
 							<grid flex="1" aiosAdvanced="true" style="margin-top: 5px;">
 								<columns>

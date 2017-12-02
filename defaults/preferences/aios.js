@@ -47,7 +47,7 @@ pref("extensions.aios.gen.switch.drag", true);
 pref("extensions.aios.gen.switch.dragdelay", 0);
 
 pref("extensions.aios.gen.switch.invtrigger", false);
-pref("extensions.aios.gen.switch.invwidth", 2);
+pref("extensions.aios.gen.switch.invwidth", 4);
 
 pref("extensions.aios.cmode.key", 2);
 pref("extensions.aios.cmode.switch", 2);

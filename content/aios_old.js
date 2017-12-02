@@ -489,8 +489,7 @@ function aios_autoShowHide(mode) {
 	var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
 	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
 	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
-	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
-	var triggerZone = 2 * AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
+
 	//console.log(mode);
 
 	// Feature not activated, feature should only at max. Window grab, window does not have the focus
@@ -500,7 +499,6 @@ function aios_autoShowHide(mode) {
 	 *	Triggered by the switch
 	 **/
 	if (mode == "switch") {
-		// This won't be reached if the switch is invisible
 		// If sidebar should be visible and not hidden => ignore it
 		if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3)) return false;
 
@@ -523,8 +521,6 @@ function aios_autoShowHide(mode) {
 	 *	Triggered by the content area
 	 **/
 	else {
-		// Cancel autohide if within trigger zone and invisible trigger is enabled
-		if (invTrg && (mode.clientX <= triggerZone)) return;
 		if (!aios_isSidebarHidden() && hidemethod == 1) {
 			// Delete event on "appcontent" again, otherwise the sidebar would be displayed again
 			// => mouse-over the sidebar (in aios_initSidebar()) adds this feature back to the "appcontent"
@@ -555,25 +551,25 @@ function aios_autoShowHide(mode) {
 var aios_invCursorTZ = false;
 var aios_invTimeout;
 function aios_invisibleTrigger(mode) {
+	var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
+	
+	var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
+	var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
+	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
+	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
 	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
 	var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
-	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
-
-	console.log(mode);
-
-	// Feature not activated, trigger width is 0, or if window is not focused, return.
-	if (!invTrg || invWidth == 0 || !aiosFocus) return false;
 	
-	let triggerZone = 2 * invWidth;
-	if (mode.clientX <= triggerZone && !aios_invCursorTZ)
-	{
-		if (aios_isSidebarHidden()) {
-			console.log('app content: event deleted');
-			// Delete event on "appcontent" again, otherwise the sidebar would be displayed again
-			// => mouse-over the sidebar (in aios_initSidebar()) adds this feature back to the "appcontent"
-			document.getElementById('appcontent').removeEventListener("mousemove", aios_invisibleTrigger, true);
-		}
-			
+	//console.log(mode);
+
+	// Feature is disabled, should only function at maximized window, window does not have the focus, trigger width is 0, inv trigger is disabled
+	if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus || !invTrg || invWidth == 0) return false;
+
+	// If sidebar is visible and hide method is (1 - on content area) or (3 - don't autohide) => ignore it
+	if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3)) return false;
+
+	if (mode.clientX <= invWidth && !aios_invCursorTZ)
+	{			
 		// I am in trigger zone
 		aios_invCursorTZ = true;
 
@@ -588,7 +584,7 @@ function aios_invisibleTrigger(mode) {
 			window.clearTimeout(aios_invTimeout);
 		}, true);
 	}
-	if (mode.clientX > triggerZone) {
+	if (mode.clientX > invWidth) {
 		aios_invCursorTZ = false;
 	}
 }
@@ -711,7 +707,6 @@ function aios_checkThinSwitch() {
 		=> Called by onClick() of the switcher
 */
 function aios_controlSwitch(ev, which) {
-
 	// Left click => metaKey = Mac
 	if (ev.button == 0 && (!ev.shiftKey && !ev.ctrlKey && !ev.metaKey)) {
 		aios_toggleSidebar(which);
@@ -843,13 +838,13 @@ function aios_customizeEnd(e) {
 	Lightweight themes styling update observer
 */
 var lwthemeObserver = {
-  observe : function(aSubject, aTopic, aData) {
-	if (aTopic == "lightweight-theme-styling-update") {
-		window.setTimeout(function() {
-			lwthemeColorHandler();
-		}, 100);
+	observe : function(aSubject, aTopic, aData) {
+		if (aTopic == "lightweight-theme-styling-update") {
+			window.setTimeout(function() {
+				lwthemeColorHandler();
+			}, 100);
+		}
 	}
-  }
 }
 
 /*
