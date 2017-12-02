@@ -113,6 +113,9 @@ function aios_initSidebar() {
 	
 	// Initialize invisible sidebar switch trigger feature
 	aios_initInvTrg();
+	
+	// Check if real sidebar switch should be hidden
+	aios_checkInvTrg();
 
 	// Collapse the sidebar instead of closing it
 	var lp;

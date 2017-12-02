@@ -525,6 +525,7 @@ function aios_savePrefs() {
 	if(AiOS_HELPER.mostRecentWindow.aios_setTargets) AiOS_HELPER.mostRecentWindow.aios_setTargets();
 
 	AiOS_HELPER.mostRecentWindow.aios_checkThinSwitch();
+	if(AiOS_HELPER.mostRecentWindow.aios_checkInvTrg) AiOS_HELPER.mostRecentWindow.aios_checkInvTrg();
 	if(AiOS_HELPER.mostRecentWindow.aios_setSidebarOrient) AiOS_HELPER.mostRecentWindow.aios_setSidebarOrient();
 	if(AiOS_HELPER.mostRecentWindow.aios_initAutohide) AiOS_HELPER.mostRecentWindow.aios_initAutohide();
 	if(AiOS_HELPER.mostRecentWindow.aios_initInvTrg) AiOS_HELPER.mostRecentWindow.aios_initInvTrg();

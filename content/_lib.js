@@ -696,18 +696,21 @@ function aios_initAutohide() {
 }
 
 function aios_initInvTrg() {
-	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
-	if (!invTrg) return;
 	if (document.getElementById('appcontent'))
 		document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
-
-    // Add invisible trigger event restorer
-    fx_sidebarBox.addEventListener("mouseover", function() {
-        if(document.getElementById('appcontent'))
-            document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
-    }, true);
 }
 
+function aios_checkInvTrg() {
+	aios_getObjects();
+	
+	var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
+	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
+	var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
+	var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
+	
+	if (!autoshow | !autobutton | !invTrg | invWidth == 0) aios_toggleBox.setAttribute('collapsed', 'false');
+	else aios_toggleBox.setAttribute('collapsed', 'true');
+}
 
 /*
 	Switch AutoHide on or off using the toolbar button
@@ -716,6 +719,7 @@ function aios_initInvTrg() {
 function aios_toggleAutohide(which) {
     try {
         AiOS_HELPER.prefBranchAiOS.setBoolPref("gen.switch.autoshow", aios_getBoolean(which, 'checked'));
+		aios_checkInvTrg();
     }
     catch(e) { }
 }
