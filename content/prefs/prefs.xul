@@ -378,7 +378,7 @@
 							<!-- Behavior -->
 							<tabpanel orient="vertical">
 							<checkbox label="&gen.switch.autoshow;" preference="SSAutoshow"
-								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSInvTrg,SSInvWidth,SSDelay,SSHidemethod1,SSHidemethod2,SSHidemethod3" />
+								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSInvTrg,SSInvWidth,SSDelay,SSHidemethod" />
 
 							<vbox class="indent">
 								<checkbox label="&gen.switch.onlymax;" preference="SSOnlymax" />
