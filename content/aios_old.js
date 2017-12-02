@@ -825,16 +825,18 @@ function aios_BrowserFullScreen() {
 	Before customization event
 */
 function aios_customizeStart(e) {
-	// Force show AiOS toolbar
-	aios_toggleToolbar(true);
+	// Force show AiOS toolbar & sidebar
+	aios_toggleToolbar(false);
+	aios_toggleSidebar('switch', true);
 }
 
 /*
 	After customization event
 */
 function aios_customizeEnd(e) {
-	// Force show AiOS toolbar
+	// Force show AiOS toolbar & sidebar
 	aios_toggleToolbar(false);
+	aios_toggleSidebar('switch', true);
 }
 
 /*
