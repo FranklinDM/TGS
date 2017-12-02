@@ -47,13 +47,14 @@
 <!ENTITY gen.switch.autoshow "Mostrar/Ocultar el panel lateral automáticamente (al contacto con el cursor, en lugar de tener que pulsar)">
 <!ENTITY gen.switch.drag "Mostrar/Ocultar el panel lateral automáticamente al arrastrar algo sobre el selector del panel lateral">
 <!ENTITY gen.switch.onlymax "Sólo si el navegador está maximizado en el modo de pantalla completa">
-<!ENTITY gen.switch.invtrigger "Invisible sidebar switch trigger (Sidebar Switch width must be 0)">
+<!ENTITY gen.switch.invtrigger "Habilitar el selector invisible del panel lateral (Mostrar/Ocultar Automático debe estar habilitado)">
 <!ENTITY gen.switch.invwidth "Hover area">
 <!ENTITY gen.switch.delay "Retraso">
 <!ENTITY gen.switch.delayUnit "milisegundos">
 <!ENTITY gen.switch.hide "Ocultar el panel lateral cuando el cursor del ratón:">
 <!ENTITY gen.switch.hideBar "vuelva a la página web">
 <!ENTITY gen.switch.hidePage "se mantenga en el selector del panel">
+<!ENTITY gen.switch.hideNone "no te escondas automáticamente">
 <!ENTITY gen.switch.thin "Habilitar el selector fino del panel lateral">
 <!ENTITY gen.switch.width "Ancho del selector del panel lateral">
 <!ENTITY gen.switch.twidth "Ancho del selector fino del panel lateral">

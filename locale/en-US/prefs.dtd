@@ -47,7 +47,7 @@
 <!ENTITY gen.switch.autoshow "Show/hide Sidebar automatically (mouse contact instead of mouse click)">
 <!ENTITY gen.switch.drag "Show the Sidebar automatically when dragging something over the sidebar switch">
 <!ENTITY gen.switch.onlymax "Only if Browser is Maximized or in Full Screen Mode">
-<!ENTITY gen.switch.invtrigger "Invisible sidebar switch trigger (Sidebar Switch width must be 0)">
+<!ENTITY gen.switch.invtrigger "Enable Invisible Sidebar Switch (Auto Show/Hide must be enabled)">
 <!ENTITY gen.switch.invwidth "Hover area">
 <!ENTITY gen.switch.delay "Delay">
 <!ENTITY gen.switch.delayUnit "milliseconds">
