@@ -1,11 +1,11 @@
 
 /*
-	Liste der zur Verfuegung stehenden Sidebars erstellen
-		=> Aufruf durch aios_initPane()
+	Create a list of available sidebars
+		=> Called by aios_initPane()
 */
 function aios_genSidebarList() {
 
-	if(!document.getElementById('sidebarInitPopup') || !document.getElementById('panelInitPopup')) return false;
+	if (!document.getElementById('sidebarInitPopup') || !document.getElementById('panelInitPopup')) return false;
 
 	var strings = document.getElementById("aiosStrings");
 
@@ -22,10 +22,10 @@ function aios_genSidebarList() {
 		panelPrefInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.open.init");
 	} catch(e) { }
 
-	for(var i = 0; i < allSidebars.length; i++) {
+	for (var i = 0; i < allSidebars.length; i++) {
 		var xulElem = null;
 
-		// muss eine ID haben, darf keinen observer haben (Menueeintraege usw.) und muss eine Sidebar-URL haben
+		// must have an ID, must not have an observer (menu entries, etc.) and must have a sidebar URL
 		if(allSidebars[i].id && !allSidebars[i].getAttribute('observes') && allSidebars[i].getAttribute('sidebarurl')) {
 
 			var separator = document.createElement("menuseparator");
@@ -57,8 +57,8 @@ function aios_genSidebarList() {
 
 
 /*
-	Werte der aktuellen Sidebarbreite einsetzen
-		=> Aufruf durch oncommand() der drei <toolbarbutton>
+	Use values of the current sidebar width
+		=> Called by oncommand() the three <toolbarbutton>
 */
 function aios_setWidthVal(mode) {
 	var browserWidth = aios_getBrowserWidth();
@@ -69,11 +69,11 @@ function aios_setWidthVal(mode) {
 	var percent = parseInt(Math.round((widthSidebar * 100) / compWidth));
 	var theUnit = document.getElementById('obj-' + mode + 'WidthUnit').value;
 
-	if(theUnit == "px") {
+	if (theUnit == "px") {
 		document.getElementById('obj-' + mode + 'WidthVal').value = widthSidebar;
 		document.getElementById(mode + 'WidthVal').value = widthSidebar;
 	}
-	else if(theUnit == "%") {
+	else if (theUnit == "%") {
 		document.getElementById('obj-' + mode + 'WidthVal').value = percent;
 		document.getElementById(mode + 'WidthVal').value = percent;
 	}
@@ -81,8 +81,8 @@ function aios_setWidthVal(mode) {
 
 
 /*
-	Breitenangaben bei Aenderung der Masseinheit umrechnen und ausgeben
-		=> Aufruf durch ValueChange-Listener, initiert in aios_initPrefs()
+	Convert data when changing the unit of measurement and output
+		=> Called by ValueChange listener, initiated in aios_initPrefs()
 */
 function aios_changeWidthUnit(mode) {
 	var elem = document.getElementById('obj-' + mode + 'WidthVal');
@@ -92,20 +92,20 @@ function aios_changeWidthUnit(mode) {
 	var browserWidth = aios_getBrowserWidth();
 	var compWidth = browserWidth[3];
 
-	if(theUnit == "px") elem.value = parseInt((parseInt(elem.value) * compWidth) / 100);
+	if (theUnit == "px") elem.value = parseInt((parseInt(elem.value) * compWidth) / 100);
 	else elem.value = parseInt((parseInt(elem.value) * 100) / compWidth);
 
-	// preference auch aendern, da sonst der neue Wert des Textfeldes nicht gespeichert wird
+	// Change preference, otherwise the new value of the text field will not be saved
 	elemPref.value = elem.value;
 
-	// Kontrolle
+	// Control
 	aios_checkWidthVal(mode);
 }
 
 
 /*
-	Angaben zur Sidebarbreite pruefen
-		=> Aufruf durch onBlur() der drei Textfelder, aios_changeWidthUnit(), aios_setConfSidebarWidth()
+	Check details of the sidebar width
+		=> Called by onBlur() of the three text fields, aios_changeWidthUnit(), aios_setConfSidebarWidth()
 */
 function aios_checkWidthVal(mode) {
 	var elem = document.getElementById('obj-' + mode + 'WidthVal');
@@ -113,17 +113,17 @@ function aios_checkWidthVal(mode) {
 
 	elem.value = parseInt(elem.value);
 
-	// Kontrolle
-	if(mode == "max") {
-		if(theUnit == "px" && elem.value < 100) elem.value = 100;
-		else if(theUnit == "%" && elem.value < 10) elem.value = 10;
+	// control
+	if (mode == "max") {
+		if (theUnit == "px" && elem.value < 100) elem.value = 100;
+		else if (theUnit == "%" && elem.value < 10) elem.value = 10;
 	}
 }
 
 
 /*
-	stellt die Groesse der Sidebar ein
-		=> Aufruf durch aios_savePrefs() in prefs.js und aios_initSidebar() in aios.js
+	Sets the size of the sidebar
+		=> Called by aios_savePrefs() in prefs.js and aios_initSidebar() in aios.js
 */
 function aios_setConfSidebarWidth() {
 	var elem, theUnit, theValue;
@@ -133,26 +133,25 @@ function aios_setConfSidebarWidth() {
 	var browserWidth = aios_getBrowserWidth();
 	var compWidth = browserWidth[3];
 
-	for(var i = 0; i < modes.length; i++) {
-
-		// Aufruf aus dem Options-Dialog => die Eingabefelder als Werte verwenden
-		if(document.getElementById('obj-minWidthVal')) {
+	for (var i = 0; i < modes.length; i++) {
+		// Called from the options dialog => use the input fields as values
+		if (document.getElementById('obj-minWidthVal')) {
 			elem = document.getElementById('obj-' + modes[i] + 'WidthVal');
 			theValue = elem.value;
 			theUnit = document.getElementById('obj-' + modes[i] + 'WidthUnit').value;
 
-			// Kontrolle
+			// control
 			aios_checkWidthVal(modes[i]);
 		}
-		// Aufruf durch aios_initSidebar() => die abgespeicherten Werte verwenden
+		// Called by aios_initSidebar() => use the stored values
 		else {
 			elem = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.width." + modes[i] + "Val");
 			theValue = elem;
 			theUnit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.width." + modes[i] + "Unit");
 		}
 
-		// Prozente in Px umrechnen (Angaben in % funktionieren hier nicht??)
-		if(theUnit == "%") theValue = parseInt((compWidth * theValue) / 100);
+		// Convert percentage to pixel (figures in % do not work here)
+		if (theUnit == "%") theValue = parseInt((compWidth * theValue) / 100);
 
 		switch(modes[i]) {
 			case "min":
