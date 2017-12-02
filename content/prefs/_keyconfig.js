@@ -341,16 +341,15 @@ var keyView = {
 	canDrop: function() { return false; },
 	getParentIndex: function() { return -1; },
 
-	getCellProperties: function(row,col,props) {
-		/* throws props is undefined?
+	getCellProperties: function(row,col) {
 		var key = gKeys[row];
-		if (key.hardcoded) props.AppendElement(gAtomService.getAtom("hardcoded"));
-		if (key.pref[0] == "!") props.AppendElement(gAtomService.getAtom("disabled"));
-		if (key.pref[3]) props.AppendElement(gAtomService.getAtom("custom"));
-		if (key.pref.length) props.AppendElement(gAtomService.getAtom("user"));
+		if (key.hardcoded) return "hardcoded";
+		if (key.disabled) return "disabled";
+		if (key.pref[3]) return "custom";
+		if (key.pref.length) return "user";
 		if ((col.id || col) == "shortcut" && gUsedKeys[key.shortcut].length > 1)
-			props.AppendElement(gAtomService.getAtom("duplicate"));
-		*/
+			return "duplicate";
+		return "";
 	},
 	getColumnProperties: function(){},
 	selectionChanged: function() {
