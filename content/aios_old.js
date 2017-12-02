@@ -855,11 +855,21 @@ var lwthemeObserver = {
 	* When lwbg pref = false & ccl has no value, fall back to using transparent
 */
 function lwthemeColorHandler() {
-  var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg"),
-	  ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg"),
-	  rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
-  if (lwbg & rpt) fx_browser.style.background = fx_mainWindow.style.backgroundImage;
-  else if (lwbg) fx_browser.style.background = fx_mainWindow.style.backgroundColor;
-  else if (ccl != "") fx_browser.style.background = ccl;
-  else fx_browser.style.background = null;
+	var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg"),
+		ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg"),
+		rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
+	switch (lwbg) {
+		case true:
+			// To avoid seeing the ugly overlapping persona image
+			fx_browser.style.background = fx_mainWindow.style.backgroundColor;
+			if (rpt) fx_mainWindow.style.backgroundRepeat = "repeat";
+			break;
+		case false:
+			fx_browser.style.background = null;
+			if (ccl != "") fx_browser.style.background = ccl;
+			break;
+		default:
+			// If all else fails, use transparent bg
+			fx_browser.style.background = null;
+  }
 }
