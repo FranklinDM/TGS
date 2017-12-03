@@ -562,7 +562,7 @@ function aios_invisibleTrigger(mode) {
 	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
 	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
 	var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
-	
+	var orient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
 	//console.log(mode);
 
 	// Feature is disabled, should only function at maximized window, window does not have the focus, trigger width is 0, inv trigger is disabled
@@ -570,9 +570,11 @@ function aios_invisibleTrigger(mode) {
 
 	// If sidebar is visible and hide method is (1 - on content area) or (3 - don't autohide) => ignore it
 	if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3)) return false;
+	
+	var rightWidth = fx_browser.boxObject.width - invWidth;
 
-	if (mode.clientX <= invWidth && !aios_invCursorTZ)
-	{			
+	if (((mode.clientX <= invWidth) && orient == 1 || (mode.clientX >= rightWidth) && orient == 2) && !aios_invCursorTZ)
+	{
 		// I am in trigger zone
 		aios_invCursorTZ = true;
 
@@ -587,7 +589,7 @@ function aios_invisibleTrigger(mode) {
 			window.clearTimeout(aios_invTimeout);
 		}, true);
 	}
-	if (mode.clientX > invWidth) {
+	if ((mode.clientX > invWidth) && orient == 1 || (mode.clientX < invWidth) && orient == 2) {
 		aios_invCursorTZ = false;
 	}
 }
