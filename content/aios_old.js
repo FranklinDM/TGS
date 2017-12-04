@@ -261,9 +261,17 @@ function aios_initSidebar() {
 		  mutations.forEach(function(mutation) {
 			if (document.getElementById('downloads-indicator') != null) {
 				var downloadinc = document.getElementById('downloads-indicator');
+				var obElem = document.createElement('observes'), obElem2 = document.createElement('observes');
 				// This effectively disables download popups and may break other add-ons which override this attribute
-				downloadinc.setAttribute('observes', 'viewDownloadsSidebar');
-				downloadinc.setAttribute('command', 'Tools:Downloads');
+				aios_setAttributes(downloadinc, {"observes": "Tools:Downloads", "command": "Tools:Downloads-tb"});
+				// Create observes child element
+				aios_setAttributes(obElem, {"element": "viewDownloadsSidebar", "attribute": "checked"});
+				aios_setAttributes(obElem2, {"element": "viewSdDownloadsSidebar", "attribute": "checked"});
+				downloadinc.appendChild(obElem);
+				downloadinc.appendChild(obElem2);
+				// Stop observing when behavior is changed since the indicator
+				// is not gone even after the downloads tbutton is gone (ex. moved back to palette, etc)
+				observer.disconnect();
 			}
 		  });
 		});

@@ -280,6 +280,12 @@ function aios_openDialog(which, args) {
 			theId = "aiosGlobal:MultiPanel";
 			theFeatures = "width=640,height=480,chrome,resizable,centerscreen";
 			break;
+			
+		default:
+			theUrl = which;
+			theId = args;
+			theFeatures = "width=640,height=480,chrome,resizable,centerscreen";
+			break;
 	}
 
 	if (which == "prefs" || which == "about") openDialog(theUrl, theId, theFeatures, theArgs);
@@ -364,6 +370,14 @@ function aios_toggleChilds(childElems, childMode) {
 	}
 }
 
+/*
+	Set multiple attributes of one element
+*/
+function aios_setAttributes(elem, attrs) {
+  for (var key in attrs) {
+    elem.setAttribute(key, attrs[key]);
+  }
+}
 
 /**
  * Remove keyboard shortcuts to avoid blocking the main browser

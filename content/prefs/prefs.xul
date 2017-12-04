@@ -102,7 +102,7 @@
 			<preference id="cmodeClose"     type="int"          name="extensions.aios.cmode.close" />
 
 			<preference id="SBCollapsing"   type="bool"         name="extensions.aios.collapse" />
-			<preference id="SBIntercept"	type="bool"			name="extensions.aios.gen.mbSep" />
+			<preference id="SBIntercept"	type="bool"			name="extensions.aios.intercept" />
 		</preferences>
 
 		<tooltip id="minWidthHint" class="labelTipElem">
@@ -651,18 +651,15 @@
 
 						<groupbox>
 							<caption label="&bookmarksButton.label;" />
-							<checkbox preference="BMOpen" label="&misc.enablesidebar.label; *" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="BMOpen" label="&misc.enablesidebar.label;" oncommand="aios_checkboxObserver(this);" />
 						</groupbox>
 
 						<groupbox>
 							<caption label="&historyButton.label;" />
-							<checkbox preference="HIOpen" label="&misc.enablesidebar.label; *" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="HIOpen" label="&misc.enablesidebar.label;" oncommand="aios_checkboxObserver(this);" />
 						</groupbox>
 
 					</vbox>
-
-					<spacer flex="1" />
-					<description value="* &restart;" style="margin-top: 10px;" />
 
 				</tabpanel>
 
@@ -674,7 +671,7 @@
 
 						<groupbox>
 							<caption label="&tab.gen.behavior;" />
-							<checkbox preference="DMOpen" label="&misc.enablesidebar.label; *" aiosChilds="DMLayout, DMAutoOpen, DMAutoClose" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="DMOpen" label="&misc.enablesidebar.label;" aiosChilds="DMLayout, DMAutoOpen, DMAutoClose" oncommand="aios_checkboxObserver(this);" />
 
 							<vbox class="indent">
 								<checkbox preference="DMAutoOpen" label="&misc.dm.autoopen.label;" aiosChilds="DMAutoClose" oncommand="aios_checkboxObserver(this);" />
@@ -695,9 +692,6 @@
 						</groupbox>
 					</vbox>
 
-					<spacer flex="1" />
-					<description value="* &restart;" style="margin-top: 10px;" />
-
 				</tabpanel>
 
 
@@ -708,7 +702,7 @@
 
 						<groupbox>
 							<caption label="&tab.gen.behavior;" />
-							<checkbox preference="EMOpen" label="&misc.enablesidebar.label; *" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="EMOpen" label="&misc.enablesidebar.label;" oncommand="aios_checkboxObserver(this);" />
 						</groupbox>
 
 						<groupbox>
@@ -717,9 +711,6 @@
 						</groupbox>
 
 					</vbox>
-
-					<spacer flex="1" />
-					<description value="* &restart;" style="margin-top: 10px;" />
 
 				</tabpanel>
 
@@ -731,12 +722,12 @@
 
 						<groupbox>
 							<caption label="&button.multipanel.label;" />
-							<checkbox preference="MPOpen" label="&misc.enablesidebar.label; *" />
+							<checkbox preference="MPOpen" label="&misc.enablesidebar.label;" />
 						</groupbox>
 
 						<groupbox>
 							<caption label="&pageInfoCmd.label;" />
-							<checkbox preference="PIOpen" label="&misc.enablesidebar.label; *" aiosChilds="PILayout" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="PIOpen" label="&misc.enablesidebar.label;" aiosChilds="PILayout" oncommand="aios_checkboxObserver(this);" />
 
 							<vbox class="indent" aiosAdvanced="true">
 								<checkbox id="obj-PILayout" preference="PILayout" label="&misc.layout.label;" />
@@ -744,9 +735,6 @@
 						</groupbox>
 
 					</vbox>
-
-					<spacer flex="1" />
-					<description value="* &restart;" style="margin-top: 10px;" />
 
 				</tabpanel>
 
@@ -758,7 +746,7 @@
 
 						<groupbox>
 							<caption label="&button.console.label;" />
-							<checkbox preference="COOpen" label="&misc.enablesidebar.label; *" aiosChilds="COLayout" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="COOpen" label="&misc.enablesidebar.label;" aiosChilds="COLayout" oncommand="aios_checkboxObserver(this);" />
 
 							<vbox class="indent" aiosAdvanced="true">
 								<checkbox preference="COLayout" label="&misc.layout.label;" />
@@ -767,7 +755,7 @@
 
 						<groupbox>
 							<caption label="&button.cookies.label;" />
-							<checkbox preference="KSOpen" label="&misc.enablesidebar.label; *" aiosChilds="KSLayout" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="KSOpen" label="&misc.enablesidebar.label;" aiosChilds="KSLayout" oncommand="aios_checkboxObserver(this);" />
 
 							<vbox class="indent" aiosAdvanced="true">
 								<checkbox id="obj-KSLayout" preference="KSLayout" label="&misc.layout.label;" />
@@ -775,10 +763,6 @@
 						</groupbox>
 
 					</vbox>
-
-					<spacer flex="1" />
-					<description value="* &restart;" style="margin-top: 10px;" />
-
 				</tabpanel>
 
 

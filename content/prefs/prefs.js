@@ -508,32 +508,37 @@ function aios_synchElements() {
 
 
 /*
-	Einstellungen einiger Optionen direkt uebernehmen
-		=> Aufruf durch button "accept" und aios_applyPrefs()
+	Apply settings of some options directly
+		=> Called by button "accept" and aios_applyPrefs()
 */
 
 function aios_savePrefs() {
 	aios_setConfSidebarWidth();
+	
+	var enumerator = AiOS_HELPER.windowMediator.getEnumerator('navigator:browser');
+	while (enumerator.hasMoreElements()) {
+		var win = enumerator.getNext();
 
-	// Tooltip fuer PanelTab-Button festlegen
-	if(AiOS_HELPER.mostRecentWindow.document.getElementById('paneltab-button')) {
-		var ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
-		var ptTooltip = (ptReverse) ? 'paneltab-tooltip-reverse' : 'paneltab-tooltip';
-		AiOS_HELPER.mostRecentWindow.document.getElementById('paneltab-button').setAttribute('tooltip', ptTooltip);
+		// Set tooltip for PanelTab button
+		if (win.document.getElementById('paneltab-button')) {
+			var ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
+			var ptTooltip = (ptReverse) ? 'paneltab-tooltip-reverse' : 'paneltab-tooltip';
+			win.document.getElementById('paneltab-button').setAttribute('tooltip', ptTooltip);
+		}
+
+		if (win.aios_setTargets) win.aios_setTargets();
+
+		win.aios_checkThinSwitch();
+		if (win.aios_checkInvTrg) 		win.aios_checkInvTrg();
+		if (win.aios_setSidebarOrient)	win.aios_setSidebarOrient();
+		if (win.aios_initAutohide)		win.aios_initAutohide();
+		if (win.aios_initInvTrg)		win.aios_initInvTrg();
 	}
-
-	if(AiOS_HELPER.mostRecentWindow.aios_setTargets) AiOS_HELPER.mostRecentWindow.aios_setTargets();
-
-	AiOS_HELPER.mostRecentWindow.aios_checkThinSwitch();
-	if(AiOS_HELPER.mostRecentWindow.aios_checkInvTrg) AiOS_HELPER.mostRecentWindow.aios_checkInvTrg();
-	if(AiOS_HELPER.mostRecentWindow.aios_setSidebarOrient) AiOS_HELPER.mostRecentWindow.aios_setSidebarOrient();
-	if(AiOS_HELPER.mostRecentWindow.aios_initAutohide) AiOS_HELPER.mostRecentWindow.aios_initAutohide();
-	if(AiOS_HELPER.mostRecentWindow.aios_initInvTrg) AiOS_HELPER.mostRecentWindow.aios_initInvTrg();
-
+	
 	// Bugfix...
-	// sonst wird das Kontextmenue der Erweiterung angezeigt,
-	// wenn die Optionen ueber Rechtsklick geoeffnet wurden und der Apply-Button geklickt wird
-	if(opener.document.getElementById('extensionContextMenu'))
+	// otherwise the context menu of the extension is displayed,
+	// when the options have been right-clicked and the Apply button is clicked
+	if (opener.document.getElementById('extensionContextMenu'))
 		opener.document.getElementById('extensionContextMenu').hidePopup();
 }
 

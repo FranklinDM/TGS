@@ -188,6 +188,7 @@
             label="&downloads.label;" tooltip="downloads-tooltip" tooltiptext="&downloads.label;"
             command="Tools:Downloads-tb">
             <observes element="viewDownloadsSidebar" attribute="checked" />
+            <observes element="viewSdDownloadsSidebar" attribute="checked" />
             <observes element="viewDownloadsSidebar" attribute="onclick" />
         </toolbarbutton>
 

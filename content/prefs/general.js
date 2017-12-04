@@ -165,7 +165,11 @@ function aios_setConfSidebarWidth() {
 				break;
 		}
 	}
-
-	AiOS_HELPER.mostRecentWindow.document.getElementById('sidebar').setAttribute('style', widthStyle);
-	AiOS_HELPER.mostRecentWindow.document.persist('sidebar', 'style');
+	
+	var enumerator = AiOS_HELPER.windowMediator.getEnumerator('navigator:browser');
+	while (enumerator.hasMoreElements()) {
+		var win = enumerator.getNext();
+		win.document.getElementById('sidebar').setAttribute('style', widthStyle);
+		win.document.persist('sidebar', 'style');
+	}
 }
