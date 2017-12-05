@@ -690,7 +690,7 @@ function aios_checkApply(aPref) {
 */
 function aios_deleteOldPrefs() {
 
-	var oldPrefs = new Array('em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim', 'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall', 'hi.layout', 'hi.layoutall');
+	var oldPrefs = new Array('em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim', 'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall', 'hi.layout', 'hi.layoutall', 'dm.observer');
 
 	for(var i = 0; i < oldPrefs.length; i++) {
 		try {

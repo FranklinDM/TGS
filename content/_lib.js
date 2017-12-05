@@ -454,7 +454,7 @@ function aios_setTargets() {
         if (prefInfotip) {
             if(elem_switch) elem_switch.removeAttribute('tooltiptext');
 
-            // in Schleife, weil es mehrere Buttons mit der gleichen ID geben kann
+            // in loop because there may be several buttons with the same ID
             objects = document.getElementsByAttribute('id', 'paneltab-button');
             for(i = 0; i < objects.length; i++) {
                 objects[i].removeAttribute('tooltiptext');

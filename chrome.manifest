@@ -33,6 +33,7 @@ overlay     chrome://mozapps/content/xpinstall/xpinstallConfirm.xul    chrome://
 
 overlay     about:downloads											   chrome://aios/content/downloads.xul
 style       about:downloads                                            chrome://aios/skin/css/downloads.css
+override    chrome://browser/content/downloads/indicatorOverlay.xul    chrome://aios/content/indicatorOverlay.xul
 
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/multipanel.xul
 style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/css/multipanel.css

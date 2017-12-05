@@ -253,34 +253,6 @@ function aios_initSidebar() {
 	// Remove the attribute of the bookmarks bar. When placed on the AiOS toolbar, you can use CSS to set the orientation.
 	if(document.getElementById('PlacesToolbarItems')) document.getElementById('PlacesToolbarItems').removeAttribute('orient');
 
-	// Check if downloads indicator observer is enabled
-	if (AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.observer') == true) {
-		// Observe browser panel to find when downloads-indicator becomes an element
-		// create an observer instance
-		var observer = new MutationObserver(function(mutations) {
-		  mutations.forEach(function(mutation) {
-			if (document.getElementById('downloads-indicator') != null) {
-				var downloadinc = document.getElementById('downloads-indicator');
-				var obElem = document.createElement('observes'), obElem2 = document.createElement('observes');
-				// This effectively disables download popups and may break other add-ons which override this attribute
-				aios_setAttributes(downloadinc, {"observes": "Tools:Downloads", "command": "Tools:Downloads-tb"});
-				// Create observes child element
-				aios_setAttributes(obElem, {"element": "viewDownloadsSidebar", "attribute": "checked"});
-				aios_setAttributes(obElem2, {"element": "viewSdDownloadsSidebar", "attribute": "checked"});
-				downloadinc.appendChild(obElem);
-				downloadinc.appendChild(obElem2);
-				// Stop observing when behavior is changed since the indicator
-				// is not gone even after the downloads tbutton is gone (ex. moved back to palette, etc)
-				observer.disconnect();
-			}
-		  });
-		});
-		// configuration of the observer:
-		var config = { attributes: false, childList: true, characterData: false, subtree: true };
-		// pass in the target node, as well as the observer options
-		observer.observe(document.getElementById('browser-panel'), config);
-	}
-
 	initialised = true;
 }
 
