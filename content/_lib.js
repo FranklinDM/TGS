@@ -68,7 +68,14 @@ function aios_modSidebarMenu() {
         }
     }
 
+	// Hide extra separator if there are no non-default sidebar panels
+	// or if beside it are sidebar panels that are overriding the default panel options
+    var mitemsep1 = document.getElementById('aios-sidebar-mitem-sep1');
+    if (mitemsep1.nextSibling.id == "aios-sidebar-mitem-sep0" || mitemsep1.nextSibling.getAttribute('observes') == "viewConsole2Sidebar" || mitemsep1.nextSibling.getAttribute('observes') == "viewSdDownloadsSidebar")
+        mitemsep1.setAttribute('hidden', true);
+	
 	// Show/hide menu entries (open/close the sidebar and settings) and move
+	var showhideMenuseparator = document.getElementById('aios-sidebar-mitem-sep0');
     var paneltabMitem1 = document.getElementById('aios-sidebar-mitem-paneltab1');
     var paneltabMitem2 = document.getElementById('aios-sidebar-mitem-paneltab2');
     var sidebarshowMitem = document.getElementById('aios-sidebar-mitem-show');
@@ -99,6 +106,7 @@ function aios_modSidebarMenu() {
 
     // Move menu entries all the way down if the menu has not been edited yet
     if(!aios_getBoolean(fx_sidebarMenu, 'aios-modified')) {
+		fx_sidebarMenu.appendChild(showhideMenuseparator);
         fx_sidebarMenu.appendChild(paneltabMitem1);
         fx_sidebarMenu.appendChild(paneltabMitem2);
         fx_sidebarMenu.appendChild(sidebarshowMitem);

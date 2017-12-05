@@ -443,7 +443,8 @@
         <menuseparator id="addons_sep" position="9" />
 
         <menuitem id="console-mitem" observes="viewConsoleSidebar" position="10" key="key_errorConsole" />
-
+		<menuseparator id="aios-sidebar-mitem-sep1" position="11" />
+		
         <menuseparator id="aios-sidebar-mitem-sep0" position="94" />
 
         <menuitem id="aios-sidebar-mitem-paneltab1" label="&button.paneltab.menu1.label;" tooltiptext="&button.paneltab.tooltip1;" key="aiosKey_panelTab1" position="95"
