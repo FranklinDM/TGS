@@ -5,6 +5,7 @@
 pref("extensions.tgsidebar@franklindm.description", "chrome://aios/locale/lib.properties");
 pref("extensions.aios.changelog", "");
 pref("extensions.aios.infotips", true);
+pref("extensions.aios.switchtip", true);
 pref("extensions.aios.vbuttons", true);
 
 
@@ -12,6 +13,7 @@ pref("extensions.aios.vbuttons", true);
  *  General
  **/
 pref("extensions.aios.gen.orient", 1);
+pref("extensions.aios.intercept", false);
 pref("extensions.aios.collapse", true);
 pref("extensions.aios.rightclick", false);
 
@@ -40,7 +42,12 @@ pref("extensions.aios.gen.switch.width", 6);
 pref("extensions.aios.gen.switch.twidth", 2);
 pref("extensions.aios.gen.switch.thin", false);
 pref("extensions.aios.gen.switch.thinmax", false);
+
 pref("extensions.aios.gen.switch.drag", true);
+pref("extensions.aios.gen.switch.dragdelay", 0);
+
+pref("extensions.aios.gen.switch.invtrigger", false);
+pref("extensions.aios.gen.switch.invwidth", 4);
 
 pref("extensions.aios.cmode.key", 2);
 pref("extensions.aios.cmode.switch", 2);
@@ -56,13 +63,14 @@ pref("extensions.aios.fs.restore", true);
 /*
  *  Panels
  **/
-pref("extensions.aios.dm.observer", true);
 pref("extensions.aios.dm.sidebar", true);
 pref("extensions.aios.dm.layout", true);
 pref("extensions.aios.dm.layoutall", false);
 pref("extensions.aios.dm.autoopen", true);
 pref("extensions.aios.dm.autoclose", false);
 pref("extensions.aios.dm.count", true);
+pref("extensions.aios.dm.loadall", true);
+pref("extensions.aios.dm.shading", true);
 
 pref("extensions.aios.em.sidebar", true);
 pref("extensions.aios.em.count", true);

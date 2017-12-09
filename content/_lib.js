@@ -1,7 +1,7 @@
 Components.utils.import("resource://gre/modules/Downloads.jsm");
 
 /*
-	Modifies the Firefox Sidebar menu
+	Modifies the Sidebar menu
 		=> Calling aios_initSidebar() and aios_getSidebarMenu() (MenuButton Events 'onpopupshowing')
 */
 function aios_modSidebarMenu() {
@@ -28,25 +28,22 @@ function aios_modSidebarMenu() {
         catch(e) { }
 
 		// only if there is no separator or the like
-        if(item.getAttribute('observes') && document.getElementById(item.getAttribute('observes'))) {
+        if (item.getAttribute('observes') && document.getElementById(item.getAttribute('observes'))) {
+			// override for Show Downloads ... (DMT Fork)
+			if (document.getElementById('viewSdDownloadsSidebar') && item.getAttribute('observes') == 'viewDownloadsSidebar') {
+				item.setAttribute('observes', 'viewSdDownloadsSidebar');
+			}
+
             broadcaster = document.getElementById(item.getAttribute('observes'));
 
-            if(broadcaster.getAttribute('oncommand')) {
+            if (broadcaster.getAttribute('oncommand')) {
                 commandParent = broadcaster;
-
-                if(broadcaster.id == "viewDMSidebar") {
-                    var dmLabel = broadcaster.getAttribute('label');
-                    if(dmLabel.indexOf(" (DMT)") < 0) {
-                        broadcaster.setAttribute('label', dmLabel + " (DMT)");
-                        broadcaster.setAttribute('tooltiptext', dmLabel + " (Download Manager Tweak)");
-                    }
-                }
-            }
-            else if(broadcaster.getAttribute('command')) {
+			}
+            else if (broadcaster.getAttribute('command')) {
                 commandParent = document.getElementById(broadcaster.getAttribute('command'));
             }
 
-            if(commandParent) command = commandParent.getAttribute('oncommand');
+            if (commandParent) command = commandParent.getAttribute('oncommand');
         }
         else if(item.getAttribute('oncommand')) {
             command = item.getAttribute('oncommand');
@@ -71,13 +68,14 @@ function aios_modSidebarMenu() {
         }
     }
 
-    // var mitemsep1 = document.getElementById('aios-sidebar-mitem-sep1');
-    // if(mitemsep1.nextSibling.id == "aios-sidebar-mitem-sep0" || mitemsep1.nextSibling.getAttribute('observes') == "viewConsole2Sidebar" || mitemsep1.nextSibling.getAttribute('observes') == "viewDmtSidebar")
-    //     mitemsep1.setAttribute('hidden', true);
-
-
+	// Hide extra separator if there are no non-default sidebar panels
+	// or if beside it are sidebar panels that are overriding the default panel options
+    var mitemsep1 = document.getElementById('aios-sidebar-mitem-sep1');
+    if (mitemsep1.nextSibling.id == "aios-sidebar-mitem-sep0" || mitemsep1.nextSibling.getAttribute('observes') == "viewConsole2Sidebar" || mitemsep1.nextSibling.getAttribute('observes') == "viewSdDownloadsSidebar")
+        mitemsep1.setAttribute('hidden', true);
+	
 	// Show/hide menu entries (open/close the sidebar and settings) and move
-    //var showhideMenuseparator = document.getElementById('aios-sidebar-mitem-sep0');
+	var showhideMenuseparator = document.getElementById('aios-sidebar-mitem-sep0');
     var paneltabMitem1 = document.getElementById('aios-sidebar-mitem-paneltab1');
     var paneltabMitem2 = document.getElementById('aios-sidebar-mitem-paneltab2');
     var sidebarshowMitem = document.getElementById('aios-sidebar-mitem-show');
@@ -108,7 +106,7 @@ function aios_modSidebarMenu() {
 
     // Move menu entries all the way down if the menu has not been edited yet
     if(!aios_getBoolean(fx_sidebarMenu, 'aios-modified')) {
-        //fx_sidebarMenu.appendChild(showhideMenuseparator);
+		fx_sidebarMenu.appendChild(showhideMenuseparator);
         fx_sidebarMenu.appendChild(paneltabMitem1);
         fx_sidebarMenu.appendChild(paneltabMitem2);
         fx_sidebarMenu.appendChild(sidebarshowMitem);
@@ -298,7 +296,7 @@ function aios_panelTab(event) {
         }
         // Open in Window
         else {
-			// is required for the query in addons / downlaods _.... xul and downloads.js
+			// is required for the query in addons / downloads _.... xul and downloads.js
             // otherwise, windows (downloads, add-ons) would be closed again immediately
             AiOS_HELPER.mostRecentWindow.aiosIsWindow = true;
             window.setTimeout(function() {
@@ -326,12 +324,12 @@ function aios_isSidebar(aHref) {
 
     for(var i = 0; i < allSidebars.length; i++) {
 		// must have an ID, can not have an observer (menu entries, etc.) and must have a sidebar URL
-        if(allSidebars[i].id && !allSidebars[i].getAttribute('observes') && allSidebars[i].getAttribute('sidebarurl')) {
+        if (allSidebars[i].id && !allSidebars[i].getAttribute('observes') && allSidebars[i].getAttribute('sidebarurl')) {
 
             // remember the active sidebar
-            if(aios_getBoolean(allSidebars[i].id, 'checked')) theSidebar = allSidebars[i].id;
+            if (aios_getBoolean(allSidebars[i].id, 'checked')) theSidebar = allSidebars[i].id;
 
-            if(aHref == allSidebars[i].getAttribute('sidebarurl')) {
+            if (aHref == allSidebars[i].getAttribute('sidebarurl')) {
                 return allSidebars[i].id;
             }
         }
@@ -424,11 +422,11 @@ function aios_setTargets() {
     var objects, i;
 
 	// assign the respective commands to the menu elements of the error console, the page source text, and the page information
-    if( document.getElementById('javascriptConsole') ) {
+    if (document.getElementById('javascriptConsole')) {
         document.getElementById('javascriptConsole').removeAttribute('oncommand');
         document.getElementById('javascriptConsole').setAttribute('command', 'Tools:Console');
 
-        if(document.getElementById('key_errorConsole')) {
+        if (document.getElementById('key_errorConsole')) {
             document.getElementById('key_errorConsole').removeAttribute('oncommand');
             document.getElementById('key_errorConsole').setAttribute('command', 'Tools:Console');
         }
@@ -437,99 +435,148 @@ function aios_setTargets() {
     document.getElementById('context-viewinfo').removeAttribute('oncommand');
     document.getElementById('context-viewinfo').setAttribute('command', 'View:PageInfo');
 
-
     var targets = new Array();
-    targets['bm'] = new Array('View:Bookmarks',     'viewBookmarksSidebar',     'bookmarks');
-    targets['hi'] = new Array('View:History',       'viewHistorySidebar',       'history');
-    targets['dm'] = new Array('Tools:Downloads',    'viewDownloadsSidebar',     'downloads');
-    targets['ad'] = new Array('Tools:Addons',       'viewAddonsSidebar',        'addons');
-    targets['mp'] = new Array('Tools:MultiPanel',   'viewWebPanelsSidebar',     'multipanel');
-    targets['pi'] = new Array('View:PageInfo',      'viewPageInfoSidebar',      'pageinfo');
-    targets['co'] = new Array('Tools:Console',      'viewConsoleSidebar',       'console');
-    targets['ks'] = new Array('View:Cookies',       'viewCookiesSidebar',       'cookies');
-
-    if(document.getElementById('viewConsole2Sidebar'))
-        targets['co'] = new Array('Tools:Console', 'viewConsole2Sidebar', 'console');
-
+    targets['bm'] = new Array('View:Bookmarks',     'viewBookmarksSidebar',     'bookmarks',		"aios_openDialog('bookmarks');");
+    targets['hi'] = new Array('View:History',       'viewHistorySidebar',       'history',			"aios_openDialog('history');");
+    targets['dm'] = new Array('Tools:Downloads',    'viewDownloadsSidebar',     'downloads',		"BrowserDownloadsUI();");
+    targets['ad'] = new Array('Tools:Addons',       'viewAddonsSidebar',        'addons',			"BrowserOpenAddonsMgr();");
+    targets['mp'] = new Array('Tools:MultiPanel',   'viewWebPanelsSidebar',     'multipanel',		"aios_openDialog('multipanel');");
+    targets['pi'] = new Array('View:PageInfo',      'viewPageInfoSidebar',      'pageinfo',			"BrowserPageInfo();");
+    targets['co'] = new Array('Tools:Console',      'viewConsoleSidebar',       'console',			"toJavaScriptConsole();");
+    targets['ks'] = new Array('View:Cookies',       'viewCookiesSidebar',       'cookies',			"aios_openDialog('cookies');");
+	
+	// Overrides for other sidebar extensions
+    if (document.getElementById('viewConsole2Sidebar'))
+        targets['co'] = new Array('Tools:Console', 'viewConsole2Sidebar', 'console', "aios_openDialog('" + document.getElementById('viewConsole2Sidebar').getAttribute('sidebarurl') + "', 'Tools:Console');");
+	if (document.getElementById('viewSdDownloadsSidebar'))
+		targets['dm'] = new Array('Tools:Downloads', 'viewSdDownloadsSidebar', 'downloads', "aios_openDialog('" + document.getElementById('viewSdDownloadsSidebar').getAttribute('sidebarurl') + "', 'Tools:Console');");
+	
 	// activate informative tooltips and function reversal (PanelTab)?
-    var prefInfotip = false;
-    var ptReverse = false;
+    var prefInfotip = false, ptReverse = false, enable_rightclick = false, switchTip = true;
     try {
         prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
         ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
+		enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
+		switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
 
-        if(prefInfotip) {
+        if (prefInfotip) {
             if(elem_switch) elem_switch.removeAttribute('tooltiptext');
 
-            //if(document.getElementById('paneltab-button')) document.getElementById('paneltab-button').removeAttribute('tooltiptext');
-            // in Schleife, weil es mehrere Buttons mit der gleichen ID geben kann
+            // in loop because there may be several buttons with the same ID
             objects = document.getElementsByAttribute('id', 'paneltab-button');
             for(i = 0; i < objects.length; i++) {
                 objects[i].removeAttribute('tooltiptext');
             }
         }
+		
+		if (!switchTip) if (elem_switch) elem_switch.removeAttribute('tooltip');
 
-        if(document.getElementById('paneltab-button')) {
+        if (document.getElementById('paneltab-button')) {
             if(ptReverse) document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip-reverse');
             else document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip');
         }
     }
     catch(e) { }
+	
+	// Modify the toolbar button's command set
+	aios_ModifyCommandSet(targets, prefInfotip, objects, i, false);
+	aios_ModifyCommandSet(targets, prefInfotip, objects, i, true);
+	
+    // Disable context menu of the PanelTab buttons if right-click is allowed
+    if(enable_rightclick && document.getElementById('paneltab-button')) {
+        document.getElementById('paneltab-button').setAttribute('context', '');
+        var pttt1 = document.getElementById('paneltab-tooltip').firstChild;
+        var pttt2 = document.getElementById('paneltab-tooltip-reverse').firstChild;
 
-    for(var obj in targets) {
+        if(pttt1.getAttribute('r3c2').indexOf(pttt1.getAttribute('rightclick')) == -1) {
+            pttt1.setAttribute('r3c2', pttt1.getAttribute('r3c2') + pttt1.getAttribute('rightclick'));
+        }
+        if(pttt2.getAttribute('r3c2').indexOf(pttt2.getAttribute('rightclick')) == -1) {
+            pttt2.setAttribute('r3c2', pttt2.getAttribute('r3c2') + pttt2.getAttribute('rightclick'));
+        }
+    }
+
+    // Prevent opening the download window if the sidebar is to be used
+    if(AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar')) AiOS_HELPER.prefService.setBoolPref("browser.download.manager.showWhenStarting", false);
+
+	// Set list of all downloads
+	var adlist = Downloads.getList(Downloads.ALL);
+	var view = {
+		onDownloadAdded:   download => aios_DownloadObserver('added', download),
+		onDownloadChanged: download => aios_DownloadObserver('changed', download)
+	};
+	adlist.then(obj => obj.addView(view));
+
+    // Remove the view when the window is closed
+    window.addEventListener("unload", function() {
+		adlist.then(obj => obj.removeView(view));
+    }, false);
+
+    return true;
+}
+
+function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
+    for (var obj in targets) {
         // Open in sidebar?
         var prefSidebar;
         try {
             if(obj != "ad") prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(obj + ".sidebar");
             else prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.sidebar");
-
-            var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
+			var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
+			var mbSeparate = AiOS_HELPER.prefBranchAiOS.getBoolPref("intercept");
         }
         catch(e) { }
 
-        var ffObj = document.getElementById(targets[obj][0]);           	// Original object
+		// By default, only modify the commands with the -tb suffix
+		var cmExt = "-tb";
+		// If isMain = true, modify the main commands
+		if (isMain) cmExt = "";
+		
+        var ffObj = document.getElementById(targets[obj][0] + cmExt);       // Original object
         var sbObj = document.getElementById(targets[obj][1]);           	// Sidebar object
         var tpObj = document.getElementById(targets[obj][2] + "-tooltip");  // Tooltip
         var btObj = document.getElementById(targets[obj][2] + "-button");   // Button
-
-        if(ffObj && sbObj) {
-
+		
+        if (ffObj && sbObj) {
             var newObj, newCmd, newTp;
 
-            if(prefSidebar) {
+            if (prefSidebar) {
+				// Tooltip
                 newObj = sbObj;
                 newTp = document.getElementById('template-sidebar-tooltip').childNodes[0].cloneNode(true);
-            }
-            else {
-                newObj = ffObj;
+
+				// Command
+				newCmd = newObj.getAttribute('oncommand');
+
+				// prevent two commands from being executed when a key is pressed
+				newCmd = "if(aios_preventDblCmd(event)) " + newCmd + " return true;";
+
+				// assign command
+				ffObj.setAttribute('oncommand', newCmd);
+			} else {
+				// Tooltip
+				newObj = ffObj;
                 newTp = document.getElementById('template-window-tooltip').childNodes[0].cloneNode(true);
-            }
-
-            newCmd = newObj.getAttribute('oncommand');
-
-			// prevent two commands from being executed when a key is pressed
-            newCmd = "if(aios_preventDblCmd(event)) " + newCmd + " return true;";
-
-            // assign command
-            ffObj.setAttribute('oncommand', newCmd);
-
+				
+				// Command
+				ffObj.setAttribute('oncommand', "if(aios_preventDblCmd(event)) " + targets[obj][3]);
+			}
 			// remembering commands
             // => for context functions - aios_contextEvent() - can be queried
             // => if you do not want to open in Sidebar anymore
-            if(!aios_getBoolean(ffObj, 'modByAIOS')) {
+			ffObj.setAttribute('aios_inSidebar', prefSidebar);
+            if (!aios_getBoolean(ffObj, 'modByAIOS')) {
                 // for clicks on toolbarbuttons and menu entries
                 ffObj.setAttribute('aios_sbUri', sbObj.getAttribute('sidebarurl'));
                 ffObj.setAttribute('aios_sbCmd', targets[obj][1]);
-                ffObj.setAttribute('aios_inSidebar', prefSidebar);
 
-                // for clicks on menuesintraege in the sidebarmenues => see aios_preventDblCmd()
+                // for clicks on menu items in the sidebar menu => see aios_preventDblCmd()
                 sbObj.setAttribute('aios_sbUri', sbObj.getAttribute('sidebarurl'));
                 sbObj.setAttribute('oncommand', "if(aios_preventDblCmd(event)) " + sbObj.getAttribute('oncommand'));
             }
 
             // Remove Tooltiptext to make info tooltips visible (looped because there may be several buttons with the same ID)
-            //if(prefInfotip && btObj) btObj.removeAttribute('tooltiptext');
-            if(prefInfotip && btObj) {
+            if (prefInfotip && btObj) {
                 objects = document.getElementsByAttribute('id', btObj.id);
                 for(i = 0; i < objects.length; i++) {
                     objects[i].removeAttribute('tooltiptext');
@@ -551,39 +598,11 @@ function aios_setTargets() {
 
             ffObj.setAttribute('modByAIOS', true);
         }
-    }
-
-    // Disable context menu of the PanelTab buttons if right-click is allowed
-    if(enable_rightclick && document.getElementById('paneltab-button')) {
-        document.getElementById('paneltab-button').setAttribute('context', '');
-        var pttt1 = document.getElementById('paneltab-tooltip').firstChild;
-        var pttt2 = document.getElementById('paneltab-tooltip-reverse').firstChild;
-
-        if(pttt1.getAttribute('r3c2').indexOf(pttt1.getAttribute('rightclick')) == -1) {
-            pttt1.setAttribute('r3c2', pttt1.getAttribute('r3c2') + pttt1.getAttribute('rightclick'));
-        }
-        if(pttt2.getAttribute('r3c2').indexOf(pttt2.getAttribute('rightclick')) == -1) {
-            pttt2.setAttribute('r3c2', pttt2.getAttribute('r3c2') + pttt2.getAttribute('rightclick'));
-        }
-    }
-
-    // Prevent opening the download window if the sidebar is to be used
-    if(AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar')) AiOS_HELPER.prefService.setBoolPref("browser.download.manager.showWhenStarting", false);
-
-	// Set list of all downloads
-	var adlist = Downloads.getList(Downloads.ALL);
-	var view = {
-		onDownloadAdded: download => aios_DownloadObserver('added'),
-		onDownloadChanged: download => aios_DownloadObserver('changed')
-	};
-	adlist.then(obj => obj.addView(view));
-
-    // Remove the view when the window is closed
-    window.addEventListener("unload", function() {
-		adlist.then(obj => obj.removeView(view));
-    }, false);
-
-    return true;
+		
+		if (cmExt == "" && ffObj && mbSeparate) {
+			ffObj.setAttribute('oncommand', targets[obj][3]);
+		}
+	}
 }
 
 /*
@@ -592,11 +611,11 @@ function aios_setTargets() {
         2. The manager is to be opened and ...
         3. the goal is to open the sidebar
 */
-function aios_DownloadObserver(aTopic) {
+function aios_DownloadObserver(aTopic, aDownload) {
 	var autoOpen = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoopen');
 	var autoClose = AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.autoclose');
 	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIWebNavigation).QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
-
+	
 	switch (aTopic) {
 		case "added":
 			var comElem = document.getElementById('Tools:Downloads');
@@ -604,14 +623,18 @@ function aios_DownloadObserver(aTopic) {
 				// AiOS_HELPER.windowWatcher.activeWindow prevents the sidebar from being opened in any window
 				if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar("viewDownloadsSidebar", true);
 			}
-			break;
-
+		break;
+		
 		case "changed":
-			var sideSrc = document.getElementById('sidebar').getAttribute('src');
-			if(autoOpen && autoClose && sideSrc.indexOf('about:downloads') >= 0) {
-				if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar();
+			// Add a check since without if statement, downloads sidebar would automagically close even if
+			// the download isn't done yet (in progress)
+			if (aDownload.succeeded) {
+				var sideSrc = document.getElementById('sidebar').getAttribute('src');
+				if(autoOpen && autoClose && sideSrc.indexOf('about:downloads') >= 0) {
+					if(typeof AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar == "function") AiOS_HELPER.windowWatcher.activeWindow.toggleSidebar();
+				}
 			}
-			break;
+		break;
 	}
 }
 
@@ -655,7 +678,6 @@ function aios_isSidebarHidden() {
     }
     catch(e) { }
 
-    // CollapseByStyle-Method if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.getAttribute('style') != "");
     if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.collapsed);
     else return fx_sidebarBox.hidden;
 }
@@ -684,6 +706,22 @@ function aios_initAutohide() {
     }, true);
 }
 
+function aios_initInvTrg() {
+	if (document.getElementById('appcontent'))
+		document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
+}
+
+function aios_checkInvTrg() {
+	aios_getObjects();
+	
+	var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
+	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
+	var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
+	var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
+	
+	if (!autoshow | !autobutton | !invTrg | invWidth == 0) aios_toggleBox.setAttribute('collapsed', 'false');
+	else aios_toggleBox.setAttribute('collapsed', 'true');
+}
 
 /*
 	Switch AutoHide on or off using the toolbar button
@@ -692,6 +730,7 @@ function aios_initAutohide() {
 function aios_toggleAutohide(which) {
     try {
         AiOS_HELPER.prefBranchAiOS.setBoolPref("gen.switch.autoshow", aios_getBoolean(which, 'checked'));
+		aios_checkInvTrg();
     }
     catch(e) { }
 }

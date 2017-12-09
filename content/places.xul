@@ -2,52 +2,52 @@
 
 <!-- locale -->
 <!DOCTYPE overlay [
-    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
-    <!ENTITY % placesDTD SYSTEM "chrome://browser/locale/places/places.dtd"> %placesDTD;
-    <!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
+	<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
+	<!ENTITY % placesDTD SYSTEM "chrome://browser/locale/places/places.dtd"> %placesDTD;
+	<!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
 ]>
 
 <overlay id="bmHiOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
-    <script type="application/x-javascript" src="chrome://aios/content/places.js" />
+	<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
+	<script type="application/x-javascript" src="chrome://aios/content/places.js" />
 
-    <page id="bookmarksPanel" persist="width height screenX screenY" title="&bookmarksButton.label;" windowtype="aiosGlobal:Bookmarks" />
+	<page id="bookmarksPanel" persist="width height screenX screenY" title="&bookmarksButton.label;" windowtype="aiosGlobal:Bookmarks" />
 
-    <page id="history-panel" persist="width height screenX screenY" title="&historyButton.label;" windowtype="aiosGlobal:History" />
+	<page id="history-panel" persist="width height screenX screenY" title="&historyButton.label;" windowtype="aiosGlobal:History" />
 
-    <textbox id="search-box" tooltiptext="&search.label;" />
+	<textbox id="search-box" tooltiptext="&search.label;" />
 
-    <hbox id="places-toolbar">
-        <stringbundleset id="propSet">
-            <stringbundle id="propSetStrings" src="chrome://aios/locale/lib.properties" />
-        </stringbundleset>
+	<hbox id="places-toolbar">
+		<stringbundleset id="propSet">
+			<stringbundle id="propSetStrings" src="chrome://aios/locale/lib.properties" />
+		</stringbundleset>
 
-        <button id="closeFolder" insertbefore="viewButton" oncommand="AiOS_Places.closeAllFolders();" hidden="true" persist="hidden"
-            label="&closeFolder.label;" tooltiptext="&closeFolder.label;" />
+		<button id="closeFolder" insertbefore="viewButton" oncommand="AiOS_Places.closeAllFolders();" hidden="true" persist="hidden"
+			label="&closeFolder.label;" tooltiptext="&closeFolder.label;" />
 
-        <button id="viewButton" type="menu" label="&menu.tools.label;">
+		<button id="viewButton" type="menu" label="&menu.tools.label;">
 
-            <menupopup id="viewPopUp">
+			<menupopup id="viewPopUp">
 
-                <menuitem id="aios-enableAutoClose" type="checkbox" checked="false" persist="checked" label="&enable.autoClose.label;"
-                    oncommand="AiOS_Places.checkFolderOptions();" />
+				<menuitem id="aios-enableAutoClose" type="checkbox" checked="false" persist="checked" label="&enable.autoClose.label;"
+					oncommand="AiOS_Places.checkFolderOptions();" />
 
-                <menuitem id="aios-rememberFolder" type="checkbox" checked="false" persist="checked" label="&enable.rememberFolder.label;"
-                    oncommand="AiOS_Places.checkFolderOptions();" />
+				<menuitem id="aios-rememberFolder" type="checkbox" checked="false" persist="checked" label="&enable.rememberFolder.label;"
+					oncommand="AiOS_Places.checkFolderOptions();" />
 
-                <menuitem id="aios-scrollToFolder" type="checkbox" checked="false" persist="checked" label="&enable.scrollToFolder.label;"
-                    oncommand="AiOS_Places.checkFolderOptions();" />
+				<menuitem id="aios-scrollToFolder" type="checkbox" checked="false" persist="checked" label="&enable.scrollToFolder.label;"
+					oncommand="AiOS_Places.checkFolderOptions();" />
 
-                <menuseparator id="close-separator" />
+				<menuseparator id="close-separator" />
 
-                <menuitem id="aios-viewClose" type="checkbox" checked="false" persist="checked" label="&show.closeFolder.label;"
-                    oncommand="AiOS_Places.toggleButton(this);" data-dependent="closeFolder" />
+				<menuitem id="aios-viewClose" type="checkbox" checked="false" persist="checked" label="&show.closeFolder.label;"
+					oncommand="AiOS_Places.toggleButton(this);" data-dependent="closeFolder" />
 
-            </menupopup>
+			</menupopup>
 
-        </button>
+		</button>
 
-    </hbox>
+	</hbox>
 
 </overlay>

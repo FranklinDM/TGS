@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar - Opciones">
+<!ENTITY title "The Good 'ol Sidebar - Opciones">
 <!ENTITY restart "Los cambios requieren reiniciar el navegador">
 <!ENTITY settings "Opciones">
 <!ENTITY settings.default "Restaurar valores por defecto…">
@@ -21,6 +21,7 @@
 <!ENTITY tab.menus "Menús">
 <!ENTITY tab.menus.sidebar "Panel lateral">
 <!ENTITY tab.keys "Combinaciones de teclas">
+<!ENTITY tab.about "Acerca de/Ayuda">
 <!ENTITY gen.orient.caption "Orientación">
 <!ENTITY gen.orient.label "Mostrar el panel en">
 <!ENTITY gen.orient.left "parte izquierda">
@@ -44,15 +45,20 @@
 <!ENTITY gen.init.sidebar "Abrir panel lateral (Selector del panel lateral, Botón del panel, Método abreviado)">
 <!ENTITY gen.init.sidebar.restore "Restaurar el panel recordado">
 <!ENTITY gen.switch.autoshow "Mostrar/Ocultar el panel lateral automáticamente (al contacto con el cursor, en lugar de tener que pulsar)">
+<!ENTITY gen.switch.drag "Mostrar/Ocultar el panel lateral automáticamente al arrastrar algo sobre el selector del panel lateral">
 <!ENTITY gen.switch.onlymax "Sólo si el navegador está maximizado en el modo de pantalla completa">
+<!ENTITY gen.switch.invtrigger "Habilitar el selector invisible del panel lateral (Mostrar/Ocultar Automático debe estar habilitado)">
+<!ENTITY gen.switch.invwidth "Hover area">
 <!ENTITY gen.switch.delay "Retraso">
 <!ENTITY gen.switch.delayUnit "milisegundos">
-<!ENTITY gen.switch.hide "Ocultar el panel lateral cuando el cursor del ratón…">
+<!ENTITY gen.switch.hide "Ocultar el panel lateral cuando el cursor del ratón:">
 <!ENTITY gen.switch.hideBar "vuelva a la página web">
 <!ENTITY gen.switch.hidePage "se mantenga en el selector del panel">
+<!ENTITY gen.switch.hideNone "no te escondas automáticamente">
 <!ENTITY gen.switch.thin "Habilitar el selector fino del panel lateral">
 <!ENTITY gen.switch.width "Ancho del selector del panel lateral">
 <!ENTITY gen.switch.twidth "Ancho del selector fino del panel lateral">
+<!ENTITY gen.mbSeparate "Don't open in sidebar panel when opened from menu/key shortcuts">
 <!ENTITY cmode.caption "Activar panel lateral">
 <!ENTITY cmode.desc "Permite personalizar qué elementos se verán afectados al abrir o cerrar el panel con diferentes métodos.">
 <!ENTITY cmode.key.label "Método abreviado (F4)">
@@ -69,18 +75,15 @@
 <!ENTITY keyconfig.disable "Deshabilitar">
 <!ENTITY keyconfig.reset "Reiniciar">
 <!ENTITY keyconfig.warn "Los cambios afectan sólo a las ventanas nuevas">
-<!ENTITY keyconfig.onreset "Es necesario reiniciar el navegador">
-<!ENTITY keyconfig.unrecognized "No reconocido ($1)">
-<!ENTITY keyconfig.used "La tecla ya está siendo usada por: \\n\\n\\t$1\\n\\naunque debe funcionar igualmente.">
 <!ENTITY menus.sidebar.desc "Permite personalizar las entradas del menú “Ver &gt; Panel lateral” y los menús de los botones del panel lateral.">
 <!ENTITY menus.icons.label "Ver iconos">
 <!ENTITY menus.entries.label "Ver entradas">
 <!ENTITY menus.sidebar.entrydeac "Deshabilitar la entrada del panel activo">
 <!ENTITY misc.enablesidebar.label "Abrir en el panel lateral">
 <!ENTITY misc.layout.label "Optimización del panel lateral">
-<!ENTITY misc.dm.overlay "Cambiar las opciones para el comportamiento del panel lateral">
 <!ENTITY misc.dm.autoopen.label "Mostrar el panel lateral de descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarlo cuando todas las descargas hayan terminado">
+<!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
 <!ENTITY misc.colors.label "Habilitar los fondos de colores basados en el estado actual">
 <!ENTITY misc.count.label "Mostrar número de elementos">
 <!ENTITY misc.enablelink.tooltip "Pulse aquí para más información (enlace a las FAQs)">

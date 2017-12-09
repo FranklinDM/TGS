@@ -1,7 +1,9 @@
 The Good 'ol Sidebar (TGS) - a sidebar extension for Pale Moon
 ===================================================================
 
-This is the repository of the sidebar extension called The Good 'ol Sidebar, a fork of [All-in-One Sidebar](http://firefox.exxile.net/aios/index.php), an extension originally made for Mozilla Firefox, which is now discontinued.
+This is the repository of the sidebar extension called [The Good 'ol Sidebar](https://addons.palemoon.org/addon/tgsidebar/), an extension for [Pale Moon](https://www.palemoon.org) and a fork of [All-in-One Sidebar](http://firefox.exxile.net/aios/index.php) which was an extension made for Mozilla Firefox, but is now discontinued.
+
+More information about this extension could be found at the [wiki](https://github.com/FranklinDM/TGS/wiki).
 
 You are cordially invited to contribute to the project. :-)
 
@@ -16,15 +18,11 @@ To build an installable `.xpi` extension for Pale Moon:
 2. zip the contents of the repository (excluding `.git`, `.gitignore`, `build.sh`, `CHANGELOG.md`, and `README.md`) and rename the `.zip` extension to `.xpi`
 3. open/install the resulting `.xpi` file with Pale Moon
 
-### Mac OS X
+### Mac OS X / Linux
 
 1. clone this repository
 2. execute `./build.sh` at the repository root
-3. open/install the resulting `tgs_sidebar-dev-build-fx.xpi` file with Pale Moon
-
-### Ubuntu Linux
-
-I'm not an unix expert, but as far as I know the instructions for Mac OS X should also work on linux systems. Correct me if I'm wrong.
+3. open/install the resulting `tgs_sidebar-dev-build-pm.xpi` file with Pale Moon
 
 ### Windows
 
@@ -40,10 +38,10 @@ Links
 Issues
 -------
 
-Please use the [issues system of GitHub](https://github.com/FranklinDM/TES/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
+Please use the [issues system of GitHub](https://github.com/FranklinDM/TGS/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
 
 
-License:
+License
 --------
 
 Portions &copy; 2017+ FranklinDM

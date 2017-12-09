@@ -2,29 +2,29 @@
 
 <!-- locale -->
 <!DOCTYPE overlay [
-    <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
-    <!ENTITY % multipanelDTD SYSTEM "chrome://aios/locale/multipanel.dtd"> %multipanelDTD;
-    <!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
+	<!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+	<!ENTITY % multipanelDTD SYSTEM "chrome://aios/locale/multipanel.dtd"> %multipanelDTD;
+	<!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
 	<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
 ]>
 
 <overlay id="aios_MultiPanelOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
-    <script type="application/x-javascript" src="chrome://aios/content/multipanel.js" />
+	<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
+	<script type="application/x-javascript" src="chrome://aios/content/multipanel.js" />
 
-    <script><![CDATA[
+	<script><![CDATA[
 		// Add automatic update listener & remove
-        window.addEventListener("load", aios_init, false);
+		window.addEventListener("load", aios_init, false);
 
-        window.addEventListener("unload",function(e) {
-            if(top.gBrowser && top.gBrowser.removeProgressListener) top.gBrowser.removeProgressListener(aiosProgListener);
-            aios_unloadMultiPanel();
-        }, false);
-    ]]>
-    </script>
+		window.addEventListener("unload",function(e) {
+			if(top.gBrowser && top.gBrowser.removeProgressListener) top.gBrowser.removeProgressListener(aiosProgListener);
+			aios_unloadMultiPanel();
+		}, false);
+	]]>
+	</script>
 
-    <page id="webpanels-window" persist="width height screenX screenY" title="&button.multipanel.label;" windowtype="aiosGlobal:MultiPanel">
+	<page id="webpanels-window" persist="width height screenX screenY" title="&button.multipanel.label;" windowtype="aiosGlobal:MultiPanel">
 	<commandset id="mainCommandset">
 		<!-- Fix for versions of Pale Moon lower than v27.5
 			 This includes commands that were not defined in earlier versions -->
@@ -52,7 +52,7 @@
 		  <observes element="Browser:Stop" attribute="hidden"/>
 		</command>
 	</commandset>
-	
+
 	<popupset id="mainPopupSet">
 		<menupopup id="contentAreaContextMenu">
 			<!-- Fix for reload button in context menu not doing anything, still bugged in v27.5 -->
@@ -76,7 +76,7 @@
 						 label="&forwardCmd.label;"
 						 command="Browser:ForwardOrForwardDuplicate"
 						 onclick="checkForMiddleClick(this, event);"
-						 tooltiptext="&forwardButton.tooltip;"/>			 
+						 tooltiptext="&forwardButton.tooltip;"/>
 		  <toolbarbutton id="stop-button" class="toolbarbutton-1"
 						 label="&stopCmd.label;"
 						 command="Browser:StopOrDuplicate"
@@ -86,7 +86,7 @@
 						 command="Browser:ReloadOrDuplicate"
 						 onclick="checkForMiddleClick(this, event);"
 						 tooltiptext="&reloadButton.tooltip;"/>
-						 
+
 		  <toolbaritem id="urlbar-container" align="center" flex="400">
 			<textbox id="urlbar" flex="1"
 					 placeholder="&urlbar.placeholder2;"
@@ -100,23 +100,26 @@
 					 tabscrolling="true"
 					 enablehistory="true"
 					 ontextreverted="return WebPanels.onTextReverted();"
-					 ontextentered="return WebPanels.onTextEntered(param);">
+					 ontextentered="return WebPanels.onTextEntered(param);"
+					 ondrop="return WebPanels.onTextDrop(event);">
 				<hbox id="urlbar-icons">
+					<!-- Throbber for out-of-sidebar situations -->
+					<image id="sidebar-throbber"/>
 					<!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
 					<image id="lock-icon" onclick="BrowserPageInfo(webPanel.contentDocument); event.stopPropagation();"/>
 				</hbox>
 			</textbox>
 		  </toolbaritem>
-		  
+
 		  <toolbarbutton id="page-button" class="toolbarbutton-1 aios-tbutton" type="menu-button" checked="false"
 						 label="&page.label;" tooltiptext="&page.tooltip;" oncommand="aios_setMultiPanel('page');">
-                <menupopup onpopupshowing="aios_getPageOptions();">
-                    <menuitem id="ssr-mitem" type="checkbox" checked="false" autocheck="false" persist="checked"
-                    label="&page.ssr.label;" tooltiptext="&page.ssr.label;"
-                    oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
-                    <menuitem id="ssrSidebar-mitem" type="checkbox" checked="false" autocheck="false" persist="checked"
-                    label="&page.ssr100.label;" tooltiptext="&page.ssr100.label;"
-                    oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
+				<menupopup onpopupshowing="aios_getPageOptions();">
+					<menuitem id="ssr-mitem" type="checkbox" checked="false" autocheck="false" persist="checked"
+					label="&page.ssr.label;" tooltiptext="&page.ssr.label;"
+					oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
+					<menuitem id="ssrSidebar-mitem" type="checkbox" checked="false" autocheck="false" persist="checked"
+					label="&page.ssr100.label;" tooltiptext="&page.ssr100.label;"
+					oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
 					<menu id="about-button" label="&about.label;" tooltiptext="&about.tooltip;" oncommand="aios_setMultiPanel('about:config');">
 						<menupopup id="aboutGroup">
 							<menuitem type="radio" label="about:config" tooltiptext="&about.config.tooltip;" checked="false"
@@ -169,23 +172,22 @@
 								oncommand="aios_setMultiPanel('about:palemoon'); event.stopPropagation();" />
 						</menupopup>
 					</menu>
-                </menupopup>
-          </toolbarbutton>
+				</menupopup>
+		  </toolbarbutton>
 		  <toolbarbutton id="toolsButton" class="toolbarbutton-1 aios-tbutton" type="menu" label="&menu.tools.label;" tooltiptext="&menu.tools.label;">
-                <menupopup id="toolsPopUp">
-                    <menuitem id="aios-remMultiPanel" type="checkbox" checked="true" persist="checked" autocheck="false"
-                        label="&tools.remlast.label;" tooltiptext="&tools.remlast.label;"
-                        oncommand="aios_toggleElement(this); event.stopPropagation();" />
+				<menupopup id="toolsPopUp">
+					<menuitem id="aios-remMultiPanel" type="checkbox" checked="true" persist="checked" autocheck="false"
+						label="&tools.remlast.label;" tooltiptext="&tools.remlast.label;"
+						oncommand="aios_toggleElement(this); event.stopPropagation();" />
 					<menuseparator />
 					<menuitem id="aios-linkedbtn" type="checkbox" checked="false" autocheck="false" persist="checked"
-                    label="&tools.linked.label;" tooltiptext="&tools.linked.label;"
-                    oncommand="WebPanels.toggleLinked();" />
-                </menupopup>
-          </toolbarbutton>
+					label="&tools.linked.label;" tooltiptext="&tools.linked.label;"
+					oncommand="WebPanels.toggleLinked();" />
+				</menupopup>
+		  </toolbarbutton>
 		</toolbar>
 	</toolbox>
-    </page>
+	</page>
 
-    <browser id="web-panels-browser" persist="cachedurl linkedopt" type="content" onclick="WebPanels.onContentAreaClick(event, true);"/>
-
+	<browser id="web-panels-browser" persist="cachedurl linkedopt" type="content" onclick="WebPanels.onContentAreaClick(event, true);"/>
 </overlay>

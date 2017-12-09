@@ -1,0 +1,103 @@
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
+	list-style-image: url(../icons/toolbar_windows.png);
+}
+toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button),
+toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
+	list-style-image: url(../icons/toolbar_windows_inverted.png);
+}
+#addons-button {
+	-moz-image-region: rect(0px,  72px,  18px,  54px);
+}
+#multipanel-button {
+	-moz-image-region: rect(0px,  90px,  18px,  72px);
+}
+#pageinfo-button {
+	-moz-image-region: rect(0px,  108px,  18px,  90px);
+}
+#console-button {
+	-moz-image-region: rect(0px,  126px,  18px,  108px);
+}
+#paneltab-button {
+	-moz-image-region: rect(0px,  144px,  18px,  126px);
+}
+#sidebars-button {
+	-moz-image-region: rect(0px,  162px,  18px,  144px);
+}
+#sidebars-button dropmarker {
+	display: none;
+}
+#nav-bar #sidebars-button.toolbarbutton-1[type=menu] > .toolbarbutton-icon,
+#nav-bar #sidebars-button.toolbarbutton-1[type=menu] > .toolbarbutton-text {
+	-moz-padding-end: 7px !important;
+}
+#sidebars-togglebutton {
+	-moz-image-region: rect(0px,  180px,  18px,  162px);
+}
+#autohide-button {
+	-moz-image-region: rect(0px,  198px,  18px,  180px);
+}
+#toolbar-button {
+	-moz-image-region: rect(0px,  216px,  18px,  198px);
+}
+#cookies-button {
+	-moz-image-region: rect(0px,  234px,  18px,  216px);
+}
+menuitem[key="aiosKey_panelTab1"],
+menuitem[key="aiosKey_panelTab2"],
+menuitem[key="aiosKey_prefs"], 
+menuitem #aios-sidebar-mitem-show, 
+menuitem #aios-sidebar-mitem-hide {
+	list-style-image: url(../icons/panels_menus.png);
+}
+menuitem[key="aiosKey_panelTab1"] {
+	-moz-image-region: rect(16px,  16px,  32px,  0);
+}
+menuitem[key="aiosKey_panelTab2"] {
+	-moz-image-region: rect(16px,  32px,  32px,  16px);
+}
+menuitem #aios-sidebar-mitem-hide {
+	-moz-image-region: rect(16px,  48px,  32px,  32px);
+}
+menuitem #aios-sidebar-mitem-show {
+	-moz-image-region: rect(16px,  64px,  32px,  48px);
+}
+menuitem[key="aiosKey_prefs"] {
+	-moz-image-region: rect(0,  16px,  16px,  0);
+}
+#aios-toolbar[orient="vertical"] toolbarbutton {
+	margin: 2px 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+#aios-toolbar[orient="vertical"] toolbarbutton toolbarbutton {
+	margin: 0;
+}
+#aios-toolbar[orient="vertical"][iconsize="small"] .toolbarbutton-icon {
+	padding: 0;
+}
+#aios-toolbar[orient="vertical"] toolbarseparator, #aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-separator"] {
+	margin: 4px 2px 2px 2px;
+}
+window[aios-appDefTheme="true"] toolbarbutton[type="menu-button"][checked="true"] .toolbarbutton-icon,
+window[aios-appDefTheme="true"] toolbarbutton[type="menu-button"][checked="true"] .dropmarker-icon {
+	background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.6),  rgba(255, 255, 255, 0.1)) !important;
+	background-color: rgba(23, 51, 79, 0.15) !important;
+	border-color: rgba(23, 51, 79, 0.3) rgba(23, 51, 79, 0.35) rgba(23, 51, 79, 0.4) !important;
+	box-shadow: 0 1px 1px rgba(23, 51, 79, 0.1) inset, 0 0 1px rgba(23, 51, 79, 0.2) inset, 0 1px 0 rgba(23, 51, 79, 0), 0 0 2px rgba(23, 51, 79, 0) !important;
+	text-shadow: none !important;
+	-moz-transition: none !important;
+}
+window[aios-appDefTheme="true"] toolbarbutton[type="menu-button"][checked="true"]:hover .toolbarbutton-icon,
+window[aios-appDefTheme="true"] toolbarbutton[type="menu-button"][checked="true"]:hover .dropmarker-icon {
+	border-color: rgba(23, 51, 79, 0.3) rgba(23, 51, 79, 0.35) rgba(23, 51, 79, 0.4) !important;
+	background-color: rgba(240, 245, 250, 0.75) !important;
+	box-shadow: 0 0 1px rgba(23, 51, 79, 0.03), 0 0 2px rgba(23, 51, 79, 0.1) !important;
+	-moz-transition: background-color 0.4s !important;
+}
+window[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .toolbarbutton-icon,
+window[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .dropmarker-icon {
+	background-image: none !important;
+	background-color: transparent !important;
+	box-shadow: none !important;
+	border-color: transparent !important;
+}

@@ -4,10 +4,14 @@ window #cookiesIntro {
 	display: none;
 }
 
-window .contentPane {
+window .contentPane,
+window #cookieInfoBox,
+window #cookiesList {
 	margin: 0 !important;
+	border: none;
 }
 
-window[aios-appDefTheme="true"] {
-    background-color: #EEF3FA;
+
+window[aios-inSidebar][aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) {
+	background-color: #EEF3FA;
 }

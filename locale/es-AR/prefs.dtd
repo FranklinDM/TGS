@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar - Opciones">
+<!ENTITY title "The Good 'ol Sidebar - Opciones">
 <!ENTITY restart "Los cambios requieren reiniciar el navegador">
 <!ENTITY settings "Configuración">
 <!ENTITY settings.default "Restablecer los Valores por Defecto">
@@ -21,6 +21,7 @@
 <!ENTITY tab.menus "Menues">
 <!ENTITY tab.menus.sidebar "Barra Lateral">
 <!ENTITY tab.keys "Atajos">
+<!ENTITY tab.about "Acerca de/Ayuda">
 <!ENTITY gen.orient.caption "Orientación">
 <!ENTITY gen.orient.label "Mostrar barra lateral">
 <!ENTITY gen.orient.left "a la izquerda">
@@ -43,16 +44,21 @@
 <!ENTITY gen.init.mode1 "Recuperar el Estado Memorizado">
 <!ENTITY gen.init.sidebar "Abrir Barra Lateral (Activador de Barra Lateral, Botón de Intercambiar, Atajos)">
 <!ENTITY gen.init.sidebar.restore "Restablecer el Último Panel Memorizado">
-<!ENTITY gen.switch.autoshow "Mostrar/esconder la Barra Lateral automaticamente (al tocar con el cursor del mouse en lugar de hacer click)">
+<!ENTITY gen.switch.autoshow "Mostrar/esconder la Barra Lateral automáticamente (al tocar con el cursor del mouse en lugar de hacer click)">
+<!ENTITY gen.switch.drag "Mostrar la Barra Lateral automáticamente al arrastrar algo sobre el activador de la barra lateral">
 <!ENTITY gen.switch.onlymax "Solamente si el navegador está Maximizado o en el Modo Pantalla Completa">
+<!ENTITY gen.switch.invtrigger "Habilitar el Selector invisible de la Barra Lateral (Mostrar/Esconder Automático debe estar habilitado)">
+<!ENTITY gen.switch.invwidth "Hover area">
 <!ENTITY gen.switch.delay "Retardo">
 <!ENTITY gen.switch.delayUnit "milisegundos">
-<!ENTITY gen.switch.hide "Esconder la Barra Lateral cuando el cursor del mouse…">
+<!ENTITY gen.switch.hide "Esconder la Barra Lateral cuando el cursor del mouse:">
 <!ENTITY gen.switch.hideBar "retorna a la página web">
 <!ENTITY gen.switch.hidePage "se mantiene sobre el Selector la Barra Lateral">
+<!ENTITY gen.switch.hideNone "no te escondas automáticamente">
 <!ENTITY gen.switch.thin "Habilitar Comando de Barra Lateral Delgada">
 <!ENTITY gen.switch.width "Ancho del Selector de la Barra Lateral">
 <!ENTITY gen.switch.twidth "Ancho del Selector Fino de la Barra Lateral">
+<!ENTITY gen.mbSeparate "No abrir en el panel de la barra lateral cuando se abre desde el menú/atajos de teclado">
 <!ENTITY cmode.caption "Intercambiar Barra Lateral">
 <!ENTITY cmode.desc "Personalizar cuales elementos se deben alterar si se abre o cierra la barra lateral con métodos diferentes">
 <!ENTITY cmode.key.label "Atajo (F4)">
@@ -69,18 +75,15 @@
 <!ENTITY keyconfig.disable "Deshabilitar">
 <!ENTITY keyconfig.reset "Resetear">
 <!ENTITY keyconfig.warn "Los cambios sólo afectarán a las nuevas ventanas">
-<!ENTITY keyconfig.onreset "Se requiere reiniciar el navegador">
-<!ENTITY keyconfig.unrecognized "Desconocido($1)">
-<!ENTITY keyconfig.used "Ésta tecla ya está en uso por:\\n\\n\\t$1\\n\\nPodría estar activo aún.">
 <!ENTITY menus.sidebar.desc "Personalizar las entradas en el menú &quot;Ver&gt;Barra Lateral&quot;y en los menues desplegables de los botoner de la barra lateral.">
 <!ENTITY menus.icons.label "Mostrar Íconos">
 <!ENTITY menus.entries.label "Mostrar Entradas">
 <!ENTITY menus.sidebar.entrydeac "Deshabilitar el Ingreso de la Barra Lateral Activa">
 <!ENTITY misc.enablesidebar.label "Abrir Barra Lateral">
 <!ENTITY misc.layout.label "Optimizar la disposición de la Barra Lateral">
-<!ENTITY misc.dm.overlay "Cambiar las opciones de comportamiento de la barra lateral">
 <!ENTITY misc.dm.autoopen.label "Mostrat la barra lateral de Descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarla cuando todas las descargas hayan finalizado">
+<!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
 <!ENTITY misc.colors.label "Habilitar fondos coloreados en el estado actual">
 <!ENTITY misc.count.label "Mostrar la Cantidad de Elementos">
 <!ENTITY misc.enablelink.tooltip "Haga Click aquí por más información (enlace a FAQ)">

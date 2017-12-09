@@ -1,0 +1,41 @@
+# This file contains a list of locales present in the package
+
+locale      aios            en-US           locale/en-US/
+locale      aios            en-GB           locale/en-GB/
+locale      aios            es-AR           locale/es-AR/
+locale      aios            es-ES           locale/es-ES/
+
+# unused locales (not updated)
+#locale      aios            ar-SA           locale/ar-SA/
+#locale      aios            be-BY           locale/be-BY/
+#locale      aios            cs-CZ           locale/cs-CZ/
+#locale      aios            da              locale/da/
+#locale      aios            de              locale/de/
+#locale      aios            el              locale/el/
+#locale      aios            et-EE           locale/et-EE/
+#locale      aios            fi              locale/fi/
+#locale      aios            fr              locale/fr/
+#locale      aios            he              locale/he/
+#locale      aios            hr-HR           locale/hr-HR/
+#locale      aios            hu-HU           locale/hu-HU/
+#locale      aios            hy-AM           locale/hy-AM/
+#locale      aios            it              locale/it/
+#locale      aios            ja-JP           locale/ja-JP/
+#locale      aios            ko-KR           locale/ko-KR/
+#locale      aios            lt-LT           locale/lt-LT/
+#locale      aios            nb-NO           locale/nb-NO/
+#locale      aios            nl              locale/nl/
+#locale      aios            pl              locale/pl/
+#locale      aios            pt-BR           locale/pt-BR/
+#locale      aios            pt-PT           locale/pt-PT/
+#locale      aios            ro              locale/ro/
+#locale      aios            ru              locale/ru/
+#locale      aios            sk-SK           locale/sk-SK/
+#locale      aios            sq-AL           locale/sq-AL/
+#locale      aios            sr              locale/sr/
+#locale      aios            sv-SE           locale/sv-SE/
+#locale      aios            tr              locale/tr/
+#locale      aios            uk              locale/uk/
+#locale      aios            vi              locale/vi/
+#locale      aios            zh-CN           locale/zh-CN/
+#locale      aios            zh-TW           locale/zh-TW/
