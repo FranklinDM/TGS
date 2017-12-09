@@ -730,7 +730,11 @@ function aios_checkInvTrg() {
 function aios_toggleAutohide(which) {
     try {
         AiOS_HELPER.prefBranchAiOS.setBoolPref("gen.switch.autoshow", aios_getBoolean(which, 'checked'));
-		aios_checkInvTrg();
+		var enumerator = AiOS_HELPER.windowMediator.getEnumerator('navigator:browser');
+		while (enumerator.hasMoreElements()) {
+			var win = enumerator.getNext();
+			win.aios_checkInvTrg();
+		}
     }
     catch(e) { }
 }
