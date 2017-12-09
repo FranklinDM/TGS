@@ -1,6 +1,67 @@
 
 # Changelog
 
+### 1.0.5 (12.09.2017)
+* Major: Resolve #31 - Add an option to not intercept panel calls from menu/shortcut
+  * This option can be found at the General tab, under Behavior in the options window
+  * How this works: Toolbar button -> opens the sidebar, Hotkeys & menu items -> opens the default action (in dialog)
+* Major: Tag #27 - Improve Auto Hide functionality (partially)
+  * Add an invisible sidebar switch trigger (simply hover over the left/right side of your screen and the sidebar will appear)
+    * Automatically opening sidebar when dragging something over the switch will have no effect when this is enabled (at the moment, will be fixed later?)
+  * Hide sidebar if mouse cursor is on.. option is now exposed (no longer in advanced)
+    * Instead of radio options, it is now a drop-down menu
+    * Add don't hide automatically option (means, sidebar will auto show but will not auto hide)
+* Major: Most settings now apply instantly
+  * Switching 'open in sidebar' options in panels no longer requires a browser restart
+  * Default commands of controlled toolbar buttons are now stored in the targets array
+  * Modifying switch width, sidebar+toolbar orientation, and auto hide (through options window) now applies in all windows
+* Minor: Better fix for #15 that doesn't use mutation observers
+  * Instead of using mutation observers which is quite a performance hit in some cases, override the downloads indicator's overlay with our own modified copy of the overlay which changes the respective commands that we need.
+  * We 'might' need to update this when Pale Moon modifies its copy of the indicator overlay (a small trade-off though, but **remember: they are not FF who changes internal stuff too frequently which makes add-on development a BIG maintenance burden**)
+  * This also fixes the inconsistent downloads tooltip (when the big info tips are used)
+  * Remove dm.observer pref (now unused)
+* Minor: Resolve #30 - Option to disable sidebar switch tooltip
+  * Via hidden pref: aios.switchtip
+* Minor: Few changes to MultiPanel
+  * A throbber now appears when opened in window/tab
+  * Dropping URLs onto the address bar now opens that URL instead of just inserting it
+* Minor: Resolve #34 - Fix missing TGS toolbar after customize mode
+  * The toolbar is force shown when entering customize mode
+  * May fix missing toolbar problems others were experiencing in the past
+* Minor: Resolve #21 - Stylesheet revamp
+  * Unify Windows & Mac styles
+    * Remove Mac colored brown/sepia-like toolbar images
+  * Don't make generic toolbar image look transparent
+  * Remove unused donate image
+  * Toolbar image regions must be exact (18x18)
+  * Improve appearance of inverted toolbar images
+* Minor: Fix downloads sidebar on automatic close mechanism
+  * Get the current state of the download first
+  * Only close the download sidebar when a download is in the succeeded state
+  * Before behavior was when something happens to any download item, it will trigger the close mechanism  
+* Minor: Prevent non-numbers from being placed on input boxes in prefs window
+  * Prevents some invalid values like putting letters in places where numbers are the only accepted values
+  * Also adds a spin button beside the boxes
+  * Prevent negative values (for miliseconds/pixels/percent)
+* Minor: Resolve #28 - Expose options when dragging something above the sidebar switch
+  * When options for delay is set to 0, this means that there is no delay
+* Minor: Shading items in DL list should controllable by pref
+  * Allows shading to happen even in non-default themes
+* Minor: Properly show some strings on key config (and some others)
+  * In the past (including AiOS 0.7.21.1), some parts of the UI will show the camel case name of the string instead of the actual string itself
+  * Adds 'keyconf.properties' and reads the string from the string bundle instead
+  * Now properly displays 'Browser restart required' when resetting keys
+  * Removes used, onreset, and unrecognized from prefs.dtd and moves them to the newly created 'keyconf.properties'
+  * Move arrays to _keycofig.js
+* Minor: Some changes to cookies & places (bookmarks+history) panel layout
+  * Instead of modifying search box label on focus/blur, simply set the placeholder
+  * Remove "Search:" label from cookies panel
+* Ignore: Restore separator between custom and default panels on SB menu  
+* Ignore: Fix 'props' is undefined in keyconfig
+* Ignore: Fix 'sideSrc' is null error
+* Ignore: Fix 'aiosVersionDotless' is undefined
+* Ignore: Exporting TGS prefs now shows TGS instead of AiOS
+
 ### 1.0.4 (10.01.2017)
 * Minor: Fix #26 - Use lwtheme's background color in browser element
   * Use the lightweight theme's defined background color by default and set it as the background of the browser element: a workaround to the half cut background image.
