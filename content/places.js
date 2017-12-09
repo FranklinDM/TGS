@@ -93,7 +93,9 @@ var AiOS_Places = {};
 	};
 
 	this.setSidebarLayout = function() {
-		var self = AiOS_Places;
+		var self = AiOS_Places,
+			strings = document.getElementById("propSetStrings"),
+			blurText = strings.getString('bm_hi.search.blur');
 
 		// For CSS purposes
 		AiOS_HELPER.rememberAppInfo( self.managerWindow );
@@ -101,13 +103,7 @@ var AiOS_Places = {};
 		// Enable CSS
 		self.managerWindow.setAttribute('aios-inSidebar', 'true');
 
-		// Add tooltip, focus and blur features
-		// => only here at init(), because otherwise there would be script errors
-		// => do not activate in conjunction with Bookmark Duplicate Detector
-		if (typeof Bookmarkdd !== "object") {
-			self.searchObj.addEventListener("focus", AiOS_Places.focusBlurText);
-			self.searchObj.addEventListener("blur", AiOS_Places.focusBlurText);
-		}
+		self.searchObj.placeholder = blurText;
 
 		// Replace Folder-Close <button> with a <toolbar button>
 		if (document.getElementById("closeFolder")) {
@@ -147,23 +143,6 @@ var AiOS_Places = {};
 			self.searchObj.parentNode.appendChild(new_viewButton);
 		}
 	};
-
-	
-	this.focusBlurText = function(e) {
-		var self = AiOS_Places,
-			strings = document.getElementById("propSetStrings"),
-			blurText = strings.getString('bm_hi.search.blur');
-
-		if (e.type === "focus" && self.searchObj.value === blurText) {
-			self.searchObj.className = "";
-			self.searchObj.value = "";
-		}
-		else if (e.type === "blur" && self.searchObj.value === "") {
-			self.searchObj.className = "blur";
-			self.searchObj.value = blurText;
-		}
-	};
-
 
 	this.selectFolder = function(index) {
 		var self = AiOS_Places;
@@ -291,8 +270,6 @@ var AiOS_Places = {};
 		window.removeEventListener("unload", AiOS_Places.shutdown);
 
 		AiOS_Places.managerTree.removeEventListener("click", AiOS_Places.closeOtherFolders);
-		AiOS_Places.searchObj.removeEventListener("focus", AiOS_Places.focusBlurText);
-		AiOS_Places.searchObj.removeEventListener("blur", AiOS_Places.focusBlurText);
 	};
 
 	// Register handlers
