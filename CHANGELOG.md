@@ -1,6 +1,10 @@
 
 # Changelog
 
+### 1.0.5.1 (12.10.2017)
+* Minor: Small behavior change for invisible sidebar switch trigger
+  * See [issue #27](https://github.com/FranklinDM/TGS/issues/27#issuecomment-350508656).
+
 ### 1.0.5 (12.09.2017)
 * Major: Resolve #31 - Add an option to not intercept panel calls from menu/shortcut
   * This option can be found at the General tab, under Behavior in the options window
