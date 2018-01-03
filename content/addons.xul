@@ -24,8 +24,6 @@
 		<toolbarbutton id="forward-btn">
 			<observes element="forward-btn" attribute="hidden" onbroadcast="document.getElementById('forward-btn').setAttribute('hidden', false)" />
 		</toolbarbutton>
-
-		<textbox id="header-search" flex="1" />
 	</hbox>
 
 	<hbox id="updates-container">

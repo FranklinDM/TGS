@@ -57,6 +57,9 @@ var AiOS_Addons = {};
 		
 		// Set orient of detail-autoUpdate to vertical
 		document.getElementById('detail-autoUpdate').setAttribute('orient', 'vertical');
+		
+		// Make search bar flexible only on sidebar layout
+		document.getElementById('header-search').setAttribute('flex', '1');
 
         // Toolbar mit Suchfeld usw. verschieben
         before = document.getElementById("view-port-container");
