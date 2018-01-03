@@ -84,6 +84,7 @@
 <!ENTITY misc.dm.autoopen.label "Mostrat la barra lateral de Descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarla cuando todas las descargas hayan finalizado">
 <!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
+<!ENTITY misc.em.oninstall.label "Show the Add-ons sidebar when installing an add-on">
 <!ENTITY misc.colors.label "Habilitar fondos coloreados en el estado actual">
 <!ENTITY misc.count.label "Mostrar la Cantidad de Elementos">
 <!ENTITY misc.enablelink.tooltip "Haga Click aquí por más información (enlace a FAQ)">

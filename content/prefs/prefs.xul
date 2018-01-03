@@ -605,6 +605,7 @@
 
 			<preference id="EMOpen"         type="bool"     name="extensions.aios.em.sidebar" />
 			<preference id="EMCount"        type="bool"     name="extensions.aios.em.count" />
+			<preference id="EMInstall"      type="bool"     name="extensions.aios.em.oninstall" />
 
 			<preference id="BMOpen"         type="bool"     name="extensions.aios.bm.sidebar" />
 			<preference id="HIOpen"         type="bool"     name="extensions.aios.hi.sidebar" />
@@ -702,7 +703,10 @@
 
 						<groupbox>
 							<caption label="&tab.gen.behavior;" />
-							<checkbox preference="EMOpen" label="&misc.enablesidebar.label;" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="EMOpen" label="&misc.enablesidebar.label;" aiosChilds="EMInstall" oncommand="aios_checkboxObserver(this);" />
+							<vbox class="indent">
+								<checkbox preference="EMInstall" label="&misc.em.oninstall.label;" />
+							</vbox>
 						</groupbox>
 
 						<groupbox>

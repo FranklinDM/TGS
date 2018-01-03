@@ -74,6 +74,7 @@ pref("extensions.aios.dm.shading", true);
 
 pref("extensions.aios.em.sidebar", true);
 pref("extensions.aios.em.count", true);
+pref("extensions.aios.em.oninstall", true);
 
 pref("extensions.aios.bm.sidebar", true);
 pref("extensions.aios.bm.layout", true);
