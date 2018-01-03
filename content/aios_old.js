@@ -232,7 +232,7 @@ function aios_initSidebar() {
 					if (aiosUpdated) hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
 
 					window.setTimeout(function() {
-						gBrowser.loadTabs(new Array(hp), false);
+						gBrowser.loadTabs([hp], false);
 					}, 500);
 				}
 			}

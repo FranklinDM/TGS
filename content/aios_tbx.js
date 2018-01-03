@@ -41,7 +41,7 @@ function handleOptions(aType, toolbar, aNavToolbox) {
 function aios_adjustToolboxWidth(aMode) {
 	aios_getObjects();
 
-	var tboxen = new Array('aios-toolbox-left', 'aios-toolbox-right');
+	var tboxen = ['aios-toolbox-left', 'aios-toolbox-right'];
 	var tbox;
 
 	// First remove width from element styles and attribute

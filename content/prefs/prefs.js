@@ -126,7 +126,7 @@ function aios_exportSettings(aMode) {
 	var sTtime = aios_extendInt(now.getHours()) + ":" + aios_extendInt(now.getMinutes()) + ":" + aios_extendInt(now.getSeconds());
 	var sGMT = now.toGMTString();
 
-	var aiosExport = new Array;
+	var aiosExport = [];
 	aiosExport[0] = "-----------------------------------------------------------------------\n";
 	aiosExport[0]+= "                  The Good 'ol Sidebar - Settings\n";
 	aiosExport[0]+= "-----------------------------------------------------------------------\n";
@@ -209,7 +209,7 @@ function aios_importSettings() {
 	if(!pattern) return false;
 
 	var i;
-	var aiosImport = new Array;
+	var aiosImport = [];
 	var appendFilters = null;
 	let isMatch = false;
 
@@ -690,7 +690,7 @@ function aios_checkApply(aPref) {
 */
 function aios_deleteOldPrefs() {
 
-	var oldPrefs = new Array('em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim', 'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall', 'hi.layout', 'hi.layoutall', 'dm.observer');
+	var oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim', 'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall', 'hi.layout', 'hi.layoutall', 'dm.observer'];
 
 	for(var i = 0; i < oldPrefs.length; i++) {
 		try {

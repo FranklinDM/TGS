@@ -128,7 +128,7 @@ function aios_checkWidthVal(mode) {
 function aios_setConfSidebarWidth() {
 	var elem, theUnit, theValue;
 	var widthStyle = "";
-	var modes = new Array('min', 'def', 'max');
+	var modes = ['min', 'def', 'max'];
 
 	var browserWidth = aios_getBrowserWidth();
 	var compWidth = browserWidth[3];

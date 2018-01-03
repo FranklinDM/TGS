@@ -82,8 +82,8 @@ function aios_modSidebarMenu() {
     var sidebarhideMitem = document.getElementById('aios-sidebar-mitem-hide');
     var prefsMitem = document.getElementById('aios-sidebar-mitem-prefs');
 
-    var entries = new Array();
-    entries[0] = new Array( "showhide", "paneltab1", "paneltab2", "prefs" );
+	var entries = [];
+	entries[0] = ["showhide", "paneltab1", "paneltab2", "prefs"];
 
 	// Show/hide entries/icons
     try {
@@ -125,7 +125,7 @@ function aios_modSidebarMenu() {
 */
 function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
     var prefPre = prefPre_tmp;
-    var returnVals = new Array();
+    var returnVals = [];
 
     try {
         var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "entries");
@@ -435,21 +435,23 @@ function aios_setTargets() {
     document.getElementById('context-viewinfo').removeAttribute('oncommand');
     document.getElementById('context-viewinfo').setAttribute('command', 'View:PageInfo');
 
-    var targets = new Array();
-    targets['bm'] = new Array('View:Bookmarks',     'viewBookmarksSidebar',     'bookmarks',		"aios_openDialog('bookmarks');");
-    targets['hi'] = new Array('View:History',       'viewHistorySidebar',       'history',			"aios_openDialog('history');");
-    targets['dm'] = new Array('Tools:Downloads',    'viewDownloadsSidebar',     'downloads',		"BrowserDownloadsUI();");
-    targets['ad'] = new Array('Tools:Addons',       'viewAddonsSidebar',        'addons',			"BrowserOpenAddonsMgr();");
-    targets['mp'] = new Array('Tools:MultiPanel',   'viewWebPanelsSidebar',     'multipanel',		"aios_openDialog('multipanel');");
-    targets['pi'] = new Array('View:PageInfo',      'viewPageInfoSidebar',      'pageinfo',			"BrowserPageInfo();");
-    targets['co'] = new Array('Tools:Console',      'viewConsoleSidebar',       'console',			"toJavaScriptConsole();");
-    targets['ks'] = new Array('View:Cookies',       'viewCookiesSidebar',       'cookies',			"aios_openDialog('cookies');");
+	var targets = {
+		bm: ['View:Bookmarks',     'viewBookmarksSidebar',     'bookmarks',			"aios_openDialog('bookmarks');"],
+		hi: ['View:History',       'viewHistorySidebar',       'history',			"aios_openDialog('history');"],
+		dm: ['Tools:Downloads',    'viewDownloadsSidebar',     'downloads',			"BrowserDownloadsUI();"],
+		ad: ['Tools:Addons',       'viewAddonsSidebar',        'addons',			"BrowserOpenAddonsMgr();"],
+		mp: ['Tools:MultiPanel',   'viewWebPanelsSidebar',     'multipanel',		"aios_openDialog('multipanel');"],
+		pi: ['View:PageInfo',      'viewPageInfoSidebar',      'pageinfo',			"BrowserPageInfo();"],
+		co: ['Tools:Console',      'viewConsoleSidebar',       'console',			"toJavaScriptConsole();"],
+		ks: ['View:Cookies',       'viewCookiesSidebar',       'cookies',			"aios_openDialog('cookies');"]
+	};
 	
 	// Overrides for other sidebar extensions
+	// Ideally in the future, it would be better to get this from the observer directly on startup
     if (document.getElementById('viewConsole2Sidebar'))
-        targets['co'] = new Array('Tools:Console', 'viewConsole2Sidebar', 'console', "aios_openDialog('" + document.getElementById('viewConsole2Sidebar').getAttribute('sidebarurl') + "', 'Tools:Console');");
+		targets['co'] = ['Tools:Console', 'viewConsole2Sidebar', 'console', "aios_openDialog('" + document.getElementById('viewConsole2Sidebar').getAttribute('sidebarurl') + "', 'Tools:Console');"];
 	if (document.getElementById('viewSdDownloadsSidebar'))
-		targets['dm'] = new Array('Tools:Downloads', 'viewSdDownloadsSidebar', 'downloads', "aios_openDialog('" + document.getElementById('viewSdDownloadsSidebar').getAttribute('sidebarurl') + "', 'Tools:Console');");
+		targets['dm'] = ['Tools:Downloads', 'viewSdDownloadsSidebar', 'downloads', "aios_openDialog('" + document.getElementById('viewSdDownloadsSidebar').getAttribute('sidebarurl') + "', 'Tools:Console');"];
 	
 	// activate informative tooltips and function reversal (PanelTab)?
     var prefInfotip = false, ptReverse = false, enable_rightclick = false, switchTip = true;

@@ -157,7 +157,7 @@ function aios_getBrowserWidth() {
 
 	var compWidth = widthSidebar + widthSplitter + widthContent;
 
-	var ret_arr = new Array(widthSidebar, widthSplitter, widthContent, compWidth);
+	var ret_arr = [widthSidebar, widthSplitter, widthContent, compWidth];
 	return(ret_arr);
 }
 
