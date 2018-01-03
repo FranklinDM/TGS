@@ -560,13 +560,13 @@ function aios_applyPrefs() {
 
 		switch(pType) {
 			case "string":
-				AiOS_HELPER.prefService.setCharPref(pName, pValue);
+				AiOS_HELPER.prefBranch.setCharPref(pName, pValue);
 				break;
 			case "bool":
-				AiOS_HELPER.prefService.setBoolPref(pName, pValue);
+				AiOS_HELPER.prefBranch.setBoolPref(pName, pValue);
 				break;
 			case "int":
-				AiOS_HELPER.prefService.setIntPref(pName, pValue);
+				AiOS_HELPER.prefBranch.setIntPref(pName, pValue);
 				break;
 		}
 	}

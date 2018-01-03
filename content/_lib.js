@@ -497,7 +497,7 @@ function aios_setTargets() {
     }
 
     // Prevent opening the download window if the sidebar is to be used
-    if(AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar')) AiOS_HELPER.prefService.setBoolPref("browser.download.manager.showWhenStarting", false);
+    if(AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar')) AiOS_HELPER.prefBranch.setBoolPref("browser.download.manager.showWhenStarting", false);
 
 	// Set list of all downloads
 	var adlist = Downloads.getList(Downloads.ALL);
