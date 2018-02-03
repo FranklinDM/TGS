@@ -690,12 +690,13 @@ function aios_checkApply(aPref) {
 */
 function aios_deleteOldPrefs() {
 
-	var oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim', 'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall', 'hi.layout', 'hi.layoutall', 'dm.observer'];
+	var oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim',
+					'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall',
+					'hi.layout', 'hi.layoutall', 'dm.observer'];
 
-	for(var i = 0; i < oldPrefs.length; i++) {
-		try {
-			AiOS_HELPER.prefBranchAiOS.clearUserPref(oldPrefs[i]);
-		}
-		catch(e) { }
+	for (let i = 0; i < oldPrefs.length; i++) {
+	    if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(oldPrefs[i])) {
+		    AiOS_HELPER.prefBranchAiOS.clearUserPref(oldPrefs[i]);
+	    }
 	}
 }
