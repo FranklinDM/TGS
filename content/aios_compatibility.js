@@ -35,7 +35,7 @@ var AiOS_Compatibility = {};
 		}
 
 		// MileWideBack
-		// wird in aios.js => aios_setSidebarOrient() ausgefuehrt
+		// is executed in aios.js => aios_setSidebarOrient()
 
 		// StumbleUpon
 		if (document.getElementById('su_splitter_first')) {
@@ -45,8 +45,8 @@ var AiOS_Compatibility = {};
 	};
 
 
-	// Anpassungen fuer MinimizeToTray
-	// sonst oeffnet sich der Download-Manager nicht bei Aufruf ueber das Trayicon)
+	// Adjustments for MinimizeToTray
+	// otherwise the download manager does not open when calling via the tray icon
 	this.minimizeToTray = function() {
 		var itemCmd,
 			newCmd,
@@ -69,23 +69,23 @@ var AiOS_Compatibility = {};
 	};
 
 
-	// Anpassungen fuer Console2
+	// Adjustments for Console2
 	this.console2 = function() {
 		var broadcaster,
 			button = document.getElementById('console2-button');
 
-		// meinen Sidebar-Menue-Eintrag der Console2 zuweisen
+		// Assign sidebar menu entry to Console2
 		if (document.getElementById('console-mitem')) {
 			document.getElementById('console-mitem').setAttribute('observes', 'viewConsole2Sidebar');
 		}
 
-		// meinen Broadcaster loeschen > keine Auswahlmoeglichkeit in den Prefs
+		// Delete broadcaster > no choice in the prefs
 		if (document.getElementById('viewConsoleSidebar')) {
 			broadcaster = document.getElementById('viewConsoleSidebar');
 			broadcaster.parentNode.removeChild(broadcaster);
 		}
 
-		// Console2-Button
+		// Console2 button
 		if (button) {
 			if (button.parentNode.tagName === "toolbarpaletteitem") {
 				button.parentNode.parentNode.removeChild(button.parentNode);
