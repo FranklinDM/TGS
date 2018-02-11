@@ -182,7 +182,7 @@
 					<menuseparator />
 					<menuitem id="aios-linkedbtn" type="checkbox" checked="false" autocheck="false" persist="checked"
 					label="&tools.linked.label;" tooltiptext="&tools.linked.label;"
-					oncommand="WebPanels.toggleLinked();" />
+					oncommand="aios_toggleElement(this); event.stopPropagation();" />
 				</menupopup>
 		  </toolbarbutton>
 		</toolbar>

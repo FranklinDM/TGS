@@ -4,7 +4,7 @@ let Ci = Components.interfaces;
 var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
 
 var webPanel;
-if(document.getElementById('web-panels-browser')) webPanel = document.getElementById('web-panels-browser');
+if (document.getElementById('web-panels-browser')) webPanel = document.getElementById('web-panels-browser');
 
 
 /*
@@ -45,13 +45,13 @@ var panelProgressListener = {
 	},
 
 	onStateChange: function(aWebProgress, aRequest, aStateFlags, aStatus) {
-		if(!aRequest) return;
+		if (!aRequest) return;
 
 		// Set sidebar/window title
 		aios_setSBLabel();
-
+		
 		// Ignore local/resource:/chrome: files
-		if(aStatus == NS_NET_STATUS_READ_FROM || aStatus == NS_NET_STATUS_WROTE_TO) return;
+		if (aStatus == NS_NET_STATUS_READ_FROM || aStatus == NS_NET_STATUS_WROTE_TO) return;
 
 		const nsIWebProgressListener = Ci.nsIWebProgressListener;
 		const nsIChannel = Ci.nsIChannel;
@@ -59,38 +59,39 @@ var panelProgressListener = {
 		// Stop/reload command vars
 		var stp = document.getElementById('Browser:Stop');
 		var	rld = document.getElementById('Browser:Reload');
-
-		if(aStateFlags & nsIWebProgressListener.STATE_START && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
-			if(window.parent.document.getElementById('sidebar-throbber'))
+		
+		if (aStateFlags & nsIWebProgressListener.STATE_START && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
+			if (window.parent.document.getElementById('sidebar-throbber'))
 				window.parent.document.getElementById('sidebar-throbber').setAttribute("loading", "true");
 				stp.setAttribute('disabled', 'false');
 				rld.setAttribute('disabled', 'true');
 				stp.setAttribute('hidden', 'false');
 				rld.setAttribute('hidden', 'true');
-				aios_setSSR();
 		}
-		else if(aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
-			if(window.parent.document.getElementById('sidebar-throbber'))
+		else if (aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
+			if (window.parent.document.getElementById('sidebar-throbber'))
 				window.parent.document.getElementById('sidebar-throbber').removeAttribute("loading");
 				stp.setAttribute('disabled', 'true');
 				rld.setAttribute('disabled', 'false');
 				stp.setAttribute('hidden', 'true');
 				rld.setAttribute('hidden', 'false');
-				aios_setSSR();
 		}
+		
+		aios_setSSR();
 	},
 
 	onLocationChange: function(aWebProgress, aRequest, aLocation) {
 		// Activate/deactivate buttons
 		aios_setOptions();
-		var asc = aLocation;
+		let asc = aLocation;
 		// Change urlbar link when browser panel location changes
-		WebPanels.URLBar.value = asc.spec;
+		if (asc.spec == "about:blank") WebPanels.URLBar.value = "";
+		else WebPanels.URLBar.value = asc.spec;
 		// And set last valid URI also (for text reverted)
 		WebPanels.lastValidURI = asc;
 		// Set vars for back/forward commands
-		var bcb = document.getElementById('Browser:Back');
-		var fwb = document.getElementById('Browser:Forward');
+		let bcb = document.getElementById('Browser:Back');
+		let fwb = document.getElementById('Browser:Forward');
 		// Work around for broken back/forward button states
 		fwb.setAttribute('disabled', !webPanel.canGoForward);
 		bcb.setAttribute('disabled', !webPanel.canGoBack);
@@ -199,7 +200,7 @@ function aios_setMultiPanel(aMode) {
 		panelLoc = (aMode == "about:config") ? "chrome://global/content/config.xul" : aMode;
 		label = aMode;
 	}
-	// WebPanel-Page
+	// Web panel page
 	else {
 		try {
 			panelLoc = aios_CONTENT.currentURI.spec;
@@ -207,13 +208,13 @@ function aios_setMultiPanel(aMode) {
 		} catch(e) { }
 
 		// I am the MultiPanel in the tab
-		if(top.toString() == "[object Window]" && AiOS_HELPER.mostRecentWindow.aiosLastSelTab) {
+		if (top.toString() == "[object Window]" && AiOS_HELPER.mostRecentWindow.aiosLastSelTab) {
 			panelLoc = AiOS_HELPER.mostRecentWindow.aiosLastSelTab.document.location.href;
 		}
 	}
 
-	// when "Page" is clicked, while in the tab the MultiPanel is loaded
-	if(panelLoc == "chrome://browser/content/web-panels.xul") {
+	// When "Page" is clicked, while in the tab the MultiPanel is loaded
+	if (panelLoc == "chrome://browser/content/web-panels.xul") {
 		panelLoc = aios_CONTENT.contentDocument.getElementById('web-panels-browser').getAttribute('cachedurl');
 	}
 
@@ -222,7 +223,7 @@ function aios_setMultiPanel(aMode) {
 	WebPanels.URLBar.value = panelLoc;
 
 	// Open MultiPanel or load contents
-	if(top.document.getElementById('sidebar') && top.toString() != "[object Window]")   top.openWebPanel(newLabel, panelLoc);
+	if (top.document.getElementById('sidebar') && top.toString() != "[object Window]")   top.openWebPanel(newLabel, panelLoc);
 	else webPanel.contentDocument.location.href = panelLoc;
 }
 
@@ -232,35 +233,34 @@ function aios_setMultiPanel(aMode) {
 		=> Calling onLocationChange() when MultiPanel URL changes (panelProgressListener)
 */
 function aios_setOptions() {
-
 	var mode, i;
 
 	var aboutGroup = document.getElementById('aboutGroup').childNodes;
 	var panelLoc = webPanel.contentDocument.location.href;
 
-	if(panelLoc != "about:blank") {
+	if (panelLoc != "about:blank") {
 		mode = "page";
-		if(panelLoc.indexOf("about:") == 0 && panelLoc != "about:home") mode = "about";
-		if(panelLoc == "chrome://global/content/config.xul") mode = "about";
+		if (panelLoc.indexOf("about:") == 0 && panelLoc != "about:home") mode = "about";
+		if (panelLoc == "chrome://global/content/config.xul") mode = "about";
 	}
 
-	if(!mode) return false;
+	if (!mode) return false;
 
-	if(mode != "page") document.getElementById('page-button').setAttribute('checked', false);
-	if(mode != "about") document.getElementById('about-button').setAttribute('checked', false);
+	if (mode != "page") document.getElementById('page-button').setAttribute('checked', false);
+	if (mode != "about") document.getElementById('about-button').setAttribute('checked', false);
 	document.getElementById(mode + '-button').setAttribute('checked', true);
 
-	if(mode == "page") {
-		for(i = 0; i < aboutGroup.length; i++) {
+	if (mode == "page") {
+		for (i = 0; i < aboutGroup.length; i++) {
 			if(aboutGroup[i].tagName == "menuitem") aboutGroup[i].setAttribute('checked', false);
 		}
 	}
 	else {
-		for(i = 0; i < aboutGroup.length; i++) {
+		for (i = 0; i < aboutGroup.length; i++) {
 			var label = aboutGroup[i].getAttribute('label');
 			var isActive = label == panelLoc;
 			isActive = (label == "about:config" && panelLoc == "chrome://global/content/config.xul");
-			if(aboutGroup[i].tagName == "menuitem" && isActive) aboutGroup[i].setAttribute('checked', true);
+			if (aboutGroup[i].tagName == "menuitem" && isActive) aboutGroup[i].setAttribute('checked', true);
 		}
 	}
 
@@ -280,19 +280,19 @@ function aios_setSBLabel() {
 
 	var mpLabel = AiOS_HELPER.mostRecentWindow.document.getElementById('viewWebPanelsSidebar').getAttribute('label');
 
-	if(webPanel && webPanel.contentDocument) {
+	if (webPanel && webPanel.contentDocument) {
 		var loc = webPanel.contentDocument.location.href;
 
-		if(webPanel.contentDocument.title != "") newLabel = newLabel + webPanel.contentDocument.title;
+		if (webPanel.contentDocument.title != "") newLabel = newLabel + webPanel.contentDocument.title;
 	}
 
-	if(newLabel != "") newLabel = newLabel + " - " + mpLabel;
+	if (newLabel != "") newLabel = newLabel + " - " + mpLabel;
 	else newLabel = mpLabel;
 
-	if(top.document.getElementById('sidebar-title'))
+	if (top.document.getElementById('sidebar-title'))
 		top.document.getElementById('sidebar-title').setAttribute('value', newLabel);
 
-	if(!top.document.getElementById('sidebar-title')) top.document.title = newLabel;
+	if (!top.document.getElementById('sidebar-title')) top.document.title = newLabel;
 }
 
 
@@ -308,36 +308,38 @@ function aios_setSSR() {
 		var doc = webPanel.contentDocument;
 	} catch(e) { }
 
-	if(!doc || !doc.body || !aios_getBoolean("page-button", "checked")) return false;
+	if (!doc || !doc.body || !aios_getBoolean("page-button", "checked")) return false;
 
-	// is the document using frames ? we don't like frames for the moment
-	if(doc.body.nodeName.toLowerCase() == "frameset") {
-		dump("Small Screen Rendering, No frames allowed");
+	// If the document uses frames, don't continue
+	if (doc.body.nodeName.toLowerCase() == "frameset") {
+		dump("Small screen rendering was cancelled because 'frameset' was detected.");
 		return false;
 	}
 
+	// Check if the stylesheet is present in the document
 	var styleSheets = doc.styleSheets;
-	for(var i = 0; i < styleSheets.length; ++i) {
+	for (var i = 0; i < styleSheets.length; ++i) {
 		var currentStyleSheet = styleSheets[i];
-		if(/multipanel_ssr/.test(currentStyleSheet.href)) {
+		if (/multipanel_ssr/.test(currentStyleSheet.href)) {
+			// Decide if SSR should be enabled/disabled
 			currentStyleSheet.disabled = !aios_getBoolean("ssr-mitem", "checked");
-			if (aios_getBoolean("ssr-mitem", "checked") && aios_getBoolean("ssrSidebar-mitem", "checked")) {
-				doc.body.setAttribute('aiosSidebar', true);
+			// Decide if document should adapt to sidebar width
+			if (aios_getBoolean("ssr-mitem", "checked")) {
+				doc.body.setAttribute('aiosSidebar', aios_getBoolean("ssrSidebar-mitem", "checked"));
 			}
 			return true;
 		}
 	}
 
-	// we have to attach the stylesheet to the document...
-	// what's the document root ? html ?
+	// Attach stylesheet to the current document
 	if (aios_getBoolean("ssr-mitem", "checked")) {
-		// let's create a link element
+		// Create a link element
 		var headElement = doc.getElementsByTagName("head")[0];
 		var linkElement = doc.createElement("link");
 		linkElement.setAttribute("rel", "stylesheet");
 		linkElement.setAttribute("type", "text/css");
 		linkElement.setAttribute("href", ssrURL);
-
+		// Append the element
 		headElement.appendChild(linkElement);
 	}
 
@@ -346,13 +348,14 @@ function aios_setSSR() {
 
 
 /*
-	MultiPanel-Unload
+	MultiPanel Unload
 */
 function aios_unloadMultiPanel() {
 	if (webPanel && !aios_getBoolean("aios-remMultiPanel", "checked")) {
 		webPanel.setAttribute('cachedurl', '');
 		document.persist('web-panels-browser', "cachedurl");
 	}
+	webPanel.setAttribute('linkedopt', document.getElementById("aios-linkedbtn").getAttribute("checked"));
 }
 
 function aios_getPageOptions() {
@@ -376,20 +379,8 @@ var WebPanels = {
 	return Services.uriFixup.createFixupURI(strl, 8);
   },
 
-  toggleLinked: function mp_toggleLinked() {
-	var btn = document.getElementById("aios-linkedbtn");
-	if (btn.getAttribute("checked") == "true") {
-	  btn.setAttribute("checked", "false");
-	} else {
-	  btn.setAttribute("checked", "true");
-	}
-	// instead of using a pref, simply persist the attribute
-	webPanel.setAttribute('linkedopt', btn.getAttribute("checked"));
-  },
-
   onContentAreaClick: function mp_onContentAreaClick(ev, bool) {
-	var btn = document.getElementById("aios-linkedbtn");
-	if (btn.getAttribute("checked") == "true") {
+	if (aios_getBoolean("aios-linkedbtn", "checked")) {
 	  // If checked, open link in current tab
 	  return window.parent.contentAreaClick(ev, bool);
 	} else {
@@ -407,12 +398,11 @@ var WebPanels = {
 	// Don't revert to last valid url unless page is NOT loading
 	// and user is NOT key-scrolling through autocomplete list
 	if ((!throbberElement || !throbberElement.hasAttribute("loading")) && !isScrolling) {
-	  if (url != "about:blank") {
+	  if (url == "about:blank") {
+		this.URLBar.value = "";
+	  } else {
 		this.URLBar.value = url.spec;
 		this.URLBar.select();
-	  } else {
-		// If about:blank, urlbar becomes ""
-		this.URLBar.value = "";
 	  }
 	}
 
@@ -423,22 +413,17 @@ var WebPanels = {
 
   onTextEntered: function mp_onTextEntered(event) {
 	// Sanitize the URL
-	var url = this.sanitizeURL(this.URLBar.value);
-	this.lastValidURI = url;
-
-	// Load the typed url, if blank, don't do anything
-	webPanel.contentDocument.location.href = url.spec;
+	this.lastValidURI = this.sanitizeURL(this.URLBar.value);
+	// Load the given URL
+	webPanel.loadURI(this.lastValidURI.spec);
   },
 
   onTextDrop: function mp_onTextDrop(event) {
 	// Get dropped text
-	var data = event.dataTransfer.getData("Text");
-
+	let data = event.dataTransfer.getData("Text");
 	// Sanitize the URL
-	var url = this.sanitizeURL(data);
-	this.lastValidURI = url;
-
-	// Load the typed url, if blank, don't do anything
-	webPanel.contentDocument.location.href = url.spec;
+	this.lastValidURI = this.sanitizeURL(data);
+	// Load the given URL
+	webPanel.loadURI(this.lastValidURI.spec);
   }
 }
