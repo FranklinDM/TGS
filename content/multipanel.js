@@ -189,7 +189,7 @@ var panelProgressListener = {
 
 /*
 	Opens the web page displayed in the browser in the MultiPanel
-		=> Call by buttons, aios_panelTab()
+		=> Called by buttons, aios_panelTab()
 */
 function aios_setMultiPanel(aMode) {
 	var label, panelLoc;
@@ -230,7 +230,7 @@ function aios_setMultiPanel(aMode) {
 
 /*
 	Activates/deactivates the Toolbar Buttons and Radio-Menu Items (about)
-		=> Calling onLocationChange() when MultiPanel URL changes (panelProgressListener)
+		=> Called onLocationChange() when MultiPanel URL changes (panelProgressListener)
 */
 function aios_setOptions() {
 	var mode, i;
