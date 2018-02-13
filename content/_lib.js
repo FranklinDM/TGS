@@ -670,17 +670,18 @@ function aios_isWinMax() {
 
 
 /*
-	Check if the sidebar is just visible / invisible => depending on the sidebar method
+	Returns (a boolean) the sidebar box's visibility
+		=> depends on the sidebar method
 */
 function aios_isSidebarHidden() {
     aios_getObjects();
-
-    try {
-        var aios_collapseSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref('collapse');
+	
+	let pref = 'collapse';
+    if (AiOS_HELPER.prefBranchAiOS.getPrefType(pref)) {
+        var aios_collapseSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(pref);
     }
-    catch(e) { }
 
-    if(aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.collapsed);
+    if (aios_collapseSidebar) return (fx_sidebarBox.hidden || fx_sidebarBox.collapsed);
     else return fx_sidebarBox.hidden;
 }
 
