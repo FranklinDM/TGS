@@ -82,6 +82,7 @@
 <!ENTITY menus.entries.label "Ver entradas">
 <!ENTITY menus.sidebar.entrydeac "Deshabilitar la entrada del panel activo">
 <!ENTITY misc.enablesidebar.label "Abrir en el panel lateral">
+<!ENTITY misc.enablepopup.label "Open in Popup">
 <!ENTITY misc.layout.label "Optimización del panel lateral">
 <!ENTITY misc.dm.autoopen.label "Mostrar el panel lateral de descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarlo cuando todas las descargas hayan terminado">

@@ -82,6 +82,7 @@
 <!ENTITY menus.entries.label "Show Entries">
 <!ENTITY menus.sidebar.entrydeac "Disable the Entry of the Active Sidebar">
 <!ENTITY misc.enablesidebar.label "Open in Sidebar">
+<!ENTITY misc.enablepopup.label "Open in Popup">
 <!ENTITY misc.layout.label "Optimize Layout for the Sidebar">
 <!ENTITY misc.dm.autoopen.label "Show the Downloads sidebar when downloading a file">
 <!ENTITY misc.dm.autoclose.label "Close it when all downloads are finished">

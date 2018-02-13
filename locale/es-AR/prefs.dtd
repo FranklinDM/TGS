@@ -82,6 +82,7 @@
 <!ENTITY menus.entries.label "Mostrar Entradas">
 <!ENTITY menus.sidebar.entrydeac "Deshabilitar el Ingreso de la Barra Lateral Activa">
 <!ENTITY misc.enablesidebar.label "Abrir Barra Lateral">
+<!ENTITY misc.enablepopup.label "Open in Popup">
 <!ENTITY misc.layout.label "Optimizar la disposición de la Barra Lateral">
 <!ENTITY misc.dm.autoopen.label "Mostrat la barra lateral de Descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarla cuando todas las descargas hayan finalizado">
