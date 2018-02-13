@@ -49,6 +49,8 @@
 <!ENTITY gen.switch.onlymax "Sólo si el navegador está maximizado en el modo de pantalla completa">
 <!ENTITY gen.switch.invtrigger "Habilitar el selector invisible del panel lateral (Mostrar/Ocultar Automático debe estar habilitado)">
 <!ENTITY gen.switch.invwidth "Hover area">
+<!ENTITY gen.switch.delayshow "Show Delay">
+<!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Retraso">
 <!ENTITY gen.switch.delayUnit "milisegundos">
 <!ENTITY gen.switch.hide "Ocultar el panel lateral cuando el cursor del ratón:">

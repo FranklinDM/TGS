@@ -49,6 +49,8 @@
 <!ENTITY gen.switch.onlymax "Only if Browser is Maximised or in Full Screen Mode">
 <!ENTITY gen.switch.invtrigger "Enable Invisible Sidebar Switch (Auto Show/Hide must be enabled)">
 <!ENTITY gen.switch.invwidth "Hover area">
+<!ENTITY gen.switch.delayshow "Show Delay">
+<!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Delay">
 <!ENTITY gen.switch.delayUnit "milliseconds">
 <!ENTITY gen.switch.hide "Hide Sidebar if the mouse cursor:">

@@ -49,6 +49,8 @@
 <!ENTITY gen.switch.onlymax "Solamente si el navegador está Maximizado o en el Modo Pantalla Completa">
 <!ENTITY gen.switch.invtrigger "Habilitar el Selector invisible de la Barra Lateral (Mostrar/Esconder Automático debe estar habilitado)">
 <!ENTITY gen.switch.invwidth "Hover area">
+<!ENTITY gen.switch.delayshow "Show Delay">
+<!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Retardo">
 <!ENTITY gen.switch.delayUnit "milisegundos">
 <!ENTITY gen.switch.hide "Esconder la Barra Lateral cuando el cursor del mouse:">
