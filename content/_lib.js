@@ -349,7 +349,7 @@ function aios_contextEvent(event, which) {
     }
     catch(e) { }
 
-    //alert("Maus: " + event.button + "\nShift: " + event.shiftKey + "\nCtrl: " + event.ctrlKey + "\nAlt: " + event.altKey + "\nMeta: " + event.metaKey);
+    //console.log("Mouse: " + event.button + "\nShift: " + event.shiftKey + "\nCtrl: " + event.ctrlKey + "\nAlt: " + event.altKey + "\nMeta: " + event.metaKey);
 	
 	// Only left click (Meta Key = Mac)
     if(event.button == 0 && (!event.shiftKey && !event.ctrlKey && !event.metaKey)) return false;
@@ -361,7 +361,7 @@ function aios_contextEvent(event, which) {
     if(!event || typeof which != "object") return false;
 
     var mWindow = document.getElementById('main-window');
-    if(mWindow && mWindow.getAttribute('chromehidden').indexOf('extrachrome') >= 0) return false; // in einem JS-PopUp
+    if(mWindow && mWindow.getAttribute('chromehidden').indexOf('extrachrome') >= 0) return false; // in a JS popup
 
 	// Determine object containing the attribute with command [previously set in aios_setTargets()]
     var cmdObj;
@@ -438,7 +438,7 @@ function aios_setTargets() {
 	var targets = {
 		bm: ['View:Bookmarks',     'viewBookmarksSidebar',     'bookmarks',			"aios_openDialog('bookmarks');"],
 		hi: ['View:History',       'viewHistorySidebar',       'history',			"aios_openDialog('history');"],
-		dm: ['Tools:Downloads',    'viewDownloadsSidebar',     'downloads',			"BrowserDownloadsUI();"],
+		dm: ['Tools:Downloads',    'viewDownloadsSidebar',     'downloads',			"if (!AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar') && AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.popup')) { DownloadsIndicatorView.onCommand(event); } else { BrowserDownloadsUI(); } this.setAttribute('onclick', 'aios_contextEvent(event, this)');"],
 		ad: ['Tools:Addons',       'viewAddonsSidebar',        'addons',			"BrowserOpenAddonsMgr();"],
 		mp: ['Tools:MultiPanel',   'viewWebPanelsSidebar',     'multipanel',		"aios_openDialog('multipanel');"],
 		pi: ['View:PageInfo',      'viewPageInfoSidebar',      'pageinfo',			"BrowserPageInfo();"],

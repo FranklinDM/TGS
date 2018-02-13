@@ -602,6 +602,7 @@
 	<prefpane id="aiosPanels" label="&tab.panels;" flex="1" seltab="0" persist="seltab" onpaneload="aios_initPane('panels');">
 		<preferences>
 			<preference id="DMOpen"         type="bool"     name="extensions.aios.dm.sidebar" />
+			<preference id="DMPopup"        type="bool"     name="extensions.aios.dm.popup" />
 			<preference id="DMLayout"       type="bool"     name="extensions.aios.dm.layout" />
 			<preference id="DMAutoOpen"     type="bool"     name="extensions.aios.dm.autoopen" />
 			<preference id="DMAutoClose"    type="bool"     name="extensions.aios.dm.autoclose" />
@@ -677,7 +678,8 @@
 
 						<groupbox>
 							<caption label="&tab.gen.behavior;" />
-							<checkbox preference="DMOpen" label="&misc.enablesidebar.label;" aiosChilds="DMLayout, DMAutoOpen, DMAutoClose" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="DMPopup" label="&misc.enablepopup.label;" aiosChilds="!DMOpen" oncommand="aios_checkboxObserver(this);" />
+							<checkbox preference="DMOpen" label="&misc.enablesidebar.label;" aiosChilds="DMLayout, DMAutoOpen, DMAutoClose, !DMPopup" oncommand="aios_checkboxObserver(this);" />
 
 							<vbox class="indent">
 								<checkbox preference="DMAutoOpen" label="&misc.dm.autoopen.label;" aiosChilds="DMAutoClose" oncommand="aios_checkboxObserver(this);" />

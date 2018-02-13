@@ -324,18 +324,23 @@ function aios_checkboxObserver(which) {
 	var observe = which.getAttribute('aiosChilds');
 	var allChilds = observe.split(",");
 
-	for(var i = 0; i < allChilds.length; i++) {
+	for (var i = 0; i < allChilds.length; i++) {
 		var childPref = allChilds[i].replace(/ /, "");
-
+		
 		var child = document.getElementsByAttribute('preference', childPref);
-		if(child.length == 0) child = document.getElementsByAttribute('id', childPref);
-
-		//if(child[0]) child[0].setAttribute('disabled', !aios_getBoolean(which, 'checked') || aios_getBoolean(which, 'disabled'));
-
-		if(child[0]) {
-			if(!aios_getBoolean(which, 'checked') || aios_getBoolean(which, 'disabled')) child[0].setAttribute('disabled', true);
-			else child[0].removeAttribute('disabled');
+		if (child.length == 0) child = document.getElementsByAttribute('id', childPref);
+		
+		var invert = false;
+		if (childPref.contains('!')) {
+			child = document.getElementsByAttribute('preference', childPref.substr(1));
+			if (child.length == 0) child = document.getElementsByAttribute('id', childPref.substr(1));
+			invert = true;
 		}
+
+		if (child[0]) {
+			if (((!aios_getBoolean(which, 'checked') || aios_getBoolean(which, 'disabled')) && !invert) || (aios_getBoolean(which, 'checked') && invert)) child[0].setAttribute('disabled', true);
+			else child[0].removeAttribute('disabled');
+		}	
 	}
 }
 
