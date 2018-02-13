@@ -36,7 +36,8 @@ pref("extensions.aios.gen.open.init", "rem");
 
 pref("extensions.aios.gen.switch.autoshow", false);
 pref("extensions.aios.gen.switch.onlymax", false);
-pref("extensions.aios.gen.switch.delay", 500);
+pref("extensions.aios.gen.switch.delayshow", 500);
+pref("extensions.aios.gen.switch.delayhide", 500);
 pref("extensions.aios.gen.switch.hidemethod", 1);
 pref("extensions.aios.gen.switch.width", 6);
 pref("extensions.aios.gen.switch.twidth", 2);

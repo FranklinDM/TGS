@@ -86,7 +86,8 @@
 			<preference id="SSOnlymax"      type="bool"         name="extensions.aios.gen.switch.onlymax" />
 			<preference id="SSInvTrg"       type="bool"         name="extensions.aios.gen.switch.invtrigger" />
 			<preference id="SSInvWidth"     type="int"          name="extensions.aios.gen.switch.invwidth" />
-			<preference id="SSDelay"        type="int"          name="extensions.aios.gen.switch.delay" />
+			<preference id="SSDelayShow"    type="int"          name="extensions.aios.gen.switch.delayshow" />
+			<preference id="SSDelayHide"    type="int"          name="extensions.aios.gen.switch.delayhide" />
 			<preference id="SSHidemethod"   type="int"          name="extensions.aios.gen.switch.hidemethod" />
 			<preference id="SSWidth"        type="int"          name="extensions.aios.gen.switch.width" />
 			<preference id="SSThinWidth"    type="int"          name="extensions.aios.gen.switch.twidth" />
@@ -378,14 +379,18 @@
 							<!-- Behavior -->
 							<tabpanel orient="vertical">
 							<checkbox label="&gen.switch.autoshow;" preference="SSAutoshow"
-								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSInvTrg,SSInvWidth,SSDelay,SSHidemethod" />
+								oncommand="aios_checkboxObserver(this);" aiosChilds="SSOnlymax,SSInvTrg,SSInvWidth,SSDelayShow,SSDelayHide,SSHidemethod" />
 
 							<vbox class="indent">
 								<checkbox label="&gen.switch.onlymax;" preference="SSOnlymax" />
 																
 								<hbox align="center" style="margin-top: 5px;">
-									<label value="&gen.switch.delay;:" />
-									<textbox preference="SSDelay" size="2" type="number" min="0" />
+									<label value="&gen.switch.delayshow;:" />
+									<textbox preference="SSDelayShow" size="2" type="number" min="0" />
+									<label value="&gen.switch.delayUnit;" />
+									<spacer flex="1"/>
+									<label value="&gen.switch.delayhide;:" />
+									<textbox preference="SSDelayHide" size="2" type="number" min="0" />
 									<label value="&gen.switch.delayUnit;" />
 								</hbox>
 
@@ -719,7 +724,7 @@
 				</tabpanel>
 
 
-<!-- TAB: Andere I -->
+<!-- TAB: Others I -->
 
 				<tabpanel orient="vertical">
 					<vbox class="aiosSizeBox" restart="true">
@@ -743,7 +748,7 @@
 				</tabpanel>
 
 
-<!-- TAB: Andere II -->
+<!-- TAB: Others II -->
 
 				<tabpanel orient="vertical">
 					<vbox class="aiosSizeBox" restart="true">

@@ -195,7 +195,6 @@ function aios_initSidebar() {
 	// And/or set delay for this d-and-d func?
 	try {
 		var switchDrag = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.drag");
-		var switchDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.delay");
 		var switchDragDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.dragdelay");
 
 		if (switchDragDelay != 0) elem_switch.setAttribute('ondragenter',
@@ -470,7 +469,8 @@ function aios_autoShowHide(mode) {
 
 	var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
 	var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
-	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
+	var delayshow = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delayshow');
+	var delayhide = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delayhide');
 	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
 
 	//console.log(mode);
@@ -485,6 +485,9 @@ function aios_autoShowHide(mode) {
 		// If sidebar should be visible and not hidden => ignore it
 		if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3)) return false;
 
+		let delay;
+		if (!aios_isSidebarHidden()) delay = delayhide;
+		else delay = delayshow;
 		// Show/hide after a certain time
 		aios_autoTimeout = window.setTimeout(function() {
 			aios_toggleSidebar('switch');
@@ -512,7 +515,7 @@ function aios_autoShowHide(mode) {
 			// Hide after a certain time
 			aios_autoTimeout = window.setTimeout(function() {
 				aios_toggleSidebar('switch');
-			}, delay);
+			}, delayhide);
 
 			// Remove the timeout when the mouse comes back in the sidebar
 			fx_sidebarBox.addEventListener("mouseover", function(){
@@ -537,11 +540,12 @@ function aios_invisibleTrigger(mode) {
 	
 	var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
 	var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
-	var delay = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delay');
+	var delayshow = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delayshow');
 	var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
 	var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
 	var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
 	var orient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
+	
 	//console.log(mode);
 
 	// Feature is disabled, should only function at maximized window, window does not have the focus, trigger width is 0, inv trigger is disabled
@@ -564,7 +568,7 @@ function aios_invisibleTrigger(mode) {
 				aios_toggleSidebar('switch');
 			}
 			aios_invCursorTZ = false;
-		}, delay);
+		}, delayshow);
 
 		// Remove the timeout when the mouse comes back in the sidebar
 		fx_sidebarBox.addEventListener("mouseover", function(){
