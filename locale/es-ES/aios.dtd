@@ -47,7 +47,7 @@
 <!ENTITY keys.paneltab2 "Y">
 <!ENTITY keys.addons "C">
 <!ENTITY keys.multipanel "M">
-<!ENTITY keys.pageinfo "P">
+<!ENTITY keys.pageinfo "E">
 <!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "Izquiera del panel lateral">
 <!ENTITY toolbar.pos.sidebarright.label "Derecha del panel lateral">
