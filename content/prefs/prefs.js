@@ -1,44 +1,44 @@
 
 /*
-	Initialisierung
-		=> Aufruf durch onload im <prefwindow>
+	Initialization
+		=> Called by onload in <prefwindow>
 */
 function aios_initPrefs() {
-	// speziellen Tab oeffnen, wenn einer als Argument uebergeben wurde (aus den Standard-Optionen heraus)
-	if(window.arguments) {
-		if(window.arguments[0] == "dwn") {
-			// Panels-Radio-Button aktivieren
+	// open a special tab if one has been passed as an argument (out of the standard options)
+	if (window.arguments) {
+		if (window.arguments[0] == "dwn") {
+			// Activate panel radio button
 			var clickEvent = document.createEvent("MouseEvent");
 			clickEvent.initEvent("command", false, true);
 
 			var radiogroup = document.getAnonymousElementByAttribute(document.getElementById('aiosPreferences'), "anonid", "selector");
 			radiogroup.childNodes[1].dispatchEvent(clickEvent);
 
-			// Download-Tab aktivieren
+			// Activate the download tab
 			var tabbox = document.getElementById('aiosTabboxPanels');
-			if(tabbox.childNodes[0].tagName == "tabs") tabbox.childNodes[0].selectedIndex = 1;
-			if(tabbox.childNodes[1].tagName == "tabs") tabbox.childNodes[1].selectedIndex = 1;
+			if (tabbox.childNodes[0].tagName == "tabs") tabbox.childNodes[0].selectedIndex = 1;
+			if (tabbox.childNodes[1].tagName == "tabs") tabbox.childNodes[1].selectedIndex = 1;
 		}
 	}
 
-	// Apply-Button deaktivieren
+	// Disable the Apply button
 	aios_disableApplyButton(true);
 
-	// Settings-Button
-	if(document.documentElement.getButton('extra2')) {
+	// Settings button
+	if (document.documentElement.getButton('extra2')) {
 		var extra2 = document.documentElement.getButton('extra2');
 		extra2.setAttribute('id', 'aios-settings-button');
 		extra2.setAttribute('popup', 'aios-settings-popup');
 		extra2.setAttribute('dir', 'reverse');
 	}
 
-	// abhaengige Elemente aktivieren oder deaktivieren
+	// Activate/deactivate dependent elements
 	aios_checkDependent();
 
-	// Advanced Mode aktivieren/deaktivieren
+	// Activate/deactivate advanced mode
 	aios_advancedMode();
 
-	// Masseinheiten zur Sidebarbreite auf Anderungen ueberwachen
+	// Monitor units of sidebar width for changes
 	document.getElementById('obj-minWidthUnit').addEventListener("ValueChange", function(e) {
 		aios_changeWidthUnit('min');
 	}, false);
@@ -51,10 +51,10 @@ function aios_initPrefs() {
 		aios_changeWidthUnit('max');
 	}, false);
 
-	// Prefs merken, wird fuer den Apply-Button benoetigt => aios_checkApply()
+	// Remember prefs, this is required for the Apply button => aios_checkApply()
 	aios_rememberOldPrefs();
 
-	// alte Prefs loeschen
+	// Delete old prefs and migrate others (if necessary)
 	aios_deleteOldPrefs();
 }
 
@@ -62,9 +62,9 @@ function aios_initPrefs() {
 function aios_initPane(mode) {
 	AiOS_HELPER.rememberAppInfo( document.getElementById("aiosPreferences") );
 
-	// zuletzt gewaehlten Tab wieder selektieren
+	// Reselect last selected tab
 	var tabbox = null;
-	switch(mode) {
+	switch (mode) {
 		case "general":
 			tabbox = document.getElementById('aiosTabboxGeneral');
 			break;
@@ -77,37 +77,37 @@ function aios_initPane(mode) {
 	}
 
 	var seltab = tabbox.parentNode.getAttribute('seltab');
-	if(tabbox.childNodes[0].tagName == "tabs") tabbox.childNodes[0].selectedIndex = seltab;
-	if(tabbox.childNodes[1].tagName == "tabs") tabbox.childNodes[1].selectedIndex = seltab;
+	if (tabbox.childNodes[0].tagName == "tabs") tabbox.childNodes[0].selectedIndex = seltab;
+	if (tabbox.childNodes[1].tagName == "tabs") tabbox.childNodes[1].selectedIndex = seltab;
 
-	// Liste der zur Verfuegung stehenden Sidebars erstellen
-	if(mode == "general") aios_genSidebarList();
+	// Create a list of available sidebars
+	if (mode == "general") aios_genSidebarList();
 }
 
 
 /*
-	Standardeinstellungen zuruecksetzen
-		=> Aufruf durch <menuitem> in prefs.xul
+	Reset default settings
+		=> Called by <menuitem> in prefs.xul
 */
 function aios_defaultSettings() {
 	var strings = document.getElementById("aiosStrings");
-	if(!confirm(strings.getString('prefs.confirm'))) return false;
+	if (!confirm(strings.getString('prefs.confirm'))) return false;
 
 	var count = {
 		value : 0
 	};
 	var childList = AiOS_HELPER.prefBranchAiOS.getChildList("", count);
 
-	for(var i = 0; i < count.value; i++) {
+	for (var i = 0; i < count.value; i++) {
 		if(AiOS_HELPER.prefBranchAiOS.prefHasUserValue(childList[i]) && childList[i] != "changelog") {
 			AiOS_HELPER.prefBranchAiOS.clearUserPref(childList[i]);
 		}
 	}
 
-	// GUI-Elemente zuruecksetzen
+	// Reset GUI elements
 	aios_synchElements();
 
-	// abhaengige Elemente aktivieren oder deaktivieren
+	// Activate/deactivate dependent elements
 	aios_checkDependent();
 
 	return true;
@@ -115,8 +115,8 @@ function aios_defaultSettings() {
 
 
 /*
-	Einstellungen in die Zwischenablage kopieren oder als Textdatei speichern
-		=> Aufruf durch <menuitem> in prefs.xul
+	Copy settings to the clipboard or save as a text file
+		=> Called by <menuitem> in prefs.xul
 */
 function aios_exportSettings(aMode) {
 	var strings = document.getElementById("aiosStrings");
@@ -139,18 +139,16 @@ function aios_exportSettings(aMode) {
 	};
 	var childList = AiOS_HELPER.prefBranchAiOS.getChildList("", count);
 
-	for(var i = 0; i < count.value; i++) {
+	for (var i = 0; i < count.value; i++) {
 		try {
-			switch(AiOS_HELPER.prefBranchAiOS.getPrefType(childList[i])) {
-				case    AiOS_HELPER.prefInterface.PREF_BOOL:
+			switch (AiOS_HELPER.prefBranchAiOS.getPrefType(childList[i])) {
+				case AiOS_HELPER.prefInterface.PREF_BOOL:
 					aiosExport[i+1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getBoolPref(childList[i]);
 					break;
-
-				case    AiOS_HELPER.prefInterface.PREF_INT:
+				case AiOS_HELPER.prefInterface.PREF_INT:
 					aiosExport[i+1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getIntPref(childList[i]);
 					break;
-
-				case    AiOS_HELPER.prefInterface.PREF_STRING:
+				case AiOS_HELPER.prefInterface.PREF_STRING:
 					aiosExport[i+1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getCharPref(childList[i]);
 					break;
 			}
@@ -158,24 +156,25 @@ function aios_exportSettings(aMode) {
 		catch(e) { }
 	}
 
-	// Einstellungen alphabetisch sortieren
+	// Sort settings alphabetically
 	aiosExport.sort();
 
-	// String erzeugen
+	// Create string
 	var aiosExportString = "";
-	for(var i = 0; i < aiosExport.length; i++) {
+	for (var i = 0; i < aiosExport.length; i++) {
 		aiosExportString+= aiosExport[i] + "\n";
 	}
 
-	// String in die Zwischenablage kopieren
-	if(aMode == "copy") {
+	// Copy the string to the clipboard
+	if (aMode == "copy") {
 		var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
 		gClipboardHelper.copyString(aiosExportString);
 
 		alert(strings.getString('prefs.copy'));
 	}
-	// String in einer Textdatei speichern (thanks to adblock & Tab Mix Plus :-))
-	else if(aMode == "save") {
+
+	// Save the string to a text file (Thanks to AdBlock & Tab Mix Plus :-))
+	else if (aMode == "save") {
 		var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
 		var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
 
@@ -184,9 +183,8 @@ function aios_exportSettings(aMode) {
 		fp.defaultString = 'TGS-Settings';
 		fp.appendFilters(fp.filterText);
 
-		if(fp.show() != fp.returnCancel) {
-
-			if(fp.file.exists()) fp.file.remove(true);
+		if (fp.show() != fp.returnCancel) {
+			if (fp.file.exists()) fp.file.remove(true);
 			fp.file.create(fp.file.NORMAL_FILE_TYPE, 0o666);
 			stream.init(fp.file, 0x02, 0x200, null);
 
@@ -198,15 +196,14 @@ function aios_exportSettings(aMode) {
 
 
 /*
-	Einstellungen aus Textdatei importieren
-		=> Aufruf durch <menuitem> in prefs.xul
+	Import settings from text file
+		=> Called by <menuitem> in prefs.xul
 */
 function aios_importSettings() {
 	var strings = document.getElementById("aiosStrings");
-
 	var pattern = aios_loadFromFile();
 
-	if(!pattern) return false;
+	if (!pattern) return false;
 
 	var i;
 	var aiosImport = [];
@@ -222,33 +219,31 @@ function aios_importSettings() {
 		return false;
 	}
 
-	if(!confirm(strings.getString('prefs.import'))) return false;
+	if (!confirm(strings.getString('prefs.import'))) return false;
 
-	for(i = 6; i < pattern.length; i++) {
+	for (i = 6; i < pattern.length; i++) {
 		var index = pattern[i].indexOf("=");
 
-		if(index > 0) {
+		if (index > 0) {
 			aiosImport[i] = [];
 			aiosImport[i].push(pattern[i].substring(0, index));
 			aiosImport[i].push(pattern[i].substring(index + 1, pattern[i].length));
 		}
 	}
 
-	if(isMatch) {
-		for(i = 6; i < aiosImport.length; i++) {
+	if (isMatch) {
+		for (i = 6; i < aiosImport.length; i++) {
 			try {
-				switch(AiOS_HELPER.prefBranchAiOS.getPrefType(aiosImport[i][0])) {
-					case    AiOS_HELPER.prefInterface.PREF_BOOL:
+				switch (AiOS_HELPER.prefBranchAiOS.getPrefType(aiosImport[i][0])) {
+					case AiOS_HELPER.prefInterface.PREF_BOOL:
 						AiOS_HELPER.prefBranchAiOS.setBoolPref(aiosImport[i][0],/true/i.test(aiosImport[i][1]));
 						break;
-
-					case    AiOS_HELPER.prefInterface.PREF_INT:
+					case AiOS_HELPER.prefInterface.PREF_INT:
 						AiOS_HELPER.prefBranchAiOS.setIntPref(aiosImport[i][0], aiosImport[i][1]);
 						break;
-
-					case    AiOS_HELPER.prefInterface.PREF_STRING:
+					case AiOS_HELPER.prefInterface.PREF_STRING:
 						var pref = aiosImport[i][1];
-						if(pref.indexOf('"') == 0) // in prev version we use " " for string
+						if (pref.indexOf('"') == 0) // In the previous version we use " " for string
 							pref = pref.substring(1,pref.length - 1);
 						AiOS_HELPER.prefBranchAiOS.setCharPref(aiosImport[i][0], pref);
 						break;
@@ -257,10 +252,10 @@ function aios_importSettings() {
 			catch(e) { }
 		}
 
-		// GUI-Elemente zuruecksetzen
+		// Reset GUI elements
 		aios_synchElements();
 
-		// abhaengige Elemente aktivieren oder deaktivieren
+		// Activate/deactivate dependent elements
 		aios_checkDependent();
 
 		return true;
@@ -272,8 +267,8 @@ function aios_importSettings() {
 
 
 /*
-	Textdatei in ein Array einlesen (thanks to adblock & Tab Mix Plus :-))
-		=> Aufruf durch aios_importSettings()
+	Read text file into an array (Thanks to AdBlock & Tab Mix Plus :-))
+		=> Called by aios_importSettings()
 */
 function aios_loadFromFile() {
 	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
@@ -286,8 +281,7 @@ function aios_loadFromFile() {
 	fp.defaultExtension = 'txt';
 	fp.appendFilters(fp.filterText);
 
-	if(fp.show() != fp.returnCancel) {
-
+	if (fp.show() != fp.returnCancel) {
 		stream.init(fp.file, 0x01, 0o444, null);
 		streamIO.init(stream);
 
@@ -304,21 +298,21 @@ function aios_loadFromFile() {
 
 
 /*
-	auf abhaengige Elemente pruefen
-		=> Aufruf durch aios_initPrefs(), aios_defaultPrefs() und aios_importSettings()
+	Check for dependent elements
+		=> Called by aios_initPrefs(), aios_defaultPrefs() and aios_importSettings()
 */
 function aios_checkDependent() {
 	var childObserver = document.getElementsByAttribute('oncommand', 'aios_checkboxObserver(this);');
 
-	for(var i = 0; i < childObserver.length; i++) {
+	for (var i = 0; i < childObserver.length; i++) {
 		aios_checkboxObserver(childObserver[i]);
 	}
 }
 
 
 /*
-	abhaengige Checkboxen aktivieren oder deaktivieren
-		Aufruf durch die Eltern-Checkbox und aios_checkDependent()
+	Activate/deactivate dependent checkboxes
+		=> Called through the parent checkbox and aios_checkDependent()
 */
 function aios_checkboxObserver(which) {
 	var observe = which.getAttribute('aiosChilds');
@@ -346,95 +340,75 @@ function aios_checkboxObserver(which) {
 
 
 /*
-	Advanced-Mode aktivieren/deaktivieren und Elemente und ein-/ausblenden
-		=> Aufruf durch aios_initPrefs() und das <menuitem> des Setting buttons
+	Activate/deactivate advanced mode and show/hide elements
+		=> Called by aios_initPrefs() and the <menuitem> of the settings button
 */
 function aios_advancedMode(trigger) {
-
-	/*if(trigger) {
-		var heightBefore = aios_getSizeBoxHeight();
-	}*/
-
 	var advanced = aios_getBoolean('aios-advanced', 'checked');
 
-	// Advanced-Elemente durchlaufen und ein-/ausblenden
+	// Scroll through and show/hide advanced elements
 	var advElems = document.getElementsByAttribute('aiosAdvanced', 'true');
-	for(var i = 0; i < advElems.length; i++) {
-
-		// wenn das Element ein Tab-Container ist
-		if(advElems[i].localName == "tabs") {
-
+	for (var i = 0; i < advElems.length; i++) {
+		// If the item is a tab container
+		if (advElems[i].localName == "tabs") {
 			var tabChild = advElems[i].selectedIndex;
 			var tabChildClass = advElems[i].childNodes[tabChild].getAttribute('class');
 
-			// vorherigen Tab aktivieren, wenn ein advanced Tab gewaehlt ist und der Advanced Mode deaktiviert wird
-			if(!advanced && tabChildClass == "aiosAdvanced") {
+			// Activate previous tab if an advanced tab is selected and the advanced mode is deactivated
+			if (!advanced && tabChildClass == "aiosAdvanced") {
 				advElems[i].parentNode.childNodes[0].selectedIndex = advElems[i].selectedIndex - 1;
 				advElems[i].parentNode.childNodes[1].selectedIndex = advElems[i].selectedIndex - 1;
 
-				// noch einmal vorherigen Tab aktivieren, wenn der neue Tab auch ein advanced Tab ist
+				// Activate previous tab again if the new tab is also an advanced tab
 				tabChild = advElems[i].selectedIndex;
 				tabChildClass = advElems[i].childNodes[tabChild].getAttribute('class');
-				if(tabChildClass == "aiosAdvanced") {
+				if (tabChildClass == "aiosAdvanced") {
 					advElems[i].parentNode.childNodes[0].selectedIndex = advElems[i].selectedIndex - 1;
 					advElems[i].parentNode.childNodes[1].selectedIndex = advElems[i].selectedIndex - 1;
 				}
 
-				// selektierten Tab merken (in prefpane)
+				// Remember selected tab (in prefpane)
 				advElems[i].parentNode.parentNode.setAttribute('seltab', advElems[i].selectedIndex);
 			}
 
-			// welcher Tab-Container ist sichtbar?
+			// Identify which tab container is visible
 			advElems[i].parentNode.childNodes[0].setAttribute('hidden', advanced);
 			advElems[i].parentNode.childNodes[1].setAttribute('hidden', !advanced);
-			if(advanced) advElems[i].parentNode.childNodes[1].style.visibility = 'visible';
+			if (advanced) advElems[i].parentNode.childNodes[1].style.visibility = 'visible';
 		}
-		// andere Elemente
+		// Other elements
 		else {
 			advElems[i].setAttribute('hidden', !advanced);
-			if(advanced) advElems[i].style.visibility = 'visible';
+			if (advanced) advElems[i].style.visibility = 'visible';
 		}
 	}
 
-	// variierende Style-Angaben im normalen und erweiterten Modus
+	// Varying style information in normal and extended modes
 	var advStyleElems = document.getElementsByAttribute('aiosAdvancedStyle', 'true');
-	for(var s = 0; s < advStyleElems.length; s++) {
-
+	for (var s = 0; s < advStyleElems.length; s++) {
 		var sStyle = advStyleElems[s].getAttribute('aiosNorStyle');
-		if(advanced) sStyle = advStyleElems[s].getAttribute('aiosAdvStyle');
+		if (advanced) sStyle = advStyleElems[s].getAttribute('aiosAdvStyle');
 
 		advStyleElems[s].setAttribute('style', sStyle);
 	}
-
-	/*// Fenster vergroessern/verkleinern bei Mode-Umschaltung
-	if(trigger) {
-		var heightAfter = aios_getSizeBoxHeight();
-
-		//alert("heightBefore: " + heightBefore + " heightAfter: " + heightAfter);
-
-		var diff = heightBefore - heightAfter;
-		if(heightAfter > heightBefore) diff = diff - 10;
-		window.resizeTo(window.outerWidth, window.outerHeight - diff);
-	}*/
 
 	window.sizeToContent();
 }
 
 
 /*
-	Hoehe der Boxen zum Aktivieren/Deaktivieren des Advanced-Modes ermitteln
-		=> Aufruf durch aios_advancedMode()
+	Determine the height of the boxes for activating/deactivating the Advanced mode
+		=> Called by aios_advancedMode()
 */
 function aios_getSizeBoxHeight() {
 	var theHeight = 0;
 	var sizeBoxen = document.getElementsByAttribute('class', 'aiosSizeBox');
 
-	for(var i = 0; i < sizeBoxen.length; i++) {
+	for (var i = 0; i < sizeBoxen.length; i++) {
 		var h = sizeBoxen[i].boxObject.height;
 
-		if(sizeBoxen[i].getAttribute('restart')) h = h + 30;
-
-		if(h > theHeight) theHeight = h;
+		if (sizeBoxen[i].getAttribute('restart')) h = h + 30;
+		if (h > theHeight) theHeight = h;
 	}
 
 	return theHeight;
@@ -442,48 +416,47 @@ function aios_getSizeBoxHeight() {
 
 
 /*
-	Zahlen mit fuehrender Null zurueckgeben
-		=> Aufruf durch aios_exportSettings()
+	Return numbers with leading zero
+		=> Called by aios_exportSettings()
 */
 function aios_extendInt(aInput) {
-	if(aInput < 10) return "0" + aInput.toString();
+	if (aInput < 10) return "0" + aInput.toString();
 	else return aInput;
 }
 
 
 /*
-	synchronisiert jeweils die beiden Tab-Container, die abwechselnd angezeigt werden (normal und advanced)
-		=> Aufruf durch die beiden Tab-Container (General und Misc)
+	Synchronizes the two tab containers, which are displayed alternately (normal and advanced)
+		=> Called through the two tab containers (General and Misc)
 */
 function aios_synchTabs(which) {
 	var tabs0 = which.parentNode.childNodes[0];
 	var tabs1 = which.parentNode.childNodes[1];
 
-	if(tabs0.tagName == "tabs") tabs0.selectedIndex = which.selectedIndex;
-	if(tabs1.tagName == "tabs") tabs1.selectedIndex = which.selectedIndex;
+	if (tabs0.tagName == "tabs") tabs0.selectedIndex = which.selectedIndex;
+	if (tabs1.tagName == "tabs") tabs1.selectedIndex = which.selectedIndex;
 
-	// selektierten Tab merken (in prefpane)
+	// Remember selected tab (in prefpane)
 	which.parentNode.parentNode.setAttribute('seltab', which.selectedIndex);
 }
 
 
 /*
-	GUI-Elemente zuruecksetzen
-		=> Aufruf durch aios_defaultSettings() und aios_importSettings()
+	Reset GUI elements
+		=> Called by aios_defaultSettings() and aios_importSettings()
 */
 function aios_synchElements() {
 	var val;
 	var prefs = document.getElementsByTagName('preference');
 
-	for(var i = 0; i < prefs.length; i++) {
-
+	for (var i = 0; i < prefs.length; i++) {
 		var prefID = prefs[i].getAttribute('id');
 		var prefType = prefs[i].getAttribute('type');
 		var prefName = prefs[i].getAttribute('name').replace(/extensions.aios./, "");
 
 		var elem = document.getElementsByAttribute('preference', prefID)[0];
 
-		switch(prefType) {
+		switch (prefType) {
 			case "int":
 				val = AiOS_HELPER.prefBranchAiOS.getIntPref(prefName);
 				break;
@@ -495,8 +468,8 @@ function aios_synchElements() {
 				break;
 		}
 
-		if(elem) {
-			switch(elem.tagName) {
+		if (elem) {
+			switch (elem.tagName) {
 				case "checkbox":
 					elem.checked = val;
 					break;
@@ -540,8 +513,8 @@ function aios_savePrefs() {
 		if (win.aios_initInvTrg)		win.aios_initInvTrg();
 	}
 	
-	// Bugfix...
-	// otherwise the context menu of the extension is displayed,
+	// Bugfix:
+	// Otherwise the context menu of the extension is displayed,
 	// when the options have been right-clicked and the Apply button is clicked
 	if (opener.document.getElementById('extensionContextMenu'))
 		opener.document.getElementById('extensionContextMenu').hidePopup();
@@ -549,21 +522,21 @@ function aios_savePrefs() {
 
 
 /*
-	Einstellungen uebernehmen ohne den Dialog zu schliessen
-		=> Aufruf durch button "extra1"
+	Apply modified preferences without closing the dialog
+		=> Called by button "extra1"
 */
 function aios_applyPrefs() {
 	var pID, pType, pName, pValue;
 
-	// Prefs direkt speichern
+	// Save prefs directly
 	var allPrefs = document.getElementsByTagName('preference');
-	for(var i = 0; i < allPrefs.length; i++) {
+	for (var i = 0; i < allPrefs.length; i++) {
 		pID = allPrefs[i].getAttribute('id');
 		pType = allPrefs[i].getAttribute('type');
 		pName = allPrefs[i].getAttribute('name');
 		pValue = allPrefs[i].value;
 
-		switch(pType) {
+		switch (pType) {
 			case "string":
 				AiOS_HELPER.prefBranch.setCharPref(pName, pValue);
 				break;
@@ -576,114 +549,107 @@ function aios_applyPrefs() {
 		}
 	}
 
-	// zusaetzliche Optionen
+	// Additional options
 	aios_savePrefs();
 
-	// Apply-Button deaktivieren
+	// Disable the Apply button
 	aios_disableApplyButton(true);
 
-	// Prefs merken, wird fuer den Apply-Button benoetigt => aios_checkApply()
+	// Remember prefs, is required for the Apply button => aios_checkApply()
 	aios_rememberOldPrefs();
 
-	// Prefs direkt in Datei speichern
+	// Save prefs directly to file
 	AiOS_HELPER.prefService.savePrefFile(null);
 }
 
 
 /*
-	Apply-Button aktivieren/deaktivieren
-		=> Aufruf durch aios_initPrefs(), aios_applyPrefs() und aios_checkApply()
+	Activate/deactivate the Apply button
+		=> Called by aios_initPrefs(), aios_applyPrefs() and aios_checkApply()
 */
 function aios_disableApplyButton(aDis) {
-
-	if(document.documentElement.getButton('extra1')) {
+	if (document.documentElement.getButton('extra1')) {
 		document.documentElement.getButton('extra1').setAttribute('disabled', aDis);
 	}
 
-	if(aDis) couldApply = "";
+	if (aDis) couldApply = "";
 }
 
 
 /*
-	Prefs merken, bevor sie veraendert werden => wird fuer den Apply-Button benoetigt
-		=> Aufruf durch aios_initPrefs() und aios_applyPrefs()
+	Remember prefs before they are changed; this is required for the Apply button
+		=> Called by aios_initPrefs() and aios_applyPrefs()
 */
 function aios_rememberOldPrefs() {
 	var allPrefs = document.getElementsByTagName('preference');
-	for(var i = 0; i < allPrefs.length; i++) {
+	for (var i = 0; i < allPrefs.length; i++) {
 		allPrefs[i].setAttribute('oldValue', allPrefs[i].value);
 
-		// Change-Listener hinzufuegen
-		if(!allPrefs[i].getAttribute('data-changed')) {
-
+		// Add change listener
+		if (!allPrefs[i].getAttribute('data-changed')) {
 			allPrefs[i].addEventListener("change", function() {
 				aios_checkApply(this);
 			});
 
 			allPrefs[i].setAttribute('data-changed', true)
-
 		}
 	}
 }
 
 
 /*
-	Ueberpruefung auf zu speichernde Optionen => Apply-Button deaktivieren/aktivieren
-		Aufruf durch alle Checkboxen, Selcts, Textboxen usw durch onchange-Handler - gesetzt durch aios_rememberOldPrefs()
+	Check for options to be saved; used when deciding whether to activate/deactivate Apply button
+		=> Called through all checkboxes, selcts, textboxes, etc by onchange handler - set by aios_rememberOldPrefs()
 */
 var couldApply = "";
 function aios_checkApply(aPref) {
-	if(typeof aPref == "object") {
-
+	if (typeof aPref == "object") {
 		var oldPref, newPref;
 		var pID = aPref.id;
 
-		// gemerkte und neue Einstellungen in richtiges Format konvertieren
-		switch(aPref.getAttribute('type')) {
+		// Convert remembered and new settings to the correct format
+		switch (aPref.getAttribute('type')) {
 			case "string":
 				oldPref = aPref.getAttribute('oldValue');
 				newPref = aPref.value;
 				break;
-
 			case "bool":
 				oldPref = aios_getBoolean(aPref, 'oldValue');
 				newPref = aPref.value;
 				break;
-
 			case "int":
 				oldPref = aPref.getAttribute('oldValue') * 1;
 				newPref = aPref.value * 1;
 				break;
 		}
 
-		// wenn die Aenderung der alten Einstellung entspricht,...
-		if(oldPref === newPref) {
-
-			// enspr. String loeschen
-			if(couldApply.indexOf(pID) >= 0) {
+		// If the change corresponds to the old setting
+		if (oldPref === newPref) {
+			// Delete string accordingly
+			if (couldApply.indexOf(pID) >= 0) {
 				var t1 = couldApply.substr(0, couldApply.indexOf(pID));
-				if(t1.indexOf(",") == 0) t1 = t1.substr(1, t1.length);                  // Komma am Anfang loeschen
-				if(t1.lastIndexOf(",") == t1.length - 1) t1 = t1.substr(0, t1.length - 1);      // Komma am Ende loeschen
+				if (t1.indexOf(",") == 0) t1 = t1.substr(1, t1.length);								// Delete comma at the beginning
+				if (t1.lastIndexOf(",") == t1.length - 1) t1 = t1.substr(0, t1.length - 1);			// Delete comma at the end
 
 				var t2 = couldApply.substr(couldApply.indexOf(pID) + pID.length, couldApply.length);
-				if(t2.indexOf(",") == 0) t2 = t2.substr(1, t2.length);                  // Komma am Anfang loeschen
-				if(t2.lastIndexOf(",") == t2.length - 1) t2 = t2.substr(0, t2.length - 1);      // Komma am Ende loeschen
+				if (t2.indexOf(",") == 0) t2 = t2.substr(1, t2.length);								// Delete comma at the beginning
+				if (t2.lastIndexOf(",") == t2.length - 1) t2 = t2.substr(0, t2.length - 1);			// Delete comma at the end
 
-				if(t2.length > 0) t1+= ",";                                                     // mit Komma verbinden
+				if (t2.length > 0) t1+= ",";														// Connect with comma
 				couldApply = t1 + t2;
 			}
-		//alert("keine Aenderung: " + couldApply);
+		//alert("No change: " + couldApply);
 		}
-		// wenn die Aenderung _nicht_ der alten Einstellung entspricht,...
+		// If the change does _not_ correspond to the old setting
 		else {
-			// enspr. String erweitern
-			if(couldApply.length > 0) couldApply+= ",";                                         // mit Komma verbinden
+			// Extend string accordingly
+			if (couldApply.length > 0) couldApply+= ",";											// Connect with comma
 			couldApply+= pID;
-		//alert("Aenderung: " + couldApply);
+		//alert("Modification: " + couldApply);
 		}
 
-		// Apply-Button deaktivieren/aktivieren
-		if(couldApply.length == 0) aios_disableApplyButton(true);
+		// Activate/deactivate Apply button
+		if (couldApply.length == 0) aios_disableApplyButton(true);
 		else aios_disableApplyButton(false);
 	}
 }

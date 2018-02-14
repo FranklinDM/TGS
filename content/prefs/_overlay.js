@@ -8,7 +8,7 @@ if(!window.extLoad) var extLoad = {
 		extLoad.loaders.sort(function(a,b){
 			return a[0]-b[0];
 		});
-		for(var loader in extLoad.loaders) if(extLoad.loaders[loader][1]) extLoad.loaders[loader][1]();
+		for (var loader in extLoad.loaders) if(extLoad.loaders[loader][1]) extLoad.loaders[loader][1]();
 		extLoad.loaders = null;
 	}
 };
@@ -22,33 +22,33 @@ var aiosKeyconfig = {
 		this.profile = "extensions.aios.keyconf." + name + ".";
 
 		var nodes = document.getElementsByTagName("key");
-		for(var i = 0; i < nodes.length; i++) if(!nodes[i].id)
+		for (var i = 0; i < nodes.length; i++) if(!nodes[i].id)
 			nodes[i].id = "xxx_key"+i+"_"+nodes[i].getAttribute("command")+nodes[i].getAttribute("oncommand");
 
 		this.keys = this.prefService.getChildList(this.profile, {});
 
-		for(i = 0; i < this.keys.length; i++) {
+		for (i = 0; i < this.keys.length; i++) {
 			var key;
-			try{
+			try {
 				key = this.prefService.getCharPref(this.keys[i]).split("][");
-			}catch(e){
+			} catch(e){
 				continue;
 			}
 
 			var node = document.getElementById(this.keys[i].split(this.profile)[1]);
-			if(!node) continue;
+			if (!node) continue;
 
 			node.removeAttribute("modifiers");
 			node.removeAttribute("key");
 			node.removeAttribute("keycode");
-			if(key[0] == "!") {
+			if (key[0] == "!") {
 				this.removedKeys.appendChild(node);
 				continue;
 			}
 
-			if(key[0]) node.setAttribute("modifiers",key[0]);
-			if(key[1]) node.setAttribute("key",key[1]);
-			if(key[2]) node.setAttribute("keycode",key[2]);
+			if (key[0]) node.setAttribute("modifiers",key[0]);
+			if (key[1]) node.setAttribute("key",key[1]);
+			if (key[2]) node.setAttribute("keycode",key[2]);
 		}
 	}
 };

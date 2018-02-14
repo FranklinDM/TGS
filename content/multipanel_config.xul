@@ -6,7 +6,7 @@
 
     <script><![CDATA[
 
-        // fuer CSS-Zwecke speichern
+        // Save for CSS purposes
         AiOS_HELPER.rememberAppInfo( document.getElementById("config") );
 
     ]]>

@@ -590,11 +590,10 @@
                         iconsize="small"
                         persist="mode iconsize"
                         defaultset="autohide-button,paneltab-button,sidebarclose-button"
-
                         toolbarlabel="&sbhtoolbar.label;:"
                         flexbuttons="false" >
 
-                        <!-- verhindert, dass die Toolbar in einen anderen Modus ausser Icons versetzt wird -->
+                        <!-- Prevents the toolbar from being moved to a mode other than icons -->
                         <observes element="aios-sbhtoolbar" attribute="mode" onbroadcast="document.getElementById('aios-sbhtoolbar').setAttribute('mode', 'icons');" />
 
                     </toolbar>
@@ -605,7 +604,7 @@
 
             </sidebarheader>
 
-            <!-- TOOLBOX UNTER DEM SIDEBARHEADER -->
+            <!-- TOOLBOX UNDER THE SIDEBAR HEADER -->
             <toolbox id="aios-toolbox-sidebartop2" insertafter="sidebar-header" defaultmode="icons" palette="BrowserToolbarPalette">
                 <observes element="aios-toolbar" attribute="mode" />
                 <observes element="aios-toolbar" attribute="defaultmode" />
@@ -614,7 +613,7 @@
                 <toolbarset />
             </toolbox>
 
-            <!-- TOOLBOX UNTER DER SIDEBAR -->
+            <!-- TOOLBOX UNDER THE SIDEBAR -->
             <toolbox id="aios-toolbox-sidebarbottom" position="101" defaultmode="icons" palette="BrowserToolbarPalette">
                 <observes element="aios-toolbar" attribute="mode" />
                 <observes element="aios-toolbar" attribute="defaultmode" />

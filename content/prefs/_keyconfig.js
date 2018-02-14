@@ -400,5 +400,5 @@ function switchWindow(event) {
 
 function copyID() {
 	var key = gKeys[keyTree.currentIndex];
-	if(key) gClipboardHelper.copyString(key.id);
+	if (key) gClipboardHelper.copyString(key.id);
 }

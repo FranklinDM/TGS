@@ -16,10 +16,10 @@ function aios_init() {
     AiOS_HELPER.rememberAppInfo( cookieWindow );
 	
     // Sidebar Layout
-    if((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
+    if ((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
 
 	// Remove the keyboard shortcut so as not to block the main browser
-    if(aios_inSidebar) aios_removeAccesskeys();
+    if (aios_inSidebar) aios_removeAccesskeys();
 }
 
 

@@ -105,7 +105,7 @@ var AiOS_Places = {};
 
 		self.searchObj.placeholder = blurText;
 
-		// Replace Folder-Close <button> with a <toolbar button>
+		// Replace Close Folder <button> with a <toolbar button>
 		if (document.getElementById("closeFolder")) {
 			var closeButton = document.getElementById("closeFolder"),
 				closeAttr = closeButton.attributes,

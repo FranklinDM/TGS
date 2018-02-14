@@ -25,7 +25,7 @@ var AiOS_Addons = {};
 
         var self = AiOS_Addons;
 
-        if(self.isInSidebar) self.setSidebarLayout();
+        if (self.isInSidebar) self.setSidebarLayout();
 
     };
 
@@ -43,13 +43,13 @@ var AiOS_Addons = {};
         self.checkNotification();
         self.setTitle(true);
 
-        // fuer CSS-Zwecke speichern
+        // Save for CSS purposes
         AiOS_HELPER.rememberAppInfo( managerWindow );
 
-        // CSS aktivieren
+        // Enable CSS
         managerWindow.setAttribute('aios-inSidebar', 'true');
 
-        // Navigation horizontal ausrichten
+        // Align the navigation horizontally
         nav_tmp = document.getElementById("category-search").parentNode,
         nav = nav_tmp.ownerDocument.getAnonymousNodes(nav_tmp);
         nav[0].setAttribute("orient", "horizontal");
@@ -61,18 +61,18 @@ var AiOS_Addons = {};
 		// Make search bar flexible only on sidebar layout
 		document.getElementById('header-search').setAttribute('flex', '1');
 
-        // Toolbar mit Suchfeld usw. verschieben
+        // Move toolbar with search box, etc.
         before = document.getElementById("view-port-container");
         insertedElement = before.parentNode.insertBefore(document.getElementById("header"), before);
 
-        // Label bei Suche ohne Suchergebnisse kuerzen
+        // Cut labels when searching without search results...
         document.getElementById("search-list-empty").childNodes[1].childNodes[0].setAttribute("crop", "end");
 
-        // Container mit Update-Meldungen verschieben => ansonsten werden die Meldungen im Header angezeigt
+        // Move containers with update messages; otherwise the messages are displayed in the header
         before = document.getElementById("header");
         insertedElement = before.parentNode.insertBefore(document.getElementById("updates-container"), before);
 
-        // Inhalt der gelben Notificationbox vertikal anordnen
+        // Arrange the contents of the notification box vertically
         updatesBox = document.createElement("vbox");
         updatesBox.setAttribute("align", "left");
         updatesBox.appendChild(document.getElementById("updates-noneFound"));
@@ -83,7 +83,7 @@ var AiOS_Addons = {};
         updatesBox.appendChild(document.getElementById("updates-restart-btn"));
         document.getElementById("updates-container").insertBefore(updatesBox, document.getElementById("updates-container").childNodes[1]);
 
-        // Navigationsbuttons immer sichtbar machen
+        // Always make navigation buttons visible
         document.getElementById('back-btn').setAttribute('hidden', false);
         document.getElementById('forward-btn').setAttribute('hidden', false);
 
@@ -101,9 +101,9 @@ var AiOS_Addons = {};
             screenshot,
             descriptionContainer;
 
-        if(!self.isInSidebar) return false;
+        if (!self.isInSidebar) return false;
 
-        // Detail-Ansicht: Buttons in der Pending-Box (Updateinstallation) rechts ausrichten und vertikal anordnen
+        // Detail view: Align buttons in the pending box (update installation) on the right and arrange them vertically
         pendingContainer = document.getElementById("pending-container");
         pendingContainer.setAttribute("align", "left");
 
@@ -113,36 +113,36 @@ var AiOS_Addons = {};
         pendingBox.appendChild(document.getElementById("detail-undo-btn"));
         pendingContainer.appendChild(pendingBox);
 
-        // neue Anordnung des Headerbereichs der Detail-Ansicht
+        // New arrangement of the header section of the detail view
         summary = document.getElementById("detail-summary");
         newParent = summary.parentNode;
         hbox = document.createElement("hbox");
         hbox.setAttribute("id", "detail-header");
-        hbox.setAttribute("align", "left"); // Icons werden nicht verzerrt, wenn sie nicht 64x64 sind
+        hbox.setAttribute("align", "left"); // Icons are not distorted if they are not 64x64
         hbox.appendChild(document.getElementById("detail-icon"));
         hbox.appendChild(summary);
         newParent.insertBefore(hbox, document.getElementById("detail-desc-container"));
 
-        // Name ueber der Versionsnummer platzieren
+        // Place the name above the version number
         summary.insertBefore(document.getElementById("detail-name"), document.getElementById("detail-name-container"));
 
-        // Screenshot verschieben
+        // Move screenshot
         screenshot = document.getElementById("detail-screenshot").parentNode;
-        screenshot.setAttribute("align", "left"); // Bild wird nicht verzerrt
+        screenshot.setAttribute("align", "left"); // picture is not distorted
 
         descriptionContainer = document.getElementById("detail-desc-container");
         descriptionContainer.childNodes[1].insertBefore(screenshot, document.getElementById("detail-fulldesc"));
 
-        // Detail-Ansicht: Buttons in der Spenden-Box rechts ausrichten
+        // Detail view: Align buttons in the donation box to the right
         document.getElementById("detail-contributions").childNodes[1].removeAttribute("align");
 
     };
 
 
-    // gelbe Notification-Box abhaengig von vorhandenen Notifications ein- oder ausblenden
+    // Show or hide notification box depending on existing notifications
     this.checkNotification = function() {
 
-        if( !document.getElementById('updates-noneFound').hidden ||
+        if (!document.getElementById('updates-noneFound').hidden ||
             !document.getElementById('updates-manualUpdatesFound-btn').hidden ||
             !document.getElementById('updates-progress').hidden ||
             !document.getElementById('updates-installed').hidden ||
@@ -158,7 +158,7 @@ var AiOS_Addons = {};
     };
 
 
-    // gelbe Notification-Box ausblenden
+    // Hide the notification box
     this.hideNotification = function() {
 
         document.getElementById('updates-container').hidden = true;
@@ -166,11 +166,11 @@ var AiOS_Addons = {};
     };
 
 
-    // Elemente zaehlen und anzeigen
+    // Count and display elements
     this.setTitle = function(aDelay) {
 
         // without the timeout the childNodes.length of "addon-list" will be 0
-        if(aDelay) {
+        if (aDelay) {
 
             window.setTimeout( function() {
                 AiOS_Addons.setTitle();
@@ -188,37 +188,38 @@ var AiOS_Addons = {};
             selectedCategory = document.getElementById('categories').getAttribute('last-selected'),
             isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
 
-        if(!isInSidebar || selectedCategory === "category-discover") {
+        if (!isInSidebar || selectedCategory === "category-discover") {
             count = false;
         }
 
-        // bisherigen Titel feststellen
-        if(AiOS_HELPER.mostRecentWindow.document.getElementById("viewAddonsSidebar")) {
+        // Find original title
+        if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewAddonsSidebar")) {
             origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewAddonsSidebar").getAttribute('label');
         }
 
-        // originalen Titel um das aktivierte Panel erweitern
-        if(document.getElementById("categories") && document.getElementById("categories").selectedItem) {
+        // Extend the original title by the activated panel
+        if (document.getElementById("categories") && document.getElementById("categories").selectedItem) {
             viewTitle = document.getElementById("categories").selectedItem.getAttribute('name');
             origTitle = origTitle + " - " + viewTitle;
         }
 
         newTitle = origTitle;
 
-        // wenn Elemente gezaehlt werden sollen...
-        if(count) {
+        // If elements should be counted
+        if (count) {
             numberOfItems = AiOS_Addons.countItems(selectedCategory, "/");
             newTitle = origTitle + " [" + numberOfItems + "]";
         }
 
-        // neuen Titel setzen
-        if(top.document.getElementById('sidebar-title')) {
+        // Set new title
+		let sbTitleElem = top.document.getElementById('sidebar-title');
+        if (sbTitleElem) {
             document.title = newTitle;
-            top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+            sbTitleElem.setAttribute("value", newTitle);
         }
 
-        // Sidebartitel im Broadcaster speichern
-        // => so kann beim Schliessen/oeffnen der Sidebar wiederhergestellt werden
+        // Save sidebar title in the broadcaster
+		// Preserves title when closing/opening sidebar
         if(top.document.getElementById('viewAddonsSidebar')) {
             top.document.getElementById('viewAddonsSidebar').setAttribute('sidebartitle', newTitle);
         }
@@ -227,7 +228,7 @@ var AiOS_Addons = {};
     };
 
 
-    // Elemente zaehlen und zurueckgeben
+    // Count and return items
     this.countItems = function(selectedCategory, divider) {
 
         /*
@@ -245,57 +246,52 @@ var AiOS_Addons = {};
 
         var type = "all",
             the_list = "addon-list",
-
             exts,
             str_count,
             list_enabled = 0,
             list_disabled = 0;
 
-        if(selectedCategory === "category-search") {
+        if (selectedCategory === "category-search") {
             the_list = "search-list";
             type = document.getElementById("search-filter-radiogroup").getAttribute("value");
         }
-        else if(selectedCategory === "category-availableUpdates" || selectedCategory === "category-recentUpdates") {
+        else if (selectedCategory === "category-availableUpdates" || selectedCategory === "category-recentUpdates") {
             the_list = "updates-list";
         }
 
         exts = AiOS_Addons.filterItems(the_list, type);
 
-        for(var i = 0; i < exts.length; i++) {
+        for (var i = 0; i < exts.length; i++) {
             if(exts[i].getAttribute('active') === "true") list_enabled++;
             else  list_disabled++;
         }
 
         str_count = list_enabled;
-        if(list_disabled > 0) str_count = str_count + divider + list_disabled;
+        if (list_disabled > 0) str_count = str_count + divider + list_disabled;
 
         return(str_count);
 
     };
 
 
-    // Richlistitems filtern
+    // Filter richlist items
     this.filterItems = function(aList, aType) {
 
         var r = [],
             childs = document.getElementById(aList).childNodes;
 
-        for(var i = 0; i < childs.length; i++) {
-
-            if(childs[i].nodeName === "richlistitem" && childs[i].getAttribute('hidden') !== "true") {
-
-                if(aType === "all") {
+        for (var i = 0; i < childs.length; i++) {
+            if (childs[i].nodeName === "richlistitem" && childs[i].getAttribute('hidden') !== "true") {
+                if (aType === "all") {
                     r.push(childs[i]);
                 }
-                else if(aType === "local" && childs[i].getAttribute('remote') === "false") {
+                else if (aType === "local" && childs[i].getAttribute('remote') === "false") {
                     r.push(childs[i]);
                 }
-                else if(aType === "remote" && childs[i].getAttribute('remote') === "true") {
+                else if (aType === "remote" && childs[i].getAttribute('remote') === "true") {
                     r.push(childs[i]);
                 }
-
             }
-
         }
 
         return r;
