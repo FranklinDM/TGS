@@ -1,45 +1,46 @@
 window.addEventListener("DOMContentLoaded", aios_init, false);
-var cookieWindow = document.getElementById("CookiesDialog");;
+var cookieWindow = document.getElementById("CookiesDialog"); ;
 
 function aios_init() {
     try {
         var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("ks.layout");
         var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("ks.layoutall");
-		var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
-    }
-    catch(e) { }
-	
+        var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+    } catch (e) {}
+
     // Hide the menu bar under Mac OS X
     aios_hideMacMenubar();
 
     // For CSS purposes
-    AiOS_HELPER.rememberAppInfo( cookieWindow );
-	
-    // Sidebar Layout
-    if ((enable_layout && aios_inSidebar) || enable_layoutall) aios_sidebarLayout();
+    AiOS_HELPER.rememberAppInfo(cookieWindow);
 
-	// Remove the keyboard shortcut so as not to block the main browser
-    if (aios_inSidebar) aios_removeAccesskeys();
+    // Sidebar Layout
+    if ((enable_layout && aios_inSidebar) || enable_layoutall)
+        aios_sidebarLayout();
+
+    // Remove the keyboard shortcut so as not to block the main browser
+    if (aios_inSidebar)
+        aios_removeAccesskeys();
 }
 
-
 /*
-	Activates the layout adapted to the sidebar
-		=> Called by aios_init()
-*/
+ * Activates the layout adapted to the sidebar
+ * 	=> Called by aios_init()
+ */
 function aios_sidebarLayout() {
     // Activate CSS for sidebar optimizations
     aios_addCSS("cookies.css", cookieWindow);
-	
-	var searchObj = document.getElementById("filter"),
-		strings = document.getElementById("propSetStrings"),
-		blurText = strings.getString('bm_hi.search.blur'),
-		searchParent = searchObj.parentElement.children;
-		
-	for (let i = 0; i < searchParent.length; i++) {
-		let elem = searchParent[i];
-		if (elem.tagName == "label") elem.hidden = true;
-	}
-	
-	searchObj.placeholder = blurText
+
+    var searchObj = document.getElementById("filter"),
+    strings = document.getElementById("propSetStrings"),
+    blurText = strings.getString('bm_hi.search.blur'),
+    searchParent = searchObj.parentElement.children;
+
+    for (let i = 0; i < searchParent.length; i++) {
+        let elem = searchParent[i];
+        if (elem.tagName == "label")
+            elem.hidden = true;
+    }
+
+    searchObj.placeholder = blurText
 }

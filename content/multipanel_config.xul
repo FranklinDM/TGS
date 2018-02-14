@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
 
-<overlay id="aios_configOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-    <script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
+<overlay id="aios_configOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript"
+            src="chrome://aios/content/_helper.js" />
 
     <script><![CDATA[
-
         // Save for CSS purposes
         AiOS_HELPER.rememberAppInfo( document.getElementById("config") );
-
     ]]>
     </script>
-
 </overlay>

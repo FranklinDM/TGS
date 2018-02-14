@@ -19,7 +19,6 @@
 <overlay xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
          id="indicatorOverlay">
-
   <popupset>
     <!-- The downloads indicator is placed in its final toolbar location
          programmatically, and can be shown temporarily even when its
@@ -28,7 +27,7 @@
          toolbar handling code could remove it from the document. -->
     <toolbarbutton id="downloads-indicator"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-				   tooltip="downloads-tooltip"
+                   tooltip="downloads-tooltip"
                    tooltiptext="&downloads.tooltip;"
                    collapsed="true"
                    command="Tools:Downloads-tb"
@@ -36,7 +35,7 @@
                    ondragover="DownloadsIndicatorView.onDragOver(event);"
                    ondragenter="DownloadsIndicatorView.onDragOver(event);"
                    ondragleave="DownloadsIndicatorView.onDragLeave(event);"
-				   onmouseover="if (AiOS_HELPER.prefBranchAiOS.getBoolPref('infotips')) this.removeAttribute('tooltiptext');"
+                   onmouseover="if (AiOS_HELPER.prefBranchAiOS.getBoolPref('infotips')) this.removeAttribute('tooltiptext');"
                    skipintoolbarset="true">
       <!-- The panel's anchor area is smaller than the outer button, but must
            always be visible and must not move or resize when the indicator
@@ -57,9 +56,9 @@
       </stack>
       <label class="toolbarbutton-text" crop="right" flex="1"
              value="&downloads.label;"/>
-	  <!-- Additions to have checked state -->
-	  <observes element="viewDownloadsSidebar" attribute="checked" />
-      <observes element="viewSdDownloadsSidebar" attribute="checked" />	
+      <!-- Additions to have checked state -->
+      <observes element="viewDownloadsSidebar" attribute="checked" />
+      <observes element="viewSdDownloadsSidebar" attribute="checked" /> 
     </toolbarbutton>
   </popupset>
 </overlay>

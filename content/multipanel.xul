@@ -2,192 +2,287 @@
 
 <!-- locale -->
 <!DOCTYPE overlay [
-	<!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
-	<!ENTITY % multipanelDTD SYSTEM "chrome://aios/locale/multipanel.dtd"> %multipanelDTD;
-	<!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
-	<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
+<!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+<!ENTITY % multipanelDTD SYSTEM "chrome://aios/locale/multipanel.dtd"> %multipanelDTD;
+<!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
 ]>
 
-<overlay id="aios_MultiPanelOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<overlay id="aios_MultiPanelOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript"
+            src="chrome://aios/content/_helper.js" />
+    <script type="application/x-javascript"
+            src="chrome://aios/content/multipanel.js" />
 
-	<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
-	<script type="application/x-javascript" src="chrome://aios/content/multipanel.js" />
+    <script><![CDATA[
+        // Add automatic update listener & remove
+        window.addEventListener("load", aios_init, false);
 
-	<script><![CDATA[
-		// Add automatic update listener & remove
-		window.addEventListener("load", aios_init, false);
+        window.addEventListener("unload",function(e) {
+            if(top.gBrowser && top.gBrowser.removeProgressListener) top.gBrowser.removeProgressListener(aiosProgListener);
+            aios_unloadMultiPanel();
+        }, false);
+    ]]>
+    </script>
 
-		window.addEventListener("unload",function(e) {
-			if(top.gBrowser && top.gBrowser.removeProgressListener) top.gBrowser.removeProgressListener(aiosProgListener);
-			aios_unloadMultiPanel();
-		}, false);
-	]]>
-	</script>
+    <page id="webpanels-window"
+          persist="width height screenX screenY"
+          title="&button.multipanel.label;"
+          windowtype="aiosGlobal:MultiPanel">
+        <commandset id="mainCommandset">
+            <!-- Fix for versions of Pale Moon lower than v27.5; This includes commands that were not defined in earlier versions -->
+            <command id="Browser:BackOrBackDuplicate"
+                     oncommand="getPanelBrowser().webNavigation.goBack(event);"
+                     disabled="true">
+                <observes element="Browser:Back"
+                          attribute="disabled"/>
+            </command>
+            <command id="Browser:ForwardOrForwardDuplicate"
+                     oncommand="getPanelBrowser().webNavigation.goForward(event);"
+                     disabled="true">
+                <observes element="Browser:Forward"
+                          attribute="disabled"/>
+            </command>
+            <!-- Observe hidden property so we can hide stop/reload when not in use -->
+            <command id="Browser:ReloadOrDuplicate"
+                     oncommand="PanelBrowserReload(event)"
+                     disabled="true"
+                     hidden="false">
+                <observes element="Browser:Reload"
+                          attribute="disabled"/>
+                <observes element="Browser:Reload"
+                          attribute="hidden"/>
+            </command>
+            <command id="Browser:StopOrDuplicate"
+                     oncommand="PanelBrowserStop();"
+                     disabled="true"
+                     hidden="true">
+                <observes element="Browser:Stop"
+                          attribute="disabled"/>
+                <observes element="Browser:Stop"
+                          attribute="hidden"/>
+            </command>
+        </commandset>
 
-	<page id="webpanels-window" persist="width height screenX screenY" title="&button.multipanel.label;" windowtype="aiosGlobal:MultiPanel">
-	<commandset id="mainCommandset">
-		<!-- Fix for versions of Pale Moon lower than v27.5
-			 This includes commands that were not defined in earlier versions -->
-		<command id="Browser:BackOrBackDuplicate"
-				 oncommand="getPanelBrowser().webNavigation.goBack(event);"
-				 disabled="true">
-		  <observes element="Browser:Back" attribute="disabled"/>
-		</command>
-		<command id="Browser:ForwardOrForwardDuplicate"
-				 oncommand="getPanelBrowser().webNavigation.goForward(event);"
-				 disabled="true">
-		  <observes element="Browser:Forward" attribute="disabled"/>
-		</command>
-		<!-- Observe hidden property so we can hide stop/reload when not in use -->
-		<command id="Browser:ReloadOrDuplicate"
-				 oncommand="PanelBrowserReload(event)"
-				 disabled="true" hidden="false">
-		  <observes element="Browser:Reload" attribute="disabled"/>
-		  <observes element="Browser:Reload" attribute="hidden"/>
-		</command>
-		<command id="Browser:StopOrDuplicate"
-				 oncommand="PanelBrowserStop();"
-				 disabled="true" hidden="true">
-		  <observes element="Browser:Stop" attribute="disabled"/>
-		  <observes element="Browser:Stop" attribute="hidden"/>
-		</command>
-	</commandset>
+        <popupset id="mainPopupSet">
+            <menupopup id="contentAreaContextMenu">
+                <!-- Fix for reload button in context menu not doing anything, still bugged in v27.5 -->
+                <menuitem id="context-reload"
+                          label="&reloadCmd.label;"
+                          accesskey="&reloadCmd.accesskey;"
+                          oncommand="PanelBrowserReload();"
+                          command="Browser:ReloadOrDuplicate"
+                          onclick="checkForMiddleClick(this, event);"/>
+            </menupopup>
+        </popupset>
 
-	<popupset id="mainPopupSet">
-		<menupopup id="contentAreaContextMenu">
-			<!-- Fix for reload button in context menu not doing anything, still bugged in v27.5 -->
-			<menuitem id="context-reload"
-					  label="&reloadCmd.label;"
-					  accesskey="&reloadCmd.accesskey;"
-					  oncommand="PanelBrowserReload();"
-					  command="Browser:ReloadOrDuplicate"
-					  onclick="checkForMiddleClick(this, event);"/>
-		</menupopup>
-	</popupset>
+        <toolbox id="commandBar"
+                 mode="icons"
+                 iconsize="small"
+                 position="1">
+            <toolbar id="mini-bar"
+                     mode="icons"
+                     iconsize="small"
+                     customizable="false">
+                <toolbarbutton id="back-button"
+                               class="toolbarbutton-1"
+                               label="&backCmd.label;"
+                               command="Browser:BackOrBackDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&backButton.tooltip;"/>
+                <toolbarbutton id="forward-button"
+                               class="toolbarbutton-1"
+                               label="&forwardCmd.label;"
+                               command="Browser:ForwardOrForwardDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&forwardButton.tooltip;"/>
+                <toolbarbutton id="stop-button"
+                               class="toolbarbutton-1"
+                               label="&stopCmd.label;"
+                               command="Browser:StopOrDuplicate"
+                               tooltiptext="&stopButton.tooltip;"/>
+                <toolbarbutton id="reload-button"
+                               class="toolbarbutton-1"
+                               label="&reloadCmd.label;"
+                               command="Browser:ReloadOrDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&reloadButton.tooltip;"/>
 
-	<toolbox id="commandBar" mode="icons" iconsize="small" position="1">
-		<toolbar id="mini-bar" mode="icons" iconsize="small" customizable="false">
-		  <toolbarbutton id="back-button" class="toolbarbutton-1"
-						 label="&backCmd.label;"
-						 command="Browser:BackOrBackDuplicate"
-						 onclick="checkForMiddleClick(this, event);"
-						 tooltiptext="&backButton.tooltip;"/>
-		  <toolbarbutton id="forward-button" class="toolbarbutton-1"
-						 label="&forwardCmd.label;"
-						 command="Browser:ForwardOrForwardDuplicate"
-						 onclick="checkForMiddleClick(this, event);"
-						 tooltiptext="&forwardButton.tooltip;"/>
-		  <toolbarbutton id="stop-button" class="toolbarbutton-1"
-						 label="&stopCmd.label;"
-						 command="Browser:StopOrDuplicate"
-						 tooltiptext="&stopButton.tooltip;"/>
-		  <toolbarbutton id="reload-button" class="toolbarbutton-1"
-						 label="&reloadCmd.label;"
-						 command="Browser:ReloadOrDuplicate"
-						 onclick="checkForMiddleClick(this, event);"
-						 tooltiptext="&reloadButton.tooltip;"/>
+                <toolbaritem id="urlbar-container"
+                             align="center"
+                             flex="400">
+                    <textbox id="urlbar"
+                             flex="1"
+                             placeholder="&urlbar.placeholder2;"
+                             type="autocomplete"
+                             autocompletesearch="urlinline history"
+                             autocompletesearchparam="enable-actions"
+                             autocompletepopup="PopupAutoCompleteRichResult"
+                             completeselectedindex="true"
+                             clickSelectsAll="true"
+                             showcommentcolumn="true"
+                             tabscrolling="true"
+                             enablehistory="true"
+                             ontextreverted="return WebPanels.onTextReverted();"
+                             ontextentered="return WebPanels.onTextEntered(param);"
+                             ondrop="return WebPanels.onTextDrop(event);">
+                        <hbox id="urlbar-icons">
+                            <!-- Throbber for out-of-sidebar situations -->
+                            <image id="sidebar-throbber"/>
+                            <!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
+                            <image id="lock-icon"
+                                   onclick="BrowserPageInfo(webPanel.contentDocument); event.stopPropagation();"/>
+                        </hbox>
+                    </textbox>
+                </toolbaritem>
 
-		  <toolbaritem id="urlbar-container" align="center" flex="400">
-			<textbox id="urlbar" flex="1"
-					 placeholder="&urlbar.placeholder2;"
-					 type="autocomplete"
-					 autocompletesearch="urlinline history"
-					 autocompletesearchparam="enable-actions"
-					 autocompletepopup="PopupAutoCompleteRichResult"
-					 completeselectedindex="true"
-					 clickSelectsAll="true"
-					 showcommentcolumn="true"
-					 tabscrolling="true"
-					 enablehistory="true"
-					 ontextreverted="return WebPanels.onTextReverted();"
-					 ontextentered="return WebPanels.onTextEntered(param);"
-					 ondrop="return WebPanels.onTextDrop(event);">
-				<hbox id="urlbar-icons">
-					<!-- Throbber for out-of-sidebar situations -->
-					<image id="sidebar-throbber"/>
-					<!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
-					<image id="lock-icon" onclick="BrowserPageInfo(webPanel.contentDocument); event.stopPropagation();"/>
-				</hbox>
-			</textbox>
-		  </toolbaritem>
+                <toolbarbutton id="page-button"
+                               class="toolbarbutton-1 aios-tbutton"
+                               type="menu-button"
+                               checked="false"
+                               label="&page.label;"
+                               tooltiptext="&page.tooltip;"
+                               oncommand="aios_setMultiPanel('page');">
+                    <menupopup onpopupshowing="aios_getPageOptions();">
+                        <menuitem id="ssr-mitem"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&page.ssr.label;"
+                                  tooltiptext="&page.ssr.label;"
+                                  oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
+                        <menuitem id="ssrSidebar-mitem"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&page.ssr100.label;"
+                                  tooltiptext="&page.ssr100.label;"
+                                  oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
+                        <menu id="about-button"
+                              label="&about.label;"
+                              tooltiptext="&about.tooltip;"
+                              oncommand="aios_setMultiPanel('about:config');">
+                            <menupopup id="aboutGroup">
+                                <menuitem type="radio"
+                                          label="about:config"
+                                          tooltiptext="&about.config.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:config'); event.stopPropagation();" />
 
-		  <toolbarbutton id="page-button" class="toolbarbutton-1 aios-tbutton" type="menu-button" checked="false"
-						 label="&page.label;" tooltiptext="&page.tooltip;" oncommand="aios_setMultiPanel('page');">
-				<menupopup onpopupshowing="aios_getPageOptions();">
-					<menuitem id="ssr-mitem" type="checkbox" checked="false" autocheck="false" persist="checked"
-					label="&page.ssr.label;" tooltiptext="&page.ssr.label;"
-					oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
-					<menuitem id="ssrSidebar-mitem" type="checkbox" checked="false" autocheck="false" persist="checked"
-					label="&page.ssr100.label;" tooltiptext="&page.ssr100.label;"
-					oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
-					<menu id="about-button" label="&about.label;" tooltiptext="&about.tooltip;" oncommand="aios_setMultiPanel('about:config');">
-						<menupopup id="aboutGroup">
-							<menuitem type="radio" label="about:config" tooltiptext="&about.config.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:config'); event.stopPropagation();" />
+                                <menuseparator />
 
-							<menuseparator />
+                                <menuitem type="radio"
+                                          label="about:plugins"
+                                          tooltiptext="&about.plugins.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:plugins'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:support"
+                                          tooltiptext="&about.support.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:support'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache"
+                                          tooltiptext="&about.cache.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:cache'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache?device=disk"
+                                          tooltiptext="&about.cache.disk.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:cache?device=disk'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache?device=memory"
+                                          tooltiptext="&about.cache.memory.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:cache?device=memory'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache?device=offline"
+                                          tooltiptext="&about.cache.offline.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:cache?device=offline'); event.stopPropagation();" />
+                                <!-- Pale Moon has removed the crash reporter and there seems no point in keeping this -->
+                                <menuitem type="radio"
+                                          label="about:crashes"
+                                          tooltiptext="&about.crashes.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:crashes'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:buildconfig"
+                                          tooltiptext="&about.buildconfig.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:buildconfig'); event.stopPropagation();" />
 
-							<menuitem type="radio" label="about:plugins" tooltiptext="&about.plugins.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:plugins'); event.stopPropagation();" />
+                                <menuseparator />
 
-							<menuitem type="radio" label="about:support" tooltiptext="&about.support.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:support'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:"
+                                          tooltiptext="&about.about.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:robots"
+                                          tooltiptext="&about.robots.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:robots'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:credits"
+                                          tooltiptext="&about.credits.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:credits'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:license"
+                                          tooltiptext="&about.license.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:license'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:mozilla"
+                                          tooltiptext="&about.mozilla.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:mozilla'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:palemoon"
+                                          tooltiptext="&about.palemoon.tooltip;"
+                                          checked="false"
+                                          oncommand="aios_setMultiPanel('about:palemoon'); event.stopPropagation();" />
+                            </menupopup>
+                        </menu>
+                    </menupopup>
+                </toolbarbutton>
+                <toolbarbutton id="toolsButton"
+                               class="toolbarbutton-1 aios-tbutton"
+                               type="menu"
+                               label="&menu.tools.label;"
+                               tooltiptext="&menu.tools.label;">
+                    <menupopup id="toolsPopUp">
+                        <menuitem id="aios-remMultiPanel"
+                                  type="checkbox"
+                                  checked="true"
+                                  persist="checked"
+                                  autocheck="false"
+                                  label="&tools.remlast.label;"
+                                  tooltiptext="&tools.remlast.label;"
+                                  oncommand="aios_toggleElement(this); event.stopPropagation();" />
+                        <menuseparator />
+                        <menuitem id="aios-linkedbtn"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&tools.linked.label;"
+                                  tooltiptext="&tools.linked.label;"
+                                  oncommand="aios_toggleElement(this); event.stopPropagation();" />
+                    </menupopup>
+                </toolbarbutton>
+            </toolbar>
+        </toolbox>
+    </page>
 
-							<menuitem type="radio" label="about:cache" tooltiptext="&about.cache.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:cache'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:cache?device=disk" tooltiptext="&about.cache.disk.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:cache?device=disk'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:cache?device=memory" tooltiptext="&about.cache.memory.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:cache?device=memory'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:cache?device=offline" tooltiptext="&about.cache.offline.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:cache?device=offline'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:crashes" tooltiptext="&about.crashes.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:crashes'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:buildconfig" tooltiptext="&about.buildconfig.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:buildconfig'); event.stopPropagation();" />
-
-							<menuseparator />
-
-							<menuitem type="radio" label="about:" tooltiptext="&about.about.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:robots" tooltiptext="&about.robots.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:robots'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:credits" tooltiptext="&about.credits.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:credits'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:license" tooltiptext="&about.license.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:license'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:mozilla" tooltiptext="&about.mozilla.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:mozilla'); event.stopPropagation();" />
-
-							<menuitem type="radio" label="about:palemoon" tooltiptext="&about.palemoon.tooltip;" checked="false"
-								oncommand="aios_setMultiPanel('about:palemoon'); event.stopPropagation();" />
-						</menupopup>
-					</menu>
-				</menupopup>
-		  </toolbarbutton>
-		  <toolbarbutton id="toolsButton" class="toolbarbutton-1 aios-tbutton" type="menu" label="&menu.tools.label;" tooltiptext="&menu.tools.label;">
-				<menupopup id="toolsPopUp">
-					<menuitem id="aios-remMultiPanel" type="checkbox" checked="true" persist="checked" autocheck="false"
-						label="&tools.remlast.label;" tooltiptext="&tools.remlast.label;"
-						oncommand="aios_toggleElement(this); event.stopPropagation();" />
-					<menuseparator />
-					<menuitem id="aios-linkedbtn" type="checkbox" checked="false" autocheck="false" persist="checked"
-					label="&tools.linked.label;" tooltiptext="&tools.linked.label;"
-					oncommand="aios_toggleElement(this); event.stopPropagation();" />
-				</menupopup>
-		  </toolbarbutton>
-		</toolbar>
-	</toolbox>
-	</page>
-
-	<browser id="web-panels-browser" persist="cachedurl linkedopt" type="content" onclick="WebPanels.onContentAreaClick(event, true);"/>
+    <browser id="web-panels-browser"
+             persist="cachedurl linkedopt"
+             type="content"
+             onclick="WebPanels.onContentAreaClick(event, true);"/>
 </overlay>

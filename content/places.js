@@ -1,279 +1,269 @@
 var AiOS_Places = {};
 
-(function() {
-	// Registration
-	var namespaces = [];
+(function () {
+    // Registration
+    var namespaces = [];
 
-	this.ns = function(fn) {
-		var ns = {};
-		namespaces.push(fn, ns);
-		return ns;
-	};
+    this.ns = function (fn) {
+        var ns = {};
+        namespaces.push(fn, ns);
+        return ns;
+    };
 
+    document.getElementById('search-box').parentNode.setAttribute('id', 'places-toolbar');
 
-	document.getElementById('search-box').parentNode.setAttribute('id', 'places-toolbar');
+    this.mode = (document.getElementById('bookmarksPanel')) ? "bookmarks" : "history";
 
-	this.mode = (document.getElementById('bookmarksPanel')) ? "bookmarks" : "history";
+    if (this.mode === "bookmarks") {
+        this.managerWindow = document.getElementById('bookmarksPanel');
+        this.managerTree = document.getElementById("bookmarks-view");
+    } else {
+        this.managerWindow = document.getElementById('history-panel');
+        this.managerTree = document.getElementById("historyTree");
+    }
 
-	if (this.mode === "bookmarks") {
-		this.managerWindow = document.getElementById('bookmarksPanel');
-		this.managerTree = document.getElementById("bookmarks-view");
-	}
-	else {
-		this.managerWindow = document.getElementById('history-panel');
-		this.managerTree = document.getElementById("historyTree");
-	}
+    this.treeBoxObject = this.managerTree.treeBoxObject;
 
-	this.treeBoxObject = this.managerTree.treeBoxObject;
+    this.searchObj = document.getElementById("search-box");
 
-	this.searchObj = document.getElementById("search-box");
+    // Initialization
+    this.initialize = function () {
+        var self = AiOS_Places,
+        isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
 
-	// Initialization
-	this.initialize = function() {
-		var self = AiOS_Places,
-			isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+        self.checkFolderOptions();
 
-		self.checkFolderOptions();
+        // Chronicle => Add the separator and the three menu items to the "Tools" menu
+        if (self.mode === "history") {
 
-		// Chronicle => Add the separator and the three menu items to the "Tools" menu
-		if (self.mode === "history") {
+            var viewButton = document.getElementById("viewButton"),
+            popUp = viewButton.firstChild;
 
-			var viewButton = document.getElementById("viewButton"),
-				popUp = viewButton.firstChild;
+            popUp.appendChild(document.getElementById('close-separator'));
 
-			popUp.appendChild(document.getElementById('close-separator'));
+            popUp.appendChild(document.getElementById('aios-enableAutoClose'));
+            popUp.appendChild(document.getElementById('aios-rememberFolder'));
+            popUp.appendChild(document.getElementById('aios-scrollToFolder'));
 
-			popUp.appendChild(document.getElementById('aios-enableAutoClose'));
-			popUp.appendChild(document.getElementById('aios-rememberFolder'));
-			popUp.appendChild(document.getElementById('aios-scrollToFolder'));
+            popUp.appendChild(document.getElementById('close-separator').cloneNode(true));
 
-			popUp.appendChild(document.getElementById('close-separator').cloneNode(true));
+            popUp.appendChild(document.getElementById('aios-viewClose'));
 
-			popUp.appendChild(document.getElementById('aios-viewClose'));
+            viewButton.removeAttribute('accesskey');
+            viewButton.removeChild(document.getElementById('viewPopUp'));
+        }
 
-			viewButton.removeAttribute('accesskey');
-			viewButton.removeChild(document.getElementById('viewPopUp'));
-		}
+        if (isInSidebar)
+            self.setSidebarLayout();
 
-		if (isInSidebar) self.setSidebarLayout();
+    };
 
-	};
+    this.checkFolderOptions = function () {
+        var self = AiOS_Places,
+        lastRowToSelect,
+        lastFolderPref = (self.mode === "bookmarks") ? "lastBookmarkFolder" : "lastHistoryFolder",
+        options = (aios_getBoolean("aios-enableAutoClose", "checked") || aios_getBoolean("aios-rememberFolder", "checked") || aios_getBoolean("aios-scrollToFolder", "checked"));
 
+        if (options) {
+            self.managerTree.addEventListener("click", self.closeOtherFolders);
 
-	this.checkFolderOptions = function() {
-		var self = AiOS_Places,
-			lastRowToSelect,
-			lastFolderPref = (self.mode === "bookmarks") ? "lastBookmarkFolder": "lastHistoryFolder",
-			options = (aios_getBoolean("aios-enableAutoClose", "checked") || aios_getBoolean("aios-rememberFolder", "checked") || aios_getBoolean("aios-scrollToFolder", "checked"));
+            // Mark last opened folder
+            if (aios_getBoolean("aios-rememberFolder", "checked")) {
+                if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(lastFolderPref)) {
+                    lastRowToSelect = AiOS_HELPER.prefBranchAiOS.getIntPref(lastFolderPref);
 
-		if (options) {
-			self.managerTree.addEventListener("click", self.closeOtherFolders);
+                    window.setTimeout(function () {
+                        AiOS_Places.selectFolder(lastRowToSelect);
+                    }, 10);
 
-			// Mark last opened folder
-			if (aios_getBoolean("aios-rememberFolder", "checked")) {
-				if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(lastFolderPref)) {
-					lastRowToSelect = AiOS_HELPER.prefBranchAiOS.getIntPref(lastFolderPref);
+                }
 
-					window.setTimeout(function() {
-						AiOS_Places.selectFolder(lastRowToSelect);
-					}, 10);
+            }
+        } else {
+            self.managerTree.removeEventListener("click", self.closeOtherFolders);
+        }
+    };
 
-				}
+    this.toggleButton = function (aElem) {
+        document.getElementById(aElem.getAttribute('data-dependent')).setAttribute('hidden', !aios_getBoolean(aElem, "checked"));
+    };
 
-			}
-		}
-		else {
-			self.managerTree.removeEventListener("click", self.closeOtherFolders);
-		}
-	};
+    this.setSidebarLayout = function () {
+        var self = AiOS_Places,
+        strings = document.getElementById("propSetStrings"),
+        blurText = strings.getString('bm_hi.search.blur');
 
+        // For CSS purposes
+        AiOS_HELPER.rememberAppInfo(self.managerWindow);
 
-	this.toggleButton = function(aElem) {
-		document.getElementById(aElem.getAttribute('data-dependent') ).setAttribute( 'hidden', !aios_getBoolean(aElem, "checked"));
-	};
+        // Enable CSS
+        self.managerWindow.setAttribute('aios-inSidebar', 'true');
 
-	this.setSidebarLayout = function() {
-		var self = AiOS_Places,
-			strings = document.getElementById("propSetStrings"),
-			blurText = strings.getString('bm_hi.search.blur');
+        self.searchObj.placeholder = blurText;
 
-		// For CSS purposes
-		AiOS_HELPER.rememberAppInfo( self.managerWindow );
+        // Replace Close Folder <button> with a <toolbar button>
+        if (document.getElementById("closeFolder")) {
+            var closeButton = document.getElementById("closeFolder"),
+            closeAttr = closeButton.attributes,
+            new_closeButton = document.createElement("toolbarbutton");
 
-		// Enable CSS
-		self.managerWindow.setAttribute('aios-inSidebar', 'true');
+            // Remove old <button>
+            closeButton.parentNode.removeChild(closeButton);
 
-		self.searchObj.placeholder = blurText;
+            // Take over all the attributes of the old button
+            for (var i = 0; i < closeAttr.length; i++) {
+                new_closeButton.setAttribute(closeAttr[i].name, closeAttr[i].value);
+            }
 
-		// Replace Close Folder <button> with a <toolbar button>
-		if (document.getElementById("closeFolder")) {
-			var closeButton = document.getElementById("closeFolder"),
-				closeAttr = closeButton.attributes,
-				new_closeButton = document.createElement("toolbarbutton");
+            // Insert a new <toolbarbutton>
+            self.searchObj.parentNode.appendChild(new_closeButton);
+        }
 
-			// Remove old <button>
-			closeButton.parentNode.removeChild(closeButton);
+        // Replace the Tools button <button> with a <toolbar button>
+        if (document.getElementById("viewButton")) {
+            var viewButton = document.getElementById("viewButton"),
+            popUp = viewButton.firstChild.cloneNode(true),
+            viewAttr = viewButton.attributes,
+            new_viewButton = document.createElement("toolbarbutton");
 
-			// Take over all the attributes of the old button
-			for (var i = 0; i < closeAttr.length; i++) {
-				new_closeButton.setAttribute(closeAttr[i].name, closeAttr[i].value);
-			}
+            // Remove old <button>
+            viewButton.parentNode.removeChild(viewButton);
 
-			// Insert a new <toolbarbutton>
-			self.searchObj.parentNode.appendChild(new_closeButton);
-		}
+            // Take over all the attributes of the old button
+            for (var j = 0; j < viewAttr.length; j++) {
+                new_viewButton.setAttribute(viewAttr[j].name, viewAttr[j].value);
+            }
 
-		// Replace the Tools button <button> with a <toolbar button>
-		if (document.getElementById("viewButton")) {
-			var viewButton = document.getElementById("viewButton"),
-				popUp = viewButton.firstChild.cloneNode(true),
-				viewAttr = viewButton.attributes,
-				new_viewButton = document.createElement("toolbarbutton");
+            // Insert a new <toolbarbutton>
+            new_viewButton.appendChild(popUp);
+            self.searchObj.parentNode.appendChild(new_viewButton);
+        }
+    };
 
-			// Remove old <button>
-			viewButton.parentNode.removeChild(viewButton);
+    this.selectFolder = function (index) {
+        var self = AiOS_Places;
 
-			// Take over all the attributes of the old button
-			for (var j = 0; j < viewAttr.length; j++) {
-				new_viewButton.setAttribute(viewAttr[j].name, viewAttr[j].value);
-			}
+        if (self.treeBoxObject.view.rowCount >= index) {
+            self.treeBoxObject.view.selection.select(index);
 
-			// Insert a new <toolbarbutton>
-			new_viewButton.appendChild(popUp);
-			self.searchObj.parentNode.appendChild(new_viewButton);
-		}
-	};
+            // Check if we really need to scroll
+            if (aios_getBoolean("aios-scrollToFolder", "checked") && (self.treeBoxObject.view.rowCount > self.treeBoxObject.getPageLength())) {
+                self.treeBoxObject.scrollToRow(index);
+            }
 
-	this.selectFolder = function(index) {
-		var self = AiOS_Places;
+            self.treeBoxObject.ensureRowIsVisible(index);
+        }
+    };
 
-		if (self.treeBoxObject.view.rowCount >= index) {
-			self.treeBoxObject.view.selection.select(index);
+    this.closeOtherFolders = function (e) {
+        // Ignore right-click
+        if (e.button >= 2)
+            return;
 
-			// Check if we really need to scroll
-			if (aios_getBoolean("aios-scrollToFolder", "checked") && (self.treeBoxObject.view.rowCount > self.treeBoxObject.getPageLength())) {
-				self.treeBoxObject.scrollToRow(index);
-			}
+        var sidebarType = AiOS_Places.mode;
 
-			self.treeBoxObject.ensureRowIsVisible(index);
-		}
-	};
+        var dotoggle = (e.button === 0); // If it was not a left click, just do the standard action
+        var tree = AiOS_Places.managerTree;
+        var tbo = tree.treeBoxObject;
 
+        // If you click the + sign in front of the folder, then it should just open and the others are not closed
+        var row = {},
+        col = {},
+        obj = {};
+        tbo.getCellAt(e.clientX, e.clientY, row, col, obj);
+        if (row.value === -1 || obj.value === "twisty") {
+            return;
+        }
 
-	this.closeOtherFolders = function(e) {
-		// Ignore right-click
-		if (e.button >= 2) return;
+        var x = {},
+        y = {},
+        w = {},
+        h = {};
+        tbo.getCoordsForCellItem(row.value, col.value, "image", x, y, w, h);
+        var isLTR = (window.getComputedStyle(tree).direction === "ltr");
+        var mouseInGutter = isLTR ? (e.clientX < x.value) : (e.clientX > x.value);
 
-		var sidebarType = AiOS_Places.mode;
+        var tboView = tree.view;
+        var modifKey = (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey);
+        row = tree.currentIndex;
+        var isContainer = tboView.isContainer(row);
+        if (dotoggle && isContainer && !modifKey) {
+            // now the part that closes the other open folders
+            var parents = [];
+            // Now all upper folders of the current one are searched
+            while (row !== -1) {
+                parents.push(row);
+                row = tboView.getParentIndex(row);
+            }
 
-		var dotoggle = (e.button === 0);			// If it was not a left click, just do the standard action
-		var tree = AiOS_Places.managerTree;
-		var tbo = tree.treeBoxObject;
+            // Reverses order in the array
+            parents.reverse();
 
-		// If you click the + sign in front of the folder, then it should just open and the others are not closed
-		var row = {}, col = {}, obj = {};
-		tbo.getCellAt(e.clientX, e.clientY, row, col, obj);
-		if (row.value === -1 || obj.value === "twisty")
-		{
-			return;
-		}
+            // Go through each line and test
+            for (var i = tboView.rowCount - 1; i >= 0; i--) {
+                if (parents.length > 0 && parents[parents.length - 1] === i) { // The top folders should do nothing, so should remain open
+                    parents.pop();
+                } else {
+                    if (tboView.isContainer(i) && tboView.isContainerOpen(i)) {
+                        // Other items that are folders should be closed
+                        tboView.toggleOpenState(i);
+                    }
+                }
+            }
 
-		var x = {}, y = {}, w = {}, h = {};
-		tbo.getCoordsForCellItem(row.value, col.value, "image", x, y, w, h);
-		var isLTR = (window.getComputedStyle(tree).direction === "ltr");
-		var mouseInGutter = isLTR ? (e.clientX < x.value) : (e.clientX > x.value);
+            // If you want to scroll, but only if that is really necessary
+            if (aios_getBoolean("aios-scrollToFolder", "checked") && (tboView.rowCount > tbo.getPageLength())) {
+                tbo.scrollToRow(tree.currentIndex);
+            }
 
-		var tboView = tree.view;
-		var modifKey = (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey);
-		row = tree.currentIndex;
-		var isContainer = tboView.isContainer(row);
-		if (dotoggle && isContainer && !modifKey)
-		{
-			// now the part that closes the other open folders
-			var parents = [];
-			// Now all upper folders of the current one are searched
-			while (row !== -1)
-			{
-				parents.push(row);
-				row = tboView.getParentIndex(row);
-			}
-			
-			// Reverses order in the array
-			parents.reverse();
+            tbo.ensureRowIsVisible(tree.currentIndex); // Scrolls to the index only when needed.
 
-			// Go through each line and test
-			for (var i = tboView.rowCount-1; i >= 0; i--)
-			{
-				if (parents.length > 0 && parents[parents.length-1] === i)
-				{   // The top folders should do nothing, so should remain open
-					parents.pop();
-				}
-				else
-				{
-					if (tboView.isContainer(i) && tboView.isContainerOpen(i))
-					{
-						// Other items that are folders should be closed
-						tboView.toggleOpenState(i);
-					}
-				}
-			}
+            if (aios_getBoolean("aios-rememberFolder", "checked")) {
+                switch (sidebarType) {
+                case "bookmarks":
+                    AiOS_HELPER.prefBranchAiOS.setIntPref("lastBookmarkFolder", tree.currentIndex);
+                    break;
 
-			// If you want to scroll, but only if that is really necessary
-			if (aios_getBoolean("aios-scrollToFolder", "checked") && (tboView.rowCount > tbo.getPageLength()))
-			{
-				tbo.scrollToRow(tree.currentIndex);
-			}
+                case "history":
+                    AiOS_HELPER.prefBranchAiOS.setIntPref("lastHistoryFolder", tree.currentIndex);
+                    break;
+                }
+            }
+        }
+    };
 
-			tbo.ensureRowIsVisible(tree.currentIndex);    // Scrolls to the index only when needed.
+    this.closeAllFolders = function () {
+        var aView = AiOS_Places.managerTree.treeBoxObject.view;
 
-			if (aios_getBoolean("aios-rememberFolder", "checked"))
-			{
-				switch(sidebarType)
-				{
-					case "bookmarks":
-						AiOS_HELPER.prefBranchAiOS.setIntPref("lastBookmarkFolder", tree.currentIndex);
-						break;
+        // Last opened folder "forgotten"
+        try {
+            if (document.getElementById('bookmarksPanel'))
+                AiOS_HELPER.prefBranchAiOS.clearUserPref("lastBookmarkFolder");
+            else if (document.getElementById('history-panel'))
+                AiOS_HELPER.prefBranchAiOS.clearUserPref("lastHistoryFolder");
+        } catch (e) {}
 
-					case "history":
-						AiOS_HELPER.prefBranchAiOS.setIntPref("lastHistoryFolder", tree.currentIndex);
-						break;
-				}
-			}
-		}
-	};
+        // Close the folder
+        if (aView) {
+            aView.batching(true);
+            for (var i = aView.rowCount - 1; i >= 0; i--) {
+                if (aView.isContainer(i) && aView.isContainerOpen(i))
+                    aView.toggleOpenState(i);
+            }
+            aView.batching(false);
+        }
+    };
 
+    // Clean up
+    this.shutdown = function () {
+        window.removeEventListener("DOMContentLoaded", AiOS_Places.initialize, false);
+        window.removeEventListener("unload", AiOS_Places.shutdown);
 
-	this.closeAllFolders = function() {
-		var aView = AiOS_Places.managerTree.treeBoxObject.view;
+        AiOS_Places.managerTree.removeEventListener("click", AiOS_Places.closeOtherFolders);
+    };
 
-		// Last opened folder "forgotten"
-		try {
-			if(document.getElementById('bookmarksPanel')) AiOS_HELPER.prefBranchAiOS.clearUserPref("lastBookmarkFolder");
-			else if(document.getElementById('history-panel')) AiOS_HELPER.prefBranchAiOS.clearUserPref("lastHistoryFolder");
-		}
-		catch(e) {  }
-
-		// Close the folder
-		if (aView) {
-			aView.batching(true);
-			for(var i = aView.rowCount - 1; i >= 0; i--) {
-				if(aView.isContainer(i) && aView.isContainerOpen(i)) aView.toggleOpenState(i);
-			}
-			aView.batching(false);
-		}
-	};
-
-
-	// Clean up
-	this.shutdown = function() {
-		window.removeEventListener("DOMContentLoaded", AiOS_Places.initialize, false);
-		window.removeEventListener("unload", AiOS_Places.shutdown);
-
-		AiOS_Places.managerTree.removeEventListener("click", AiOS_Places.closeOtherFolders);
-	};
-
-	// Register handlers
-	window.addEventListener("DOMContentLoaded", this.initialize, false);
-	window.addEventListener("unload", this.shutdown);
+    // Register handlers
+    window.addEventListener("DOMContentLoaded", this.initialize, false);
+    window.addEventListener("unload", this.shutdown);
 
 }).apply(AiOS_Places);
