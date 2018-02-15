@@ -682,11 +682,11 @@ function aios_checkApply(aPref) {
  */
 function aios_deleteOldPrefs() {
     // List of preferences that might need to be migrated
-    var mgPrefs = {
+    let mgPrefs = {
         delay: ['gen.switch.delay', 'gen.switch.delayshow', 'gen.switch.delayhide']
     };
     // Migrate prefs to new values
-    for (var obj in mgPrefs) {
+    for (let obj in mgPrefs) {
         if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(mgPrefs[obj][0])) {
             for (let i = 1; i < mgPrefs[obj].length; i++) {
                 switch (AiOS_HELPER.prefBranchAiOS.getPrefType(mgPrefs[obj][0])) {
@@ -703,14 +703,25 @@ function aios_deleteOldPrefs() {
             }
         }
     }
-    // List of old preferences
-    var oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim',
-					'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall',
-					'hi.layout', 'hi.layoutall', 'dm.observer', 'gen.switch.delay'];
-    // Remove preferences defined in the oldPrefs array
-    for (let i = 0; i < oldPrefs.length; i++) {
-        if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(oldPrefs[i])) {
-            AiOS_HELPER.prefBranchAiOS.clearUserPref(oldPrefs[i]);
+
+    // Inner function to remove prefs from given array using given prefbranch
+    function removePrefsFromArray(prefArray, prefBranch) {
+        for (let i = 0; i < prefArray.length; i++) {
+            if (prefBranch.prefHasUserValue(prefArray[i])) {
+                prefBranch.clearUserPref(prefArray[i]);
+            }
         }
     }
+    
+    // List of old preferences
+    let oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim',
+                    'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall',
+                    'hi.layout', 'hi.layoutall', 'dm.observer', 'gen.switch.delay'];
+    // Remove preferences defined in the oldPrefs array
+    removePrefsFromArray(oldPrefs, AiOS_HELPER.prefBranchAiOS);
+
+    // Preference branch for duplicate preferences
+    let duplicatePrefBranch = AiOS_HELPER.prefService.getBranch("extensions.aios.extensions.aios.");
+    // Remove preferences that were duplicated in the final AiOS version
+    removePrefsFromArray(duplicatePrefBranch.getChildList(""), duplicatePrefBranch);
 }
