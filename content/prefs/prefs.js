@@ -327,7 +327,7 @@ function aios_checkboxObserver(which) {
             child = document.getElementsByAttribute('id', childPref);
 
         var invert = false;
-        if (childPref.contains('!')) {
+        if (childPref.includes('!')) {
             child = document.getElementsByAttribute('preference', childPref.substr(1));
             if (child.length == 0)
                 child = document.getElementsByAttribute('id', childPref.substr(1));
