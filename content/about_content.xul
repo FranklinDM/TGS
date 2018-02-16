@@ -17,9 +17,11 @@
               style="min-height:310px;">
 
         <stringbundleset>
-            <stringbundle id="langNames"
-                          src="chrome://aios/locale/lang.properties" />
-            <stringbundle id="translatorNames"
+            <stringbundle id="bundleRegions"
+                          src="chrome://global/locale/regionNames.properties"/>
+            <stringbundle id="bundleLanguages"
+                          src="chrome://global/locale/languageNames.properties"/>
+            <stringbundle id="bundleTranslators"
                           src="chrome://aios/content/translators.properties" />
         </stringbundleset>
 
@@ -145,7 +147,8 @@
                     <separator class="groove" />
 
                     <box style="overflow: auto; height: 135px;">
-                        <grid flex="1" id="trans.grid">
+                        <grid flex="1"
+                              id="trans.grid">
                             <columns>
                                 <column flex="1" />
                                 <column flex="1" />

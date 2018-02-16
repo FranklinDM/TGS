@@ -19,33 +19,64 @@ var AiOS_About = {};
 
         // List of languages where this extension is translated
         /* let languages = ['ar-SA', 'be-BY', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-GB', 'en-US', 'es-AR', 'es-ES', 'et-EE', 'fi-FI',
-        'fr-FR', 'he-IL', 'hr-HR', 'hu-HU', 'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'lt-LT', 'nb-NO', 'nl-NL', 'pl-PL',
-        'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sk-SK', 'sq-AL', 'sr-RS', 'sv-SE', 'tr-TR', 'uk-UA', 'vi-VN', 'zh-CN', 'zh-TW']; */
+            'fr-FR', 'he-IL', 'hr-HR', 'hu-HU', 'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'lt-LT', 'nb-NO', 'nl-NL', 'pl-PL',
+            'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sk-SK', 'sq-AL', 'sr-RS', 'sv-SE', 'tl', 'tr-TR', 'uk-UA', 'vi-VN', 'zh-CN', 'zh-TW']; */
         let languages = ['en-GB', 'en-US', 'es-AR', 'es-ES'];
 
-        // Populate translator grid contents
-        let langNames = document.getElementById("langNames");
-        let tranNames = document.getElementById("translatorNames");
+        // Function to get language name and region from browser strings
+        let bundleRegions = document.getElementById("bundleRegions");
+        let bundleLanguages = document.getElementById("bundleLanguages");
+		
+        function getLangName(abCD) {
+            var abCDPairs = abCD.toLowerCase().split("-"); // ab[-cd]
+            var useABCDFormat = abCDPairs.length > 1;
+            var ab = useABCDFormat ? abCDPairs[0] : abCD;
+            var cd = useABCDFormat ? abCDPairs[1] : "";
+            if (ab) {
+                var language = "";
+                try {
+                    language = bundleLanguages.getString(ab);
+                } catch (e) {};
+
+                var region = "";
+                if (useABCDFormat) {
+                    try {
+                        region = bundleRegions.getString(cd);
+                    } catch (e) {}
+                }
+
+                var name = "";
+                if (useABCDFormat)
+                    name = language + '/' + region;
+                else
+                    name = language;
+            }
+            return name;
+        }
+
+        // Populate translator table contents
+        let bundleTranslators = document.getElementById("bundleTranslators");
         let rowsElement = document.getElementById('trans.grid').children[1];
         for (let lang in languages) {
             // Create objects to be inserted
             let row = document.createElement('row');
-            // Language name
             let content1 = document.createElement('text');
-            content1.setAttribute('value', langNames.getString('trans.' + languages[lang] + '.lang'));
-            // Language tag
             let content2 = document.createElement('text');
+            let content3 = document.createElement('text');
+            // Language name
+            content1.setAttribute('value', getLangName(languages[lang]));
+            // Language tag
             content2.setAttribute('value', languages[lang]);
             // Language translator(s)
-            let content3 = document.createElement('text');
             let tranName;
             try {
-                tranName = tranNames.getString('trans.' + languages[lang] + '.name');
+                tranName = bundleTranslators.getString('trans.' + languages[lang] + '.name');
             } catch (e) {
-                if (languages[lang].includes('-'))
-                    tranName = tranNames.getString('trans.' + languages[lang].slice(0, -3) + '.name');
-                else
-                    throw (e);
+                if (languages[lang].includes('-')) {
+                    tranName = bundleTranslators.getString('trans.' + languages[lang].slice(0, -3) + '.name');
+                } else {
+                    console.error("The Good 'ol Sidebar: Please check if the translator(s) of '" + getLangName(languages[lang]) + "' is listed in translators.properties\nAdditional info: " + e);
+                }
             }
             content3.setAttribute('value', tranName);
             // Append elements as child of row
