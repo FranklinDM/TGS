@@ -48,17 +48,14 @@
             <tabpanels flex="1">
 
 <!-- ABOUT -->
-                <tabpanel orient="vertical">
+                <tabpanel orient="vertical" style="text-align: justify;">
 
                     <description width="100%">&about.desc;</description>
 
                     <separator class="groove" />
 
-                    <vbox id="cred"
-                          align="center">
-                        <description value="&create.desc;" />
-                        <description value="&aioscr.desc;" />
-                    </vbox>
+                    <description width="100%">&create.desc;</description>
+
                 </tabpanel>
 
 <!-- HELP -->
@@ -134,7 +131,7 @@
 
                             <separator class="groove" />
 
-                            <description width="100%">&contrib.thanks;</description>
+                            <description width="100%" style="text-align: justify;">&contrib.thanks;</description>
                         </rows>
                     </grid>
                 </tabpanel>
