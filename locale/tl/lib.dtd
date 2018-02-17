@@ -5,7 +5,7 @@
 <!ENTITY key.ctrl "Ctrl">
 <!ENTITY key.alt "Alt">
 <!ENTITY key.shift "Shift">
-<!ENTITY menu.tools.label "Mga Ksngkpn.">
+<!ENTITY menu.tools.label "Mga Kasangkapan">
 <!ENTITY closeFolder.label "Isara Lahat ng mga Folder">
 <!ENTITY show.closeFolder.label "'Isara Lahat ng mga Folder' Button">
 <!ENTITY enable.autoClose.label "Awtomatikong isara ang ibang mga Folder">
