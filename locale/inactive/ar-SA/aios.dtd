@@ -1,10 +1,10 @@
 <!ENTITY loading.label "تحميل اللوحة…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar خيارات…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar خيارات…">
 <!ENTITY menu.togglebar.label "تحويل الشريط الجانبي">
-<!ENTITY toolbar.name "All-in-One Sidebar شريط أدوات">
+<!ENTITY toolbar.name "The Good 'ol Sidebar شريط أدوات">
 <!ENTITY sbhtoolbar.name "Sidebarheader شريط أدوات">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "تفعيل العناصر التي يتحكم بها All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "تفعيل العناصر التي يتحكم بها The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "تفعيل الشريط الجانبي وشريط الأدوات">
 <!ENTITY button.switch.tooltip2 "تفعيل شريط الأدوات">
 <!ENTITY button.switch.tooltip3 "تفعيل الشريط الجانبي">
@@ -15,8 +15,8 @@
 <!ENTITY sidebar.width.max "أقصى عرض">
 <!ENTITY button.menu.label "لوحات الشريط الجانبي">
 <!ENTITY button.menu.tooltip "جميع لوحات الشريط الجانبي المتوفرة">
-<!ENTITY button.toolbar.label "AiOS-شريط أدوات">
-<!ENTITY button.toolbar.tooltip "تفعيل AiOS-شريط أدوات">
+<!ENTITY button.toolbar.label "TGS-شريط أدوات">
+<!ENTITY button.toolbar.tooltip "تفعيل TGS-شريط أدوات">
 <!ENTITY button.paneltab.label "تبويب اللوحة">
 <!ENTITY button.paneltab.tooltip1 "فتح محتوايت التبويب في الشريط الجانبي">
 <!ENTITY button.paneltab.tooltip2 "فتح محتويات الشريط الجانبي في تبويب جديد">

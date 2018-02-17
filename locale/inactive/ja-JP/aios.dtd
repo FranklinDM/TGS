@@ -1,11 +1,11 @@
 <!ENTITY loading.label "パネルに読み込み中...">
-<!ENTITY menu.prefs.label "All-in-One Sidebar 設定">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar 設定">
 <!ENTITY menu.togglebar.label "サイドバースイッチ">
 <!ENTITY menu.grippy.label "サイドバーグリップ">
-<!ENTITY toolbar.name "All-in-One Sidebar ツールバー">
+<!ENTITY toolbar.name "The Good 'ol Sidebar ツールバー">
 <!ENTITY sbhtoolbar.name "サイドバーヘッダー　ツールバー">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "All-in-One Sidebar のトグル機能">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "The Good 'ol Sidebar のトグル機能">
 <!ENTITY button.switch.tooltip1 "サイドバーとツールバーの開閉">
 <!ENTITY button.switch.tooltip2 "ツールバー開閉">
 <!ENTITY button.switch.tooltip3 "サイドバー開閉">
@@ -16,8 +16,8 @@
 <!ENTITY sidebar.width.max "最大幅">
 <!ENTITY button.menu.label "サイドバーパネル">
 <!ENTITY button.menu.tooltip "サイドバーパネルをすべて有効にする">
-<!ENTITY button.toolbar.label "AiOS - ツールバー">
-<!ENTITY button.toolbar.tooltip "AiOS - ツールバーの開閉を切り替えます">
+<!ENTITY button.toolbar.label "TGS - ツールバー">
+<!ENTITY button.toolbar.tooltip "TGS - ツールバーの開閉を切り替えます">
 <!ENTITY button.paneltab.label "パネルタブ">
 <!ENTITY button.paneltab.tooltip1 "サイドバーに開いているタブの内容を表示します">
 <!ENTITY button.paneltab.tooltip2 "新規タブにサイドバーの内容を表示します">

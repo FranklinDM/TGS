@@ -1,4 +1,4 @@
-<!ENTITY title "Opções do All-in-One Sidebar">
+<!ENTITY title "Opções do The Good 'ol Sidebar">
 <!ENTITY restart "Requer reinicialização do navegador">
 <!ENTITY settings "Definições">
 <!ENTITY settings.default "Restaurar Pré-definições">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Trocar da barra lateral">
 <!ENTITY cmode.desc "Informe quais elementos devem ser afectados ao se abrir ou fechar a barra lateral de formas diferentes.">
 <!ENTITY cmode.key.label "Atalho (F4)">
-<!ENTITY cmode.tbb.label "Botão AiOS">
+<!ENTITY cmode.tbb.label "Botão TGS">
 <!ENTITY cmode.close.label "Botão Fechar:">
 <!ENTITY cmode.mode1.label "Somente a barra lateral">
 <!ENTITY cmode.mode2.label "Barra lateral e barra de ferramentas">

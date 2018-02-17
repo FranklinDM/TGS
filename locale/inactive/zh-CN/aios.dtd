@@ -1,13 +1,13 @@
 <!ENTITY loading.label "加载面板…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar 选项…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar 选项…">
 <!ENTITY menu.togglebar.label "侧栏切换柄">
 <!ENTITY menu.grippy.label "侧栏控制柄">
-<!ENTITY toolbar.name "All-in-One Sidebar 工具栏">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar 工具栏">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Sidebarheader 工具栏">
 <!ENTITY sbhtoolbar.label "Sidebarheader">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "开关受 All-in-One Sidebar 控制的元素">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "开关受 The Good 'ol Sidebar 控制的元素">
 <!ENTITY button.switch.tooltip1 "开关侧栏和工具栏">
 <!ENTITY button.switch.tooltip2 "开关工具栏">
 <!ENTITY button.switch.tooltip3 "开关侧栏">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "最大宽度">
 <!ENTITY button.menu.label "侧栏面板">
 <!ENTITY button.menu.tooltip "全部可用侧栏面板">
-<!ENTITY button.toolbar.label "AiOS 工具栏">
-<!ENTITY button.toolbar.tooltip "切换AiOS工具栏">
+<!ENTITY button.toolbar.label "TGS 工具栏">
+<!ENTITY button.toolbar.tooltip "切换TGS工具栏">
 <!ENTITY button.paneltab.label "面板标签页">
 <!ENTITY button.paneltab.tooltip1 "在侧栏查看当前标签页">
 <!ENTITY button.paneltab.tooltip2 "使用新标签页查看当前面板">

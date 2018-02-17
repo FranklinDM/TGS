@@ -1,0 +1,13 @@
+<!ENTITY leftclick "Kaliwang click">
+<!ENTITY rightclick "Kanang click">
+<!ENTITY doubleclick "Dobleng click">
+<!ENTITY middleclick "Gitnang click">
+<!ENTITY key.ctrl "Ctrl">
+<!ENTITY key.alt "Alt">
+<!ENTITY key.shift "Shift">
+<!ENTITY menu.tools.label "Mga Ksngkpn.">
+<!ENTITY closeFolder.label "Isara Lahat ng mga Folder">
+<!ENTITY show.closeFolder.label "'Isara Lahat ng mga Folder' Button">
+<!ENTITY enable.autoClose.label "Awtomatikong isara ang ibang mga Folder">
+<!ENTITY enable.scrollToFolder.label "Awtomatikong mag-scroll sa Piniling Folder">
+<!ENTITY enable.rememberFolder.label "Tandaan at mag-focus sa Huling Piniling Folder">

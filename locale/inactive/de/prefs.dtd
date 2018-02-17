@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – Einstellungen">
+<!ENTITY title "The Good 'ol Sidebar – Einstellungen">
 <!ENTITY restart "Änderung erfordert einen Browser-Neustart">
 <!ENTITY settings "Einstellungen">
 <!ENTITY settings.default "Standardeinstellungen…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Sidebar öffnen/schließen">
 <!ENTITY cmode.desc "Legen Sie fest, welche Elemente beim Öffnen/Schließen der Sidebar beeinflusst werden sollen. Sie können diese Einstellung für verschiedene Methoden vornehmen.">
 <!ENTITY cmode.key.label "Tastaturkürzel (F4)">
-<!ENTITY cmode.tbb.label "AiOS-Schaltfläche">
+<!ENTITY cmode.tbb.label "TGS-Schaltfläche">
 <!ENTITY cmode.close.label "Schließen-Schaltfläche">
 <!ENTITY cmode.mode1.label "Nur die Sidebar">
 <!ENTITY cmode.mode2.label "Sidebar und Symbolleiste">

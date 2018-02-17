@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar - Nustatymai">
+<!ENTITY title "The Good 'ol Sidebar - Nustatymai">
 <!ENTITY restart "Pakeitimams reikia perleisti naršyklę">
 <!ENTITY settings "Nustatymai">
 <!ENTITY settings.default "Atstatyti numatytąsias reikšmes…">
@@ -55,7 +55,7 @@
 <!ENTITY cmode.caption "Rodyti/slėpti parankinę">
 <!ENTITY cmode.desc "Prisitaikykite, kurie elementai bus paliesti skirtingais būdais atveriant ar užveriant parankinę.">
 <!ENTITY cmode.key.label "Trumpinys (F4)">
-<!ENTITY cmode.tbb.label "„AiOS“ mygtukas">
+<!ENTITY cmode.tbb.label "„TGS“ mygtukas">
 <!ENTITY cmode.close.label "Užvėrimo mygtukas">
 <!ENTITY cmode.mode1.label "Tik parankinė">
 <!ENTITY cmode.mode2.label "Parankinė ir priemonių juosta">

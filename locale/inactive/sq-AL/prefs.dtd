@@ -47,7 +47,7 @@
 <!ENTITY gen.switch.hide "Fshihe Shiritin Anësor nëse shenja e mausit...">
 <!ENTITY gen.switch.hideBar "largohet tek faqja">
 <!ENTITY cmode.key.label "Shkurtesat (F4)">
-<!ENTITY cmode.tbb.label "Pulla për AiOS">
+<!ENTITY cmode.tbb.label "Pulla për TGS">
 <!ENTITY cmode.close.label "Pulla për Mbyllje">
 <!ENTITY cmode.mode1.label "Vetëm Shiriti Anësor">
 <!ENTITY cmode.mode2.label "Shirti Anësor dhe Shiriti i Mjeteve">

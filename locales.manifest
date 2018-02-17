@@ -4,6 +4,10 @@ locale      aios            en-US           locale/en-US/
 locale      aios            en-GB           locale/en-GB/
 locale      aios            es-AR           locale/es-AR/
 locale      aios            es-ES           locale/es-ES/
+locale      aios            fr              locale/fr/
+locale      aios            it              locale/it/
+locale      aios            ru              locale/ru/
+locale      aios            tl              locale/tl/
 
 # unused locales (not updated)
 #locale      aios            ar-SA           locale/ar-SA/
@@ -14,12 +18,10 @@ locale      aios            es-ES           locale/es-ES/
 #locale      aios            el              locale/el/
 #locale      aios            et-EE           locale/et-EE/
 #locale      aios            fi              locale/fi/
-#locale      aios            fr              locale/fr/
 #locale      aios            he              locale/he/
 #locale      aios            hr-HR           locale/hr-HR/
 #locale      aios            hu-HU           locale/hu-HU/
 #locale      aios            hy-AM           locale/hy-AM/
-#locale      aios            it              locale/it/
 #locale      aios            ja-JP           locale/ja-JP/
 #locale      aios            ko-KR           locale/ko-KR/
 #locale      aios            lt-LT           locale/lt-LT/
@@ -29,7 +31,6 @@ locale      aios            es-ES           locale/es-ES/
 #locale      aios            pt-BR           locale/pt-BR/
 #locale      aios            pt-PT           locale/pt-PT/
 #locale      aios            ro              locale/ro/
-#locale      aios            ru              locale/ru/
 #locale      aios            sk-SK           locale/sk-SK/
 #locale      aios            sq-AL           locale/sq-AL/
 #locale      aios            sr              locale/sr/

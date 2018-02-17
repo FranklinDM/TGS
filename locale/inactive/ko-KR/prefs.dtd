@@ -1,4 +1,4 @@
-<!ENTITY title "All-In-One Sidebar 설정">
+<!ENTITY title "The Good 'ol Sidebar 설정">
 <!ENTITY restart "브라우저를 다시 시작해야 적용됩니다.">
 <!ENTITY settings "설정">
 <!ENTITY settings.default "기본값으로 되돌리기…">
@@ -56,7 +56,7 @@
 <!ENTITY cmode.caption "탐색창 토글">
 <!ENTITY cmode.desc "다양한 방법으로 탐색 창을 열거나 닫을 때 함께 열리거나 닫힐 것들을 설정하십시오.">
 <!ENTITY cmode.key.label "단축키(F4)">
-<!ENTITY cmode.tbb.label "AiOS 버튼">
+<!ENTITY cmode.tbb.label "TGS 버튼">
 <!ENTITY cmode.close.label "닫기 버튼">
 <!ENTITY cmode.mode1.label "탐색 창만">
 <!ENTITY cmode.mode2.label "탐색 창과 도구 모음">

@@ -1,13 +1,13 @@
 <!ENTITY loading.label "carregando painel…">
-<!ENTITY menu.prefs.label "Opções do All-in-One Sidebar…">
+<!ENTITY menu.prefs.label "Opções do The Good 'ol Sidebar…">
 <!ENTITY menu.togglebar.label "Alternador do painel">
 <!ENTITY menu.grippy.label "Pegador do painel">
-<!ENTITY toolbar.name "All-in-One Sidebar">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Barra de ferramentas do cabeçalho do painel">
 <!ENTITY sbhtoolbar.label "Cabeçalho do painel">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Ativa/desativa elementos controlados pelo All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Ativa/desativa elementos controlados pelo The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Ativa/desativa a barra lateral e de ferramentas">
 <!ENTITY button.switch.tooltip2 "Ativa/desativa a barra de ferramentas">
 <!ENTITY button.switch.tooltip3 "Ativa/desativa a barra lateral">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Largura máxima">
 <!ENTITY button.menu.label "Painéis laterais">
 <!ENTITY button.menu.tooltip "Todos os painéis laterais disponíveis">
-<!ENTITY button.toolbar.label "AiOS">
-<!ENTITY button.toolbar.tooltip "Ativa/desativa a Barra de Ferramentas do AiOS">
+<!ENTITY button.toolbar.label "TGS">
+<!ENTITY button.toolbar.tooltip "Ativa/desativa a Barra de Ferramentas do TGS">
 <!ENTITY button.paneltab.label "PainelAba">
 <!ENTITY button.paneltab.tooltip1 "Abrir conteúdo da aba no painel lateral">
 <!ENTITY button.paneltab.tooltip2 "Abrir conteúdo do painel em uma nova aba">

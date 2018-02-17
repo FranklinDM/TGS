@@ -1,4 +1,4 @@
-<!ENTITY title "Налаштування All-In-One Sidebar">
+<!ENTITY title "Налаштування The Good 'ol Sidebar">
 <!ENTITY restart "Зміни потребують перезавантаження браузера">
 <!ENTITY settings "Налаштування">
 <!ENTITY settings.default "Відновити типові налаштування…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Переключення бічної панелі">
 <!ENTITY cmode.desc "Налаштувати, на які елементи поширюється закриття або відкриття бічної панелі різними способами.">
 <!ENTITY cmode.key.label "Поєднання клавіш (F4)">
-<!ENTITY cmode.tbb.label "Кнопка AiOS">
+<!ENTITY cmode.tbb.label "Кнопка TGS">
 <!ENTITY cmode.close.label "Кнопка закриття">
 <!ENTITY cmode.mode1.label "Тільки бічна панель">
 <!ENTITY cmode.mode2.label "Бічна панель та панель інструментів">

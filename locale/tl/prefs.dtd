@@ -1,0 +1,99 @@
+<!ENTITY title "The Good 'ol Sidebar - Mga Opsiyon">
+<!ENTITY restart "Ang mga pagbabago rito ay nangangailangan ng browser restart">
+<!ENTITY settings "Mga Setting">
+<!ENTITY settings.default "Ibalik ang mga Default…">
+<!ENTITY settings.advanced "Advanced Mode">
+<!ENTITY settings.import "I-import ang mga Setting…">
+<!ENTITY settings.export "I-export ang mga Setting…">
+<!ENTITY settings.copy "Kopyahin ang mga Setting sa Clipboard">
+<!ENTITY apply "Ilapat">
+<!ENTITY gen.column1 "110">
+<!ENTITY tab.gen "Pangkalahatan">
+<!ENTITY tab.gen.appearance "Hitsura">
+<!ENTITY tab.gen.behavior "Behavior">
+<!ENTITY tab.gen.fullscreen "Mode ng Buong Screen">
+<!ENTITY tab.gen.special "Espesyal">
+<!ENTITY tab.panels "Mga Panel">
+<!ENTITY tab.panels.places "Mga Bookmark/Kasaysayan">
+<!ENTITY tab.panels.other1 "Iba Pa I">
+<!ENTITY tab.panels.other2 "Iba Pa II">
+<!ENTITY tab.panels.paneltab "PanelTab">
+<!ENTITY tab.menus "Mga Menu">
+<!ENTITY tab.menus.sidebar "Sidebar">
+<!ENTITY tab.keys "Mga Shortcut">
+<!ENTITY tab.about "Tungkol Dito/Tulong">
+<!ENTITY gen.orient.caption "Oryentasyon">
+<!ENTITY gen.orient.label "Ipakita ang sidebar sa">
+<!ENTITY gen.orient.left "Kaliwang Bahagi">
+<!ENTITY gen.orient.right "Kanang Bahagi">
+<!ENTITY gen.width.caption "Sukat">
+<!ENTITY gen.width.px "mga pixel">
+<!ENTITY gen.width.perc "porsiyento">
+<!ENTITY gen.width.current "itakda sa kasalukuyang lapad">
+<!ENTITY gen.width.current.tip "Inilalapat ang kasalukuyang lapad ng sidebar">
+<!ENTITY gen.width.min.hint "[Shift+double-click] sa pamagat ng sidebar">
+<!ENTITY gen.width.def.hint "[Dobleng-click] sa pamagat ng sidebar">
+<!ENTITY gen.width.max.hint "[Ctrl+double-click] o [Alt+dobleng-click] sa pamagat ng sidebar">
+<!ENTITY gen.init.caption "Pagsisimula ng Browser">
+<!ENTITY gen.init.label "Sidebar">
+<!ENTITY gen.init.toolbar.label "Toolbar">
+<!ENTITY gen.init.toolbar.show.label "Ipakita ang Toolbar">
+<!ENTITY gen.init.toolbar.hide.label "Itago ang Toolbar">
+<!ENTITY gen.init.switch.show.label "Ipakita ang Sidebar Switch">
+<!ENTITY gen.init.switch.hide.label "Itago ang Sidebar Switch">
+<!ENTITY gen.init.mode1 "Buksan ang Panel mula sa Huling Sesyon">
+<!ENTITY gen.init.sidebar "Buksan ang Sidebar (Sidebar Switch, Toggle Button, Shortcut)">
+<!ENTITY gen.init.sidebar.restore "Buksan ang Huling Binuksang Panel">
+<!ENTITY gen.switch.autoshow "Awtomatikong ipakita/itago ang Sidebar (mouse contact sa halip ng pag-click ng mouse)">
+<!ENTITY gen.switch.drag "Awtomatikong ipakita ang Sidebar kapag nag-drag ng isang bagay sa sidebar switch">
+<!ENTITY gen.switch.onlymax "Gawin lamang ito kapag ang Browser ay Maximized o Sinasakop ang Buong Screen">
+<!ENTITY gen.switch.invtrigger "Paganahin ang Invisible Sidebar Switch (Awto Show/Hide ay dapat pinagagana)">
+<!ENTITY gen.switch.invwidth "Hover area">
+<!ENTITY gen.switch.delayshow "Antala sa Pagpapakita">
+<!ENTITY gen.switch.delayhide "Antala sa Pagtatago">
+<!ENTITY gen.switch.delay "Antala">
+<!ENTITY gen.switch.delayUnit "mga milisegundo">
+<!ENTITY gen.switch.hide "Itago ang Sidebar kung ang cursor ng mouse:">
+<!ENTITY gen.switch.hideBar "ay inilipat pabalik sa webpage">
+<!ENTITY gen.switch.hidePage "ay inilagay sa Sidebar Switch">
+<!ENTITY gen.switch.hideNone "huwag awtomatikong itago">
+<!ENTITY gen.switch.thin "Paganahin ang Thin Sidebar Switch">
+<!ENTITY gen.switch.width "Lapad ng Sidebar Switch">
+<!ENTITY gen.switch.twidth "Lapad ng Manipis na Sidebar Lumipat">
+<!ENTITY gen.mbSeparate "Huwag buksan sa panel ng sidebar kapag binuksan mula sa menu/mga key shortcut">
+<!ENTITY cmode.caption "Toggle Sidebar">
+<!ENTITY cmode.desc "I-customize kung aling mga elemento ang maaapektuhan kapag binuksan o isinara ang sidebar gamit ang iba-ibang mga paraan.">
+<!ENTITY cmode.key.label "Shortcut (F4)">
+<!ENTITY cmode.tbb.label "TGS Button">
+<!ENTITY cmode.close.label "Pansarang Button">
+<!ENTITY cmode.mode1.label "Sidebar lamang">
+<!ENTITY cmode.mode2.label "Ang Sidebar at ang Toolbar">
+<!ENTITY cmode.mode3.label "Ang Sidebar, ang Toolbar, at ang Sidebar Switch">
+<!ENTITY cmode.mode4.label "Behavior ng Opera">
+<!ENTITY gen.fs.off "Ibalik sa Dati kung aalis sa Mode ng Buong Screen">
+<!ENTITY keyconfig.keyid "Pangalan">
+<!ENTITY keyconfig.id "ID">
+<!ENTITY keyconfig.apply "Ilapat">
+<!ENTITY keyconfig.disable "Huwag Paganahin">
+<!ENTITY keyconfig.reset "I-reset">
+<!ENTITY keyconfig.warn "Ang mga pagbabago ay nakaaapekto lamang sa mga bagong window">
+<!ENTITY menus.sidebar.desc "I-customize ang mga entri sa menu na “Tanaw &gt; Sidebar” at sa mga dropdown menu ng iba-ibang mga sidebar button.">
+<!ENTITY menus.icons.label "Ipakita ang mga Icon">
+<!ENTITY menus.entries.label "Ipakita ang mga Entri">
+<!ENTITY menus.sidebar.entrydeac "Huwag paganahin ang Entri ng Aktibong Sidebar">
+<!ENTITY misc.enablesidebar.label "Buksan sa Sidebar">
+<!ENTITY misc.enablepopup.label "Buksan sa Popup">
+<!ENTITY misc.layout.label "I-optimize ang Layout para sa Sidebar">
+<!ENTITY misc.dm.autoopen.label "Ipakita ang sidebar ng Download kapag nagda-download ng file">
+<!ENTITY misc.dm.autoclose.label "Isara ito kapag natapos na ang lahat ng idino-download">
+<!ENTITY misc.dm.shading.label "Markahan ang mga bagay sa listahan ng mga download ayon sa kanilang estado">
+<!ENTITY misc.em.oninstall.label "Ipakita ang sidebar ng Add-on kapag nag-iinstall ng add-on">
+<!ENTITY misc.colors.label "Markahan ang background ng mga bagay ayon sa kanilang estado">
+<!ENTITY misc.count.label "Ipakita ang Bilang ng mga Item">
+<!ENTITY misc.enablelink.tooltip "Mag-click dito para sa karagdagang impormasyon (link sa mga FAQ)">
+<!ENTITY misc.paneltab.reverse "Pagpalitin ang mga Aksiyon ng Kaliwang-click at Gitnang-click">
+<!ENTITY misc.bm.paneltab.desc "Ang button na “PanelTab” ay may kakayahang buksan ang Tagapangasiwa ng mga Bookmark sa bagong tab sa halip na sa Bookmark Panel.">
+<!ENTITY misc.bm.paneltab "Paganahin ang Tagapangasiwa ng mga Bookmark sa Bagong Tab">
+<!ENTITY special.collapsing.caption "Sidebar Collapsing">
+<!ENTITY special.collapsing.label "Paganahin ang Sidebar Collapsing">
+<!ENTITY special.collapsing.desc "Puwedeng i-save ng sidebar ang estado nito sa halip na tuluyan itong isara. Sa pamamagitan nito, hindi na kailangan pang i-reload ang nilalaman ng sidebar sa tuwing ito ay bubuksan kaya bumibilis nang bahagya ang pagbukas nito.">

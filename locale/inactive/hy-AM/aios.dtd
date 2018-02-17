@@ -1,10 +1,10 @@
 <!ENTITY loading.label "վահանակի բեռնում…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar Նախընտրանքներ…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar Նախընտրանքներ…">
 <!ENTITY menu.togglebar.label "Կողավահանակի Փոխանջատիչ">
 <!ENTITY menu.grippy.label "Կողավահանակի բռնակ">
-<!ENTITY toolbar.name "All-in-One Sidebar Գործիքաշար">
+<!ENTITY toolbar.name "The Good 'ol Sidebar Գործիքաշար">
 <!ENTITY sbhtoolbar.name "Կողավահանակի վերնագրի Գործիքաշար">
-<!ENTITY button.toggle.label "AiOS">
+<!ENTITY button.toggle.label "TGS">
 <!ENTITY button.toggle.tooltip "Փոխանջատել">
 <!ENTITY button.switch.tooltip1 "Կողավահանակը և Գործիքաշարը">
 <!ENTITY button.switch.tooltip2 "Գործիքաշարը">
@@ -16,8 +16,8 @@
 <!ENTITY sidebar.width.max "Առավելագույն լայնություն">
 <!ENTITY button.menu.label "Կողավահանակի Վահանակներ">
 <!ENTITY button.menu.tooltip "Բոլոր հնարավոր վահանակները">
-<!ENTITY button.toolbar.label "AiOS-Գործիքաշար">
-<!ENTITY button.toolbar.tooltip "Փոխանջատել AiOS-Գործիքաշարը">
+<!ENTITY button.toolbar.label "TGS-Գործիքաշար">
+<!ENTITY button.toolbar.tooltip "Փոխանջատել TGS-Գործիքաշարը">
 <!ENTITY button.paneltab.label "Վահանակներ">
 <!ENTITY button.paneltab.tooltip1 "Բացել էջի պարունակությունը Կողավահանակում">
 <!ENTITY button.paneltab.tooltip2 "Բացել Կողավահանակի պարունակությունը նոր էջում">

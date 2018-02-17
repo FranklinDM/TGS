@@ -1,4 +1,4 @@
-<!ENTITY title "Opções do All-in-One Sidebar">
+<!ENTITY title "Opções do The Good 'ol Sidebar">
 <!ENTITY restart "Necessário reiniciar o navegador">
 <!ENTITY settings "Configurações">
 <!ENTITY settings.default "Restaurar padrões…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Exibir/ocultar painel">
 <!ENTITY cmode.desc "Informe quais elementos devem ser afetados ao abrir ou fechar o painel de formas diferentes.">
 <!ENTITY cmode.key.label "Tecla de atalho (F4)">
-<!ENTITY cmode.tbb.label "Botão AiOS">
+<!ENTITY cmode.tbb.label "Botão TGS">
 <!ENTITY cmode.close.label "Botão Fechar">
 <!ENTITY cmode.mode1.label "Somente o painel">
 <!ENTITY cmode.mode2.label "Painel e barra de ferramentas">

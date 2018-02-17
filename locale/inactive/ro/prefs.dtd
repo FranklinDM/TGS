@@ -1,4 +1,4 @@
-<!ENTITY title "Opțiuni All-in-One Sidebar">
+<!ENTITY title "Opțiuni The Good 'ol Sidebar">
 <!ENTITY restart "Modificările vor avea efect după repornirea navigatorului">
 <!ENTITY settings "Configurații">
 <!ENTITY settings.default "Reinițializează…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Comutator panou lateral">
 <!ENTITY cmode.desc "Configurează modul în care în sunt afectate elementele când panoul lateral este deschis sau închis prin diferite metode.">
 <!ENTITY cmode.key.label "Tastă directă (F4)">
-<!ENTITY cmode.tbb.label "Buton AiOS">
+<!ENTITY cmode.tbb.label "Buton TGS">
 <!ENTITY cmode.close.label "Buton închidere">
 <!ENTITY cmode.mode1.label "Numai panoul lateral">
 <!ENTITY cmode.mode2.label "Panoul lateral și bara de unelte">

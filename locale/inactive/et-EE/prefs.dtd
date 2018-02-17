@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – Seaded">
+<!ENTITY title "The Good 'ol Sidebar – Seaded">
 <!ENTITY restart "Muudatuste rakendamiseks vajalik brauseri taaskäivitamine">
 <!ENTITY settings "Seaded">
 <!ENTITY settings.default "Taasta vaikesätted …">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Näita/Peida külgpaan">
 <!ENTITY cmode.desc "Kohanda erinevate külgpaani avamise-sulgemise viiside mõju külgpaani osadele">
 <!ENTITY cmode.key.label "Otsetee (F4)">
-<!ENTITY cmode.tbb.label "AiOS nupp">
+<!ENTITY cmode.tbb.label "TGS nupp">
 <!ENTITY cmode.close.label "Sulgemise nupp">
 <!ENTITY cmode.mode1.label "Ainult külgpaan">
 <!ENTITY cmode.mode2.label "Külgpaan ja tööriistariba">

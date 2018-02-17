@@ -4,8 +4,8 @@
 <!ENTITY menu.grippy.label "Sidebjælke Grippy">
 <!ENTITY toolbar.name "Alt-I-En Sidebjælke værktøjslinje">
 <!ENTITY sbhtoolbar.name "Sidebjælkeheader værktøjslinje">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Slå elementer kontrolleret af AiOS til/fra">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Slå elementer kontrolleret af TGS til/fra">
 <!ENTITY button.switch.tooltip1 "Slå sidebjælke og værktøjslinje til/fra">
 <!ENTITY button.switch.tooltip2 "Slå værktøjslinje til/fra">
 <!ENTITY button.switch.tooltip3 "Slå sidebjælke til/fra">
@@ -16,8 +16,8 @@
 <!ENTITY sidebar.width.max "Maksimum bredde">
 <!ENTITY button.menu.label "Sidebjælke-paneler">
 <!ENTITY button.menu.tooltip "Alle tilgængelige sidebjælke-paneler">
-<!ENTITY button.toolbar.label "AIOS-værktøjslinje">
-<!ENTITY button.toolbar.tooltip "Slå AIOS-værktøjslinje til/fra">
+<!ENTITY button.toolbar.label "TGS-værktøjslinje">
+<!ENTITY button.toolbar.tooltip "Slå TGS-værktøjslinje til/fra">
 <!ENTITY button.paneltab.label "PanelFane">
 <!ENTITY button.paneltab.tooltip1 "Åbn indholdet af fanebladet i sidebjælken">
 <!ENTITY button.paneltab.tooltip2 "Åbn indholdet af sidebjælken i et nyt faneblad">

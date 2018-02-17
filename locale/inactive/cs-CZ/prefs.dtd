@@ -1,4 +1,4 @@
-<!ENTITY title "Možnosti rozšíření All-in-One Sidebar">
+<!ENTITY title "Možnosti rozšíření The Good 'ol Sidebar">
 <!ENTITY restart "Vyžaduje restart prohlížeče">
 <!ENTITY settings "Nastavení">
 <!ENTITY settings.default "Obnovit výchozí nastavení…">
@@ -53,7 +53,7 @@
 <!ENTITY gen.switch.twidth "Šířka zúženého přepínače postranní lišty">
 <!ENTITY cmode.desc "Zvolte prvky, které budou spolu s postranními lištami skrývány či zobrazovány v závislosti na způsobu jakým byla daná operace vyvolána.">
 <!ENTITY cmode.key.label "Klávesová zkratka (F4)">
-<!ENTITY cmode.tbb.label "AiOS tlačítko">
+<!ENTITY cmode.tbb.label "TGS tlačítko">
 <!ENTITY cmode.close.label "Uzavíracím tlačítkem">
 <!ENTITY cmode.mode1.label "Pouze postranní lišta">
 <!ENTITY cmode.mode2.label "Postranní lišta a lišta nástrojů">

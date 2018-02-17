@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar opcije">
+<!ENTITY title "The Good 'ol Sidebar opcije">
 <!ENTITY restart "Promjene zahtijevaju ponovno pokretanje preglednika">
 <!ENTITY settings "Postavke">
 <!ENTITY settings.default "Vrati zadano…">
@@ -54,7 +54,7 @@
 <!ENTITY cmode.caption "Promijeni rubni stupac">
 <!ENTITY cmode.desc "Prilagodi koji su elementi obuhvaćeni otvaranjem ili zatvaranjem rubnog stupca s drugačijim metodama.">
 <!ENTITY cmode.key.label "Kratica (F4)">
-<!ENTITY cmode.tbb.label "AiOS gumb">
+<!ENTITY cmode.tbb.label "TGS gumb">
 <!ENTITY cmode.close.label "Gumb Zatvori">
 <!ENTITY cmode.mode1.label "Samo rubni stupac">
 <!ENTITY cmode.mode2.label "Rubni stupac i alatna traka">

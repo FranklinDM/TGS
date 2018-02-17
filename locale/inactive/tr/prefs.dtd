@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Kenar Çubuğu Düğmesi">
 <!ENTITY cmode.desc "Kenar çubuğunun farklı yöntemler ile açılıp kapanmasında hangi elementlerin etkileneceğini belirle.">
 <!ENTITY cmode.key.label "Kısayol (F4)">
-<!ENTITY cmode.tbb.label "AiOS Düğmesi">
+<!ENTITY cmode.tbb.label "TGS Düğmesi">
 <!ENTITY cmode.close.label "Kapama düğmesi">
 <!ENTITY cmode.mode1.label "Sadece kenar çubuğunda">
 <!ENTITY cmode.mode2.label "Kenar çubuğu ve araç çubuğu">

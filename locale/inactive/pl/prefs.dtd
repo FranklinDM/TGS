@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – ustawienia">
+<!ENTITY title "The Good 'ol Sidebar – ustawienia">
 <!ENTITY restart "Aby zmiany zostały zastosowane należy ponownie uruchomić przeglądarkę">
 <!ENTITY settings "Ustawienia">
 <!ENTITY settings.default "Przywróć ustawienia domyślne">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Przełączanie panelu bocznego">
 <!ENTITY cmode.desc "Wybierz, które elementy będą otwierane/zamykane w zależności od zastosowanego sposobu.">
 <!ENTITY cmode.key.label "Skrót (F4)">
-<!ENTITY cmode.tbb.label "Przycisk AiOS">
+<!ENTITY cmode.tbb.label "Przycisk TGS">
 <!ENTITY cmode.close.label "Przycisk „Zamknij”">
 <!ENTITY cmode.mode1.label "tylko panel boczny">
 <!ENTITY cmode.mode2.label "panel boczny i pasek narzędzi">

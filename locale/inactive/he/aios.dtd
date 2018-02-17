@@ -1,13 +1,13 @@
 <!ENTITY loading.label "טוען לוח…">
-<!ENTITY menu.prefs.label "אפשרויות All-in-One Sidebar...">
+<!ENTITY menu.prefs.label "אפשרויות The Good 'ol Sidebar...">
 <!ENTITY menu.togglebar.label "מתג סרגל-הצד">
 <!ENTITY menu.grippy.label "מזעור סרגל-הצד">
-<!ENTITY toolbar.name "סרגל הכלים של All-in-One Sidebar">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "סרגל הכלים של The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "סרגל הכלים של כותרת סרגל-הצד">
 <!ENTITY sbhtoolbar.label "כותרת סרגל-הצד">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "הצגת/הסתרת מרכיבים שנשלטים על ידי All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "הצגת/הסתרת מרכיבים שנשלטים על ידי The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "הצגת/הסתרת סרגל-הצד וסרגל הכלים">
 <!ENTITY button.switch.tooltip2 "הצגת/הסתרת סרגל הכלים">
 <!ENTITY button.switch.tooltip3 "הצגת/הסתרת סרגל-הצד">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "רוחב מקסימלי">
 <!ENTITY button.menu.label "לוחות סרגל-הצד">
 <!ENTITY button.menu.tooltip "כל לוחות סרגל-הצד הזמינים">
-<!ENTITY button.toolbar.label "סרגל כלים AiOS">
-<!ENTITY button.toolbar.tooltip "הצגת/הסתרת סרגל כלים AiOS">
+<!ENTITY button.toolbar.label "סרגל כלים TGS">
+<!ENTITY button.toolbar.tooltip "הצגת/הסתרת סרגל כלים TGS">
 <!ENTITY button.paneltab.label "לוח לשונית">
 <!ENTITY button.paneltab.tooltip1 "פתיחת תוכן הלשונית בסרגל-הצד">
 <!ENTITY button.paneltab.tooltip2 "פתיחת תוכן סרגל-הצד בלשונית חדשה">

@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar 設定">
+<!ENTITY title "The Good 'ol Sidebar 設定">
 <!ENTITY restart "ブラウザ再起動後に変更されます">
 <!ENTITY settings "詳細設定">
 <!ENTITY settings.default "デフォルトに戻す">
@@ -56,7 +56,7 @@
 <!ENTITY cmode.caption "トグルサイドバー">
 <!ENTITY cmode.desc "異なる方法でサイドバーを開くか閉じた場合、選択登録した項目は影響を受けます">
 <!ENTITY cmode.key.label "ショートカット (F4)">
-<!ENTITY cmode.tbb.label "AiOS ボタン">
+<!ENTITY cmode.tbb.label "TGS ボタン">
 <!ENTITY cmode.close.label "閉じるボタン">
 <!ENTITY cmode.mode1.label "サイドバーのみ">
 <!ENTITY cmode.mode2.label "サイドバー、ツールバー">

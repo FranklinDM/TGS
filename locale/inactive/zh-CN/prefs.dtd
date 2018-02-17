@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – 选项">
+<!ENTITY title "The Good 'ol Sidebar – 选项">
 <!ENTITY restart "需要重新启动浏览器">
 <!ENTITY settings "设置">
 <!ENTITY settings.default "恢复默认设置…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "开关侧栏">
 <!ENTITY cmode.desc "定制用不同方法切换侧栏时打开/关闭的项目。">
 <!ENTITY cmode.key.label "快捷键 (F4)">
-<!ENTITY cmode.tbb.label "AiOS 按钮">
+<!ENTITY cmode.tbb.label "TGS 按钮">
 <!ENTITY cmode.close.label "关闭按钮">
 <!ENTITY cmode.mode1.label "仅侧栏">
 <!ENTITY cmode.mode2.label "侧栏和工具栏">

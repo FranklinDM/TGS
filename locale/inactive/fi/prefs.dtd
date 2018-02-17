@@ -56,7 +56,7 @@
 <!ENTITY cmode.caption "Kytke sivupaneeli">
 <!ENTITY cmode.desc "Määrää mihin elementteihin pitäisi olla vaikutusta sivupaneelin avaamisella ja sulkemisella eri tavoilla.">
 <!ENTITY cmode.key.label "Oikotie (F4)">
-<!ENTITY cmode.tbb.label "AiOS painike">
+<!ENTITY cmode.tbb.label "TGS painike">
 <!ENTITY cmode.close.label "Sulkemispainike">
 <!ENTITY cmode.mode1.label "Vain sivupaneeli">
 <!ENTITY cmode.mode2.label "Sivupaneeli ja työkalupalkki">

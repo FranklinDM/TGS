@@ -6,8 +6,7 @@
 <!ENTITY tab.contrib "Colaboradores">
 <!ENTITY tab.trans "Traductores">
 <!ENTITY about.desc "The Good 'ol Sidebar le permite abrir varias ventanas como paneles laterales, y cambiar rápidamente entre ellos. De este modo acaba con el caos de las ventanas. Además de marcadores o historial, abre otras ventanas como descargas, complementos y más en el panel lateral.">
-<!ENTITY create.desc "Creada por FranklinDM, bifurcado desde el ahora difunto All-in-One Sidebar">
-<!ENTITY aioscr.desc "cual es creada por Ingo Wennemaring, Hamburgo [Alemania]">
+<!ENTITY create.desc "Creada por FranklinDM, bifurcado desde el ahora difunto All-in-One Sidebar cual es creada por Ingo Wennemaring, Hamburgo [Alemania]">
 <!ENTITY help.desc "Encontrará mucha información sobre este complemento en el sitio web:">
 <!ENTITY about1.name "Página web - Información completa general">
 <!ENTITY about2.name "Opciones - Todas las opciones de The Good 'ol Sidebar">

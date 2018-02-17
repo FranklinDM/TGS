@@ -1,0 +1,21 @@
+<!ENTITY title "À propos d'The Good 'ol Sidebar">
+<!ENTITY settings "Paramètres…">
+<!ENTITY close "Fermer">
+<!ENTITY tab.about "À propos">
+<!ENTITY tab.help "Aide">
+<!ENTITY tab.contrib "Contributeurs">
+<!ENTITY tab.trans "Traducteurs">
+<!ENTITY about.desc "L'extension The Good 'ol Sidebar vous permet d'ouvrir diverses fenêtres dans des panneaux latéraux et de basculer rapidement de l'une à l'autre. C'est donc la fin des fenêtres en vrac ! Outre les marque-pages et l'historique, l'extension ouvre des fenêtres comme celle des téléchargements, des modules complémentaires et d'autres encore dans un panneau latéral.">
+<!ENTITY create.desc "Créé par FranklinDM, bifurqué à partir de la barre latérale All-in-One maintenant disparu qui a été créé par Ingo Wennemaring, Hambourg [Allemagne]">
+<!ENTITY help.desc "Vous trouverez beaucoup d'autres informations sur cette extension en allant sur le site web :">
+<!ENTITY about1.name "Site Web - des tonnes d'informations d'un coup d'œil.">
+<!ENTITY about2.name "Fonctionnalités - toutes celles d' The Good 'ol Sidebar.">
+<!ENTITY about3.name "FAQ - Foire Aux Questions… et réponses.">
+<!ENTITY about4.name "Problèmes signalés - descriptions et résolutions.">
+<!ENTITY about5.name "Support topic - discussions, rapports de bogue, comment installer un thème, entre autres.">
+<!ENTITY about6.name "Journal des changements - historique et modifications">
+<!ENTITY about7.name "Tâches - fonctionnalités à venir et améliorations.">
+<!ENTITY contrib.desc "Je remercie les développeurs qui suivent de m'avoir inspiré et prêté leur code :">
+<!ENTITY contrib.thanks "Et enfin, je remercie tous les utilisateurs qui ont aidé à tester les versions en développement, rapporté des bogues, partagé idées et suggestions, ou qui ont un écrit un commentaire sympa :-). Merci beaucoup !">
+<!ENTITY trans.desc "Les traducteurs d'The Good 'ol Sidebar (par ordre alphabétique d'abréviation de langue) :">
+<!ENTITY trans.thanks "Et merci bien sûr à l&apos;équipe de BabelZilla.org pour son magnifique travail !">

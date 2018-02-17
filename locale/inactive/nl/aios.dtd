@@ -1,13 +1,13 @@
 <!ENTITY loading.label "paneel laden…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar opties…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar opties…">
 <!ENTITY menu.togglebar.label "Zijbalkwisselaar">
 <!ENTITY menu.grippy.label "Zijbalkhandvat">
-<!ENTITY toolbar.name "All-in-One Sidebar werkbalk">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar werkbalk">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Zijbalkkop werkbalk">
 <!ENTITY sbhtoolbar.label "Zijbalkkop">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Elementen openen/sluiten gecontroleerd door All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Elementen openen/sluiten gecontroleerd door The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Werk- en zijbalk openen/sluiten">
 <!ENTITY button.switch.tooltip2 "Werkbalk openen/sluiten">
 <!ENTITY button.switch.tooltip3 "Zijbalk openen/sluiten">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Maximumbreedte">
 <!ENTITY button.menu.label "Zijbalkpanelen">
 <!ENTITY button.menu.tooltip "Alle beschikbare zijbalkpanelen">
-<!ENTITY button.toolbar.label "AiOS-werkbalk">
-<!ENTITY button.toolbar.tooltip "AiOS-werkbalk openen/sluiten">
+<!ENTITY button.toolbar.label "TGS-werkbalk">
+<!ENTITY button.toolbar.tooltip "TGS-werkbalk openen/sluiten">
 <!ENTITY button.paneltab.label "Paneeltabblad">
 <!ENTITY button.paneltab.tooltip1 "Inhoud van tabblad in zijbalk openen">
 <!ENTITY button.paneltab.tooltip2 "Inhoud van zijbalk in een nieuw tabblad openen">

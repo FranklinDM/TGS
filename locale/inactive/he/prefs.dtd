@@ -1,4 +1,4 @@
-<!ENTITY title "אפשרויות All-in-One Sidebar">
+<!ENTITY title "אפשרויות The Good 'ol Sidebar">
 <!ENTITY restart "השינוי דורש אתחול הדפדפן">
 <!ENTITY settings "הגדרות">
 <!ENTITY settings.default "שחזור ברירת המחדל…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "הצגת/הסתרת סרגל-הצד">
 <!ENTITY cmode.desc "התאמה אישית של איזה אלמנט יושפע אם יפתח/ייסגר סרגל-הצד בשיטות שונות">
 <!ENTITY cmode.key.label "קיצור דרך (F4)">
-<!ENTITY cmode.tbb.label "כפתור AIOS">
+<!ENTITY cmode.tbb.label "כפתור TGS">
 <!ENTITY cmode.close.label "כפתור סגירה">
 <!ENTITY cmode.mode1.label "רק סרגל-הצד">
 <!ENTITY cmode.mode2.label "סרגל-הצד וסרגל הכלים">
