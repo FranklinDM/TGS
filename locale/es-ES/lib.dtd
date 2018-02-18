@@ -11,3 +11,4 @@
 <!ENTITY enable.autoClose.label "Cerrar automáticamente el resto de carpetas">
 <!ENTITY enable.scrollToFolder.label "Desplazarse automáticamente a la carpeta seleccionada">
 <!ENTITY enable.rememberFolder.label "Recordar y seleccionar la última carpeta seleccionada">
+<!ENTITY enable.duplicateTree.label "Show second tree pane">

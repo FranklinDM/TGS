@@ -11,3 +11,4 @@
 <!ENTITY enable.autoClose.label "Chiudi automaticamente le altre cartelle">
 <!ENTITY enable.scrollToFolder.label "Scorri automaticamente fino alla cartella selezionata">
 <!ENTITY enable.rememberFolder.label "Ricorda e porta in primo piano l&apos;ultima cartella selezionata">
+<!ENTITY enable.duplicateTree.label "Show second tree pane">

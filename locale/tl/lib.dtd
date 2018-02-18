@@ -11,3 +11,4 @@
 <!ENTITY enable.autoClose.label "Awtomatikong isara ang ibang mga Folder">
 <!ENTITY enable.scrollToFolder.label "Awtomatikong mag-scroll sa Piniling Folder">
 <!ENTITY enable.rememberFolder.label "Tandaan at mag-focus sa Huling Piniling Folder">
+<!ENTITY enable.duplicateTree.label "Ipakita ang ikalawang tree pane">
