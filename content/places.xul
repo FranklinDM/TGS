@@ -15,13 +15,61 @@
             src="chrome://aios/content/places.js" />
 
     <page id="bookmarksPanel"
+          class="placesPanel"
           persist="width height screenX screenY"
           title="&bookmarksButton.label;"
-          windowtype="aiosGlobal:Bookmarks" />
+          windowtype="aiosGlobal:Bookmarks">
+        <splitter collapse="after" id="duplicateSplitter"><grippy/></splitter>
+        <tree id="duplicateTree"
+              class="sidebar-placesTree"
+              type="places"
+              flex="1"
+              hidecolumnpicker="true"
+              context="placesContext"
+              onkeypress="SidebarUtils.handleTreeKeyPress(event);"
+              onclick="SidebarUtils.handleTreeClick(this, event, true);"
+              onmousemove="SidebarUtils.handleTreeMouseMove(event);"
+              onmouseout="SidebarUtils.setMouseoverURL('');">
+            <treecols>
+                <treecol id="title"
+                         flex="1"
+                         primary="true"
+                         hideheader="true"/>
+            </treecols>
+            <treechildren id="bookmarks-view-children"
+                          view="bookmarks-view"
+                          class="sidebar-placesTreechildren"
+                          flex="1"
+                          tooltip="bhTooltip"/>
+        </tree>
+    </page>
     <page id="history-panel"
+          class="placesPanel"
           persist="width height screenX screenY"
           title="&historyButton.label;"
-          windowtype="aiosGlobal:History" />
+          windowtype="aiosGlobal:History">
+        <splitter collapse="after" id="duplicateSplitter"><grippy/></splitter>
+        <tree id="duplicateTree"
+              class="sidebar-placesTree"
+              flex="1"
+              type="places"
+              context="placesContext"
+              hidecolumnpicker="true"
+              onkeypress="SidebarUtils.handleTreeKeyPress(event);"
+              onclick="SidebarUtils.handleTreeClick(this, event, true);"
+              onmousemove="SidebarUtils.handleTreeMouseMove(event);"
+              onmouseout="SidebarUtils.setMouseoverURL('');">
+            <treecols>
+                <treecol id="title"
+                         flex="1"
+                         primary="true"
+                         hideheader="true"/>
+            </treecols>
+            <treechildren class="sidebar-placesTreechildren"
+                          flex="1"
+                          tooltip="bhTooltip"/>
+        </tree>
+    </page>
 
     <textbox id="search-box"
              tooltiptext="&search.label;" />
@@ -64,6 +112,13 @@
                           persist="checked"
                           label="&enable.scrollToFolder.label;"
                           oncommand="AiOS_Places.checkFolderOptions();" />
+
+                <menuitem id="aios-duplicateList"
+                          type="checkbox"
+                          checked="false"
+                          persist="checked"
+                          label="&enable.duplicateTree.label;"
+                          oncommand="AiOS_Places.toggleSecondPane();" />
 
                 <menuseparator id="close-separator" />
 
