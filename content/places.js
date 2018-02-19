@@ -351,7 +351,6 @@ function searchHistory(aInputOld, historyTree) {
             historyTrees[i].load([query], options);
         }
     }
-    console.log([query], options);
 }
 
 function searchBookmarks(aInputOld) {
