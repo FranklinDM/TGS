@@ -539,7 +539,7 @@ function aios_autoShowHide(mode) {
  * => aios_initSidebar() adds a mouse-move event to the "appcontent" object, ...
  * => this event calls this function
  */
-var aios_invCursorTZ = false, aios_invTimeout, savedPos;
+var aios_invCursorTZ = false, aios_invTimeout, savedPos, rightWidth;
 function aios_invisibleTrigger(mode) {
     var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
 
@@ -561,14 +561,14 @@ function aios_invisibleTrigger(mode) {
     if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3))
         return false;
 
-    var rightWidth = fx_browser.boxObject.width - invWidth;
+    rightWidth = fx_browser.boxObject.width - invWidth;
     savedPos = mode.clientX;
     //console.log('savepos: ' + savedPos + ',clientX: ' + mode.clientX + ', rightWidth: ' + rightWidth);
     if (((mode.clientX <= invWidth) && orient == 1 || (mode.clientX >= rightWidth) && orient == 2) && !aios_invCursorTZ) {
         // I am in trigger zone
         aios_invCursorTZ = true;
 
-        // Show/hide after a certain time
+        // Show	 after a certain time
         aios_invTimeout = window.setTimeout(function () {
                 if ((savedPos <= invWidth) && orient == 1 || (savedPos >= rightWidth) && orient == 2) {
                     aios_toggleSidebar('switch');
@@ -583,6 +583,7 @@ function aios_invisibleTrigger(mode) {
     }
     if ((mode.clientX > invWidth) && orient == 1 || (mode.clientX < invWidth) && orient == 2) {
         aios_invCursorTZ = false;
+		window.clearTimeout(aios_invTimeout);
     }
 }
 

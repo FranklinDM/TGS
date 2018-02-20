@@ -741,8 +741,18 @@ function aios_initAutohide() {
 }
 
 function aios_initInvTrg() {
+	// Add mousemove event to appcontent
     if (document.getElementById('appcontent'))
         document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
+	// Recalculate hover area every time window resizes
+	if (fx_browser) {
+		try {
+			var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
+		} catch (e) { }
+		fx_browser.addEventListener("resize", function (e) {
+			rightWidth = fx_browser.boxObject.width - invWidth;
+		}, true);
+	}
 }
 
 function aios_checkInvTrg() {
