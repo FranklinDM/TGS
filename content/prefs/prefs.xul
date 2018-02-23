@@ -140,12 +140,6 @@
             <preference id="SSOnlymax"
                         type="bool"
                         name="extensions.aios.gen.switch.onlymax" />
-            <preference id="SSInvTrg"
-                        type="bool"
-                        name="extensions.aios.gen.switch.invtrigger" />
-            <preference id="SSInvWidth"
-                        type="int"
-                        name="extensions.aios.gen.switch.invwidth" />
             <preference id="SSDelayShow"
                         type="int"
                         name="extensions.aios.gen.switch.delayshow" />
@@ -167,6 +161,12 @@
             <preference id="SSThinMax"
                         type="bool"
                         name="extensions.aios.gen.switch.thinmax" />
+            <preference id="SSInv"
+                        type="bool"
+                        name="extensions.aios.gen.switch.inv" />
+            <preference id="SSInvMax"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invmax" />
 
             <preference id="SSDrag"
                         type="bool"
@@ -531,7 +531,7 @@
                             <checkbox label="&gen.switch.autoshow;"
                                       preference="SSAutoshow"
                                       oncommand="aios_checkboxObserver(this);"
-                                      aiosChilds="SSOnlymax,SSInvTrg,SSInvWidth,SSDelayShow,SSDelayHide,SSHidemethod" />
+                                      aiosChilds="SSOnlymax,SSDelayShow,SSDelayHide,SSHidemethod" />
 
                             <vbox class="indent">
                                 <checkbox label="&gen.switch.onlymax;"
@@ -613,18 +613,14 @@
                             </vbox>
 
                             <checkbox label="&gen.switch.invtrigger;"
-                                      preference="SSInvTrg"
+                                      preference="SSInv"
                                       oncommand="aios_checkboxObserver(this);"
-                                      aiosChilds="SSInvWidth" />
-                                <hbox align="center"
-                                      class="indent">
-                                    <label value="&gen.switch.invwidth;:" />
-                                    <textbox preference="SSInvWidth"
-                                             size="2"
-                                             type="number"
-                                             min="1" />
-                                    <label value="&gen.width.px;" />
-                                </hbox>
+                                      aiosChilds="SSInvMax" />
+
+                            <vbox class="indent">
+                                <checkbox preference="SSInvMax"
+                                          label="&gen.switch.onlymax;" />
+                            </vbox>
 
                             <grid flex="1"
                                   aiosAdvanced="true"

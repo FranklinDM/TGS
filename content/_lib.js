@@ -740,35 +740,6 @@ function aios_initAutohide() {
     }, true);
 }
 
-function aios_initInvTrg() {
-	// Add mousemove event to appcontent
-    if (document.getElementById('appcontent'))
-        document.getElementById('appcontent').addEventListener("mousemove", aios_invisibleTrigger, true);
-	// Recalculate hover area every time window resizes
-	if (fx_browser) {
-		try {
-			var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
-		} catch (e) { }
-		fx_browser.addEventListener("resize", function (e) {
-			rightWidth = fx_browser.boxObject.width - invWidth;
-		}, true);
-	}
-}
-
-function aios_checkInvTrg() {
-    aios_getObjects();
-
-    var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
-    var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
-    var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
-    var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
-
-    if (!autoshow | !autobutton | !invTrg | invWidth == 0)
-        aios_toggleBox.setAttribute('collapsed', 'false');
-    else
-        aios_toggleBox.setAttribute('collapsed', 'true');
-}
-
 /*
  * Switch AutoHide on or off using the toolbar button
  * => Call through broadcaster 'aios-enableAutohide'
@@ -776,6 +747,5 @@ function aios_checkInvTrg() {
 function aios_toggleAutohide(which) {
     try {
         AiOS_HELPER.prefBranchAiOS.setBoolPref("gen.switch.autoshow", aios_getBoolean(which, 'checked'));
-        aios_checkInvTrg();
     } catch (e) {}
 }
