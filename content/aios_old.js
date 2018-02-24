@@ -653,7 +653,8 @@ function aios_checkThinSwitch() {
     switch_width,
     switch_twidth,
     athin_switch,
-    invTrg;
+    inv_switch,
+    invmax_switch;
 
     try {
         thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.thin');
@@ -663,22 +664,28 @@ function aios_checkThinSwitch() {
         switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.twidth');
 
         inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
+        invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmax');
 
         // Decide whether to use thin switch configuration
         var thin = thin_switch;
         if (thin_switch && thinmax_switch && !aios_isWinMax())
             thin = false;
 
+        // Decide whether to use inv switch configuration
+        var inv = inv_switch;
+        if (inv_switch && invmax_switch && !aios_isWinMax())
+            inv = false;
+
         var width_val = (thin) ? switch_twidth : switch_width;
         var barStyle = "min-width: " + width_val + "px; max-width: " + width_val + "px;";
 
-        if (inv_switch)
-            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";";
+        if (inv)
+            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
 
-        if (width_val < 4 || inv_switch)
+        if (width_val < 4 || inv)
             barStyle += " background-image: none;";
 
-        if (width_val < 2 || inv_switch)
+        if (width_val < 2 || inv)
             barStyle += " border: none;";
 
         elem_switch.setAttribute('style', barStyle);
