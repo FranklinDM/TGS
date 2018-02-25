@@ -677,10 +677,10 @@ function aios_checkSidebarSwitch() {
         }
 
         if (width_val < 4 || inv)
-            barStyle += " background-image: none;";
+            barStyle += " background-image: none !important;";
 
         if (width_val < 2 || inv)
-            barStyle += " border: none;";
+            barStyle += " border: none !important;";
 
         elem_switch.setAttribute('style', barStyle);
         aios_toggleBar.setAttribute('style', barStyle);
