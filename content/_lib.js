@@ -686,7 +686,7 @@ function aios_preventDblCmd(ev) {
 
 /*
  * Checks whether the browser window is maximized or is in full-screen mode
- * => Called by aios_checkThinSwitch()
+ * => Called by aios_checkSidebarSwitch()
  */
 function aios_isWinMax() {
     var windowMax = document.getElementById('main-window').getAttribute('sizemode') == "maximized";

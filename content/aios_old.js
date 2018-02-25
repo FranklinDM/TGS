@@ -1,6 +1,6 @@
 
 window.addEventListener("load", aios_initSidebar, false);
-window.addEventListener("resize", aios_checkThinSwitch, false);
+window.addEventListener("resize", aios_checkSidebarSwitch, false);
 window.addEventListener("fullscreen", aios_BrowserFullScreen, false);
 window.addEventListener("beforecustomization", aios_customizeStart, false);
 window.addEventListener("aftercustomization", aios_customizeEnd, false);
@@ -615,7 +615,7 @@ function aios_useGrippy() {
  * => Called by event listener "onresize", observer (sizemode) in tbx.xul,
  * aios_BrowserFullScreen() and aios_savePrefs() in prefs.js
  */
-function aios_checkThinSwitch() {
+function aios_checkSidebarSwitch() {
     if (!initialised)
         return;
 
@@ -802,7 +802,7 @@ function aios_BrowserFullScreen() {
     }
 
     // Activates/deactivates the narrow sidebar switch
-    aios_checkThinSwitch();
+    aios_checkSidebarSwitch();
 
     aios_adjustToolboxWidth(false);
 
