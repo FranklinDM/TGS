@@ -1,5 +1,10 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+:root {
+  --aios-switch-hovercolor: Highlight;
+  --aios-grippy-cursor: pointer;
+}
+
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox,
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-toolbar {
     margin: 0 !important;
@@ -17,8 +22,16 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
 #aios-toggle-toolbar {
     -moz-appearance: none;
 }
-#aios-toggle-button[invSwitch="true"], #aios-toggle-toolbar[invSwitch="true"] {
-    position: fixed;
+#aios-toggle-button[invHover="true"] {
+  transition-property: background, box-shadow;
+  transition-duration: 300ms;
+}
+#aios-toggle-button[invHover="true"]:hover {
+  background-color: var(--aios-switch-hovercolor);
+  box-shadow: 0 0 15px 5px var(--aios-switch-hovercolor);
+}
+#aios-toggle-button[invHover="false"]:hover {
+  background-color: transparent;
 }
 #aios-toolbox-left, #aios-toolbox-right, #aios-toolbox-sidebartop, #aios-toolbox-sidebartop2, #aios-toolbox-sidebarbottom, #aios-sbhtoolbox {
     border: none;
@@ -108,7 +121,7 @@ window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
 #aios-toggle-toolbox grippy,
 #sidebar-splitter grippy {
     -moz-binding: url("chrome://aios/content/aios.xml#aiosGrippy");
-    cursor: pointer;
+    cursor: var(--aios-grippy-cursor);
     background: transparent none no-repeat center;
 }
 #aios-toggle-toolbox grippy:hover,

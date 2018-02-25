@@ -520,8 +520,6 @@ function aios_savePrefs() {
             win.aios_setSidebarOrient();
         if (win.aios_initAutohide)
             win.aios_initAutohide();
-        if (win.aios_checkInvSwitch)
-            win.aios_checkInvSwitch();
     }
 
     // Bugfix:

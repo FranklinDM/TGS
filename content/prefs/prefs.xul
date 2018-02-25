@@ -167,6 +167,12 @@
             <preference id="SSInvMax"
                         type="bool"
                         name="extensions.aios.gen.switch.invmax" />
+            <preference id="SSInvHover"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invhover" />
+            <preference id="SSInvMouse"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invmouse" />
 
             <preference id="SSDrag"
                         type="bool"
@@ -615,11 +621,16 @@
                             <checkbox label="&gen.switch.invtrigger;"
                                       preference="SSInv"
                                       oncommand="aios_checkboxObserver(this);"
-                                      aiosChilds="SSInvMax" />
+                                      aiosChilds="SSInvMax,SSInvHover,SSInvMouse" />
 
                             <vbox class="indent">
                                 <checkbox preference="SSInvMax"
                                           label="&gen.switch.onlymax;" />
+								<label value="&gen.switch.onhover;" />
+                                <checkbox preference="SSInvHover"
+                                          label="&gen.switch.invhover;" />
+                                <checkbox preference="SSInvMouse"
+                                          label="&gen.switch.invmouse;" />
                             </vbox>
 
                             <grid flex="1"

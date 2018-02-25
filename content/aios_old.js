@@ -1,9 +1,6 @@
 
 window.addEventListener("load", aios_initSidebar, false);
-window.addEventListener("resize", function () {
-    aios_checkThinSwitch();
-    aios_checkInvSwitch();
-}, false);
+window.addEventListener("resize", aios_checkThinSwitch, false);
 window.addEventListener("fullscreen", aios_BrowserFullScreen, false);
 window.addEventListener("beforecustomization", aios_customizeStart, false);
 window.addEventListener("aftercustomization", aios_customizeEnd, false);
@@ -112,9 +109,6 @@ function aios_initSidebar() {
 
     // Initialize autohide feature
     aios_initAutohide();
-
-    // Initialize invisible sidebar switch trigger feature
-    aios_checkInvSwitch();
 
     // Collapse the sidebar instead of closing it
     var lp;
@@ -533,27 +527,6 @@ function aios_autoShowHide(mode) {
 }
 
 /*
- * Enables/disables the invisible sidebar switch
- * => Called by event listener "onresize", observer (sizemode) in tbx.xul,
- * aios_BrowserFullScreen() and aios_savePrefs() in prefs.js
- */
-function aios_checkInvSwitch() {
-    var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmax');
-    var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
-
-    //console.log(mode);
-
-    // Feature is disabled, should only function at maximized window
-    if ((onlymax && !aios_isWinMax()) || !invTrg) {
-        aios_toggleBar.removeAttribute('invSwitch');
-        elem_switch.removeAttribute('invSwitch');
-    } else {
-        aios_toggleBar.setAttribute('invSwitch', 'true');
-        elem_switch.setAttribute('invSwitch', 'true');
-    }
-}
-
-/*
  * Activates/deactivates the Sidebar/Toolbar/Switch depending on the item and settings
  * => Call by toggle button, switch, shortcut, open/close menu items, sidebar close button
  * => Mode 1: Open/close the sidebar
@@ -654,7 +627,9 @@ function aios_checkThinSwitch() {
     switch_twidth,
     athin_switch,
     inv_switch,
-    invmax_switch;
+    invmax_switch,
+    invhover,
+    invmouse;
 
     try {
         thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.thin');
@@ -665,6 +640,8 @@ function aios_checkThinSwitch() {
 
         inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
         invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmax');
+        invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invhover');
+        invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmouse');
 
         // Decide whether to use thin switch configuration
         var thin = thin_switch;
@@ -679,8 +656,25 @@ function aios_checkThinSwitch() {
         var width_val = (thin) ? switch_twidth : switch_width;
         var barStyle = "min-width: " + width_val + "px; max-width: " + width_val + "px;";
 
-        if (inv)
+        if (inv) {
             barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
+            if (invhover) {
+                aios_toggleBar.setAttribute('invHover', 'true');
+                elem_switch.setAttribute('invHover', 'true');
+            } else {
+                aios_toggleBar.setAttribute('invHover', 'false');
+                elem_switch.setAttribute('invHover', 'false');
+            }
+            if (!invmouse) {
+                document.documentElement.style.setProperty('--aios-grippy-cursor', 'hand');
+            } else {
+                document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
+            }
+        } else {
+            document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
+            aios_toggleBar.removeAttribute('invHover');
+            elem_switch.removeAttribute('invHover');
+        }
 
         if (width_val < 4 || inv)
             barStyle += " background-image: none;";
@@ -809,8 +803,6 @@ function aios_BrowserFullScreen() {
 
     // Activates/deactivates the narrow sidebar switch
     aios_checkThinSwitch();
-    // Activates/deactivates the invisible sidebar switch
-    aios_checkInvSwitch();
 
     aios_adjustToolboxWidth(false);
 

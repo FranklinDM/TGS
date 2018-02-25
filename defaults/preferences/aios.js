@@ -49,6 +49,8 @@ pref("extensions.aios.gen.switch.dragdelay", 0);
 
 pref("extensions.aios.gen.switch.inv", false);
 pref("extensions.aios.gen.switch.invmax", false);
+pref("extensions.aios.gen.switch.invhover", true);
+pref("extensions.aios.gen.switch.invmouse", true);
 
 pref("extensions.aios.cmode.key", 2);
 pref("extensions.aios.cmode.switch", 2);
