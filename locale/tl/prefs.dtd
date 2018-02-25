@@ -47,8 +47,10 @@
 <!ENTITY gen.switch.autoshow "Awtomatikong ipakita/itago ang Sidebar (mouse contact sa halip ng pag-click ng mouse)">
 <!ENTITY gen.switch.drag "Awtomatikong ipakita ang Sidebar kapag nag-drag ng isang bagay sa sidebar switch">
 <!ENTITY gen.switch.onlymax "Gawin lamang ito kapag ang Browser ay Maximized o Sinasakop ang Buong Screen">
-<!ENTITY gen.switch.invtrigger "Paganahin ang Invisible Sidebar Switch (Awto Show/Hide ay dapat pinagagana)">
-<!ENTITY gen.switch.invwidth "Hover area">
+<!ENTITY gen.switch.invtrigger "Paganahin ang Invisible Sidebar Switch">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.invhover "Show visual feedback or highlight">
+<!ENTITY gen.switch.invmouse "Show a hand cursor">
 <!ENTITY gen.switch.delayshow "Antala sa Pagpapakita">
 <!ENTITY gen.switch.delayhide "Antala sa Pagtatago">
 <!ENTITY gen.switch.delay "Antala">

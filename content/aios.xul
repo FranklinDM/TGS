@@ -705,7 +705,7 @@
             <!-- Monitor window mode for narrow switch (maximized, normal, minimized) -->
             <observes element="main-window"
                       attribute="sizemode"
-                      onbroadcast="aios_checkThinSwitch();" />
+                      onbroadcast="aios_checkSidebarSwitch();" />
 
             <toolbar id="aios-toggle-toolbar"
                      class="chromeclass-toolbar"

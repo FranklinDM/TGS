@@ -1,6 +1,6 @@
 
 window.addEventListener("load", aios_initSidebar, false);
-window.addEventListener("resize", aios_checkThinSwitch, false);
+window.addEventListener("resize", aios_checkSidebarSwitch, false);
 window.addEventListener("fullscreen", aios_BrowserFullScreen, false);
 window.addEventListener("beforecustomization", aios_customizeStart, false);
 window.addEventListener("aftercustomization", aios_customizeEnd, false);
@@ -109,12 +109,6 @@ function aios_initSidebar() {
 
     // Initialize autohide feature
     aios_initAutohide();
-
-    // Initialize invisible sidebar switch trigger feature
-    aios_initInvTrg();
-
-    // Check if real sidebar switch should be hidden
-    aios_checkInvTrg();
 
     // Collapse the sidebar instead of closing it
     var lp;
@@ -533,61 +527,6 @@ function aios_autoShowHide(mode) {
 }
 
 /*
- * Shows/hides the sidebar when the mouse moves over the trigger zone inside the content area
- * => Called by mouse-move of the 'appcontent' element
- *
- * => aios_initSidebar() adds a mouse-move event to the "appcontent" object, ...
- * => this event calls this function
- */
-var aios_invCursorTZ = false, aios_invTimeout, savedPos, rightWidth;
-function aios_invisibleTrigger(mode) {
-    var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
-
-    var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
-    var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
-    var delayshow = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delayshow');
-    var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
-    var invTrg = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invtrigger');
-    var invWidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.invwidth');
-    var orient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
-
-    //console.log(mode);
-
-    // Feature is disabled, should only function at maximized window, window does not have the focus, trigger width is 0, inv trigger is disabled
-    if (!autoshow || !autobutton || (onlymax && !aios_isWinMax()) || !aiosFocus || !invTrg || invWidth == 0)
-        return false;
-
-    // If sidebar is visible and hide method is (1 - on content area) or (3 - don't autohide) => ignore it
-    if (!aios_isSidebarHidden() && (hidemethod == 1 || hidemethod == 3))
-        return false;
-
-    rightWidth = fx_browser.boxObject.width - invWidth;
-    savedPos = mode.clientX;
-    //console.log('savepos: ' + savedPos + ',clientX: ' + mode.clientX + ', rightWidth: ' + rightWidth);
-    if (((mode.clientX <= invWidth) && orient == 1 || (mode.clientX >= rightWidth) && orient == 2) && !aios_invCursorTZ) {
-        // I am in trigger zone
-        aios_invCursorTZ = true;
-
-        // Show	 after a certain time
-        aios_invTimeout = window.setTimeout(function () {
-                if ((savedPos <= invWidth) && orient == 1 || (savedPos >= rightWidth) && orient == 2) {
-                    aios_toggleSidebar('switch');
-                }
-                aios_invCursorTZ = false;
-            }, delayshow);
-
-        // Remove the timeout when the mouse comes back in the sidebar
-        fx_sidebarBox.addEventListener("mouseover", function () {
-            window.clearTimeout(aios_invTimeout);
-        }, true);
-    }
-    if ((mode.clientX > invWidth) && orient == 1 || (mode.clientX < invWidth) && orient == 2) {
-        aios_invCursorTZ = false;
-		window.clearTimeout(aios_invTimeout);
-    }
-}
-
-/*
  * Activates/deactivates the Sidebar/Toolbar/Switch depending on the item and settings
  * => Call by toggle button, switch, shortcut, open/close menu items, sidebar close button
  * => Mode 1: Open/close the sidebar
@@ -676,7 +615,7 @@ function aios_useGrippy() {
  * => Called by event listener "onresize", observer (sizemode) in tbx.xul,
  * aios_BrowserFullScreen() and aios_savePrefs() in prefs.js
  */
-function aios_checkThinSwitch() {
+function aios_checkSidebarSwitch() {
     if (!initialised)
         return;
 
@@ -686,7 +625,11 @@ function aios_checkThinSwitch() {
     thinmax_switch,
     switch_width,
     switch_twidth,
-    athin_switch;
+    athin_switch,
+    inv_switch,
+    invmax_switch,
+    invhover,
+    invmouse;
 
     try {
         thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.thin');
@@ -695,21 +638,51 @@ function aios_checkThinSwitch() {
         switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.width');
         switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.twidth');
 
-        // Should it be slim?
+        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
+        invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmax');
+        invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invhover');
+        invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmouse');
+
+        // Decide whether to use thin switch configuration
         var thin = thin_switch;
         if (thin_switch && thinmax_switch && !aios_isWinMax())
             thin = false;
 
+        // Decide whether to use inv switch configuration
+        var inv = inv_switch;
+        if (inv_switch && invmax_switch && !aios_isWinMax())
+            inv = false;
+
         var width_val = (thin) ? switch_twidth : switch_width;
         var barStyle = "min-width: " + width_val + "px; max-width: " + width_val + "px;";
 
-        if (width_val < 4)
-            elem_switch.setAttribute('style', 'background-image: none;');
-        else
-            elem_switch.setAttribute('style', '');
+        if (inv) {
+            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
+            if (invhover) {
+                aios_toggleBar.setAttribute('invHover', 'true');
+                elem_switch.setAttribute('invHover', 'true');
+            } else {
+                aios_toggleBar.setAttribute('invHover', 'false');
+                elem_switch.setAttribute('invHover', 'false');
+            }
+            if (!invmouse) {
+                document.documentElement.style.setProperty('--aios-grippy-cursor', 'hand');
+            } else {
+                document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
+            }
+        } else {
+            document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
+            aios_toggleBar.removeAttribute('invHover');
+            elem_switch.removeAttribute('invHover');
+        }
 
-        if (width_val < 2)
+        if (width_val < 4 || inv)
+            barStyle += " background-image: none;";
+
+        if (width_val < 2 || inv)
             barStyle += " border: none;";
+
+        elem_switch.setAttribute('style', barStyle);
         aios_toggleBar.setAttribute('style', barStyle);
     } catch (e) {}
 }
@@ -829,7 +802,7 @@ function aios_BrowserFullScreen() {
     }
 
     // Activates/deactivates the narrow sidebar switch
-    aios_checkThinSwitch();
+    aios_checkSidebarSwitch();
 
     aios_adjustToolboxWidth(false);
 

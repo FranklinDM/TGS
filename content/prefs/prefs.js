@@ -515,15 +515,11 @@ function aios_savePrefs() {
         if (win.aios_setTargets)
             win.aios_setTargets();
 
-        win.aios_checkThinSwitch();
-        if (win.aios_checkInvTrg)
-            win.aios_checkInvTrg();
+        win.aios_checkSidebarSwitch();
         if (win.aios_setSidebarOrient)
             win.aios_setSidebarOrient();
         if (win.aios_initAutohide)
             win.aios_initAutohide();
-        if (win.aios_initInvTrg)
-            win.aios_initInvTrg();
     }
 
     // Bugfix:
@@ -683,7 +679,8 @@ function aios_checkApply(aPref) {
 function aios_deleteOldPrefs() {
     // List of preferences that might need to be migrated
     let mgPrefs = {
-        delay: ['gen.switch.delay', 'gen.switch.delayshow', 'gen.switch.delayhide']
+        delay: ['gen.switch.delay', 'gen.switch.delayshow', 'gen.switch.delayhide'],
+        invSwitch: ['gen.switch.invtrigger', 'gen.switch.inv']
     };
     // Migrate prefs to new values
     for (let obj in mgPrefs) {
@@ -712,11 +709,12 @@ function aios_deleteOldPrefs() {
             }
         }
     }
-    
+
     // List of old preferences
     let oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim',
                     'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall',
-                    'hi.layout', 'hi.layoutall', 'dm.observer', 'gen.switch.delay'];
+                    'hi.layout', 'hi.layoutall', 'dm.observer', 'gen.switch.delay',
+                    'gen.switch.invwidth', 'gen.switch.invtrigger'];
     // Remove preferences defined in the oldPrefs array
     removePrefsFromArray(oldPrefs, AiOS_HELPER.prefBranchAiOS);
 
