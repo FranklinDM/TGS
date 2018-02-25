@@ -47,8 +47,10 @@
 <!ENTITY gen.switch.autoshow "Montre/cache automatiquement le panneau latéral (au passage de la souris et non sur un clic)">
 <!ENTITY gen.switch.drag "Afficher la barre latérale automatiquement lorsque vous faites glisser quelque chose sur l'interrupteur de la barre latérale">
 <!ENTITY gen.switch.onlymax "Seulement si le navigateur est au plus large ou en mode plein écran">
-<!ENTITY gen.switch.invtrigger "Activer le commutateur de barre latérale invisible (Auto Show/Hide doit être activé)">
-<!ENTITY gen.switch.invwidth "Zone de vol stationnaire">
+<!ENTITY gen.switch.invtrigger "Activer le commutateur de barre latérale invisible">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.invhover "Show visual feedback or highlight">
+<!ENTITY gen.switch.invmouse "Show a hand cursor">
 <!ENTITY gen.switch.delayshow "Afficher Délai">
 <!ENTITY gen.switch.delayhide "Masquer Délai">
 <!ENTITY gen.switch.delay "Délai">

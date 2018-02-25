@@ -47,8 +47,10 @@
 <!ENTITY gen.switch.autoshow "Автоматически открывать/закрывать боковую панель (контакт курсором мыши вместо клика по переключателю)">
 <!ENTITY gen.switch.drag "Показывать боковую панель автоматически при перетаскивании чего-либо над переключателем боковой панели">
 <!ENTITY gen.switch.onlymax "Только когда браузер работает в полноэкранном режиме или окно максимизированно">
-<!ENTITY gen.switch.invtrigger "Включить невидимый переключатель боковой панели (Auto Show/Hide должен быть включен)">
-<!ENTITY gen.switch.invwidth "Область наведения">
+<!ENTITY gen.switch.invtrigger "Включить невидимый переключатель боковой панели">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.invhover "Show visual feedback or highlight">
+<!ENTITY gen.switch.invmouse "Show a hand cursor">
 <!ENTITY gen.switch.delayshow "Показать Задержка">
 <!ENTITY gen.switch.delayhide "Спрятать Задержка">
 <!ENTITY gen.switch.delay "Задержка">
