@@ -855,8 +855,10 @@ function lwthemeColorHandler() {
     case true:
         // To avoid seeing the ugly overlapping persona image
         fx_browser.style.background = fx_mainWindow.style.backgroundColor;
-        if (rpt)
+        if (rpt) {
+            fx_browser.style.background = null;
             fx_mainWindow.style.backgroundRepeat = "repeat";
+        }
         break;
     case false:
         fx_browser.style.background = null;
