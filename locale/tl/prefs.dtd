@@ -59,9 +59,9 @@
 <!ENTITY gen.switch.hideBar "ay inilipat pabalik sa webpage">
 <!ENTITY gen.switch.hidePage "ay inilagay sa Sidebar Switch">
 <!ENTITY gen.switch.hideNone "huwag awtomatikong itago">
-<!ENTITY gen.switch.thin "Paganahin ang Thin Sidebar Switch">
+<!ENTITY gen.switch.thin "Paganahin ang Manipis na Sidebar Switch">
 <!ENTITY gen.switch.width "Lapad ng Sidebar Switch">
-<!ENTITY gen.switch.twidth "Lapad ng Manipis na Sidebar Lumipat">
+<!ENTITY gen.switch.twidth "Lapad ng Manipis na Sidebar Switch">
 <!ENTITY gen.mbSeparate "Huwag buksan sa panel ng sidebar kapag binuksan mula sa menu/mga key shortcut">
 <!ENTITY cmode.caption "Toggle Sidebar">
 <!ENTITY cmode.desc "I-customize kung aling mga elemento ang maaapektuhan kapag binuksan o isinara ang sidebar gamit ang iba-ibang mga paraan.">
