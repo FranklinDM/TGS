@@ -1,13 +1,13 @@
 <!ENTITY loading.label "se încărcă panoul…">
-<!ENTITY menu.prefs.label "Opţiuni AiOS…">
+<!ENTITY menu.prefs.label "Opţiuni TGS…">
 <!ENTITY menu.togglebar.label "Comutator panou lateral">
 <!ENTITY menu.grippy.label "Glisor panou lateral">
-<!ENTITY toolbar.name "Bară de unelte AiOS">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "Bară de unelte TGS">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Bară de unelte panou lateral">
 <!ENTITY sbhtoolbar.label "Antet panou lateral">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Afișează/ascunde panoul lateral și selectează elementele controlate de AiOS">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Afișează/ascunde panoul lateral și selectează elementele controlate de TGS">
 <!ENTITY button.switch.tooltip1 "Afișează/ascunde panoul lateral și bara de unelte">
 <!ENTITY button.switch.tooltip2 "Afișează/ascunde bara de unelte">
 <!ENTITY button.switch.tooltip3 "Afișează/ascunde panoul lateral">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Lățime maximă">
 <!ENTITY button.menu.label "Selector elemente ale panoului lateral">
 <!ENTITY button.menu.tooltip "Afișează toate elementele disponibile ale panoului lateral">
-<!ENTITY button.toolbar.label "Bară de unelte AiOS">
-<!ENTITY button.toolbar.tooltip "Afișează/ascunde bara de unelte AiOS">
+<!ENTITY button.toolbar.label "Bară de unelte TGS">
+<!ENTITY button.toolbar.tooltip "Afișează/ascunde bara de unelte TGS">
 <!ENTITY button.paneltab.label "File în panoul lateral">
 <!ENTITY button.paneltab.tooltip1 "Deschide conținutul filei curente în panoul lateral">
 <!ENTITY button.paneltab.tooltip2 "Deschide conținutul panoului lateral într-o filă nouă">

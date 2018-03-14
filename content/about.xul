@@ -5,22 +5,23 @@
 
 <!-- locale -->
 <!DOCTYPE overlay [
-	<!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
+    <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
 ]>
 
-<prefwindow id="aiosAboutWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	title = "&title;"
-	persist = "screenX screenY"
-	style = "min-width: 45em; max-width: 780px;"
+<prefwindow id="aiosAboutWindow"
+            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+            title="&title;"
+            persist="screenX screenY"
+            style="min-width: 45em; max-width: 780px;"
+            buttons="extra1,extra2"
+            buttonlabelextra1="&close;"
+            buttonlabelextra2="&settings;"
+            ondialogextra1="window.close();"
+            ondialogextra2="aios_openDialog('prefs');" >
 
-	buttons = "extra1,extra2"
-	buttonlabelextra1 = "&close;"
-	buttonlabelextra2 = "&settings;"
-	ondialogextra1 = "window.close();"
-	ondialogextra2 = "aios_openDialog('prefs');" >
+    <script type="application/x-javascript"
+            src="chrome://aios/content/_helper.js" />
 
-	<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
-
-	<prefpane id="aiosAbout" src="chrome://aios/content/about_content.xul" />
-
+    <prefpane id="aiosAbout"
+              src="chrome://aios/content/about_content.xul" />
 </prefwindow>

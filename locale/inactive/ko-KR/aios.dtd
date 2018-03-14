@@ -1,11 +1,11 @@
 <!ENTITY loading.label "패널을 불러오는 중…">
-<!ENTITY menu.prefs.label "All-In-One Sidebar 설정…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar 설정…">
 <!ENTITY menu.togglebar.label "탐색 창 스위치">
 <!ENTITY menu.grippy.label "탐색 창 손잡이">
-<!ENTITY toolbar.name "All-In-One Sidebar 도구 모음">
+<!ENTITY toolbar.name "The Good 'ol Sidebar 도구 모음">
 <!ENTITY sbhtoolbar.name "탐색 창 헤더 도구 모음">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "All-in-One Sidebar가 통제하는 요소들을 보이거나 숨깁니다.">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "The Good 'ol Sidebar가 통제하는 요소들을 보이거나 숨깁니다.">
 <!ENTITY button.switch.tooltip1 "탐색 창과 도구 모음을 보이거나 숨깁니다.">
 <!ENTITY button.switch.tooltip2 "도구 모음을 보이거나 숨깁니다.">
 <!ENTITY button.switch.tooltip3 "탐색 창을 보이거나 숨깁니다.">
@@ -16,8 +16,8 @@
 <!ENTITY sidebar.width.max "최대 너비">
 <!ENTITY button.menu.label "탐색 창 패널">
 <!ENTITY button.menu.tooltip "모든 사용 가능한 탐색 창 패널">
-<!ENTITY button.toolbar.label "AiOS 도구 모음">
-<!ENTITY button.toolbar.tooltip "AiOS 도구 모음을 보이거나 숨깁니다.">
+<!ENTITY button.toolbar.label "TGS 도구 모음">
+<!ENTITY button.toolbar.tooltip "TGS 도구 모음을 보이거나 숨깁니다.">
 <!ENTITY button.paneltab.label "패널탭">
 <!ENTITY button.paneltab.tooltip1 "이 탭의 내용을 탐색 창으로 열기">
 <!ENTITY button.paneltab.tooltip2 "이 탐색 창의 내용을 새 탭으로 열기">

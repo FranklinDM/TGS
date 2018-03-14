@@ -47,8 +47,12 @@
 <!ENTITY gen.switch.autoshow "Show/hide Sidebar automatically (mouse contact instead of mouse click)">
 <!ENTITY gen.switch.drag "Show the Sidebar automatically when dragging something over the sidebar switch">
 <!ENTITY gen.switch.onlymax "Only if Browser is Maximized or in Full Screen Mode">
-<!ENTITY gen.switch.invtrigger "Enable Invisible Sidebar Switch (Auto Show/Hide must be enabled)">
-<!ENTITY gen.switch.invwidth "Hover area">
+<!ENTITY gen.switch.invtrigger "Enable Invisible Sidebar Switch">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.invhover "Show visual feedback or highlight">
+<!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.delayshow "Show Delay">
+<!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Delay">
 <!ENTITY gen.switch.delayUnit "milliseconds">
 <!ENTITY gen.switch.hide "Hide Sidebar if the mouse cursor:">
@@ -80,10 +84,12 @@
 <!ENTITY menus.entries.label "Show Entries">
 <!ENTITY menus.sidebar.entrydeac "Disable the Entry of the Active Sidebar">
 <!ENTITY misc.enablesidebar.label "Open in Sidebar">
+<!ENTITY misc.enablepopup.label "Open in Popup">
 <!ENTITY misc.layout.label "Optimize Layout for the Sidebar">
 <!ENTITY misc.dm.autoopen.label "Show the Downloads sidebar when downloading a file">
 <!ENTITY misc.dm.autoclose.label "Close it when all downloads are finished">
 <!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
+<!ENTITY misc.em.oninstall.label "Show the Add-ons sidebar when installing an add-on">
 <!ENTITY misc.colors.label "Enable colored backgrounds based on current state">
 <!ENTITY misc.count.label "Show Number of Items">
 <!ENTITY misc.enablelink.tooltip "Click here for more information (link to the FAQs)">

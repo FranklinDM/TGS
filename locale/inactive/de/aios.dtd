@@ -1,13 +1,13 @@
 <!ENTITY loading.label "lade Paneele…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar Einstellungen…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar Einstellungen…">
 <!ENTITY menu.togglebar.label "Sidebar-Umschalter">
 <!ENTITY menu.grippy.label "Sidebar-Griff">
-<!ENTITY toolbar.name "All-in-One-Sidebar-Symbolleiste">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar-Symbolleiste">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Sidebartitel-Symbolleiste">
 <!ENTITY sbhtoolbar.label "Sidebartitel">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Elemente der All-in-One Sidebar anzeigen/verbergen">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Elemente der The Good 'ol Sidebar anzeigen/verbergen">
 <!ENTITY button.switch.tooltip1 "Sidebar und Symbolleiste öffnen/schließen">
 <!ENTITY button.switch.tooltip2 "Symbolleiste anzeigen/verbergen">
 <!ENTITY button.switch.tooltip3 "Sidebar öffnen/schließen">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Maximalbreite">
 <!ENTITY button.menu.label "Sidebar-Paneele">
 <!ENTITY button.menu.tooltip "Alle verfügbaren Sidebar-Paneele">
-<!ENTITY button.toolbar.label "AiOS-Symbolleiste">
-<!ENTITY button.toolbar.tooltip "AiOS-Symbolleiste anzeigen/verbergen">
+<!ENTITY button.toolbar.label "TGS-Symbolleiste">
+<!ENTITY button.toolbar.tooltip "TGS-Symbolleiste anzeigen/verbergen">
 <!ENTITY button.paneltab.label "PanelTab">
 <!ENTITY button.paneltab.tooltip1 "Inhalt des Tabs in der Sidebar öffnen">
 <!ENTITY button.paneltab.tooltip2 "Inhalt der Sidebar in einem neuen Tab öffnen">

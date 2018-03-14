@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – Tùy chọn">
+<!ENTITY title "The Good 'ol Sidebar – Tùy chọn">
 <!ENTITY restart "Các thay đổi này yêu cầu khởi động lại trình duyệt">
 <!ENTITY settings "Thiết lập">
 <!ENTITY settings.default "Phục hồi Mặc định…">
@@ -56,7 +56,7 @@
 <!ENTITY cmode.caption "Bật tắt Thanh lề">
 <!ENTITY cmode.desc "Tùy biến những phần tử nào sẽ bị ảnh hưởng khi mở hoặc đóng thanh lề theo những cách khác nhau.">
 <!ENTITY cmode.key.label "Phím tắt (F4)">
-<!ENTITY cmode.tbb.label "Nút AiOS">
+<!ENTITY cmode.tbb.label "Nút TGS">
 <!ENTITY cmode.close.label "Nút Đóng">
 <!ENTITY cmode.mode1.label "Chỉ trên Thanh lề">
 <!ENTITY cmode.mode2.label "Thanh lề và Thanh công cụ">

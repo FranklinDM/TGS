@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar - Možnosti">
+<!ENTITY title "The Good 'ol Sidebar - Možnosti">
 <!ENTITY restart "Zmeny vyžadujú reštart prehliadača">
 <!ENTITY settings "Nastavenia">
 <!ENTITY settings.default "Obnoviť predvolené…">
@@ -55,7 +55,7 @@
 <!ENTITY cmode.caption "Zobraziť/Skryť bočný panel">
 <!ENTITY cmode.desc "Vyberte prvky, ktoré budú spolu s bočnými panelmi skrývané alebo zobrazované v závislosti na spôsobe akým bola daná operácia vyvolaná.">
 <!ENTITY cmode.key.label "Skratka(F4)">
-<!ENTITY cmode.tbb.label "AiOS Tlačidlo">
+<!ENTITY cmode.tbb.label "TGS Tlačidlo">
 <!ENTITY cmode.close.label "Zatváracím tlačidlom">
 <!ENTITY cmode.mode1.label "Len bočný panel">
 <!ENTITY cmode.mode2.label "Bočný panel a panel nástrojov">

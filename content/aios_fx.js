@@ -1,6 +1,6 @@
 /*
-  from chrome://browser/content/browser.js
-*/
+ * From chrome://browser/content/browser.js
+ */
 
 /**
  * Opens or closes the sidebar identified by commandID.
@@ -23,80 +23,82 @@
  *  - group        this attribute must be set to "sidebar".
  */
 // If sidebar collapsing is enabled, use modified function
-if (aios_collapseSidebar) toggleSidebar = function(commandID, forceOpen) {
-  var sidebarBox = document.getElementById("sidebar-box");
-  if (!commandID)
-	commandID = sidebarBox.getAttribute("sidebarcommand");
+if (aios_collapseSidebar)
+    toggleSidebar = function (commandID, forceOpen) {
+        var sidebarBox = document.getElementById("sidebar-box");
+        if (!commandID)
+            commandID = sidebarBox.getAttribute("sidebarcommand");
 
-  // Otherwise there will be errors in the second print preview when SidebarCollapsing is active and the sidebar is collapsed
-  // => commandID is not defined in this case
-  if(!commandID) return;
-  
-  var sidebarBroadcaster = document.getElementById(commandID);
-  var sidebar = document.getElementById("sidebar"); // xul:browser
-  var sidebarTitle = document.getElementById("sidebar-title");
-  var sidebarSplitter = document.getElementById("sidebar-splitter");
+        // Otherwise there will be errors in the second print preview when SidebarCollapsing is active and the sidebar is collapsed
+        // => commandID is not defined in this case
+        if (!commandID)
+            return;
 
-  if (sidebarBroadcaster.getAttribute("checked") == "true") {
-	if (!forceOpen) {
-	  // Replace the document currently displayed in the sidebar with about:blank
-	  // so that we can free memory by unloading the page. We need to explicitly
-	  // create a new content viewer because the old one doesn't get destroyed
-	  // until about:blank has loaded (which does not happen as long as the
-	  // element is hidden).
+        var sidebarBroadcaster = document.getElementById(commandID);
+        var sidebar = document.getElementById("sidebar"); // xul:browser
+        var sidebarTitle = document.getElementById("sidebar-title");
+        var sidebarSplitter = document.getElementById("sidebar-splitter");
 
-	  sidebarBroadcaster.removeAttribute("checked");
-	  sidebarBox.setAttribute("sidebarcommand", "");
+        if (sidebarBroadcaster.getAttribute("checked") == "true") {
+            if (!forceOpen) {
+                // Replace the document currently displayed in the sidebar with about:blank
+                // so that we can free memory by unloading the page. We need to explicitly
+                // create a new content viewer because the old one doesn't get destroyed
+                // until about:blank has loaded (which does not happen as long as the
+                // element is hidden).
 
-	  // AiOS: Simply collapse the sidebar
-	  sidebarBox.removeAttribute('hidden');
-	  sidebarBox.collapsed = true;
+                sidebarBroadcaster.removeAttribute("checked");
+                sidebarBox.setAttribute("sidebarcommand", "");
 
-	  sidebarSplitter.hidden = true;
-	  gBrowser.selectedBrowser.focus();
-	} else {
-	  fireSidebarFocusedEvent();
-	}
-	return;
-  }
+                // AiOS: Simply collapse the sidebar
+                sidebarBox.removeAttribute('hidden');
+                sidebarBox.collapsed = true;
 
-  // Now we need to show the specified sidebar
-  // But first update the 'checked' state of all sidebar broadcasters
-  var broadcasters = document.getElementsByAttribute("group", "sidebar");
-  for (let broadcaster of broadcasters) {
-	// skip elements that observe sidebar broadcasters and other random elements
-	if (broadcaster.localName != "broadcaster")
-	  continue;
+                sidebarSplitter.hidden = true;
+                gBrowser.selectedBrowser.focus();
+            } else {
+                fireSidebarFocusedEvent();
+            }
+            return;
+        }
 
-	if (broadcaster != sidebarBroadcaster)
-	  broadcaster.removeAttribute("checked");
-	else
-	  sidebarBroadcaster.setAttribute("checked", "true");
-  }
+        // Now we need to show the specified sidebar
+        // But first update the 'checked' state of all sidebar broadcasters
+        var broadcasters = document.getElementsByAttribute("group", "sidebar");
+        for (let broadcaster of broadcasters) {
+            // skip elements that observe sidebar broadcasters and other random elements
+            if (broadcaster.localName != "broadcaster")
+                continue;
 
-  // AiOS: Uncollapsed and unhide the sidebar
-  sidebarBox.removeAttribute('hidden');
-  sidebarBox.removeAttribute('collapsed');
+            if (broadcaster != sidebarBroadcaster)
+                broadcaster.removeAttribute("checked");
+            else
+                sidebarBroadcaster.setAttribute("checked", "true");
+        }
 
-  sidebarSplitter.hidden = false;
+        // AiOS: Uncollapsed and unhide the sidebar
+        sidebarBox.removeAttribute('hidden');
+        sidebarBox.removeAttribute('collapsed');
 
-  var url = sidebarBroadcaster.getAttribute("sidebarurl");
-  var title = sidebarBroadcaster.getAttribute("sidebartitle");
-  if (!title)
-	title = sidebarBroadcaster.getAttribute("label");
-  sidebar.setAttribute("src", url); // kick off async load
-  sidebarBox.setAttribute("sidebarcommand", sidebarBroadcaster.id);
-  sidebarTitle.value = title;
+        sidebarSplitter.hidden = false;
 
-  // We set this attribute here in addition to setting it on the <browser>
-  // element itself, because the code in gBrowserInit.onUnload persists this
-  // attribute, not the "src" of the <browser id="sidebar">. The reason it
-  // does that is that we want to delay sidebar load a bit when a browser
-  // window opens. See delayedStartup().
-  sidebarBox.setAttribute("src", url);
+        var url = sidebarBroadcaster.getAttribute("sidebarurl");
+        var title = sidebarBroadcaster.getAttribute("sidebartitle");
+        if (!title)
+            title = sidebarBroadcaster.getAttribute("label");
+        sidebar.setAttribute("src", url); // kick off async load
+        sidebarBox.setAttribute("sidebarcommand", sidebarBroadcaster.id);
+        sidebarTitle.value = title;
 
-  if (sidebar.contentDocument.location.href != url)
-	sidebar.addEventListener("load", sidebarOnLoad, true);
-  else // older code handled this case, so we do it too
-	fireSidebarFocusedEvent();
-};
+        // We set this attribute here in addition to setting it on the <browser>
+        // element itself, because the code in gBrowserInit.onUnload persists this
+        // attribute, not the "src" of the <browser id="sidebar">. The reason it
+        // does that is that we want to delay sidebar load a bit when a browser
+        // window opens. See delayedStartup().
+        sidebarBox.setAttribute("src", url);
+
+        if (sidebar.contentDocument.location.href != url)
+            sidebar.addEventListener("load", sidebarOnLoad, true);
+        else // older code handled this case, so we do it too
+            fireSidebarFocusedEvent();
+    };

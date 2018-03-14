@@ -11,3 +11,4 @@
 <!ENTITY enable.autoClose.label "Automatically Close Other Folders">
 <!ENTITY enable.scrollToFolder.label "Automatically Scroll to Selected Folder">
 <!ENTITY enable.rememberFolder.label "Remember and Focus Last Selected Folder">
+<!ENTITY enable.duplicateTree.label "Show second tree pane">

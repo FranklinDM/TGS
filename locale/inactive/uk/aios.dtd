@@ -6,8 +6,8 @@
 <!ENTITY toolbar.label "Бічна панель All-in-One">
 <!ENTITY sbhtoolbar.name "Панель інструментів заголовка бічної панелі">
 <!ENTITY sbhtoolbar.label "Заголовок бічної панелі">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Переключити елементи, керовані All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Переключити елементи, керовані The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Переключити бічну панель та панель інструментів">
 <!ENTITY button.switch.tooltip2 "Переключити панель інструментів">
 <!ENTITY button.switch.tooltip3 "Переключити бічну панель">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Максимальна ширина">
 <!ENTITY button.menu.label "Бічні панелі">
 <!ENTITY button.menu.tooltip "Всі наявні бічні панелі">
-<!ENTITY button.toolbar.label "Панель інструментів AiOS">
-<!ENTITY button.toolbar.tooltip "Переключити панель інструментів AiOS">
+<!ENTITY button.toolbar.label "Панель інструментів TGS">
+<!ENTITY button.toolbar.tooltip "Переключити панель інструментів TGS">
 <!ENTITY button.paneltab.label "Вкладка панелі">
 <!ENTITY button.paneltab.tooltip1 "Відкрити вміст вкладки у бічній панелі">
 <!ENTITY button.paneltab.tooltip2 "Відкрити вміст бічної панелі у новій вкладці">

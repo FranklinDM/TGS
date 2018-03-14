@@ -3,11 +3,11 @@
 <!ENTITY menu.togglebar.label "Kenar çubuğu düğmesi">
 <!ENTITY menu.grippy.label "Grippy kenar çubuğu">
 <!ENTITY toolbar.name "All-in-One Kenar Araç Çubuğu">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Kenar Çubuğu başlık Araç Çubuğu">
 <!ENTITY sbhtoolbar.label "Yan-Çubuk-Başlığı">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "All-in-One Sidebar ile Düğme öğeleri düzenlendi">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "The Good 'ol Sidebar ile Düğme öğeleri düzenlendi">
 <!ENTITY button.switch.tooltip1 "Araç ve Kenar Çubuğu Düğmesi">
 <!ENTITY button.switch.tooltip2 "Araç Çubuğu Düğmesi">
 <!ENTITY button.switch.tooltip3 "Kenar Çubugu Düğmesi">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "En fazla genişlik">
 <!ENTITY button.menu.label "Kenar Çubuğu Paneli">
 <!ENTITY button.menu.tooltip "Kullanılabilir tüm Kenar Çubuğu Panelleri">
-<!ENTITY button.toolbar.label "AiOS-Araç Çubuğu">
-<!ENTITY button.toolbar.tooltip "AiOS-Araç Çubugu Düğmesi">
+<!ENTITY button.toolbar.label "TGS-Araç Çubuğu">
+<!ENTITY button.toolbar.tooltip "TGS-Araç Çubugu Düğmesi">
 <!ENTITY button.paneltab.label "Panel sekmesi">
 <!ENTITY button.paneltab.tooltip1 "Tabdaki içeri kenar çubuğunda aç">
 <!ENTITY button.paneltab.tooltip2 "Kenar çubuğundaki içeriği yeni tabda aç">

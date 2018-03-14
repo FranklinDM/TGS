@@ -1,4 +1,4 @@
-<!ENTITY title "Options de All-in-One Sidebar">
+<!ENTITY title "Options de The Good 'ol Sidebar">
 <!ENTITY restart "Les modifications ne seront validées qu&apos;au redémarrage du navigateur">
 <!ENTITY settings "Préférences">
 <!ENTITY settings.default "Rétablir les préférences par défaut…">
@@ -14,14 +14,14 @@
 <!ENTITY tab.gen.fullscreen "Mode plein écran">
 <!ENTITY tab.gen.special "Spéciales">
 <!ENTITY tab.panels "Panneaux">
-<!ENTITY tab.panels.places "Marque-pages / Historique">
+<!ENTITY tab.panels.places "Marque-pages/Historique">
 <!ENTITY tab.panels.other1 "Autres (1)">
 <!ENTITY tab.panels.other2 "Autres (2)">
 <!ENTITY tab.panels.paneltab "OngletDePanneau">
 <!ENTITY tab.menus "Menus">
 <!ENTITY tab.menus.sidebar "Panneau latéral">
 <!ENTITY tab.keys "Raccourcis">
-<!ENTITY tab.about "À propos / Aide">
+<!ENTITY tab.about "À propos/Aide">
 <!ENTITY gen.orient.caption "Orientation">
 <!ENTITY gen.orient.label "Montrer le panneau latéral">
 <!ENTITY gen.orient.left "côté gauche">
@@ -45,19 +45,28 @@
 <!ENTITY gen.init.sidebar "Ouvrir le panneau latéral (commutateur, bouton activer/désactiver, raccourci clavier)">
 <!ENTITY gen.init.sidebar.restore "Rétablir le panneau mémorisé">
 <!ENTITY gen.switch.autoshow "Montre/cache automatiquement le panneau latéral (au passage de la souris et non sur un clic)">
+<!ENTITY gen.switch.drag "Afficher la barre latérale automatiquement lorsque vous faites glisser quelque chose sur l'interrupteur de la barre latérale">
 <!ENTITY gen.switch.onlymax "Seulement si le navigateur est au plus large ou en mode plein écran">
+<!ENTITY gen.switch.invtrigger "Activer le commutateur de barre latérale invisible">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.invhover "Show visual feedback or highlight">
+<!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.delayshow "Afficher Délai">
+<!ENTITY gen.switch.delayhide "Masquer Délai">
 <!ENTITY gen.switch.delay "Délai">
 <!ENTITY gen.switch.delayUnit "millisecondes">
-<!ENTITY gen.switch.hide "Cacher le panneau latéral quand le curseur…">
+<!ENTITY gen.switch.hide "Cacher le panneau latéral quand le curseur:">
 <!ENTITY gen.switch.hideBar "est ramené vers la page web">
 <!ENTITY gen.switch.hidePage "est maintenu sur l&apos;interrupteur du panneau">
+<!ENTITY gen.switch.hideNone "don't hide automatically">
 <!ENTITY gen.switch.thin "Activer la ligne étroite de repli du panneau latéral">
 <!ENTITY gen.switch.width "Taille de l&apos;interrupteur du panneau latéral">
 <!ENTITY gen.switch.twidth "Taille de la ligne étroite de repli du panneau latéral">
+<!ENTITY gen.mbSeparate "Ne pas ouvrir dans le panneau de la barre latérale lorsqu'il est ouvert à partir des raccourcis de menu / touche">
 <!ENTITY cmode.caption "Activer/désactiver le panneau latéral">
 <!ENTITY cmode.desc "Personnaliser les éléments concernés à l&apos;ouverture/fermeture du panneau latéral suivant les différentes méthodes">
 <!ENTITY cmode.key.label "Raccourci (F4)">
-<!ENTITY cmode.tbb.label "Bouton AIOS">
+<!ENTITY cmode.tbb.label "Bouton TGS">
 <!ENTITY cmode.close.label "Bouton de fermeture">
 <!ENTITY cmode.mode1.label "Seulement le panneau latéral">
 <!ENTITY cmode.mode2.label "Le panneau latéral et la barre d&apos;outils">
@@ -70,18 +79,17 @@
 <!ENTITY keyconfig.disable "Désactiver">
 <!ENTITY keyconfig.reset "Restaurer">
 <!ENTITY keyconfig.warn "Les changements ne concernent que les nouvelles fenêtres.">
-<!ENTITY keyconfig.onreset "Il est nécessaire de redémarrer le navigateur">
-<!ENTITY keyconfig.unrecognized "Non reconnu ($1)">
-<!ENTITY keyconfig.used "Cette touche est déjà utilisée par : \\nt$1\\n mais il est possible qu&apos;elle fonctionne tout de même.">
 <!ENTITY menus.sidebar.desc "Personnaliser les entrées dans le menu “Affichage &gt; Panneau latéral” et dans les menus déroulants des boutons du panneau latéral.">
 <!ENTITY menus.icons.label "Afficher les icônes">
 <!ENTITY menus.entries.label "Afficher les entrées">
 <!ENTITY menus.sidebar.entrydeac "Désactiver l&apos;entrée dans le panneau latéral actif">
 <!ENTITY misc.enablesidebar.label "Ouvrir dans le panneau latéral">
+<!ENTITY misc.enablepopup.label "Ouvrir dans Popup">
 <!ENTITY misc.layout.label "Optimisation de l&apos;affichage du panneau latéral">
-<!ENTITY misc.dm.overlay "Modifier les options pour le comportement du panneau latéral">
 <!ENTITY misc.dm.autoopen.label "Afficher le panneau latéral de téléchargements pendant le téléchargement d&apos;un fichier">
 <!ENTITY misc.dm.autoclose.label "Le fermer quand tous les téléchargements sont terminés">
+<!ENTITY misc.dm.shading.label "Ombrer les éléments de la liste des téléchargements en fonction de leur état">
+<!ENTITY misc.em.oninstall.label "Afficher la barre latérale des modules complémentaires lors de l'installation d'un module complémentaire">
 <!ENTITY misc.colors.label "Autorise les fonds en couleur selon l&apos;état courant">
 <!ENTITY misc.count.label "Afficher le nombre d&apos;éléments">
 <!ENTITY misc.enablelink.tooltip "Cliquer ici pour en savoir plus (lien vers la FAQ)">

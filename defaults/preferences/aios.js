@@ -36,7 +36,8 @@ pref("extensions.aios.gen.open.init", "rem");
 
 pref("extensions.aios.gen.switch.autoshow", false);
 pref("extensions.aios.gen.switch.onlymax", false);
-pref("extensions.aios.gen.switch.delay", 500);
+pref("extensions.aios.gen.switch.delayshow", 500);
+pref("extensions.aios.gen.switch.delayhide", 500);
 pref("extensions.aios.gen.switch.hidemethod", 1);
 pref("extensions.aios.gen.switch.width", 6);
 pref("extensions.aios.gen.switch.twidth", 2);
@@ -46,8 +47,10 @@ pref("extensions.aios.gen.switch.thinmax", false);
 pref("extensions.aios.gen.switch.drag", true);
 pref("extensions.aios.gen.switch.dragdelay", 0);
 
-pref("extensions.aios.gen.switch.invtrigger", false);
-pref("extensions.aios.gen.switch.invwidth", 4);
+pref("extensions.aios.gen.switch.inv", false);
+pref("extensions.aios.gen.switch.invmax", false);
+pref("extensions.aios.gen.switch.invhover", true);
+pref("extensions.aios.gen.switch.invmouse", true);
 
 pref("extensions.aios.cmode.key", 2);
 pref("extensions.aios.cmode.switch", 2);
@@ -64,6 +67,7 @@ pref("extensions.aios.fs.restore", true);
  *  Panels
  **/
 pref("extensions.aios.dm.sidebar", true);
+pref("extensions.aios.dm.popup", false);
 pref("extensions.aios.dm.layout", true);
 pref("extensions.aios.dm.layoutall", false);
 pref("extensions.aios.dm.autoopen", true);
@@ -74,6 +78,7 @@ pref("extensions.aios.dm.shading", true);
 
 pref("extensions.aios.em.sidebar", true);
 pref("extensions.aios.em.count", true);
+pref("extensions.aios.em.oninstall", true);
 
 pref("extensions.aios.bm.sidebar", true);
 pref("extensions.aios.bm.layout", true);

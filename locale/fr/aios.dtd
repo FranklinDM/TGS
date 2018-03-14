@@ -1,11 +1,13 @@
 <!ENTITY loading.label "chargement du panneau…">
-<!ENTITY menu.prefs.label "Options de All-in-One Sidebar…">
+<!ENTITY menu.prefs.label "Options de The Good 'ol Sidebar…">
 <!ENTITY menu.togglebar.label "Activer/désactiver le panneau latéral">
 <!ENTITY menu.grippy.label "'Poignées' pour le panneau latéral">
-<!ENTITY toolbar.name "Barre d'outils d'All-in-One Sidebar">
-<!ENTITY sbhtoolbar.name "En-tête de la barre d'outils All-in-One Sidebar">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Activer/désactiver les éléments contrôlés par All-in-One Sidebar">
+<!ENTITY toolbar.name "Barre d'outils d'The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
+<!ENTITY sbhtoolbar.name "Barre d'outils de l'en-tête de barre latérale">
+<!ENTITY sbhtoolbar.label "En-tête de barre latérale">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Activer/désactiver les éléments contrôlés par The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Permuter panneau latéral et barre d'outils">
 <!ENTITY button.switch.tooltip2 "Afficher/cacher la barre d'outils">
 <!ENTITY button.switch.tooltip3 "Afficher/cacher le panneau latéral">
@@ -16,8 +18,8 @@
 <!ENTITY sidebar.width.max "Largeur maximum">
 <!ENTITY button.menu.label "Panneaux latéraux">
 <!ENTITY button.menu.tooltip "Tous les panneaux latéraux disponibles">
-<!ENTITY button.toolbar.label "Barre d'AIOS">
-<!ENTITY button.toolbar.tooltip "Afficher/cacher la barre d'AIOS">
+<!ENTITY button.toolbar.label "Barre d'TGS">
+<!ENTITY button.toolbar.tooltip "Afficher/cacher la barre d'TGS">
 <!ENTITY button.paneltab.label "Onglet du panneau">
 <!ENTITY button.paneltab.tooltip1 "Ouvre le contenu de l'onglet dans le panneau latéral">
 <!ENTITY button.paneltab.tooltip2 "Ouvre le contenu du panneau latéral dans un nouvel onglet">
@@ -36,6 +38,8 @@
 <!ENTITY button.pageinfo.tooltip "Affiche des informations étendues sur la page Web">
 <!ENTITY button.console.label "Console d'erreur">
 <!ENTITY button.console.tooltip "Ouvre la console d'erreur, montrant les problèmes et le code source">
+<!ENTITY button.cookies.label "Cookies">
+<!ENTITY button.cookies.tooltip "Gérer les cookies individuels">
 <!ENTITY keys.modifiers "accel shift">
 <!ENTITY keys.sidebar "VK_F4">
 <!ENTITY keys.options "VK_F4">
@@ -43,7 +47,8 @@
 <!ENTITY keys.paneltab2 "Y">
 <!ENTITY keys.addons "A">
 <!ENTITY keys.multipanel "M">
-<!ENTITY keys.pageinfo "P">
+<!ENTITY keys.pageinfo "E">
+<!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "À gauche près du panneau latéral">
 <!ENTITY toolbar.pos.sidebarright.label "À droite près du panneau latéral">
 <!ENTITY toolbar.pos.sidebartop.label "Au-dessus du panneau latéral">

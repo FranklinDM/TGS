@@ -1,11 +1,11 @@
 <!ENTITY loading.label "đang nạp bảng…">
-<!ENTITY menu.prefs.label "Tùy chọn All-in-One Sidebar…">
+<!ENTITY menu.prefs.label "Tùy chọn The Good 'ol Sidebar…">
 <!ENTITY menu.togglebar.label "Công tắc Thanh lề">
 <!ENTITY menu.grippy.label "Thanh lề Grippy">
-<!ENTITY toolbar.name "Thanh All-in-One Sidebar">
+<!ENTITY toolbar.name "Thanh The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Thanh công cụ Đầu đề Thanh lề">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Bật tắt các phần tử được All-in-One Sidebar điều khiển">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Bật tắt các phần tử được The Good 'ol Sidebar điều khiển">
 <!ENTITY button.switch.tooltip1 "Bật tắt Thanh lề và Thanh công cụ">
 <!ENTITY button.switch.tooltip2 "Bật tắt Thanh công cụ">
 <!ENTITY button.switch.tooltip3 "Bật tắt Thanh lề">
@@ -16,8 +16,8 @@
 <!ENTITY sidebar.width.max "Độ rộng tối đa">
 <!ENTITY button.menu.label "Bảng Thanh Lề">
 <!ENTITY button.menu.tooltip "Tất cả các Bảng Thanh Lề">
-<!ENTITY button.toolbar.label "Thanh AiOS">
-<!ENTITY button.toolbar.tooltip "Bật tắt Thanh AiOS">
+<!ENTITY button.toolbar.label "Thanh TGS">
+<!ENTITY button.toolbar.tooltip "Bật tắt Thanh TGS">
 <!ENTITY button.paneltab.label "ThẻBảng">
 <!ENTITY button.paneltab.tooltip1 "Mở Nội dung của Thẻ trong Thanh lề">
 <!ENTITY button.paneltab.tooltip2 "Mở Nội dung của Thẻ trong Thẻ Mới">

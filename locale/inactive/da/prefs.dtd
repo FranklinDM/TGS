@@ -55,7 +55,7 @@
 <!ENTITY cmode.caption "Slå sidebjælke til/fra">
 <!ENTITY cmode.desc "Definer hvilke elementer der skal påvirkes ved åbning eller lukning af sidebjælken med forskellige metoder.">
 <!ENTITY cmode.key.label "Genvej (F4)">
-<!ENTITY cmode.tbb.label "AiOS knap">
+<!ENTITY cmode.tbb.label "TGS knap">
 <!ENTITY cmode.close.label "Luk knap">
 <!ENTITY cmode.mode1.label "Kun sidebjælken">
 <!ENTITY cmode.mode2.label "Sidebjælken og værktøjslinjen">

@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – 選項">
+<!ENTITY title "The Good 'ol Sidebar – 選項">
 <!ENTITY restart "需要重新啟動瀏覽器">
 <!ENTITY settings "設定">
 <!ENTITY settings.default "還原至預設值…">
@@ -55,7 +55,7 @@
 <!ENTITY cmode.caption "開關側邊欄">
 <!ENTITY cmode.desc "此部份提供「當下列不同方式開啟（或關閉）側邊欄時，相對應的開啟（或關閉）方式」。">
 <!ENTITY cmode.key.label "熱鍵（F4）">
-<!ENTITY cmode.tbb.label "AiOS 按鈕">
+<!ENTITY cmode.tbb.label "TGS 按鈕">
 <!ENTITY cmode.close.label "側邊欄關閉鈕">
 <!ENTITY cmode.mode1.label "只有側邊欄">
 <!ENTITY cmode.mode2.label "側邊欄與工具列">

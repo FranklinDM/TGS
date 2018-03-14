@@ -1,9 +1,9 @@
 <!ENTITY loading.label "připravuji obsah lišty…">
-<!ENTITY menu.prefs.label "Možnosti rozšíření „All-in-one Sidebar“…">
+<!ENTITY menu.prefs.label "Možnosti rozšíření „The Good 'ol Sidebar“…">
 <!ENTITY menu.togglebar.label "Přepínač zobrazení postranních lišt">
 <!ENTITY menu.grippy.label "Táhlo postranních lišt">
-<!ENTITY toolbar.name "Lišta rozšíření „All-in-One Sidebar“">
-<!ENTITY button.toggle.label "AiOS">
+<!ENTITY toolbar.name "Lišta rozšíření „The Good 'ol Sidebar“">
+<!ENTITY button.toggle.label "TGS">
 <!ENTITY button.switch.tooltip1 "Přepínač zobrazení postranního panelu a nástrojové lišty">
 <!ENTITY button.switch.tooltip2 "Přepínač zobrazení nástrojové lišty">
 <!ENTITY button.switch.tooltip3 "Přepínač zobrazení postranního panelu">
@@ -14,8 +14,8 @@
 <!ENTITY sidebar.width.max "Miximální šířka">
 <!ENTITY button.menu.label "Postranní lišty">
 <!ENTITY button.menu.tooltip "Všechny dostupné postranní lišty">
-<!ENTITY button.toolbar.label "Nástrojová lišta AiOS">
-<!ENTITY button.toolbar.tooltip "Přepínač zobrazení nástrojové lišty AiOS">
+<!ENTITY button.toolbar.label "Nástrojová lišta TGS">
+<!ENTITY button.toolbar.tooltip "Přepínač zobrazení nástrojové lišty TGS">
 <!ENTITY button.paneltab.label "Postranní lištu do panelu prohlížeče">
 <!ENTITY button.paneltab.tooltip1 "Otevře obsah panelu v postranní liště">
 <!ENTITY button.paneltab.tooltip2 "Otevře obsah postranní lišty v novém panelu">

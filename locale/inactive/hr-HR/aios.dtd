@@ -1,10 +1,10 @@
 <!ENTITY loading.label "učitavanje panoa…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar Opcije…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar Opcije…">
 <!ENTITY menu.togglebar.label "Prebacivanje rubnog stupca">
 <!ENTITY menu.grippy.label "Sidebar Grippy">
-<!ENTITY toolbar.name "All-in-One Sidebar alatna traka">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Promijeni elemente koje kontrolira All-in-One Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar alatna traka">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Promijeni elemente koje kontrolira The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Promjena rubnog stupca i alatne trake">
 <!ENTITY button.switch.tooltip2 "Promijeni alatnu traku">
 <!ENTITY button.switch.tooltip3 "Promijeni rubni stupac">
@@ -15,8 +15,8 @@
 <!ENTITY sidebar.width.max "Najveća moguća širina">
 <!ENTITY button.menu.label "Panoi rubnog stupca">
 <!ENTITY button.menu.tooltip "Svi dostupni panoi rubnog stupca">
-<!ENTITY button.toolbar.label "AiOS-Alatna traka">
-<!ENTITY button.toolbar.tooltip "Promijeni AiOS-Alatnu traku">
+<!ENTITY button.toolbar.label "TGS-Alatna traka">
+<!ENTITY button.toolbar.tooltip "Promijeni TGS-Alatnu traku">
 <!ENTITY button.paneltab.label "Pano kartica">
 <!ENTITY button.paneltab.tooltip1 "Otvori sadržaj kartice u rubnom stupcu">
 <!ENTITY button.paneltab.tooltip2 "Otvori sadržaj rubnog stupca u novoj kartici">

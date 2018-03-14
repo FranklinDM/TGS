@@ -1,13 +1,13 @@
 <!ENTITY loading.label "laadin paneeli…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar'i seaded">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar'i seaded">
 <!ENTITY menu.togglebar.label "Külgpaani lülitus">
 <!ENTITY menu.grippy.label "Külgpaani haare">
-<!ENTITY toolbar.name "All-in-One Sidebar tööriistariba">
-<!ENTITY toolbar.label "All-in-One Sidebar">
+<!ENTITY toolbar.name "The Good 'ol Sidebar tööriistariba">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Külgpaani päise tööriistariba">
 <!ENTITY sbhtoolbar.label "Sidebar päis">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Lülita sisse-välja All-in-One Sidebar poolt kontrollitavad elemendid">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Lülita sisse-välja The Good 'ol Sidebar poolt kontrollitavad elemendid">
 <!ENTITY button.switch.tooltip1 "Lülita külgpaan ja tööriistariba sisse-välja">
 <!ENTITY button.switch.tooltip2 "Lülita tööriistariba sisse-välja">
 <!ENTITY button.switch.tooltip3 "Lülita külgpaan sisse-välja">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Maksimaalne laius">
 <!ENTITY button.menu.label "Külgpaani paneelid">
 <!ENTITY button.menu.tooltip "Kõik võimalikud külgpaani paneelid">
-<!ENTITY button.toolbar.label "AiOS-tööriistariba">
-<!ENTITY button.toolbar.tooltip "Lülita AiOS-tööriistariba sisse-välja">
+<!ENTITY button.toolbar.label "TGS-tööriistariba">
+<!ENTITY button.toolbar.tooltip "Lülita TGS-tööriistariba sisse-välja">
 <!ENTITY button.paneltab.label "PaneeliVaheleht">
 <!ENTITY button.paneltab.tooltip1 "Ava vahelehe sisu külgpaanis">
 <!ENTITY button.paneltab.tooltip2 "Ava külgpaani sisu uuel vahelehel">

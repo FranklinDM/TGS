@@ -1,0 +1,21 @@
+<!ENTITY title "Informazioni su The Good 'ol Sidebar">
+<!ENTITY settings "Impostazioni…">
+<!ENTITY close "Chiudi">
+<!ENTITY tab.about "Informazioni">
+<!ENTITY tab.help "Contenuti guida">
+<!ENTITY tab.contrib "Collaboratori">
+<!ENTITY tab.trans "Traduttori">
+<!ENTITY about.desc "Permette di aprire diverse finestre quale la finestra di gestione dei download nella barra laterale analogamente alla barra dei segnalibri e della cronologia, passando rapidamente da una all'altra">
+<!ENTITY create.desc "Creata da FranklinDM, biforcuta dall'ormai defunta sidebar All-in-One creata da Ingo Wennemaring, Amburgo [Germania]">
+<!ENTITY help.desc "I contenuti guida di The Good 'ol Sidebar sono disponibili (in inglese) nelle pagine web qui sotto">
+<!ENTITY about1.name "Sito web - molteplici informazioni tutte insieme">
+<!ENTITY about2.name "Caratteristiche - tutte le caratteristiche di The Good 'ol Sidebar">
+<!ENTITY about3.name "FAQ - domande poste frequentemente e risposte">
+<!ENTITY about4.name "Problemi noti - descrizione ed analisi">
+<!ENTITY about5.name "Support topic - discussioni, rapporti sui bug e soluzioni per i conflitti dei temi">
+<!ENTITY about6.name "Storico - cronologia e modifiche">
+<!ENTITY about7.name "Da fare - aggiunte pianificate e miglioramenti">
+<!ENTITY contrib.desc "Si ringraziano i seguenti sviluppatori per l'ispirazione e le parti di codice (in ordine alfabetico):">
+<!ENTITY contrib.thanks "Si ringraziano infine tutti gli utilizzatori che hanno aiutato testando le versioni in via di sviluppo, riportando i bug nel forum, condividendo le loro idee ed i loro suggerimenti o scrivendo giusto un commento carino :-). Molte grazie!">
+<!ENTITY trans.desc "I traduttori di AiOS e TGS (in ordine alfabetico per sigla della lingua):">
+<!ENTITY trans.thanks "Si ringraziano anche le persone del team di BabelZilla.org per il loro lavoro!">

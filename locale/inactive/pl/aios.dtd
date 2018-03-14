@@ -1,13 +1,13 @@
 <!ENTITY loading.label "wczytuję panel…">
-<!ENTITY menu.prefs.label "Opcje All-in-One Sidebar">
+<!ENTITY menu.prefs.label "Opcje The Good 'ol Sidebar">
 <!ENTITY menu.togglebar.label "Przełącznik panelu bocznego">
 <!ENTITY menu.grippy.label "Panel boczny Grippy">
-<!ENTITY toolbar.name "Pasek narzędzi All-in-One Sidebar">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "Pasek narzędzi The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Pasek narzędzi nagłówka panelu bocznego">
 <!ENTITY sbhtoolbar.label "Nagłówek panelu bocznego">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Wyświetla/ukrywa elementy kontrolowane przez All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Wyświetla/ukrywa elementy kontrolowane przez The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Wyświetla/ukrywa panel boczny i pasek narzędzi">
 <!ENTITY button.switch.tooltip2 "Wyświetla/ukrywa pasek narzędzi">
 <!ENTITY button.switch.tooltip3 "Wyświetla/ukrywa panel boczny">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Maksymalna szerokość">
 <!ENTITY button.menu.label "Panele boczne">
 <!ENTITY button.menu.tooltip "Wyświetla listę wszystkich dostępnych paneli bocznych">
-<!ENTITY button.toolbar.label "Pasek AIOS">
-<!ENTITY button.toolbar.tooltip "Wyświetla/ukrywa pasek narzędzi AIOS">
+<!ENTITY button.toolbar.label "Pasek TGS">
+<!ENTITY button.toolbar.tooltip "Wyświetla/ukrywa pasek narzędzi TGS">
 <!ENTITY button.paneltab.label "Panel kart">
 <!ENTITY button.paneltab.tooltip1 "Otwórz zawartość karty w panelu bocznym">
 <!ENTITY button.paneltab.tooltip2 "Otwórz zawartość panelu bocznego w nowej karcie">

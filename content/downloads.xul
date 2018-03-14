@@ -7,28 +7,31 @@
   %downloadsDTD;
 ]>
 
-<overlay id="aios_DownloadsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<overlay id="aios_DownloadsOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript" src="chrome://aios/content/_helper.js" />
-	<script type="application/x-javascript" src="chrome://aios/content/downloads.js" />
+    <script type="application/x-javascript"
+            src="chrome://aios/content/_helper.js" />
+    <script type="application/x-javascript"
+            src="chrome://aios/content/downloads.js" />
 
-	<window id="contentAreaDownloadsView">
-		  <toolbox id="commandBar" position="1">
-			<toolbar id="main-bar">
-			  <textbox id="searchbox"
-					   flex="1"
-					   clickSelectsAll="true"
-					   type="search"
-					   placeholder="&searchItem.title;"
-					   aria-controls="placeContent"
-					   oncommand="aios_search(this.value);"
-					   collection="downloads"/>
-			  <toolbarbutton id="clearListButton"
-					  oncommand="aios_clear();"
-
-					  tooltiptext="&clearDownloadsButton.tooltip;"/>
-			</toolbar>
-		  </toolbox>
-	</window>
+    <window id="contentAreaDownloadsView">
+          <toolbox id="commandBar"
+                   position="1">
+            <toolbar id="main-bar">
+              <textbox id="searchbox"
+                       flex="1"
+                       clickSelectsAll="true"
+                       type="search"
+                       placeholder="&searchItem.title;"
+                       aria-controls="placeContent"
+                       oncommand="aios_search(this.value);"
+                       collection="downloads"/>
+              <toolbarbutton id="clearListButton"
+                             oncommand="aios_clear();"
+                             tooltiptext="&clearDownloadsButton.tooltip;"/>
+            </toolbar>
+          </toolbox>
+    </window>
 
 </overlay>

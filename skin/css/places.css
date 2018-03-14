@@ -23,7 +23,8 @@ page[aios-inSidebar] #closeFolder {
 page[aios-inSidebar] #closeFolder image {
 	margin-right: 2px;
 }
-page[aios-inSidebar] #closeFolder label {
+page[aios-inSidebar] #closeFolder label,
+page[aios-inSidebar] #viewButton .toolbarbutton-text {
 	display: none;
 }
 page[aios-inSidebar] #viewButton {

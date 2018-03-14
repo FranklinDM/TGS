@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar - Beállítások">
+<!ENTITY title "The Good 'ol Sidebar - Beállítások">
 <!ENTITY restart "A változtatások a böngésző újraindítását igénylik">
 <!ENTITY settings "Beállítások">
 <!ENTITY settings.default "Alaphelyzetbe állítás…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Oldalsáv váltás">
 <!ENTITY cmode.desc "Testreszabható, hogy melyik elem legyen érintett a különféle módú Oldalsáv megnyitáskor és bezáráskor.">
 <!ENTITY cmode.key.label "Gyorsbillentyű (F4)">
-<!ENTITY cmode.tbb.label "AiOS gomb">
+<!ENTITY cmode.tbb.label "TGS gomb">
 <!ENTITY cmode.close.label "Bezárás gomb">
 <!ENTITY cmode.mode1.label "Csak az Oldalsáv">
 <!ENTITY cmode.mode2.label "Oldalsáv és az Eszköztár">

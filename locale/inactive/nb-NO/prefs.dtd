@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – Innstillinger">
+<!ENTITY title "The Good 'ol Sidebar – Innstillinger">
 <!ENTITY restart "Endringer krever omstart av nettleseren">
 <!ENTITY settings "Innstillinger">
 <!ENTITY settings.default "Gjenopprett standardvalg">
@@ -55,7 +55,7 @@
 <!ENTITY cmode.caption "Håndter sidestolpe">
 <!ENTITY cmode.desc "Tilpass elementene som skal berøres hvis sidestolpen blir åpnet eller lukket med forskjellig metoder.">
 <!ENTITY cmode.key.label "Snarvei (F4)">
-<!ENTITY cmode.tbb.label "AiOS Knapp">
+<!ENTITY cmode.tbb.label "TGS Knapp">
 <!ENTITY cmode.close.label "Lukkeknapp">
 <!ENTITY cmode.mode1.label "Kun sidestolpen">
 <!ENTITY cmode.mode2.label "Sidestolpen og verktøylinjen">

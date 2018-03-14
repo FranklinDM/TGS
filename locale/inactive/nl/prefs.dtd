@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar – opties">
+<!ENTITY title "The Good 'ol Sidebar – opties">
 <!ENTITY restart "Veranderingen hebben een herstart van de browser nodig">
 <!ENTITY settings "Instellingen">
 <!ENTITY settings.default "Standaardinstellingen herstellen…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Zijbalk openen/sluiten">
 <!ENTITY cmode.desc "Aanpassen welke elementen beïnvloed moeten worden als de zijbalk geopend of gesloten wordt via verschillende methodes.">
 <!ENTITY cmode.key.label "Sneltoets (F4)">
-<!ENTITY cmode.tbb.label "AiOS-knop">
+<!ENTITY cmode.tbb.label "TGS-knop">
 <!ENTITY cmode.close.label "Sluitknop">
 <!ENTITY cmode.mode1.label "Alleen de zijbalk">
 <!ENTITY cmode.mode2.label "De zijbalk en de werkbalk">

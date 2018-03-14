@@ -1,10 +1,10 @@
 <!ENTITY loading.label "įkeliamas skydelis…">
-<!ENTITY menu.prefs.label "„All-in-One Sidebar“ nustatymai…">
+<!ENTITY menu.prefs.label "„The Good 'ol Sidebar“ nustatymai…">
 <!ENTITY menu.togglebar.label "Parankinės jungiklis">
 <!ENTITY menu.grippy.label "Parankinės juostelė">
-<!ENTITY toolbar.name "„All-in-One Sidebar“ priemonių juosta">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Įjungti/išjungti „All-in-One Sidebar“ valdomus elementus">
+<!ENTITY toolbar.name "„The Good 'ol Sidebar“ priemonių juosta">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Įjungti/išjungti „The Good 'ol Sidebar“ valdomus elementus">
 <!ENTITY button.switch.tooltip1 "Įjungti/išjungti parankinę ir priemonių juostą">
 <!ENTITY button.switch.tooltip2 "Įjungti/išjungti priemonių juostą">
 <!ENTITY button.switch.tooltip3 "Įjungti/išjungti parankinę">
@@ -15,8 +15,8 @@
 <!ENTITY sidebar.width.max "Maksimalus plotis">
 <!ENTITY button.menu.label "Parankinės skydeliai">
 <!ENTITY button.menu.tooltip "Visi galimi parankinės skydeliai">
-<!ENTITY button.toolbar.label "AiOS priemonių juosta">
-<!ENTITY button.toolbar.tooltip "Įjungti/išjungti AiOS priemonių juostą">
+<!ENTITY button.toolbar.label "TGS priemonių juosta">
+<!ENTITY button.toolbar.tooltip "Įjungti/išjungti TGS priemonių juostą">
 <!ENTITY button.paneltab.label "Skydelio kortelė">
 <!ENTITY button.paneltab.tooltip1 "Atverti kortelės turinį parankinėje">
 <!ENTITY button.paneltab.tooltip2 "Atverti parankinės turinį naujoje kortelėje">

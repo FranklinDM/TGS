@@ -1,0 +1,57 @@
+<!ENTITY loading.label "nilo-load ang panel…">
+<!ENTITY menu.prefs.label "Mga Opsiyon ng The Good 'ol Sidebar…">
+<!ENTITY menu.togglebar.label "Sidebar Switch">
+<!ENTITY menu.grippy.label "Sidebar Grippy">
+<!ENTITY toolbar.name "The Good 'ol Sidebar Toolbar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
+<!ENTITY sbhtoolbar.name "Sidebar Header Toolbar">
+<!ENTITY sbhtoolbar.label "Sidebar Header">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "I-toggle ang mga elementong kontrolado ng The Good 'ol Sidebar">
+<!ENTITY button.switch.tooltip1 "I-toggle ang Sidebar at Toolbar">
+<!ENTITY button.switch.tooltip2 "I-toggle Toolbar">
+<!ENTITY button.switch.tooltip3 "I-toggle Sidebar">
+<!ENTITY sidebar.open.label "Buksan ang Sidebar">
+<!ENTITY sidebar.close.label "Isara ang Sidebar">
+<!ENTITY sidebar.width.min "Pinakamababang lapad">
+<!ENTITY sidebar.width.def "Istandard na lapad">
+<!ENTITY sidebar.width.max "Pinakamataas na lapad">
+<!ENTITY button.menu.label "Mga Sidebar Panel">
+<!ENTITY button.menu.tooltip "Lahat ng mga Sidebar Panel">
+<!ENTITY button.toolbar.label "TGS Toolbar">
+<!ENTITY button.toolbar.tooltip "I-toggle ang TGS Toolbar">
+<!ENTITY button.paneltab.label "PanelTab">
+<!ENTITY button.paneltab.tooltip1 "Buksan ang Nilalaman ng Tab sa Sidebar">
+<!ENTITY button.paneltab.tooltip2 "Buksan ang Nilalaman ng Sidebar sa New Tab">
+<!ENTITY button.paneltab.tooltip3 "Buksan ang Nilalaman ng Sidebar sa Window">
+<!ENTITY button.paneltab.menu1.label "Buksan ang Tab sa Sidebar">
+<!ENTITY button.paneltab.menu2.label "Buksan ang Sidebar sa Tab">
+<!ENTITY button.autohide.label "SidebarAutomatic">
+<!ENTITY button.autohide.tooltip "Awtomatikong i-toggle ang Sidebar">
+<!ENTITY button.tooltip.sidebar "Buksan sa Sidebar">
+<!ENTITY button.tooltip.window "Buksan sa Window">
+<!ENTITY button.tooltip.tab "Buksan sa Bagong Tab">
+<!ENTITY button.addons.label "Mga Add-on">
+<!ENTITY button.addons.tooltip "Ipakita ang mga naka-install na add-on">
+<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.tooltip "Ipakita ang mga website at impormasyon ng browser">
+<!ENTITY button.pageinfo.tooltip "Ipakita ang masaklaw na impormasyon tungkol sa isang pahina">
+<!ENTITY button.console.label "Error Console">
+<!ENTITY button.console.tooltip "Buksan ang Error Console, na sumusubaybay sa mga problema ng source code">
+<!ENTITY button.cookies.label "Mga Cookie">
+<!ENTITY button.cookies.tooltip "Pangasiwaan ang mga naka-imbak na cookie">
+<!ENTITY keys.modifiers "accel shift">
+<!ENTITY keys.sidebar "VK_F4">
+<!ENTITY keys.options "VK_F4">
+<!ENTITY keys.paneltab1 "X">
+<!ENTITY keys.paneltab2 "Y">
+<!ENTITY keys.addons "A">
+<!ENTITY keys.multipanel "M">
+<!ENTITY keys.pageinfo "E">
+<!ENTITY keys.cookies "L">
+<!ENTITY toolbar.pos.sidebarleft.label "Kaliwa Katabi ng Sidebar">
+<!ENTITY toolbar.pos.sidebarright.label "Kanan Katabi ng Sidebar">
+<!ENTITY toolbar.pos.sidebartop.label "Tuktok ng Sidebar">
+<!ENTITY toolbar.pos.headerbottom.label "Ibaba ng Sidebar Header">
+<!ENTITY toolbar.pos.sidebarbottom.label "Ibaba ng Sidebar">
+<!ENTITY toolbar.mode.flexbuttons.label "Pleksibleng mga Button">

@@ -4,7 +4,7 @@
 <!ENTITY menu.grippy.label "Kapja e Shiritit Anësor">
 <!ENTITY toolbar.name "Shiriti i Mjeteve të &quot;All-in-One Shiritit Anësorë&quot;">
 <!ENTITY sbhtoolbar.name "Shiriti i Mjeteve të shiritit anësorë në kokë">
-<!ENTITY button.toggle.label "AiOS">
+<!ENTITY button.toggle.label "TGS">
 <!ENTITY button.toggle.tooltip "Elementet në bërryl të kontrolluara nga &quot;All-in-One Shiritit Anësor&quot;">
 <!ENTITY button.switch.tooltip1 "Shirit Mjetesh dhe Shirit Anësor në Bërryl">
 <!ENTITY button.switch.tooltip2 "Shirit Mjetesh në Bërryl">
@@ -16,8 +16,8 @@
 <!ENTITY sidebar.width.max "Gjerësia maksimale">
 <!ENTITY button.menu.label "Panelet e Shiritit Anësor">
 <!ENTITY button.menu.tooltip "Të gjitha Panelet e mundshme të Shiritit Anësor">
-<!ENTITY button.toolbar.label "AiOS Shiriti i Mjeteve">
-<!ENTITY button.toolbar.tooltip "AiOS Shiriti i Mjeteve në bërryl">
+<!ENTITY button.toolbar.label "TGS Shiriti i Mjeteve">
+<!ENTITY button.toolbar.tooltip "TGS Shiriti i Mjeteve në bërryl">
 <!ENTITY button.paneltab.label "Fleta e Panelit">
 <!ENTITY button.paneltab.tooltip1 "Hapa përmbajtjen e fletës në Shiritin Anësor">
 <!ENTITY button.paneltab.tooltip2 "Hape përmbajtjen e Shiritit Anësor në një Fletë të Re">

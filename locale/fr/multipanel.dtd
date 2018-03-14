@@ -2,7 +2,7 @@
 <!ENTITY page.tooltip "Ouvre la page Web dans ce panneau">
 <!ENTITY page.ssr.label "Affichage pour écran réduit">
 <!ENTITY page.ssr100.label "Adapter à la largeur du panneau latéral">
-<!ENTITY about.label "À propos :">
+<!ENTITY about.label "about:">
 <!ENTITY about.tooltip "Affiche diverses informations à propos du navigateur">
 <!ENTITY about.config.tooltip "Affiche une interface d'édition et configuration pour un grand nombre de variables paramétrables">
 <!ENTITY about.plugins.tooltip "Affiche des informations relatives à tous les plugins installés">
@@ -17,6 +17,7 @@
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
 <!ENTITY about.credits.tooltip "Affiche une liste de tous les contributeurs de Pale Moon">
 <!ENTITY about.license.tooltip "Affiche la licence 'Mozilla Public License'">
-<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
-<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
+<!ENTITY about.mozilla.tooltip "Affiche la page de Mozilla: In Memoriam">
+<!ENTITY about.palemoon.tooltip "Montrer un extrait des Chroniques du Pale Moon">
 <!ENTITY tools.remlast.label "Se souvenir du dernier contenu affiché">
+<!ENTITY tools.linked.label "Ouvrir les liens dans l'onglet actuel">

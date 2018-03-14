@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar inställningar">
+<!ENTITY title "The Good 'ol Sidebar inställningar">
 <!ENTITY restart "Ändringarna kräver en omstart av webbläsaren">
 <!ENTITY settings "Inställningar">
 <!ENTITY settings.default "Återställ förinställda val…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Aktivering av sidopanelen">
 <!ENTITY cmode.desc "Välj vilka objekt som ska påverkas av de olika sätten att öppna och stänga sidopanelen.">
 <!ENTITY cmode.key.label "Genväg (F4)">
-<!ENTITY cmode.tbb.label "AiOS-knapp">
+<!ENTITY cmode.tbb.label "TGS-knapp">
 <!ENTITY cmode.close.label "Stängningsknapp">
 <!ENTITY cmode.mode1.label "Enbart sidopanelen">
 <!ENTITY cmode.mode2.label "Sidopanelen och verktygsfältet">

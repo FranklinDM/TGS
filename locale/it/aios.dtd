@@ -1,13 +1,13 @@
 <!ENTITY loading.label "Caricamento del pannello in corso…">
-<!ENTITY menu.prefs.label "Impostazioni di All-in-One Sidebar…">
-<!ENTITY menu.togglebar.label "Bordo cliccabile (Mostra/Nasconde AiOS)">
+<!ENTITY menu.prefs.label "Impostazioni di The Good 'ol Sidebar…">
+<!ENTITY menu.togglebar.label "Bordo cliccabile (Mostra/Nasconde TGS)">
 <!ENTITY menu.grippy.label "Barra laterale Grippy">
-<!ENTITY toolbar.name "Barra degli strumenti di All-in-One Sidebar">
-<!ENTITY toolbar.label "All-in-One Sidebar">
+<!ENTITY toolbar.name "Barra degli strumenti di The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Barra laterale">
 <!ENTITY sbhtoolbar.label "Intestazione della barra laterale">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Attiva/Disattiva gli elementi controllati da All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Attiva/Disattiva gli elementi controllati da The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Attiva/Disattiva barra laterale e degli strumenti">
 <!ENTITY button.switch.tooltip2 "Attiva/Disattiva la barra degli strumenti">
 <!ENTITY button.switch.tooltip3 "Attiva/Disattiva la barra laterale">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Larghezza massima">
 <!ENTITY button.menu.label "Pannelli della barra laterale">
 <!ENTITY button.menu.tooltip "Tutti i pannelli disponibili della barra laterale">
-<!ENTITY button.toolbar.label "Barra di AiOS">
-<!ENTITY button.toolbar.tooltip "Attiva/Disattiva la barra di AiOS">
+<!ENTITY button.toolbar.label "Barra di TGS">
+<!ENTITY button.toolbar.tooltip "Attiva/Disattiva la barra di TGS">
 <!ENTITY button.paneltab.label "Contenuto">
 <!ENTITY button.paneltab.tooltip1 "Apre il contenuto della scheda nella barra laterale">
 <!ENTITY button.paneltab.tooltip2 "Apre il contenuto della barra laterale in una nuova scheda">
@@ -38,14 +38,17 @@
 <!ENTITY button.pageinfo.tooltip "Mostra informazioni dettagliate sulla pagina web attuale">
 <!ENTITY button.console.label "Console degli errori">
 <!ENTITY button.console.tooltip "Tiene traccia dei problemi inerenti al codice sorgente con la Console degli errori">
-<!ENTITY keys.modifiers "accel maiusc">
+<!ENTITY button.cookies.label "Cookie">
+<!ENTITY button.cookies.tooltip "Gestione i singoli cookie">
+<!ENTITY keys.modifiers "accel shift">
 <!ENTITY keys.sidebar "VK_F4">
 <!ENTITY keys.options "VK_F4">
 <!ENTITY keys.paneltab1 "X">
 <!ENTITY keys.paneltab2 "Y">
 <!ENTITY keys.addons "A">
 <!ENTITY keys.multipanel "M">
-<!ENTITY keys.pageinfo "P">
+<!ENTITY keys.pageinfo "E">
+<!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "A sinistra accanto alla barra laterale">
 <!ENTITY toolbar.pos.sidebarright.label "A destra accanto alla barra laterale">
 <!ENTITY toolbar.pos.sidebartop.label "Sopra la barra laterale">

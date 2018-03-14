@@ -1,10 +1,10 @@
 <!ENTITY loading.label "面板讀取中…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar 選項…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar 選項…">
 <!ENTITY menu.togglebar.label "側邊欄彈出鈕">
 <!ENTITY menu.grippy.label "側邊欄伸縮鈕">
-<!ENTITY toolbar.name "All-in-One Sidebar 工具列">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "由 All-in-One Sidebar 來控制開關">
+<!ENTITY toolbar.name "The Good 'ol Sidebar 工具列">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "由 The Good 'ol Sidebar 來控制開關">
 <!ENTITY button.switch.tooltip1 "開關側邊欄與工具列">
 <!ENTITY button.switch.tooltip2 "開關工具列">
 <!ENTITY button.switch.tooltip3 "開關側邊欄">
@@ -15,8 +15,8 @@
 <!ENTITY sidebar.width.max "最小寬度">
 <!ENTITY button.menu.label "側邊欄面板">
 <!ENTITY button.menu.tooltip "所有可用的側邊欄面板">
-<!ENTITY button.toolbar.label "AiOS 工具列">
-<!ENTITY button.toolbar.tooltip "開關 AiOS 工具列">
+<!ENTITY button.toolbar.label "TGS 工具列">
+<!ENTITY button.toolbar.tooltip "開關 TGS 工具列">
 <!ENTITY button.paneltab.label "側邊欄分頁">
 <!ENTITY button.paneltab.tooltip1 "將「分頁中的內容」開啟於側邊欄中">
 <!ENTITY button.paneltab.tooltip2 "將「側邊欄的內容」開啟於新分頁中">

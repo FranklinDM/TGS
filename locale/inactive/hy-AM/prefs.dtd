@@ -1,4 +1,4 @@
-<!ENTITY title "All-in-One Sidebar Նախընտրանքներ">
+<!ENTITY title "The Good 'ol Sidebar Նախընտրանքներ">
 <!ENTITY restart "Փոփոխությունը պահանջում է ծրագրի վերբեռնում">
 <!ENTITY settings "Նախընտրանքներ">
 <!ENTITY settings.default "Նախընտրանքներ լռելիությամբ…">
@@ -56,7 +56,7 @@
 <!ENTITY cmode.caption "Փակում/Բացում">
 <!ENTITY cmode.desc "Սահմանել ինչի վրա պիտի ազդի տարբեր մեթոդներով բացում/փակումը">
 <!ENTITY cmode.key.label "Ստեղնաշարից (F4)">
-<!ENTITY cmode.tbb.label "AiOS Կոճակով">
+<!ENTITY cmode.tbb.label "TGS Կոճակով">
 <!ENTITY cmode.close.label "«Փակել» կոճակով">
 <!ENTITY cmode.mode1.label "Միայն կողավահանակի">
 <!ENTITY cmode.mode2.label "Կողավահանակի և Գործիքաշարի">

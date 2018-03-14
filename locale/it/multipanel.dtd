@@ -17,5 +17,7 @@
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto! ">
 <!ENTITY about.credits.tooltip "Mostra una lista di tutti i collaboratori di Pale Moon">
 <!ENTITY about.license.tooltip "Mostra la Mozilla Public License">
-<!ENTITY about.mozilla.tooltip "Mostra un estratto dalle Cronache della Pale Moon">
+<!ENTITY about.mozilla.tooltip "Mostra la pagina di Mozilla: In Memoriam">
+<!ENTITY about.palemoon.tooltip "Mostra un estratto dalle Cronache della Pale Moon">
 <!ENTITY tools.remlast.label "Ricorda l&apos;ultimo contenuto visualizzato">
+<!ENTITY tools.linked.label "Apri i collegamenti nella scheda corrente">

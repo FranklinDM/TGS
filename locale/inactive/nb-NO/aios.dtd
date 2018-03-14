@@ -1,9 +1,9 @@
 <!ENTITY loading.label "laster panel…">
-<!ENTITY menu.prefs.label "All-in-One Sidebar valg…">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar valg…">
 <!ENTITY menu.togglebar.label "Sidestolpe bryter">
 <!ENTITY menu.grippy.label "Sidestolpe klebrig">
 <!ENTITY toolbar.name "All-in-One sidestolpe verktøylinje">
-<!ENTITY button.toggle.label "AiOS">
+<!ENTITY button.toggle.label "TGS">
 <!ENTITY button.toggle.tooltip "Håndter elementer som kontrolleres av All-in-One sidestolpe">
 <!ENTITY button.switch.tooltip1 "Håndter sidestolpe og verktøylinje">
 <!ENTITY button.switch.tooltip2 "Håndter verktøylinje">
@@ -15,8 +15,8 @@
 <!ENTITY sidebar.width.max "Maks bredde">
 <!ENTITY button.menu.label "Sidestolpe paneler">
 <!ENTITY button.menu.tooltip "Alle tilgjengelig sidestolpe paneler">
-<!ENTITY button.toolbar.label "AiOS-Verktøylinje">
-<!ENTITY button.toolbar.tooltip "Håndter AiOS-Verktøylinje">
+<!ENTITY button.toolbar.label "TGS-Verktøylinje">
+<!ENTITY button.toolbar.tooltip "Håndter TGS-Verktøylinje">
 <!ENTITY button.paneltab.label "Panelfane">
 <!ENTITY button.paneltab.tooltip1 "Åpne innhold i fane i sidestolpe">
 <!ENTITY button.paneltab.tooltip2 "Åpne innhold av sidestolpe i ny fane">

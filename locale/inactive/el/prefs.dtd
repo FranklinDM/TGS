@@ -1,4 +1,4 @@
-<!ENTITY title "Επιλογές All-in-One Sidebar">
+<!ENTITY title "Επιλογές The Good 'ol Sidebar">
 <!ENTITY restart "Οι αλλαγές απαιτούν επανεκκίνηση του περιηγητή">
 <!ENTITY settings "Ρυθμίσεις">
 <!ENTITY settings.default "Επαναφορά αρχικών…">
@@ -57,7 +57,7 @@
 <!ENTITY cmode.caption "Εναλλαγή πλευρικής στήλης">
 <!ENTITY cmode.desc "Επιλέξτε ποια στοιχεία θα επηρεάζονται από το άνοιγμα ή το κλείσιμο της πλευρικής στήλης με διαφορετικές μεθόδους.">
 <!ENTITY cmode.key.label "Συντόμευση (F4)">
-<!ENTITY cmode.tbb.label "Κουμπί AIOS">
+<!ENTITY cmode.tbb.label "Κουμπί TGS">
 <!ENTITY cmode.close.label "Κουμπί κλεισίματος">
 <!ENTITY cmode.mode1.label "Μόνο την πλευρική στήλη">
 <!ENTITY cmode.mode2.label "Την πλευρική στήλη και την εργαλειοθήκη">

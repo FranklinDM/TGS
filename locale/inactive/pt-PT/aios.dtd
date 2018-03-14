@@ -1,13 +1,13 @@
 <!ENTITY loading.label "A carregar painel…">
-<!ENTITY menu.prefs.label "Opções do All-in-One Sidebar…">
+<!ENTITY menu.prefs.label "Opções do The Good 'ol Sidebar…">
 <!ENTITY menu.togglebar.label "Pega da Barra Lateral">
 <!ENTITY menu.grippy.label "Pega da barra lateral">
-<!ENTITY toolbar.name "Barra de ferramentas do All-in-One Sidebar">
-<!ENTITY toolbar.label "All-in-One-Sidebar">
+<!ENTITY toolbar.name "Barra de ferramentas do The Good 'ol Sidebar">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
 <!ENTITY sbhtoolbar.name "Cabeçalho da barra de ferramenta lateral">
 <!ENTITY sbhtoolbar.label "Sidebarheader">
-<!ENTITY button.toggle.label "AiOS">
-<!ENTITY button.toggle.tooltip "Toggle elementos controlados pelo All-in-One Sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Toggle elementos controlados pelo The Good 'ol Sidebar">
 <!ENTITY button.switch.tooltip1 "Toggle barra lateral e barra de Ferramentas">
 <!ENTITY button.switch.tooltip2 "Toggle barra de Ferramentas">
 <!ENTITY button.switch.tooltip3 "Trocar barra lateral">
@@ -18,8 +18,8 @@
 <!ENTITY sidebar.width.max "Largura Máxima">
 <!ENTITY button.menu.label "Painéis da barra lateral">
 <!ENTITY button.menu.tooltip "Todos os painéis de Barra lateral disponíveis">
-<!ENTITY button.toolbar.label "Barra de ferramentas-AiOS">
-<!ENTITY button.toolbar.tooltip "Trocar barra de Ferramentas-AiOS">
+<!ENTITY button.toolbar.label "Barra de ferramentas-TGS">
+<!ENTITY button.toolbar.tooltip "Trocar barra de Ferramentas-TGS">
 <!ENTITY button.paneltab.label "Painel-Separador">
 <!ENTITY button.paneltab.tooltip1 "Abrir o conteúdo do Separador na Barra lateral">
 <!ENTITY button.paneltab.tooltip2 "Abrir o conteúdo da barra lateral num novo separador">
