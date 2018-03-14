@@ -1,6 +1,34 @@
 
 # Changelog
 
+### 1.0.6 (03.14.2018)
+* Major: Revise invisible sidebar switch implementation
+  * This...
+    * uses a similar approach to what OmniSidebar does
+    * no longer tied to auto hide/show
+    * allows us to have visual feedback on the sidebar switch and style it if users would want to do so
+    * doesn't have to listen much on mousemove events on the appcontent plus it's more accurate on the hover area
+    * also allows the sidebar to open when dragging something above it even if the sidebar switch is invisible (previously, it would be a bit more tricky to implement)
+  * Add an option to only activate when on fullscreen/maximized
+* Minor: Uncombine show & hide delay for AutoHide
+  * Your existing options will be migrated and used for both show & hide
+* Minor: Implement second pane mode for bookmarks and history sidebars
+  * One of the planned features for AiOS
+* Minor: Allow opening the downloads in popup (default browser behavior)
+  * See Issue #40
+* Minor: Add option to whether show the sidebar when installing an add-on
+  * I myself find this annoying and decided that there should be a switch for this behavior
+* Minor: Fix up SSR feature of MultiPanel
+  * This now works on most sites even when navigating
+* Minor: Make add-ons page more compact and others
+  * Search bar is now flexible only when on sidebar
+  * Details view (when selecting an add-on) should use less space
+* Minor: Change default page info hotkey to Ctrl+Shift+E
+* Ignore: Hide tools button label (in Bookmarks/History)
+* Ignore: Generate language list tab on options/about dynamically
+  * Languages are no longer hardcoded in the about window and instead placed on the JS file
+* Ignore: Refactoring/changes under the hood
+
 ### 1.0.5.1 (12.10.2017)
 * Minor: Small behavior change for invisible sidebar switch trigger
   * See [issue #27](https://github.com/FranklinDM/TGS/issues/27#issuecomment-350508656).
