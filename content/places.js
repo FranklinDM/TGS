@@ -69,7 +69,7 @@ var AiOS_Places = {};
             searchHistory("");
         if (self.mode === "bookmarks")
             document.getElementById("duplicateTree").place = "place:queryType=1&folder=" + window.top.PlacesUIUtils.allBookmarksFolderId;
-    }
+    };
 
     this.checkFolderOptions = function () {
         var self = AiOS_Places,
