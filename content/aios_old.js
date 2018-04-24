@@ -800,21 +800,18 @@ var AiOS = {
     },
 
     /*
-     * Before customization event
+     * Before & Aftter customization event
      */
-    customizeStart: function (e) {
-        // Force show AiOS toolbar & sidebar
-        aios_toggleToolbar(false);
-        AiOS.toggleSidebar('switch', true);
-    },
-
-    /*
-     * After customization event
-     */
-    customizeEnd: function (e) {
-        // Force show AiOS toolbar & sidebar
-        aios_toggleToolbar(false);
-        AiOS.toggleSidebar('switch', true);
+    customizeEvent: function (e) {
+        if (e.type == "beforecustomization") {
+            // Force show AiOS toolbar & sidebar
+            aios_toggleToolbar(false);
+            AiOS.toggleSidebar('switch', true);
+        } else {
+            // Force show AiOS toolbar & sidebar
+            aios_toggleToolbar(false);
+            AiOS.toggleSidebar('switch', true);
+        }
     },
 
     /*
@@ -865,8 +862,8 @@ var AiOS = {
 window.addEventListener("load", AiOS.initSidebar, false);
 window.addEventListener("resize", AiOS.checkSidebarSwitch, false);
 window.addEventListener("fullscreen", AiOS.browserFullScreen, false);
-window.addEventListener("beforecustomization", AiOS.customizeStart, false);
-window.addEventListener("aftercustomization", AiOS.customizeEnd, false);
+window.addEventListener("beforecustomization", AiOS.customizeEvent, false);
+window.addEventListener("aftercustomization", AiOS.customizeEvent, false);
 
 // Otherwise newly defined shortcuts will be reset on browser restart
 extLoad.add(30, function () {
