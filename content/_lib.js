@@ -5,18 +5,18 @@ Components.utils.import("resource://gre/modules/Downloads.jsm");
  * => Calling aios_initSidebar() and aios_getSidebarMenu() (MenuButton Events 'onpopupshowing')
  */
 function aios_modSidebarMenu() {
-    aios_getObjects();
+    AiOS_Objects.get();
 
-    var actSidebar = aios_remLastSidebar();
+    var actSidebar = AiOS.remLastSidebar();
     var command,
     commandParent;
 
     // take over every single menu item or change it if necessary
-    for (var i = 0; i < fx_sidebarMenu.childNodes.length; i++) {
+    for (var i = 0; i < AiOS_Objects.sidebarMenu.childNodes.length; i++) {
         command = null;
         commandParent = null;
         var broadcaster = null;
-        var item = fx_sidebarMenu.childNodes[i];
+        var item = AiOS_Objects.sidebarMenu.childNodes[i];
 
         // Show or hide the icons
         try {
@@ -104,17 +104,17 @@ function aios_modSidebarMenu() {
     } catch (e) {}
 
     // Move menu entries all the way down if the menu has not been edited yet
-    if (!aios_getBoolean(fx_sidebarMenu, 'aios-modified')) {
-        fx_sidebarMenu.appendChild(showhideMenuseparator);
-        fx_sidebarMenu.appendChild(paneltabMitem1);
-        fx_sidebarMenu.appendChild(paneltabMitem2);
-        fx_sidebarMenu.appendChild(sidebarshowMitem);
-        fx_sidebarMenu.appendChild(sidebarhideMitem);
-        fx_sidebarMenu.appendChild(prefsMitem);
+    if (!aios_getBoolean(AiOS_Objects.sidebarMenu, 'aios-modified')) {
+        AiOS_Objects.sidebarMenu.appendChild(showhideMenuseparator);
+        AiOS_Objects.sidebarMenu.appendChild(paneltabMitem1);
+        AiOS_Objects.sidebarMenu.appendChild(paneltabMitem2);
+        AiOS_Objects.sidebarMenu.appendChild(sidebarshowMitem);
+        AiOS_Objects.sidebarMenu.appendChild(sidebarhideMitem);
+        AiOS_Objects.sidebarMenu.appendChild(prefsMitem);
     }
 
     // Remember the sidebar menu as edited
-    fx_sidebarMenu.setAttribute('aios-modified', true);
+    AiOS_Objects.sidebarMenu.setAttribute('aios-modified', true);
 }
 
 /*
@@ -252,11 +252,11 @@ function aios_panelTab(event) {
         }
         // about:
         else if (tabHref.indexOf("about:") >= 0) {
-            aios_setMultiPanel(tabHref);
+            AiOS_MP.setMultiPanel(tabHref);
         }
         // normal Website
         else {
-            aios_setMultiPanel('page');
+            AiOS_MP.setMultiPanel('page');
         }
     }
     /*
@@ -265,7 +265,7 @@ function aios_panelTab(event) {
     else {
         var newSrc;
 
-        if (fx_sidebarBox.hidden)
+        if (AiOS_Objects.sidebarBox.hidden)
             return false;
 
         var sidebarDoc = top.document.getElementById('sidebar').contentDocument;
@@ -480,8 +480,8 @@ function aios_setTargets() {
         switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
 
         if (prefInfotip) {
-            if (elem_switch)
-                elem_switch.removeAttribute('tooltiptext');
+            if (AiOS_Objects.sbSwitch)
+                AiOS_Objects.sbSwitch.removeAttribute('tooltiptext');
 
             // in loop because there may be several buttons with the same ID
             objects = document.getElementsByAttribute('id', 'paneltab-button');
@@ -491,8 +491,8 @@ function aios_setTargets() {
         }
 
         if (!switchTip)
-            if (elem_switch)
-                elem_switch.removeAttribute('tooltip');
+            if (AiOS_Objects.sbSwitch)
+                AiOS_Objects.sbSwitch.removeAttribute('tooltip');
 
         if (document.getElementById('paneltab-button')) {
             if (ptReverse)
@@ -704,7 +704,7 @@ function aios_isWinMax() {
  * => depends on the sidebar method
  */
 function aios_isSidebarHidden() {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     let pref = 'collapse';
     if (AiOS_HELPER.prefBranchAiOS.getPrefType(pref)) {
@@ -712,9 +712,9 @@ function aios_isSidebarHidden() {
     }
 
     if (aios_collapseSidebar)
-        return (fx_sidebarBox.hidden || fx_sidebarBox.collapsed);
+        return (AiOS_Objects.sidebarBox.hidden || AiOS_Objects.sidebarBox.collapsed);
     else
-        return fx_sidebarBox.hidden;
+        return AiOS_Objects.sidebarBox.hidden;
 }
 
 /*
@@ -727,9 +727,9 @@ function aios_initAutohide() {
     document.getElementById('aios-enableAutohide').setAttribute('checked', AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.autoshow"));
 
     // Add autohide feature/command
-    fx_sidebarBox.addEventListener("mouseover", function () {
+    AiOS_Objects.sidebarBox.addEventListener("mouseover", function () {
         if (document.getElementById('appcontent'))
-            document.getElementById('appcontent').addEventListener("mouseover", aios_autoShowHide, true);
+            document.getElementById('appcontent').addEventListener("mouseover", AiOS.autoShowHide, true);
     }, true);
 
     window.addEventListener("focus", function (e) {

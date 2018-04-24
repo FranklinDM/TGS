@@ -25,10 +25,10 @@
                        type="search"
                        placeholder="&searchItem.title;"
                        aria-controls="placeContent"
-                       oncommand="aios_search(this.value);"
+                       oncommand="AiOS_Downloads.search(this.value);"
                        collection="downloads"/>
               <toolbarbutton id="clearListButton"
-                             oncommand="aios_clear();"
+                             oncommand="AiOS_Downloads.clear();"
                              tooltiptext="&clearDownloadsButton.tooltip;"/>
             </toolbar>
           </toolbox>

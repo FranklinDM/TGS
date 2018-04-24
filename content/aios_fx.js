@@ -23,7 +23,7 @@
  *  - group        this attribute must be set to "sidebar".
  */
 // If sidebar collapsing is enabled, use modified function
-if (aios_collapseSidebar)
+if (AiOS.isCollapsingEnabled)
     toggleSidebar = function (commandID, forceOpen) {
         var sidebarBox = document.getElementById("sidebar-box");
         if (!commandID)

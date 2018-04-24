@@ -515,9 +515,9 @@ function aios_savePrefs() {
         if (win.aios_setTargets)
             win.aios_setTargets();
 
-        win.aios_checkSidebarSwitch();
-        if (win.aios_setSidebarOrient)
-            win.aios_setSidebarOrient();
+        win.AiOS.checkSidebarSwitch();
+        if (win.AiOS.setSidebarOrient)
+            win.AiOS.setSidebarOrient();
         if (win.aios_initAutohide)
             win.aios_initAutohide();
     }

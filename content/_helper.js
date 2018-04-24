@@ -297,29 +297,6 @@ function aios_openDialog(which, args) {
 }
 
 /*
- * Check which elements should be displayed
- * => Called by initialization
- */
-function aios_synchElements(aElems) {
-    var elem,
-    child,
-    childElems,
-    childMode;
-
-    for (var i = 0; i < aElems.length; i++) {
-        elem = document.getElementById(aElems[i]);
-
-        if (elem) {
-            childElems = elem.getAttribute('aiosChilds');
-            if (childElems) {
-                childMode = !aios_getBoolean(elem, 'checked');
-                aios_toggleChilds(childElems, childMode);
-            }
-        }
-    }
-}
-
-/*
  * Toggles a menu item and/or its/their element(s)
  * => Called through the menuitems in the aios.xul
  */

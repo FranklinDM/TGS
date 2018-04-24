@@ -208,7 +208,7 @@
              command="aiosCmd_panelTab2" />
         <key id="aiosKey_sidebar"
              keycode="&keys.sidebar;"
-             oncommand="aios_toggleSidebar(this);"
+             oncommand="AiOS.toggleSidebar(this);"
              label="&button.toggle.tooltip;" />
         <key id="aiosKey_prefs"
              modifiers="&keys.modifiers;"
@@ -233,15 +233,15 @@
         <observes id="aios_observeHidden"
                   element="sidebar-box"
                   attribute="hidden"
-                  onbroadcast="if(!aios_collapseSidebar) aios_observeSidebar('hidden');" />
+                  onbroadcast="if (!AiOS.isCollapsingEnabled) AiOS.observeSidebar('hidden');" />
         <observes id="aios_observeCollapsed"
                   element="sidebar-box"
                   attribute="collapsed"
-                  onbroadcast="if(aios_collapseSidebar) aios_observeSidebar('collapsed');" />
+                  onbroadcast="if (AiOS.isCollapsingEnabled) AiOS.observeSidebar('collapsed');" />
         <!-- Monitor src status of sidebar => remember last sidebar -->
         <observes element="sidebar"
                   attribute="src"
-                  onbroadcast="aios_remLastSidebar();" />
+                  onbroadcast="AiOS.remLastSidebar();" />
     </vbox>
 
 
@@ -253,7 +253,7 @@
         <grippy id="aios-sidebarGrippy"
                 hidden="true"
                 persist="hidden"
-                onclick="aios_useGrippy();" />
+                onclick="AiOS.useGrippy();" />
     </splitter>
 
 
@@ -261,7 +261,7 @@
     <toolbarpalette id="BrowserToolbarPalette">
         <toolbarbutton id="sidebarclose-button"
                        class="tabs-closebutton close-icon"
-                       oncommand="aios_toggleSidebar(this);"
+                       oncommand="AiOS.toggleSidebar(this);"
                        ondblclick="event.stopPropagation();"
                        tooltiptext="&sidebarCloseButton.tooltip;"
                        label="&sidebarCloseButton.tooltip;" />
@@ -363,17 +363,17 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&button.menu.label;"
                        tooltiptext="&button.menu.tooltip;">
-            <menupopup onpopupshowing="aios_getSidebarMenu(this);" />
+            <menupopup onpopupshowing="AiOS.getSidebarMenu(this);" />
         </toolbarbutton>
         <toolbarbutton id="sidebars-togglebutton"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        type="menu-button"
-                       oncommand="aios_toggleSidebar(this);"
+                       oncommand="AiOS.toggleSidebar(this);"
                        label="&button.toggle.label;"
                        tooltiptext="&button.toggle.tooltip;">
             <observes element="sidebar-box"
                       attribute="checked" />
-            <menupopup onpopupshowing="aios_getSidebarMenu(this);"
+            <menupopup onpopupshowing="AiOS.getSidebarMenu(this);"
                        oncommand="event.stopPropagation();" />
         </toolbarbutton>
 
@@ -675,13 +675,13 @@
                   key="aiosKey_sidebar"
                   position="97"
                   class="menuitem-iconic"
-                  oncommand="aios_toggleSidebar(this);" />
+                  oncommand="AiOS.toggleSidebar(this);" />
         <menuitem id="aios-sidebar-mitem-hide"
                   label="&sidebar.close.label;"
                   key="aiosKey_sidebar"
                   position="98"
                   class="menuitem-iconic"
-                  oncommand="aios_toggleSidebar(this);" />
+                  oncommand="AiOS.toggleSidebar(this);" />
         <menuitem id="aios-sidebar-mitem-prefs"
                   label="&menu.prefs.label;"
                   key="aiosKey_prefs"
@@ -705,7 +705,7 @@
             <!-- Monitor window mode for narrow switch (maximized, normal, minimized) -->
             <observes element="main-window"
                       attribute="sizemode"
-                      onbroadcast="aios_checkSidebarSwitch();" />
+                      onbroadcast="AiOS.checkSidebarSwitch();" />
 
             <toolbar id="aios-toggle-toolbar"
                      class="chromeclass-toolbar"
@@ -718,9 +718,9 @@
                         id="aios-toggle-button"
                         tooltip="switch-tooltip"
                         tooltiptext="&button.toggle.tooltip;"
-                        onclick="aios_controlSwitch(event, this);"
-                        onmouseover="aios_autoShowHide('switch'); event.stopPropagation();"
-                        ondragenter="aios_toggleSidebar('switch', true); event.stopPropagation();" />
+                        onclick="AiOS.controlSwitch(event, this);"
+                        onmouseover="AiOS.autoShowHide('switch'); event.stopPropagation();"
+                        ondragenter="AiOS.toggleSidebar('switch', true); event.stopPropagation();" />
             </toolbar>
 
             <toolbarset />
@@ -831,7 +831,7 @@
                                   attribute="value" />
                     </label>
 
-                    <menupopup onpopupshowing="aios_getSidebarMenu(this);" />
+                    <menupopup onpopupshowing="AiOS.getSidebarMenu(this);" />
                 </toolbarbutton>
 
                 <spacer id="sidebarheader-spacer"
