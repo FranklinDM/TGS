@@ -6,6 +6,15 @@ var webPanel;
 if (document.getElementById('web-panels-browser'))
     webPanel = document.getElementById('web-panels-browser');
 
+Components.utils.import("resource://gre/modules/Services.jsm");
+var compareResult = Services.vc.compare(AiOS_HELPER.appInfo.version, '28.*');
+
+if (compareResult == 0 || compareResult == 1) {
+	var NS_ERROR_MODULE_NETWORK = 2152398848;
+	var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
+	var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
+}
+
 var AiOS_MP = {
     /*
      * Initialization
