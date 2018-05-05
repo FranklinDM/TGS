@@ -862,7 +862,7 @@
                              defaultset="autohide-button,paneltab-button,sidebarclose-button"
                              toolbarlabel="&sbhtoolbar.label;:"
                              fullscreentoolbar="true"
-                             flexbuttons="false" >
+                             flexbuttons="false">
 
                         <!-- Prevents the toolbar from being moved to a mode other than icons -->
                         <observes element="aios-sbhtoolbar"
