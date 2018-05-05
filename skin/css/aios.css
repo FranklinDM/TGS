@@ -5,6 +5,12 @@
   --aios-grippy-cursor: pointer;
 }
 
+window[inDOMFullscreen] #aios-toggle-toolbox,
+window[inDOMFullscreen] #aios-toolbox-left,
+window[inDOMFullscreen] #aios-toolbox-right {
+    display: none;
+}
+
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox,
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-toolbar {
     margin: 0 !important;

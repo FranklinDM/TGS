@@ -701,29 +701,38 @@ var AiOS = {
     },
 
     /*
-     * Extends the browser function BrowserFullScreen() to control the AiOS elements
-     * => Call by aios_initSidebar()
+     * Called when browser enters fullscreen either by F11 or by document
      */
-    _enterFullScreen: 0,
-    _leaveFullScreen: 0,
-    browserFullScreen: function () {
+    onFullscreen: function (event) {
         AiOS_Objects.get();
+        
+        let enterFS = window.fullScreen;
+        if (event && event.type == "fullscreen")
+            enterFS = !enterFS;
 
+        // Decide which fullscreen action should be done
+        if (enterFS)
+            AiOS.doFullscreenAction("enter");
+        else
+            AiOS.doFullscreenAction("exit");
+        
+        // Decide on what mode should be applied on sidebar switch
+        AiOS.checkSidebarSwitch();
+
+        aios_adjustToolboxWidth(false);
+
+        return true;
+    },
+
+    doFullscreenAction: function (type) {
         try {
             var enable_restore = AiOS_HELPER.prefBranchAiOS.getBoolPref('fs.restore');
         } catch (e) {
             return false;
         }
 
-        // Fullscreen on
-        // => hide elements
-        if (document.mozFullScreenElement || window.fullScreen) {
-            // Fix for multiple firing of the mozfullscreenchange event
-            AiOS._leaveFullScreen = 0;
-            AiOS._enterFullScreen++;
-            if (AiOS._enterFullScreen > 1)
-                return;
-
+        switch (type) {
+        case "enter":
             try {
                 // Target states
                 var close_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('fs.switch');
@@ -749,13 +758,9 @@ var AiOS = {
             if (close_sidebar && !rem_sidebarHidden)
                 toggleSidebar();
 
-            AiOS_Objects.toggleBar.setAttribute("moz-collapsed", false);
             if (close_switch && !rem_switchHidden)
                 AiOS_Objects.toggleBox.hidden = true;
 
-            document.getElementById('aios-sbhtoolbar').setAttribute("moz-collapsed", false);
-
-            AiOS_Objects.mainToolbar.setAttribute("moz-collapsed", false);
             if (close_toolbar && !rem_toolbarHidden)
                 aios_toggleToolbar(true);
 
@@ -764,16 +769,8 @@ var AiOS = {
                 AiOS_Objects.mainToolbar.setAttribute("mode", "icons");
                 AiOS_Objects.mainToolbar.setAttribute("iconsize", "small");
             }
-        }
-        // Fullscreen off
-        // => Show elements
-        else {
-            // Fix for multiple firing of the mozfullscreenchange event
-            AiOS._enterFullScreen = 0;
-            AiOS._leaveFullScreen++;
-            if (AiOS._leaveFullScreen > 1)
-                return;
-
+            break;
+        case "exit":
             // Restore Toolbar Settings (only without the Autohide extension)
             if (typeof autoHIDE != "object") {
                 AiOS_Objects.mainToolbar.setAttribute("mode", AiOS_Objects.toggleBox.getAttribute('fsToolbarMode'));
@@ -789,18 +786,12 @@ var AiOS = {
                 aios_toggleToolbar(aios_getBoolean(AiOS_Objects.toggleBox, 'fsToolbar'));
                 AiOS_Objects.toggleBox.hidden = aios_getBoolean(AiOS_Objects.toggleBox, 'fsSwitch');
             }
+            break;
         }
-
-        // Activates/deactivates the narrow sidebar switch
-        AiOS.checkSidebarSwitch();
-
-        aios_adjustToolboxWidth(false);
-
-        return true;
     },
 
     /*
-     * Before & Aftter customization event
+     * Before & After customization event
      */
     customizeEvent: function (e) {
         if (e.type == "beforecustomization") {
@@ -861,7 +852,7 @@ var AiOS = {
 
 window.addEventListener("load", AiOS.initSidebar, false);
 window.addEventListener("resize", AiOS.checkSidebarSwitch, false);
-window.addEventListener("fullscreen", AiOS.browserFullScreen, false);
+window.addEventListener("fullscreen", AiOS.onFullscreen, false);
 window.addEventListener("beforecustomization", AiOS.customizeEvent, false);
 window.addEventListener("aftercustomization", AiOS.customizeEvent, false);
 

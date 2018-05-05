@@ -861,6 +861,7 @@
                              persist="mode iconsize"
                              defaultset="autohide-button,paneltab-button,sidebarclose-button"
                              toolbarlabel="&sbhtoolbar.label;:"
+                             fullscreentoolbar="true"
                              flexbuttons="false" >
 
                         <!-- Prevents the toolbar from being moved to a mode other than icons -->
