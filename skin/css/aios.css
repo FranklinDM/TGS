@@ -202,18 +202,41 @@ sidebarheader > .tabs-closebutton {
     background-image: none !important;
     border: none;
 }
-window[aiosOrient="left"][aiosMode="rtl"] #browser {
-    direction: ltr;
+
+#browser-border-start {
+  -moz-box-ordinal-group: 0;
 }
-window[aiosOrient="left"][aiosMode="rtl"] #browser * {
-    direction: rtl;
+#browser-border-end {
+  -moz-box-ordinal-group: 9999;
 }
-window[aiosOrient="right"][aiosMode="ltr"] #browser {
-    direction: rtl;
+
+window[aiosOrient="left"] #appcontent {
+  -moz-box-ordinal-group: 15;
 }
-window[aiosOrient="right"][aiosMode="ltr"] #browser * {
-    direction: ltr;
+window[aiosOrient="right"] #appcontent {
+  -moz-box-ordinal-group: 1;
 }
+
+#sidebar-splitter {
+  -moz-box-ordinal-group: 10;
+}
+
+window[aiosOrient="right"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 15;
+}
+window[aiosOrient="right"] #sidebar-box {
+  -moz-box-ordinal-group: 12;
+}
+window[aiosOrient="right"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 11;
+}
+window[aiosOrient="right"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 14;
+}
+window[aiosOrient="right"] #aios-toggle-toolbar {
+  right: 0;
+}
+
 #aiosPopupset tooltip {
     padding: 1px;
 }

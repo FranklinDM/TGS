@@ -277,21 +277,19 @@ var AiOS = {
         try {
             // Sidebar alignment
             var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
-            AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'left');
-            if (sidebarOrient == 2)
-                AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'right');
-
-            // LTR <=> RTL
-            AiOS_Objects.mainWindow.setAttribute('aiosMode', 'ltr');
-
-            // Fix for MileWideBack
-            if (document.getElementById('back-strip') && sidebarOrient == 2) {
-                var mwb = document.getElementById('back-strip');
-                var mwbParent = document.getElementById('back-strip').parentNode;
-                mwbParent.removeChild(mwb);
-                mwbParent.appendChild(mwb);
-            }
         } catch (e) {}
+        
+        AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'left');
+        if (sidebarOrient == 2)
+            AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'right');
+
+        // Fix for MileWideBack
+        if (document.getElementById('back-strip') && sidebarOrient == 2) {
+            var mwb = document.getElementById('back-strip');
+            var mwbParent = document.getElementById('back-strip').parentNode;
+            mwbParent.removeChild(mwb);
+            mwbParent.appendChild(mwb);
+        }
 
         aios_setToolbarPos();
     },
@@ -646,6 +644,8 @@ var AiOS = {
 
             if (inv) {
                 barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
+                AiOS_Objects.toggleBox.setAttribute('style', 'position: fixed;');
+                
                 let cursor = (!invmouse) ? 'hand' : 'pointer';
                 let hoverState = (invhover) ? 'true' : 'false';
                 AiOS_Objects.toggleBar.setAttribute('invHover', hoverState);
@@ -655,6 +655,7 @@ var AiOS = {
                 document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
                 AiOS_Objects.toggleBar.removeAttribute('invHover');
                 AiOS_Objects.sbSwitch.removeAttribute('invHover');
+                AiOS_Objects.toggleBox.removeAttribute('style');
             }
 
             if (width_val < 4 || inv)
