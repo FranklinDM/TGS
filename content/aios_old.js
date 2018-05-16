@@ -646,18 +646,11 @@ var AiOS = {
 
             if (inv) {
                 barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
-                if (invhover) {
-                    AiOS_Objects.toggleBar.setAttribute('invHover', 'true');
-                    AiOS_Objects.sbSwitch.setAttribute('invHover', 'true');
-                } else {
-                    AiOS_Objects.toggleBar.setAttribute('invHover', 'false');
-                    AiOS_Objects.sbSwitch.setAttribute('invHover', 'false');
-                }
-                if (!invmouse) {
-                    document.documentElement.style.setProperty('--aios-grippy-cursor', 'hand');
-                } else {
-                    document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
-                }
+                let cursor = (!invmouse) ? 'hand' : 'pointer';
+                let hoverState = (invhover) ? 'true' : 'false';
+                AiOS_Objects.toggleBar.setAttribute('invHover', hoverState);
+                AiOS_Objects.sbSwitch.setAttribute('invHover', hoverState);
+                document.documentElement.style.setProperty('--aios-grippy-cursor', cursor);
             } else {
                 document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
                 AiOS_Objects.toggleBar.removeAttribute('invHover');
