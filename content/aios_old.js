@@ -787,15 +787,30 @@ var AiOS = {
     /*
      * Before & After customization event
      */
+    customizeStates: {
+        save: function() {
+            this.switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, 'hidden');
+            this.toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, 'hidden');
+            this.sidebarHidden = aios_isSidebarHidden();
+        },
+        restore: function() {
+            if (this.toolbarHidden)
+                aios_toggleToolbar(true);
+            if (this.switchHidden)
+                AiOS.toggleSidebar('switch', false);
+            if (this.sidebarHidden)
+                AiOS.toggleSidebar(1, false);
+        }
+    },
+    
     customizeEvent: function (e) {
         if (e.type == "beforecustomization") {
+            AiOS.customizeStates.save();
             // Force show AiOS toolbar & sidebar
             aios_toggleToolbar(false);
             AiOS.toggleSidebar('switch', true);
         } else {
-            // Force show AiOS toolbar & sidebar
-            aios_toggleToolbar(false);
-            AiOS.toggleSidebar('switch', true);
+            AiOS.customizeStates.restore();
         }
     },
 
