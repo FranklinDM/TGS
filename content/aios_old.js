@@ -674,6 +674,9 @@ var AiOS = {
      * => Called by onClick() of the switcher
      */
     controlSwitch: function (ev, which) {
+        // If the invisible sidebar switch is enabled and no click is true, reject any click interactions
+        if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv') && AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick'))
+            return;
         // Left click => metaKey = Mac
         if (ev.button == 0 && (!ev.shiftKey && !ev.ctrlKey && !ev.metaKey)) {
             AiOS.toggleSidebar(which);

@@ -173,6 +173,9 @@
             <preference id="SSInvMouse"
                         type="bool"
                         name="extensions.aios.gen.switch.invmouse" />
+            <preference id="SSInvNoClick"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invnoclick" />
 
             <preference id="SSDrag"
                         type="bool"
@@ -631,6 +634,8 @@
                                           label="&gen.switch.invhover;" />
                                 <checkbox preference="SSInvMouse"
                                           label="&gen.switch.invmouse;" />
+                                <checkbox preference="SSInvNoClick"
+                                          label="&gen.switch.invnoclick;" />          
                             </vbox>
 
                             <grid flex="1"

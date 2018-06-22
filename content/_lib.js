@@ -472,12 +472,16 @@ function aios_setTargets() {
     var prefInfotip = false,
     ptReverse = false,
     enable_rightclick = false,
-    switchTip = true;
+    switchTip = true,
+    inv_switch = false,
+    inv_noclick = false;
     try {
         prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
         ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
         enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
         switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
+        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
+        inv_noclick = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick');
 
         if (prefInfotip) {
             if (AiOS_Objects.sbSwitch)
@@ -490,7 +494,8 @@ function aios_setTargets() {
             }
         }
 
-        if (!switchTip)
+        // If tooltip for the switch is disabled/it's not logical to show the tooltip, remove it
+        if (!switchTip || (inv_switch && inv_noclick))
             if (AiOS_Objects.sbSwitch)
                 AiOS_Objects.sbSwitch.removeAttribute('tooltip');
 

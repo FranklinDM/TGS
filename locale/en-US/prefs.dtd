@@ -51,6 +51,7 @@
 <!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
 <!ENTITY gen.switch.delayshow "Show Delay">
 <!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Delay">
