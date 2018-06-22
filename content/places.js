@@ -72,8 +72,14 @@ var AiOS_Places = {};
 
             document.getElementById("duplicateTree").load([PlacesUtils.history.getNewQuery()], options);
         }
-        if (self.mode === "bookmarks")
+        if (self.mode === "bookmarks") {
             document.getElementById("duplicateTree").place = "place:queryType=1&folder=" + window.top.PlacesUIUtils.allBookmarksFolderId;
+            // Modifications to be compatible with 2 Pane Bookmarks
+            if (typeof Bookmarks2PaneService == "object") {
+                isHidden = true;
+                document.getElementById('aios-duplicateList').hidden = true;
+            }
+        }
     };
 
     this.checkFolderOptions = function () {
