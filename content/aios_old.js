@@ -482,6 +482,11 @@ var AiOS = {
             AiOS_Objects.sbSwitch.addEventListener("mouseout", function () {
                 window.clearTimeout(AiOS._autoTimeout);
             }, true);
+            
+            // If the invisible sidebar switch is enabled and no click is true, don't remove the timeout
+            if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv') && AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick'))
+                return true;
+
             AiOS_Objects.sbSwitch.addEventListener("click", function () {
                 window.clearTimeout(AiOS._autoTimeout);
             }, true);
