@@ -30,7 +30,7 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
 }
 #aios-toggle-button[invHover="true"] {
   transition-property: background, box-shadow;
-  transition-duration: 300ms;
+  transition-duration: 200ms;
 }
 #aios-toggle-button[invHover="true"]:hover {
   background-color: var(--aios-switch-hovercolor);
