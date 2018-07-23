@@ -22,9 +22,9 @@
             style="min-width: 45em; max-width: 780px;"
             buttonlabelextra2="&settings;"
             buttonlabelextra1="&apply;"
-            onload="aios_initPrefs();"
-            ondialogaccept="aios_savePrefs();"
-            ondialogextra1="aios_applyPrefs();"
+            onload="AiOS_Prefs.initPrefs();"
+            ondialogaccept="AiOS_Prefs.savePrefs();"
+            ondialogextra1="AiOS_Prefs.applyPrefs();"
             ondialogdisclosure="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ');">
 
     <box>
@@ -43,19 +43,19 @@
                        position="before_start">
                 <menuitem id="aios-defaults"
                           label="&settings.default;"
-                          oncommand="aios_defaultSettings();" />
+                          oncommand="AiOS_Prefs.defaultSettings();" />
 
                 <menuseparator />
 
                 <menuitem id="aios-export"
                           label="&settings.export;"
-                          oncommand="aios_exportSettings('save');" />
+                          oncommand="AiOS_Prefs.exportSettings('save');" />
                 <menuitem id="aios-import"
                           label="&settings.import;"
-                          oncommand="aios_importSettings();" />
+                          oncommand="AiOS_Prefs.importSettings();" />
                 <menuitem id="aios-copy"
                           label="&settings.copy;"
-                          oncommand="aios_exportSettings('copy');" />
+                          oncommand="AiOS_Prefs.exportSettings('copy');" />
             </menupopup>
         </popupset>
 
@@ -69,7 +69,7 @@
               flex="1"
               seltab="0"
               persist="seltab"
-              onpaneload="aios_initPane('general');">
+              onpaneload="AiOS_Prefs.initPane('general');">
 
         <script type="application/x-javascript"
                 src="chrome://aios/content/prefs/general.js"/>
@@ -521,7 +521,7 @@
                             <tabpanel orient="vertical">
                             <checkbox label="&gen.switch.autoshow;"
                                       preference="SSAutoshow"
-                                      oncommand="aios_checkboxObserver(this);"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
                                       aiosChilds="SSOnlymax,SSDelayShow,SSDelayHide,SSHidemethod" />
 
                             <vbox class="indent">
@@ -576,7 +576,7 @@
 
                             <checkbox label="&gen.switch.drag;"
                                       preference="SSDrag"
-                                      oncommand="aios_checkboxObserver(this);"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
                                       aiosChilds="SSDragDelay" />
                             <vbox class="indent">
                                 <hbox align="center"
@@ -595,7 +595,7 @@
                             <tabpanel orient="vertical">
                             <checkbox preference="SSThin"
                                       label="&gen.switch.thin;"
-                                      oncommand="aios_checkboxObserver(this);"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
                                       aiosChilds="SSThinMax" />
 
                             <vbox class="indent">
@@ -605,7 +605,7 @@
 
                             <checkbox label="&gen.switch.invtrigger;"
                                       preference="SSInv"
-                                      oncommand="aios_checkboxObserver(this);"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
                                       aiosChilds="SSInvMax,SSInvHover,SSInvMouse" />
 
                             <vbox class="indent">
@@ -814,7 +814,7 @@
               flex="1"
               seltab="0"
               persist="seltab"
-              onpaneload="aios_initPane('panels');">
+              onpaneload="AiOS_Prefs.initPane('panels');">
         <preferences>
             <preference id="DMOpen"
                         type="bool"
@@ -911,14 +911,14 @@
                             <caption label="&bookmarksButton.label;" />
                             <checkbox preference="BMOpen"
                                       label="&misc.enablesidebar.label;"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
                         </groupbox>
 
                         <groupbox>
                             <caption label="&historyButton.label;" />
                             <checkbox preference="HIOpen"
                                       label="&misc.enablesidebar.label;"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
                         </groupbox>
 
                     </vbox>
@@ -937,17 +937,17 @@
                             <checkbox preference="DMPopup"
                                       label="&misc.enablepopup.label;"
                                       aiosChilds="!DMOpen"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
                             <checkbox preference="DMOpen"
                                       label="&misc.enablesidebar.label;"
                                       aiosChilds="DMLayout, DMAutoOpen, DMAutoClose, !DMPopup"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
 
                             <vbox class="indent">
                                 <checkbox preference="DMAutoOpen"
                                           label="&misc.dm.autoopen.label;"
                                           aiosChilds="DMAutoClose"
-                                          oncommand="aios_checkboxObserver(this);" />
+                                          oncommand="AiOS_Prefs.checkboxObserver(this);" />
                                 <vbox class="indent">
                                     <checkbox preference="DMAutoClose"
                                               label="&misc.dm.autoclose.label;" />
@@ -983,7 +983,7 @@
                             <checkbox preference="EMOpen"
                                       label="&misc.enablesidebar.label;"
                                       aiosChilds="EMInstall"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
                             <vbox class="indent">
                                 <checkbox preference="EMInstall"
                                           label="&misc.em.oninstall.label;" />
@@ -1018,7 +1018,7 @@
                             <checkbox preference="PIOpen"
                                       label="&misc.enablesidebar.label;"
                                       aiosChilds="PILayout"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
 
                             <vbox class="indent">
                                 <checkbox id="obj-PILayout"
@@ -1043,7 +1043,7 @@
                             <checkbox preference="COOpen"
                                       label="&misc.enablesidebar.label;"
                                       aiosChilds="COLayout"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
 
                             <vbox class="indent">
                                 <checkbox preference="COLayout"
@@ -1056,7 +1056,7 @@
                             <checkbox preference="KSOpen"
                                       label="&misc.enablesidebar.label;"
                                       aiosChilds="KSLayout"
-                                      oncommand="aios_checkboxObserver(this);" />
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
 
                             <vbox class="indent">
                                 <checkbox id="obj-KSLayout"
@@ -1105,7 +1105,7 @@
               flex="1"
               seltab="0"
               persist="seltab"
-              onpaneload="aios_initPane('menus');">
+              onpaneload="AiOS_Prefs.initPane('menus');">
         <preferences>
             <preference id="SBEntryDeac"
                         type="bool"
@@ -1154,7 +1154,7 @@
                             <caption>
                                 <checkbox preference="SBEntries"
                                           label="&menus.entries.label;"
-                                          oncommand="aios_checkboxObserver(this);"
+                                          oncommand="AiOS_Prefs.checkboxObserver(this);"
                                           aiosChilds="SBIcons, SBPanelTab1, SBPanelTab2, SBShowHide, SBOptions" />
                             </caption>
 
