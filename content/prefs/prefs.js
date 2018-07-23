@@ -36,9 +36,6 @@ function aios_initPrefs() {
     // Activate/deactivate dependent elements
     aios_checkDependent();
 
-    // Activate/deactivate advanced mode
-    aios_advancedMode();
-
     // Monitor units of sidebar width for changes
     document.getElementById('obj-minWidthUnit').addEventListener("ValueChange", function (e) {
         aios_changeWidthUnit('min');
@@ -108,7 +105,7 @@ function aios_defaultSettings() {
     }
 
     // Reset GUI elements
-    aios_synchElements();
+    aios_reloadPreferences();
 
     // Activate/deactivate dependent elements
     aios_checkDependent();
@@ -257,7 +254,7 @@ function aios_importSettings() {
         }
 
         // Reset GUI elements
-        aios_synchElements();
+        aios_reloadPreferences();
 
         // Activate/deactivate dependent elements
         aios_checkDependent();
@@ -344,85 +341,6 @@ function aios_checkboxObserver(which) {
 }
 
 /*
- * Activate/deactivate advanced mode and show/hide elements
- * => Called by aios_initPrefs() and the <menuitem> of the settings button
- */
-function aios_advancedMode(trigger) {
-    var advanced = aios_getBoolean('aios-advanced', 'checked');
-
-    // Scroll through and show/hide advanced elements
-    var advElems = document.getElementsByAttribute('aiosAdvanced', 'true');
-    for (var i = 0; i < advElems.length; i++) {
-        // If the item is a tab container
-        if (advElems[i].localName == "tabs") {
-            var tabChild = advElems[i].selectedIndex;
-            var tabChildClass = advElems[i].childNodes[tabChild].getAttribute('class');
-
-            // Activate previous tab if an advanced tab is selected and the advanced mode is deactivated
-            if (!advanced && tabChildClass == "aiosAdvanced") {
-                advElems[i].parentNode.childNodes[0].selectedIndex = advElems[i].selectedIndex - 1;
-                advElems[i].parentNode.childNodes[1].selectedIndex = advElems[i].selectedIndex - 1;
-
-                // Activate previous tab again if the new tab is also an advanced tab
-                tabChild = advElems[i].selectedIndex;
-                tabChildClass = advElems[i].childNodes[tabChild].getAttribute('class');
-                if (tabChildClass == "aiosAdvanced") {
-                    advElems[i].parentNode.childNodes[0].selectedIndex = advElems[i].selectedIndex - 1;
-                    advElems[i].parentNode.childNodes[1].selectedIndex = advElems[i].selectedIndex - 1;
-                }
-
-                // Remember selected tab (in prefpane)
-                advElems[i].parentNode.parentNode.setAttribute('seltab', advElems[i].selectedIndex);
-            }
-
-            // Identify which tab container is visible
-            advElems[i].parentNode.childNodes[0].setAttribute('hidden', advanced);
-            advElems[i].parentNode.childNodes[1].setAttribute('hidden', !advanced);
-            if (advanced)
-                advElems[i].parentNode.childNodes[1].style.visibility = 'visible';
-        }
-        // Other elements
-        else {
-            advElems[i].setAttribute('hidden', !advanced);
-            if (advanced)
-                advElems[i].style.visibility = 'visible';
-        }
-    }
-
-    // Varying style information in normal and extended modes
-    var advStyleElems = document.getElementsByAttribute('aiosAdvancedStyle', 'true');
-    for (var s = 0; s < advStyleElems.length; s++) {
-        var sStyle = advStyleElems[s].getAttribute('aiosNorStyle');
-        if (advanced)
-            sStyle = advStyleElems[s].getAttribute('aiosAdvStyle');
-
-        advStyleElems[s].setAttribute('style', sStyle);
-    }
-
-    window.sizeToContent();
-}
-
-/*
- * Determine the height of the boxes for activating/deactivating the Advanced mode
- * => Called by aios_advancedMode()
- */
-function aios_getSizeBoxHeight() {
-    var theHeight = 0;
-    var sizeBoxen = document.getElementsByAttribute('class', 'aiosSizeBox');
-
-    for (var i = 0; i < sizeBoxen.length; i++) {
-        var h = sizeBoxen[i].boxObject.height;
-
-        if (sizeBoxen[i].getAttribute('restart'))
-            h = h + 30;
-        if (h > theHeight)
-            theHeight = h;
-    }
-
-    return theHeight;
-}
-
-/*
  * Return numbers with leading zero
  * => Called by aios_exportSettings()
  */
@@ -434,27 +352,10 @@ function aios_extendInt(aInput) {
 }
 
 /*
- * Synchronizes the two tab containers, which are displayed alternately (normal and advanced)
- * => Called through the two tab containers (General and Misc)
- */
-function aios_synchTabs(which) {
-    var tabs0 = which.parentNode.childNodes[0];
-    var tabs1 = which.parentNode.childNodes[1];
-
-    if (tabs0.tagName == "tabs")
-        tabs0.selectedIndex = which.selectedIndex;
-    if (tabs1.tagName == "tabs")
-        tabs1.selectedIndex = which.selectedIndex;
-
-    // Remember selected tab (in prefpane)
-    which.parentNode.parentNode.setAttribute('seltab', which.selectedIndex);
-}
-
-/*
  * Reset GUI elements
  * => Called by aios_defaultSettings() and aios_importSettings()
  */
-function aios_synchElements() {
+function aios_reloadPreferences() {
     var val;
     var prefs = document.getElementsByTagName('preference');
 

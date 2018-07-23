@@ -44,13 +44,6 @@
                 <menuitem id="aios-defaults"
                           label="&settings.default;"
                           oncommand="aios_defaultSettings();" />
-                <menuitem id="aios-advanced"
-                          label="&settings.advanced;"
-                          class="aiosAdvanced"
-                          type="checkbox"
-                          autoCheck="false"
-                          persist="checked"
-                          oncommand="aios_advancedMode(true);" />
 
                 <menuseparator />
 
@@ -226,19 +219,11 @@
         <tabbox flex="1"
                 id="aiosTabboxGeneral">
 
-            <tabs onclick="aios_synchTabs(this);">
+            <tabs>
                 <tab label="&tab.gen.appearance;" />
                 <tab label="&tab.gen.behavior;" />
                 <tab label="&menu.togglebar.label;" />
-            </tabs>
-
-            <tabs onclick="aios_synchTabs(this);"
-                  aiosAdvanced="true">
-                <tab label="&tab.gen.appearance;" />
-                <tab label="&tab.gen.behavior;" />
-                <tab label="&menu.togglebar.label;" />
-                <tab label="&tab.gen.special;"
-                     class="aiosAdvanced" />
+                <tab label="&tab.gen.special;" />
             </tabs>
 
             <tabpanels flex="1"
@@ -452,8 +437,7 @@
 
                                     </row>
 
-                                    <row align="center"
-                                         aiosAdvanced="true">
+                                    <row align="center">
                                         <label value="&menu.togglebar.label;" />
 
                                         <menulist preference="switchInit">
@@ -475,7 +459,7 @@
 
 <!-- Open Sidebar -->
 
-                        <groupbox aiosAdvanced="true">
+                        <groupbox>
                             <caption label="&gen.init.sidebar;" />
 
                             <grid flex="1">
@@ -512,11 +496,9 @@
                             <checkbox preference="FSToolbar"
                                       label="&gen.init.toolbar.hide.label;" />
                             <checkbox preference="FSSwitch"
-                                      label="&gen.init.switch.hide.label;"
-                                      aiosAdvanced="true" />
+                                      label="&gen.init.switch.hide.label;" />
                             <checkbox preference="FSRestore"
-                                      label="&gen.fs.off;"
-                                      aiosAdvanced="true" />
+                                      label="&gen.fs.off;" />
 
                         </groupbox>
 
@@ -639,7 +621,6 @@
                             </vbox>
 
                             <grid flex="1"
-                                  aiosAdvanced="true"
                                   style="margin-top: 5px;">
                                 <columns>
                                     <column />
@@ -648,8 +629,7 @@
 
                                 <rows>
 
-                                    <row align="center"
-                                         class="aiosAdvanced">
+                                    <row align="center">
                                         <label value="&gen.switch.width;:" />
 
                                         <hbox align="center">
@@ -661,8 +641,7 @@
                                         </hbox>
                                     </row>
 
-                                    <row align="center"
-                                         class="aiosAdvanced">
+                                    <row align="center">
                                         <label value="&gen.switch.twidth;:" />
 
                                         <hbox align="center">
@@ -691,11 +670,11 @@
 <!-- TAB: Special -->
 
                 <tabpanel orient="vertical">
-                    <vbox aiosAdvanced="true">
+                    <vbox>
 
 <!-- Open/Close Sidebar -->
 
-                        <groupbox aiosAdvanced="true">
+                        <groupbox>
                             <caption label="&cmode.caption;" />
 
                             <hbox>
@@ -910,23 +889,13 @@
         <tabbox flex="1"
                 id="aiosTabboxPanels">
 
-            <tabs onclick="aios_synchTabs(this);">
+            <tabs>
                 <tab label="&tab.panels.places;" />
                 <tab label="&downloads.label;" />
                 <tab label="&button.addons.label;" />
                 <tab label="&tab.panels.other1;" />
                 <tab label="&tab.panels.other2;" />
-            </tabs>
-
-            <tabs onclick="aios_synchTabs(this);"
-                  aiosAdvanced="true">
-                <tab label="&tab.panels.places;" />
-                <tab label="&downloads.label;" />
-                <tab label="&button.addons.label;" />
-                <tab label="&tab.panels.other1;" />
-                <tab label="&tab.panels.other2;" />
-                <tab label="&tab.panels.paneltab;"
-                     class="aiosAdvanced" />
+                <tab label="&tab.panels.paneltab;"/>
             </tabs>
 
             <tabpanels flex="1">
@@ -985,8 +954,7 @@
                                 </vbox>
                             </vbox>
 
-                            <vbox class="indent spacer"
-                                  aiosAdvanced="true">
+                            <vbox class="indent spacer">
                                 <checkbox preference="DMLayout"
                                           label="&misc.layout.label;" />
                             </vbox>
@@ -1052,8 +1020,7 @@
                                       aiosChilds="PILayout"
                                       oncommand="aios_checkboxObserver(this);" />
 
-                            <vbox class="indent"
-                                  aiosAdvanced="true">
+                            <vbox class="indent">
                                 <checkbox id="obj-PILayout"
                                           preference="PILayout"
                                           label="&misc.layout.label;" />
@@ -1078,8 +1045,7 @@
                                       aiosChilds="COLayout"
                                       oncommand="aios_checkboxObserver(this);" />
 
-                            <vbox class="indent"
-                                  aiosAdvanced="true">
+                            <vbox class="indent">
                                 <checkbox preference="COLayout"
                                           label="&misc.layout.label;" />
                             </vbox>
@@ -1092,8 +1058,7 @@
                                       aiosChilds="KSLayout"
                                       oncommand="aios_checkboxObserver(this);" />
 
-                            <vbox class="indent"
-                                  aiosAdvanced="true">
+                            <vbox class="indent">
                                 <checkbox id="obj-KSLayout"
                                           preference="KSLayout"
                                           label="&misc.layout.label;" />
@@ -1111,13 +1076,13 @@
 
 <!-- Bookmarks - PanelTab -->
 
-                        <groupbox aiosAdvanced="true">
+                        <groupbox>
                             <caption label="&tab.gen.behavior;" />
                             <checkbox preference="PanelTabReverse"
                                       label="&misc.paneltab.reverse;" />
                         </groupbox>
 
-                        <groupbox aiosAdvanced="true">
+                        <groupbox>
                             <caption label="&bookmarksButton.label;" />
 
                             <description width="100%">&misc.bm.paneltab.desc;</description>
@@ -1168,7 +1133,7 @@
         <tabbox flex="1"
                 id="aiosTabboxMenus">
 
-            <tabs onclick="aios_synchTabs(this);">
+            <tabs>
                 <tab label="&tab.menus.sidebar;" />
             </tabs>
 
@@ -1183,8 +1148,7 @@
                         <description width="100%">&menus.sidebar.desc;</description>
 
                         <checkbox preference="SBEntryDeac"
-                                  label="&menus.sidebar.entrydeac;"
-                                  aiosAdvanced="true" />
+                                  label="&menus.sidebar.entrydeac;" />
 
                         <groupbox>
                             <caption>
@@ -1196,7 +1160,7 @@
 
                             <vbox class="indent">
 
-                                <vbox aiosAdvanced="true">
+                                <vbox>
                                     <checkbox preference="SBIcons"
                                               label="&menus.icons.label;" />
                                     <separator class="groove" />
