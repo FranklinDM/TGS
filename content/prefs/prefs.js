@@ -66,11 +66,11 @@ var AiOS_Prefs = {
         case "general":
             tabbox = document.getElementById('aiosTabboxGeneral');
             break;
+        case "sbswitch":
+            tabbox = document.getElementById('aiosTabboxSbSwitch');
+            break;
         case "panels":
             tabbox = document.getElementById('aiosTabboxPanels');
-            break;
-        case "menus":
-            tabbox = document.getElementById('aiosTabboxMenus');
             break;
         }
 
@@ -351,9 +351,17 @@ var AiOS_Prefs = {
         else
             return aInput;
     },
+    
+    /*
+     * Saves the index of the last selected tab into the prefpane's "seltab" attribute
+     * => Called by the onclick event of the tab containers
+     */
+    rememberSelectedTab: function (which) {
+        which.parentNode.parentNode.setAttribute('seltab', which.selectedIndex);
+    },
 
     /*
-     * Reset GUI elements
+     * Reloads the preferences presented in the user interface with updated values
      * => Called by aios_defaultSettings() and aios_importSettings()
      */
     reloadPreferences: function () {

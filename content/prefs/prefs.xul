@@ -62,7 +62,7 @@
     </box>
 
 
-<!-- G E N E R A L -->
+    <!-- G E N E R A L -->
 
     <prefpane id="aiosGeneral"
               label="&tab.gen;"
@@ -127,56 +127,6 @@
                         type="bool"
                         name="extensions.aios.fs.restore" />
 
-            <preference id="SSAutoshow"
-                        type="bool"
-                        name="extensions.aios.gen.switch.autoshow" />
-            <preference id="SSOnlymax"
-                        type="bool"
-                        name="extensions.aios.gen.switch.onlymax" />
-            <preference id="SSDelayShow"
-                        type="int"
-                        name="extensions.aios.gen.switch.delayshow" />
-            <preference id="SSDelayHide"
-                        type="int"
-                        name="extensions.aios.gen.switch.delayhide" />
-            <preference id="SSHidemethod"
-                        type="int"
-                        name="extensions.aios.gen.switch.hidemethod" />
-            <preference id="SSWidth"
-                        type="int"
-                        name="extensions.aios.gen.switch.width" />
-            <preference id="SSThinWidth"
-                        type="int"
-                        name="extensions.aios.gen.switch.twidth" />
-            <preference id="SSThin"
-                        type="bool"
-                        name="extensions.aios.gen.switch.thin" />
-            <preference id="SSThinMax"
-                        type="bool"
-                        name="extensions.aios.gen.switch.thinmax" />
-            <preference id="SSInv"
-                        type="bool"
-                        name="extensions.aios.gen.switch.inv" />
-            <preference id="SSInvMax"
-                        type="bool"
-                        name="extensions.aios.gen.switch.invmax" />
-            <preference id="SSInvHover"
-                        type="bool"
-                        name="extensions.aios.gen.switch.invhover" />
-            <preference id="SSInvMouse"
-                        type="bool"
-                        name="extensions.aios.gen.switch.invmouse" />
-            <preference id="SSInvNoClick"
-                        type="bool"
-                        name="extensions.aios.gen.switch.invnoclick" />
-
-            <preference id="SSDrag"
-                        type="bool"
-                        name="extensions.aios.gen.switch.drag" />
-            <preference id="SSDragDelay"
-                        type="int"
-                        name="extensions.aios.gen.switch.dragdelay" />
-
             <preference id="cmodeKey"
                         type="int"
                         name="extensions.aios.cmode.key" />
@@ -219,23 +169,20 @@
         <tabbox flex="1"
                 id="aiosTabboxGeneral">
 
-            <tabs>
+            <tabs onclick="AiOS_Prefs.rememberSelectedTab(this);">
                 <tab label="&tab.gen.appearance;" />
                 <tab label="&tab.gen.behavior;" />
-                <tab label="&menu.togglebar.label;" />
                 <tab label="&tab.gen.special;" />
             </tabs>
 
-            <tabpanels flex="1"
-                       id="panelTest">
+            <tabpanels flex="1">
 
-
-<!-- TAB: Appearance -->
+                <!-- TAB: Appearance -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox">
 
-<!-- Orientation -->
+                        <!-- Orientation -->
                         <groupbox>
                             <caption label="&gen.orient.caption;" />
 
@@ -264,7 +211,7 @@
                             </grid>
                         </groupbox>
 
-<!-- Size -->
+                        <!-- Size -->
                         <groupbox>
                             <caption label="&gen.width.caption;" />
 
@@ -384,14 +331,12 @@
 
                 </tabpanel>
 
-
-
-<!-- TAB: Behavior -->
+                <!-- TAB: Behavior -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox">
 
-<!-- Startup -->
+                        <!-- Startup -->
                         <checkbox preference="SBIntercept"
                                   label="&gen.mbSeparate;" />
 
@@ -457,7 +402,7 @@
                             </grid>
                         </groupbox>
 
-<!-- Open Sidebar -->
+                        <!-- Open Sidebar -->
 
                         <groupbox>
                             <caption label="&gen.init.sidebar;" />
@@ -486,7 +431,7 @@
                             </grid>
                         </groupbox>
 
-<!-- Fullscreen Mode -->
+                        <!-- Fullscreen Mode -->
 
                         <groupbox id="fullscreenGroupbox">
                             <caption label="&tab.gen.fullscreen;" />
@@ -505,174 +450,12 @@
                     </vbox>
                 </tabpanel>
 
-
-
-<!-- TAB: Sidebar-Switch -->
-
-                <tabpanel orient="vertical">
-                    <vbox class="aiosSizeBox">
-                        <tabbox>
-                          <tabs>
-                            <tab label="&tab.gen.behavior;"/>
-                            <tab label="&tab.gen.appearance;"/>
-                          </tabs>
-                          <tabpanels>
-                            <!-- Behavior -->
-                            <tabpanel orient="vertical">
-                            <checkbox label="&gen.switch.autoshow;"
-                                      preference="SSAutoshow"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
-                                      aiosChilds="SSOnlymax,SSDelayShow,SSDelayHide,SSHidemethod" />
-
-                            <vbox class="indent">
-                                <checkbox label="&gen.switch.onlymax;"
-                                          preference="SSOnlymax" />
-                                                                
-                                <hbox align="center"
-                                      style="margin-top: 5px;">
-                                    <label value="&gen.switch.delayshow;:" />
-                                    <textbox preference="SSDelayShow"
-                                             size="2"
-                                             type="number"
-                                             min="0" />
-                                    <label value="&gen.switch.delayUnit;" />
-                                    <spacer flex="1"/>
-                                    <label value="&gen.switch.delayhide;:" />
-                                    <textbox preference="SSDelayHide"
-                                             size="2"
-                                             type="number"
-                                             min="0" />
-                                    <label value="&gen.switch.delayUnit;" />
-                                </hbox>
-
-                                <vbox style="margin-top: 5px;">
-                                    <grid flex="1">
-                                        <columns>
-                                            <column style="width:&gen.column1;px;" />
-                                            <column flex="1" />
-                                        </columns>
-                                        <rows>
-                                            <row align="center">
-                                                <label value="&gen.switch.hide;" />
-
-                                                <menulist preference="SSHidemethod">
-                                                    <menupopup>
-                                                        <menuitem id="SSHidemethod1"
-                                                                  label="&gen.switch.hideBar;"
-                                                                  value="1" />
-                                                        <menuitem id="SSHidemethod2"
-                                                                  label="&gen.switch.hidePage;"
-                                                                  value="2" />
-                                                        <menuitem id="SSHidemethod3"
-                                                                  label="&gen.switch.hideNone;"
-                                                                  value="3" />
-                                                    </menupopup>
-                                                </menulist>
-                                            </row>
-                                        </rows>
-                                    </grid>
-                                </vbox>
-                            </vbox>
-
-                            <checkbox label="&gen.switch.drag;"
-                                      preference="SSDrag"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
-                                      aiosChilds="SSDragDelay" />
-                            <vbox class="indent">
-                                <hbox align="center"
-                                      style="margin-top: 5px;">
-                                    <label value="&gen.switch.delay;:" />
-                                    <textbox preference="SSDragDelay"
-                                             size="2"
-                                             type="number"
-                                             min="0" />
-                                    <label value="&gen.switch.delayUnit;" />
-                                </hbox>
-                            </vbox>
-
-                            </tabpanel>
-                            <!-- Appearance -->
-                            <tabpanel orient="vertical">
-                            <checkbox preference="SSThin"
-                                      label="&gen.switch.thin;"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
-                                      aiosChilds="SSThinMax" />
-
-                            <vbox class="indent">
-                                <checkbox preference="SSThinMax"
-                                          label="&gen.switch.onlymax;" />
-                            </vbox>
-
-                            <checkbox label="&gen.switch.invtrigger;"
-                                      preference="SSInv"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);"
-                                      aiosChilds="SSInvMax,SSInvHover,SSInvMouse" />
-
-                            <vbox class="indent">
-                                <checkbox preference="SSInvMax"
-                                          label="&gen.switch.onlymax;" />
-								<label value="&gen.switch.onhover;" />
-                                <checkbox preference="SSInvHover"
-                                          label="&gen.switch.invhover;" />
-                                <checkbox preference="SSInvMouse"
-                                          label="&gen.switch.invmouse;" />
-                                <checkbox preference="SSInvNoClick"
-                                          label="&gen.switch.invnoclick;" />          
-                            </vbox>
-
-                            <grid flex="1"
-                                  style="margin-top: 5px;">
-                                <columns>
-                                    <column />
-                                    <column />
-                                </columns>
-
-                                <rows>
-
-                                    <row align="center">
-                                        <label value="&gen.switch.width;:" />
-
-                                        <hbox align="center">
-                                            <textbox preference="SSWidth"
-                                                     size="1"
-                                                     type="number"
-                                                     min="0" />
-                                            <label value="&gen.width.px;" />
-                                        </hbox>
-                                    </row>
-
-                                    <row align="center">
-                                        <label value="&gen.switch.twidth;:" />
-
-                                        <hbox align="center">
-                                            <textbox preference="SSThinWidth"
-                                                     size="1"
-                                                     type="number"
-                                                     min="0" />
-                                            <label value="&gen.width.px;" />
-                                        </hbox>
-                                    </row>
-
-                                </rows>
-                            </grid>
-                            </tabpanel>
-                          </tabpanels>
-                        </tabbox>
-
-                        <!-- Fix for the height of the shortcut panel => otherwise the last line of text "Tip: ... keyconfig ..." will be cut off -->
-                        <description style="visibility:hidden;">.</description>
-
-                    </vbox>
-
-                </tabpanel>
-
-
-<!-- TAB: Special -->
+                <!-- TAB: Special -->
 
                 <tabpanel orient="vertical">
                     <vbox>
 
-<!-- Open/Close Sidebar -->
+                        <!-- Open/Close Sidebar -->
 
                         <groupbox>
                             <caption label="&cmode.caption;" />
@@ -770,7 +553,7 @@
                             </grid>
                         </groupbox>
 
-<!-- Sidebar Collapsing -->
+                        <!-- Sidebar Collapsing -->
 
                         <groupbox>
 
@@ -807,7 +590,219 @@
     </prefpane>
 
 
-<!-- P A N E L S -->
+    <!-- S I D E B A R  S W I T C H-->
+
+    <prefpane id="aiosSbSwitch"
+              label="&menu.togglebar.label;"
+              flex="1"
+              seltab="0"
+              persist="seltab"
+              onpaneload="AiOS_Prefs.initPane('sbswitch');">
+        <preferences>
+            <preference id="SSAutoshow"
+                        type="bool"
+                        name="extensions.aios.gen.switch.autoshow" />
+            <preference id="SSOnlymax"
+                        type="bool"
+                        name="extensions.aios.gen.switch.onlymax" />
+            <preference id="SSDelayShow"
+                        type="int"
+                        name="extensions.aios.gen.switch.delayshow" />
+            <preference id="SSDelayHide"
+                        type="int"
+                        name="extensions.aios.gen.switch.delayhide" />
+            <preference id="SSHidemethod"
+                        type="int"
+                        name="extensions.aios.gen.switch.hidemethod" />
+            <preference id="SSWidth"
+                        type="int"
+                        name="extensions.aios.gen.switch.width" />
+            <preference id="SSThinWidth"
+                        type="int"
+                        name="extensions.aios.gen.switch.twidth" />
+            <preference id="SSThin"
+                        type="bool"
+                        name="extensions.aios.gen.switch.thin" />
+            <preference id="SSThinMax"
+                        type="bool"
+                        name="extensions.aios.gen.switch.thinmax" />
+            <preference id="SSInv"
+                        type="bool"
+                        name="extensions.aios.gen.switch.inv" />
+            <preference id="SSInvMax"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invmax" />
+            <preference id="SSInvHover"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invhover" />
+            <preference id="SSInvMouse"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invmouse" />
+            <preference id="SSInvNoClick"
+                        type="bool"
+                        name="extensions.aios.gen.switch.invnoclick" />
+
+            <preference id="SSDrag"
+                        type="bool"
+                        name="extensions.aios.gen.switch.drag" />
+            <preference id="SSDragDelay"
+                        type="int"
+                        name="extensions.aios.gen.switch.dragdelay" />
+        </preferences>
+        <tabbox flex="1"
+                id="aiosTabboxSbSwitch">
+
+            <tabs onclick="AiOS_Prefs.rememberSelectedTab(this);">
+                <tab label="&tab.gen.behavior;"/>
+                <tab label="&tab.gen.appearance;"/>
+            </tabs>
+            <tabpanels flex="1">
+                <!-- Behavior -->
+                <tabpanel orient="vertical">
+                    <checkbox label="&gen.switch.autoshow;"
+                              preference="SSAutoshow"
+                              oncommand="AiOS_Prefs.checkboxObserver(this);"
+                              aiosChilds="SSOnlymax,SSDelayShow,SSDelayHide,SSHidemethod" />
+
+                    <vbox class="indent">
+                        <checkbox label="&gen.switch.onlymax;"
+                                  preference="SSOnlymax" />
+
+                        <hbox align="center"
+                              style="margin-top: 5px;">
+                            <label value="&gen.switch.delayshow;:" />
+                            <textbox preference="SSDelayShow"
+                                     size="2"
+                                     type="number"
+                                     min="0" />
+                            <label value="&gen.switch.delayUnit;" />
+                            <spacer flex="1"/>
+                            <label value="&gen.switch.delayhide;:" />
+                            <textbox preference="SSDelayHide"
+                                     size="2"
+                                     type="number"
+                                     min="0" />
+                            <label value="&gen.switch.delayUnit;" />
+                        </hbox>
+
+                        <vbox style="margin-top: 5px;">
+                            <grid flex="1">
+                                <columns>
+                                    <column style="width:&gen.column1;px;" />
+                                    <column flex="1" />
+                                </columns>
+                                <rows>
+                                    <row align="center">
+                                        <label value="&gen.switch.hide;" />
+
+                                        <menulist preference="SSHidemethod">
+                                            <menupopup>
+                                                <menuitem id="SSHidemethod1"
+                                                          label="&gen.switch.hideBar;"
+                                                          value="1" />
+                                                <menuitem id="SSHidemethod2"
+                                                          label="&gen.switch.hidePage;"
+                                                          value="2" />
+                                                <menuitem id="SSHidemethod3"
+                                                          label="&gen.switch.hideNone;"
+                                                          value="3" />
+                                            </menupopup>
+                                        </menulist>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </vbox>
+                    </vbox>
+
+                    <checkbox label="&gen.switch.drag;"
+                              preference="SSDrag"
+                              oncommand="AiOS_Prefs.checkboxObserver(this);"
+                              aiosChilds="SSDragDelay" />
+                    <vbox class="indent">
+                        <hbox align="center"
+                              style="margin-top: 5px;">
+                            <label value="&gen.switch.delay;:" />
+                            <textbox preference="SSDragDelay"
+                                     size="2"
+                                     type="number"
+                                     min="0" />
+                            <label value="&gen.switch.delayUnit;" />
+                        </hbox>
+                    </vbox>
+
+                </tabpanel>
+                <!-- Appearance -->
+                <tabpanel orient="vertical">
+                    <checkbox preference="SSThin"
+                              label="&gen.switch.thin;"
+                              oncommand="AiOS_Prefs.checkboxObserver(this);"
+                              aiosChilds="SSThinMax" />
+
+                    <vbox class="indent">
+                        <checkbox preference="SSThinMax"
+                                  label="&gen.switch.onlymax;" />
+                    </vbox>
+
+                    <checkbox label="&gen.switch.invtrigger;"
+                              preference="SSInv"
+                              oncommand="AiOS_Prefs.checkboxObserver(this);"
+                              aiosChilds="SSInvMax,SSInvHover,SSInvMouse,SSInvNoClick" />
+
+                    <vbox class="indent">
+                        <checkbox preference="SSInvMax"
+                                  label="&gen.switch.onlymax;" />
+                        <label value="&gen.switch.onhover;" />
+                        <checkbox preference="SSInvHover"
+                                  label="&gen.switch.invhover;" />
+                        <checkbox preference="SSInvMouse"
+                                  label="&gen.switch.invmouse;" />
+                        <checkbox preference="SSInvNoClick"
+                                  label="&gen.switch.invnoclick;" />          
+                    </vbox>
+
+                    <grid flex="1"
+                          style="margin-top: 5px;">
+                        <columns>
+                            <column />
+                            <column />
+                        </columns>
+
+                        <rows>
+
+                            <row align="center">
+                                <label value="&gen.switch.width;:" />
+
+                                <hbox align="center">
+                                    <textbox preference="SSWidth"
+                                             size="1"
+                                             type="number"
+                                             min="0" />
+                                    <label value="&gen.width.px;" />
+                                </hbox>
+                            </row>
+
+                            <row align="center">
+                                <label value="&gen.switch.twidth;:" />
+
+                                <hbox align="center">
+                                    <textbox preference="SSThinWidth"
+                                             size="1"
+                                             type="number"
+                                             min="0" />
+                                    <label value="&gen.width.px;" />
+                                </hbox>
+                            </row>
+
+                        </rows>
+                    </grid>
+                </tabpanel>
+            </tabpanels>
+
+        </tabbox>
+    </prefpane>
+
+
+    <!-- P A N E L S -->
 
     <prefpane id="aiosPanels"
               label="&tab.panels;"
@@ -889,19 +884,18 @@
         <tabbox flex="1"
                 id="aiosTabboxPanels">
 
-            <tabs>
+            <tabs onclick="AiOS_Prefs.rememberSelectedTab(this);">
                 <tab label="&tab.panels.places;" />
                 <tab label="&downloads.label;" />
                 <tab label="&button.addons.label;" />
                 <tab label="&tab.panels.other1;" />
-                <tab label="&tab.panels.other2;" />
                 <tab label="&tab.panels.paneltab;"/>
             </tabs>
 
             <tabpanels flex="1">
 
 
-<!-- TAB: Bookmarks/History -->
+                <!-- TAB: Bookmarks/History -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox"
@@ -926,7 +920,7 @@
                 </tabpanel>
 
 
-<!-- TAB: Downloads -->
+                <!-- TAB: Downloads -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox"
@@ -954,7 +948,7 @@
                                 </vbox>
                             </vbox>
 
-                            <vbox class="indent spacer">
+                            <vbox class="indent">
                                 <checkbox preference="DMLayout"
                                           label="&misc.layout.label;" />
                             </vbox>
@@ -972,7 +966,7 @@
                 </tabpanel>
 
 
-<!-- TAB: Add-ons -->
+                <!-- TAB: Add-ons -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox"
@@ -1001,7 +995,7 @@
                 </tabpanel>
 
 
-<!-- TAB: Others I -->
+                <!-- TAB: Others -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox"
@@ -1026,17 +1020,6 @@
                                           label="&misc.layout.label;" />
                             </vbox>
                         </groupbox>
-
-                    </vbox>
-
-                </tabpanel>
-
-
-<!-- TAB: Others II -->
-
-                <tabpanel orient="vertical">
-                    <vbox class="aiosSizeBox"
-                          restart="true">
 
                         <groupbox>
                             <caption label="&button.console.label;" />
@@ -1069,12 +1052,12 @@
                 </tabpanel>
 
 
-<!-- TAB: PanelTab -->
+                <!-- TAB: PanelTab -->
 
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox">
 
-<!-- Bookmarks - PanelTab -->
+                        <!-- Bookmarks - PanelTab -->
 
                         <groupbox>
                             <caption label="&tab.gen.behavior;" />
@@ -1098,14 +1081,13 @@
     </prefpane>
 
 
-<!-- M E N U S -->
+    <!-- M E N U S -->
 
     <prefpane id="aiosMenus"
               label="&tab.menus;"
               flex="1"
               seltab="0"
-              persist="seltab"
-              onpaneload="AiOS_Prefs.initPane('menus');">
+              persist="seltab">
         <preferences>
             <preference id="SBEntryDeac"
                         type="bool"
@@ -1130,19 +1112,8 @@
                         name="extensions.aios.menus.sidebar.prefs" />
         </preferences>
 
-        <tabbox flex="1"
-                id="aiosTabboxMenus">
+                <!-- TAB: Sidebar -->
 
-            <tabs>
-                <tab label="&tab.menus.sidebar;" />
-            </tabs>
-
-            <tabpanels flex="1">
-
-
-<!-- TAB: Sidebar -->
-
-                <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox">
 
                         <description width="100%">&menus.sidebar.desc;</description>
@@ -1179,14 +1150,11 @@
                         </groupbox>
 
                     </vbox>
-                </tabpanel>
 
-            </tabpanels>
-        </tabbox>
     </prefpane>
 
 
-<!-- S H O R T C U T S -->
+    <!-- S H O R T C U T S -->
 
     <prefpane id="aiosKeys"
               label="&tab.keys;"
@@ -1194,7 +1162,7 @@
               src="chrome://aios/content/prefs/keys.xul" />
 
 
-<!-- A B O U T -->
+    <!-- A B O U T -->
 
     <prefpane id="aiosAbout"
               label="&tab.about;"
