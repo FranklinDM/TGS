@@ -557,7 +557,7 @@
 
                         <groupbox>
 
-                            <caption label="&special.collapsing.caption; *" />
+                            <caption label="&special.collapsing.caption;" />
 
                             <hbox>
                                 <description width="100%"
@@ -579,9 +579,6 @@
 
                     </vbox>
 
-                    <spacer flex="1" />
-                    <description value="* &keyconfig.warn;"
-                                 style="margin-top: 10px;" />
                 </tabpanel>
 
             </tabpanels>

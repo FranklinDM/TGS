@@ -233,11 +233,11 @@
         <observes id="aios_observeHidden"
                   element="sidebar-box"
                   attribute="hidden"
-                  onbroadcast="if (!AiOS.isCollapsingEnabled) AiOS.observeSidebar('hidden');" />
+                  onbroadcast="if (!AiOS.isCollapsingEnabled()) AiOS.observeSidebar('hidden');" />
         <observes id="aios_observeCollapsed"
                   element="sidebar-box"
                   attribute="collapsed"
-                  onbroadcast="if (AiOS.isCollapsingEnabled) AiOS.observeSidebar('collapsed');" />
+                  onbroadcast="if (AiOS.isCollapsingEnabled()) AiOS.observeSidebar('collapsed');" />
         <!-- Monitor src status of sidebar => remember last sidebar -->
         <observes element="sidebar"
                   attribute="src"

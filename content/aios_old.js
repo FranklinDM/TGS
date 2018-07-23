@@ -97,7 +97,7 @@ var AiOS = {
         // Collapse the sidebar instead of closing it
         var lp;
 
-        if (AiOS.isCollapsingEnabled) {
+        if (AiOS.isCollapsingEnabled()) {
             // Reset the hidden attribute in any case
             document.getElementById('sidebar-box').setAttribute('hidden', false);
 
@@ -144,7 +144,7 @@ var AiOS = {
             // Close sidebar at startup
             if (sidebarInit == "close" && !aios_isSidebarHidden()) {
                 toggleSidebar();
-                if (AiOS.isCollapsingEnabled) {
+                if (AiOS.isCollapsingEnabled()) {
                     document.getElementById('sidebar-box').setAttribute('collapsed', true);
                 }
             }
@@ -297,7 +297,9 @@ var AiOS = {
     /*
      * Checks if sidebar collapsing is enabled
      */
-    isCollapsingEnabled: AiOS_HELPER.prefBranchAiOS.getBoolPref('collapse'),
+    isCollapsingEnabled: function () {
+        return AiOS_HELPER.prefBranchAiOS.getBoolPref('collapse');
+    },
 
     /*
      * Monitor sidebar status for changes
@@ -566,7 +568,7 @@ var AiOS = {
                 // A particular panel should be opened in principle ...
                 // It is not open yet, the sidebar is still open ...
                 // Then the panel should be loaded, but the Sidebar should be closed => for performance purpose
-                if (AiOS.isCollapsingEnabled && forcePanel && AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel') != forcePanel && !aios_isSidebarHidden())
+                if (AiOS.isCollapsingEnabled() && forcePanel && AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel') != forcePanel && !aios_isSidebarHidden())
                     var closeNow = true;
 
                 var tmpcmd = (forcePanel) ? forcePanel : AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel');
