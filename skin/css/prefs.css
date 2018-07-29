@@ -16,6 +16,9 @@ radio[pane=aiosKeys] {
 radio[pane=aiosAbout] {
 	-moz-image-region: rect(0,  160px,  32px,  128px);
 }
+radio[pane=aiosSbSwitch] {
+    -moz-image-region: rect(0,  192px,  32px,  160px);
+}
 #obj-minWidthVal, #obj-defWidthVal, #obj-maxWidthVal {
 	width: 45px;
 }
