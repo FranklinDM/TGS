@@ -32,9 +32,12 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
   transition-property: background, box-shadow;
   transition-duration: 200ms;
 }
+#aios-toggle-button[invHover="true"]:not(:hover) {
+  background-color: transparent !important;
+}
 #aios-toggle-button[invHover="true"]:hover {
-  background-color: var(--aios-switch-hovercolor);
-  box-shadow: 0 0 15px 5px var(--aios-switch-hovercolor);
+  background-color: var(--aios-switch-hovercolor) !important;
+  box-shadow: 0 0 15px 5px var(--aios-switch-hovercolor) !important;
 }
 #aios-toggle-button[invHover="false"]:hover {
   background-color: transparent;
