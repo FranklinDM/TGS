@@ -2,7 +2,6 @@
 <!ENTITY restart "Los cambios requieren reiniciar el navegador">
 <!ENTITY settings "Configuración">
 <!ENTITY settings.default "Restablecer los Valores por Defecto">
-<!ENTITY settings.advanced "Modo Avanzado">
 <!ENTITY settings.import "Importar Configuración">
 <!ENTITY settings.export "Exportar Configuración">
 <!ENTITY settings.copy "Copiar la Configuración al Portapapeles">
@@ -15,8 +14,7 @@
 <!ENTITY tab.gen.special "Especial">
 <!ENTITY tab.panels "Paneles">
 <!ENTITY tab.panels.places "Marcadores/Historial">
-<!ENTITY tab.panels.other1 "Otros I">
-<!ENTITY tab.panels.other2 "Otros II">
+<!ENTITY tab.panels.other1 "Otros">
 <!ENTITY tab.panels.paneltab "PanelTab">
 <!ENTITY tab.menus "Menues">
 <!ENTITY tab.menus.sidebar "Barra Lateral">
@@ -51,6 +49,7 @@
 <!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
 <!ENTITY gen.switch.delayshow "Show Delay">
 <!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Retardo">
@@ -59,6 +58,10 @@
 <!ENTITY gen.switch.hideBar "retorna a la página web">
 <!ENTITY gen.switch.hidePage "se mantiene sobre el Selector la Barra Lateral">
 <!ENTITY gen.switch.hideNone "no te escondas automáticamente">
+<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
+<!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
+<!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
 <!ENTITY gen.switch.thin "Habilitar Comando de Barra Lateral Delgada">
 <!ENTITY gen.switch.width "Ancho del Selector de la Barra Lateral">
 <!ENTITY gen.switch.twidth "Ancho del Selector Fino de la Barra Lateral">

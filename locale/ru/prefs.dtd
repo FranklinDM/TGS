@@ -2,7 +2,6 @@
 <!ENTITY restart "Изменения требуют перезапуска браузера">
 <!ENTITY settings "Настройки">
 <!ENTITY settings.default "Восстановить настройки по умолчанию…">
-<!ENTITY settings.advanced "Расширенный режим">
 <!ENTITY settings.import "Импорт настроек…">
 <!ENTITY settings.export "Экспорт настроек…">
 <!ENTITY settings.copy "Копировать настройки в буфер обмена">
@@ -15,8 +14,7 @@
 <!ENTITY tab.gen.special "Специальные возможности">
 <!ENTITY tab.panels "Панели">
 <!ENTITY tab.panels.places "Закладки/Журнал">
-<!ENTITY tab.panels.other1 "Дополнительно I">
-<!ENTITY tab.panels.other2 "Дополнительно II">
+<!ENTITY tab.panels.other1 "Дополнительно">
 <!ENTITY tab.panels.paneltab "Панель вкладок">
 <!ENTITY tab.menus "Меню">
 <!ENTITY tab.menus.sidebar "Боковая панель">
@@ -51,6 +49,7 @@
 <!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
 <!ENTITY gen.switch.delayshow "Показать Задержка">
 <!ENTITY gen.switch.delayhide "Спрятать Задержка">
 <!ENTITY gen.switch.delay "Задержка">
@@ -60,6 +59,10 @@
 <!ENTITY gen.switch.hidePage "удерживается на переключателе боковой панели">
 <!ENTITY gen.switch.hideNone "не скрывать автоматически">
 <!ENTITY gen.switch.thin "Использовать сжатый переключатель боковой панели">
+<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
+<!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
+<!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
 <!ENTITY gen.switch.width "Ширина переключателя боковой панели">
 <!ENTITY gen.switch.twidth "Ширина сжатого переключателя боковой панели">
 <!ENTITY gen.mbSeparate "Не открывать в панели боковой панели при открытии из меню / клавишных клавиш">

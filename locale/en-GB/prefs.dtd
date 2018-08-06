@@ -2,7 +2,6 @@
 <!ENTITY restart "Changes require a browser restart">
 <!ENTITY settings "Settings">
 <!ENTITY settings.default "Restore Defaults…">
-<!ENTITY settings.advanced "Advanced Mode">
 <!ENTITY settings.import "Import Settings…">
 <!ENTITY settings.export "Export Settings…">
 <!ENTITY settings.copy "Copy Settings to Clipboard">
@@ -15,8 +14,7 @@
 <!ENTITY tab.gen.special "Special">
 <!ENTITY tab.panels "Panels">
 <!ENTITY tab.panels.places "Bookmarks/History">
-<!ENTITY tab.panels.other1 "Other I">
-<!ENTITY tab.panels.other2 "Other II">
+<!ENTITY tab.panels.other1 "Others">
 <!ENTITY tab.panels.paneltab "PanelTab">
 <!ENTITY tab.menus "Menus">
 <!ENTITY tab.menus.sidebar "Sidebar">
@@ -24,8 +22,8 @@
 <!ENTITY tab.about "About/Help">
 <!ENTITY gen.orient.caption "Orientation">
 <!ENTITY gen.orient.label "Show sidebar on">
-<!ENTITY gen.orient.left "left side">
-<!ENTITY gen.orient.right "right side">
+<!ENTITY gen.orient.left "Left side">
+<!ENTITY gen.orient.right "Right side">
 <!ENTITY gen.width.caption "Size">
 <!ENTITY gen.width.px "pixels">
 <!ENTITY gen.width.perc "percent">
@@ -51,6 +49,7 @@
 <!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
 <!ENTITY gen.switch.delayshow "Show Delay">
 <!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Delay">
@@ -59,6 +58,10 @@
 <!ENTITY gen.switch.hideBar "is moved back to the webpage">
 <!ENTITY gen.switch.hidePage "is held on the Sidebar Switch">
 <!ENTITY gen.switch.hideNone "don't hide automatically">
+<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
+<!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
+<!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
 <!ENTITY gen.switch.thin "Enable Thin Sidebar Switch">
 <!ENTITY gen.switch.width "Width of the Sidebar Switch">
 <!ENTITY gen.switch.twidth "Width of the Thin Sidebar Switch">
