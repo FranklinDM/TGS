@@ -55,7 +55,7 @@ restoreDefaultSet = function () {
 
     // Reset values for AiOS toolbar => before defaultset is reset => otherwise errors (too many separators)
     AiOS_HELPER.mostRecentWindow.aios_setToolbarPos(1);
-    AiOS_HELPER.mostRecentWindow.aios_toolbar.setAttribute('flexbuttons', 'false');
+    AiOS_HELPER.mostRecentWindow.AiOS_Objects.mainToolbar.setAttribute('flexbuttons', 'false');
 
     // Restore the defaultset for fixed toolbars.
     forEachCustomizableToolbar(function (toolbar) {

@@ -2,7 +2,6 @@
 <!ENTITY restart "Les modifications ne seront validées qu&apos;au redémarrage du navigateur">
 <!ENTITY settings "Préférences">
 <!ENTITY settings.default "Rétablir les préférences par défaut…">
-<!ENTITY settings.advanced "Mode avancé">
 <!ENTITY settings.import "Importer des préférences…">
 <!ENTITY settings.export "Exporter vos préférences…">
 <!ENTITY settings.copy "Copier les préférences dans le presse-papiers…">
@@ -15,8 +14,7 @@
 <!ENTITY tab.gen.special "Spéciales">
 <!ENTITY tab.panels "Panneaux">
 <!ENTITY tab.panels.places "Marque-pages/Historique">
-<!ENTITY tab.panels.other1 "Autres (1)">
-<!ENTITY tab.panels.other2 "Autres (2)">
+<!ENTITY tab.panels.other1 "Autres">
 <!ENTITY tab.panels.paneltab "OngletDePanneau">
 <!ENTITY tab.menus "Menus">
 <!ENTITY tab.menus.sidebar "Panneau latéral">
@@ -51,6 +49,7 @@
 <!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
 <!ENTITY gen.switch.delayshow "Afficher Délai">
 <!ENTITY gen.switch.delayhide "Masquer Délai">
 <!ENTITY gen.switch.delay "Délai">
@@ -59,6 +58,10 @@
 <!ENTITY gen.switch.hideBar "est ramené vers la page web">
 <!ENTITY gen.switch.hidePage "est maintenu sur l&apos;interrupteur du panneau">
 <!ENTITY gen.switch.hideNone "don't hide automatically">
+<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
+<!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
+<!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
 <!ENTITY gen.switch.thin "Activer la ligne étroite de repli du panneau latéral">
 <!ENTITY gen.switch.width "Taille de l&apos;interrupteur du panneau latéral">
 <!ENTITY gen.switch.twidth "Taille de la ligne étroite de repli du panneau latéral">

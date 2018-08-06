@@ -1,6 +1,31 @@
 
 # Changelog
 
+### 1.0.7 (08.06.2018)
+* This release is compatible with Pale Moon 28.
+* Major: Wrap AiOS' functions into a module pattern
+* Major: Update the way we handle fullscreen switching
+  * The way this is done is patterned on the way Pale Moon's full screen component handles this event
+  * Mark sidebar header toolbar as 'fullscreen toolbar' in order for it to not be hidden when entering fullscreen
+  * Hide TGS toolbars & switch when entering DOM Fullscreen (they're unnecessary in that mode)
+* Minor: Don't hide sidebar switch when in fullscreen by default
+* Minor: remove advanced mode (and show them all by default)
+* Minor: Use -moz-box-ordinal-group instead of ugly RTL hack
+* Minor: Save switch/toolbar/sidebar states and restore them after customization
+* Minor: Scrap second pane search for Bookmarks/History
+* Minor: Improve compatibility with 2 Pane Bookmarks
+* Minor: Add option to reject click interactions on Sidebar Switch when it is invisible
+* Minor: Add option to remove/hide sidebar switch on some occasions
+* Ignore: Fix invalid variable error on mouse cursor variable (ISS)
+  * Small typo: hand should be default
+* Ignore: Changes to drag and drop functionality should apply on change
+* Ignore: Move sidebar switch tab into its own panel in Preferences/Options
+* Ignore: make background rules for TGS toggle button [invisible] important
+  * Changing --aios-switch-hovercolor variable still works
+* Ignore: Reduce duration of invisible SS highlight on hover
+  * It feels tooooo.. slow..
+* Ignore: Refactoring/changes under the hood
+
 ### 1.0.6 (03.14.2018)
 * Major: Revise invisible sidebar switch implementation
   * This...
@@ -74,12 +99,12 @@
 * Minor: Prevent non-numbers from being placed on input boxes in prefs window
   * Prevents some invalid values like putting letters in places where numbers are the only accepted values
   * Also adds a spin button beside the boxes
-  * Prevent negative values (for miliseconds/pixels/percent)
+  * Prevent negative values (for milliseconds/pixels/percent)
 * Minor: Resolve #28 - Expose options when dragging something above the sidebar switch
   * When options for delay is set to 0, this means that there is no delay
 * Minor: Shading items in DL list should controllable by pref
   * Allows shading to happen even in non-default themes
-* Minor: Properly show some strings on key config (and some others)
+* Minor: Properly show some strings on keyconfig (and some others)
   * In the past (including AiOS 0.7.21.1), some parts of the UI will show the camel case name of the string instead of the actual string itself
   * Adds 'keyconf.properties' and reads the string from the string bundle instead
   * Now properly displays 'Browser restart required' when resetting keys

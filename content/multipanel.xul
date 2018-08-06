@@ -17,11 +17,12 @@
 
     <script><![CDATA[
         // Add automatic update listener & remove
-        window.addEventListener("load", aios_init, false);
-
-        window.addEventListener("unload",function(e) {
-            if(top.gBrowser && top.gBrowser.removeProgressListener) top.gBrowser.removeProgressListener(aiosProgListener);
-            aios_unloadMultiPanel();
+        window.addEventListener("load", AiOS_MP.init);
+        
+        window.addEventListener("unload", function (e) {
+            if (top.gBrowser && top.gBrowser.removeProgressListener)
+                top.gBrowser.removeProgressListener(aiosProgListener);
+            AiOS_MP.unload();
         }, false);
     ]]>
     </script>
@@ -114,7 +115,7 @@
                              flex="400">
                     <textbox id="urlbar"
                              flex="1"
-                             placeholder="&urlbar.placeholder2;"
+                             placeholder=""
                              type="autocomplete"
                              autocompletesearch="urlinline history"
                              autocompletesearchparam="enable-actions"
@@ -124,9 +125,9 @@
                              showcommentcolumn="true"
                              tabscrolling="true"
                              enablehistory="true"
-                             ontextreverted="return WebPanels.onTextReverted();"
-                             ontextentered="return WebPanels.onTextEntered(param);"
-                             ondrop="return WebPanels.onTextDrop(event);">
+                             ontextreverted="return AiOS_MP.onTextReverted();"
+                             ontextentered="return AiOS_MP.onTextEntered(param);"
+                             ondrop="return AiOS_MP.onTextDrop(event);">
                         <hbox id="urlbar-icons">
                             <!-- Throbber for out-of-sidebar situations -->
                             <image id="sidebar-throbber"/>
@@ -143,8 +144,8 @@
                                checked="false"
                                label="&page.label;"
                                tooltiptext="&page.tooltip;"
-                               oncommand="aios_setMultiPanel('page');">
-                    <menupopup onpopupshowing="aios_getPageOptions();">
+                               oncommand="AiOS_MP.setMultiPanel('page');">
+                    <menupopup onpopupshowing="AiOS_MP.getPageOptions();">
                         <menuitem id="ssr-mitem"
                                   type="checkbox"
                                   checked="false"
@@ -152,7 +153,7 @@
                                   persist="checked"
                                   label="&page.ssr.label;"
                                   tooltiptext="&page.ssr.label;"
-                                  oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
+                                  oncommand="aios_toggleElement(this); AiOS_MP.setSSR(); event.stopPropagation();" />
                         <menuitem id="ssrSidebar-mitem"
                                   type="checkbox"
                                   checked="false"
@@ -160,17 +161,17 @@
                                   persist="checked"
                                   label="&page.ssr100.label;"
                                   tooltiptext="&page.ssr100.label;"
-                                  oncommand="aios_toggleElement(this); aios_setSSR(); event.stopPropagation();" />
+                                  oncommand="aios_toggleElement(this); AiOS_MP.setSSR(); event.stopPropagation();" />
                         <menu id="about-button"
                               label="&about.label;"
                               tooltiptext="&about.tooltip;"
-                              oncommand="aios_setMultiPanel('about:config');">
+                              oncommand="AiOS_MP.setMultiPanel('about:config');">
                             <menupopup id="aboutGroup">
                                 <menuitem type="radio"
                                           label="about:config"
                                           tooltiptext="&about.config.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:config'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:config'); event.stopPropagation();" />
 
                                 <menuseparator />
 
@@ -178,43 +179,43 @@
                                           label="about:plugins"
                                           tooltiptext="&about.plugins.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:plugins'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:plugins'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:support"
                                           tooltiptext="&about.support.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:support'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:support'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:cache"
                                           tooltiptext="&about.cache.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:cache'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:cache?device=disk"
                                           tooltiptext="&about.cache.disk.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:cache?device=disk'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache?device=disk'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:cache?device=memory"
                                           tooltiptext="&about.cache.memory.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:cache?device=memory'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache?device=memory'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:cache?device=offline"
                                           tooltiptext="&about.cache.offline.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:cache?device=offline'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache?device=offline'); event.stopPropagation();" />
                                 <!-- Pale Moon has removed the crash reporter and there seems no point in keeping this -->
                                 <menuitem type="radio"
                                           label="about:crashes"
                                           tooltiptext="&about.crashes.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:crashes'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:crashes'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:buildconfig"
                                           tooltiptext="&about.buildconfig.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:buildconfig'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:buildconfig'); event.stopPropagation();" />
 
                                 <menuseparator />
 
@@ -222,32 +223,32 @@
                                           label="about:"
                                           tooltiptext="&about.about.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:robots"
                                           tooltiptext="&about.robots.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:robots'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:robots'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:credits"
                                           tooltiptext="&about.credits.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:credits'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:credits'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:license"
                                           tooltiptext="&about.license.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:license'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:license'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:mozilla"
                                           tooltiptext="&about.mozilla.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:mozilla'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:mozilla'); event.stopPropagation();" />
                                 <menuitem type="radio"
                                           label="about:palemoon"
                                           tooltiptext="&about.palemoon.tooltip;"
                                           checked="false"
-                                          oncommand="aios_setMultiPanel('about:palemoon'); event.stopPropagation();" />
+                                          oncommand="AiOS_MP.setMultiPanel('about:palemoon'); event.stopPropagation();" />
                             </menupopup>
                         </menu>
                     </menupopup>
@@ -284,5 +285,5 @@
     <browser id="web-panels-browser"
              persist="cachedurl linkedopt"
              type="content"
-             onclick="WebPanels.onContentAreaClick(event, true);"/>
+             onclick="AiOS_MP.onContentAreaClick(event, true);"/>
 </overlay>

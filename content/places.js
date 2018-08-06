@@ -65,11 +65,22 @@ var AiOS_Places = {};
         document.getElementById('duplicateTree').hidden = isHidden;
         document.getElementById('duplicateSplitter').hidden = isHidden;
 
-        if (self.mode === "history")
-            searchHistory("");
-        if (self.mode === "bookmarks")
+        if (self.mode === "history") {
+            let options = PlacesUtils.history.getNewQueryOptions();
+            options.resultType = Ci.nsINavHistoryQueryOptions.RESULTS_AS_DATE_QUERY;
+            options.includeHidden = false;
+
+            document.getElementById("duplicateTree").load([PlacesUtils.history.getNewQuery()], options);
+        }
+        if (self.mode === "bookmarks") {
             document.getElementById("duplicateTree").place = "place:queryType=1&folder=" + window.top.PlacesUIUtils.allBookmarksFolderId;
-    }
+            // Modifications to be compatible with 2 Pane Bookmarks
+            if (typeof Bookmarks2PaneService == "object") {
+                isHidden = true;
+                document.getElementById('aios-duplicateList').hidden = true;
+            }
+        }
+    };
 
     this.checkFolderOptions = function () {
         var self = AiOS_Places,
@@ -280,110 +291,3 @@ var AiOS_Places = {};
     window.addEventListener("unload", this.shutdown);
 
 }).apply(AiOS_Places);
-
-/*
- * Overrides to the search functions of History and Bookmarks to consider the second pane
- */
-
-function searchHistory(aInputOld, historyTree) {
-    var query = PlacesUtils.history.getNewQuery();
-    var options = PlacesUtils.history.getNewQueryOptions();
-
-    const NHQO = Ci.nsINavHistoryQueryOptions;
-    var sortingMode;
-    var resultType;
-    var pane = -1;
-    var historyTrees = document.getElementsByClassName('sidebar-placesTree');
-    var aInput = aInputOld;
-
-    if (aios_getBoolean(document.getElementById('aios-duplicateList'), 'checked')) {
-        if (aInput.substr(0, 2) == 'P1') {
-            aInput = aInputOld.substr(2);
-            pane = 0;
-        }
-        if (aInput.substr(0, 2) == 'P2') {
-            aInput = aInputOld.substr(2);
-            pane = 1;
-        }
-    }
-
-    switch (gHistoryGrouping) {
-    case "visited":
-        resultType = NHQO.RESULTS_AS_URI;
-        sortingMode = NHQO.SORT_BY_VISITCOUNT_DESCENDING;
-        break;
-    case "lastvisited":
-        resultType = NHQO.RESULTS_AS_URI;
-        sortingMode = NHQO.SORT_BY_DATE_DESCENDING;
-        break;
-    case "dayandsite":
-        resultType = NHQO.RESULTS_AS_DATE_SITE_QUERY;
-        break;
-    case "site":
-        resultType = NHQO.RESULTS_AS_SITE_QUERY;
-        sortingMode = NHQO.SORT_BY_TITLE_ASCENDING;
-        break;
-    case "day":
-    default:
-        resultType = NHQO.RESULTS_AS_DATE_QUERY;
-        break;
-    }
-
-    if (aInput) {
-        query.searchTerms = aInput;
-        if (gHistoryGrouping != "visited" && gHistoryGrouping != "lastvisited") {
-            sortingMode = NHQO.SORT_BY_FRECENCY_DESCENDING;
-            resultType = NHQO.RESULTS_AS_URI;
-        }
-    }
-
-    options.sortingMode = sortingMode;
-    options.resultType = resultType;
-    options.includeHidden = !!aInput;
-
-    // call load() on the tree manually
-    // instead of setting the place attribute in history-panel.xul
-    // otherwise, we will end up calling load() twice
-    if (pane != -1) {
-        historyTrees[pane].load([query], options);
-    } else {
-        for (let i = 0; i < historyTrees.length; i++) {
-            historyTrees[i].load([query], options);
-        }
-    }
-}
-
-function searchBookmarks(aInputOld) {
-    var pane = -1;
-    var bookmarksTrees = document.getElementsByClassName('sidebar-placesTree');
-    var aInput = aInputOld;
-
-    if (aios_getBoolean(document.getElementById('aios-duplicateList'), 'checked')) {
-        if (aInput.substr(0, 2) == 'P1') {
-            aInput = aInputOld.substr(2);
-            pane = 0;
-        }
-        if (aInput.substr(0, 2) == 'P2') {
-            aInput = aInputOld.substr(2);
-            pane = 1;
-        }
-    }
-
-    if (pane != -1) {
-        loadTree(bookmarksTrees[pane], aInput);
-    } else {
-        for (let i = 0; i < bookmarksTrees.length; i++) {
-            loadTree(bookmarksTrees[i], aInput);
-        }
-    }
-
-    function loadTree(tree, aSearchString) {
-        if (!aSearchString)
-            tree.place = tree.place;
-        else
-            tree.applyFilter(aSearchString,
-                [PlacesUtils.bookmarksMenuFolderId,
-                    PlacesUtils.unfiledBookmarksFolderId,
-                    PlacesUtils.toolbarFolderId]);
-    }
-}

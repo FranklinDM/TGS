@@ -38,7 +38,7 @@ function handleOptions(aType, toolbar, aNavToolbox) {
  * => via JS instead of CSS because it has to be dynamic because of Themes
  */
 function aios_adjustToolboxWidth(aMode) {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     var tboxen = ['aios-toolbox-left', 'aios-toolbox-right'];
     var tbox;
@@ -63,8 +63,8 @@ function aios_adjustToolboxWidth(aMode) {
 
     // Set widths
     var usedToolbox;
-    var aiosOrient = fx_mainWindow.getAttribute('aiosOrient');
-    var posMode = aios_toolbar.getAttribute('posMode');
+    var aiosOrient = AiOS_Objects.mainWindow.getAttribute('aiosOrient');
+    var posMode = AiOS_Objects.mainToolbar.getAttribute('posMode');
 
     // Select toolbox according to sidebar alignment
     if ((aiosOrient == "left" && posMode == "1") || (aiosOrient == "right" && posMode == "2")) {
@@ -100,14 +100,14 @@ function aios_adjustToolboxWidth(aMode) {
  * => Called through onpopupshowing handler of context menus in aios.xul
  */
 function aios_onToolbarPopupShowing(aWhich) {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     var mode;
 
     // AiOS Toolbar
     if (aWhich.id == "aios-toolbar-contextmenu") {
         // Button mode
-        mode = aios_toolbar.getAttribute('mode');
+        mode = AiOS_Objects.mainToolbar.getAttribute('mode');
 
         switch (mode) {
         case "full":
@@ -123,20 +123,20 @@ function aios_onToolbarPopupShowing(aWhich) {
         }
 
         // Icon size
-        document.getElementById('aios-view-mitem4').setAttribute('checked', aios_toolbar.getAttribute('iconsize') == "small");
+        document.getElementById('aios-view-mitem4').setAttribute('checked', AiOS_Objects.mainToolbar.getAttribute('iconsize') == "small");
 
         // Flexible buttons
-        document.getElementById('aios-view-mitem5').setAttribute('checked', aios_toolbar.getAttribute('flexbuttons') == "true");
+        document.getElementById('aios-view-mitem5').setAttribute('checked', AiOS_Objects.mainToolbar.getAttribute('flexbuttons') == "true");
     }
 
     // Sidebar Header Toolbar
     else if (aWhich.id == "aios-sbhtoolbar-contextmenu") {
         // Button mode => is required for CSS definitions
-        fx_sidebarHeader.setAttribute('mode', aios_gElem("aios-sbhtoolbar").getAttribute('mode'));
+        AiOS_Objects.sidebarHeader.setAttribute('mode', aios_gElem("aios-sbhtoolbar").getAttribute('mode'));
 
         // Icon size
         document.getElementById('aios-sbhview-mitem4').setAttribute('checked', aios_gElem("aios-sbhtoolbar").getAttribute('iconsize') == "small");
-        fx_sidebarHeader.setAttribute('iconsize', aios_gElem("aios-sbhtoolbar").getAttribute('iconsize'));
+        AiOS_Objects.sidebarHeader.setAttribute('iconsize', aios_gElem("aios-sbhtoolbar").getAttribute('iconsize'));
     }
 }
 
@@ -151,7 +151,7 @@ function aios_onToolbarPopupShowing(aWhich) {
  * => posMode 5 = below the sidebar 			(horizontal)
  */
 function aios_setToolbarPos(posMode) {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     var tbox,
     orient,
@@ -159,7 +159,7 @@ function aios_setToolbarPos(posMode) {
     separator;
 
     if (!posMode)
-        posMode = parseInt(aios_toolbar.getAttribute('posMode'));
+        posMode = parseInt(AiOS_Objects.mainToolbar.getAttribute('posMode'));
 
     try {
         var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
@@ -192,10 +192,10 @@ function aios_setToolbarPos(posMode) {
         break;
     }
 
-    aios_toolbar.setAttribute('posMode', posMode);
-    aios_toolbar.setAttribute('orient', orient);
+    AiOS_Objects.mainToolbar.setAttribute('posMode', posMode);
+    AiOS_Objects.mainToolbar.setAttribute('orient', orient);
 
-    document.getElementById(tbox).appendChild(aios_toolbar);
+    document.getElementById(tbox).appendChild(AiOS_Objects.mainToolbar);
 
     aios_adjustToolboxWidth(false);
 
@@ -212,7 +212,7 @@ function aios_setToolbarPos(posMode) {
  * => viewMode 5 = flexible buttons on/off
  */
 function aios_setToolbarView(aViewMode, aWhich) {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     var viewMode = aViewMode;
 
@@ -264,7 +264,7 @@ function aios_setToolbarView(aViewMode, aWhich) {
     if (tbar == aios_gElem("aios-toolbar"))
         aios_adjustToolboxWidth(false);
     else
-        fx_sidebarHeader.setAttribute(set_property, set_value);
+        AiOS_Objects.sidebarHeader.setAttribute(set_property, set_value);
 }
 
 /*
@@ -273,11 +273,11 @@ function aios_setToolbarView(aViewMode, aWhich) {
  * => Called by aios_observeSidebar(), aios_toggleOperaMode(), aios_toggleSidebar(), aios_controlSwitch(), aios_BrowserFullScreen()
  */
 function aios_toggleToolbar(aWhich) {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     var mode = (typeof aWhich == "boolean") ? aWhich : !aios_getBoolean(aWhich, 'checked');
 
-    aios_toolbar.hidden = mode;
+    AiOS_Objects.mainToolbar.hidden = mode;
 
     aios_adjustToolboxWidth(false);
 }
@@ -287,7 +287,7 @@ function aios_toggleToolbar(aWhich) {
  * => Called by onpopupshowing handler of the menus in aios.xul
  */
 function aios_addToolbarMitem(aWhich) {
-    aios_getObjects();
+    AiOS_Objects.get();
 
     var popup = document.getElementById('viewToolbarsMenu').firstChild;
     if (aWhich.id == "toolbar-context-menu")
@@ -298,7 +298,7 @@ function aios_addToolbarMitem(aWhich) {
     // toolbarid = TotalToolbar-Fix => Without the entry is displayed several times because the menu is not emptied correctly
     menuItem.setAttribute("toolbarId", 'aios-toolbar');
     menuItem.setAttribute("observes", "aios-viewToolbar");
-    menuItem.setAttribute("label", aios_toolbar.getAttribute('toolbarname'));
+    menuItem.setAttribute("label", AiOS_Objects.mainToolbar.getAttribute('toolbarname'));
 
     var mitems = popup.childNodes;
     for (var i = 0; i < mitems.length; i++) {

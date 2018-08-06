@@ -2,21 +2,19 @@
 <!ENTITY restart "Ang mga pagbabago rito ay nangangailangan ng browser restart">
 <!ENTITY settings "Mga Setting">
 <!ENTITY settings.default "Ibalik ang mga Default…">
-<!ENTITY settings.advanced "Advanced Mode">
 <!ENTITY settings.import "I-import ang mga Setting…">
 <!ENTITY settings.export "I-export ang mga Setting…">
 <!ENTITY settings.copy "Kopyahin ang mga Setting sa Clipboard">
 <!ENTITY apply "Ilapat">
 <!ENTITY gen.column1 "110">
 <!ENTITY tab.gen "Pangkalahatan">
-<!ENTITY tab.gen.appearance "Hitsura">
+<!ENTITY tab.gen.appearance "Itsura">
 <!ENTITY tab.gen.behavior "Behavior">
 <!ENTITY tab.gen.fullscreen "Mode ng Buong Screen">
 <!ENTITY tab.gen.special "Espesyal">
 <!ENTITY tab.panels "Mga Panel">
 <!ENTITY tab.panels.places "Mga Bookmark/Kasaysayan">
-<!ENTITY tab.panels.other1 "Iba Pa I">
-<!ENTITY tab.panels.other2 "Iba Pa II">
+<!ENTITY tab.panels.other1 "Iba Pa">
 <!ENTITY tab.panels.paneltab "PanelTab">
 <!ENTITY tab.menus "Mga Menu">
 <!ENTITY tab.menus.sidebar "Sidebar">
@@ -48,9 +46,10 @@
 <!ENTITY gen.switch.drag "Awtomatikong ipakita ang Sidebar kapag nag-drag ng isang bagay sa sidebar switch">
 <!ENTITY gen.switch.onlymax "Gawin lamang ito kapag ang Browser ay Maximized o Sinasakop ang Buong Screen">
 <!ENTITY gen.switch.invtrigger "Paganahin ang Invisible Sidebar Switch">
-<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
-<!ENTITY gen.switch.invhover "Show visual feedback or highlight">
-<!ENTITY gen.switch.invmouse "Show a hand cursor">
+<!ENTITY gen.switch.onhover "Kapag ang mouse ay inilagay sa invisible sidebar switch:">
+<!ENTITY gen.switch.invhover "Magpakita ng visual feedback o highlight">
+<!ENTITY gen.switch.invmouse "Magpakita ng hand cursor">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
 <!ENTITY gen.switch.delayshow "Antala sa Pagpapakita">
 <!ENTITY gen.switch.delayhide "Antala sa Pagtatago">
 <!ENTITY gen.switch.delay "Antala">
@@ -59,6 +58,10 @@
 <!ENTITY gen.switch.hideBar "ay inilipat pabalik sa webpage">
 <!ENTITY gen.switch.hidePage "ay inilagay sa Sidebar Switch">
 <!ENTITY gen.switch.hideNone "huwag awtomatikong itago">
+<!ENTITY gen.switch.ssvisibility "Itago ang sidebar switch kapag:">
+<!ENTITY gen.switch.ssvisibility.auto "Awtomatiko (nakatago kapag walang silbi)">
+<!ENTITY gen.switch.ssvisibility.open "Nakabukás ang sidebar">
+<!ENTITY gen.switch.ssvisibility.closed "Nakasara ang sidebar">
 <!ENTITY gen.switch.thin "Paganahin ang Manipis na Sidebar Switch">
 <!ENTITY gen.switch.width "Lapad ng Sidebar Switch">
 <!ENTITY gen.switch.twidth "Lapad ng Manipis na Sidebar Switch">
