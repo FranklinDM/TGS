@@ -649,7 +649,7 @@ var AiOS = {
                 barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
                 AiOS_Objects.toggleBox.setAttribute('style', 'position: fixed;');
 
-                let cursor = (!invmouse) ? 'hand' : 'pointer';
+                let cursor = (!invmouse) ? 'default' : 'pointer';
                 let hoverState = (invhover) ? 'true' : 'false';
                 AiOS_Objects.toggleBar.setAttribute('invHover', hoverState);
                 AiOS_Objects.sbSwitch.setAttribute('invHover', hoverState);
