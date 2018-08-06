@@ -567,6 +567,20 @@ var AiOS = {
                 if (AiOS.isCollapsingEnabled() && forcePanel && AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel') != forcePanel && !aios_isSidebarHidden())
                     var closeNow = true;
 
+                switch (AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.visibility")) {
+                    case 0:
+                        if (aios_isSidebarHidden() && AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv") && AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick"))
+                            AiOS_Objects.toggleBar.hidden = true;
+                        else
+                            AiOS_Objects.toggleBar.hidden = false;
+                    break;
+                    case 1:
+                        AiOS_Objects.toggleBar.hidden = aios_isSidebarHidden();
+                    break;
+                    case 2:
+                        AiOS_Objects.toggleBar.hidden = !aios_isSidebarHidden();
+                    break;
+                }
                 var tmpcmd = (forcePanel) ? forcePanel : AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel');
                 toggleSidebar(tmpcmd, aForceOpen);
 

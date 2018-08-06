@@ -43,6 +43,7 @@ pref("extensions.aios.gen.switch.width", 6);
 pref("extensions.aios.gen.switch.twidth", 2);
 pref("extensions.aios.gen.switch.thin", false);
 pref("extensions.aios.gen.switch.thinmax", false);
+pref("extensions.aios.gen.switch.visibility", 0);
 
 pref("extensions.aios.gen.switch.drag", true);
 pref("extensions.aios.gen.switch.dragdelay", 0);

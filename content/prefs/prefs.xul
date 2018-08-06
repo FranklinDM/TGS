@@ -638,6 +638,9 @@
             <preference id="SSInvNoClick"
                         type="bool"
                         name="extensions.aios.gen.switch.invnoclick" />
+            <preference id="SSVisibility"
+                        type="int"
+                        name="extensions.aios.gen.switch.visibility" />
 
             <preference id="SSDrag"
                         type="bool"
@@ -755,6 +758,34 @@
                                   label="&gen.switch.invmouse;" />
                         <checkbox preference="SSInvNoClick"
                                   label="&gen.switch.invnoclick;" />          
+                    </vbox>
+
+                    <vbox style="margin-top: 5px;">
+                        <grid flex="1">
+                            <columns>
+                                <column />
+                                <column />
+                            </columns>
+                            <rows>
+                                <row align="center">
+                                    <label value="&gen.switch.ssvisibility;" />
+
+                                    <menulist preference="SSVisibility">
+                                        <menupopup>
+                                            <menuitem id="SSVisibilityMethod1"
+                                                      label="&gen.switch.ssvisibility.auto;"
+                                                      value="0" />
+                                            <menuitem id="SSVisibilityMethod2"
+                                                      label="&gen.switch.ssvisibility.open;"
+                                                      value="1" />
+                                            <menuitem id="SSVisibilityMethod3"
+                                                      label="&gen.switch.ssvisibility.closed;"
+                                                      value="2" />
+                                        </menupopup>
+                                    </menulist>
+                                </row>
+                            </rows>
+                        </grid>
                     </vbox>
 
                     <grid flex="1"
