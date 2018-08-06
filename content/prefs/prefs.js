@@ -351,7 +351,7 @@ var AiOS_Prefs = {
         else
             return aInput;
     },
-    
+
     /*
      * Saves the index of the last selected tab into the prefpane's "seltab" attribute
      * => Called by the onclick event of the tab containers
@@ -429,6 +429,15 @@ var AiOS_Prefs = {
                 win.AiOS.setSidebarOrient();
             if (win.aios_initAutohide)
                 win.aios_initAutohide();
+
+            var switchDrag = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.drag");
+            var switchDragDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.dragdelay");
+
+            // We might incur a performance hit if we do this dynamically
+            if (switchDrag)
+                win.AiOS_Objects.sbSwitch.setAttribute('ondragenter', "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
+            else
+                win.AiOS_Objects.sbSwitch.setAttribute('ondragenter', "");
         }
 
         // Bugfix:

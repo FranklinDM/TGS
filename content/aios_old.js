@@ -167,20 +167,16 @@ var AiOS = {
             AiOS.setSidebarWidth(e);
         }, false);
 
-        // Monitor the sidebars menu - necessary in case the first call is made through the view menu
-        //AiOS_Objects.sidebarMenu.addEventListener('popupshowing', aios_modSidebarMenu, false);
-
-        // Disable drag-and-drop functionality for the sidebar toggle switch?
-        // And/or set delay for this d-and-d func?
+        // Determine if we should disable/enable the sidebar switch's drag and drop feature and
+        // set the delay on how long an item should be on top of the switch if necessary
         try {
             var switchDrag = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.drag");
             var switchDragDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.dragdelay");
 
-            if (switchDragDelay != 0)
-                AiOS_Objects.sbSwitch.setAttribute('ondragenter',
-                    "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
-            if (!switchDrag)
-                AiOS_Objects.sbSwitch.removeAttribute('ondragenter');
+            if (switchDragDelay)
+                AiOS_Objects.sbSwitch.setAttribute('ondragenter', "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
+            else
+                AiOS_Objects.sbSwitch.setAttribute('ondragenter', "");
         } catch (e) {}
 
         // Show changelog?
@@ -278,7 +274,7 @@ var AiOS = {
             // Sidebar alignment
             var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
         } catch (e) {}
-        
+
         AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'left');
         if (sidebarOrient == 2)
             AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'right');
@@ -484,7 +480,7 @@ var AiOS = {
             AiOS_Objects.sbSwitch.addEventListener("mouseout", function () {
                 window.clearTimeout(AiOS._autoTimeout);
             }, true);
-            
+
             // If the invisible sidebar switch is enabled and no click is true, don't remove the timeout
             if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv') && AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick'))
                 return true;
@@ -652,7 +648,7 @@ var AiOS = {
             if (inv) {
                 barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
                 AiOS_Objects.toggleBox.setAttribute('style', 'position: fixed;');
-                
+
                 let cursor = (!invmouse) ? 'hand' : 'pointer';
                 let hoverState = (invhover) ? 'true' : 'false';
                 AiOS_Objects.toggleBar.setAttribute('invHover', hoverState);
@@ -709,7 +705,7 @@ var AiOS = {
      */
     onFullscreen: function (event) {
         AiOS_Objects.get();
-        
+
         let enterFS = window.fullScreen;
         if (event && event.type == "fullscreen")
             enterFS = !enterFS;
@@ -719,7 +715,7 @@ var AiOS = {
             AiOS.doFullscreenAction("enter");
         else
             AiOS.doFullscreenAction("exit");
-        
+
         // Decide on what mode should be applied on sidebar switch
         AiOS.checkSidebarSwitch();
 
@@ -798,12 +794,12 @@ var AiOS = {
      * Before & After customization event
      */
     customizeStates: {
-        save: function() {
+        save: function () {
             this.switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, 'hidden');
             this.toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, 'hidden');
             this.sidebarHidden = aios_isSidebarHidden();
         },
-        restore: function() {
+        restore: function () {
             if (this.toolbarHidden)
                 aios_toggleToolbar(true);
             if (this.switchHidden)
@@ -812,7 +808,7 @@ var AiOS = {
                 AiOS.toggleSidebar(1, false);
         }
     },
-    
+
     customizeEvent: function (e) {
         if (e.type == "beforecustomization") {
             AiOS.customizeStates.save();
