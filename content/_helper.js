@@ -1,11 +1,12 @@
 var AiOS_HELPER = {
 
     init: function () {
-
         this.prefInterface = Components.interfaces.nsIPrefBranch;
         this.prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-        this.prefBranch = this.prefService.getBranch(null);
-        this.prefBranchAiOS = this.prefService.getBranch("extensions.aios.");
+
+        this.prefBranch.prefBranchInternal = this.prefService.getBranch(null);
+        this.prefBranchAiOS = Object.assign({}, this.prefBranch);
+        this.prefBranchAiOS.prefBranchInternal = this.prefService.getBranch("extensions.aios.");
 
         this.windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher);
         this.windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
@@ -15,17 +16,114 @@ var AiOS_HELPER = {
         this.os = Components.classes['@mozilla.org/xre/app-info;1'].getService(Components.interfaces.nsIXULRuntime).OS;
         this.osVersion = window.navigator.oscpu;
         this.defTheme = (this.prefBranch.getCharPref('general.skins.selectedSkin') == "classic/1.0") ? true : false;
+    },
 
+    // nsIPrefBranch custom implementation
+    prefBranch: {
+        // Get preferences
+        getBoolPref: function (pref) {
+            try {
+                return this.prefBranchInternal.getBoolPref(pref);
+            } catch (e) {
+                return false;
+            }
+        },
+        getIntPref: function (pref) {
+            try {
+                return this.prefBranchInternal.getIntPref(pref);
+            } catch (e) {
+                return 0;
+            }
+        },
+        getCharPref: function (pref) {
+            try {
+                return this.prefBranchInternal.getCharPref(pref);
+            } catch (e) {
+                return "";
+            }
+        },
+        getComplexValue: function (pref, type) {
+            try {
+                return this.prefBranchInternal.getComplexValue(pref, type);
+            } catch (e) {}
+        },
+
+        // Set preferences
+        setBoolPref: function (pref) {
+            try {
+                this.prefBranchInternal.setBoolPref(pref);
+            } catch (e) {}
+        },
+        setIntPref: function (pref) {
+            try {
+                this.prefBranchInternal.setIntPref(pref);
+            } catch (e) {}
+        },
+        setCharPref: function (pref) {
+            try {
+                this.prefBranchInternal.setCharPref(pref);
+            } catch (e) {}
+        },
+        setComplexValue: function (pref, type, xpcom) {
+            try {
+                return this.prefBranchInternal.setComplexValue(pref, type, xpcom);
+            } catch (e) {}
+        },
+
+        // Others
+        prefHasUserValue: function (pref) {
+            return this.prefBranchInternal.prefHasUserValue(pref);
+        },
+        prefIsLocked: function (pref) {
+            return this.prefBranchInternal.prefIsLocked(pref);
+        },
+        clearUserPref: function (pref) {
+            this.prefBranchInternal.clearUserPref(pref);
+        },
+        getChildList: function (startingAt) {
+            return this.prefBranchInternal.getChildList(startingAt);
+        },
+        getPrefType: function (pref) {
+            return this.prefBranchInternal.getPrefType(pref);
+        },
+
+        // Observers
+        addObserver: function (domain, observer, holdWeak) {
+            this.prefBranchInternal.addObserver(domain, observer, holdWeak);
+        },
+        removeObserver: function (domain, observer) {
+            this.prefBranchInternal.removeObserver(domain, observer);
+        },
+
+        // Preference locking
+        lockPref: function (pref) {
+            this.prefBranchInternal.lockPref(pref);
+        },
+        unlockPref: function (pref) {
+            this.prefBranchInternal.unlockPref(pref);
+        },
+
+        // Deleting/resetting preferences
+        deleteBranch: function (startingAt) {
+            this.prefBranchInternal.deleteBranch(startingAt);
+        },
+        resetBranch: function (startingAt) {
+            // This is not implemented in original prefBranch
+            let prefArray = this.getChildList("");
+            for (let i = 0; i < prefArray.length; i++) {
+                if (this.prefHasUserValue(prefArray[i])) {
+                    this.clearUserPref(prefArray[i]);
+                }
+            }
+        }
     },
 
     rememberAppInfo: function (aObj) {
-
         aObj.setAttribute('aios-appVendor', this.appInfo.vendor);
         aObj.setAttribute('aios-appVersion', this.appInfo.version);
         aObj.setAttribute('aios-appOS', this.os);
         aObj.setAttribute('aios-appOSVersion', this.osVersion);
         aObj.setAttribute('aios-appDefTheme', this.defTheme);
-
     }
 
 };
