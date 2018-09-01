@@ -18,6 +18,10 @@ var AiOS_HELPER = {
         this.defTheme = (this.prefBranch.getCharPref('general.skins.selectedSkin') == "classic/1.0") ? true : false;
     },
 
+    log: function (ex) {
+        console.error("TGS: " + ex);
+    },
+
     // nsIPrefBranch custom implementation
     prefBranch: {
         // Get preferences
@@ -25,6 +29,7 @@ var AiOS_HELPER = {
             try {
                 return this.prefBranchInternal.getBoolPref(pref);
             } catch (e) {
+                AiOS_HELPER.log(e);
                 return false;
             }
         },
@@ -32,6 +37,7 @@ var AiOS_HELPER = {
             try {
                 return this.prefBranchInternal.getIntPref(pref);
             } catch (e) {
+                AiOS_HELPER.log(e);
                 return 0;
             }
         },
@@ -39,35 +45,46 @@ var AiOS_HELPER = {
             try {
                 return this.prefBranchInternal.getCharPref(pref);
             } catch (e) {
+                AiOS_HELPER.log(e);
                 return "";
             }
         },
         getComplexValue: function (pref, type) {
             try {
                 return this.prefBranchInternal.getComplexValue(pref, type);
-            } catch (e) {}
+            } catch (e) {
+                AiOS_HELPER.log(e);
+            }
         },
 
         // Set preferences
-        setBoolPref: function (pref) {
+        setBoolPref: function (pref, val) {
             try {
-                this.prefBranchInternal.setBoolPref(pref);
-            } catch (e) {}
+                this.prefBranchInternal.setBoolPref(pref, val);
+            } catch (e) {
+                AiOS_HELPER.log(e);
+            }
         },
-        setIntPref: function (pref) {
+        setIntPref: function (pref, val) {
             try {
-                this.prefBranchInternal.setIntPref(pref);
-            } catch (e) {}
+                this.prefBranchInternal.setIntPref(pref, val);
+            } catch (e) {
+                AiOS_HELPER.log(e);
+            }
         },
-        setCharPref: function (pref) {
+        setCharPref: function (pref, val) {
             try {
-                this.prefBranchInternal.setCharPref(pref);
-            } catch (e) {}
+                this.prefBranchInternal.setCharPref(pref, val);
+            } catch (e) {
+                AiOS_HELPER.log(e);
+            }
         },
-        setComplexValue: function (pref, type, xpcom) {
+        setComplexValue: function (pref, type, val) {
             try {
-                return this.prefBranchInternal.setComplexValue(pref, type, xpcom);
-            } catch (e) {}
+                return this.prefBranchInternal.setComplexValue(pref, type, val);
+            } catch (e) {
+                AiOS_HELPER.log(e);
+            }
         },
 
         // Others
@@ -81,6 +98,8 @@ var AiOS_HELPER = {
             this.prefBranchInternal.clearUserPref(pref);
         },
         getChildList: function (startingAt) {
+            if (typeof startingAt === "undefined")
+                startingAt = "";
             return this.prefBranchInternal.getChildList(startingAt);
         },
         getPrefType: function (pref) {
