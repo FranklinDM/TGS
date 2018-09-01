@@ -224,6 +224,21 @@ window[aiosOrient="right"] #appcontent {
   -moz-box-ordinal-group: 10;
 }
 
+/* Orientation: Left Side */
+window[aiosOrient="left"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 1;
+}
+window[aiosOrient="left"] #sidebar-box {
+  -moz-box-ordinal-group: 3;
+}
+window[aiosOrient="left"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 4;
+}
+window[aiosOrient="left"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 2;
+}
+
+/* Orientation: Right Side */
 window[aiosOrient="right"] #aios-toggle-toolbox {
   -moz-box-ordinal-group: 15;
 }
@@ -236,6 +251,8 @@ window[aiosOrient="right"] #aios-toolbox-right {
 window[aiosOrient="right"] #aios-toolbox-left {
   -moz-box-ordinal-group: 14;
 }
+
+/* Fix for invisible sidebar switch */
 window[aiosOrient="right"] #aios-toggle-toolbar {
   right: 0;
 }
