@@ -4,8 +4,7 @@ var sideSrc = null;
 
 var AiOS_Downloads = {
     init: function () {
-        var enable_sidebar,
-            enable_count,
+        var enable_count,
             enable_layout,
             enable_layoutall,
             enable_loadall,
@@ -20,7 +19,6 @@ var AiOS_Downloads = {
         // For CSS purposes
         AiOS_HELPER.rememberAppInfo(aios_managerWindow);
 
-        enable_sidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.sidebar");
         enable_count = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.count");
         enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layout");
         enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layoutall");
@@ -33,10 +31,11 @@ var AiOS_Downloads = {
         if (enable_shading)
             aios_managerWindow.setAttribute("aios-downloadShade", true);
 
+        // TODO: Stop using mutation observer and get count directly
         // Count and display elements
         if (enable_count) {
             // create an observer instance
-            var observer = new MutationObserver(function (mutations) {
+            var observer = new MutationObserver(function () {
                 window.setTimeout(function () {
                     AiOS_Downloads.countItems();
                     if (!enable_count) {

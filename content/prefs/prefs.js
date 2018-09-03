@@ -39,15 +39,15 @@ var AiOS_Prefs = {
         AiOS_Prefs.checkDependent();
 
         // Monitor units of sidebar width for changes
-        document.getElementById("obj-minWidthUnit").addEventListener("ValueChange", function (e) {
+        document.getElementById("obj-minWidthUnit").addEventListener("ValueChange", function () {
             aios_changeWidthUnit("min");
         }, false);
 
-        document.getElementById("obj-defWidthUnit").addEventListener("ValueChange", function (e) {
+        document.getElementById("obj-defWidthUnit").addEventListener("ValueChange", function () {
             aios_changeWidthUnit("def");
         }, false);
 
-        document.getElementById("obj-maxWidthUnit").addEventListener("ValueChange", function (e) {
+        document.getElementById("obj-maxWidthUnit").addEventListener("ValueChange", function () {
             aios_changeWidthUnit("max");
         }, false);
 
@@ -442,15 +442,13 @@ var AiOS_Prefs = {
      * => Called by button "extra1"
      */
     applyPrefs: function () {
-        var pID,
-            pType,
+        var pType,
             pName,
             pValue;
 
         // Save prefs directly
         var allPrefs = document.getElementsByTagName("preference");
         for (let i = 0; i < allPrefs.length; i++) {
-            pID = allPrefs[i].getAttribute("id");
             pType = allPrefs[i].getAttribute("type");
             pName = allPrefs[i].getAttribute("name");
             pValue = allPrefs[i].value;
