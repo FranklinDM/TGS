@@ -36,7 +36,7 @@ var AiOS_About = {};
                 var language = "";
                 try {
                     language = bundleLanguages.getString(ab);
-                } catch (e) {};
+                } catch (e) {}
 
                 var region = "";
                 if (useABCDFormat) {

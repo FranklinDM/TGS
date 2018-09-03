@@ -260,12 +260,10 @@ var AiOS_Places = {};
         var aView = AiOS_Places.managerTree.treeBoxObject.view;
 
         // Last opened folder "forgotten"
-        try {
-            if (document.getElementById('bookmarksPanel'))
-                AiOS_HELPER.prefBranchAiOS.clearUserPref("lastBookmarkFolder");
-            else if (document.getElementById('history-panel'))
-                AiOS_HELPER.prefBranchAiOS.clearUserPref("lastHistoryFolder");
-        } catch (e) {}
+        if (document.getElementById('bookmarksPanel'))
+            AiOS_HELPER.prefBranchAiOS.clearUserPref("lastBookmarkFolder");
+        else if (document.getElementById('history-panel'))
+            AiOS_HELPER.prefBranchAiOS.clearUserPref("lastHistoryFolder");
 
         // Close the folder
         if (aView) {

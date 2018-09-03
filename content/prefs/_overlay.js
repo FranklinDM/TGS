@@ -18,7 +18,7 @@ if (!window.extLoad)
 window.addEventListener("load", extLoad.init, false);
 
 var aiosKeyconfig = {
-    prefService: Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch(null),
+    prefService: AiOS_HELPER.prefBranch,
     removedKeys: document.createElement("keyset"),
     loadkeys: function (name) {
         this.profile = "extensions.aios.keyconf." + name + ".";
@@ -28,7 +28,7 @@ var aiosKeyconfig = {
             if (!nodes[i].id)
                 nodes[i].id = "xxx_key" + i + "_" + nodes[i].getAttribute("command") + nodes[i].getAttribute("oncommand");
 
-        this.keys = this.prefService.getChildList(this.profile, {});
+        this.keys = this.prefService.getChildList(this.profile);
 
         for (i = 0; i < this.keys.length; i++) {
             var key;

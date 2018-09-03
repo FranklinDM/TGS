@@ -161,9 +161,7 @@ function aios_setToolbarPos(posMode) {
     if (!posMode)
         posMode = parseInt(AiOS_Objects.mainToolbar.getAttribute('posMode'));
 
-    try {
-        var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
-    } catch (e) {}
+    var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
 
     switch (posMode) {
     case 1:

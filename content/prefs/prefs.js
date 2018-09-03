@@ -94,12 +94,9 @@ var AiOS_Prefs = {
         if (!confirm(strings.getString('prefs.confirm')))
             return false;
 
-        var count = {
-            value: 0
-        };
-        var childList = AiOS_HELPER.prefBranchAiOS.getChildList("", count);
+        var childList = AiOS_HELPER.prefBranchAiOS.getChildList("");
 
-        for (var i = 0; i < count.value; i++) {
+        for (var i = 0; i < childList.length; i++) {
             if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(childList[i]) && childList[i] != "changelog") {
                 AiOS_HELPER.prefBranchAiOS.clearUserPref(childList[i]);
             }
@@ -134,25 +131,20 @@ var AiOS_Prefs = {
         aiosExport[0] += "          TGS " + AiOS_HELPER.prefBranchAiOS.getCharPref('changelog') + ", " + AiOS_HELPER.appInfo.name + " " + AiOS_HELPER.appInfo.version + ", " + AiOS_HELPER.os + ", " + AiOS_HELPER.prefBranch.getCharPref('general.skins.selectedSkin') + "\n";
         aiosExport[0] += "-----------------------------------------------------------------------";
 
-        var count = {
-            value: 0
-        };
-        var childList = AiOS_HELPER.prefBranchAiOS.getChildList("", count);
+        var childList = AiOS_HELPER.prefBranchAiOS.getChildList("");
 
-        for (var i = 0; i < count.value; i++) {
-            try {
-                switch (AiOS_HELPER.prefBranchAiOS.getPrefType(childList[i])) {
-                case AiOS_HELPER.prefInterface.PREF_BOOL:
-                    aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getBoolPref(childList[i]);
-                    break;
-                case AiOS_HELPER.prefInterface.PREF_INT:
-                    aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getIntPref(childList[i]);
-                    break;
-                case AiOS_HELPER.prefInterface.PREF_STRING:
-                    aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getCharPref(childList[i]);
-                    break;
-                }
-            } catch (e) {}
+        for (var i = 0; i < childList.length; i++) {
+            switch (AiOS_HELPER.prefBranchAiOS.getPrefType(childList[i])) {
+            case AiOS_HELPER.prefInterface.PREF_BOOL:
+                aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getBoolPref(childList[i]);
+                break;
+            case AiOS_HELPER.prefInterface.PREF_INT:
+                aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getIntPref(childList[i]);
+                break;
+            case AiOS_HELPER.prefInterface.PREF_STRING:
+                aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getCharPref(childList[i]);
+                break;
+            }
         }
 
         // Sort settings alphabetically
@@ -236,22 +228,20 @@ var AiOS_Prefs = {
 
         if (isMatch) {
             for (i = 6; i < aiosImport.length; i++) {
-                try {
-                    switch (AiOS_HELPER.prefBranchAiOS.getPrefType(aiosImport[i][0])) {
-                    case AiOS_HELPER.prefInterface.PREF_BOOL:
-                        AiOS_HELPER.prefBranchAiOS.setBoolPref(aiosImport[i][0], /true/i.test(aiosImport[i][1]));
-                        break;
-                    case AiOS_HELPER.prefInterface.PREF_INT:
-                        AiOS_HELPER.prefBranchAiOS.setIntPref(aiosImport[i][0], aiosImport[i][1]);
-                        break;
-                    case AiOS_HELPER.prefInterface.PREF_STRING:
-                        var pref = aiosImport[i][1];
-                        if (pref.indexOf('"') == 0) // In the previous version we use " " for string
-                            pref = pref.substring(1, pref.length - 1);
-                        AiOS_HELPER.prefBranchAiOS.setCharPref(aiosImport[i][0], pref);
-                        break;
-                    }
-                } catch (e) {}
+                switch (AiOS_HELPER.prefBranchAiOS.getPrefType(aiosImport[i][0])) {
+                case AiOS_HELPER.prefInterface.PREF_BOOL:
+                    AiOS_HELPER.prefBranchAiOS.setBoolPref(aiosImport[i][0], /true/i.test(aiosImport[i][1]));
+                    break;
+                case AiOS_HELPER.prefInterface.PREF_INT:
+                    AiOS_HELPER.prefBranchAiOS.setIntPref(aiosImport[i][0], aiosImport[i][1]);
+                    break;
+                case AiOS_HELPER.prefInterface.PREF_STRING:
+                    var pref = aiosImport[i][1];
+                    if (pref.indexOf('"') == 0) // In the previous version we use " " for string
+                        pref = pref.substring(1, pref.length - 1);
+                    AiOS_HELPER.prefBranchAiOS.setCharPref(aiosImport[i][0], pref);
+                    break;
+                }
             }
 
             // Reset GUI elements

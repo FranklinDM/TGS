@@ -15,12 +15,8 @@ function aios_genSidebarList() {
 
     var cnt = 0;
     var initID = null;
-    var sidebarPrefInit = "";
-    var panelPrefInit = "";
-    try {
-        sidebarPrefInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.init");
-        panelPrefInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.open.init");
-    } catch (e) {}
+    var sidebarPrefInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.init");
+    var panelPrefInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.open.init");
 
     for (var i = 0; i < allSidebars.length; i++) {
         var xulElem = null;
@@ -156,15 +152,15 @@ function aios_setConfSidebarWidth() {
             theValue = parseInt((compWidth * theValue) / 100);
 
         switch (modes[i]) {
-            case "min":
-                widthStyle += 'min-width: ' + theValue + 'px !important; ';
-                break;
-            case "def":
-                widthStyle += 'width: ' + theValue + 'px !important; ';
-                break;
-            case "max":
-                widthStyle += 'max-width: ' + theValue + 'px !important; ';
-                break;
+        case "min":
+            widthStyle += 'min-width: ' + theValue + 'px !important; ';
+            break;
+        case "def":
+            widthStyle += 'width: ' + theValue + 'px !important; ';
+            break;
+        case "max":
+            widthStyle += 'max-width: ' + theValue + 'px !important; ';
+            break;
         }
     }
 

@@ -19,15 +19,13 @@ function aios_modSidebarMenu() {
         var item = AiOS_Objects.sidebarMenu.childNodes[i];
 
         // Show or hide the icons
-        try {
-            var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.icons');
-            var theClass = (enable_icons) ? '' : 'aios-noIcons';
+        var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.icons');
+        var theClass = (enable_icons) ? '' : 'aios-noIcons';
 
-            if (theClass != '')
-                aios_appendClass(item, theClass);
-            else
-                aios_stripClass(item, 'aios-noIcons');
-        } catch (e) {}
+        if (theClass != '')
+            aios_appendClass(item, theClass);
+        else
+            aios_stripClass(item, 'aios-noIcons');
 
         // only if there is no separator or the like
         if (item.getAttribute('observes') && document.getElementById(item.getAttribute('observes'))) {
@@ -57,16 +55,12 @@ function aios_modSidebarMenu() {
 
         // Enable/disable the menu item of the current sidebar
         if (command && commandParent) {
+            var enable_deac = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.entrydeac');
 
-            try {
-                var enable_deac = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.entrydeac');
-
-                if (actSidebar && command.indexOf(actSidebar) != -1 && enable_deac)
-                    item.setAttribute('disabled', true);
-                else
-                    item.setAttribute('disabled', false);
-            } catch (e) {}
-
+            if (actSidebar && command.indexOf(actSidebar) != -1 && enable_deac)
+                item.setAttribute('disabled', true);
+            else
+                item.setAttribute('disabled', false);
         }
     }
 
@@ -88,20 +82,18 @@ function aios_modSidebarMenu() {
     entries[0] = ["showhide", "paneltab1", "paneltab2", "prefs"];
 
     // Show/hide entries/icons
-    try {
-        var enable_showhide = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.showhide');
-        var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.entries');
+    var enable_showhide = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.showhide');
+    var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref('menus.sidebar.entries');
 
-        var returnVals = aios_showHideEntries(entries, 'menus.sidebar.', 'aios-sidebar-mitem-');
+    var returnVals = aios_showHideEntries(entries, 'menus.sidebar.', 'aios-sidebar-mitem-');
 
-        if (enable_showhide && enable_entries) {
-            sidebarshowMitem.setAttribute('hidden', !aios_isSidebarHidden());
-            sidebarhideMitem.setAttribute('hidden', aios_isSidebarHidden());
-        } else {
-            sidebarshowMitem.setAttribute('hidden', true);
-            sidebarhideMitem.setAttribute('hidden', true);
-        }
-    } catch (e) {}
+    if (enable_showhide && enable_entries) {
+        sidebarshowMitem.setAttribute('hidden', !aios_isSidebarHidden());
+        sidebarhideMitem.setAttribute('hidden', aios_isSidebarHidden());
+    } else {
+        sidebarshowMitem.setAttribute('hidden', true);
+        sidebarhideMitem.setAttribute('hidden', true);
+    }
 
     // Move menu entries all the way down if the menu has not been edited yet
     if (!aios_getBoolean(AiOS_Objects.sidebarMenu, 'aios-modified')) {
@@ -125,53 +117,51 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
     var prefPre = prefPre_tmp;
     var returnVals = [];
 
-    try {
-        var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "entries");
-        var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "icons");
+    var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "entries");
+    var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "icons");
 
-        var theClass = (enable_icons) ? '' : 'aios-noIcons';
+    var theClass = (enable_icons) ? '' : 'aios-noIcons';
 
-        for (var i = 0; i < entries.length; i++) {
+    for (var i = 0; i < entries.length; i++) {
 
-            for (var j = 0; j < entries[i].length; j++) {
-                var pref = false;
-                // Read the pref for each entry
-                if (enable_entries)
-                    pref = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + entries[i][j]);
+        for (var j = 0; j < entries[i].length; j++) {
+            var pref = false;
+            // Read the pref for each entry
+            if (enable_entries)
+                pref = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + entries[i][j]);
 
-                // Show or hide entries
-                var theID = IDPre + entries[i][j];
-                if (document.getElementById(theID)) {
-                    // if there are several of them => e.g. because of CompactMenu
-                    var items = document.getElementsByAttribute('id', theID);
-                    for (var xy = 0; xy < items.length; xy++) {
-                        items[xy].hidden = !pref;
-                    }
-                }
-
-                // Select activated entries per group
-                if (!returnVals[i])
-                    returnVals[i] = 0;
-                if (pref)
-                    returnVals[i]++;
-
-                // Show or hide the icons
-                if (document.getElementById(IDPre + entries[i][j])) {
-                    var elem = document.getElementById(IDPre + entries[i][j]);
-
-                    if (theClass != '')
-                        aios_appendClass(elem, theClass);
-                    else
-                        aios_stripClass(elem, 'aios-noIcons');
+            // Show or hide entries
+            var theID = IDPre + entries[i][j];
+            if (document.getElementById(theID)) {
+                // if there are several of them => e.g. because of CompactMenu
+                var items = document.getElementsByAttribute('id', theID);
+                for (var xy = 0; xy < items.length; xy++) {
+                    items[xy].hidden = !pref;
                 }
             }
 
-            // Show or hide the separator
-            var sep = IDPre + "sep" + i;
-            if (document.getElementById(sep))
-                document.getElementById(sep).hidden = !(returnVals[i] > 0);
+            // Select activated entries per group
+            if (!returnVals[i])
+                returnVals[i] = 0;
+            if (pref)
+                returnVals[i]++;
+
+            // Show or hide the icons
+            if (document.getElementById(IDPre + entries[i][j])) {
+                var elem = document.getElementById(IDPre + entries[i][j]);
+
+                if (theClass != '')
+                    aios_appendClass(elem, theClass);
+                else
+                    aios_stripClass(elem, 'aios-noIcons');
+            }
         }
-    } catch (e) {}
+
+        // Show or hide the separator
+        var sep = IDPre + "sep" + i;
+        if (document.getElementById(sep))
+            document.getElementById(sep).hidden = !(returnVals[i] > 0);
+    }
 
     return returnVals;
 }
@@ -185,10 +175,8 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
  */
 var aiosNewTab, aiosSidebarTitle;
 function aios_panelTab(event) {
-    try {
-        var ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
-        var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-    } catch (e) {}
+    var ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
+    var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
 
     if (!event || (!enable_rightclick && event.button == 2))
         return false;
@@ -279,9 +267,7 @@ function aios_panelTab(event) {
 
         // Bookmark Manager instead of Panel?
         if (sidebarHref == "chrome://browser/content/bookmarks/bookmarksPanel.xul") {
-            try {
-                var enable_bmm = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.bm");
-            } catch (e) {}
+            var enable_bmm = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.bm");
             newSrc = (enable_bmm) ? "chrome://browser/content/places/places.xul" : sidebarHref;
         }
         // instead of MultiPanel-XUL open the web page opened in the panel
@@ -352,9 +338,7 @@ function aios_isSidebar(aHref) {
  * Invoked by toolbarbuttons and menu entries
  */
 function aios_contextEvent(event, which) {
-    try {
-        var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-    } catch (e) {}
+    var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
 
     //console.log("Mouse: " + event.button + "\nShift: " + event.shiftKey + "\nCtrl: " + event.ctrlKey + "\nAlt: " + event.altKey + "\nMeta: " + event.metaKey);
 
@@ -469,43 +453,35 @@ function aios_setTargets() {
         targets['dm'] = ['Tools:Downloads', 'viewSdDownloadsSidebar', 'downloads', "aios_openDialog('" + document.getElementById('viewSdDownloadsSidebar').getAttribute('sidebarurl') + "', 'Tools:Console');"];
 
     // activate informative tooltips and function reversal (PanelTab)?
-    var prefInfotip = false,
-    ptReverse = false,
-    enable_rightclick = false,
-    switchTip = true,
-    inv_switch = false,
-    inv_noclick = false;
-    try {
-        prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
-        ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
-        enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-        switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
-        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
-        inv_noclick = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick');
+    let prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
+    let ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
+    let enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
+    let switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
+    let inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
+    let inv_noclick = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick');
 
-        if (prefInfotip) {
-            if (AiOS_Objects.sbSwitch)
-                AiOS_Objects.sbSwitch.removeAttribute('tooltiptext');
+    if (prefInfotip) {
+        if (AiOS_Objects.sbSwitch)
+            AiOS_Objects.sbSwitch.removeAttribute('tooltiptext');
 
-            // in loop because there may be several buttons with the same ID
-            objects = document.getElementsByAttribute('id', 'paneltab-button');
-            for (i = 0; i < objects.length; i++) {
-                objects[i].removeAttribute('tooltiptext');
-            }
+        // in loop because there may be several buttons with the same ID
+        objects = document.getElementsByAttribute('id', 'paneltab-button');
+        for (i = 0; i < objects.length; i++) {
+            objects[i].removeAttribute('tooltiptext');
         }
+    }
 
-        // If tooltip for the switch is disabled/it's not logical to show the tooltip, remove it
-        if (!switchTip || (inv_switch && inv_noclick))
-            if (AiOS_Objects.sbSwitch)
-                AiOS_Objects.sbSwitch.removeAttribute('tooltip');
+    // If tooltip for the switch is disabled/it's not logical to show the tooltip, remove it
+    if (!switchTip || (inv_switch && inv_noclick))
+        if (AiOS_Objects.sbSwitch)
+            AiOS_Objects.sbSwitch.removeAttribute('tooltip');
 
-        if (document.getElementById('paneltab-button')) {
-            if (ptReverse)
-                document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip-reverse');
-            else
-                document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip');
-        }
-    } catch (e) {}
+    if (document.getElementById('paneltab-button')) {
+        if (ptReverse)
+            document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip-reverse');
+        else
+            document.getElementById('paneltab-button').setAttribute('tooltip', 'paneltab-tooltip');
+    }
 
     // Modify the toolbar button's command set
     aios_ModifyCommandSet(targets, prefInfotip, objects, i, false);
@@ -549,14 +525,12 @@ function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
     for (var obj in targets) {
         // Open in sidebar?
         var prefSidebar;
-        try {
-            if (obj != "ad")
-                prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(obj + ".sidebar");
-            else
-                prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.sidebar");
-            var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-            var mbSeparate = AiOS_HELPER.prefBranchAiOS.getBoolPref("intercept");
-        } catch (e) {}
+        if (obj != "ad")
+            prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(obj + ".sidebar");
+        else
+            prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.sidebar");
+        var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
+        var mbSeparate = AiOS_HELPER.prefBranchAiOS.getBoolPref("intercept");
 
         // By default, only modify the commands with the -tb suffix
         var cmExt = "-tb";
@@ -750,7 +724,5 @@ function aios_initAutohide() {
  * => Call through broadcaster 'aios-enableAutohide'
  */
 function aios_toggleAutohide(which) {
-    try {
-        AiOS_HELPER.prefBranchAiOS.setBoolPref("gen.switch.autoshow", aios_getBoolean(which, 'checked'));
-    } catch (e) {}
+    AiOS_HELPER.prefBranchAiOS.setBoolPref("gen.switch.autoshow", aios_getBoolean(which, 'checked'));
 }

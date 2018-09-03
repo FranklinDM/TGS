@@ -20,12 +20,10 @@ var AiOS_PageInfo = {
         // For CSS purposes
         AiOS_HELPER.rememberAppInfo(document.getElementById('main-window'));
 
-        try {
-            var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layout");
-            var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layoutall");
-            if ((enable_layout && aios_inSidebar) || enable_layoutall)
-                AiOS_PageInfo.sidebarLayout();
-        } catch (e) {}
+        var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layout");
+        var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layoutall");
+        if ((enable_layout && aios_inSidebar) || enable_layoutall)
+            AiOS_PageInfo.sidebarLayout();
 
         // Remove keyboard short to avoid blocking the main browser
         if (aios_inSidebar)
