@@ -1,4 +1,4 @@
-var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+var aios_inSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 var aios_inTab = (AiOS_HELPER.mostRecentWindow.aiosLastSelTab) ? true : false;
 
 // Add listener for automatic update and remove
@@ -18,7 +18,7 @@ var AiOS_PageInfo = {
         aios_hideMacMenubar();
 
         // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(document.getElementById('main-window'));
+        AiOS_HELPER.rememberAppInfo(document.getElementById("main-window"));
 
         var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layout");
         var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layoutall");
@@ -37,68 +37,68 @@ var AiOS_PageInfo = {
         aios_addCSS("pageinfo.css", "main-window");
 
         // Hide the label of the radio buttons => only if there are icons
-        var cStyle = document.defaultView.getComputedStyle(document.getElementById('generalTab'), '');
+        var cStyle = document.defaultView.getComputedStyle(document.getElementById("generalTab"), "");
         if (cStyle.listStyleImage && cStyle.listStyleImage != "none") {
-            if (document.getElementById('viewGroup'))
-                document.getElementById('viewGroup').setAttribute("hideLabel", true);
+            if (document.getElementById("viewGroup"))
+                document.getElementById("viewGroup").setAttribute("hideLabel", true);
         }
 
         // Radio buttons with tooltip
-        if (document.getElementById('viewGroup')) {
-            var radioChilds = document.getElementById('viewGroup').childNodes;
+        if (document.getElementById("viewGroup")) {
+            var radioChilds = document.getElementById("viewGroup").childNodes;
             for (var i = 0; i < radioChilds.length; i++) {
                 if (radioChilds[i].tagName == "radio")
-                    radioChilds[i].setAttribute('tooltiptext', radioChilds[i].label);
+                    radioChilds[i].setAttribute("tooltiptext", radioChilds[i].label);
             }
         }
 
         // Media Panel: Save as ... button break
-        var hbox = document.getElementById('mediaPreviewBox').getElementsByTagName('hbox')[0];
-        hbox.setAttribute('align', 'start');
-        hbox.setAttribute('orient', 'vertical');
-        hbox.removeChild(hbox.getElementsByTagName('spacer')[0]);
-        hbox.appendChild(hbox.getElementsByTagName('vbox')[0]);
+        var hbox = document.getElementById("mediaPreviewBox").getElementsByTagName("hbox")[0];
+        hbox.setAttribute("align", "start");
+        hbox.setAttribute("orient", "vertical");
+        hbox.removeChild(hbox.getElementsByTagName("spacer")[0]);
+        hbox.appendChild(hbox.getElementsByTagName("vbox")[0]);
 
         // Security Panel: Breaking Texts and Buttons
         // Identity
-        var groupbox = document.getElementById('security-identity-groupbox');
-        groupbox.removeChild(groupbox.getElementsByTagName('spacer')[0]);
-        groupbox.getElementsByTagName('hbox')[0].setAttribute('orient', 'vertical');
-        groupbox.getElementsByTagName('hbox')[0].setAttribute('align', 'start');
+        var groupbox = document.getElementById("security-identity-groupbox");
+        groupbox.removeChild(groupbox.getElementsByTagName("spacer")[0]);
+        groupbox.getElementsByTagName("hbox")[0].setAttribute("orient", "vertical");
+        groupbox.getElementsByTagName("hbox")[0].setAttribute("align", "start");
 
         // History
-        var historyrow = document.getElementById('security-privacy-history-label').parentNode;
+        var historyrow = document.getElementById("security-privacy-history-label").parentNode;
         vbox = document.createElement("vbox");
         while (historyrow.childNodes.length != 0) {
             vbox.appendChild(historyrow.firstChild);
         }
-        vbox.setAttribute('flex', '100');
+        vbox.setAttribute("flex", "100");
         historyrow.appendChild(vbox);
 
         // Cookies
-        var cookierow = document.getElementById('security-privacy-cookies-label').parentNode;
+        var cookierow = document.getElementById("security-privacy-cookies-label").parentNode;
         vbox = document.createElement("vbox");
         while (cookierow.childNodes.length != 0) {
             vbox.appendChild(cookierow.firstChild);
         }
-        vbox.setAttribute('flex', '100');
+        vbox.setAttribute("flex", "100");
         cookierow.appendChild(vbox);
 
         // Passwords
-        var pwdrow = document.getElementById('security-privacy-passwords-label').parentNode;
+        var pwdrow = document.getElementById("security-privacy-passwords-label").parentNode;
         vbox = document.createElement("vbox");
         while (pwdrow.childNodes.length != 0) {
             vbox.appendChild(pwdrow.firstChild);
         }
-        vbox.setAttribute('flex', '100');
+        vbox.setAttribute("flex", "100");
         pwdrow.appendChild(vbox);
     },
 
     // Remember the last selected tab
     persistSelTab: function () {
-        document.getElementById('main-window').setAttribute("seltab", document.getElementById('viewGroup').selectedIndex);
+        document.getElementById("main-window").setAttribute("seltab", document.getElementById("viewGroup").selectedIndex);
     }
-}
+};
 
 // Automatic update => call by aiosProgListener (_helper.js)
 function aios_onLocationChange() {
@@ -161,8 +161,8 @@ function onLoadPageInfo() {
     /* Select the requested tab, if the name is specified */
     loadTab(args);
     Components.classes["@mozilla.org/observer-service;1"]
-    .getService(Components.interfaces.nsIObserverService)
-    .notifyObservers(window, "page-info-dialog-loaded", null);
+        .getService(Components.interfaces.nsIObserverService)
+        .notifyObservers(window, "page-info-dialog-loaded", null);
 }
 
 // Override certain functions inside the 'security' variable of Page Info

@@ -4,7 +4,7 @@ var AiOS_Cookies = {
     init: function () {
         var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("ks.layout");
         var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("ks.layoutall");
-        var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+        var aios_inSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
         // Hide the menu bar under Mac OS X
         aios_hideMacMenubar();
@@ -30,9 +30,9 @@ var AiOS_Cookies = {
         aios_addCSS("cookies.css", cookieWindow);
 
         var searchObj = document.getElementById("filter"),
-        strings = document.getElementById("propSetStrings"),
-        blurText = strings.getString('bm_hi.search.blur'),
-        searchParent = searchObj.parentElement.children;
+            strings = document.getElementById("propSetStrings"),
+            blurText = strings.getString("bm_hi.search.blur"),
+            searchParent = searchObj.parentElement.children;
 
         for (let i = 0; i < searchParent.length; i++) {
             let elem = searchParent[i];
@@ -42,6 +42,6 @@ var AiOS_Cookies = {
 
         searchObj.placeholder = blurText;
     }
-}
+};
 
 window.addEventListener("DOMContentLoaded", AiOS_Cookies.init, false);

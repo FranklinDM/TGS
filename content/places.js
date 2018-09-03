@@ -10,15 +10,15 @@ var AiOS_Places = {};
         return ns;
     };
 
-    document.getElementById('search-box').parentNode.setAttribute('id', 'places-toolbar');
+    document.getElementById("search-box").parentNode.setAttribute("id", "places-toolbar");
 
-    this.mode = (document.getElementById('bookmarksPanel')) ? "bookmarks" : "history";
+    this.mode = (document.getElementById("bookmarksPanel")) ? "bookmarks" : "history";
 
     if (this.mode === "bookmarks") {
-        this.managerWindow = document.getElementById('bookmarksPanel');
+        this.managerWindow = document.getElementById("bookmarksPanel");
         this.managerTree = document.getElementById("bookmarks-view");
     } else {
-        this.managerWindow = document.getElementById('history-panel');
+        this.managerWindow = document.getElementById("history-panel");
         this.managerTree = document.getElementById("historyTree");
     }
 
@@ -29,28 +29,28 @@ var AiOS_Places = {};
     // Initialization
     this.initialize = function () {
         var self = AiOS_Places,
-        isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+            isInSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
         self.checkFolderOptions();
 
         // Add the separator and the three menu items to the "Tools" menu
         if (self.mode === "history") {
             var viewButton = document.getElementById("viewButton"),
-            popUp = viewButton.firstChild;
+                popUp = viewButton.firstChild;
 
-            popUp.appendChild(document.getElementById('close-separator'));
+            popUp.appendChild(document.getElementById("close-separator"));
 
-            popUp.appendChild(document.getElementById('aios-enableAutoClose'));
-            popUp.appendChild(document.getElementById('aios-rememberFolder'));
-            popUp.appendChild(document.getElementById('aios-scrollToFolder'));
-            popUp.appendChild(document.getElementById('aios-duplicateList'));
+            popUp.appendChild(document.getElementById("aios-enableAutoClose"));
+            popUp.appendChild(document.getElementById("aios-rememberFolder"));
+            popUp.appendChild(document.getElementById("aios-scrollToFolder"));
+            popUp.appendChild(document.getElementById("aios-duplicateList"));
 
-            popUp.appendChild(document.getElementById('close-separator').cloneNode(true));
+            popUp.appendChild(document.getElementById("close-separator").cloneNode(true));
 
-            popUp.appendChild(document.getElementById('aios-viewClose'));
+            popUp.appendChild(document.getElementById("aios-viewClose"));
 
-            viewButton.removeAttribute('accesskey');
-            viewButton.removeChild(document.getElementById('viewPopUp'));
+            viewButton.removeAttribute("accesskey");
+            viewButton.removeChild(document.getElementById("viewPopUp"));
         }
 
         if (isInSidebar)
@@ -61,9 +61,9 @@ var AiOS_Places = {};
 
     this.toggleSecondPane = function () {
         let self = AiOS_Places,
-        isHidden = !aios_getBoolean(document.getElementById('aios-duplicateList'), 'checked');
-        document.getElementById('duplicateTree').hidden = isHidden;
-        document.getElementById('duplicateSplitter').hidden = isHidden;
+            isHidden = !aios_getBoolean(document.getElementById("aios-duplicateList"), "checked");
+        document.getElementById("duplicateTree").hidden = isHidden;
+        document.getElementById("duplicateSplitter").hidden = isHidden;
 
         if (self.mode === "history") {
             let options = PlacesUtils.history.getNewQueryOptions();
@@ -77,16 +77,16 @@ var AiOS_Places = {};
             // Modifications to be compatible with 2 Pane Bookmarks
             if (typeof Bookmarks2PaneService == "object") {
                 isHidden = true;
-                document.getElementById('aios-duplicateList').hidden = true;
+                document.getElementById("aios-duplicateList").hidden = true;
             }
         }
     };
 
     this.checkFolderOptions = function () {
         var self = AiOS_Places,
-        lastRowToSelect,
-        lastFolderPref = (self.mode === "bookmarks") ? "lastBookmarkFolder" : "lastHistoryFolder",
-        options = (aios_getBoolean("aios-enableAutoClose", "checked") || aios_getBoolean("aios-rememberFolder", "checked") || aios_getBoolean("aios-scrollToFolder", "checked"));
+            lastRowToSelect,
+            lastFolderPref = (self.mode === "bookmarks") ? "lastBookmarkFolder" : "lastHistoryFolder",
+            options = (aios_getBoolean("aios-enableAutoClose", "checked") || aios_getBoolean("aios-rememberFolder", "checked") || aios_getBoolean("aios-scrollToFolder", "checked"));
 
         if (options) {
             self.managerTree.addEventListener("click", self.closeOtherFolders);
@@ -109,27 +109,27 @@ var AiOS_Places = {};
     };
 
     this.toggleButton = function (aElem) {
-        document.getElementById(aElem.getAttribute('data-dependent')).setAttribute('hidden', !aios_getBoolean(aElem, "checked"));
+        document.getElementById(aElem.getAttribute("data-dependent")).setAttribute("hidden", !aios_getBoolean(aElem, "checked"));
     };
 
     this.setSidebarLayout = function () {
         var self = AiOS_Places,
-        strings = document.getElementById("propSetStrings"),
-        blurText = strings.getString('bm_hi.search.blur');
+            strings = document.getElementById("propSetStrings"),
+            blurText = strings.getString("bm_hi.search.blur");
 
         // For CSS purposes
         AiOS_HELPER.rememberAppInfo(self.managerWindow);
 
         // Enable CSS
-        self.managerWindow.setAttribute('aios-inSidebar', 'true');
+        self.managerWindow.setAttribute("aios-inSidebar", "true");
 
         self.searchObj.placeholder = blurText;
 
         // Replace Close Folder <button> with a <toolbar button>
         if (document.getElementById("closeFolder")) {
             var closeButton = document.getElementById("closeFolder"),
-            closeAttr = closeButton.attributes,
-            new_closeButton = document.createElement("toolbarbutton");
+                closeAttr = closeButton.attributes,
+                new_closeButton = document.createElement("toolbarbutton");
 
             // Remove old <button>
             closeButton.parentNode.removeChild(closeButton);
@@ -146,9 +146,9 @@ var AiOS_Places = {};
         // Replace the Tools button <button> with a <toolbar button>
         if (document.getElementById("viewButton")) {
             var viewButton = document.getElementById("viewButton"),
-            popUp = viewButton.firstChild.cloneNode(true),
-            viewAttr = viewButton.attributes,
-            new_viewButton = document.createElement("toolbarbutton");
+                popUp = viewButton.firstChild.cloneNode(true),
+                viewAttr = viewButton.attributes,
+                new_viewButton = document.createElement("toolbarbutton");
 
             // Remove old <button>
             viewButton.parentNode.removeChild(viewButton);
@@ -192,17 +192,17 @@ var AiOS_Places = {};
 
         // If you click the + sign in front of the folder, then it should just open and the others are not closed
         var row = {},
-        col = {},
-        obj = {};
+            col = {},
+            obj = {};
         tbo.getCellAt(e.clientX, e.clientY, row, col, obj);
         if (row.value === -1 || obj.value === "twisty") {
             return;
         }
 
         var x = {},
-        y = {},
-        w = {},
-        h = {};
+            y = {},
+            w = {},
+            h = {};
         tbo.getCoordsForCellItem(row.value, col.value, "image", x, y, w, h);
         var isLTR = (window.getComputedStyle(tree).direction === "ltr");
         var mouseInGutter = isLTR ? (e.clientX < x.value) : (e.clientX > x.value);
@@ -260,9 +260,9 @@ var AiOS_Places = {};
         var aView = AiOS_Places.managerTree.treeBoxObject.view;
 
         // Last opened folder "forgotten"
-        if (document.getElementById('bookmarksPanel'))
+        if (document.getElementById("bookmarksPanel"))
             AiOS_HELPER.prefBranchAiOS.clearUserPref("lastBookmarkFolder");
-        else if (document.getElementById('history-panel'))
+        else if (document.getElementById("history-panel"))
             AiOS_HELPER.prefBranchAiOS.clearUserPref("lastHistoryFolder");
 
         // Close the folder

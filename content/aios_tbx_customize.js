@@ -1,6 +1,6 @@
 
 // For CSS purposes
-AiOS_HELPER.rememberAppInfo(document.getElementById('CustomizeToolbarWindow'));
+AiOS_HELPER.rememberAppInfo(document.getElementById("CustomizeToolbarWindow"));
 
 /**
  *  Redefine the width of the vertical toolbar whenever the toolbox changes (Drag 'n Drop)
@@ -18,7 +18,7 @@ if (AiOS_HELPER.os != "Darwin")
     repositionDialog = function (aWindow) {
         // Always use persisted dimensions and position!
         return;
-    }
+    };
 
 /**
  * Restore the default set of buttons to fixed toolbars,
@@ -55,7 +55,7 @@ restoreDefaultSet = function () {
 
     // Reset values for AiOS toolbar => before defaultset is reset => otherwise errors (too many separators)
     AiOS_HELPER.mostRecentWindow.aios_setToolbarPos(1);
-    AiOS_HELPER.mostRecentWindow.AiOS_Objects.mainToolbar.setAttribute('flexbuttons', 'false');
+    AiOS_HELPER.mostRecentWindow.AiOS_Objects.mainToolbar.setAttribute("flexbuttons", "false");
 
     // Restore the defaultset for fixed toolbars.
     forEachCustomizableToolbar(function (toolbar) {
@@ -80,5 +80,5 @@ restoreDefaultSet = function () {
     toolboxChanged("reset");
 
     // Reset iconize the sidebar header toolbar => after the global size has been reset
-    AiOS_HELPER.mostRecentWindow.document.getElementById('aios-sbhtoolbar').setAttribute('iconsize', 'small');
-}
+    AiOS_HELPER.mostRecentWindow.document.getElementById("aios-sbhtoolbar").setAttribute("iconsize", "small");
+};

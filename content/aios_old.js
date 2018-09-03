@@ -3,35 +3,35 @@ var AiOS_Objects = {
         function getElement(elem) {
             try {
                 return document.getElementById(elem);
-            } catch (e) {}
+            } catch (e) { return; }
         }
-        this.mainWindow = getElement('main-window');                            // fx_mainWindow
-        this.browser = getElement('browser');                                   // fx_browser
-        this.sidebar = getElement('sidebar');                                   // fx_sidebar     (*unused)
-        this.sidebarBox = getElement('sidebar-box');                            // fx_sidebarBox
-        this.sidebarHeader = getElement('sidebar-header');                      // fx_sidebarHeader
-        this.sidebarSplitter = getElement('sidebar-splitter');                  // fx_sidebarSplitter
-        this.sidebarMenu = getElement('viewSidebarMenu');                       // fx_sidebarMenu (*unused)
+        this.mainWindow = getElement("main-window");                            // fx_mainWindow
+        this.browser = getElement("browser");                                   // fx_browser
+        this.sidebar = getElement("sidebar");                                   // fx_sidebar     (*unused)
+        this.sidebarBox = getElement("sidebar-box");                            // fx_sidebarBox
+        this.sidebarHeader = getElement("sidebar-header");                      // fx_sidebarHeader
+        this.sidebarSplitter = getElement("sidebar-splitter");                  // fx_sidebarSplitter
+        this.sidebarMenu = getElement("viewSidebarMenu");                       // fx_sidebarMenu (*unused)
         this.maximizedWindow = null;                                            // fx_maximizedWindow (*unused)
 
-        this.toggleBox = getElement('aios-toggle-toolbox');
-        this.toggleBar = getElement('aios-toggle-toolbar');
+        this.toggleBox = getElement("aios-toggle-toolbox");
+        this.toggleBar = getElement("aios-toggle-toolbar");
 
         // broadcaster in aios.xul with saved desired toolbar state
         //  => stored by onViewToolbarCommand() in tbx.js (AiOS < 0.7.7)
         //  => saved/set by aios_toggleToolbar()
-        this.toggleSwitchItem = getElement('aios-viewTogglebar');
-        this.toggleToolbarItem = getElement('aios-viewToolbar');
+        this.toggleSwitchItem = getElement("aios-viewTogglebar");
+        this.toggleToolbarItem = getElement("aios-viewToolbar");
 
-        this.mainToolbar = getElement('aios-toolbar');
+        this.mainToolbar = getElement("aios-toolbar");
 
-        this.sbSwitch = getElement('aios-toggle-button');
-        this.sbToggleButton = getElement('sidebars-togglebutton');
-        this.sbKey = getElement('aiosKey_sidebar');                             // elem_key (*unused)
-        this.sbDefaultClose = getElement('sidebarclose-button');
-        this.sbClose = getElement('sbh-sidebarclose-button');
+        this.sbSwitch = getElement("aios-toggle-button");
+        this.sbToggleButton = getElement("sidebars-togglebutton");
+        this.sbKey = getElement("aiosKey_sidebar");                             // elem_key (*unused)
+        this.sbDefaultClose = getElement("sidebarclose-button");
+        this.sbClose = getElement("sbh-sidebarclose-button");
     }
-}
+};
 
 var AiOS = {
     /*
@@ -44,19 +44,19 @@ var AiOS = {
 
         // MacOS X => replace keyboard shortcut (Ctrl is replaced by Command and toggle by the icon for it)
         if (AiOS_HELPER.os == "Darwin") {
-            aios_replaceKey('switch-tooltip-box', 'r2c2', 'command');
-            aios_replaceKey('template-sidebar-tooltip-box', 'r2c2', 'command');
-            aios_replaceKey('template-window-tooltip-box', 'r2c2', 'command');
-            aios_replaceKey('paneltab-tooltip-box', 'r2c2', 'command');
-            aios_replaceKey('paneltab-tooltip-reverse-box', 'r2c2', 'command');
-            aios_replaceKey('sidebarheader-tooltip-box', 'r3c2', 'command');
+            aios_replaceKey("switch-tooltip-box", "r2c2", "command");
+            aios_replaceKey("template-sidebar-tooltip-box", "r2c2", "command");
+            aios_replaceKey("template-window-tooltip-box", "r2c2", "command");
+            aios_replaceKey("paneltab-tooltip-box", "r2c2", "command");
+            aios_replaceKey("paneltab-tooltip-reverse-box", "r2c2", "command");
+            aios_replaceKey("sidebarheader-tooltip-box", "r3c2", "command");
 
-            aios_replaceKey('switch-tooltip-box', 'r3c2', 'shift');
-            aios_replaceKey('template-sidebar-tooltip-box', 'r3c2', 'shift');
-            aios_replaceKey('template-window-tooltip-box', 'r3c2', 'shift');
-            aios_replaceKey('paneltab-tooltip-box', 'r3c2', 'shift');
-            aios_replaceKey('paneltab-tooltip-reverse-box', 'r3c2', 'shift');
-            aios_replaceKey('sidebarheader-tooltip-box', 'r1c2', 'shift');
+            aios_replaceKey("switch-tooltip-box", "r3c2", "shift");
+            aios_replaceKey("template-sidebar-tooltip-box", "r3c2", "shift");
+            aios_replaceKey("template-window-tooltip-box", "r3c2", "shift");
+            aios_replaceKey("paneltab-tooltip-box", "r3c2", "shift");
+            aios_replaceKey("paneltab-tooltip-reverse-box", "r3c2", "shift");
+            aios_replaceKey("sidebarheader-tooltip-box", "r1c2", "shift");
         }
 
         // Set appInfo to main browser window (needed for CSS)
@@ -67,13 +67,13 @@ var AiOS = {
         AiOS.setSidebarOrient();
 
         // At the first start (or after deleting the xulstore.json) => ...
-        if (!aios_getBoolean(AiOS_Objects.sidebarBox, 'aiosInit')) {
+        if (!aios_getBoolean(AiOS_Objects.sidebarBox, "aiosInit")) {
             // Customize the icon size of the nav toolbar
-            AiOS_Objects.sidebarBox.setAttribute('aiosInit', true);
-            document.persist(AiOS_Objects.sidebarBox.id, 'aiosInit');
+            AiOS_Objects.sidebarBox.setAttribute("aiosInit", true);
+            document.persist(AiOS_Objects.sidebarBox.id, "aiosInit");
 
             if (AiOS_Objects.mainToolbar)
-                AiOS_Objects.mainToolbar.setAttribute('iconsize', document.getElementById('nav-bar').getAttribute('iconsize'));
+                AiOS_Objects.mainToolbar.setAttribute("iconsize", document.getElementById("nav-bar").getAttribute("iconsize"));
 
             // Set sidebar width after configuration
             aios_setConfSidebarWidth();
@@ -99,28 +99,28 @@ var AiOS = {
 
         if (AiOS.isCollapsingEnabled()) {
             // Reset the hidden attribute in any case
-            document.getElementById('sidebar-box').setAttribute('hidden', false);
+            document.getElementById("sidebar-box").setAttribute("hidden", false);
 
             // If the sidebar should not be opened at startup
             // Create a new or additional window
             if (window.opener) {
-                AiOS_Objects.sidebarBox.setAttribute('collapsed', window.opener.document.getElementById('sidebar-box').getAttribute('collapsed'));
-                AiOS_Objects.mainToolbar.setAttribute('hidden', window.opener.document.getElementById('aios-toolbar').getAttribute('hidden'));
+                AiOS_Objects.sidebarBox.setAttribute("collapsed", window.opener.document.getElementById("sidebar-box").getAttribute("collapsed"));
+                AiOS_Objects.mainToolbar.setAttribute("hidden", window.opener.document.getElementById("aios-toolbar").getAttribute("hidden"));
             }
             // Browser start
             else {
-                if (!aios_getBoolean('main-window', 'aiosOpen')) {
-                    AiOS_Objects.sidebarBox.setAttribute('collapsed', true);
-                    AiOS_Objects.sidebarSplitter.setAttribute('hidden', true);
+                if (!aios_getBoolean("main-window", "aiosOpen")) {
+                    AiOS_Objects.sidebarBox.setAttribute("collapsed", true);
+                    AiOS_Objects.sidebarSplitter.setAttribute("hidden", true);
                 }
             }
 
             // Otherwise the sidebar is visible but empty after deactivating/activating
-            lp = document.getElementById('sidebar-box').getAttribute("aiosLastPanel");
-            if (aios_getBoolean(document.getElementById('main-window'), 'aiosOpen') && lp != "") {
+            lp = document.getElementById("sidebar-box").getAttribute("aiosLastPanel");
+            if (aios_getBoolean(document.getElementById("main-window"), "aiosOpen") && lp != "") {
                 toggleSidebar(lp, true);
-                document.getElementById('sidebar-splitter').hidden = false;
-                document.getElementById('sidebar-splitter').setAttribute('state', 'open');
+                document.getElementById("sidebar-splitter").hidden = false;
+                document.getElementById("sidebar-splitter").setAttribute("state", "open");
             }
         }
 
@@ -132,19 +132,19 @@ var AiOS = {
         }
 
         // Initialize Sidebar, Toolbar and Sidebar Switch at start using user settings
-        var sidebarInit = AiOS_HELPER.prefBranchAiOS.getCharPref('gen.init');
-        var toolbarInit = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.toolbar.init');
-        var switchInit = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.init');
+        var sidebarInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.init");
+        var toolbarInit = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.toolbar.init");
+        var switchInit = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.init");
 
         // Open sidebar at startup
         if (sidebarInit == "open")
-            toggleSidebar(AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel'), true);
+            toggleSidebar(AiOS_Objects.sidebarBox.getAttribute("aiosLastPanel"), true);
 
         // Close sidebar at startup
         if (sidebarInit == "close" && !aios_isSidebarHidden()) {
             toggleSidebar();
             if (AiOS.isCollapsingEnabled()) {
-                document.getElementById('sidebar-box').setAttribute('collapsed', true);
+                document.getElementById("sidebar-box").setAttribute("collapsed", true);
             }
         }
 
@@ -155,12 +155,12 @@ var AiOS = {
         }
 
         if (toolbarInit != 2)
-            AiOS_Objects.mainToolbar.setAttribute('hidden', !toolbarInit);
+            AiOS_Objects.mainToolbar.setAttribute("hidden", !toolbarInit);
         if (switchInit != 2)
-            AiOS_Objects.toggleBox.setAttribute('hidden', !switchInit);
+            AiOS_Objects.toggleBox.setAttribute("hidden", !switchInit);
 
         // Set the standard size of the sidebar when double-clicking
-        var fx_sidebarheader = document.getElementsByTagName('sidebarheader')[0];
+        var fx_sidebarheader = document.getElementsByTagName("sidebarheader")[0];
         fx_sidebarheader.addEventListener("dblclick", function (e) {
             AiOS.setSidebarWidth(e);
         }, false);
@@ -171,12 +171,12 @@ var AiOS = {
         var switchDragDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.dragdelay");
 
         if (switchDragDelay)
-            AiOS_Objects.sbSwitch.setAttribute('ondragenter', "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
+            AiOS_Objects.sbSwitch.setAttribute("ondragenter", "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
         else
-            AiOS_Objects.sbSwitch.setAttribute('ondragenter', "");
+            AiOS_Objects.sbSwitch.setAttribute("ondragenter", "");
 
         // Show changelog?
-        var changelog = AiOS_HELPER.prefBranchAiOS.getCharPref('changelog');
+        var changelog = AiOS_HELPER.prefBranchAiOS.getCharPref("changelog");
 
         // When value of changelog pref is set to 0, don't show changelog
         if (parseFloat(changelog) != 0) {
@@ -187,12 +187,12 @@ var AiOS = {
                 if (aiosVersion && (aiosVersion != changelog)) {
                     var aiosUpdated = (changelog != "") ? true : false;
 
-                    AiOS_HELPER.prefBranchAiOS.setCharPref('changelog', aiosVersion);
-                    var changelog_new = AiOS_HELPER.prefBranchAiOS.getCharPref('changelog');
+                    AiOS_HELPER.prefBranchAiOS.setCharPref("changelog", aiosVersion);
+                    var changelog_new = AiOS_HELPER.prefBranchAiOS.getCharPref("changelog");
 
                     // If saving the current version worked fine
                     if (changelog_new === aiosVersion && gBrowser) {
-                        let aiosVersionDotless = aiosVersion.split('.').join("");
+                        let aiosVersionDotless = aiosVersion.split(".").join("");
                         var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
                         if (aiosUpdated)
                             hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
@@ -208,15 +208,15 @@ var AiOS = {
         // Vertical buttons?
         var vButtons = AiOS_HELPER.prefBranchAiOS.getBoolPref("vbuttons");
 
-        AiOS_Objects.mainWindow.setAttribute('aiosVButtons', 'true');
+        AiOS_Objects.mainWindow.setAttribute("aiosVButtons", "true");
         if (!vButtons)
-            AiOS_Objects.mainWindow.setAttribute('aiosVButtons', 'false');
-        document.persist(AiOS_Objects.mainWindow.id, 'aiosVButtons');
+            AiOS_Objects.mainWindow.setAttribute("aiosVButtons", "false");
+        document.persist(AiOS_Objects.mainWindow.id, "aiosVButtons");
 
         // Vertical bookmarks bar?
         // Remove the attribute of the bookmarks bar. When placed on the AiOS toolbar, you can use CSS to set the orientation.
-        if (document.getElementById('PlacesToolbarItems'))
-            document.getElementById('PlacesToolbarItems').removeAttribute('orient');
+        if (document.getElementById("PlacesToolbarItems"))
+            document.getElementById("PlacesToolbarItems").removeAttribute("orient");
 
         AiOS._initialized = true;
     },
@@ -236,8 +236,8 @@ var AiOS = {
                 mode = "max"; // metaKey = Mac
         }
 
-        var sWidthVal = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.width.' + mode + 'Val');
-        var sWidthUnit = AiOS_HELPER.prefBranchAiOS.getCharPref('gen.width.' + mode + 'Unit');
+        var sWidthVal = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.width." + mode + "Val");
+        var sWidthUnit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.width." + mode + "Unit");
 
         if (sWidthUnit == "%") {
             var browserWidth = aios_getBrowserWidth();
@@ -247,7 +247,7 @@ var AiOS = {
         }
 
         // Set sidebar size
-        AiOS_Objects.sidebarBox.setAttribute('width', sWidthVal);
+        AiOS_Objects.sidebarBox.setAttribute("width", sWidthVal);
     },
 
     /*
@@ -259,16 +259,16 @@ var AiOS = {
         AiOS_Objects.get();
 
         // Sidebar alignment
-        var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
+        var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.orient");
 
-        AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'left');
+        AiOS_Objects.mainWindow.setAttribute("aiosOrient", "left");
         if (sidebarOrient == 2)
-            AiOS_Objects.mainWindow.setAttribute('aiosOrient', 'right');
+            AiOS_Objects.mainWindow.setAttribute("aiosOrient", "right");
 
         // Fix for MileWideBack
-        if (document.getElementById('back-strip') && sidebarOrient == 2) {
-            var mwb = document.getElementById('back-strip');
-            var mwbParent = document.getElementById('back-strip').parentNode;
+        if (document.getElementById("back-strip") && sidebarOrient == 2) {
+            var mwb = document.getElementById("back-strip");
+            var mwbParent = document.getElementById("back-strip").parentNode;
             mwbParent.removeChild(mwb);
             mwbParent.appendChild(mwb);
         }
@@ -280,7 +280,7 @@ var AiOS = {
      * Checks if sidebar collapsing is enabled
      */
     isCollapsingEnabled: function () {
-        return AiOS_HELPER.prefBranchAiOS.getBoolPref('collapse');
+        return AiOS_HELPER.prefBranchAiOS.getBoolPref("collapse");
     },
 
     /*
@@ -291,28 +291,28 @@ var AiOS = {
         AiOS_Objects.get();
 
         // In case the Toolbar was hidden before opening (ex: by switching in Opera mode)
-        var showToolbar = aios_getBoolean(AiOS_Objects.toggleToolbarItem, 'checked');
+        var showToolbar = aios_getBoolean(AiOS_Objects.toggleToolbarItem, "checked");
         if (showToolbar && !aios_isSidebarHidden())
             aios_toggleToolbar(false);
 
         // In case the Switch was hidden before opening (ex: by startup behavior)
-        var showSwitch = aios_getBoolean(AiOS_Objects.toggleSwitchItem, 'checked');
+        var showSwitch = aios_getBoolean(AiOS_Objects.toggleSwitchItem, "checked");
         if (showSwitch && !aios_isSidebarHidden())
-            AiOS_Objects.toggleBox.setAttribute('hidden', false);
+            AiOS_Objects.toggleBox.setAttribute("hidden", false);
 
         // Grippy status (CSS pays attention to attribute 'aiosOpen')
-        AiOS_Objects.mainWindow.setAttribute('aiosOpen', !AiOS_Objects.sidebarBox.hidden && !AiOS_Objects.sidebarBox.collapsed);
-        document.persist(AiOS_Objects.mainWindow.id, 'aiosOpen');
+        AiOS_Objects.mainWindow.setAttribute("aiosOpen", !AiOS_Objects.sidebarBox.hidden && !AiOS_Objects.sidebarBox.collapsed);
+        document.persist(AiOS_Objects.mainWindow.id, "aiosOpen");
 
         // toggle button status (button looks for attribute 'checked')
-        AiOS_Objects.sidebarBox.setAttribute('checked', !AiOS_Objects.sidebarBox.hidden && !AiOS_Objects.sidebarBox.collapsed);
+        AiOS_Objects.sidebarBox.setAttribute("checked", !AiOS_Objects.sidebarBox.hidden && !AiOS_Objects.sidebarBox.collapsed);
 
         // In case the Grippy was used before opening
         if (mode == "hidden") {
-            AiOS_Objects.sidebarBox.removeAttribute('collapsed');
+            AiOS_Objects.sidebarBox.removeAttribute("collapsed");
 
-            AiOS_Objects.sidebarSplitter.removeAttribute('hidden');
-            AiOS_Objects.sidebarSplitter.setAttribute('state', 'open');
+            AiOS_Objects.sidebarSplitter.removeAttribute("hidden");
+            AiOS_Objects.sidebarSplitter.setAttribute("state", "open");
         }
     },
 
@@ -326,12 +326,12 @@ var AiOS = {
         var actSidebar = false;
 
         // Remember last sidebar and save
-        var allSidebars = document.getElementsByAttribute('group', 'sidebar');
+        var allSidebars = document.getElementsByAttribute("group", "sidebar");
         for (var i = 0; i < allSidebars.length; i++) {
             // May not observe an item (menu entries, etc.), but must have a sidebar URL
-            if (!allSidebars[i].getAttribute('observes') && allSidebars[i].getAttribute('sidebarurl')) {
+            if (!allSidebars[i].getAttribute("observes") && allSidebars[i].getAttribute("sidebarurl")) {
                 // Must have an ID and must be "checked"
-                if (allSidebars[i].getAttribute('id') && aios_getBoolean(allSidebars[i], 'checked')) {
+                if (allSidebars[i].getAttribute("id") && aios_getBoolean(allSidebars[i], "checked")) {
                     // Store command in the "persist"-var "aiosLastPanel" and return
                     AiOS_Objects.sidebarBox.setAttribute("aiosLastPanel", allSidebars[i].id);
                     document.persist(AiOS_Objects.sidebarBox.id, "aiosLastPanel");
@@ -350,10 +350,10 @@ var AiOS = {
     toggleOperaMode: function (aForcePanel, aForceOpen) {
         AiOS_Objects.get();
 
-        var showToolbar = aios_getBoolean(AiOS_Objects.toggleToolbarItem, 'checked');
+        var showToolbar = aios_getBoolean(AiOS_Objects.toggleToolbarItem, "checked");
 
         // Notice sidebar to open
-        var openPanel = AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel'); // Last opened sidebar
+        var openPanel = AiOS_Objects.sidebarBox.getAttribute("aiosLastPanel"); // Last opened sidebar
         if (openPanel == "")
             openPanel = "viewBookmarksSidebar"; // Open Bookmarks if no sidebar was open
         if (aForcePanel)
@@ -362,15 +362,15 @@ var AiOS = {
         // Vertical toolbar mode
         if (AiOS_Objects.mainToolbar.orient == "vertical") {
             // If the toolbar is visible
-            if (!aios_getBoolean(AiOS_Objects.mainToolbar, 'hidden')) {
+            if (!aios_getBoolean(AiOS_Objects.mainToolbar, "hidden")) {
                 // If the sidebar is visible
                 if (!aios_isSidebarHidden() && !aForceOpen) {
                     AiOS_Objects.sidebarBox.setAttribute("aiosShouldOpen", true); // Remember the state of the sidebar (visible)
-                    document.persist(AiOS_Objects.sidebarBox.id, 'aiosShouldOpen'); // Persist attribute 'aiosShouldOpen'
+                    document.persist(AiOS_Objects.sidebarBox.id, "aiosShouldOpen"); // Persist attribute 'aiosShouldOpen'
                     toggleSidebar(); // Hide sidebar
                 } else {
                     AiOS_Objects.sidebarBox.setAttribute("aiosShouldOpen", false); // Remember the state of the sidebar (invisible)
-                    document.persist(AiOS_Objects.sidebarBox.id, 'aiosShouldOpen'); // Persist attribute 'aiosShouldOpen'
+                    document.persist(AiOS_Objects.sidebarBox.id, "aiosShouldOpen"); // Persist attribute 'aiosShouldOpen'
                 }
 
                 if (!aForceOpen)
@@ -382,7 +382,7 @@ var AiOS = {
                     aios_toggleToolbar(false); // Show Toolbar
 
                 // If sidebar should be displayed (status before last closing) or the toolbar has been switched off
-                if (aios_getBoolean(AiOS_Objects.sidebarBox, 'aiosShouldOpen') || !showToolbar)
+                if (aios_getBoolean(AiOS_Objects.sidebarBox, "aiosShouldOpen") || !showToolbar)
                     toggleSidebar(openPanel);
             }
         }
@@ -392,7 +392,7 @@ var AiOS = {
             // If the sidebar is visible
             if (!aios_isSidebarHidden()) {
                 AiOS_Objects.sidebarBox.setAttribute("aiosShouldOpen", true); // Remember the state of the sidebar (visible)
-                document.persist(AiOS_Objects.sidebarBox.id, 'aiosShouldOpen'); // Persist attribute 'aiosShouldOpen'
+                document.persist(AiOS_Objects.sidebarBox.id, "aiosShouldOpen"); // Persist attribute 'aiosShouldOpen'
                 toggleSidebar(); // Hide Sidebar
             } else {
                 if (lastPanel == "")
@@ -430,13 +430,13 @@ var AiOS = {
      */
     _autoTimeout: null,
     autoShowHide: function (mode) {
-        var autobutton = aios_getBoolean('aios-enableAutohide', 'checked');
+        var autobutton = aios_getBoolean("aios-enableAutohide", "checked");
 
-        var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.autoshow');
-        var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.onlymax');
-        var delayshow = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delayshow');
-        var delayhide = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.delayhide');
-        var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.hidemethod');
+        var autoshow = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.autoshow");
+        var onlymax = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.onlymax");
+        var delayshow = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.delayshow");
+        var delayhide = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.delayhide");
+        var hidemethod = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.hidemethod");
 
         //console.log(mode);
 
@@ -459,8 +459,8 @@ var AiOS = {
                 delay = delayshow;
             // Show/hide after a certain time
             AiOS._autoTimeout = window.setTimeout(function () {
-                    AiOS.toggleSidebar('switch');
-                }, delay);
+                AiOS.toggleSidebar("switch");
+            }, delay);
 
             // Remove the timeout if the mouse was too short on the switch or was clicked
             AiOS_Objects.sbSwitch.addEventListener("mouseout", function () {
@@ -468,7 +468,7 @@ var AiOS = {
             }, true);
 
             // If the invisible sidebar switch is enabled and no click is true, don't remove the timeout
-            if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv') && AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick'))
+            if (AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv") && AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick"))
                 return true;
 
             AiOS_Objects.sbSwitch.addEventListener("click", function () {
@@ -484,12 +484,12 @@ var AiOS = {
             if (!aios_isSidebarHidden() && hidemethod == 1) {
                 // Delete event on "appcontent" again, otherwise the sidebar would be displayed again
                 // => mouse-over the sidebar (in aios_initSidebar()) adds this feature back to the "appcontent"
-                document.getElementById('appcontent').removeEventListener("mouseover", AiOS.autoShowHide, true);
+                document.getElementById("appcontent").removeEventListener("mouseover", AiOS.autoShowHide, true);
 
                 // Hide after a certain time
                 AiOS._autoTimeout = window.setTimeout(function () {
-                        AiOS.toggleSidebar('switch');
-                    }, delayhide);
+                    AiOS.toggleSidebar("switch");
+                }, delayhide);
 
                 // Remove the timeout when the mouse comes back in the sidebar
                 AiOS_Objects.sidebarBox.addEventListener("mouseover", function () {
@@ -520,9 +520,9 @@ var AiOS = {
         if (aMode == AiOS_Objects.sbDefaultClose || aMode == AiOS_Objects.sbClose || aMode == "close")
             prefstring = "close";
 
-        var mode = AiOS_HELPER.prefBranchAiOS.getIntPref('cmode.' + prefstring);
-        var toolBox_enabled = aios_getBoolean('aios-viewToolbar', 'checked');
-        var toggleBox_enabled = aios_getBoolean(AiOS_Objects.toggleSwitchItem, 'checked');
+        var mode = AiOS_HELPER.prefBranchAiOS.getIntPref("cmode." + prefstring);
+        var toolBox_enabled = aios_getBoolean("aios-viewToolbar", "checked");
+        var toggleBox_enabled = aios_getBoolean(AiOS_Objects.toggleSwitchItem, "checked");
 
         // Direct transfer via JavaScript e.g. via "Custom Buttons"
         if (aMode === 1)
@@ -549,10 +549,10 @@ var AiOS = {
             // A particular panel should be opened in principle ...
             // It is not open yet, the sidebar is still open ...
             // Then the panel should be loaded, but the Sidebar should be closed => for performance purpose
-            if (AiOS.isCollapsingEnabled() && forcePanel && AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel') != forcePanel && !aios_isSidebarHidden())
+            if (AiOS.isCollapsingEnabled() && forcePanel && AiOS_Objects.sidebarBox.getAttribute("aiosLastPanel") != forcePanel && !aios_isSidebarHidden())
                 var closeNow = true;
 
-            var tmpcmd = (forcePanel) ? forcePanel : AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel');
+            var tmpcmd = (forcePanel) ? forcePanel : AiOS_Objects.sidebarBox.getAttribute("aiosLastPanel");
             toggleSidebar(tmpcmd, aForceOpen);
 
             // Close sidebar if the above conditions are met
@@ -564,7 +564,7 @@ var AiOS = {
             }
 
             if (mode == 3 && toggleBox_enabled)
-                AiOS_Objects.toggleBox.setAttribute('hidden', aios_isSidebarHidden());
+                AiOS_Objects.toggleBox.setAttribute("hidden", aios_isSidebarHidden());
         }
 
         return true;
@@ -595,25 +595,25 @@ var AiOS = {
         AiOS_Objects.get();
 
         var thin_switch,
-        thinmax_switch,
-        switch_width,
-        switch_twidth,
-        athin_switch,
-        inv_switch,
-        invmax_switch,
-        invhover,
-        invmouse;
+            thinmax_switch,
+            switch_width,
+            switch_twidth,
+            athin_switch,
+            inv_switch,
+            invmax_switch,
+            invhover,
+            invmouse;
 
-        thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.thin');
-        thinmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.thinmax');
+        thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thin");
+        thinmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thinmax");
 
-        switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.width');
-        switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.switch.twidth');
+        switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.width");
+        switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.twidth");
 
-        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv');
-        invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmax');
-        invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invhover');
-        invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invmouse');
+        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
+        invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmax");
+        invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invhover");
+        invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmouse");
 
         switch (AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.visibility")) {
         case 0:
@@ -644,19 +644,19 @@ var AiOS = {
         var barStyle = "min-width: " + width_val + "px; max-width: " + width_val + "px;";
 
         if (inv) {
-            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById('appcontent'), null).getPropertyValue("height") + ";" + " position: fixed;";
-            AiOS_Objects.toggleBox.setAttribute('style', 'position: fixed;');
+            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById("appcontent"), null).getPropertyValue("height") + ";" + " position: fixed;";
+            AiOS_Objects.toggleBox.setAttribute("style", "position: fixed;");
 
-            let cursor = (!invmouse) ? 'default' : 'pointer';
-            let hoverState = (invhover) ? 'true' : 'false';
-            AiOS_Objects.toggleBar.setAttribute('invHover', hoverState);
-            AiOS_Objects.sbSwitch.setAttribute('invHover', hoverState);
-            document.documentElement.style.setProperty('--aios-grippy-cursor', cursor);
+            let cursor = (!invmouse) ? "default" : "pointer";
+            let hoverState = (invhover) ? "true" : "false";
+            AiOS_Objects.toggleBar.setAttribute("invHover", hoverState);
+            AiOS_Objects.sbSwitch.setAttribute("invHover", hoverState);
+            document.documentElement.style.setProperty("--aios-grippy-cursor", cursor);
         } else {
-            document.documentElement.style.setProperty('--aios-grippy-cursor', 'pointer');
-            AiOS_Objects.toggleBar.removeAttribute('invHover');
-            AiOS_Objects.sbSwitch.removeAttribute('invHover');
-            AiOS_Objects.toggleBox.removeAttribute('style');
+            document.documentElement.style.setProperty("--aios-grippy-cursor", "pointer");
+            AiOS_Objects.toggleBar.removeAttribute("invHover");
+            AiOS_Objects.sbSwitch.removeAttribute("invHover");
+            AiOS_Objects.toggleBox.removeAttribute("style");
         }
 
         if (width_val < 4 || inv)
@@ -665,8 +665,8 @@ var AiOS = {
         if (width_val < 2 || inv)
             barStyle += " border: none !important;";
 
-        AiOS_Objects.sbSwitch.setAttribute('style', barStyle);
-        AiOS_Objects.toggleBar.setAttribute('style', barStyle);
+        AiOS_Objects.sbSwitch.setAttribute("style", barStyle);
+        AiOS_Objects.toggleBar.setAttribute("style", barStyle);
     },
 
     /*
@@ -675,7 +675,7 @@ var AiOS = {
      */
     controlSwitch: function (ev, which) {
         // If the invisible sidebar switch is enabled and no click is true, reject any click interactions
-        if (AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.inv') && AiOS_HELPER.prefBranchAiOS.getBoolPref('gen.switch.invnoclick'))
+        if (AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv") && AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick"))
             return;
         // Left click => metaKey = Mac
         if (ev.button == 0 && (!ev.shiftKey && !ev.ctrlKey && !ev.metaKey)) {
@@ -684,14 +684,14 @@ var AiOS = {
 
         // Middle click / Ctrl + Left click => metaKey = Mac
         if (ev.button == 1 || (ev.button == 0 && ev.ctrlKey) || (ev.button == 0 && ev.metaKey)) {
-            aios_toggleElement('aios-viewToolbar');
-            aios_toggleToolbar('aios-viewToolbar');
+            aios_toggleElement("aios-viewToolbar");
+            aios_toggleToolbar("aios-viewToolbar");
         }
 
         // Right click / Shift + Left click
         if (ev.button == 2 || (ev.button == 0 && ev.shiftKey)) {
             if (aios_isSidebarHidden())
-                toggleSidebar(AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel'), true);
+                toggleSidebar(AiOS_Objects.sidebarBox.getAttribute("aiosLastPanel"), true);
             else
                 toggleSidebar();
         }
@@ -725,21 +725,21 @@ var AiOS = {
         switch (type) {
         case "enter":
             // Target states
-            var close_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref('fs.switch');
-            var close_toolbar = AiOS_HELPER.prefBranchAiOS.getBoolPref('fs.toolbar');
-            var close_sidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref('fs.sidebar');
+            var close_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("fs.switch");
+            var close_toolbar = AiOS_HELPER.prefBranchAiOS.getBoolPref("fs.toolbar");
+            var close_sidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("fs.sidebar");
 
             // Actual states
-            var rem_switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, 'hidden');
-            var rem_toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, 'hidden');
+            var rem_switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, "hidden");
+            var rem_toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, "hidden");
             var rem_sidebarHidden = aios_isSidebarHidden();
 
             // Save actual states
-            AiOS_Objects.toggleBox.setAttribute('fsSwitch', rem_switchHidden);
-            AiOS_Objects.toggleBox.setAttribute('fsToolbar', rem_toolbarHidden);
-            AiOS_Objects.toggleBox.setAttribute('fsToolbarMode', AiOS_Objects.mainToolbar.getAttribute("mode"));
-            AiOS_Objects.toggleBox.setAttribute('fsToolbarIconsize', AiOS_Objects.mainToolbar.getAttribute("iconsize"));
-            AiOS_Objects.toggleBox.setAttribute('fsSidebar', rem_sidebarHidden);
+            AiOS_Objects.toggleBox.setAttribute("fsSwitch", rem_switchHidden);
+            AiOS_Objects.toggleBox.setAttribute("fsToolbar", rem_toolbarHidden);
+            AiOS_Objects.toggleBox.setAttribute("fsToolbarMode", AiOS_Objects.mainToolbar.getAttribute("mode"));
+            AiOS_Objects.toggleBox.setAttribute("fsToolbarIconsize", AiOS_Objects.mainToolbar.getAttribute("iconsize"));
+            AiOS_Objects.toggleBox.setAttribute("fsSidebar", rem_sidebarHidden);
 
             // Set target states (SidebarSwitch and Toolbar are hidden by default)
             if (close_sidebar && !rem_sidebarHidden)
@@ -760,19 +760,19 @@ var AiOS = {
         case "exit":
             // Restore Toolbar Settings (only without the Autohide extension)
             if (typeof autoHIDE != "object") {
-                AiOS_Objects.mainToolbar.setAttribute("mode", AiOS_Objects.toggleBox.getAttribute('fsToolbarMode'));
-                AiOS_Objects.mainToolbar.setAttribute("iconsize", AiOS_Objects.toggleBox.getAttribute('fsToolbarIconsize'));
+                AiOS_Objects.mainToolbar.setAttribute("mode", AiOS_Objects.toggleBox.getAttribute("fsToolbarMode"));
+                AiOS_Objects.mainToolbar.setAttribute("iconsize", AiOS_Objects.toggleBox.getAttribute("fsToolbarIconsize"));
             }
 
-            let enable_restore = AiOS_HELPER.prefBranchAiOS.getBoolPref('fs.restore');
+            var enable_restore = AiOS_HELPER.prefBranchAiOS.getBoolPref("fs.restore");
             if (enable_restore) {
-                if (!aios_getBoolean(AiOS_Objects.toggleBox, 'fsSidebar'))
-                    toggleSidebar(AiOS_Objects.sidebarBox.getAttribute('aiosLastPanel'), true);
+                if (!aios_getBoolean(AiOS_Objects.toggleBox, "fsSidebar"))
+                    toggleSidebar(AiOS_Objects.sidebarBox.getAttribute("aiosLastPanel"), true);
                 else if (!aios_isSidebarHidden())
                     toggleSidebar();
 
-                aios_toggleToolbar(aios_getBoolean(AiOS_Objects.toggleBox, 'fsToolbar'));
-                AiOS_Objects.toggleBox.hidden = aios_getBoolean(AiOS_Objects.toggleBox, 'fsSwitch');
+                aios_toggleToolbar(aios_getBoolean(AiOS_Objects.toggleBox, "fsToolbar"));
+                AiOS_Objects.toggleBox.hidden = aios_getBoolean(AiOS_Objects.toggleBox, "fsSwitch");
             }
             break;
         }
@@ -783,15 +783,15 @@ var AiOS = {
      */
     customizeStates: {
         save: function () {
-            this.switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, 'hidden');
-            this.toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, 'hidden');
+            this.switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, "hidden");
+            this.toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, "hidden");
             this.sidebarHidden = aios_isSidebarHidden();
         },
         restore: function () {
             if (this.toolbarHidden)
                 aios_toggleToolbar(true);
             if (this.switchHidden)
-                AiOS.toggleSidebar('switch', false);
+                AiOS.toggleSidebar("switch", false);
             if (this.sidebarHidden)
                 AiOS.toggleSidebar(1, false);
         }
@@ -802,7 +802,7 @@ var AiOS = {
             AiOS.customizeStates.save();
             // Force show AiOS toolbar & sidebar
             aios_toggleToolbar(false);
-            AiOS.toggleSidebar('switch', true);
+            AiOS.toggleSidebar("switch", true);
         } else {
             AiOS.customizeStates.restore();
         }
@@ -830,8 +830,8 @@ var AiOS = {
      */
     lwthemeColorHandler: function () {
         var lwbg = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.defaultbg"),
-        ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg"),
-        rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
+            ccl = AiOS_HELPER.prefBranchAiOS.getCharPref("lw.custombg"),
+            rpt = AiOS_HELPER.prefBranchAiOS.getBoolPref("lw.repeat");
         switch (lwbg) {
         case true:
             // To avoid seeing the ugly overlapping persona image
@@ -851,7 +851,7 @@ var AiOS = {
             AiOS_Objects.browser.style.background = null;
         }
     }
-}
+};
 
 window.addEventListener("load", AiOS.initSidebar, false);
 window.addEventListener("resize", AiOS.checkSidebarSwitch, false);

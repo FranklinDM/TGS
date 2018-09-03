@@ -8,7 +8,7 @@ if (target) {
 }
 
 var gAtomService      = Components.classes["@mozilla.org/atom-service;1"].getService(Components.interfaces.nsIAtomService);
-var gUnicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+var gUnicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 var gClipboardHelper  = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
 var gLocation, gKeys, gUsedKeys;
 
@@ -23,12 +23,12 @@ var gStrings = {
     used: "",
     onreset: "",
     unrecognized: ""
-}
+};
 
 var keyname = {
     "BrowserReload();": "key_reload",
     cmd_handleBackspace: "goBackKb"
-}
+};
 
 function aios_initKeys() {
     if (!target)
@@ -54,17 +54,17 @@ function aios_initKeys() {
     gPlatformKeys.sep = platformKeys.getString("MODIFIER_SEPARATOR");
 
     switch (gPrefService.getIntPref("ui.key.accelKey")) {
-        case 17:
-            gPlatformKeys.accel = gPlatformKeys.ctrl;
-            break;
-        case 18:
-            gPlatformKeys.accel = gPlatformKeys.alt;
-            break;
-        case 224:
-            gPlatformKeys.accel = gPlatformKeys.meta;
-            break;
-        default:
-            gPlatformKeys.accel = (window.navigator.platform.search("Mac") == 0 ? gPlatformKeys.meta : gPlatformKeys.ctrl);
+    case 17:
+        gPlatformKeys.accel = gPlatformKeys.ctrl;
+        break;
+    case 18:
+        gPlatformKeys.accel = gPlatformKeys.alt;
+        break;
+    case 224:
+        gPlatformKeys.accel = gPlatformKeys.meta;
+        break;
+    default:
+        gPlatformKeys.accel = (window.navigator.platform.search("Mac") == 0 ? gPlatformKeys.meta : gPlatformKeys.ctrl);
     }
 
     for (var property in KeyEvent) {
@@ -98,7 +98,7 @@ function init(target) {
 
     for (var i = 0, l = keys.length; i < l; i++) {
         var aiosKey = keys[i].id;
-        if (aiosKey.indexOf('aiosKey') == 0)
+        if (aiosKey.indexOf("aiosKey") == 0)
             gKeys.push(new Key(keys[i]));
     }
 
@@ -289,9 +289,7 @@ function Reset() {
     var key = gKeys[keyTree.currentIndex];
     var node = key.node;
 
-    try {
-        gPrefService.clearUserPref(gProfile + node.id);
-    } catch (err) {}
+    gPrefService.clearUserPref(gProfile + node.id);
 
     key.pref = [];
     key.shortcut = gEdit.value = gStrings.onreset;
@@ -309,9 +307,9 @@ function Key(aKey) {
     this.node = aKey;
     this.name = getNameForKey(aKey);
     this.shortcut = getFormattedKey(
-            aKey.getAttribute("modifiers"),
-            aKey.getAttribute("key").toUpperCase() || aKey.getAttribute("charcode").toUpperCase(),
-            aKey.getAttribute("keycode"));
+        aKey.getAttribute("modifiers"),
+        aKey.getAttribute("key").toUpperCase() || aKey.getAttribute("charcode").toUpperCase(),
+        aKey.getAttribute("keycode"));
     this.id = aKey.id;
     if (aKey.getAttribute("aiosKeyconfig") == "resetted")
         this.shortcut = gStrings.onreset;
@@ -494,13 +492,13 @@ var keyView = {
             this.treebox.ensureRowIsVisible(i);
         }
     }
-}
+};
 
 function switchWindow(event) {
     var mediator = Components.classes["@mozilla.org/rdf/datasource;1?name=window-mediator"].getService();
     mediator.QueryInterface(Components.interfaces.nsIWindowDataSource);
 
-    var target = mediator.getWindowForResource(event.target.getAttribute('id'));
+    var target = mediator.getWindowForResource(event.target.getAttribute("id"));
 
     if (target)
         init(target);

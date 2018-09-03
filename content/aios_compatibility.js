@@ -21,14 +21,14 @@ var AiOS_Compatibility = {};
         }
 
         // Console2
-        if (document.getElementById('viewConsole2Sidebar') || document.getElementById('console2-button')) {
+        if (document.getElementById("viewConsole2Sidebar") || document.getElementById("console2-button")) {
             window.setTimeout(function () {
                 AiOS_Compatibility.console2();
             }, 500);
         }
 
         // MinimizeToTray
-        if (document.getElementById('extensions.mook.minimizetotray.traypopup')) {
+        if (document.getElementById("extensions.mook.minimizetotray.traypopup")) {
             window.setTimeout(function () {
                 AiOS_Compatibility.minimizeToTray();
             }, 500);
@@ -38,8 +38,8 @@ var AiOS_Compatibility = {};
         // is executed in aios.js => aios_setSidebarOrient()
 
         // StumbleUpon
-        if (document.getElementById('su_splitter_first')) {
-            document.getElementById('su_splitter_first').style.display = "none";
+        if (document.getElementById("su_splitter_first")) {
+            document.getElementById("su_splitter_first").style.display = "none";
         }
 
     };
@@ -48,14 +48,14 @@ var AiOS_Compatibility = {};
     // otherwise the download manager does not open when calling via the tray icon
     this.minimizeToTray = function () {
         var itemCmd,
-        newCmd,
-        mmttMenuItems = document.getElementById('extensions.mook.minimizetotray.traypopup').childNodes;
+            newCmd,
+            mmttMenuItems = document.getElementById("extensions.mook.minimizetotray.traypopup").childNodes;
 
         for (var i = 0; i < mmttMenuItems.length; i++) {
-            itemCmd = mmttMenuItems[i].getAttribute('oncommand');
+            itemCmd = mmttMenuItems[i].getAttribute("oncommand");
 
             if (itemCmd.indexOf("toOpenWindowByType('Download:Manager'") >= 0) {
-                mmttMenuItems[i].removeAttribute('oncommand');
+                mmttMenuItems[i].removeAttribute("oncommand");
                 mmttMenuItems[i].addEventListener("command", function () {
                     AiOS_HELPER.mostRecentWindow.aiosIsWindow = true;
 
@@ -70,16 +70,16 @@ var AiOS_Compatibility = {};
     // Adjustments for Console2
     this.console2 = function () {
         var broadcaster,
-        button = document.getElementById('console2-button');
+            button = document.getElementById("console2-button");
 
         // Assign sidebar menu entry to Console2
-        if (document.getElementById('console-mitem')) {
-            document.getElementById('console-mitem').setAttribute('observes', 'viewConsole2Sidebar');
+        if (document.getElementById("console-mitem")) {
+            document.getElementById("console-mitem").setAttribute("observes", "viewConsole2Sidebar");
         }
 
         // Delete broadcaster > no choice in the prefs
-        if (document.getElementById('viewConsoleSidebar')) {
-            broadcaster = document.getElementById('viewConsoleSidebar');
+        if (document.getElementById("viewConsoleSidebar")) {
+            broadcaster = document.getElementById("viewConsoleSidebar");
             broadcaster.parentNode.removeChild(broadcaster);
         }
 

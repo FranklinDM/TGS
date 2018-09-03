@@ -10,12 +10,12 @@ var AiOS_HELPER = {
 
         this.windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher);
         this.windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-        this.mostRecentWindow = this.windowMediator.getMostRecentWindow('navigator:browser');
+        this.mostRecentWindow = this.windowMediator.getMostRecentWindow("navigator:browser");
 
-        this.appInfo = Components.classes['@mozilla.org/xre/app-info;1'].getService(Components.interfaces.nsIXULAppInfo);
-        this.os = Components.classes['@mozilla.org/xre/app-info;1'].getService(Components.interfaces.nsIXULRuntime).OS;
+        this.appInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
+        this.os = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS;
         this.osVersion = window.navigator.oscpu;
-        this.defTheme = (this.prefBranch.getCharPref('general.skins.selectedSkin') == "classic/1.0") ? true : false;
+        this.defTheme = (this.prefBranch.getCharPref("general.skins.selectedSkin") == "classic/1.0") ? true : false;
     },
 
     log: function (ex) {
@@ -138,11 +138,11 @@ var AiOS_HELPER = {
     },
 
     rememberAppInfo: function (aObj) {
-        aObj.setAttribute('aios-appVendor', this.appInfo.vendor);
-        aObj.setAttribute('aios-appVersion', this.appInfo.version);
-        aObj.setAttribute('aios-appOS', this.os);
-        aObj.setAttribute('aios-appOSVersion', this.osVersion);
-        aObj.setAttribute('aios-appDefTheme', this.defTheme);
+        aObj.setAttribute("aios-appVendor", this.appInfo.vendor);
+        aObj.setAttribute("aios-appVersion", this.appInfo.version);
+        aObj.setAttribute("aios-appOS", this.os);
+        aObj.setAttribute("aios-appOSVersion", this.osVersion);
+        aObj.setAttribute("aios-appDefTheme", this.defTheme);
     }
 
 };
@@ -211,10 +211,10 @@ function aios_addTab(aUrl) {
     for (var i = 0; i < browser.tabContainer.childNodes.length; i++) {
         browserDoc = browser.getBrowserAtIndex(i).contentWindow.document;
 
-        var isPermaTab = (browser.tabContainer.childNodes[i].getAttribute('isPermaTab')) ? true : false;
+        var isPermaTab = (browser.tabContainer.childNodes[i].getAttribute("isPermaTab")) ? true : false;
 
         // If the tab is empty
-        if (browserDoc.location.href == "about:blank" && browser.selectedTab.getAttribute('openBy') != "aios" && !isPermaTab && emptyTab == null)
+        if (browserDoc.location.href == "about:blank" && browser.selectedTab.getAttribute("openBy") != "aios" && !isPermaTab && emptyTab == null)
             emptyTab = i;
 
         // If the tab already exists
@@ -233,13 +233,13 @@ function aios_addTab(aUrl) {
         // URL oeffnen und Tab selektieren
         browser.getBrowserAtIndex(emptyTab).contentWindow.document.location.href = aUrl;
         browser.selectedTab = browser.tabContainer.childNodes[emptyTab];
-        browser.selectedTab.setAttribute('openBy', 'aios');
+        browser.selectedTab.setAttribute("openBy", "aios");
         return browser.selectedTab;
     }
 
     // If there was no empty tab, a new one will be opened
     browser.selectedTab = browser.addTab(aUrl);
-    browser.selectedTab.setAttribute('openBy', 'aios');
+    browser.selectedTab.setAttribute("openBy", "aios");
     return browser.selectedTab;
 }
 
@@ -252,7 +252,7 @@ function aios_addCSS(aURI, aBefore) {
 
     var elem = (typeof aBefore == "object") ? aBefore : document.getElementById(aBefore);
 
-    var css = document.createProcessingInstruction("xml-stylesheet", 'href="' + path + aURI + '" type="text/css"');
+    var css = document.createProcessingInstruction("xml-stylesheet", "href=\"" + path + aURI + "\" type=\"text/css\"");
     document.insertBefore(css, elem);
 }
 
@@ -261,9 +261,9 @@ function aios_addCSS(aURI, aBefore) {
  * => Called by aios_setSidebarDefWidth() in aios.js and aios_setSidebarWidth() in general.js
  */
 function aios_getBrowserWidth() {
-    var cStyleSidebar = AiOS_HELPER.mostRecentWindow.document.defaultView.getComputedStyle(AiOS_HELPER.mostRecentWindow.document.getElementById('sidebar-box'), '');
-    var cStyleSplitter = AiOS_HELPER.mostRecentWindow.document.defaultView.getComputedStyle(AiOS_HELPER.mostRecentWindow.document.getElementById('sidebar-splitter'), '');
-    var cStyleContent = AiOS_HELPER.mostRecentWindow.document.defaultView.getComputedStyle(AiOS_HELPER.mostRecentWindow.document.getElementById('appcontent'), '');
+    var cStyleSidebar = AiOS_HELPER.mostRecentWindow.document.defaultView.getComputedStyle(AiOS_HELPER.mostRecentWindow.document.getElementById("sidebar-box"), "");
+    var cStyleSplitter = AiOS_HELPER.mostRecentWindow.document.defaultView.getComputedStyle(AiOS_HELPER.mostRecentWindow.document.getElementById("sidebar-splitter"), "");
+    var cStyleContent = AiOS_HELPER.mostRecentWindow.document.defaultView.getComputedStyle(AiOS_HELPER.mostRecentWindow.document.getElementById("appcontent"), "");
 
     var widthSidebar = parseInt(cStyleSidebar.width) + parseInt(cStyleSidebar.paddingLeft) + parseInt(cStyleSidebar.paddingRight) + parseInt(cStyleSidebar.marginLeft) + parseInt(cStyleSidebar.marginRight);
 
@@ -284,9 +284,9 @@ function aios_appendClass(elem, appClass) {
     if (typeof elem == "string")
         elem = document.getElementById(elem);
 
-    var old_class = elem.getAttribute('class');
+    var old_class = elem.getAttribute("class");
     if (old_class.indexOf(appClass) < 0)
-        elem.setAttribute('class', old_class + " " + appClass);
+        elem.setAttribute("class", old_class + " " + appClass);
 }
 
 /*
@@ -296,7 +296,7 @@ function aios_stripClass(elem, stripClass) {
     if (typeof elem == "string")
         elem = document.getElementById(elem);
 
-    var old_class = elem.getAttribute('class');
+    var old_class = elem.getAttribute("class");
 
     if (old_class.indexOf(stripClass) >= 0) {
         var pos = old_class.indexOf(stripClass);
@@ -306,7 +306,7 @@ function aios_stripClass(elem, stripClass) {
         var slice2 = old_class.substring(pos + stripClass.length, old_class.length);
         slice2 = slice2.replace(/ /, "");
 
-        elem.setAttribute('class', slice1 + " " + slice2);
+        elem.setAttribute("class", slice1 + " " + slice2);
     }
 }
 
@@ -324,8 +324,8 @@ function aios_replaceKey(aElem, aAttr, aKey) {
 
     var rep_elem = document.getElementById(aElem);
     var rep = rep_elem.getAttribute(aAttr);
-    rep = rep.substr(rep.indexOf('+'), rep.length);
-    rep_elem.setAttribute(aAttr, strings.getString('key.mac.' + aKey) + rep);
+    rep = rep.substr(rep.indexOf("+"), rep.length);
+    rep_elem.setAttribute(aAttr, strings.getString("key.mac." + aKey) + rep);
 }
 
 /*
@@ -334,7 +334,7 @@ function aios_replaceKey(aElem, aAttr, aKey) {
  */
 function aios_getBoolean(aElem, aVal) {
     var elem,
-    bool;
+        bool;
 
     if (typeof aElem == "object") {
         elem = aElem;
@@ -358,8 +358,8 @@ function aios_getBoolean(aElem, aVal) {
  */
 function aios_openDialog(which, args) {
     var theUrl,
-    theId,
-    theFeatures;
+        theId,
+        theFeatures;
     var theArgs = args;
 
     switch (which) {
@@ -423,16 +423,16 @@ function aios_toggleElement(aMenuitem) {
     if (typeof aMenuitem != "object")
         aMenuitem = document.getElementById(aMenuitem);
 
-    if (aMenuitem.getAttribute('observes')) {
-        menuitem = document.getElementById(aMenuitem.getAttribute('observes'));
+    if (aMenuitem.getAttribute("observes")) {
+        menuitem = document.getElementById(aMenuitem.getAttribute("observes"));
     } else {
         menuitem = document.getElementById(aMenuitem.id);
     }
 
-    var mode = aios_getBoolean(menuitem, 'checked');
-    var childElems = menuitem.getAttribute('aiosChilds');
+    var mode = aios_getBoolean(menuitem, "checked");
+    var childElems = menuitem.getAttribute("aiosChilds");
 
-    menuitem.setAttribute('checked', !mode);
+    menuitem.setAttribute("checked", !mode);
     aios_toggleChilds(childElems, mode);
 }
 
@@ -442,7 +442,7 @@ function aios_toggleElement(aMenuitem) {
  */
 function aios_toggleChilds(childElems, childMode) {
     var child_str,
-    child;
+        child;
 
     if (childElems != "") {
         var childElems_arr = childElems.split(",");
@@ -450,7 +450,7 @@ function aios_toggleChilds(childElems, childMode) {
         for (var i = 0; i < childElems_arr.length; i++) {
             child_str = childElems_arr[i].replace(/ /, "");
 
-            var idChilds_arr = document.getElementsByAttribute('id', child_str);
+            var idChilds_arr = document.getElementsByAttribute("id", child_str);
 
             // If there is only one element with the ID
             if (idChilds_arr.length == 1) {
@@ -466,7 +466,7 @@ function aios_toggleChilds(childElems, childMode) {
             }
 
             if (child)
-                child.setAttribute('hidden', childMode);
+                child.setAttribute("hidden", childMode);
         }
     }
 }
@@ -485,9 +485,9 @@ function aios_setAttributes(elem, attrs) {
  * => Called in downloads.js, pageinfo.js, console.js
  */
 function aios_removeAccesskeys() {
-    var keys = document.getElementsByAttribute('accesskey', '*');
+    var keys = document.getElementsByAttribute("accesskey", "*");
     for (var i = 0; i < keys.length; i++) {
-        keys[i].removeAttribute('accesskey')
+        keys[i].removeAttribute("accesskey");
     }
 }
 
@@ -495,6 +495,6 @@ function aios_removeAccesskeys() {
  * Hides the Mac menu bar in some cases
  */
 function aios_hideMacMenubar() {
-    if (document.getElementById('main-menubar'))
-        document.getElementById('main-menubar').style.display = "none";
+    if (document.getElementById("main-menubar"))
+        document.getElementById("main-menubar").style.display = "none";
 }

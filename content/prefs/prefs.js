@@ -11,11 +11,11 @@ var AiOS_Prefs = {
                 var clickEvent = document.createEvent("MouseEvent");
                 clickEvent.initEvent("command", false, true);
 
-                var radiogroup = document.getAnonymousElementByAttribute(document.getElementById('aiosPreferences'), "anonid", "selector");
+                var radiogroup = document.getAnonymousElementByAttribute(document.getElementById("aiosPreferences"), "anonid", "selector");
                 radiogroup.childNodes[1].dispatchEvent(clickEvent);
 
                 // Activate the download tab
-                var tabbox = document.getElementById('aiosTabboxPanels');
+                var tabbox = document.getElementById("aiosTabboxPanels");
                 if (tabbox.childNodes[0].tagName == "tabs")
                     tabbox.childNodes[0].selectedIndex = 1;
                 if (tabbox.childNodes[1].tagName == "tabs")
@@ -27,27 +27,27 @@ var AiOS_Prefs = {
         AiOS_Prefs.disableApplyButton(true);
 
         // Settings button
-        if (document.documentElement.getButton('extra2')) {
-            var extra2 = document.documentElement.getButton('extra2');
-            extra2.setAttribute('id', 'aios-settings-button');
-            extra2.setAttribute('popup', 'aios-settings-popup');
-            extra2.setAttribute('dir', 'reverse');
+        if (document.documentElement.getButton("extra2")) {
+            var extra2 = document.documentElement.getButton("extra2");
+            extra2.setAttribute("id", "aios-settings-button");
+            extra2.setAttribute("popup", "aios-settings-popup");
+            extra2.setAttribute("dir", "reverse");
         }
 
         // Activate/deactivate dependent elements
         AiOS_Prefs.checkDependent();
 
         // Monitor units of sidebar width for changes
-        document.getElementById('obj-minWidthUnit').addEventListener("ValueChange", function (e) {
-            aios_changeWidthUnit('min');
+        document.getElementById("obj-minWidthUnit").addEventListener("ValueChange", function (e) {
+            aios_changeWidthUnit("min");
         }, false);
 
-        document.getElementById('obj-defWidthUnit').addEventListener("ValueChange", function (e) {
-            aios_changeWidthUnit('def');
+        document.getElementById("obj-defWidthUnit").addEventListener("ValueChange", function (e) {
+            aios_changeWidthUnit("def");
         }, false);
 
-        document.getElementById('obj-maxWidthUnit').addEventListener("ValueChange", function (e) {
-            aios_changeWidthUnit('max');
+        document.getElementById("obj-maxWidthUnit").addEventListener("ValueChange", function (e) {
+            aios_changeWidthUnit("max");
         }, false);
 
         // Remember prefs, this is required for the Apply button => aios_checkApply()
@@ -64,17 +64,17 @@ var AiOS_Prefs = {
         var tabbox = null;
         switch (mode) {
         case "general":
-            tabbox = document.getElementById('aiosTabboxGeneral');
+            tabbox = document.getElementById("aiosTabboxGeneral");
             break;
         case "sbswitch":
-            tabbox = document.getElementById('aiosTabboxSbSwitch');
+            tabbox = document.getElementById("aiosTabboxSbSwitch");
             break;
         case "panels":
-            tabbox = document.getElementById('aiosTabboxPanels');
+            tabbox = document.getElementById("aiosTabboxPanels");
             break;
         }
 
-        var seltab = tabbox.parentNode.getAttribute('seltab');
+        var seltab = tabbox.parentNode.getAttribute("seltab");
         if (tabbox.childNodes[0].tagName == "tabs")
             tabbox.childNodes[0].selectedIndex = seltab;
         if (tabbox.childNodes[1].tagName == "tabs")
@@ -91,12 +91,12 @@ var AiOS_Prefs = {
      */
     defaultSettings: function () {
         var strings = document.getElementById("aiosStrings");
-        if (!confirm(strings.getString('prefs.confirm')))
+        if (!confirm(strings.getString("prefs.confirm")))
             return false;
 
         var childList = AiOS_HELPER.prefBranchAiOS.getChildList("");
 
-        for (var i = 0; i < childList.length; i++) {
+        for (let i = 0; i < childList.length; i++) {
             if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(childList[i]) && childList[i] != "changelog") {
                 AiOS_HELPER.prefBranchAiOS.clearUserPref(childList[i]);
             }
@@ -128,21 +128,21 @@ var AiOS_Prefs = {
         aiosExport[0] += "                  The Good 'ol Sidebar - Settings\n";
         aiosExport[0] += "-----------------------------------------------------------------------\n";
         aiosExport[0] += "          " + sDate + ", " + sTtime + " (" + sGMT + ")\n";
-        aiosExport[0] += "          TGS " + AiOS_HELPER.prefBranchAiOS.getCharPref('changelog') + ", " + AiOS_HELPER.appInfo.name + " " + AiOS_HELPER.appInfo.version + ", " + AiOS_HELPER.os + ", " + AiOS_HELPER.prefBranch.getCharPref('general.skins.selectedSkin') + "\n";
+        aiosExport[0] += "          TGS " + AiOS_HELPER.prefBranchAiOS.getCharPref("changelog") + ", " + AiOS_HELPER.appInfo.name + " " + AiOS_HELPER.appInfo.version + ", " + AiOS_HELPER.os + ", " + AiOS_HELPER.prefBranch.getCharPref("general.skins.selectedSkin") + "\n";
         aiosExport[0] += "-----------------------------------------------------------------------";
 
         var childList = AiOS_HELPER.prefBranchAiOS.getChildList("");
 
-        for (var i = 0; i < childList.length; i++) {
+        for (let i = 0; i < childList.length; i++) {
             switch (AiOS_HELPER.prefBranchAiOS.getPrefType(childList[i])) {
             case AiOS_HELPER.prefInterface.PREF_BOOL:
-                aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getBoolPref(childList[i]);
+                aiosExport[i + 1] = childList[i] + "=" + AiOS_HELPER.prefBranchAiOS.getBoolPref(childList[i]);
                 break;
             case AiOS_HELPER.prefInterface.PREF_INT:
-                aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getIntPref(childList[i]);
+                aiosExport[i + 1] = childList[i] + "=" + AiOS_HELPER.prefBranchAiOS.getIntPref(childList[i]);
                 break;
             case AiOS_HELPER.prefInterface.PREF_STRING:
-                aiosExport[i + 1] = childList[i] + '=' + AiOS_HELPER.prefBranchAiOS.getCharPref(childList[i]);
+                aiosExport[i + 1] = childList[i] + "=" + AiOS_HELPER.prefBranchAiOS.getCharPref(childList[i]);
                 break;
             }
         }
@@ -152,7 +152,7 @@ var AiOS_Prefs = {
 
         // Create string
         var aiosExportString = "";
-        for (var i = 0; i < aiosExport.length; i++) {
+        for (let i = 0; i < aiosExport.length; i++) {
             aiosExportString += aiosExport[i] + "\n";
         }
 
@@ -161,7 +161,7 @@ var AiOS_Prefs = {
             var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
             gClipboardHelper.copyString(aiosExportString);
 
-            alert(strings.getString('prefs.copy'));
+            alert(strings.getString("prefs.copy"));
         }
 
         // Save the string to a text file (Thanks to AdBlock & Tab Mix Plus :-))
@@ -169,9 +169,9 @@ var AiOS_Prefs = {
             var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
             var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
 
-            fp.init(window, strings.getString('prefs.save'), fp.modeSave);
-            fp.defaultExtension = 'txt';
-            fp.defaultString = 'TGS-Settings';
+            fp.init(window, strings.getString("prefs.save"), fp.modeSave);
+            fp.defaultExtension = "txt";
+            fp.defaultString = "TGS-Settings";
             fp.appendFilters(fp.filterText);
 
             if (fp.show() != fp.returnCancel) {
@@ -197,7 +197,6 @@ var AiOS_Prefs = {
         if (!pattern)
             return false;
 
-        var i;
         var aiosImport = [];
         var appendFilters = null;
         let isMatch = false;
@@ -209,14 +208,14 @@ var AiOS_Prefs = {
             isMatch = true;
 
         if (!isMatch) {
-            alert(strings.getString('prefs.invalid'));
+            alert(strings.getString("prefs.invalid"));
             return false;
         }
 
-        if (!confirm(strings.getString('prefs.import')))
+        if (!confirm(strings.getString("prefs.import")))
             return false;
 
-        for (i = 6; i < pattern.length; i++) {
+        for (let i = 6; i < pattern.length; i++) {
             var index = pattern[i].indexOf("=");
 
             if (index > 0) {
@@ -227,7 +226,7 @@ var AiOS_Prefs = {
         }
 
         if (isMatch) {
-            for (i = 6; i < aiosImport.length; i++) {
+            for (let i = 6; i < aiosImport.length; i++) {
                 switch (AiOS_HELPER.prefBranchAiOS.getPrefType(aiosImport[i][0])) {
                 case AiOS_HELPER.prefInterface.PREF_BOOL:
                     AiOS_HELPER.prefBranchAiOS.setBoolPref(aiosImport[i][0], /true/i.test(aiosImport[i][1]));
@@ -237,7 +236,7 @@ var AiOS_Prefs = {
                     break;
                 case AiOS_HELPER.prefInterface.PREF_STRING:
                     var pref = aiosImport[i][1];
-                    if (pref.indexOf('"') == 0) // In the previous version we use " " for string
+                    if (pref.indexOf("\"") == 0) // In the previous version we use " " for string
                         pref = pref.substring(1, pref.length - 1);
                     AiOS_HELPER.prefBranchAiOS.setCharPref(aiosImport[i][0], pref);
                     break;
@@ -253,7 +252,7 @@ var AiOS_Prefs = {
             return true;
         }
 
-        alert(strings.getString('prefs.failed'));
+        alert(strings.getString("prefs.failed"));
         return false;
     },
 
@@ -268,8 +267,8 @@ var AiOS_Prefs = {
 
         var strings = document.getElementById("aiosStrings");
 
-        fp.init(window, strings.getString('prefs.open'), fp.modeOpen);
-        fp.defaultExtension = 'txt';
+        fp.init(window, strings.getString("prefs.open"), fp.modeOpen);
+        fp.defaultExtension = "txt";
         fp.appendFilters(fp.filterText);
 
         if (fp.show() != fp.returnCancel) {
@@ -292,9 +291,9 @@ var AiOS_Prefs = {
      * => Called by aios_initPrefs(), aios_defaultPrefs() and aios_importSettings()
      */
     checkDependent: function () {
-        var childObserver = document.getElementsByAttribute('oncommand', 'AiOS_Prefs.checkboxObserver(this);');
+        var childObserver = document.getElementsByAttribute("oncommand", "AiOS_Prefs.checkboxObserver(this);");
 
-        for (var i = 0; i < childObserver.length; i++) {
+        for (let i = 0; i < childObserver.length; i++) {
             AiOS_Prefs.checkboxObserver(childObserver[i]);
         }
     },
@@ -304,29 +303,29 @@ var AiOS_Prefs = {
      * => Called through the parent checkbox and aios_checkDependent()
      */
     checkboxObserver: function (which) {
-        var observe = which.getAttribute('aiosChilds');
+        var observe = which.getAttribute("aiosChilds");
         var allChilds = observe.split(",");
 
-        for (var i = 0; i < allChilds.length; i++) {
+        for (let i = 0; i < allChilds.length; i++) {
             var childPref = allChilds[i].replace(/ /, "");
 
-            var child = document.getElementsByAttribute('preference', childPref);
+            var child = document.getElementsByAttribute("preference", childPref);
             if (child.length == 0)
-                child = document.getElementsByAttribute('id', childPref);
+                child = document.getElementsByAttribute("id", childPref);
 
             var invert = false;
-            if (childPref.includes('!')) {
-                child = document.getElementsByAttribute('preference', childPref.substr(1));
+            if (childPref.includes("!")) {
+                child = document.getElementsByAttribute("preference", childPref.substr(1));
                 if (child.length == 0)
-                    child = document.getElementsByAttribute('id', childPref.substr(1));
+                    child = document.getElementsByAttribute("id", childPref.substr(1));
                 invert = true;
             }
 
             if (child[0]) {
-                if (((!aios_getBoolean(which, 'checked') || aios_getBoolean(which, 'disabled')) && !invert) || (aios_getBoolean(which, 'checked') && invert))
-                    child[0].setAttribute('disabled', true);
+                if (((!aios_getBoolean(which, "checked") || aios_getBoolean(which, "disabled")) && !invert) || (aios_getBoolean(which, "checked") && invert))
+                    child[0].setAttribute("disabled", true);
                 else
-                    child[0].removeAttribute('disabled');
+                    child[0].removeAttribute("disabled");
             }
         }
     },
@@ -347,7 +346,7 @@ var AiOS_Prefs = {
      * => Called by the onclick event of the tab containers
      */
     rememberSelectedTab: function (which) {
-        which.parentNode.parentNode.setAttribute('seltab', which.selectedIndex);
+        which.parentNode.parentNode.setAttribute("seltab", which.selectedIndex);
     },
 
     /*
@@ -356,14 +355,14 @@ var AiOS_Prefs = {
      */
     reloadPreferences: function () {
         var val;
-        var prefs = document.getElementsByTagName('preference');
+        var prefs = document.getElementsByTagName("preference");
 
-        for (var i = 0; i < prefs.length; i++) {
-            var prefID = prefs[i].getAttribute('id');
-            var prefType = prefs[i].getAttribute('type');
-            var prefName = prefs[i].getAttribute('name').replace(/extensions.aios./, "");
+        for (let i = 0; i < prefs.length; i++) {
+            var prefID = prefs[i].getAttribute("id");
+            var prefType = prefs[i].getAttribute("type");
+            var prefName = prefs[i].getAttribute("name").replace(/extensions.aios./, "");
 
-            var elem = document.getElementsByAttribute('preference', prefID)[0];
+            var elem = document.getElementsByAttribute("preference", prefID)[0];
 
             switch (prefType) {
             case "int":
@@ -400,15 +399,15 @@ var AiOS_Prefs = {
     savePrefs: function () {
         aios_setConfSidebarWidth();
 
-        var enumerator = AiOS_HELPER.windowMediator.getEnumerator('navigator:browser');
+        var enumerator = AiOS_HELPER.windowMediator.getEnumerator("navigator:browser");
         while (enumerator.hasMoreElements()) {
             var win = enumerator.getNext();
 
             // Set tooltip for PanelTab button
-            if (win.document.getElementById('paneltab-button')) {
+            if (win.document.getElementById("paneltab-button")) {
                 var ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
-                var ptTooltip = (ptReverse) ? 'paneltab-tooltip-reverse' : 'paneltab-tooltip';
-                win.document.getElementById('paneltab-button').setAttribute('tooltip', ptTooltip);
+                var ptTooltip = (ptReverse) ? "paneltab-tooltip-reverse" : "paneltab-tooltip";
+                win.document.getElementById("paneltab-button").setAttribute("tooltip", ptTooltip);
             }
 
             if (win.aios_setTargets)
@@ -425,16 +424,16 @@ var AiOS_Prefs = {
 
             // We might incur a performance hit if we do this dynamically
             if (switchDrag)
-                win.AiOS_Objects.sbSwitch.setAttribute('ondragenter', "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
+                win.AiOS_Objects.sbSwitch.setAttribute("ondragenter", "window.setTimeout(function() { AiOS.toggleSidebar('switch', true); event.stopPropagation(); }, " + switchDragDelay + ");");
             else
-                win.AiOS_Objects.sbSwitch.setAttribute('ondragenter', "");
+                win.AiOS_Objects.sbSwitch.setAttribute("ondragenter", "");
         }
 
         // Bugfix:
         // Otherwise the context menu of the extension is displayed,
         // when the options have been right-clicked and the Apply button is clicked
-        if (opener.document.getElementById('extensionContextMenu'))
-            opener.document.getElementById('extensionContextMenu').hidePopup();
+        if (opener.document.getElementById("extensionContextMenu"))
+            opener.document.getElementById("extensionContextMenu").hidePopup();
     },
 
     /*
@@ -443,16 +442,16 @@ var AiOS_Prefs = {
      */
     applyPrefs: function () {
         var pID,
-        pType,
-        pName,
-        pValue;
+            pType,
+            pName,
+            pValue;
 
         // Save prefs directly
-        var allPrefs = document.getElementsByTagName('preference');
-        for (var i = 0; i < allPrefs.length; i++) {
-            pID = allPrefs[i].getAttribute('id');
-            pType = allPrefs[i].getAttribute('type');
-            pName = allPrefs[i].getAttribute('name');
+        var allPrefs = document.getElementsByTagName("preference");
+        for (let i = 0; i < allPrefs.length; i++) {
+            pID = allPrefs[i].getAttribute("id");
+            pType = allPrefs[i].getAttribute("type");
+            pName = allPrefs[i].getAttribute("name");
             pValue = allPrefs[i].value;
 
             switch (pType) {
@@ -486,8 +485,8 @@ var AiOS_Prefs = {
      * => Called by aios_initPrefs(), aios_applyPrefs() and aios_checkApply()
      */
     disableApplyButton: function (aDis) {
-        if (document.documentElement.getButton('extra1')) {
-            document.documentElement.getButton('extra1').setAttribute('disabled', aDis);
+        if (document.documentElement.getButton("extra1")) {
+            document.documentElement.getButton("extra1").setAttribute("disabled", aDis);
         }
 
         if (aDis)
@@ -499,17 +498,17 @@ var AiOS_Prefs = {
      * => Called by aios_initPrefs() and aios_applyPrefs()
      */
     rememberOldPrefs: function () {
-        var allPrefs = document.getElementsByTagName('preference');
-        for (var i = 0; i < allPrefs.length; i++) {
-            allPrefs[i].setAttribute('oldValue', allPrefs[i].value);
+        var allPrefs = document.getElementsByTagName("preference");
+        for (let i = 0; i < allPrefs.length; i++) {
+            allPrefs[i].setAttribute("oldValue", allPrefs[i].value);
 
             // Add change listener
-            if (!allPrefs[i].getAttribute('data-changed')) {
+            if (!allPrefs[i].getAttribute("data-changed")) {
                 allPrefs[i].addEventListener("change", function () {
                     AiOS_Prefs.checkApply(this);
                 });
 
-                allPrefs[i].setAttribute('data-changed', true)
+                allPrefs[i].setAttribute("data-changed", true);
             }
         }
     },
@@ -522,21 +521,21 @@ var AiOS_Prefs = {
     checkApply: function (aPref) {
         if (typeof aPref == "object") {
             var oldPref,
-            newPref;
+                newPref;
             var pID = aPref.id;
 
             // Convert remembered and new settings to the correct format
-            switch (aPref.getAttribute('type')) {
+            switch (aPref.getAttribute("type")) {
             case "string":
-                oldPref = aPref.getAttribute('oldValue');
+                oldPref = aPref.getAttribute("oldValue");
                 newPref = aPref.value;
                 break;
             case "bool":
-                oldPref = aios_getBoolean(aPref, 'oldValue');
+                oldPref = aios_getBoolean(aPref, "oldValue");
                 newPref = aPref.value;
                 break;
             case "int":
-                oldPref = aPref.getAttribute('oldValue') * 1;
+                oldPref = aPref.getAttribute("oldValue") * 1;
                 newPref = aPref.value * 1;
                 break;
             }
@@ -587,8 +586,8 @@ var AiOS_Prefs = {
     deleteOldPrefs: function () {
         // List of preferences that might need to be migrated
         let mgPrefs = {
-            delay: ['gen.switch.delay', 'gen.switch.delayshow', 'gen.switch.delayhide'],
-            invSwitch: ['gen.switch.invtrigger', 'gen.switch.inv']
+            delay: ["gen.switch.delay", "gen.switch.delayshow", "gen.switch.delayhide"],
+            invSwitch: ["gen.switch.invtrigger", "gen.switch.inv"]
         };
         // Migrate prefs to new values
         for (let obj in mgPrefs) {
@@ -619,10 +618,10 @@ var AiOS_Prefs = {
         }
 
         // List of old preferences
-        let oldPrefs = ['em.layout', 'em.layoutall', 'em.slim', 'em.colors', 'dm.slim',
-                        'dm.colors', 'co.slim', 'co.colors', 'bm.layout', 'bm.layoutall',
-                        'hi.layout', 'hi.layoutall', 'dm.observer', 'gen.switch.delay',
-                        'gen.switch.invwidth', 'gen.switch.invtrigger'];
+        let oldPrefs = ["em.layout", "em.layoutall", "em.slim", "em.colors", "dm.slim",
+            "dm.colors", "co.slim", "co.colors", "bm.layout", "bm.layoutall",
+            "hi.layout", "hi.layoutall", "dm.observer", "gen.switch.delay",
+            "gen.switch.invwidth", "gen.switch.invtrigger"];
         // Remove preferences defined in the oldPrefs array
         removePrefsFromArray(oldPrefs, AiOS_HELPER.prefBranchAiOS);
 
@@ -631,4 +630,4 @@ var AiOS_Prefs = {
         // Remove preferences that were duplicated in the final AiOS version
         removePrefsFromArray(duplicatePrefBranch.getChildList(""), duplicatePrefBranch);
     },
-}
+};

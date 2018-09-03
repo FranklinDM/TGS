@@ -40,7 +40,7 @@ function handleOptions(aType, toolbar, aNavToolbox) {
 function aios_adjustToolboxWidth(aMode) {
     AiOS_Objects.get();
 
-    var tboxen = ['aios-toolbox-left', 'aios-toolbox-right'];
+    var tboxen = ["aios-toolbox-left", "aios-toolbox-right"];
     var tbox;
 
     // First remove width from element styles and attribute
@@ -48,7 +48,7 @@ function aios_adjustToolboxWidth(aMode) {
         aios_gElem(tboxen[tbox]).style.minWidth = "";
         aios_gElem(tboxen[tbox]).style.width = "";
         aios_gElem(tboxen[tbox]).style.maxWidth = "";
-        aios_gElem(tboxen[tbox]).removeAttribute('width');
+        aios_gElem(tboxen[tbox]).removeAttribute("width");
     }
 
     // If no definitions have yet to be made, initiate them by recursive call a short time later
@@ -63,14 +63,14 @@ function aios_adjustToolboxWidth(aMode) {
 
     // Set widths
     var usedToolbox;
-    var aiosOrient = AiOS_Objects.mainWindow.getAttribute('aiosOrient');
-    var posMode = AiOS_Objects.mainToolbar.getAttribute('posMode');
+    var aiosOrient = AiOS_Objects.mainWindow.getAttribute("aiosOrient");
+    var posMode = AiOS_Objects.mainToolbar.getAttribute("posMode");
 
     // Select toolbox according to sidebar alignment
     if ((aiosOrient == "left" && posMode == "1") || (aiosOrient == "right" && posMode == "2")) {
-        usedToolbox = 'aios-toolbox-left';
+        usedToolbox = "aios-toolbox-left";
     } else if ((aiosOrient == "left" && posMode == "2") || (aiosOrient == "right" && posMode == "1")) {
-        usedToolbox = 'aios-toolbox-right';
+        usedToolbox = "aios-toolbox-right";
     }
 
     // usedToolbox is false if the toolbar is positioned inside the sidebar
@@ -107,36 +107,36 @@ function aios_onToolbarPopupShowing(aWhich) {
     // AiOS Toolbar
     if (aWhich.id == "aios-toolbar-contextmenu") {
         // Button mode
-        mode = AiOS_Objects.mainToolbar.getAttribute('mode');
+        mode = AiOS_Objects.mainToolbar.getAttribute("mode");
 
         switch (mode) {
         case "full":
-            document.getElementById('aios-view-mitem1').setAttribute('checked', true);
+            document.getElementById("aios-view-mitem1").setAttribute("checked", true);
             break;
         case "icons":
-            document.getElementById('aios-view-mitem2').setAttribute('checked', true);
+            document.getElementById("aios-view-mitem2").setAttribute("checked", true);
             break;
-        case "full":
-            document.getElementById('aios-view-mitem3').setAttribute('checked', true);
-            document.getElementById('aios-view-mitem4').setAttribute('disabled', true);
+        case "text":
+            document.getElementById("aios-view-mitem3").setAttribute("checked", true);
+            document.getElementById("aios-view-mitem4").setAttribute("disabled", true);
             break;
         }
 
         // Icon size
-        document.getElementById('aios-view-mitem4').setAttribute('checked', AiOS_Objects.mainToolbar.getAttribute('iconsize') == "small");
+        document.getElementById("aios-view-mitem4").setAttribute("checked", AiOS_Objects.mainToolbar.getAttribute("iconsize") == "small");
 
         // Flexible buttons
-        document.getElementById('aios-view-mitem5').setAttribute('checked', AiOS_Objects.mainToolbar.getAttribute('flexbuttons') == "true");
+        document.getElementById("aios-view-mitem5").setAttribute("checked", AiOS_Objects.mainToolbar.getAttribute("flexbuttons") == "true");
     }
 
     // Sidebar Header Toolbar
     else if (aWhich.id == "aios-sbhtoolbar-contextmenu") {
         // Button mode => is required for CSS definitions
-        AiOS_Objects.sidebarHeader.setAttribute('mode', aios_gElem("aios-sbhtoolbar").getAttribute('mode'));
+        AiOS_Objects.sidebarHeader.setAttribute("mode", aios_gElem("aios-sbhtoolbar").getAttribute("mode"));
 
         // Icon size
-        document.getElementById('aios-sbhview-mitem4').setAttribute('checked', aios_gElem("aios-sbhtoolbar").getAttribute('iconsize') == "small");
-        AiOS_Objects.sidebarHeader.setAttribute('iconsize', aios_gElem("aios-sbhtoolbar").getAttribute('iconsize'));
+        document.getElementById("aios-sbhview-mitem4").setAttribute("checked", aios_gElem("aios-sbhtoolbar").getAttribute("iconsize") == "small");
+        AiOS_Objects.sidebarHeader.setAttribute("iconsize", aios_gElem("aios-sbhtoolbar").getAttribute("iconsize"));
     }
 }
 
@@ -154,14 +154,14 @@ function aios_setToolbarPos(posMode) {
     AiOS_Objects.get();
 
     var tbox,
-    orient,
-    button_flex,
-    separator;
+        orient,
+        button_flex,
+        separator;
 
     if (!posMode)
-        posMode = parseInt(AiOS_Objects.mainToolbar.getAttribute('posMode'));
+        posMode = parseInt(AiOS_Objects.mainToolbar.getAttribute("posMode"));
 
-    var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref('gen.orient');
+    var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.orient");
 
     switch (posMode) {
     case 1:
@@ -190,14 +190,14 @@ function aios_setToolbarPos(posMode) {
         break;
     }
 
-    AiOS_Objects.mainToolbar.setAttribute('posMode', posMode);
-    AiOS_Objects.mainToolbar.setAttribute('orient', orient);
+    AiOS_Objects.mainToolbar.setAttribute("posMode", posMode);
+    AiOS_Objects.mainToolbar.setAttribute("orient", orient);
 
     document.getElementById(tbox).appendChild(AiOS_Objects.mainToolbar);
 
     aios_adjustToolboxWidth(false);
 
-    document.getElementById('aios-pos-mitem' + posMode).setAttribute('checked', true);
+    document.getElementById("aios-pos-mitem" + posMode).setAttribute("checked", true);
 }
 
 /*
@@ -221,7 +221,7 @@ function aios_setToolbarView(aViewMode, aWhich) {
     }
 
     var tbar,
-    menuid;
+        menuid;
 
     if (elem.id == "aios-toolbar-contextmenu") {
         tbar = aios_gElem("aios-toolbar");
@@ -239,22 +239,22 @@ function aios_setToolbarView(aViewMode, aWhich) {
     if (viewMode <= 2) {
         if (viewMode == 2)
             set_value = "icons";
-        document.getElementById('aios-' + menuid + '-mitem4').setAttribute('disabled', false);
+        document.getElementById("aios-" + menuid + "-mitem4").setAttribute("disabled", false);
     } else if (viewMode == 3) {
         set_value = "text";
-        document.getElementById('aios-' + menuid + '-mitem4').setAttribute('disabled', true);
+        document.getElementById("aios-" + menuid + "-mitem4").setAttribute("disabled", true);
     }
 
     // Icon size
     if (viewMode == 4) {
         set_property = "iconsize";
-        set_value = (aios_getBoolean('aios-' + menuid + '-mitem4', 'checked')) ? "small" : "large";
+        set_value = (aios_getBoolean("aios-" + menuid + "-mitem4", "checked")) ? "small" : "large";
     }
 
     // Flexible buttons
     if (viewMode == 5) {
         set_property = "flexbuttons";
-        set_value = (aios_getBoolean('aios-' + menuid + '-mitem5', 'checked')) ? "true" : "false";
+        set_value = (aios_getBoolean("aios-" + menuid + "-mitem5", "checked")) ? "true" : "false";
     }
 
     tbar.setAttribute(set_property, set_value);
@@ -273,7 +273,7 @@ function aios_setToolbarView(aViewMode, aWhich) {
 function aios_toggleToolbar(aWhich) {
     AiOS_Objects.get();
 
-    var mode = (typeof aWhich == "boolean") ? aWhich : !aios_getBoolean(aWhich, 'checked');
+    var mode = (typeof aWhich == "boolean") ? aWhich : !aios_getBoolean(aWhich, "checked");
 
     AiOS_Objects.mainToolbar.hidden = mode;
 
@@ -287,26 +287,26 @@ function aios_toggleToolbar(aWhich) {
 function aios_addToolbarMitem(aWhich) {
     AiOS_Objects.get();
 
-    var popup = document.getElementById('viewToolbarsMenu').firstChild;
+    var popup = document.getElementById("viewToolbarsMenu").firstChild;
     if (aWhich.id == "toolbar-context-menu")
-        popup = document.getElementById('toolbar-context-menu');
+        popup = document.getElementById("toolbar-context-menu");
 
     // Generate menuitem
     var menuItem = document.createElement("menuitem");
     // toolbarid = TotalToolbar-Fix => Without the entry is displayed several times because the menu is not emptied correctly
-    menuItem.setAttribute("toolbarId", 'aios-toolbar');
+    menuItem.setAttribute("toolbarId", "aios-toolbar");
     menuItem.setAttribute("observes", "aios-viewToolbar");
-    menuItem.setAttribute("label", AiOS_Objects.mainToolbar.getAttribute('toolbarname'));
+    menuItem.setAttribute("label", AiOS_Objects.mainToolbar.getAttribute("toolbarname"));
 
     var mitems = popup.childNodes;
     for (var i = 0; i < mitems.length; i++) {
         // TotalToolbar => Remove unnecessary/unwanted menu items
         if (mitems[i].tagName == "menuitem") {
-            if (mitems[i].getAttribute('toolbarId') == "aios-toolbar")
+            if (mitems[i].getAttribute("toolbarId") == "aios-toolbar")
                 mitems[i].parentNode.removeChild(mitems[i]);
-            if (mitems[i].getAttribute('toolbarId') == "aios-sbhtoolbar")
+            if (mitems[i].getAttribute("toolbarId") == "aios-sbhtoolbar")
                 mitems[i].parentNode.removeChild(mitems[i]);
-            if (mitems[i].getAttribute('label') == menuItem.getAttribute("label"))
+            if (mitems[i].getAttribute("label") == menuItem.getAttribute("label"))
                 mitems[i].parentNode.removeChild(mitems[i]);
         }
 

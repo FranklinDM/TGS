@@ -1,15 +1,15 @@
 var aios_managerWindow, downloads_box;
-var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+var aios_inSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 var sideSrc = null;
 
 var AiOS_Downloads = {
     init: function () {
         var enable_sidebar,
-        enable_count,
-        enable_layout,
-        enable_layoutall,
-        enable_loadall,
-        enable_shading;
+            enable_count,
+            enable_layout,
+            enable_layoutall,
+            enable_loadall,
+            enable_shading;
 
         // Hide the menu bar under Mac OS X
         aios_hideMacMenubar();
@@ -31,19 +31,19 @@ var AiOS_Downloads = {
         if ((enable_layout && aios_inSidebar) || enable_layoutall)
             AiOS_Downloads.sidebarLayout();
         if (enable_shading)
-            aios_managerWindow.setAttribute('aios-downloadShade', true);
+            aios_managerWindow.setAttribute("aios-downloadShade", true);
 
         // Count and display elements
         if (enable_count) {
             // create an observer instance
             var observer = new MutationObserver(function (mutations) {
-                    window.setTimeout(function () {
-                        AiOS_Downloads.countItems();
-                        if (!enable_count) {
-                            AiOS_Downloads.removeCount();
-                        }
-                    }, 500);
-                });
+                window.setTimeout(function () {
+                    AiOS_Downloads.countItems();
+                    if (!enable_count) {
+                        AiOS_Downloads.removeCount();
+                    }
+                }, 500);
+            });
             // configuration of the observer:
             var config = {
                 attributes: true,
@@ -82,21 +82,21 @@ var AiOS_Downloads = {
     removeCount: function () {
         // Will only set this if in sidebar
         if (aios_inSidebar)
-            sideSrc = top.document.getElementById('sidebar').getAttribute('src');
+            sideSrc = top.document.getElementById("sidebar").getAttribute("src");
         var title,
-        newTitle;
+            newTitle;
         // Remove the number in the title
         // => is required only after deactivating the option because the number is stored in the Broadcaster
-        if (sideSrc != null && sideSrc.indexOf('about:downloads') >= 0) {
-            if (top.document.getElementById('sidebar-title')) {
-                title = top.document.getElementById('sidebar-title').getAttribute("value");
+        if (sideSrc != null && sideSrc.indexOf("about:downloads") >= 0) {
+            if (top.document.getElementById("sidebar-title")) {
+                title = top.document.getElementById("sidebar-title").getAttribute("value");
 
                 if (title.indexOf(" [") > 0) {
                     newTitle = title.substring(0, title.indexOf(" ["));
-                    top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+                    top.document.getElementById("sidebar-title").setAttribute("value", newTitle);
 
                     if (aios_inSidebar)
-                        AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+                        AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute("sidebartitle", newTitle);
                 }
             }
         } else {
@@ -152,7 +152,7 @@ var AiOS_Downloads = {
         var newTitle;
         var origTitle = "";
         if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar"))
-            origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute('label');
+            origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").getAttribute("label");
 
         // Count elements
         var exts = AiOS_Downloads.filterItems();
@@ -163,8 +163,8 @@ var AiOS_Downloads = {
         var list_failed = 0;
 
         for (var i = 0; i < exts.length; i++) {
-            var state = exts[i].getAttribute('state');
-            var hasState = exts[i].hasAttribute('state');
+            var state = exts[i].getAttribute("state");
+            var hasState = exts[i].hasAttribute("state");
 
             // downloading => starting + downloading + paused + downloading
             if (state == "-1" || state == "0" || state == "4" || state == "5")
@@ -196,15 +196,15 @@ var AiOS_Downloads = {
 
         // Will only set this if in sidebar
         if (aios_inSidebar)
-            sideSrc = top.document.getElementById('sidebar').getAttribute('src');
-        if (sideSrc != null && sideSrc.indexOf('about:downloads') >= 0) {
-            if (top.document.getElementById('sidebar-title'))
-                top.document.getElementById('sidebar-title').setAttribute("value", newTitle);
+            sideSrc = top.document.getElementById("sidebar").getAttribute("src");
+        if (sideSrc != null && sideSrc.indexOf("about:downloads") >= 0) {
+            if (top.document.getElementById("sidebar-title"))
+                top.document.getElementById("sidebar-title").setAttribute("value", newTitle);
         }
 
         // store the sidebar title in the Broadcaster so that it can be restored when the sidebar is closed / opened
         if (aios_inSidebar)
-            AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute('sidebartitle', newTitle);
+            AiOS_HELPER.mostRecentWindow.document.getElementById("viewDownloadsSidebar").setAttribute("sidebartitle", newTitle);
 
         return true;
     },
@@ -229,13 +229,13 @@ var AiOS_Downloads = {
         var nodes = downloads_box.childNodes;
 
         for (var node of nodes) {
-            if (node.nodeName == "richlistitem" && node.getAttribute('hidden') != "true") {
+            if (node.nodeName == "richlistitem" && node.getAttribute("hidden") != "true") {
                 r.push(node);
             }
         }
 
         return r;
     }
-}
+};
 
 window.addEventListener("DOMContentLoaded", AiOS_Downloads.init, false);

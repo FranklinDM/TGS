@@ -1,18 +1,18 @@
 var Ci = Components.interfaces;
 
-var aios_inSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+var aios_inSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
 var webPanel;
-if (document.getElementById('web-panels-browser'))
-    webPanel = document.getElementById('web-panels-browser');
+if (document.getElementById("web-panels-browser"))
+    webPanel = document.getElementById("web-panels-browser");
 
 Components.utils.import("resource://gre/modules/Services.jsm");
-var compareResult = Services.vc.compare(AiOS_HELPER.appInfo.version, '28.*');
+var compareResult = Services.vc.compare(AiOS_HELPER.appInfo.version, "28.*");
 
 if (compareResult == 0 || compareResult == 1) {
-	var NS_ERROR_MODULE_NETWORK = 2152398848;
-	var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
-	var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
+    var NS_ERROR_MODULE_NETWORK = 2152398848;
+    var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
+    var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
 }
 
 var AiOS_MP = {
@@ -38,7 +38,7 @@ var AiOS_MP = {
         AiOS_MP.URLBar.value = webPanel.getAttribute("cachedurl");
 
         // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(document.getElementById('webpanels-window'));
+        AiOS_HELPER.rememberAppInfo(document.getElementById("webpanels-window"));
 
         // If URL is blank, go to about:blank
         if (AiOS_MP.URLBar.value == "")
@@ -51,8 +51,8 @@ var AiOS_MP = {
      */
     setMultiPanel: function (aMode) {
         var label,
-        panelLoc;
-        var aios_CONTENT = AiOS_HELPER.mostRecentWindow.document.getElementById('content');
+            panelLoc;
+        var aios_CONTENT = AiOS_HELPER.mostRecentWindow.document.getElementById("content");
 
         // about: entries
         if (aMode.indexOf("about:") == 0 && aMode != "about:blank") {
@@ -64,7 +64,9 @@ var AiOS_MP = {
             try {
                 panelLoc = aios_CONTENT.currentURI.spec;
                 label = aios_CONTENT.selectedTab.label;
-            } catch (e) {}
+            } catch (e) {
+                // If content is invalid or some error happens, continue.
+            }
 
             // I am the MultiPanel in the tab
             if (top.toString() == "[object Window]" && AiOS_HELPER.mostRecentWindow.aiosLastSelTab) {
@@ -74,7 +76,7 @@ var AiOS_MP = {
 
         // When "Page" is clicked, while in the tab the MultiPanel is loaded
         if (panelLoc == "chrome://browser/content/web-panels.xul") {
-            panelLoc = aios_CONTENT.contentDocument.getElementById('web-panels-browser').getAttribute('cachedurl');
+            panelLoc = aios_CONTENT.contentDocument.getElementById("web-panels-browser").getAttribute("cachedurl");
         }
 
         var newLabel = "";
@@ -82,7 +84,7 @@ var AiOS_MP = {
         this.URLBar.value = panelLoc;
 
         // Open MultiPanel or load contents
-        if (top.document.getElementById('sidebar') && top.toString() != "[object Window]")
+        if (top.document.getElementById("sidebar") && top.toString() != "[object Window]")
             top.openWebPanel(newLabel, panelLoc);
         else
             webPanel.contentDocument.location.href = panelLoc;
@@ -94,9 +96,9 @@ var AiOS_MP = {
      */
     setOptions: function () {
         var mode,
-        i;
+            i;
 
-        var aboutGroup = document.getElementById('aboutGroup').childNodes;
+        var aboutGroup = document.getElementById("aboutGroup").childNodes;
         var panelLoc = webPanel.contentDocument.location.href;
 
         if (panelLoc != "about:blank") {
@@ -111,28 +113,28 @@ var AiOS_MP = {
             return false;
 
         if (mode != "page")
-            document.getElementById('page-button').setAttribute('checked', false);
+            document.getElementById("page-button").setAttribute("checked", false);
         if (mode != "about")
-            document.getElementById('about-button').setAttribute('checked', false);
-        document.getElementById(mode + '-button').setAttribute('checked', true);
+            document.getElementById("about-button").setAttribute("checked", false);
+        document.getElementById(mode + "-button").setAttribute("checked", true);
 
         if (mode == "page") {
             for (i = 0; i < aboutGroup.length; i++) {
                 if (aboutGroup[i].tagName == "menuitem")
-                    aboutGroup[i].setAttribute('checked', false);
+                    aboutGroup[i].setAttribute("checked", false);
             }
         } else {
             for (i = 0; i < aboutGroup.length; i++) {
-                var label = aboutGroup[i].getAttribute('label');
+                var label = aboutGroup[i].getAttribute("label");
                 var isActive = label == panelLoc;
                 isActive = (label == "about:config" && panelLoc == "chrome://global/content/config.xul");
                 if (aboutGroup[i].tagName == "menuitem" && isActive)
-                    aboutGroup[i].setAttribute('checked', true);
+                    aboutGroup[i].setAttribute("checked", true);
             }
         }
 
-        webPanel.setAttribute('cachedurl', panelLoc);
-        document.persist('web-panels-browser', "cachedurl");
+        webPanel.setAttribute("cachedurl", panelLoc);
+        document.persist("web-panels-browser", "cachedurl");
 
         return true;
     },
@@ -144,7 +146,7 @@ var AiOS_MP = {
     setSBLabel: function () {
         var newLabel = "";
 
-        var mpLabel = AiOS_HELPER.mostRecentWindow.document.getElementById('viewWebPanelsSidebar').getAttribute('label');
+        var mpLabel = AiOS_HELPER.mostRecentWindow.document.getElementById("viewWebPanelsSidebar").getAttribute("label");
 
         if (webPanel && webPanel.contentDocument) {
             var loc = webPanel.contentDocument.location.href;
@@ -158,10 +160,10 @@ var AiOS_MP = {
         else
             newLabel = mpLabel;
 
-        if (top.document.getElementById('sidebar-title'))
-            top.document.getElementById('sidebar-title').setAttribute('value', newLabel);
+        if (top.document.getElementById("sidebar-title"))
+            top.document.getElementById("sidebar-title").setAttribute("value", newLabel);
 
-        if (!top.document.getElementById('sidebar-title'))
+        if (!top.document.getElementById("sidebar-title"))
             top.document.title = newLabel;
     },
 
@@ -175,7 +177,9 @@ var AiOS_MP = {
 
         try {
             var doc = webPanel.contentDocument;
-        } catch (e) {}
+        } catch (e) {
+            // For some reason, content document is unavailable - continue.
+        }
 
         if (!doc || !doc.body || !aios_getBoolean("page-button", "checked"))
             return false;
@@ -195,7 +199,7 @@ var AiOS_MP = {
                 currentStyleSheet.disabled = !aios_getBoolean("ssr-mitem", "checked");
                 // Decide if document should adapt to sidebar width
                 if (aios_getBoolean("ssr-mitem", "checked")) {
-                    doc.body.setAttribute('aiosSidebar', aios_getBoolean("ssrSidebar-mitem", "checked"));
+                    doc.body.setAttribute("aiosSidebar", aios_getBoolean("ssrSidebar-mitem", "checked"));
                 }
                 return true;
             }
@@ -221,14 +225,14 @@ var AiOS_MP = {
      */
     unload: function () {
         if (webPanel && !aios_getBoolean("aios-remMultiPanel", "checked")) {
-            webPanel.setAttribute('cachedurl', '');
-            document.persist('web-panels-browser', "cachedurl");
+            webPanel.setAttribute("cachedurl", "");
+            document.persist("web-panels-browser", "cachedurl");
         }
-        webPanel.setAttribute('linkedopt', document.getElementById("aios-linkedbtn").getAttribute("checked"));
+        webPanel.setAttribute("linkedopt", document.getElementById("aios-linkedbtn").getAttribute("checked"));
     },
 
     getPageOptions: function () {
-        document.getElementById('ssrSidebar-mitem').setAttribute('disabled', !aios_getBoolean("ssr-mitem", "checked"));
+        document.getElementById("ssrSidebar-mitem").setAttribute("disabled", !aios_getBoolean("ssr-mitem", "checked"));
     },
 
     /* Additionals */
@@ -321,23 +325,23 @@ var panelProgressListener = {
         const nsIChannel = Ci.nsIChannel;
 
         // Stop/reload command vars
-        var stp = document.getElementById('Browser:Stop');
-        var rld = document.getElementById('Browser:Reload');
+        var stp = document.getElementById("Browser:Stop");
+        var rld = document.getElementById("Browser:Reload");
 
         if (aStateFlags & nsIWebProgressListener.STATE_START && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
-            if (window.parent.document.getElementById('sidebar-throbber'))
-                window.parent.document.getElementById('sidebar-throbber').setAttribute("loading", "true");
-            stp.setAttribute('disabled', 'false');
-            rld.setAttribute('disabled', 'true');
-            stp.setAttribute('hidden', 'false');
-            rld.setAttribute('hidden', 'true');
+            if (window.parent.document.getElementById("sidebar-throbber"))
+                window.parent.document.getElementById("sidebar-throbber").setAttribute("loading", "true");
+            stp.setAttribute("disabled", "false");
+            rld.setAttribute("disabled", "true");
+            stp.setAttribute("hidden", "false");
+            rld.setAttribute("hidden", "true");
         } else if (aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
-            if (window.parent.document.getElementById('sidebar-throbber'))
-                window.parent.document.getElementById('sidebar-throbber').removeAttribute("loading");
-            stp.setAttribute('disabled', 'true');
-            rld.setAttribute('disabled', 'false');
-            stp.setAttribute('hidden', 'true');
-            rld.setAttribute('hidden', 'false');
+            if (window.parent.document.getElementById("sidebar-throbber"))
+                window.parent.document.getElementById("sidebar-throbber").removeAttribute("loading");
+            stp.setAttribute("disabled", "true");
+            rld.setAttribute("disabled", "false");
+            stp.setAttribute("hidden", "true");
+            rld.setAttribute("hidden", "false");
         }
 
         AiOS_MP.setSSR();
@@ -355,8 +359,8 @@ var panelProgressListener = {
         // And set last valid URI also (for text reverted)
         AiOS_MP.lastValidURI = asc;
         // Work around for broken back/forward button states
-        document.getElementById('Browser:Forward').setAttribute('disabled', !webPanel.canGoForward);
-        document.getElementById('Browser:Back').setAttribute('disabled', !webPanel.canGoBack);
+        document.getElementById("Browser:Forward").setAttribute("disabled", !webPanel.canGoForward);
+        document.getElementById("Browser:Back").setAttribute("disabled", !webPanel.canGoBack);
     },
 
     onStatusChange: function (aWebProgress, aRequest, aStatus, aMessage) {

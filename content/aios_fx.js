@@ -54,7 +54,7 @@ function aios_collapseToggleSidebar(commandID, forceOpen) {
             sidebarBox.setAttribute("sidebarcommand", "");
 
             // AiOS: Simply collapse the sidebar
-            sidebarBox.removeAttribute('hidden');
+            sidebarBox.removeAttribute("hidden");
             sidebarBox.collapsed = true;
 
             sidebarSplitter.hidden = true;
@@ -80,8 +80,8 @@ function aios_collapseToggleSidebar(commandID, forceOpen) {
     }
 
     // AiOS: Uncollapsed and unhide the sidebar
-    sidebarBox.removeAttribute('hidden');
-    sidebarBox.removeAttribute('collapsed');
+    sidebarBox.removeAttribute("hidden");
+    sidebarBox.removeAttribute("collapsed");
 
     sidebarSplitter.hidden = false;
 

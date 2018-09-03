@@ -10,7 +10,7 @@ var AiOS_Addons = {};
         return ns;
     };
 
-    this.isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+    this.isInSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
     // Initialization
     this.initialize = function () {
@@ -32,12 +32,12 @@ var AiOS_Addons = {};
     this.setSidebarLayout = function () {
 
         var self = AiOS_Addons,
-        before,
-        insertedElement,
-        nav_tmp,
-        nav,
-        updatesBox,
-        managerWindow = document.getElementById("addons-page");
+            before,
+            insertedElement,
+            nav_tmp,
+            nav,
+            updatesBox,
+            managerWindow = document.getElementById("addons-page");
 
         self.checkNotification();
         self.setTitle(true);
@@ -46,7 +46,7 @@ var AiOS_Addons = {};
         AiOS_HELPER.rememberAppInfo(managerWindow);
 
         // Enable CSS
-        managerWindow.setAttribute('aios-inSidebar', 'true');
+        managerWindow.setAttribute("aios-inSidebar", "true");
 
         // Align the navigation horizontally
         nav_tmp = document.getElementById("category-search").parentNode,
@@ -55,10 +55,10 @@ var AiOS_Addons = {};
         nav[0].setAttribute("style", "overflow:hidden;");
 
         // Set orient of detail-autoUpdate to vertical
-        document.getElementById('detail-autoUpdate').setAttribute('orient', 'vertical');
+        document.getElementById("detail-autoUpdate").setAttribute("orient", "vertical");
 
         // Make search bar flexible only on sidebar layout
-        document.getElementById('header-search').setAttribute('flex', '1');
+        document.getElementById("header-search").setAttribute("flex", "1");
 
         // Move toolbar with search box, etc.
         before = document.getElementById("view-port-container");
@@ -83,21 +83,21 @@ var AiOS_Addons = {};
         document.getElementById("updates-container").insertBefore(updatesBox, document.getElementById("updates-container").childNodes[1]);
 
         // Always make navigation buttons visible
-        document.getElementById('back-btn').setAttribute('hidden', false);
-        document.getElementById('forward-btn').setAttribute('hidden', false);
+        document.getElementById("back-btn").setAttribute("hidden", false);
+        document.getElementById("forward-btn").setAttribute("hidden", false);
 
     };
 
     this.setDetailLayout = function () {
 
         var self = AiOS_Addons,
-        pendingContainer,
-        pendingBox,
-        summary,
-        newParent,
-        hbox,
-        screenshot,
-        descriptionContainer;
+            pendingContainer,
+            pendingBox,
+            summary,
+            newParent,
+            hbox,
+            screenshot,
+            descriptionContainer;
 
         if (!self.isInSidebar)
             return false;
@@ -140,16 +140,16 @@ var AiOS_Addons = {};
     // Show or hide notification box depending on existing notifications
     this.checkNotification = function () {
 
-        if (!document.getElementById('updates-noneFound').hidden ||
-            !document.getElementById('updates-manualUpdatesFound-btn').hidden ||
-            !document.getElementById('updates-progress').hidden ||
-            !document.getElementById('updates-installed').hidden ||
-            !document.getElementById('updates-downloaded').hidden ||
-            !document.getElementById('updates-restart-btn').hidden) {
+        if (!document.getElementById("updates-noneFound").hidden ||
+            !document.getElementById("updates-manualUpdatesFound-btn").hidden ||
+            !document.getElementById("updates-progress").hidden ||
+            !document.getElementById("updates-installed").hidden ||
+            !document.getElementById("updates-downloaded").hidden ||
+            !document.getElementById("updates-restart-btn").hidden) {
 
-            document.getElementById('updates-container').hidden = false;
+            document.getElementById("updates-container").hidden = false;
         } else {
-            document.getElementById('updates-container').hidden = true;
+            document.getElementById("updates-container").hidden = true;
         }
 
     };
@@ -157,7 +157,7 @@ var AiOS_Addons = {};
     // Hide the notification box
     this.hideNotification = function () {
 
-        document.getElementById('updates-container').hidden = true;
+        document.getElementById("updates-container").hidden = true;
 
     };
 
@@ -175,13 +175,13 @@ var AiOS_Addons = {};
         }
 
         var origTitle,
-        viewTitle,
-        newTitle,
+            viewTitle,
+            newTitle,
 
-        numberOfItems,
-        count = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.count"),
-        selectedCategory = document.getElementById('categories').getAttribute('last-selected'),
-        isInSidebar = (top.document.getElementById('sidebar-box')) ? true : false;
+            numberOfItems,
+            count = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.count"),
+            selectedCategory = document.getElementById("categories").getAttribute("last-selected"),
+            isInSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
         if (!isInSidebar || selectedCategory === "category-discover") {
             count = false;
@@ -189,12 +189,12 @@ var AiOS_Addons = {};
 
         // Find original title
         if (AiOS_HELPER.mostRecentWindow.document.getElementById("viewAddonsSidebar")) {
-            origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewAddonsSidebar").getAttribute('label');
+            origTitle = AiOS_HELPER.mostRecentWindow.document.getElementById("viewAddonsSidebar").getAttribute("label");
         }
 
         // Extend the original title by the activated panel
         if (document.getElementById("categories") && document.getElementById("categories").selectedItem) {
-            viewTitle = document.getElementById("categories").selectedItem.getAttribute('name');
+            viewTitle = document.getElementById("categories").selectedItem.getAttribute("name");
             origTitle = origTitle + " - " + viewTitle;
         }
 
@@ -207,7 +207,7 @@ var AiOS_Addons = {};
         }
 
         // Set new title
-        let sbTitleElem = top.document.getElementById('sidebar-title');
+        let sbTitleElem = top.document.getElementById("sidebar-title");
         if (sbTitleElem) {
             document.title = newTitle;
             sbTitleElem.setAttribute("value", newTitle);
@@ -215,8 +215,8 @@ var AiOS_Addons = {};
 
         // Save sidebar title in the broadcaster
         // Preserves title when closing/opening sidebar
-        if (top.document.getElementById('viewAddonsSidebar')) {
-            top.document.getElementById('viewAddonsSidebar').setAttribute('sidebartitle', newTitle);
+        if (top.document.getElementById("viewAddonsSidebar")) {
+            top.document.getElementById("viewAddonsSidebar").setAttribute("sidebartitle", newTitle);
         }
 
         return;
@@ -239,11 +239,11 @@ var AiOS_Addons = {};
          */
 
         var type = "all",
-        the_list = "addon-list",
-        exts,
-        str_count,
-        list_enabled = 0,
-        list_disabled = 0;
+            the_list = "addon-list",
+            exts,
+            str_count,
+            list_enabled = 0,
+            list_disabled = 0;
 
         if (selectedCategory === "category-search") {
             the_list = "search-list";
@@ -255,7 +255,7 @@ var AiOS_Addons = {};
         exts = AiOS_Addons.filterItems(the_list, type);
 
         for (var i = 0; i < exts.length; i++) {
-            if (exts[i].getAttribute('active') === "true")
+            if (exts[i].getAttribute("active") === "true")
                 list_enabled++;
             else
                 list_disabled++;
@@ -273,15 +273,15 @@ var AiOS_Addons = {};
     this.filterItems = function (aList, aType) {
 
         var r = [],
-        childs = document.getElementById(aList).childNodes;
+            childs = document.getElementById(aList).childNodes;
 
         for (var i = 0; i < childs.length; i++) {
-            if (childs[i].nodeName === "richlistitem" && childs[i].getAttribute('hidden') !== "true") {
+            if (childs[i].nodeName === "richlistitem" && childs[i].getAttribute("hidden") !== "true") {
                 if (aType === "all") {
                     r.push(childs[i]);
-                } else if (aType === "local" && childs[i].getAttribute('remote') === "false") {
+                } else if (aType === "local" && childs[i].getAttribute("remote") === "false") {
                     r.push(childs[i]);
-                } else if (aType === "remote" && childs[i].getAttribute('remote') === "true") {
+                } else if (aType === "remote" && childs[i].getAttribute("remote") === "true") {
                     r.push(childs[i]);
                 }
             }
