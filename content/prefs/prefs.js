@@ -1,4 +1,5 @@
 var AiOS_Prefs = {
+    _couldApply: "",
     /*
      * Initialization
      * => Called by onload in <prefwindow>
@@ -490,7 +491,7 @@ var AiOS_Prefs = {
         }
 
         if (aDis)
-            _couldApply = "";
+            AiOS_Prefs._couldApply = "";
     },
 
     /*
@@ -517,7 +518,6 @@ var AiOS_Prefs = {
      * Check for options to be saved; used when deciding whether to activate/deactivate Apply button
      * => Called through all checkboxes, selcts, textboxes, etc by onchange handler - set by aios_rememberOldPrefs()
      */
-    _couldApply: "",
     checkApply: function (aPref) {
         if (typeof aPref == "object") {
             var oldPref,
@@ -543,14 +543,14 @@ var AiOS_Prefs = {
             // If the change corresponds to the old setting
             if (oldPref === newPref) {
                 // Delete string accordingly
-                if (_couldApply.indexOf(pID) >= 0) {
-                    var t1 = _couldApply.substr(0, _couldApply.indexOf(pID));
+                if (AiOS_Prefs._couldApply.indexOf(pID) >= 0) {
+                    var t1 = AiOS_Prefs._couldApply.substr(0, AiOS_Prefs._couldApply.indexOf(pID));
                     if (t1.indexOf(",") == 0)
                         t1 = t1.substr(1, t1.length); // Delete comma at the beginning
                     if (t1.lastIndexOf(",") == t1.length - 1)
                         t1 = t1.substr(0, t1.length - 1); // Delete comma at the end
 
-                    var t2 = _couldApply.substr(_couldApply.indexOf(pID) + pID.length, _couldApply.length);
+                    var t2 = AiOS_Prefs._couldApply.substr(AiOS_Prefs._couldApply.indexOf(pID) + pID.length, AiOS_Prefs._couldApply.length);
                     if (t2.indexOf(",") == 0)
                         t2 = t2.substr(1, t2.length); // Delete comma at the beginning
                     if (t2.lastIndexOf(",") == t2.length - 1)
@@ -558,21 +558,21 @@ var AiOS_Prefs = {
 
                     if (t2.length > 0)
                         t1 += ","; // Connect with comma
-                    _couldApply = t1 + t2;
+                    AiOS_Prefs._couldApply = t1 + t2;
                 }
-                //alert("No change: " + _couldApply);
+                //alert("No change: " + AiOS_Prefs._couldApply);
             }
             // If the change does _not_ correspond to the old setting
             else {
                 // Extend string accordingly
-                if (_couldApply.length > 0)
-                    _couldApply += ","; // Connect with comma
-                _couldApply += pID;
-                //alert("Modification: " + _couldApply);
+                if (AiOS_Prefs._couldApply.length > 0)
+                    AiOS_Prefs._couldApply += ","; // Connect with comma
+                AiOS_Prefs._couldApply += pID;
+                //alert("Modification: " + AiOS_Prefs._couldApply);
             }
 
             // Activate/deactivate Apply button
-            if (_couldApply.length == 0)
+            if (AiOS_Prefs._couldApply.length == 0)
                 AiOS_Prefs.disableApplyButton(true);
             else
                 AiOS_Prefs.disableApplyButton(false);
