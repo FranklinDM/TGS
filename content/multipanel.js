@@ -186,7 +186,7 @@ var AiOS_MP = {
 
         // If the document uses frames, don't continue
         if (doc.body.nodeName.toLowerCase() == "frameset") {
-            dump("Small screen rendering was cancelled because 'frameset' was detected.");
+            AiOS_HELPER.log("Small screen rendering was cancelled because 'frameset' was detected.");
             return false;
         }
 

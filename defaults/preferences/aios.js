@@ -7,6 +7,7 @@ pref("extensions.aios.changelog", "");
 pref("extensions.aios.infotips", true);
 pref("extensions.aios.switchtip", true);
 pref("extensions.aios.vbuttons", true);
+pref("extensions.aios.logging", false);
 
 
 /*

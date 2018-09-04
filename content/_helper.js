@@ -19,7 +19,8 @@ var AiOS_HELPER = {
     },
 
     log: function (ex) {
-        console.error("TGS: " + ex);
+        if (this.prefService.getBranch("extensions.aios.").getBoolPref("logging"))
+            console.log("TGS: " + ex);
     },
 
     // nsIPrefBranch custom implementation

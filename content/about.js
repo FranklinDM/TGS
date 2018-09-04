@@ -80,7 +80,7 @@ var AiOS_About = {};
                 if (languages[lang].includes("-")) {
                     tranName = bundleTranslators.getString("trans." + languages[lang].slice(0, -3) + ".name");
                 } else {
-                    console.error("The Good 'ol Sidebar: Please check if the translator(s) of '" + getLangName(languages[lang]) + "' is listed in translators.properties\nAdditional info: " + e);
+                    AiOS_HELPER.log("Please check if the translator(s) of '" + getLangName(languages[lang]) + "' is listed in translators.properties\nAdditional info: " + e);
                 }
             }
             content3.setAttribute("value", tranName);
