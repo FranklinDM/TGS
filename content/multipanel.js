@@ -1,20 +1,3 @@
-var Ci = Components.interfaces;
-
-var aios_inSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
-
-var webPanel;
-if (document.getElementById("web-panels-browser"))
-    webPanel = document.getElementById("web-panels-browser");
-
-Components.utils.import("resource://gre/modules/Services.jsm");
-var compareResult = Services.vc.compare(AiOS_HELPER.appInfo.version, "28.*");
-
-if (compareResult == 0 || compareResult == 1) {
-    var NS_ERROR_MODULE_NETWORK = 2152398848;
-    var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
-    var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
-}
-
 var AiOS_MP = {
     /*
      * Initialization
@@ -32,17 +15,61 @@ var AiOS_MP = {
         }, 50);
 
         // Set linked btn attribute
-        document.getElementById("aios-linkedbtn").setAttribute("checked", webPanel.getAttribute("linkedopt"));
+        document.getElementById("aios-linkedbtn").setAttribute("checked", getPanelBrowser().getAttribute("linkedopt"));
+        document.getElementById("aios-syncscroll").setAttribute("checked", getPanelBrowser().getAttribute("syncscroll"));
 
         // Set URLBar value to cached one
-        AiOS_MP.URLBar.value = webPanel.getAttribute("cachedurl");
+        AiOS_MP.URLBar.value = getPanelBrowser().getAttribute("cachedurl");
 
         // For CSS purposes
         AiOS_HELPER.rememberAppInfo(document.getElementById("webpanels-window"));
 
         // If URL is blank, go to about:blank
         if (AiOS_MP.URLBar.value == "")
-            webPanel.contentDocument.location.href = "about:blank";
+            getPanelBrowser().contentDocument.location.href = "about:blank";
+
+        AiOS_MP.toggleSyncScroll();
+    },
+
+    toggleSyncScroll: function () {
+        if (aios_getBoolean(document.getElementById("aios-syncscroll"), "checked"))
+            getPanelBrowser().addEventListener("scroll", AiOS_MP.synchronizeScroll);
+        else
+            getPanelBrowser().removeEventListener("scroll", AiOS_MP.synchronizeScroll);
+    },
+
+    lastScrollTop: 0,
+    lastScrollLeft: 0,
+    synchronizeScroll: function (where) {
+        let scrollElem = getPanelBrowser().contentDocument.scrollingElement,
+            selectedTabContent = AiOS_HELPER.mostRecentWindow.getBrowser().selectedTab.linkedBrowser._contentWindow;
+
+        let currLastScrollTop = this.lastScrollTop,
+            currLastScrollLeft = this.lastScrollLeft;
+        this.lastScrollTop = scrollElem.scrollTop;
+        this.lastScrollLeft = scrollElem.scrollLeft;
+        
+        // Incremental scroll behavior: your normal synchronized scrolling
+        // The other behavior: uses exact position on the panel
+        let incrementalScroll = AiOS_HELPER.prefBranchAiOS.getBoolPref("mp.incscroll");
+        if (incrementalScroll) {
+            let deltaTop = 0,
+                deltaLeft = 0,
+                selTabLeft = selectedTabContent.scrollX,
+                selTabTop = selectedTabContent.scrollY;
+
+            if (currLastScrollTop != 0 || currLastScrollLeft != 0) {
+                deltaTop = scrollElem.scrollTop - currLastScrollTop;
+                deltaLeft = scrollElem.scrollLeft - currLastScrollLeft;
+            }
+
+            let combinedLeft = selTabLeft += deltaLeft;
+            let combinedTop = selTabTop += deltaTop;
+
+            selectedTabContent.scroll(combinedLeft, combinedTop);
+        } else {
+            selectedTabContent.scroll(scrollElem.scrollLeft, scrollElem.scrollTop);
+        }
     },
 
     /*
@@ -87,7 +114,7 @@ var AiOS_MP = {
         if (top.document.getElementById("sidebar") && top.toString() != "[object Window]")
             top.openWebPanel(newLabel, panelLoc);
         else
-            webPanel.contentDocument.location.href = panelLoc;
+            getPanelBrowser().contentDocument.location.href = panelLoc;
     },
 
     /*
@@ -95,11 +122,9 @@ var AiOS_MP = {
      * => Called onLocationChange() when MultiPanel URL changes (panelProgressListener)
      */
     setOptions: function () {
-        var mode,
-            i;
-
+        var mode;
         var aboutGroup = document.getElementById("aboutGroup").childNodes;
-        var panelLoc = webPanel.contentDocument.location.href;
+        var panelLoc = getPanelBrowser().contentDocument.location.href;
 
         if (panelLoc != "about:blank") {
             mode = "page";
@@ -116,15 +141,16 @@ var AiOS_MP = {
             document.getElementById("page-button").setAttribute("checked", false);
         if (mode != "about")
             document.getElementById("about-button").setAttribute("checked", false);
+
         document.getElementById(mode + "-button").setAttribute("checked", true);
 
         if (mode == "page") {
-            for (i = 0; i < aboutGroup.length; i++) {
+            for (let i = 0; i < aboutGroup.length; i++) {
                 if (aboutGroup[i].tagName == "menuitem")
                     aboutGroup[i].setAttribute("checked", false);
             }
         } else {
-            for (i = 0; i < aboutGroup.length; i++) {
+            for (let i = 0; i < aboutGroup.length; i++) {
                 var label = aboutGroup[i].getAttribute("label");
                 var isActive = label == panelLoc;
                 isActive = (label == "about:config" && panelLoc == "chrome://global/content/config.xul");
@@ -133,7 +159,7 @@ var AiOS_MP = {
             }
         }
 
-        webPanel.setAttribute("cachedurl", panelLoc);
+        getPanelBrowser().setAttribute("cachedurl", panelLoc);
         document.persist("web-panels-browser", "cachedurl");
 
         return true;
@@ -148,11 +174,11 @@ var AiOS_MP = {
 
         var mpLabel = AiOS_HELPER.mostRecentWindow.document.getElementById("viewWebPanelsSidebar").getAttribute("label");
 
-        if (webPanel && webPanel.contentDocument) {
-            var loc = webPanel.contentDocument.location.href;
+        if (getPanelBrowser() && getPanelBrowser().contentDocument) {
+            var loc = getPanelBrowser().contentDocument.location.href;
 
-            if (webPanel.contentDocument.title != "")
-                newLabel = newLabel + webPanel.contentDocument.title;
+            if (getPanelBrowser().contentDocument.title != "")
+                newLabel = newLabel + getPanelBrowser().contentDocument.title;
         }
 
         if (newLabel != "")
@@ -176,7 +202,7 @@ var AiOS_MP = {
         var ssrURL = "chrome://aios/skin/css/multipanel_ssr.css";
 
         try {
-            var doc = webPanel.contentDocument;
+            var doc = getPanelBrowser().contentDocument;
         } catch (e) {
             // For some reason, content document is unavailable - continue.
         }
@@ -224,11 +250,12 @@ var AiOS_MP = {
      * MultiPanel Unload
      */
     unload: function () {
-        if (webPanel && !aios_getBoolean("aios-remMultiPanel", "checked")) {
-            webPanel.setAttribute("cachedurl", "");
+        if (getPanelBrowser() && !aios_getBoolean("aios-remMultiPanel", "checked")) {
+            getPanelBrowser().setAttribute("cachedurl", "");
             document.persist("web-panels-browser", "cachedurl");
         }
-        webPanel.setAttribute("linkedopt", document.getElementById("aios-linkedbtn").getAttribute("checked"));
+        getPanelBrowser().setAttribute("linkedopt", document.getElementById("aios-linkedbtn").getAttribute("checked"));
+        getPanelBrowser().setAttribute("syncscroll", document.getElementById("aios-syncscroll").getAttribute("checked"));
     },
 
     getPageOptions: function () {
@@ -290,7 +317,7 @@ var AiOS_MP = {
         // Sanitize the URL
         this.lastValidURI = this.sanitizeURL(this.URLBar.value);
         // Load the given URL
-        webPanel.loadURI(this.lastValidURI.spec);
+        getPanelBrowser().loadURI(this.lastValidURI.spec);
     },
 
     onTextDrop: function (event) {
@@ -299,155 +326,6 @@ var AiOS_MP = {
         // Sanitize the URL
         this.lastValidURI = this.sanitizeURL(data);
         // Load the given URL
-        webPanel.loadURI(this.lastValidURI.spec);
-    }
-};
-
-/*
- * Modified original monitoring function from web-panels.js
- */
-var panelProgressListener = {
-    onProgressChange: function (aWebProgress, aRequest, aCurSelfProgress, aMaxSelfProgress,
-        aCurTotalProgress, aMaxTotalProgress) {},
-
-    onStateChange: function (aWebProgress, aRequest, aStateFlags, aStatus) {
-        if (!aRequest)
-            return;
-
-        // Set sidebar/window title
-        AiOS_MP.setSBLabel();
-
-        // Ignore local/resource:/chrome: files
-        if (aStatus == NS_NET_STATUS_READ_FROM || aStatus == NS_NET_STATUS_WROTE_TO)
-            return;
-
-        const nsIWebProgressListener = Ci.nsIWebProgressListener;
-        const nsIChannel = Ci.nsIChannel;
-
-        // Stop/reload command vars
-        var stp = document.getElementById("Browser:Stop");
-        var rld = document.getElementById("Browser:Reload");
-
-        if (aStateFlags & nsIWebProgressListener.STATE_START && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
-            if (window.parent.document.getElementById("sidebar-throbber"))
-                window.parent.document.getElementById("sidebar-throbber").setAttribute("loading", "true");
-            stp.setAttribute("disabled", "false");
-            rld.setAttribute("disabled", "true");
-            stp.setAttribute("hidden", "false");
-            rld.setAttribute("hidden", "true");
-        } else if (aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
-            if (window.parent.document.getElementById("sidebar-throbber"))
-                window.parent.document.getElementById("sidebar-throbber").removeAttribute("loading");
-            stp.setAttribute("disabled", "true");
-            rld.setAttribute("disabled", "false");
-            stp.setAttribute("hidden", "true");
-            rld.setAttribute("hidden", "false");
-        }
-
-        AiOS_MP.setSSR();
-    },
-
-    onLocationChange: function (aWebProgress, aRequest, aLocation) {
-        // Activate/deactivate buttons
-        AiOS_MP.setOptions();
-        let asc = aLocation;
-        // Change urlbar link when browser panel location changes
-        if (asc.spec == "about:blank")
-            AiOS_MP.URLBar.value = "";
-        else
-            AiOS_MP.URLBar.value = asc.spec;
-        // And set last valid URI also (for text reverted)
-        AiOS_MP.lastValidURI = asc;
-        // Work around for broken back/forward button states
-        document.getElementById("Browser:Forward").setAttribute("disabled", !webPanel.canGoForward);
-        document.getElementById("Browser:Back").setAttribute("disabled", !webPanel.canGoBack);
-    },
-
-    onStatusChange: function (aWebProgress, aRequest, aStatus, aMessage) {
-        // Small Screen Rendering?
-        AiOS_MP.setSSR();
-    },
-
-    onSecurityChange: function (aWebProgress, aRequest, aState) {
-        // aState is defined as a bitmask that may be extended in the future.
-        // We filter out any unknown bits before testing for known values.
-        const wpl = Ci.nsIWebProgressListener;
-        const wpl_security_bits = wpl.STATE_IS_SECURE |
-            wpl.STATE_IS_BROKEN |
-            wpl.STATE_IS_INSECURE |
-            wpl.STATE_IDENTITY_EV_TOPLEVEL |
-            wpl.STATE_SECURE_HIGH |
-            wpl.STATE_SECURE_MED |
-            wpl.STATE_SECURE_LOW;
-        // Security level var
-        var level;
-        // Identify current security level
-        switch (aState & wpl_security_bits) {
-        case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_HIGH | wpl.STATE_IDENTITY_EV_TOPLEVEL:
-            level = "ev";
-            break;
-        case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_HIGH:
-            level = "high";
-            break;
-        case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_MED:
-        case wpl.STATE_IS_SECURE | wpl.STATE_SECURE_LOW:
-            level = "low";
-            break;
-        case wpl.STATE_IS_BROKEN | wpl.STATE_SECURE_LOW:
-            level = "mixed";
-            break;
-        case wpl.STATE_IS_BROKEN:
-            level = "broken";
-            break;
-        default: // should not be reached
-            level = null;
-            break;
-        }
-        // Set padlock tooltip & icon
-        this.setPadlockLevel(level);
-    },
-
-    QueryInterface: function (aIID) {
-        if (aIID.equals(Ci.nsIWebProgressListener) ||
-            aIID.equals(Ci.nsISupportsWeakReference) ||
-            aIID.equals(Ci.nsISupports))
-            return this;
-
-        throw Components.results.NS_NOINTERFACE;
-    },
-
-    // Padlock code borrowed from browser's padlock module
-    setPadlockLevel: function (level) {
-        let secbut = document.getElementById("lock-icon");
-        var sectooltip = "";
-
-        if (level) {
-            secbut.setAttribute("level", level);
-            secbut.hidden = false;
-        } else {
-            secbut.hidden = true;
-            secbut.removeAttribute("level");
-        }
-        // Should be localized browser-side
-        switch (level) {
-        case "ev":
-            sectooltip = "Extended Validated";
-            break;
-        case "high":
-            sectooltip = "Secure";
-            break;
-        case "low":
-            sectooltip = "Weak security";
-            break;
-        case "mixed":
-            sectooltip = "Mixed mode (partially encrypted)";
-            break;
-        case "broken":
-            sectooltip = "Not secure";
-            break;
-        default:
-            sectooltip = "";
-        }
-        secbut.setAttribute("tooltiptext", sectooltip);
+        getPanelBrowser().loadURI(this.lastValidURI.spec);
     }
 };
