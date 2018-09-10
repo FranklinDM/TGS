@@ -22,6 +22,12 @@
 				<em:minVersion>27.0.0b3</em:minVersion>
 				<em:maxVersion>28.*</em:maxVersion>
 			</Description>
+			<!-- Applications living on the Firefox GUID -->
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>52.0</em:minVersion>
+				<em:maxVersion>55.*</em:maxVersion>
+			</Description>
         </em:targetApplication>
     </Description>
 </RDF>
