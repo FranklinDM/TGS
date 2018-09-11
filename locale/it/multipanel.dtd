@@ -11,7 +11,6 @@
 <!ENTITY about.cache.disk.tooltip "Mostra gli elementi individuali sul disco">
 <!ENTITY about.cache.memory.tooltip "Mostra gli elementi individuali nella memoria">
 <!ENTITY about.cache.offline.tooltip "Mostra gli elementi della cache non in linea">
-<!ENTITY about.crashes.tooltip "Mostra i resoconti inviati relativi a crash del browser">
 <!ENTITY about.buildconfig.tooltip "Mostra gli argomenti e le opzioni utilizzati per compilare la versione in uso">
 <!ENTITY about.about.tooltip "Mostra le informazioni sulla versione e sul copyright">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto! ">
@@ -21,3 +20,4 @@
 <!ENTITY about.palemoon.tooltip "Mostra un estratto dalle Cronache della Pale Moon">
 <!ENTITY tools.remlast.label "Ricorda l&apos;ultimo contenuto visualizzato">
 <!ENTITY tools.linked.label "Apri i collegamenti nella scheda corrente">
+<!ENTITY tools.syncscroll.label "Synchronize Scrolling">
