@@ -167,6 +167,7 @@ var aiosProgListener = {
     onStateChange: function (aProgress, aRequest, aFlag, aStatus) {
         //if(aFlag & aios_ProgListStart) { /* This fires when the load event is initiated */ }
         //if(aFlag & aios_ProgListStop) { /* This fires when the load finishes */ }
+        AiOS_HELPER.log("onStateChange called");
         if (aFlag & aios_ProgListStop) {
             if (typeof aios_onStateChange == "function")
                 aios_onStateChange();
@@ -177,6 +178,7 @@ var aiosProgListener = {
     onLocationChange: function (aProgress, aRequest, aURI) {
         // This fires when the location bar changes i.e load event is confirmed
         // or when the user switches tabs
+        AiOS_HELPER.log("onLocationChange called");
         if (typeof aios_onLocationChange == "function")
             aios_onLocationChange();
         return 0;

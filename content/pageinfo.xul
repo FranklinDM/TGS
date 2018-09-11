@@ -16,7 +16,11 @@
     </script>
 
     <window id="main-window"
-            persist="screenX screenY width height sizemode seltab" />
+            persist="screenX screenY width height sizemode seltab">
+            <vbox flex="1" style="overflow: auto" id="ff-message" hidden="true" insertbefore="topBar">
+                <description>Page Info on Tab is no longer possible in this browser due to async changes.</description>
+            </vbox>
+    </window>
 
     <radiogroup id="viewGroup"
                 onclick="AiOS_PageInfo.persistSelTab();" />

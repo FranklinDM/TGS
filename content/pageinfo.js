@@ -1,8 +1,12 @@
-var aios_inSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
-var aios_inTab = (AiOS_HELPER.mostRecentWindow.aiosLastSelTab) ? true : false;
+function aios_inSidebar() { 
+    return (top.document.getElementById("sidebar-box")) ? true : false;
+}
+function aios_inTab() {
+    return (AiOS_HELPER.mostRecentWindow.aiosLastSelTab) ? true : false;
+}
 
 // Add listener for automatic update and remove
-if (aios_inSidebar) {
+if (aios_inSidebar()) {
     window.addEventListener("load", function (e) {
         top.gBrowser.addProgressListener(aiosProgListener);
     }, false);
@@ -22,11 +26,11 @@ var AiOS_PageInfo = {
 
         var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layout");
         var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layoutall");
-        if ((enable_layout && aios_inSidebar) || enable_layoutall)
+        if ((enable_layout && aios_inSidebar()) || enable_layoutall)
             AiOS_PageInfo.sidebarLayout();
 
         // Remove keyboard short to avoid blocking the main browser
-        if (aios_inSidebar)
+        if (aios_inSidebar())
             aios_removeAccesskeys();
     },
 
@@ -102,67 +106,15 @@ var AiOS_PageInfo = {
 
 // Automatic update => call by aiosProgListener (_helper.js)
 function aios_onLocationChange() {
-    if (aios_inSidebar) {
+    if (aios_inSidebar()) {
         AiOS_PageInfo.persistSelTab();
-        location.reload();
+        location.reload(true);
     }
 }
 
 function aios_onStateChange() {
-    aios_onLocationChange();
-}
-
-/* Called when PageInfo window is loaded.  Arguments are:
- *  window.arguments[0] - (optional) an object consisting of
- *                         - doc: (optional) document to use for source. if not provided,
- *                                the calling window's document will be used
- *                         - initialTab: (optional) id of the inital tab to display
- */
-function onLoadPageInfo() {
-    gBundle = document.getElementById("pageinfobundle");
-    gStrings.unknown = gBundle.getString("unknown");
-    gStrings.notSet = gBundle.getString("notset");
-    gStrings.mediaImg = gBundle.getString("mediaImg");
-    gStrings.mediaBGImg = gBundle.getString("mediaBGImg");
-    gStrings.mediaBorderImg = gBundle.getString("mediaBorderImg");
-    gStrings.mediaListImg = gBundle.getString("mediaListImg");
-    gStrings.mediaCursor = gBundle.getString("mediaCursor");
-    gStrings.mediaObject = gBundle.getString("mediaObject");
-    gStrings.mediaEmbed = gBundle.getString("mediaEmbed");
-    gStrings.mediaLink = gBundle.getString("mediaLink");
-    gStrings.mediaInput = gBundle.getString("mediaInput");
-    gStrings.mediaVideo = gBundle.getString("mediaVideo");
-    gStrings.mediaAudio = gBundle.getString("mediaAudio");
-
-    var args = "arguments" in window &&
-        window.arguments.length >= 1 &&
-        window.arguments[0];
-
-    // Checks for sidebar/tab
-    if (aios_inSidebar) {
-        gDocument = AiOS_HELPER.mostRecentWindow.content.document;
-        gWindow = AiOS_HELPER.mostRecentWindow.content.window;
-    } else if (aios_inTab) {
-        gDocument = AiOS_HELPER.mostRecentWindow.aiosLastSelTab.document;
-        gWindow = AiOS_HELPER.mostRecentWindow.content.window;
-    }
-    // Original part
-    else {
-        if (!args || !args.doc) {
-            gWindow = window.opener.content;
-            gDocument = gWindow.document;
-        }
-    }
-
-    // init media view
-    var imageTree = document.getElementById("imagetree");
-    imageTree.view = gImageView;
-
-    /* Select the requested tab, if the name is specified */
-    loadTab(args);
-    Components.classes["@mozilla.org/observer-service;1"]
-        .getService(Components.interfaces.nsIObserverService)
-        .notifyObservers(window, "page-info-dialog-loaded", null);
+    //if (!AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}")
+        aios_onLocationChange();
 }
 
 // Override certain functions inside the 'security' variable of Page Info
@@ -172,9 +124,9 @@ function onLoadPageInfo() {
         var cert = security._cert;
 
         // Checks for sidebar/tab
-        if (aios_inSidebar)
+        if (aios_inSidebar())
             viewCertHelper(AiOS_HELPER.mostRecentWindow.content.window, cert);
-        else if (aios_inTab)
+        else if (aios_inTab())
             viewCertHelper(AiOS_HELPER.mostRecentWindow.aiosLastSelTab.window, cert);
         else
             viewCertHelper(window, cert);
@@ -183,11 +135,11 @@ function onLoadPageInfo() {
     // Find the secureBrowserUI object (if present)
     this._getSecurityUI = function () {
         // Checks for sidebar/tab
-        if (aios_inSidebar) {
+        if (aios_inSidebar()) {
             if ("gBrowser" in top)
                 return top.gBrowser.securityUI;
             return null;
-        } else if (aios_inTab) {
+        } else if (aios_inTab()) {
             return AiOS_HELPER.mostRecentWindow.aiosLastSelTab.securityUI;
         }
         // Original part
@@ -198,3 +150,145 @@ function onLoadPageInfo() {
         }
     };
 }).apply(security);
+
+var AiOS_Overrides = {
+    init: function () {
+        // When too much async crap kicks in...
+        if (AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}") {
+            loadPageInfo = this.FF_loadPageInfo;
+        } else {
+            onLoadPageInfo = this.PM_onLoadPageInfo;
+        }
+    },
+
+    FF_loadPageInfo: function (frameOuterWindowID, imageElement, browser) {
+        browser = browser || AiOS_HELPER.mostRecentWindow.gBrowser.selectedBrowser || window.opener.gBrowser.selectedBrowser;
+        let mm = browser.messageManager;
+
+        gStrings["application/rss+xml"] = gBundle.getString("feedRss");
+        gStrings["application/atom+xml"] = gBundle.getString("feedAtom");
+        gStrings["text/xml"] = gBundle.getString("feedXML");
+        gStrings["application/xml"] = gBundle.getString("feedXML");
+        gStrings["application/rdf+xml"] = gBundle.getString("feedXML");
+        
+        if (aios_inTab()) {
+            document.getElementById("ff-message").hidden = false;
+            return;
+        }
+
+        // Look for pageInfoListener in content.js. Sends message to listener with arguments.
+        mm.sendAsyncMessage("PageInfo:getData", {
+            strings: gStrings,
+            frameOuterWindowID
+        }, {
+            imageElement
+        });
+
+        let pageInfoData;
+
+        // Get initial pageInfoData needed to display the general, feeds, permission and security tabs.
+        mm.addMessageListener("PageInfo:data", function onmessage(message) {
+            mm.removeMessageListener("PageInfo:data", onmessage);
+            pageInfoData = message.data;
+
+            let docInfo = pageInfoData.docInfo;
+            let windowInfo = pageInfoData.windowInfo;
+
+            let uri = makeURI(docInfo.documentURIObject.spec,
+                    docInfo.documentURIObject.originCharset);
+            let principal = docInfo.principal;
+            gDocInfo = docInfo;
+
+            gImageElement = pageInfoData.imageInfo;
+
+            var titleFormat = windowInfo.isTopWindow ? "pageInfo.page.title"
+                 : "pageInfo.frame.title";
+            document.title = gBundle.getFormattedString(titleFormat, [docInfo.location]);
+
+            document.getElementById("main-window").setAttribute("relatedUrl", docInfo.location);
+
+            makeGeneralTab(pageInfoData.metaViewRows, docInfo);
+            initFeedTab(pageInfoData.feeds);
+            onLoadPermission(uri, principal);
+            securityOnLoad(uri, windowInfo);
+        });
+
+        // Get the media elements from content script to setup the media tab.
+        mm.addMessageListener("PageInfo:mediaData", function onmessage(message) {
+            // Page info window was closed.
+            if (window.closed) {
+                mm.removeMessageListener("PageInfo:mediaData", onmessage);
+                return;
+            }
+
+            // The page info media fetching has been completed.
+            if (message.data.isComplete) {
+                mm.removeMessageListener("PageInfo:mediaData", onmessage);
+                onFinished.forEach(function (func) {
+                    func(pageInfoData);
+                });
+                return;
+            }
+
+            for (let item of message.data.mediaItems) {
+                addImage(item);
+            }
+
+            selectImage();
+        });
+
+        /* Call registered overlay init functions */
+        onLoadRegistry.forEach(function (func) {
+            func();
+        });
+    },
+
+    PM_onLoadPageInfo: function () {
+        gBundle = document.getElementById("pageinfobundle");
+        gStrings.unknown = gBundle.getString("unknown");
+        gStrings.notSet = gBundle.getString("notset");
+        gStrings.mediaImg = gBundle.getString("mediaImg");
+        gStrings.mediaBGImg = gBundle.getString("mediaBGImg");
+        gStrings.mediaBorderImg = gBundle.getString("mediaBorderImg");
+        gStrings.mediaListImg = gBundle.getString("mediaListImg");
+        gStrings.mediaCursor = gBundle.getString("mediaCursor");
+        gStrings.mediaObject = gBundle.getString("mediaObject");
+        gStrings.mediaEmbed = gBundle.getString("mediaEmbed");
+        gStrings.mediaLink = gBundle.getString("mediaLink");
+        gStrings.mediaInput = gBundle.getString("mediaInput");
+        gStrings.mediaVideo = gBundle.getString("mediaVideo");
+        gStrings.mediaAudio = gBundle.getString("mediaAudio");
+
+        var args = "arguments" in window &&
+            window.arguments.length >= 1 &&
+            window.arguments[0];
+
+        // Checks for sidebar/tab
+        if (aios_inSidebar()) {
+            gDocument = AiOS_HELPER.mostRecentWindow.content.document;
+            gWindow = AiOS_HELPER.mostRecentWindow.content.window;
+        } else if (aios_inTab()) {
+            gDocument = AiOS_HELPER.mostRecentWindow.aiosLastSelTab.document;
+            gWindow = AiOS_HELPER.mostRecentWindow.content.window;
+        }
+        // Original part
+        else {
+            if (!args || !args.doc) {
+                gWindow = window.opener.content;
+                gDocument = gWindow.document;
+            }
+        }
+
+        // init media view
+        var imageTree = document.getElementById("imagetree");
+        imageTree.view = gImageView;
+
+        /* Select the requested tab, if the name is specified */
+        loadTab(args);
+        Components.classes["@mozilla.org/observer-service;1"]
+        .getService(Components.interfaces.nsIObserverService)
+        .notifyObservers(window, "page-info-dialog-loaded", null);
+    }
+};
+
+AiOS_Overrides.init();

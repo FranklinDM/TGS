@@ -1,3 +1,7 @@
+#ff-message {
+	font-size: 18px;
+    font-weight: bold;
+}
 #mainDeck, #topBar, #viewGroup {
 	margin: 0;
 	padding: 0;

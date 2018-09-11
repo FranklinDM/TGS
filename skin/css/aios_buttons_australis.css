@@ -1,0 +1,21 @@
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
+    list-style-image: url(../icons/toolbar_windows.png);
+	transform: scale(1.1); /* Fix for blurred icons */
+}
+
+toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button),
+toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
+	list-style-image: url(../icons/toolbar_windows_inverted.png);
+}
+
+#bookmarks-button {
+    -moz-image-region: rect(0px, 18px, 18px, 0px)
+}
+#history-button {
+    -moz-image-region: rect(0px, 36px, 18px, 18px)
+}
+
+#aios-toolbar toolbarbutton.bookmark-item:not(.subviewbutton),
+#aios-toolbar #personal-bookmarks[cui-areatype="toolbar"]:not([overflowedItem=true]) > #bookmarks-toolbar-placeholder {
+	padding: 0;
+}

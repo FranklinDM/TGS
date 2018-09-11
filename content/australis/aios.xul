@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+
+<overlay id="aiosOverlay-australis"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <!-- scripts -->
+    <script type="application/x-javascript"
+            src="chrome://aios/content/australis/aios.js" />
+
+    <!-- Browser menu: Toolbar context menu -->
+    <menupopup id="toolbar-context-menu" onpopupshowing="onViewToolbarsPopupShowing(event, document.getElementById('viewToolbarsMenuSeparator')); aios_addToolbarMitem(this);" />
+</overlay>

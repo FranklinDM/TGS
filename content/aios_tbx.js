@@ -311,7 +311,8 @@ function aios_addToolbarMitem(aWhich) {
         }
 
         // Determine the first separator to insert the menu entry directly in front of it
-        if (mitems[i].tagName == "menuseparator" && !aios_context_sep) {
+        if ((mitems[i].tagName == "menuseparator" && aWhich.id != "toolbar-context-menu" && !aios_context_sep) ||
+            (mitems[i].id == "viewToolbarsMenuSeparator" && aWhich.id == "toolbar-context-menu" && !aios_context_sep)) {
             var aios_context_sep = mitems[i];
         }
     }
