@@ -11,7 +11,6 @@
 <!ENTITY about.cache.disk.tooltip "Mostrar las entradas individuales en el disco">
 <!ENTITY about.cache.memory.tooltip "Mostrar las entradas individuales en memoria">
 <!ENTITY about.cache.offline.tooltip "Listar las entradas de la caché sin conexión">
-<!ENTITY about.crashes.tooltip "Mostrar los informes de errores enviados">
 <!ENTITY about.buildconfig.tooltip "Mostrar los parámetros y opciones que se usaron para compilar la versión que se está usando">
 <!ENTITY about.about.tooltip "Mostrar información de la versión e información de copyright">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
@@ -21,3 +20,4 @@
 <!ENTITY about.palemoon.tooltip "Mostrar un extracto de las Crónicas de la Pale Moon">
 <!ENTITY tools.remlast.label "Recordar el último contenido mostrado">
 <!ENTITY tools.linked.label "Open links in current tab">
+<!ENTITY tools.syncscroll.label "Synchronize Scrolling">

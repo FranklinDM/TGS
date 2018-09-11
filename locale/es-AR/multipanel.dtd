@@ -11,7 +11,6 @@
 <!ENTITY about.cache.disk.tooltip "Muestra entradas individuales en el disco">
 <!ENTITY about.cache.memory.tooltip "Muestra entradas individuales en la memoria">
 <!ENTITY about.cache.offline.tooltip "Lista de entradas en el caché fuera de línea">
-<!ENTITY about.crashes.tooltip "Mostrar los reportes de falla enviados">
 <!ENTITY about.buildconfig.tooltip "Muestra los argumentos y opciones utilizados para compilar la versión en uso">
 <!ENTITY about.about.tooltip "Muestra la información referente a la versión y a los derechos de propiedad">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
@@ -20,3 +19,5 @@
 <!ENTITY about.mozilla.tooltip "Muestra la página de Mozilla: In Memoriam">
 <!ENTITY about.palemoon.tooltip "Muestra un extracto de las Crónicas de la Pale Moon">
 <!ENTITY tools.remlast.label "Recordar el Último Contenido Visualizado">
+<!ENTITY tools.linked.label "Open links in current tab">
+<!ENTITY tools.syncscroll.label "Synchronize Scrolling">
