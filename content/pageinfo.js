@@ -170,11 +170,6 @@ var AiOS_Overrides = {
         gStrings["text/xml"] = gBundle.getString("feedXML");
         gStrings["application/xml"] = gBundle.getString("feedXML");
         gStrings["application/rdf+xml"] = gBundle.getString("feedXML");
-        
-        if (aios_inTab()) {
-            document.getElementById("ff-message").hidden = false;
-            return;
-        }
 
         // Look for pageInfoListener in content.js. Sends message to listener with arguments.
         mm.sendAsyncMessage("PageInfo:getData", {
