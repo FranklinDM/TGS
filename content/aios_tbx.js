@@ -311,8 +311,8 @@ function aios_addToolbarMitem(aWhich) {
         }
 
         // Determine the first separator to insert the menu entry directly in front of it
-        if ((mitems[i].tagName == "menuseparator" && aWhich.id != "toolbar-context-menu" && !aios_context_sep) ||
-            (mitems[i].id == "viewToolbarsMenuSeparator" && aWhich.id == "toolbar-context-menu" && !aios_context_sep)) {
+        if ((mitems[i].tagName == "menuseparator" && AiOS_HELPER.appInfo.ID != "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" && !aios_context_sep) ||
+            (mitems[i].id == "viewToolbarsMenuSeparator" && AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" && aWhich.id == "toolbar-context-menu" && !aios_context_sep)) {
             var aios_context_sep = mitems[i];
         }
     }
