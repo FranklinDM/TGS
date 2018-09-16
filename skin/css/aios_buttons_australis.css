@@ -1,6 +1,10 @@
 toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
     list-style-image: url(../icons/toolbar_windows.png);
-	transform: scale(1.1); /* Fix for blurred icons */
+}
+
+:-moz-any(#aios-toolbar, #aios-sbhtoolbar) .toolbarbutton-1 > .toolbarbutton-icon,
+:-moz-any(#aios-toolbar, #aios-sbhtoolbar) .toolbarbutton-1 > :-moz-any(.toolbarbutton-menubutton-button, .toolbarbutton-badge-stack) > .toolbarbutton-icon {
+  max-width: none;
 }
 
 toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button),
