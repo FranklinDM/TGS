@@ -5,10 +5,13 @@
         <em:name>The Good 'ol Sidebar</em:name>
         <em:version>dev-build</em:version>
         <em:description>Sidebar control with award-winning user experience!</em:description>
-        <em:creator>FranklinDM, Ingo Wennemaring</em:creator>
+        <em:creator>FranklinDM</em:creator>
 
         <em:id>tgsidebar@franklindm</em:id>
         <em:type>2</em:type>
+        
+        <em:contributor>Ingo Wennemaring (creator of AiOS)</em:contributor>
+        <em:contributor>Quicksaver (creator of OmniSidebar)</em:contributor>
 
         <em:icon64URL>chrome://aios/skin/icons/icon64.png</em:icon64URL>
         <em:aboutURL>chrome://aios/content/about.xul</em:aboutURL>
