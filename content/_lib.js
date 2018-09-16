@@ -265,20 +265,26 @@ function aios_panelTab(event) {
             var panelHref = panelDoc.location.href;
         }
 
-        // Bookmark Manager instead of Panel?
+        // If the Bookmarks tab in the Library window should be opened instead
         if (sidebarHref == "chrome://browser/content/bookmarks/bookmarksPanel.xul") {
             var enable_bmm = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.bm");
             newSrc = (enable_bmm) ? "chrome://browser/content/places/places.xul" : sidebarHref;
         }
-        // instead of MultiPanel-XUL open the web page opened in the panel
+        // If MultiPanel is currently open, use the location of the document inside it
         else if (sidebarHref == "chrome://browser/content/web-panels.xul" && mode == "tab")
             newSrc = panelHref;
-        // all other
+        // If all else fails
         else
             newSrc = sidebarHref;
 
         // open in TAB
         if (mode == "tab") {
+            if (newSrc == "chrome://browser/content/pageinfo/pageInfo.xul" && AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}")
+            {
+                alert("Opening the Page Info window inside a tab is no longer possible due to async changes.");
+                return;
+            }
+                
             aiosNewTab = aios_addTab(newSrc);
 
             if (!enable_bmm) {

@@ -113,7 +113,7 @@ function aios_onLocationChange() {
 }
 
 function aios_onStateChange() {
-    //if (!AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}")
+    if (AiOS_HELPER.appInfo.ID != "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}")
         aios_onLocationChange();
 }
 
