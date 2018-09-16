@@ -1,44 +1,55 @@
-#commandBar {
-	padding: 1px 2px 2px 2px;
-}
-#ssrSidebar-mitem {
-	margin-left: 13px;
-}
-#page-button .toolbarbutton-menubutton-button, #about-button .toolbarbutton-menubutton-button, #toolsButton {
+#commandBar .toolbarbutton-1 {
 	-moz-box-orient: horizontal;
-	list-style-image: url(../icons/panels_menus.png);
+	list-style-image: url(../icons/panels_menus.png) !important;
 }
-page #page-button .toolbarbutton-menubutton-button {
+#commandBar .toolbarbutton-1[disabled="true"] {
+    opacity: .4;
+}
+#mp-back-button {
+    -moz-image-region: rect(16px, 16px, 32px, 0px);
+}
+#mp-forward-button {
+    -moz-image-region: rect(16px, 32px, 32px, 16px);
+}
+#mp-stop-button {
+    -moz-image-region: rect(16px, 48px, 32px, 32px);
+}
+#mp-reload-button {
+    -moz-image-region: rect(0px, 64px, 16px, 48px);
+}
+#mp-home-button {
+    -moz-image-region: rect(16px, 80px, 32px, 64px);
+}
+#page-button {
 	-moz-image-region: rect(0,  80px,  16px,  64px);
 }
-page #about-button .toolbarbutton-menubutton-button {
+#about-button {
 	-moz-image-region: rect(0,  96px,  16px,  80px);
 }
-page #toolsButton {
+#toolsButton {
 	-moz-image-region: rect(0,  16px,  16px,  0);
 }
-page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #page-button .toolbarbutton-menubutton-button {
+page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #page-button {
 	-moz-image-region: rect(64px,  80px,  80px,  64px);
 }
-page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #about-button .toolbarbutton-menubutton-button {
+page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #about-button {
 	-moz-image-region: rect(64px,  96px,  80px,  80px);
 }
 page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolsButton {
 	-moz-image-region: rect(64px,  16px,  80px,  0);
 }
+
+/* Toolbar content shouldn't be too close to the edges */
+#commandBar {
+	padding: 2px;
+}
+/* Indent adapt to sidebar width menu item */
+#ssrSidebar-mitem {
+	padding-left: 13px;
+}
 page[aios-appDefTheme="true"] #commandBar {
 	border-top: 1px solid ThreedHighlight;
 	border-bottom: 1px solid ThreedShadow;
-}
-page[aios-appDefTheme="true"] #toolsButton dropmarker image {
-	margin: 0 2px 0 3px;
-}
-page[aios-appDefTheme="true"] .toolbarbutton-1 {
-	margin-right: 5px;
-}
-page[aios-appDefTheme="true"] .toolbarbutton-1 label {
-	padding-left: 4px;
-	padding-right: 1px;
 }
 page[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #commandBar {
 	background-color: #eef3fa;

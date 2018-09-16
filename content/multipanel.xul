@@ -29,24 +29,24 @@
                      mode="icons"
                      iconsize="small"
                      customizable="false">
-                <toolbarbutton id="back-button"
+                <toolbarbutton id="mp-back-button"
                                class="toolbarbutton-1"
                                label="&backCmd.label;"
                                command="Browser:BackOrBackDuplicate"
                                onclick="checkForMiddleClick(this, event);"
                                tooltiptext="&backButton.tooltip;"/>
-                <toolbarbutton id="forward-button"
+                <toolbarbutton id="mp-forward-button"
                                class="toolbarbutton-1"
                                label="&forwardCmd.label;"
                                command="Browser:ForwardOrForwardDuplicate"
                                onclick="checkForMiddleClick(this, event);"
                                tooltiptext="&forwardButton.tooltip;"/>
-                <toolbarbutton id="stop-button"
+                <toolbarbutton id="mp-stop-button"
                                class="toolbarbutton-1"
                                label="&stopCmd.label;"
                                command="Browser:StopOrDuplicate"
                                tooltiptext="&stopButton.tooltip;"/>
-                <toolbarbutton id="reload-button"
+                <toolbarbutton id="mp-reload-button"
                                class="toolbarbutton-1"
                                label="&reloadCmd.label;"
                                command="Browser:ReloadOrDuplicate"
@@ -76,7 +76,7 @@
                             <image id="sidebar-throbber"/>
                             <!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
                             <image id="lock-icon"
-                                   onclick="BrowserPageInfo(webPanel.contentDocument); event.stopPropagation();"/>
+                                   onclick="BrowserPageInfo(getPanelBrowser().contentDocument); event.stopPropagation();"/>
                         </hbox>
                     </textbox>
                 </toolbaritem>
