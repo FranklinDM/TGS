@@ -30,23 +30,24 @@ var panelProgressListener = {
         const nsIWebProgressListener = Ci.nsIWebProgressListener;
         const nsIChannel = Ci.nsIChannel;
 
-        // Stop/reload command vars
-        var stp = document.getElementById("Browser:Stop");
-        var rld = document.getElementById("Browser:Reload");
-
         if (aStateFlags & nsIWebProgressListener.STATE_START && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
             if (window.parent.document.getElementById("sidebar-throbber"))
                 window.parent.document.getElementById("sidebar-throbber").setAttribute("loading", "true");
-            aios_setAttributes(stp, { disabled: false, hidden: false });
-            aios_setAttributes(rld, { disabled: true, hidden: true });
+            this.setStopReloadState(false);
         } else if (aStateFlags & nsIWebProgressListener.STATE_STOP && aStateFlags & nsIWebProgressListener.STATE_IS_NETWORK) {
             if (window.parent.document.getElementById("sidebar-throbber"))
                 window.parent.document.getElementById("sidebar-throbber").removeAttribute("loading");
-            aios_setAttributes(stp, { disabled: true, hidden: true });
-            aios_setAttributes(rld, { disabled: false, hidden: false });
+            this.setStopReloadState(true);
         }
 
         AiOS_MP.setSSR();
+    },
+    
+    setStopReloadState: function (aState) {
+        let stp = document.getElementById("Browser:Stop");
+        let rld = document.getElementById("Browser:Reload");
+        aios_setAttributes(stp, { disabled: aState, hidden: aState });
+        aios_setAttributes(rld, { disabled: !aState, hidden: !aState });
     },
 
     onLocationChange: function (aWebProgress, aRequest, aLocation) {
