@@ -582,25 +582,22 @@ var AiOS_Prefs = {
      * => Called by aios_initPrefs()
      */
     deleteOldPrefs: function () {
-        // List of preferences that might need to be migrated
-        let mgPrefs = {
-            delay: ["gen.switch.delay", "gen.switch.delayshow", "gen.switch.delayhide"],
-            invSwitch: ["gen.switch.invtrigger", "gen.switch.inv"]
-        };
-        // Migrate prefs to new values
-        for (let obj in mgPrefs) {
-            if (AiOS_HELPER.prefBranchAiOS.prefHasUserValue(mgPrefs[obj][0])) {
-                for (let i = 1; i < mgPrefs[obj].length; i++) {
-                    switch (AiOS_HELPER.prefBranchAiOS.getPrefType(mgPrefs[obj][0])) {
-                    case AiOS_HELPER.prefInterface.PREF_BOOL:
-                        AiOS_HELPER.prefBranchAiOS.setBoolPref(mgPrefs[obj][i], AiOS_HELPER.prefBranchAiOS.getBoolPref(mgPrefs[obj][0]));
-                        break;
-                    case AiOS_HELPER.prefInterface.PREF_INT:
-                        AiOS_HELPER.prefBranchAiOS.setIntPref(mgPrefs[obj][i], AiOS_HELPER.prefBranchAiOS.getIntPref(mgPrefs[obj][0]));
-                        break;
-                    case AiOS_HELPER.prefInterface.PREF_STRING:
-                        AiOS_HELPER.prefBranchAiOS.setCharPref(mgPrefs[obj][i], AiOS_HELPER.prefBranchAiOS.getCharPref(mgPrefs[obj][0]));
-                        break;
+        function migratePrefsFromObject(prefs, prefBranch) {
+            // Migrate prefs to new values
+            for (let obj in prefs) {
+                if (prefBranch.prefHasUserValue(prefs[obj][0])) {
+                    for (let i = 1; i < prefs[obj].length; i++) {
+                        switch (prefBranch.getPrefType(prefs[obj][0])) {
+                        case AiOS_HELPER.prefInterface.PREF_BOOL:
+                            prefBranch.setBoolPref(prefs[obj][i], prefBranch.getBoolPref(prefs[obj][0]));
+                            break;
+                        case AiOS_HELPER.prefInterface.PREF_INT:
+                            prefBranch.setIntPref(prefs[obj][i], prefBranch.getIntPref(prefs[obj][0]));
+                            break;
+                        case AiOS_HELPER.prefInterface.PREF_STRING:
+                            prefBranch.setCharPref(prefs[obj][i], prefBranch.getCharPref(prefs[obj][0]));
+                            break;
+                        }
                     }
                 }
             }
@@ -615,17 +612,35 @@ var AiOS_Prefs = {
             }
         }
 
+        // List of preferences that need to be migrated
+        let mgPrefs = {
+            delay: ["gen.switch.delay", "gen.switch.delayshow", "gen.switch.delayhide"],
+            invSwitch: ["gen.switch.invtrigger", "gen.switch.inv"]
+        };
+        
+        migratePrefsFromObject(mgPrefs, AiOS_HELPER.prefBranchAiOS);
+
         // List of old preferences
         let oldPrefs = ["em.layout", "em.layoutall", "em.slim", "em.colors", "dm.slim",
             "dm.colors", "co.slim", "co.colors", "bm.layout", "bm.layoutall",
             "hi.layout", "hi.layoutall", "dm.observer", "gen.switch.delay",
             "gen.switch.invwidth", "gen.switch.invtrigger"];
+
         // Remove preferences defined in the oldPrefs array
         removePrefsFromArray(oldPrefs, AiOS_HELPER.prefBranchAiOS);
 
-        // Preference branch for duplicate preferences
-        let duplicatePrefBranch = AiOS_HELPER.prefService.getBranch("extensions.aios.extensions.aios.");
-        // Remove preferences that were duplicated in the final AiOS version
-        removePrefsFromArray(duplicatePrefBranch.getChildList(""), duplicatePrefBranch);
+        if (AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}") {
+            // Preference branch for duplicate preferences
+            let duplicatePrefBranch = AiOS_HELPER.prefService.getBranch("extensions.aios.extensions.aios.");
+            let duplicatePrefBranchList = duplicatePrefBranch.getChildList("");
+            // Migrate prefs from duplicated ones
+            let toMigrate = {};
+            for (let i = 0; i < duplicatePrefBranchList.length; i++) {
+                toMigrate[i] = ["extensions.aios." + duplicatePrefBranchList[i], duplicatePrefBranchList[i]];
+            }
+            migratePrefsFromObject(toMigrate, AiOS_HELPER.prefBranchAiOS);
+            // Remove preferences that were duplicated in the final AiOS version
+            removePrefsFromArray(duplicatePrefBranchList, duplicatePrefBranch);
+        }
     },
 };
