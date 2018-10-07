@@ -49,27 +49,20 @@ var AiOS_MP = {
         this.lastScrollTop = scrollElem.scrollTop;
         this.lastScrollLeft = scrollElem.scrollLeft;
         
-        // Incremental scroll behavior: your normal synchronized scrolling
-        // The other behavior: uses exact position on the panel
-        let incrementalScroll = AiOS_HELPER.prefBranchAiOS.getBoolPref("mp.incscroll");
-        if (incrementalScroll) {
-            let deltaTop = 0,
-                deltaLeft = 0,
-                selTabLeft = selectedTabContent.scrollX,
-                selTabTop = selectedTabContent.scrollY;
+        let deltaTop = 0,
+            deltaLeft = 0,
+            selTabLeft = selectedTabContent.scrollX,
+            selTabTop = selectedTabContent.scrollY;
 
-            if (currLastScrollTop != 0 || currLastScrollLeft != 0) {
-                deltaTop = scrollElem.scrollTop - currLastScrollTop;
-                deltaLeft = scrollElem.scrollLeft - currLastScrollLeft;
-            }
-
-            let combinedLeft = selTabLeft += deltaLeft;
-            let combinedTop = selTabTop += deltaTop;
-
-            selectedTabContent.scroll(combinedLeft, combinedTop);
-        } else {
-            selectedTabContent.scroll(scrollElem.scrollLeft, scrollElem.scrollTop);
+        if (currLastScrollTop != 0 || currLastScrollLeft != 0) {
+            deltaTop = scrollElem.scrollTop - currLastScrollTop;
+            deltaLeft = scrollElem.scrollLeft - currLastScrollLeft;
         }
+
+        let combinedLeft = selTabLeft += deltaLeft;
+        let combinedTop = selTabTop += deltaTop;
+
+        selectedTabContent.scroll(combinedLeft, combinedTop);
     },
 
     /*
