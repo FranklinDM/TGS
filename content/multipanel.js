@@ -32,39 +32,73 @@ var AiOS_MP = {
     },
 
     toggleSyncScroll: function () {
-        if (aios_getBoolean(document.getElementById("aios-syncscroll"), "checked"))
-            getPanelBrowser().addEventListener("scroll", AiOS_MP.synchronizeScroll);
-        else
-            getPanelBrowser().removeEventListener("scroll", AiOS_MP.synchronizeScroll);
+        if (aios_getBoolean(document.getElementById("aios-syncscroll"), "checked")) {
+            getPanelBrowser().addEventListener("scroll", AiOS_MP.synchronizeScrollPanel);
+            AiOS_HELPER.mostRecentWindow.document.getElementById("content").addEventListener("scroll", AiOS_MP.synchronizeScrollBrowser);
+        } else {
+            getPanelBrowser().removeEventListener("scroll", AiOS_MP.synchronizeScrollPanel);
+            AiOS_HELPER.mostRecentWindow.document.getElementById("content").removeEventListener("scroll", AiOS_MP.synchronizeScrollBrowser);
+        }
     },
 
     lastScrollTop: 0,
     lastScrollLeft: 0,
-    synchronizeScroll: function (where) {
-        let scrollElem = getPanelBrowser().contentDocument.scrollingElement,
-            selectedTabContent = AiOS_HELPER.mostRecentWindow.getBrowser().selectedTab.linkedBrowser._contentWindow;
+    synchronizeScrollPanel: function () {
+        if (getPanelBrowser().contentDocument.hasFocus()) {
+            let scrollElem = getPanelBrowser().contentDocument.scrollingElement,
+                selectedTabContent = AiOS_HELPER.mostRecentWindow.getBrowser().selectedTab.linkedBrowser._contentWindow;
 
-        let currLastScrollTop = this.lastScrollTop,
-            currLastScrollLeft = this.lastScrollLeft;
-        this.lastScrollTop = scrollElem.scrollTop;
-        this.lastScrollLeft = scrollElem.scrollLeft;
-        
-        let deltaTop = 0,
-            deltaLeft = 0,
-            selTabLeft = selectedTabContent.scrollX,
-            selTabTop = selectedTabContent.scrollY;
+            let currLastScrollTop = this.lastScrollTop,
+                currLastScrollLeft = this.lastScrollLeft;
+            this.lastScrollTop = scrollElem.scrollTop;
+            this.lastScrollLeft = scrollElem.scrollLeft;
+            
+            let deltaTop = 0,
+                deltaLeft = 0,
+                selTabLeft = selectedTabContent.scrollX,
+                selTabTop = selectedTabContent.scrollY;
 
-        if (currLastScrollTop != 0 || currLastScrollLeft != 0) {
-            deltaTop = scrollElem.scrollTop - currLastScrollTop;
-            deltaLeft = scrollElem.scrollLeft - currLastScrollLeft;
+            if (currLastScrollTop != 0 || currLastScrollLeft != 0) {
+                deltaTop = scrollElem.scrollTop - currLastScrollTop;
+                deltaLeft = scrollElem.scrollLeft - currLastScrollLeft;
+            }
+
+            let combinedLeft = selTabLeft += deltaLeft;
+            let combinedTop = selTabTop += deltaTop;
+
+            selectedTabContent.scroll(combinedLeft, combinedTop);
         }
-
-        let combinedLeft = selTabLeft += deltaLeft;
-        let combinedTop = selTabTop += deltaTop;
-
-        selectedTabContent.scroll(combinedLeft, combinedTop);
     },
 
+    lastScrollTopBrowser: 0,
+    lastScrollLeftBrowser: 0,
+    synchronizeScrollBrowser: function () {        
+        var scrollElem = getPanelBrowser().contentDocument.scrollingElement,
+            selectedTabContent = AiOS_HELPER.mostRecentWindow.getBrowser().selectedTab.linkedBrowser._contentWindow;
+
+        if (selectedTabContent.document.hasFocus()) {
+            let currLastScrollTop = this.lastScrollTopBrowser,
+                currLastScrollLeft = this.lastScrollLeftBrowser;
+            this.lastScrollTopBrowser = selectedTabContent.scrollY;
+            this.lastScrollLeftBrowser = selectedTabContent.scrollX;
+            
+            let deltaTop = 0,
+                deltaLeft = 0,
+                selTabLeft = scrollElem.scrollLeft,
+                selTabTop = scrollElem.scrollTop;
+
+            if (currLastScrollTop != 0 || currLastScrollLeft != 0) {
+                deltaTop = selectedTabContent.scrollY - currLastScrollTop;
+                deltaLeft = selectedTabContent.scrollX - currLastScrollLeft;
+            }
+
+            let combinedLeft = selTabLeft += deltaLeft;
+            let combinedTop = selTabTop += deltaTop;
+
+            scrollElem.scroll(combinedLeft, combinedTop);
+        }
+    },
+    
     /*
      * Opens the web page displayed in the browser in the MultiPanel
      * => Called by buttons, aios_panelTab()
