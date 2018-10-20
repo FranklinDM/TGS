@@ -28,9 +28,9 @@
             ondialogdisclosure="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ');">
 
     <box>
-        <script type="application/x-javascript"
+        <script type="application/javascript"
                 src="chrome://aios/content/_helper.js" />
-        <script type="application/x-javascript"
+        <script type="application/javascript"
                 src="chrome://aios/content/prefs/prefs.js" />
 
         <stringbundleset>
@@ -71,7 +71,7 @@
               persist="seltab"
               onpaneload="AiOS_Prefs.initPane('general');">
 
-        <script type="application/x-javascript"
+        <script type="application/javascript"
                 src="chrome://aios/content/prefs/general.js"/>
 
         <preferences>

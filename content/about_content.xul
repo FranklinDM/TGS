@@ -9,7 +9,7 @@
 <overlay id="aiosAboutOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-    <script type="application/x-javascript"
+    <script type="application/javascript"
             src="chrome://aios/content/about.js" />
 
     <prefpane id="aiosAbout"
