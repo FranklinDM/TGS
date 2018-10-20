@@ -27,7 +27,7 @@
             src="chrome://aios/content/multipanel.js" />
 
     <script type="application/javascript"
-            src="chrome://aios/content/aios_old.js" />
+            src="chrome://aios/content/aios.js" />
     <script type="application/javascript"
             src="chrome://aios/content/aios_fx.js" />
     <script type="application/javascript"
