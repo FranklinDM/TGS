@@ -1,8 +1,4 @@
 (function () {
-    this.initOnDOMLoaded = function () {
-        AiOS_HELPER.rememberAppInfo(AiOS_Objects.mainWindow);
-    };
-
     this.beforeCustomization = function () {
         var toolbars = [document.getElementById('aios-toolbar'), document.getElementById('aios-sbhtoolbar')];
 
@@ -59,7 +55,6 @@
     };
 
     this.unload = function () {
-        window.removeEventListener("DOMContentLoaded", AiOS.initOnDOMLoaded);
         window.removeEventListener("unload", AiOS.unload);
 
         gNavToolbox.removeEventListener("beforecustomization", AiOS.beforeCustomization);
@@ -67,7 +62,6 @@
     };
 }).apply(AiOS);
 
-window.addEventListener("DOMContentLoaded", AiOS.initOnDOMLoaded, false);
 window.addEventListener("unload", AiOS.unload, false);
 
 gNavToolbox.addEventListener("beforecustomization", AiOS.beforeCustomization, false);
