@@ -279,7 +279,7 @@ function aios_panelTab(event) {
 
         // open in TAB
         if (mode == "tab") {
-            if (newSrc == "chrome://browser/content/pageinfo/pageInfo.xul" && AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}")
+            if (newSrc == "chrome://browser/content/pageinfo/pageInfo.xul" && AiOS_HELPER.usingCUI)
             {
                 alert("Opening the Page Info window inside a tab is no longer possible due to async changes.");
                 return;

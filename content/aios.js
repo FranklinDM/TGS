@@ -857,7 +857,7 @@ window.addEventListener("load", AiOS.initSidebar, false);
 window.addEventListener("resize", AiOS.checkSidebarSwitch, false);
 window.addEventListener("fullscreen", AiOS.onFullscreen, false);
 
-if (AiOS_HELPER.appInfo.ID != "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}") {
+if (!AiOS_HELPER.usingCUI) {
     window.addEventListener("beforecustomization", AiOS.customizeEvent, false);
     window.addEventListener("aftercustomization", AiOS.customizeEvent, false);
 }

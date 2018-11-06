@@ -16,6 +16,12 @@ var AiOS_HELPER = {
         this.os = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS;
         this.osVersion = window.navigator.oscpu;
         this.defTheme = (this.prefBranch.getCharPref("general.skins.selectedSkin") == "classic/1.0") ? true : false;
+        
+        this.usingCUI = false;
+        // If CustomizableUI object is present or using Firefox UUID
+        if (AiOS_HELPER.mostRecentWindow.CustomizableUI || AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}") {
+            this.usingCUI = true;
+        }        
     },
 
     log: function (ex) {

@@ -3,7 +3,7 @@ var Ci = Components.interfaces;
 Components.utils.import("resource://gre/modules/Services.jsm");
 var compareResult = Services.vc.compare(AiOS_HELPER.appInfo.version, "28.*");
 
-if (compareResult == 0 || compareResult == 1 || AiOS_HELPER.appInfo.ID == "ec8030f7-c20a-464f-9b0e-13a3a9e97384") {
+if (compareResult == 0 || compareResult == 1 || AiOS_HELPER.usingCUI) {
     var NS_ERROR_MODULE_NETWORK = 2152398848;
     var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
     var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
