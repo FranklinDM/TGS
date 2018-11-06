@@ -156,52 +156,28 @@ var AiOS_HELPER = {
 
 AiOS_HELPER.init();
 
-// Global variables and features to monitor for progress changes
-// Used in pageInfo.xul
-var aios_ProgListStart = Components.interfaces.nsIWebProgressListener.STATE_START;
-var aios_ProgListStop = Components.interfaces.nsIWebProgressListener.STATE_STOP;
-
-var aiosProgListener = {
+// Progress listener to watch changes to page state, used by Page Info in sidebar
+var AiOS_ProgressListener = {
     QueryInterface: function (aIID) {
         if (aIID.equals(Components.interfaces.nsIWebProgressListener) ||
             aIID.equals(Components.interfaces.nsISupportsWeakReference) ||
             aIID.equals(Components.interfaces.nsISupports))
             return this;
+
         throw Components.results.NS_NOINTERFACE;
     },
 
     onStateChange: function (aProgress, aRequest, aFlag, aStatus) {
-        //if(aFlag & aios_ProgListStart) { /* This fires when the load event is initiated */ }
-        //if(aFlag & aios_ProgListStop) { /* This fires when the load finishes */ }
-        AiOS_HELPER.log("onStateChange called");
-        if (aFlag & aios_ProgListStop) {
-            if (typeof aios_onStateChange == "function")
-                aios_onStateChange();
+        if (aFlag & Components.interfaces.nsIWebProgressListener.STATE_STOP) {
+            if (typeof AiOS_PageInfo == "object")
+                AiOS_PageInfo.onStateChange();
         }
-        return 0;
     },
 
     onLocationChange: function (aProgress, aRequest, aURI) {
-        // This fires when the location bar changes i.e load event is confirmed
-        // or when the user switches tabs
-        AiOS_HELPER.log("onLocationChange called");
-        if (typeof aios_onLocationChange == "function")
-            aios_onLocationChange();
-        return 0;
+        if (typeof AiOS_PageInfo == "object")
+            AiOS_PageInfo.onLocationChange();
     },
-
-    onProgressChange: function () {
-        return 0;
-    },
-    onStatusChange: function () {
-        return 0;
-    },
-    onSecurityChange: function () {
-        return 0;
-    },
-    onLinkIconAvailable: function () {
-        return 0;
-    }
 };
 
 /*
@@ -239,7 +215,7 @@ function aios_addTab(aUrl) {
 
     // If the tab is empty
     if (emptyTab != null) {
-        // URL oeffnen und Tab selektieren
+        // Open URL and select tab
         browser.getBrowserAtIndex(emptyTab).contentWindow.document.location.href = aUrl;
         browser.selectedTab = browser.tabContainer.childNodes[emptyTab];
         browser.selectedTab.setAttribute("openBy", "aios");

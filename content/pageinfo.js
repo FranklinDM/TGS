@@ -1,4 +1,4 @@
-function aios_inSidebar() { 
+function aios_inSidebar() {
     return (top.document.getElementById("sidebar-box")) ? true : false;
 }
 function aios_inTab() {
@@ -8,11 +8,11 @@ function aios_inTab() {
 // Add listener for automatic update and remove
 if (aios_inSidebar()) {
     window.addEventListener("load", function (e) {
-        top.gBrowser.addProgressListener(aiosProgListener);
+        top.gBrowser.addProgressListener(AiOS_ProgressListener);
     }, false);
 
     window.addEventListener("unload", function (e) {
-        top.gBrowser.removeProgressListener(aiosProgListener);
+        top.gBrowser.removeProgressListener(AiOS_ProgressListener);
     }, false);
 }
 
@@ -101,21 +101,21 @@ var AiOS_PageInfo = {
     // Remember the last selected tab
     persistSelTab: function () {
         document.getElementById("main-window").setAttribute("seltab", document.getElementById("viewGroup").selectedIndex);
+    },
+
+    // Automatic update => call by AiOS_ProgressListener (_helper.js)
+    onLocationChange: function () {
+        if (aios_inSidebar()) {
+            AiOS_PageInfo.persistSelTab();
+            location.reload(true);
+        }
+    },
+
+    onStateChange: function () {
+        if (!AiOS_HELPER.usingCUI)
+            AiOS_PageInfo.onLocationChange();
     }
 };
-
-// Automatic update => call by aiosProgListener (_helper.js)
-function aios_onLocationChange() {
-    if (aios_inSidebar()) {
-        AiOS_PageInfo.persistSelTab();
-        location.reload(true);
-    }
-}
-
-function aios_onStateChange() {
-    if (!AiOS_HELPER.usingCUI)
-        aios_onLocationChange();
-}
 
 // Override certain functions inside the 'security' variable of Page Info
 (function () {
@@ -286,3 +286,6 @@ var AiOS_Overrides = {
 };
 
 AiOS_Overrides.init();
+
+window.addEventListener("DOMContentLoaded", AiOS_PageInfo.init, false);
+window.addEventListener("unload", AiOS_PageInfo.persistSelTab, false);

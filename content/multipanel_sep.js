@@ -1,20 +1,21 @@
 var Ci = Components.interfaces;
 
-Components.utils.import("resource://gre/modules/Services.jsm");
-var compareResult = Services.vc.compare(AiOS_HELPER.appInfo.version, "28.*");
-
-if (compareResult == 0 || compareResult == 1 || AiOS_HELPER.usingCUI) {
-    var NS_ERROR_MODULE_NETWORK = 2152398848;
-    var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
-    var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
-}
+var NS_ERROR_MODULE_NETWORK = 2152398848;
+var NS_NET_STATUS_READ_FROM = NS_ERROR_MODULE_NETWORK + 8;
+var NS_NET_STATUS_WROTE_TO  = NS_ERROR_MODULE_NETWORK + 9;
 
 /*
  * Modified original monitoring function from web-panels.js
  */
 var panelProgressListener = {
-    onProgressChange: function (aWebProgress, aRequest, aCurSelfProgress, aMaxSelfProgress,
-        aCurTotalProgress, aMaxTotalProgress) {},
+    QueryInterface: function (aIID) {
+        if (aIID.equals(Ci.nsIWebProgressListener) ||
+            aIID.equals(Ci.nsISupportsWeakReference) ||
+            aIID.equals(Ci.nsISupports))
+            return this;
+
+        throw Components.results.NS_NOINTERFACE;
+    },
 
     onStateChange: function (aWebProgress, aRequest, aStateFlags, aStatus) {
         if (!aRequest)
@@ -110,15 +111,6 @@ var panelProgressListener = {
         this.setPadlockLevel(level);
     },
 
-    QueryInterface: function (aIID) {
-        if (aIID.equals(Ci.nsIWebProgressListener) ||
-            aIID.equals(Ci.nsISupportsWeakReference) ||
-            aIID.equals(Ci.nsISupports))
-            return this;
-
-        throw Components.results.NS_NOINTERFACE;
-    },
-
     // Padlock code borrowed from browser's padlock module
     setPadlockLevel: function (level) {
         let secbut = document.getElementById("lock-icon");
@@ -160,6 +152,6 @@ window.addEventListener("load", AiOS_MP.init);
 
 window.addEventListener("unload", function (e) {
     if (top.gBrowser && top.gBrowser.removeProgressListener)
-        top.gBrowser.removeProgressListener(aiosProgListener);
+        top.gBrowser.removeProgressListener(AiOS_ProgressListener);
     AiOS_MP.unload();
 }, false);

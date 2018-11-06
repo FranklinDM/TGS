@@ -9,12 +9,6 @@
     <script type="application/javascript"
             src="chrome://aios/content/pageinfo.js" />
 
-    <script><![CDATA[
-        window.addEventListener("DOMContentLoaded", AiOS_PageInfo.init, false);
-        window.addEventListener("unload", AiOS_PageInfo.persistSelTab, false);
-    ]]>
-    </script>
-
     <window id="main-window"
             persist="screenX screenY width height sizemode seltab">
     </window>
