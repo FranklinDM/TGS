@@ -10,19 +10,6 @@
 
     <page id="webpanels-window">
         <commandset id="mainCommandset">
-            <!-- Fix for versions of Pale Moon lower than v27.5; This includes commands that were undefined in earlier versions -->
-            <command id="Browser:BackOrBackDuplicate"
-                     oncommand="getPanelBrowser().webNavigation.goBack(event);"
-                     disabled="true">
-                <observes element="Browser:Back"
-                          attribute="disabled"/>
-            </command>
-            <command id="Browser:ForwardOrForwardDuplicate"
-                     oncommand="getPanelBrowser().webNavigation.goForward(event);"
-                     disabled="true">
-                <observes element="Browser:Forward"
-                          attribute="disabled"/>
-            </command>
             <!-- Observe hidden property so we can hide stop/reload when unused -->
             <command id="Browser:ReloadOrDuplicate"
                      oncommand="PanelBrowserReload(event)"
