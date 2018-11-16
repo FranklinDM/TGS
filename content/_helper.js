@@ -8,6 +8,7 @@ var AiOS_HELPER = {
         this.prefBranchAiOS = Object.assign({}, this.prefBranch);
         this.prefBranchAiOS.prefBranchInternal = this.prefService.getBranch("extensions.aios.");
 
+        this.consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
         this.windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher);
         this.windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
         this.mostRecentWindow = this.windowMediator.getMostRecentWindow("navigator:browser");
@@ -16,17 +17,17 @@ var AiOS_HELPER = {
         this.os = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS;
         this.osVersion = window.navigator.oscpu;
         this.defTheme = (this.prefBranch.getCharPref("general.skins.selectedSkin") == "classic/1.0") ? true : false;
-        
+
         this.usingCUI = false;
         // If CustomizableUI object is present or using Firefox UUID
         if (AiOS_HELPER.mostRecentWindow.CustomizableUI || AiOS_HELPER.appInfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}") {
             this.usingCUI = true;
-        }        
+        }
     },
 
     log: function (ex) {
         if (this.prefService.getBranch("extensions.aios.").getBoolPref("logging"))
-            console.log("TGS: " + ex);
+            this.consoleService.logStringMessage("TGS: " + ex);
     },
 
     // nsIPrefBranch custom implementation
