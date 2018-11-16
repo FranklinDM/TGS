@@ -4,8 +4,8 @@
 <!ENTITY menu.grippy.label "侧栏控制柄">
 <!ENTITY toolbar.name "The Good 'ol Sidebar 工具栏">
 <!ENTITY toolbar.label "The Good 'ol Sidebar">
-<!ENTITY sbhtoolbar.name "Sidebarheader 工具栏">
-<!ENTITY sbhtoolbar.label "Sidebarheader">
+<!ENTITY sbhtoolbar.name "侧栏标题工具栏">
+<!ENTITY sbhtoolbar.label "侧栏标题">
 <!ENTITY button.toggle.label "TGS">
 <!ENTITY button.toggle.tooltip "开关受 The Good 'ol Sidebar 控制的元素">
 <!ENTITY button.switch.tooltip1 "开关侧栏和工具栏">
@@ -19,7 +19,7 @@
 <!ENTITY button.menu.label "侧栏面板">
 <!ENTITY button.menu.tooltip "全部可用侧栏面板">
 <!ENTITY button.toolbar.label "TGS 工具栏">
-<!ENTITY button.toolbar.tooltip "切换TGS工具栏">
+<!ENTITY button.toolbar.tooltip "切换 TGS 工具栏">
 <!ENTITY button.paneltab.label "面板标签页">
 <!ENTITY button.paneltab.tooltip1 "在侧栏查看当前标签页">
 <!ENTITY button.paneltab.tooltip2 "使用新标签页查看当前面板">
@@ -38,6 +38,8 @@
 <!ENTITY button.pageinfo.tooltip "查看页面信息">
 <!ENTITY button.console.label "JavaScript 控制台">
 <!ENTITY button.console.tooltip "打开 JavaScript 控制台，JavaScript 控制台可以跟踪 JavaScript 代码出现的问题">
+<!ENTITY button.cookies.label "Cookies">
+<!ENTITY button.cookies.tooltip "管理个人 cookies">
 <!ENTITY keys.modifiers "accel shift">
 <!ENTITY keys.sidebar "VK_F4">
 <!ENTITY keys.options "VK_F4">
@@ -45,7 +47,8 @@
 <!ENTITY keys.paneltab2 "Y">
 <!ENTITY keys.addons "A">
 <!ENTITY keys.multipanel "M">
-<!ENTITY keys.pageinfo "P">
+<!ENTITY keys.pageinfo "E">
+<!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "侧栏左侧">
 <!ENTITY toolbar.pos.sidebarright.label "侧栏右侧">
 <!ENTITY toolbar.pos.sidebartop.label "侧栏顶端">
