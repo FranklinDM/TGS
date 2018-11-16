@@ -2,12 +2,11 @@
 <!ENTITY restart "需要重新启动浏览器">
 <!ENTITY settings "设置">
 <!ENTITY settings.default "恢复默认设置…">
-<!ENTITY settings.advanced "高级模式">
 <!ENTITY settings.import "导入设置…">
 <!ENTITY settings.export "导出设置…">
 <!ENTITY settings.copy "复制设置到剪贴板">
 <!ENTITY apply "应用">
-<!ENTITY gen.column1 "95">
+<!ENTITY gen.column1 "110">
 <!ENTITY tab.gen "常规">
 <!ENTITY tab.gen.appearance "外观">
 <!ENTITY tab.gen.behavior "状态">
@@ -15,8 +14,7 @@
 <!ENTITY tab.gen.special "特殊">
 <!ENTITY tab.panels "面板">
 <!ENTITY tab.panels.places "书签 / 历史">
-<!ENTITY tab.panels.other1 "其他 I">
-<!ENTITY tab.panels.other2 "其他 II">
+<!ENTITY tab.panels.other1 "其它">
 <!ENTITY tab.panels.paneltab "面板标签页">
 <!ENTITY tab.menus "菜单">
 <!ENTITY tab.menus.sidebar "侧栏菜单">
@@ -45,15 +43,29 @@
 <!ENTITY gen.init.sidebar "打开侧栏（侧栏切换柄、切换按钮或快捷键）">
 <!ENTITY gen.init.sidebar.restore "记住打开的面板">
 <!ENTITY gen.switch.autoshow "自动显示/隐藏侧栏(只需鼠标轻触而不用点击鼠标)">
+<!ENTITY gen.switch.drag "自动显示侧栏当拖动对象到侧栏切换柄上方时">
 <!ENTITY gen.switch.onlymax "仅当浏览器是最大化或全屏模式有效">
+<!ENTITY gen.switch.invtrigger "启用隐形侧栏切换柄">
+<!ENTITY gen.switch.onhover "当鼠标位于隐形侧栏切换柄上方时：">
+<!ENTITY gen.switch.invhover "显示视觉反馈或高亮标记">
+<!ENTITY gen.switch.invmouse "显示手形光标">
+<!ENTITY gen.switch.invnoclick "拒绝与侧栏切换柄的单击交互">
+<!ENTITY gen.switch.delayshow "显示延迟">
+<!ENTITY gen.switch.delayhide "隐藏延迟">
 <!ENTITY gen.switch.delay "延迟">
 <!ENTITY gen.switch.delayUnit "毫秒">
 <!ENTITY gen.switch.hide "隐藏侧栏，当鼠标…">
 <!ENTITY gen.switch.hideBar "移回网页">
 <!ENTITY gen.switch.hidePage "停留在侧栏切换柄">
+<!ENTITY gen.switch.hideNone "不要自动隐藏">
+<!ENTITY gen.switch.ssvisibility "隐藏侧栏切换柄当：">
+<!ENTITY gen.switch.ssvisibility.auto "自动 (不需要时隐藏)">
+<!ENTITY gen.switch.ssvisibility.open "侧栏已开启">
+<!ENTITY gen.switch.ssvisibility.closed "侧栏已关闭">
 <!ENTITY gen.switch.thin "启用细侧栏切换柄">
 <!ENTITY gen.switch.width "侧栏切换柄宽度">
 <!ENTITY gen.switch.twidth "细切换柄的宽度">
+<!ENTITY gen.mbSeparate "菜单和按键的快捷命令不要打开到侧栏面板 (覆盖面板设置)">
 <!ENTITY cmode.caption "开关侧栏">
 <!ENTITY cmode.desc "定制用不同方法切换侧栏时打开/关闭的项目。">
 <!ENTITY cmode.key.label "快捷键 (F4)">
@@ -70,18 +82,17 @@
 <!ENTITY keyconfig.disable "禁用">
 <!ENTITY keyconfig.reset "重置">
 <!ENTITY keyconfig.warn "更改只影响新窗口">
-<!ENTITY keyconfig.onreset "需要重起浏览器">
-<!ENTITY keyconfig.unrecognized "未识别 ($1)">
-<!ENTITY keyconfig.used "尽管这样设置也可以工作，但是“t$1”已经使用此快捷键。">
 <!ENTITY menus.sidebar.desc "定制“查看 –&gt; 侧栏”和侧栏按钮下拉菜单项目">
 <!ENTITY menus.icons.label "显示图标">
 <!ENTITY menus.entries.label "显示项目">
 <!ENTITY menus.sidebar.entrydeac "不允许选择当前打开的面板(以灰色字体显示)">
 <!ENTITY misc.enablesidebar.label "在侧栏打开">
+<!ENTITY misc.enablepopup.label "在弹出菜单打开">
 <!ENTITY misc.layout.label "为适合侧栏优化布局">
-<!ENTITY misc.dm.overlay "改变侧栏行为的选项">
 <!ENTITY misc.dm.autoopen.label "下载文件时显示下载侧栏">
 <!ENTITY misc.dm.autoclose.label "下载完成时关闭下载侧栏">
+<!ENTITY misc.dm.shading.label "根据状态对下载列表中的项目进行着色">
+<!ENTITY misc.em.oninstall.label "安装扩展时显示扩展侧栏">
 <!ENTITY misc.colors.label "基于当前状态启用彩色背景">
 <!ENTITY misc.count.label "显示项目数量">
 <!ENTITY misc.enablelink.tooltip "点击这里获得更多信息">
