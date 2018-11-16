@@ -1,7 +1,7 @@
-The Good 'ol Sidebar (TGS) - a sidebar extension for Pale Moon
+The Good 'ol Sidebar (TGS) - a sidebar extension
 ===================================================================
 
-This is the repository of the sidebar extension called [The Good 'ol Sidebar](https://addons.palemoon.org/addon/tgsidebar/), an extension for [Pale Moon](https://www.palemoon.org) and a fork of [All-in-One Sidebar](http://firefox.exxile.net/aios/index.php) which was an extension made for Mozilla Firefox, but is now discontinued.
+This is the repository of the sidebar extension called [The Good 'ol Sidebar](https://addons.palemoon.org/addon/tgsidebar/), an extension for [Pale Moon](https://www.palemoon.org) and [Basilisk](https://basilisk-browser.org). It is also a fork of [All-in-One Sidebar](http://firefox.exxile.net/aios/index.php) which was an extension made for Mozilla Firefox, but is now discontinued.
 
 More information about this extension could be found at the [wiki](https://github.com/FranklinDM/TGS/wiki).
 
@@ -10,23 +10,23 @@ You are cordially invited to contribute to the project. :-)
 Build the extension
 -------------------
 
-To build an installable `.xpi` extension for Pale Moon:
+To build an installable `.xpi` extension:
 
-### All operation systems
+### All operating systems
 
-1. clone this repository
-2. zip the contents of the repository (excluding `.git`, `.gitignore`, `build.sh`, `CHANGELOG.md`, and `README.md`) and rename the `.zip` extension to `.xpi`
-3. open/install the resulting `.xpi` file with Pale Moon
+1. Clone this repository
+2. Zip the contents of the repository (excluding `.git`, `.gitignore`, `build.sh`, `CHANGELOG.md`, and `README.md`) and rename the `.zip` extension to `.xpi`
+3. Open/install the resulting `.xpi` file with Pale Moon/Basilisk
 
 ### Mac OS X / Linux
 
-1. clone this repository
-2. execute `./build.sh` at the repository root
-3. open/install the resulting `tgs_sidebar-dev-build-pm.xpi` file with Pale Moon
+1. Clone this repository
+2. Execute `./build.sh` at the repository root
+3. Open/install the resulting `tgs_sidebar-dev-build-pm.xpi` file with Pale Moon/Basilisk
 
 ### Windows
 
-You could build the extension via the Windows command prompt when you installed [Cygwin](http://cygwin.com). Otherwise just zip the contents of this repository as explained for all operation systems.
+You could build the extension via the Windows command prompt if you have Cygwin installed. Otherwise, just zip the contents of this repository as explained for all operating systems.
 
 
 Links
@@ -38,7 +38,7 @@ Links
 Issues
 -------
 
-Please use the [issues system of GitHub](https://github.com/FranklinDM/TGS/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
+Please use the [issue tracker of GitHub](https://github.com/FranklinDM/TGS/issues?state=open) when contributing and reporting bugs, enhancements or to-do's.
 
 
 License
