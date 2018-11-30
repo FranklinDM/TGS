@@ -1,7 +1,6 @@
-/* Don't enforce a height and use 0 padding for smaller items */
+/* Reduce height of items in the downloads list */
 #downloadsRichListBox > richlistitem.download {
 	height: auto;
-	padding: 0;
 }
 
 /* Applies only to default theme */
