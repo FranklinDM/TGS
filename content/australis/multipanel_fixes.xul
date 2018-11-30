@@ -9,6 +9,19 @@
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
     <page id="webpanels-window">
+        <toolbox id="commandBar">
+            <toolbar id="mini-bar">
+                <toolbaritem id="urlbar-container">
+                    <textbox id="urlbar"
+                             autocompletesearch="unifiedcomplete">
+                        <hbox id="urlbar-icons">
+                            <image id="lock-icon"
+                                   onclick="BrowserPageInfo(getPanelBrowser().contentDocument.URL, null, null, null, getPanelBrowser()); event.stopPropagation();"/>
+                        </hbox>
+                    </textbox>
+                </toolbaritem>
+            </toolbar>
+        </toolbox>
         <commandset id="mainCommandset">
             <!-- Undefined in Basilisk; see bug https://bugzilla.mozilla.org/show_bug.cgi?id=483919 -->
             <command id="Browser:BackOrBackDuplicate"
