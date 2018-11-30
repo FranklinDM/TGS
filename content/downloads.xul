@@ -23,7 +23,6 @@
                        flex="1"
                        clickSelectsAll="true"
                        type="search"
-                       placeholder="&searchItem.title;"
                        aria-controls="placeContent"
                        oncommand="AiOS_Downloads.search(this.value);"
                        collection="downloads"/>
@@ -32,6 +31,10 @@
                              tooltiptext="&clearDownloadsButton.tooltip;"/>
             </toolbar>
           </toolbox>
+          <stringbundleset id="propSet">
+              <stringbundle id="propSetStrings"
+                            src="chrome://aios/locale/lib.properties" />
+          </stringbundleset>
     </window>
 
 </overlay>
