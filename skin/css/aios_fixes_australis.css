@@ -1,0 +1,61 @@
+/*** Fixes for extensions using the direction hack ***/
+
+/** Tab Kit 2 **/
+
+/* Improperly positioned Tabs Toolbar and Splitter */
+window[aiosOrient="left"] #browser[dir="normal"] #TabsToolbar {
+  -moz-box-ordinal-group: 14 !important;
+}
+window[aiosOrient="left"] #browser[dir="normal"] #tabkit-splitter {
+  -moz-box-ordinal-group: 15 !important;
+}
+
+window[aiosOrient="right"] #browser[dir="normal"] #TabsToolbar {
+  -moz-box-ordinal-group: 1 !important;
+}
+window[aiosOrient="right"] #browser[dir="normal"] #tabkit-splitter {
+  -moz-box-ordinal-group: 2 !important;
+}
+
+#browser[dir="reverse"] #TabsToolbar {
+  -moz-box-ordinal-group: 10 !important;
+}
+#browser[dir="reverse"] #tabkit-splitter {
+  -moz-box-ordinal-group: 11 !important;
+}
+
+/* Orientation: Right Side */
+window[aiosOrient="right"] #browser[dir="reverse"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 1;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 2;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #sidebar-box {
+  -moz-box-ordinal-group: 3;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 4;
+}
+
+/* Orientation: Left Side */
+window[aiosOrient="left"] #browser[dir="reverse"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 74;
+}
+window[aiosOrient="left"] #browser[dir="reverse"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 73;
+}
+window[aiosOrient="left"] #browser[dir="reverse"] #sidebar-box {
+  -moz-box-ordinal-group: 72;
+}
+window[aiosOrient="left"] #browser[dir="reverse"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 71;
+}
+
+/* TGS Splitter */
+window[aiosOrient="left"] #browser[dir="reverse"] #sidebar-splitter {
+  -moz-box-ordinal-group: 70;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #sidebar-splitter {
+  -moz-box-ordinal-group: 5;
+}
