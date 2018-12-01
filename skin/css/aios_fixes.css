@@ -4,10 +4,10 @@
 
 /* Improperly positioned Tabs Toolbar and Splitter */
 #browser #TabsToolbar {
-  -moz-box-ordinal-group: 51 !important;
+  -moz-box-ordinal-group: 6 !important;
 }
 #browser #tabkit-splitter {
-  -moz-box-ordinal-group: 50 !important;
+  -moz-box-ordinal-group: 7 !important;
 }
 
 /* Orientation: Right Side */
