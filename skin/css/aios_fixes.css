@@ -3,10 +3,10 @@
 /** Tab Kit 2 **/
 
 /* Improperly positioned Tabs Toolbar and Splitter */
-#TabsToolbar {
+#browser #TabsToolbar {
   -moz-box-ordinal-group: 51 !important;
 }
-#tabkit-splitter {
+#browser #tabkit-splitter {
   -moz-box-ordinal-group: 50 !important;
 }
 
