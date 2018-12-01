@@ -233,7 +233,7 @@ function aios_panelTab(event) {
                     document.getElementById("sidebar-box").removeAttribute("sidebarcommand");
                 }
 
-                // chrome-URI in Sidebar oeffnen
+                // Open chrome URI in Sidebar
                 top.document.getElementById("sidebar").contentDocument.location.href = tabHref;
                 document.getElementById("sidebar-title").setAttribute("value", top.window.content.document.title);
             }

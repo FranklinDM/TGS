@@ -189,14 +189,14 @@ var AiOS_Overrides = {
             let windowInfo = pageInfoData.windowInfo;
 
             let uri = makeURI(docInfo.documentURIObject.spec,
-                    docInfo.documentURIObject.originCharset);
+                docInfo.documentURIObject.originCharset);
             let principal = docInfo.principal;
             gDocInfo = docInfo;
 
             gImageElement = pageInfoData.imageInfo;
 
             var titleFormat = windowInfo.isTopWindow ? "pageInfo.page.title"
-                 : "pageInfo.frame.title";
+                : "pageInfo.frame.title";
             document.title = gBundle.getFormattedString(titleFormat, [docInfo.location]);
 
             document.getElementById("main-window").setAttribute("relatedUrl", docInfo.location);
@@ -280,8 +280,8 @@ var AiOS_Overrides = {
         /* Select the requested tab, if the name is specified */
         loadTab(args);
         Components.classes["@mozilla.org/observer-service;1"]
-        .getService(Components.interfaces.nsIObserverService)
-        .notifyObservers(window, "page-info-dialog-loaded", null);
+            .getService(Components.interfaces.nsIObserverService)
+            .notifyObservers(window, "page-info-dialog-loaded", null);
     }
 };
 
