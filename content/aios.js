@@ -704,26 +704,10 @@ var AiOS = {
         AiOS_Objects.get();
 
         let enterFS = window.fullScreen;
-        if (event && event.type == "fullscreen")
-            enterFS = !enterFS;
 
         // Decide which fullscreen action should be done
-        if (enterFS)
-            AiOS.doFullscreenAction("enter");
-        else
-            AiOS.doFullscreenAction("exit");
-
-        // Decide on what mode should be applied on sidebar switch
-        AiOS.checkSidebarSwitch();
-
-        aios_adjustToolboxWidth(false);
-
-        return true;
-    },
-
-    doFullscreenAction: function (type) {
-        switch (type) {
-        case "enter":
+        switch (enterFS) {
+        case true:
             // Target states
             var close_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("fs.switch");
             var close_toolbar = AiOS_HELPER.prefBranchAiOS.getBoolPref("fs.toolbar");
@@ -757,7 +741,7 @@ var AiOS = {
                 AiOS_Objects.mainToolbar.setAttribute("iconsize", "small");
             }
             break;
-        case "exit":
+        case false:
             // Restore Toolbar Settings (only without the Autohide extension)
             if (typeof autoHIDE != "object") {
                 AiOS_Objects.mainToolbar.setAttribute("mode", AiOS_Objects.toggleBox.getAttribute("fsToolbarMode"));
@@ -776,6 +760,11 @@ var AiOS = {
             }
             break;
         }
+
+        // Decide on what mode should be applied on sidebar switch
+        AiOS.checkSidebarSwitch();
+
+        aios_adjustToolboxWidth(false);
     },
 
     /*
