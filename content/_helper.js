@@ -178,7 +178,7 @@ var AiOS_ProgressListener = {
     onLocationChange: function (aProgress, aRequest, aURI) {
         if (typeof AiOS_PageInfo == "object")
             AiOS_PageInfo.onLocationChange();
-    },
+    }
 };
 
 /*
