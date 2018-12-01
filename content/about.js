@@ -21,7 +21,7 @@ var AiOS_About = {};
         /* let languages = ['ar-SA', 'be-BY', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-GB', 'en-US', 'es-AR', 'es-ES', 'et-EE', 'fi-FI',
             'fr-FR', 'he-IL', 'hr-HR', 'hu-HU', 'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'lt-LT', 'nb-NO', 'nl-NL', 'pl-PL',
             'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sk-SK', 'sq-AL', 'sr-RS', 'sv-SE', 'tl', 'tr-TR', 'uk-UA', 'vi-VN', 'zh-CN', 'zh-TW']; */
-        let languages = ["en-GB", "en-US", "es-AR", "es-ES", "fr-FR", "it-IT", "ru-RU", "tl"];
+        let languages = ["en-GB", "en-US", "es-AR", "es-ES", "fr-FR", "it-IT", "ru-RU", "tl", "zh-CN"];
 
         // Function to get language name and region from browser strings
         let bundleRegions = document.getElementById("bundleRegions");
