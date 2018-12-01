@@ -1,11 +1,13 @@
 /*** Fixes for extensions using the direction hack ***/
 
-/** Tab Kit 2 **/
+/** Tab Kit 2 and Vertical Tabs Reloaded **/
 
 /* Improperly positioned Tabs Toolbar and Splitter */
+#browser:not([dir="reverse"]) #verticaltabs-box,
 #browser #TabsToolbar {
   -moz-box-ordinal-group: 6 !important;
 }
+#browser:not([dir="reverse"]) #verticaltabs-splitter,
 #browser #tabkit-splitter {
   -moz-box-ordinal-group: 7 !important;
 }
