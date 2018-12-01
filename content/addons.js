@@ -1,36 +1,13 @@
-var AiOS_Addons = {};
+var isInSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
-(function () {
-    // Registration
-    var namespaces = [];
-
-    this.ns = function (fn) {
-        var ns = {};
-        namespaces.push(fn, ns);
-        return ns;
-    };
-
-    this.isInSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
-
+var AiOS_Addons = {
     // Initialization
-    this.initialize = function () {
+    init: function () {
+        if (isInSidebar)
+            AiOS_Addons.setSidebarLayout();
+    },
 
-        for (var i = 0; i < namespaces.length; i += 2) {
-            var fn = namespaces[i];
-
-            var ns = namespaces[i + 1];
-            fn.apply(ns);
-        }
-
-        var self = AiOS_Addons;
-
-        if (self.isInSidebar)
-            self.setSidebarLayout();
-
-    };
-
-    this.setSidebarLayout = function () {
-
+    setSidebarLayout: function () {
         var self = AiOS_Addons,
             before,
             insertedElement,
@@ -85,11 +62,9 @@ var AiOS_Addons = {};
         // Always make navigation buttons visible
         document.getElementById("back-btn").setAttribute("hidden", false);
         document.getElementById("forward-btn").setAttribute("hidden", false);
+    },
 
-    };
-
-    this.setDetailLayout = function () {
-
+    setDetailLayout: function () {
         var self = AiOS_Addons,
             pendingContainer,
             pendingBox,
@@ -134,12 +109,10 @@ var AiOS_Addons = {};
 
         // Detail view: Align buttons in the donation box to the right
         document.getElementById("detail-contributions").childNodes[1].removeAttribute("align");
-
-    };
+    },
 
     // Show or hide notification box depending on existing notifications
-    this.checkNotification = function () {
-
+    checkNotification: function () {
         if (!document.getElementById("updates-noneFound").hidden ||
             !document.getElementById("updates-manualUpdatesFound-btn").hidden ||
             !document.getElementById("updates-progress").hidden ||
@@ -151,19 +124,15 @@ var AiOS_Addons = {};
         } else {
             document.getElementById("updates-container").hidden = true;
         }
-
-    };
+    },
 
     // Hide the notification box
-    this.hideNotification = function () {
-
+    hideNotification: function () {
         document.getElementById("updates-container").hidden = true;
-
-    };
+    },
 
     // Count and display elements
-    this.setTitle = function (aDelay) {
-
+    setTitle: function (aDelay) {
         // without the timeout the childNodes.length of "addon-list" will be 0
         if (aDelay) {
 
@@ -177,7 +146,6 @@ var AiOS_Addons = {};
         var origTitle,
             viewTitle,
             newTitle,
-
             numberOfItems,
             count = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.count"),
             selectedCategory = document.getElementById("categories").getAttribute("last-selected"),
@@ -220,11 +188,10 @@ var AiOS_Addons = {};
         }
 
         return;
-    };
+    },
 
     // Count and return items
-    this.countItems = function (selectedCategory, divider) {
-
+    countItems: function (selectedCategory, divider) {
         /*
          * category-search             => search-list
          * category-discover           => -
@@ -266,12 +233,10 @@ var AiOS_Addons = {};
             str_count = str_count + divider + list_disabled;
 
         return (str_count);
-
-    };
+    },
 
     // Filter richlist items
-    this.filterItems = function (aList, aType) {
-
+    filterItems: function (aList, aType) {
         var r = [],
             childs = document.getElementById(aList).childNodes;
 
@@ -288,19 +253,17 @@ var AiOS_Addons = {};
         }
 
         return r;
-
-    };
+    },
 
     // Clean up
-    this.shutdown = function () {
-        window.removeEventListener("DOMContentLoaded", AiOS_Addons.initialize);
-        window.removeEventListener("load", AiOS_Addons.setDetailLayout);
-        window.removeEventListener("unload", AiOS_Addons.shutdown);
-    };
+    unload: function () {
+        window.removeEventListener("DOMContentLoaded", this.init);
+        window.removeEventListener("load", this.setDetailLayout);
+        window.removeEventListener("unload", this.unload);
+    }
+};
 
-    // Register handlers
-    window.addEventListener("DOMContentLoaded", this.initialize);
-    window.addEventListener("load", this.setDetailLayout);
-    window.addEventListener("unload", this.shutdown);
-
-}).apply(AiOS_Addons);
+// Register handlers
+window.addEventListener("DOMContentLoaded", AiOS_Addons.init);
+window.addEventListener("load", AiOS_Addons.setDetailLayout);
+window.addEventListener("unload", AiOS_Addons.unload);

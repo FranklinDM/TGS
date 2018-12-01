@@ -1,33 +1,27 @@
-var AiOS_Places = {};
+document.getElementById("search-box").parentNode.setAttribute("id", "places-toolbar");
 
-(function () {
-    // Registration
-    var namespaces = [];
-
-    this.ns = function (fn) {
-        var ns = {};
-        namespaces.push(fn, ns);
-        return ns;
-    };
-
-    document.getElementById("search-box").parentNode.setAttribute("id", "places-toolbar");
-
-    this.mode = (document.getElementById("bookmarksPanel")) ? "bookmarks" : "history";
-
-    if (this.mode === "bookmarks") {
-        this.managerWindow = document.getElementById("bookmarksPanel");
-        this.managerTree = document.getElementById("bookmarks-view");
-    } else {
-        this.managerWindow = document.getElementById("history-panel");
-        this.managerTree = document.getElementById("historyTree");
-    }
-
-    this.treeBoxObject = this.managerTree.treeBoxObject;
-
-    this.searchObj = document.getElementById("search-box");
-
+var AiOS_Places = {
+    get mode() {
+        return (document.getElementById("bookmarksPanel")) ? "bookmarks" : "history";
+    },
+    get managerWindow() {
+        if (this.mode == "bookmarks")
+            return document.getElementById("bookmarksPanel");
+        return document.getElementById("history-panel");
+    },
+    get managerTree() {
+        if (this.mode == "bookmarks")
+            return document.getElementById("bookmarks-view");
+        return document.getElementById("historyTree");
+    },
+    get treeBoxObject() {
+        return this.managerTree.treeBoxObject;
+    },
+    get searchObj() {
+        return document.getElementById("search-box");
+    },
     // Initialization
-    this.initialize = function () {
+    init: function () {
         var self = AiOS_Places,
             isInSidebar = (top.document.getElementById("sidebar-box")) ? true : false;
 
@@ -57,22 +51,22 @@ var AiOS_Places = {};
             self.setSidebarLayout();
 
         self.toggleSecondPane();
-    };
+    },
 
-    this.toggleSecondPane = function () {
+    toggleSecondPane: function () {
         let self = AiOS_Places,
             isHidden = !aios_getBoolean(document.getElementById("aios-duplicateList"), "checked");
         document.getElementById("duplicateTree").hidden = isHidden;
         document.getElementById("duplicateSplitter").hidden = isHidden;
 
-        if (self.mode === "history") {
+        if (self.mode == "history") {
             let options = PlacesUtils.history.getNewQueryOptions();
             options.resultType = Ci.nsINavHistoryQueryOptions.RESULTS_AS_DATE_QUERY;
             options.includeHidden = false;
 
             document.getElementById("duplicateTree").load([PlacesUtils.history.getNewQuery()], options);
         }
-        if (self.mode === "bookmarks") {
+        if (self.mode == "bookmarks") {
             document.getElementById("duplicateTree").place = "place:queryType=1&folder=" + window.top.PlacesUIUtils.allBookmarksFolderId;
             // Modifications to be compatible with 2 Pane Bookmarks
             if (typeof Bookmarks2PaneService == "object") {
@@ -80,12 +74,12 @@ var AiOS_Places = {};
                 document.getElementById("aios-duplicateList").hidden = true;
             }
         }
-    };
+    },
 
-    this.checkFolderOptions = function () {
+    checkFolderOptions: function () {
         var self = AiOS_Places,
             lastRowToSelect,
-            lastFolderPref = (self.mode === "bookmarks") ? "lastBookmarkFolder" : "lastHistoryFolder",
+            lastFolderPref = (self.mode == "bookmarks") ? "lastBookmarkFolder" : "lastHistoryFolder",
             options = (aios_getBoolean("aios-enableAutoClose", "checked") || aios_getBoolean("aios-rememberFolder", "checked") || aios_getBoolean("aios-scrollToFolder", "checked"));
 
         if (options) {
@@ -106,13 +100,13 @@ var AiOS_Places = {};
         } else {
             self.managerTree.removeEventListener("click", self.closeOtherFolders);
         }
-    };
+    },
 
-    this.toggleButton = function (aElem) {
+    toggleButton: function (aElem) {
         document.getElementById(aElem.getAttribute("data-dependent")).setAttribute("hidden", !aios_getBoolean(aElem, "checked"));
-    };
+    },
 
-    this.setSidebarLayout = function () {
+    setSidebarLayout: function () {
         var self = AiOS_Places,
             strings = document.getElementById("propSetStrings"),
             blurText = strings.getString("bm_hi.search.blur");
@@ -162,9 +156,9 @@ var AiOS_Places = {};
             new_viewButton.appendChild(popUp);
             self.searchObj.parentNode.appendChild(new_viewButton);
         }
-    };
+    },
 
-    this.selectFolder = function (index) {
+    selectFolder: function (index) {
         var self = AiOS_Places;
 
         if (self.treeBoxObject.view.rowCount >= index) {
@@ -177,9 +171,9 @@ var AiOS_Places = {};
 
             self.treeBoxObject.ensureRowIsVisible(index);
         }
-    };
+    },
 
-    this.closeOtherFolders = function (e) {
+    closeOtherFolders: function (e) {
         // Ignore right-click
         if (e.button >= 2)
             return;
@@ -254,9 +248,9 @@ var AiOS_Places = {};
                 }
             }
         }
-    };
+    },
 
-    this.closeAllFolders = function () {
+    closeAllFolders: function () {
         var aView = AiOS_Places.managerTree.treeBoxObject.view;
 
         // Last opened folder "forgotten"
@@ -274,18 +268,17 @@ var AiOS_Places = {};
             }
             aView.batching(false);
         }
-    };
+    },
 
     // Clean up
-    this.shutdown = function () {
-        window.removeEventListener("DOMContentLoaded", AiOS_Places.initialize, false);
+    shutdown: function () {
+        window.removeEventListener("DOMContentLoaded", AiOS_Places.init, false);
         window.removeEventListener("unload", AiOS_Places.shutdown);
 
         AiOS_Places.managerTree.removeEventListener("click", AiOS_Places.closeOtherFolders);
-    };
+    }
+};
 
-    // Register handlers
-    window.addEventListener("DOMContentLoaded", this.initialize, false);
-    window.addEventListener("unload", this.shutdown);
-
-}).apply(AiOS_Places);
+// Register handlers
+window.addEventListener("DOMContentLoaded", AiOS_Places.init, false);
+window.addEventListener("unload", AiOS_Places.shutdown);
