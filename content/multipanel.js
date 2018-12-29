@@ -104,20 +104,17 @@ var AiOS_MP = {
      * => Called by buttons, aios_panelTab()
      */
     setMultiPanel: function (aMode) {
-        var label,
-            panelLoc;
-        var aios_CONTENT = AiOS_HELPER.mostRecentWindow.document.getElementById("content");
+        let panelLoc;
+        let aios_CONTENT = AiOS_HELPER.mostRecentWindow.document.getElementById("content");
 
         // about: entries
-        if (aMode.indexOf("about:") == 0 && aMode != "about:blank") {
-            panelLoc = (aMode == "about:config") ? "chrome://global/content/config.xul" : aMode;
-            label = aMode;
+        if (aMode.includes("about:") && aMode != "about:blank") {
+            panelLoc = aMode;
         }
         // Web panel page
         else {
             try {
                 panelLoc = aios_CONTENT.currentURI.spec;
-                label = aios_CONTENT.selectedTab.label;
             } catch (e) {
                 // If content is invalid or some error happens, continue.
             }
@@ -128,18 +125,16 @@ var AiOS_MP = {
             }
         }
 
-        // When "Page" is clicked, while in the tab the MultiPanel is loaded
+        // When the 'Page' button is clicked and the MultiPanel is opened in the currently selected tab
         if (panelLoc == "chrome://browser/content/web-panels.xul") {
             panelLoc = aios_CONTENT.contentDocument.getElementById("web-panels-browser").getAttribute("cachedurl");
         }
-
-        var newLabel = "";
 
         this.URLBar.value = panelLoc;
 
         // Open MultiPanel or load contents
         if (top.document.getElementById("sidebar") && top.toString() != "[object Window]")
-            top.openWebPanel(newLabel, panelLoc);
+            top.openWebPanel("", panelLoc);
         else
             getPanelBrowser().contentDocument.location.href = panelLoc;
     },
