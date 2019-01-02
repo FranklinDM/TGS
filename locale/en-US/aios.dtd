@@ -26,7 +26,7 @@
 <!ENTITY button.paneltab.tooltip3 "Open Content of Sidebar in a Window">
 <!ENTITY button.paneltab.menu1.label "Open Tab in Sidebar">
 <!ENTITY button.paneltab.menu2.label "Open Sidebar in Tab">
-<!ENTITY button.autohide.label "SidebarAutomatic">
+<!ENTITY button.autohide.label "Sidebar Auto-hide">
 <!ENTITY button.autohide.tooltip "Toggle Sidebar automatically">
 <!ENTITY button.tooltip.sidebar "Open in the Sidebar">
 <!ENTITY button.tooltip.window "Open in a Window">

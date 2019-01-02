@@ -2,15 +2,15 @@
 <!ENTITY menu.prefs.label "Mga Opsiyon ng The Good 'ol Sidebar…">
 <!ENTITY menu.togglebar.label "Sidebar Switch">
 <!ENTITY menu.grippy.label "Sidebar Grippy">
-<!ENTITY toolbar.name "The Good 'ol Sidebar Toolbar">
+<!ENTITY toolbar.name "Halang ng The Good 'ol Sidebar">
 <!ENTITY toolbar.label "The Good 'ol Sidebar">
-<!ENTITY sbhtoolbar.name "Sidebar Header Toolbar">
+<!ENTITY sbhtoolbar.name "Halang ng Sidebar Header">
 <!ENTITY sbhtoolbar.label "Sidebar Header">
 <!ENTITY button.toggle.label "TGS">
 <!ENTITY button.toggle.tooltip "I-toggle ang mga elementong kontrolado ng The Good 'ol Sidebar">
-<!ENTITY button.switch.tooltip1 "I-toggle ang Sidebar at Toolbar">
-<!ENTITY button.switch.tooltip2 "I-toggle Toolbar">
-<!ENTITY button.switch.tooltip3 "I-toggle Sidebar">
+<!ENTITY button.switch.tooltip1 "I-toggle ang Sidebar at ang Halang ng TGS">
+<!ENTITY button.switch.tooltip2 "I-toggle ang Halang ng TGS">
+<!ENTITY button.switch.tooltip3 "I-toggle ang Sidebar">
 <!ENTITY sidebar.open.label "Buksan ang Sidebar">
 <!ENTITY sidebar.close.label "Isara ang Sidebar">
 <!ENTITY sidebar.width.min "Pinakamababang lapad">
@@ -18,15 +18,15 @@
 <!ENTITY sidebar.width.max "Pinakamataas na lapad">
 <!ENTITY button.menu.label "Mga Sidebar Panel">
 <!ENTITY button.menu.tooltip "Lahat ng mga Sidebar Panel">
-<!ENTITY button.toolbar.label "TGS Toolbar">
-<!ENTITY button.toolbar.tooltip "I-toggle ang TGS Toolbar">
+<!ENTITY button.toolbar.label "Halang ng TGS">
+<!ENTITY button.toolbar.tooltip "I-toggle ang Halang ng TGS">
 <!ENTITY button.paneltab.label "PanelTab">
 <!ENTITY button.paneltab.tooltip1 "Buksan ang Nilalaman ng Tab sa Sidebar">
 <!ENTITY button.paneltab.tooltip2 "Buksan ang Nilalaman ng Sidebar sa New Tab">
 <!ENTITY button.paneltab.tooltip3 "Buksan ang Nilalaman ng Sidebar sa Window">
 <!ENTITY button.paneltab.menu1.label "Buksan ang Tab sa Sidebar">
 <!ENTITY button.paneltab.menu2.label "Buksan ang Sidebar sa Tab">
-<!ENTITY button.autohide.label "SidebarAutomatic">
+<!ENTITY button.autohide.label "Awto-tagô ang Sidebar">
 <!ENTITY button.autohide.tooltip "Awtomatikong i-toggle ang Sidebar">
 <!ENTITY button.tooltip.sidebar "Buksan sa Sidebar">
 <!ENTITY button.tooltip.window "Buksan sa Window">
