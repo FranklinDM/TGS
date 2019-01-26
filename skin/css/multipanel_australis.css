@@ -1,4 +1,6 @@
-/* Basilisk */
+/*
+ * Padlock icons for Australis browsers
+ */
 #lock-icon[level="ev"] {
     list-style-image: url(chrome://browser/skin/connection-secure.svg);
 }

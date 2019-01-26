@@ -1,4 +1,8 @@
-window #JSConsoleWindow, #ConsoleBox {
+/*
+ * GUI
+ */
+window #JSConsoleWindow,
+#ConsoleBox {
 	margin: 0;
 	padding: 0;
 	border: none;
@@ -19,6 +23,8 @@ toolbox {
 #ToolbarMode[hideLabel=true] toolbarbutton:not([class="textonly"]) image {
 	margin: 0;
 }
+
+/* Text */
 .console-row {
 	padding: 5px;
 }
@@ -39,6 +45,8 @@ toolbox {
 	min-height: 16px;
 	margin-right: 10px;
 }
+
+/* Flexible lines */
 .console-row .console-error-source,
 .console-row .console-error-source label,
 .console-row .console-row-code label {
@@ -53,12 +61,16 @@ toolbox {
 .console-row:not([selected=true]) .lineNumberRow label:first-child {
 	margin-left: 5px;
 }
+
+/* Error in next line */
 .console-row[selected=true] .console-row-file {
 	-moz-box-orient: vertical;
 }
 .console-row[selected=true] .lineNumberRow label {
 	margin-top: 3px;
 }
+
+/* Colored Lists */
 *[aios-appDefTheme="true"] .console-row:not([selected=true])[type="error"],
 *[aios-appDefTheme="true"] .console-row:not([selected=true])[type="exception"] {
 	background-color: #FFECEC;
@@ -82,6 +94,8 @@ toolbox {
 *[aios-appDefTheme="true"] .console-row[selected=true] description {
 	font-weight: bold;
 }
+
+/* Custom styling for default theme on Windows */
 *[aios-appDefTheme="true"][aios-appOS="WINNT"] #ToolbarMode,
 *[aios-appDefTheme="true"][aios-appOS="WINNT"] #ToolbarExt,
 *[aios-appDefTheme="true"][aios-appOS="WINNT"] #ToolbarEval {
@@ -130,6 +144,10 @@ toolbox {
 *[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #ToolbarEval {
 	-moz-appearance: none;
 }
+
+/*
+ * Error Console^2 (to-be-removed-in-near-future)
+ */
 #Console2Window #ConsoleBox {
 	-moz-appearance: none;
 }

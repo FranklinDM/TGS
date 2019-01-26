@@ -1,3 +1,6 @@
+/*
+ * GUI
+ */
 #contentAreaDownloadsView {
     margin: 0;
     padding: 0;
@@ -6,7 +9,25 @@
 #main-bar #clearListButton {
     margin-right: 5px;
 }
+window[aios-inSidebar] #downloadsRichListBox > richlistitem.download {
+	height: auto;
+}
+
+/* Icons */
 window #clearListButton {
     list-style-image: url(../icons/panels_menus.png);
     -moz-image-region: rect(0,  48px,  16px,  32px);
+}
+
+/* Mark download items based on status */
+window[aios-downloadShade="true"] richlistitem:not([selected=true]):not([state="1"]) {
+	color: #660000;
+	background-color: #FFECEC;
+}
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="-1"],
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="0"],
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="4"],
+window[aios-downloadShade="true"] richlistitem:not([selected=true])[state="5"] {
+	color: #006600;
+	background-color: #ECFFEC;
 }

@@ -1,3 +1,6 @@
+/*
+ * Icons
+ */
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
 	list-style-image: url(../icons/toolbar_windows.png);
 }
@@ -38,6 +41,11 @@ window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolbar-button {
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #cookies-button {
 	-moz-image-region: rect(0px,  234px,  18px,  216px);
 }
+
+
+/*
+ * Menu Icons
+ */
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab1"],
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_panelTab2"],
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem #aios-sidebar-mitem-show,
@@ -60,10 +68,21 @@ window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem #aios-sideb
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) menuitem[key="aiosKey_prefs"] {
 	-moz-image-region: rect(32px,  16px,  48px,  0);
 }
+
+
+/*
+ * Button margins on vertical toolbar
+ */
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toolbar[orient="vertical"] toolbarbutton {
 	margin: 2px 1px;
 }
-window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .toolbarbutton-icon, window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .dropmarker-icon {
+
+
+/*
+ * Default theme styling
+ */
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .toolbarbutton-icon,
+window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aios-appDefTheme="true"] toolbarbutton[type="checkbox"]:not([checked="true"]):not(:hover) .dropmarker-icon {
 	background-image: none !important;
 	background-color: transparent !important;
 	box-shadow: none !important;

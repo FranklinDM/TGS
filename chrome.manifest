@@ -5,7 +5,7 @@ manifest 	locales.manifest
 
 overlay     chrome://browser/content/browser.xul                       chrome://aios/content/aios.xul
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios.css
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_fixes.css
+style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_orientation.css
 
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_theme_generic.css
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_theme.css				os=WINNT
@@ -38,9 +38,6 @@ overlay     chrome://browser/content/web-panels.xul                    chrome://
 style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/css/multipanel.css
 
 overlay     chrome://browser/content/preferences/cookies.xul           chrome://aios/content/cookies.xul
-
-overlay     chrome://global/content/config.xul                         chrome://aios/content/multipanel_config.xul
-style       chrome://global/content/config.xul                         chrome://aios/skin/css/multipanel_config.css
 
 overlay     chrome://browser/content/pageinfo/pageInfo.xul             chrome://aios/content/pageinfo.xul
 style       chrome://browser/content/pageinfo/pageInfo.xul             chrome://aios/skin/css/pageinfo.css

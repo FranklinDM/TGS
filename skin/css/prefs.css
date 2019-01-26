@@ -1,3 +1,6 @@
+/*
+ * GUI
+ */
 .paneSelector radio[pane] {
 	list-style-image: url(../icons/prefs.png);
 }
@@ -19,10 +22,14 @@ radio[pane=aiosAbout] {
 radio[pane=aiosSbSwitch] {
     -moz-image-region: rect(0,  192px,  32px,  160px);
 }
-#obj-minWidthVal, #obj-defWidthVal, #obj-maxWidthVal {
+#obj-minWidthVal,
+#obj-defWidthVal,
+#obj-maxWidthVal {
 	width: 45px;
 }
-#obj-minWidthUnit, #obj-defWidthUnit, #obj-maxWidthUnit {
+#obj-minWidthUnit,
+#obj-defWidthUnit,
+#obj-maxWidthUnit {
 	min-width: 80px;
 }
 .arrow-lft {
@@ -40,6 +47,11 @@ radio[pane=aiosSbSwitch] {
 	transform: rotate(180deg);
 	margin-left: 5px;
 }
+
+
+/*
+ * Styles
+ */
 .indent {
 	margin-left: 1.8em;
 }
@@ -64,6 +76,11 @@ radio[pane=aiosSbSwitch] {
 .bold {
 	font-weight: bold;
 }
+
+
+/*
+ * Tooltips
+ */
 .labelTipElem {
 	-moz-box-orient: vertical;
 }
@@ -98,12 +115,14 @@ toolbarbutton.info {
 toolbarbutton.info label {
 	display: none;
 }
-#aiosPreferences #aiosAbout #aboutHeader, #aiosPreferences #aiosAbout #aboutHeaderMac {
-	display: none;
-}
-#aiosAbout:not([aios-appOS="Darwin"]) #aboutHeaderMac {
-	display: none;
-}
+
+
+/*
+ * About Pane
+ */
+#aiosPreferences #aiosAbout #aboutHeader,
+#aiosPreferences #aiosAbout #aboutHeaderMac,
+#aiosAbout:not([aios-appOS="Darwin"]) #aboutHeaderMac,
 #aiosAbout[aios-appOS="Darwin"] #aboutHeader {
 	display: none;
 }

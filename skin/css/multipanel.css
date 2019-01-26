@@ -1,3 +1,6 @@
+/*
+ * GUI
+ */
 #commandBar .toolbarbutton-1 {
 	-moz-box-orient: horizontal;
 	list-style-image: url(../icons/panels_menus.png) !important;
@@ -43,33 +46,26 @@ page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolsButton {
 #commandBar {
 	padding: 2px;
 }
+
 /* Indent adapt to sidebar width menu item */
 #ssrSidebar-mitem {
 	padding-left: 13px;
 }
-page[aios-appDefTheme="true"] #commandBar {
-	border-top: 1px solid ThreedHighlight;
-	border-bottom: 1px solid ThreedShadow;
-}
-page[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #commandBar {
-	background-color: #eef3fa;
-}
 
-/* padlock icons */
+/* Padlock icons */
 #lock-icon[level="ev"] {
 	list-style-image: url("chrome://browser/content/padlock_mod_ev.png");
 }
 #lock-icon[level="high"] {
 	list-style-image: url("chrome://browser/content/padlock_mod_https.png");
 }
-#lock-icon[level="low"], #lock-icon[level="mixed"] {
+#lock-icon[level="low"],
+#lock-icon[level="mixed"] {
 	list-style-image: url("chrome://browser/content/padlock_mod_low.png");
 }
 #lock-icon[level="broken"] {
 	list-style-image: url("chrome://browser/content/padlock_mod_broken.png");
 }
-
-/* padlock image region */
 #lock-icon {
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }

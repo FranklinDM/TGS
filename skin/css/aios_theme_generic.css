@@ -1,3 +1,6 @@
+/*
+ * Sidebar Switch
+ */
 window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toggle-toolbar {
 	border-top: none;
 	border-right: 1px solid ThreedShadow;
@@ -6,6 +9,11 @@ window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwi
 	border-left: none;
 	border-left: 1px solid ThreedShadow;
 }
+
+
+/*
+ * TGS Toolbar
+ */
 window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toolbox-left,
 window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toolbox-right,
 window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #aios-toolbox-sidebartop,
@@ -29,6 +37,11 @@ window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwi
 window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"])[aiosOrient="right"] #aios-toolbar[posMode="1"] {
 	border-left: 1px solid ThreedShadow;
 }
+
+
+/*
+ * Sidebar Splitter
+ */
 window[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #sidebar-splitter[orient="horizontal"] {
 	border: none !important;
 }

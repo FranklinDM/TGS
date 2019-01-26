@@ -1,3 +1,6 @@
+/*
+ * GUI
+ */
 page[aios-inSidebar] #bookmarksPanel,
 page[aios-inSidebar] #bookmarks-view,
 page[aios-inSidebar] tree #bookmarks-view,
@@ -13,6 +16,11 @@ page[aios-inSidebar] tree {
 page[aios-inSidebar] label[control="search-box"] {
 	display: none;
 }
+
+
+/*
+ * Icons
+ */
 page[aios-inSidebar] #closeFolder,
 page[aios-inSidebar] #viewButton {
 	list-style-image: url(../icons/panels_menus.png);
@@ -35,25 +43,4 @@ page[aios-inSidebar] #closeFolder {
 }
 page[aios-inSidebar] #viewButton {
 	-moz-image-region: rect(0,  16px,  16px,  0);
-}
-page[aios-inSidebar][aios-appDefTheme="true"] #places-toolbar > * {
-	margin: 1px;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] #search-box.blur {
-	color: #ACA899;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] #places-toolbar {
-	padding: 0 1px 1px 1px;
-	border-top: 1px solid ThreedHighlight;
-	border-bottom: 1px solid ThreedShadow;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] #viewButton dropmarker image {
-	margin: 0 2px 0 3px;
-}
-page[aios-inSidebar][aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #bookmarks-view,
-page[aios-inSidebar][aios-appDefTheme="true"][aios-appOS="WINNT"]:-moz-system-metric(windows-default-theme) #historyTree {
-	background-color: #EEF3FA;
-}
-page[aios-inSidebar][aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #places-toolbar {
-	background: #eef3fa;
 }

@@ -84,7 +84,8 @@ var AiOS_Downloads = {
      * Activates the layout adapted to the sidebar
      */
     sidebarLayout: function () {
-        aios_addCSS("downloads_sb.css", aios_managerWindow);
+        AiOS_HELPER.rememberAppInfo(aios_managerWindow);
+        aios_managerWindow.setAttribute("aios-inSidebar", "true");
     },
 
     /*

@@ -1,17 +1,13 @@
+/*
+ * Icons
+ */
 toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
     list-style-image: url(../icons/toolbar_windows.png);
 }
-
-:-moz-any(#aios-toolbar, #aios-sbhtoolbar) .toolbarbutton-1 > .toolbarbutton-icon,
-:-moz-any(#aios-toolbar, #aios-sbhtoolbar) .toolbarbutton-1 > :-moz-any(.toolbarbutton-menubutton-button, .toolbarbutton-badge-stack) > .toolbarbutton-icon {
-  max-width: none;
-}
-
 toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button),
 toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
 	list-style-image: url(../icons/toolbar_windows_inverted.png);
 }
-
 #bookmarks-button {
     -moz-image-region: rect(0px, 18px, 18px, 0px)
 }
@@ -19,6 +15,14 @@ toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-bu
     -moz-image-region: rect(0px, 36px, 18px, 18px)
 }
 
+
+/*
+ * Others
+ */
+:-moz-any(#aios-toolbar, #aios-sbhtoolbar) .toolbarbutton-1 > .toolbarbutton-icon,
+:-moz-any(#aios-toolbar, #aios-sbhtoolbar) .toolbarbutton-1 > :-moz-any(.toolbarbutton-menubutton-button, .toolbarbutton-badge-stack) > .toolbarbutton-icon {
+  max-width: none;
+}
 #aios-toolbar toolbarbutton.bookmark-item:not(.subviewbutton),
 #aios-toolbar #personal-bookmarks[cui-areatype="toolbar"]:not([overflowedItem=true]) > #bookmarks-toolbar-placeholder {
 	padding: 0;

@@ -1,16 +1,22 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 :root {
-  --aios-switch-hovercolor: Highlight;
-  --aios-grippy-cursor: pointer;
+    --aios-switch-hovercolor: Highlight;
+    --aios-grippy-cursor: pointer;
 }
 
+
+/*
+ * Sidebar Switch
+ *
+ * Themes must not override the settings for border and margin,
+ * otherwise the switch might not be styled correctly.
+ */
 window[inDOMFullscreen] #aios-toggle-toolbox,
 window[inDOMFullscreen] #aios-toolbox-left,
 window[inDOMFullscreen] #aios-toolbox-right {
     display: none;
 }
-
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox,
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-toolbar {
     margin: 0 !important;
@@ -21,7 +27,8 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
     margin: 0 !important;
     border-right: none !important;
 }
-#aios-toggle-toolbox, #aios-toggle-toolbar {
+#aios-toggle-toolbox,
+#aios-toggle-toolbar {
     padding: 0;
     border: none;
 }
@@ -42,7 +49,17 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
 #aios-toggle-button[invHover="false"]:hover {
   background-color: transparent;
 }
-#aios-toolbox-left, #aios-toolbox-right, #aios-toolbox-sidebartop, #aios-toolbox-sidebartop2, #aios-toolbox-sidebarbottom, #aios-sbhtoolbox {
+
+
+/*
+ * TGS Toolbar
+ */
+#aios-toolbox-left,
+#aios-toolbox-right,
+#aios-toolbox-sidebartop,
+#aios-toolbox-sidebartop2,
+#aios-toolbox-sidebarbottom,
+#aios-sbhtoolbox {
     border: none;
 }
 #aios-toolbar {
@@ -64,21 +81,41 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
     font-weight: bold;
     border: none;
 }
+
+
+/*
+ * Flexible Buttons
+ */
 #aios-toolbar[flexbuttons="true"] toolbarbutton {
     -moz-box-flex: 1;
 }
+
+
+/*
+ * Vertical Buttons
+ */
 window[aiosVButtons="false"] #aios-toolbar[orient="vertical"] toolbarbutton {
     -moz-box-orient: horizontal !important;
 }
 window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
     -moz-box-orient: vertical !important;
 }
+
+
+/*
+ * Toolbar Mode: Text
+ */
 #aios-toolbar[orient="vertical"][mode="text"] toolbarbutton {
     -moz-box-orient: horizontal;
 }
 #aios-toolbar[orient="vertical"][mode="text"] toolbarbutton .toolbarbutton-text {
     text-align: left;
 }
+
+
+/*
+ * Style of controls when in Customize Mode
+ */
 #aios-toolbar[orient="vertical"] toolbarspacer,
 #aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-spacer"] {
     height: 21px;
@@ -127,6 +164,11 @@ window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
     border-color: transparent;
     border-bottom-color: #000000;
 }
+
+
+/*
+ * Grippy
+ */
 #aios-toggle-toolbox grippy,
 #sidebar-splitter grippy {
     -moz-binding: url("chrome://aios/content/aios.xml#aiosGrippy");
@@ -153,10 +195,21 @@ window[aiosOrient="right"] #aios-toggle-toolbox grippy,
 window[aiosOrient="right"] #sidebar-splitter[orient="horizontal"] grippy {
     background-image: url(../img/grippy-right.gif);
 }
+
+
+/*
+ * Disabled icons
+ */
 .aios-noIcons > .menu-iconic-left image {
     display: none;
 }
-#personal-bookmarks, #PlacesToolbarItems {
+
+
+/* 
+ * Vertical Bookmarks on the TGS Toolbar
+ */
+#personal-bookmarks,
+#PlacesToolbarItems {
     -moz-box-orient: horizontal;
 }
 #aios-toolbar[orient="vertical"] #personal-bookmarks,
@@ -164,18 +217,24 @@ window[aiosOrient="right"] #sidebar-splitter[orient="horizontal"] grippy {
     -moz-box-orient: vertical;
 }
 #aios-toolbar[orient="vertical"][mode="icons"] label,
-#aios-toolbar[orient="vertical"][mode="icons"] .chevron>label {
+#aios-toolbar[orient="vertical"][mode="icons"] .chevron > label {
     display: none !important;
 }
 #aios-toolbar[orient="vertical"][mode="icons"] menupopup label {
     display: block !important;
 }
-#aios-toolbar[mode="icons"]:not([iconsize="small"]) .bookmark-item>image {
+#aios-toolbar[mode="icons"]:not([iconsize="small"]) .bookmark-item > image {
     width: 22px;
     height: 22px;
     margin: 1px;
 }
-#sidebar, #sidebar-box {
+
+
+/*
+ * Sidebar
+ */
+#sidebar,
+#sidebar-box {
     margin: 0;
     padding: 0;
     max-width: none !important;
@@ -199,7 +258,13 @@ sidebarheader > .tabs-closebutton,
 sidebarheader > .close-icon.tabbable {
     display: none;
 }
-#aios-sbhtoolbox, #aios-sbhtoolbar {
+
+
+/*
+ * Sidebar Header Toolbar
+ */
+#aios-sbhtoolbox,
+#aios-sbhtoolbar {
     -moz-appearance: none;
     min-width: 30px;
     background-color: transparent;
@@ -207,62 +272,10 @@ sidebarheader > .close-icon.tabbable {
     border: none;
 }
 
-/*** Elements inside #browser ***/
 
-/** Original Elements **/
-/* Borders on both sides (invisible in Win10) */
-#browser-border-start {
-  -moz-box-ordinal-group: 0;
-}
-#browser-border-end {
-  -moz-box-ordinal-group: 9999;
-}
-
-/* Sidebar splitter */
-window[aiosOrient="left"] #sidebar-splitter {
-  -moz-box-ordinal-group: 5;
-}
-window[aiosOrient="right"] #sidebar-splitter {
-  -moz-box-ordinal-group: 70;
-}
-
-/** TGS Elements **/
-/* Orientation: Left Side */
-#appcontent {
-  -moz-box-ordinal-group: 50;
-}
-window[aiosOrient="left"] #aios-toggle-toolbox {
-  -moz-box-ordinal-group: 1;
-}
-window[aiosOrient="left"] #aios-toolbox-left {
-  -moz-box-ordinal-group: 2;
-}
-window[aiosOrient="left"] #sidebar-box {
-  -moz-box-ordinal-group: 3;
-}
-window[aiosOrient="left"] #aios-toolbox-right {
-  -moz-box-ordinal-group: 4;
-}
-
-/* Orientation: Right Side */
-window[aiosOrient="right"] #aios-toggle-toolbox {
-  -moz-box-ordinal-group: 74;
-}
-window[aiosOrient="right"] #aios-toolbox-left {
-  -moz-box-ordinal-group: 73;
-}
-window[aiosOrient="right"] #sidebar-box {
-  -moz-box-ordinal-group: 72;
-}
-window[aiosOrient="right"] #aios-toolbox-right {
-  -moz-box-ordinal-group: 71;
-}
-
-/* Fix for invisible sidebar switch */
-window[aiosOrient="right"] #aios-toggle-toolbar {
-  right: 0;
-}
-
+/*
+ * Tooltips
+ */
 #aiosPopupset tooltip {
     padding: 1px;
 }
@@ -287,6 +300,11 @@ window[aiosOrient="right"] #aios-toggle-toolbar {
     border-top: none;
     border-bottom: 1px solid ThreedDarkShadow;
 }
+
+
+/*
+ * Print Preview
+ */
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toggle-toolbox,
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #sidebar-box,
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox-left,
@@ -294,18 +312,35 @@ window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox-rig
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #sidebar-splitter {
     display: none;
 }
+
+
+/*
+ * Add-on compatibility: fixes
+ */
+
+/* TotalToolbar */
 sidebarheader #tt-toolbox-sidebarheader {
     display: none;
 }
-#console2-button, menuitem[observes="viewConsole2Sidebar"]:not([id="console-mitem"]) {
+
+/* Console^2 */
+#console2-button,
+menuitem[observes="viewConsole2Sidebar"]:not([id="console-mitem"]) {
     display: none !important;
 }
-#emSidebar, #tmSidebar {
+
+/* MR Tech Local Install & Download Manager Tweak */
+#emSidebar,
+#tmSidebar {
     display: none !important;
 }
+
+/* Download Manager Tweak */
 menuitem[id="menu_dmtSidebar"] {
     display: none !important;
 }
+
+/* EZ Sidebar */
 menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:show"],
 menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:hide"] {
     display: none !important;
@@ -313,23 +348,21 @@ menuitem[ezsidebar-id="ezsidebar:viewSidebarMenu:hide"] {
 window:not([windowtype="mozilla:sidebar"]) #ezsidebar-panels-button {
     display: none !important;
 }
-window[persona] #browser, window[lwtheme="true"] #browser {
+
+/*
+ * Lightweight Themes
+ */
+window:-moz-lwtheme #browser {
     border-top: none !important;
 }
-window[persona] #aios-toggle-toolbar,
-window[persona] #aios-toolbar,
-window[persona] sidebarheader,
-window[persona]:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"],
-window[persona] #sidebar-splitter[orient="horizontal"] hbox,
-window[lwtheme="true"] #aios-toggle-toolbar,
-window[lwtheme="true"] #aios-toolbar,
-window[lwtheme="true"] sidebarheader,
-window[lwtheme="true"]:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"],
-window[lwtheme="true"] #sidebar-splitter[orient="horizontal"] hbox {
+window:-moz-lwtheme #aios-toggle-toolbar,
+window:-moz-lwtheme #aios-toolbar,
+window:-moz-lwtheme sidebarheader,
+window:-moz-lwtheme:-moz-system-metric(windows-default-theme) #aios-toolbar[posMode="4"],
+window:-moz-lwtheme #sidebar-splitter[orient="horizontal"] hbox {
     border: none !important;
     background-color: transparent !important;
 }
-window[persona] #sidebar-splitter[orient="horizontal"],
-window[lwtheme="true"] #sidebar-splitter[orient="horizontal"] {
+window:-moz-lwtheme #sidebar-splitter[orient="horizontal"] {
     -moz-appearance: none !important;
 }

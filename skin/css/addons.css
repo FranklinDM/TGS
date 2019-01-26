@@ -1,9 +1,16 @@
-page[aios-inSidebar] {
+/*
+ * GUI
+ */
+page[aios-inSidebar],
+page[aios-inSidebar] .main-content,
+page[aios-inSidebar] .view-pane > .list > scrollbox {
 	padding: 0;
 }
-page[aios-inSidebar] .main-content, page[aios-inSidebar] .view-pane > .list > scrollbox {
-	padding: 0;
-}
+
+
+/*
+ * Navigation
+ */
 page[aios-inSidebar] #nav-header {
 	display: none;
 }
@@ -29,6 +36,11 @@ page[aios-inSidebar] #category-recentUpdates[disabled="true"],
 page[aios-inSidebar] .category-name, page[aios-inSidebar] .category-badge {
 	display: none;
 }
+
+
+/*
+ * Header
+ */
 page[aios-inSidebar] #header {
 	margin: 0;
 	padding: 5px 5px 0 0 !important;
@@ -37,6 +49,11 @@ page[aios-inSidebar] #header-utils-btn {
 	margin: 0 5px;
 	min-width: 0;
 }
+
+
+/*
+ * Content
+ */
 page[aios-inSidebar] #updates-container {
 	padding: 5px 0;
 }
@@ -64,10 +81,16 @@ page[aios-inSidebar] #search-filter {
 	padding: 0;
 	font-size: 11px;
 }
+/* Text buttons in header and richlist items */
 page[aios-inSidebar] button.button-link {
 	margin: 0;
 	padding: 0;
 }
+
+
+/*
+ * Add-ons
+ */
 page[aios-inSidebar] .addon {
 	padding: 5px;
 }
@@ -110,6 +133,8 @@ page[aios-inSidebar] .addon .creator,
 page[aios-inSidebar] .addon .date-updated {
 	display: none;
 }
+
+/* Unselected Add-ons */
 page[aios-inSidebar] .addon:not([selected="true"]) .icon-container,
 page[aios-inSidebar] .addon:not([selected="true"]) .icon {
 	height: 16px;
@@ -126,6 +151,8 @@ page[aios-inSidebar] .addon:not([selected="true"]) .relnotes-container,
 page[aios-inSidebar] .addon:not([selected="true"]) .relnotes-toggle {
 	display: none;
 }
+
+/* Selected Add-ons */
 page[aios-inSidebar] .addon[selected="true"] .icon-container,
 page[aios-inSidebar] .addon[selected="true"] .icon {
 	height: 32px;
@@ -175,6 +202,11 @@ page[aios-inSidebar] .addon[selected="true"] .control-container > *:first-child 
 page[aios-inSidebar] .addon[selected="true"] .control-container .button-box {
 	padding: 0 3px !important;
 }
+
+
+/*
+ * Detail View
+ */
 page[aios-inSidebar] #detail-view {
 	margin: 0;
 }
@@ -267,6 +299,11 @@ page[aios-inSidebar] #detail-view #detail-rating-row > hbox {
 page[aios-inSidebar] #detail-view #detail-controls button {
 	margin-left: 0;
 }
+
+
+/*
+ * Default theme styling
+ */
 page[aios-inSidebar][aios-appDefTheme="true"] {
 	background-image: none;
 }
