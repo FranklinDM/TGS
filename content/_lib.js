@@ -166,6 +166,19 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
     return returnVals;
 }
 
+function aios_setMultiPanel(aMode) {
+    let panelLoc;
+    let aios_CONTENT = AiOS_HELPER.mostRecentWindow.document.getElementById("content");
+    if (aMode.includes("about:") && aMode != "about:blank") {
+        panelLoc = aMode;
+    } else {
+        panelLoc = aios_CONTENT.currentURI.spec;
+    }
+
+    // Assume that we are on a browser window
+    openWebPanel("", panelLoc);
+}
+
 /*
  * Opens the Tab URL in the Sidebar or the Sidebar URL in a new tab
  * =>  Called by   <command id = "aiosCmd_panelTab1">
@@ -240,11 +253,11 @@ function aios_panelTab(event) {
         }
         // about:
         else if (tabHref.indexOf("about:") >= 0) {
-            AiOS_MP.setMultiPanel(tabHref);
+            aios_setMultiPanel(tabHref);
         }
         // normal Website
         else {
-            AiOS_MP.setMultiPanel("page");
+            aios_setMultiPanel("page");
         }
     }
     /*
