@@ -20,13 +20,6 @@ var AiOS_Compatibility = {};
             fn.apply(ns);
         }
 
-        // Console2
-        if (document.getElementById("viewConsole2Sidebar") || document.getElementById("console2-button")) {
-            window.setTimeout(function () {
-                AiOS_Compatibility.console2();
-            }, 500);
-        }
-
         // MinimizeToTray
         if (document.getElementById("extensions.mook.minimizetotray.traypopup")) {
             window.setTimeout(function () {

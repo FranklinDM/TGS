@@ -352,8 +352,6 @@
                        tooltiptext="&button.console.tooltip;">
             <observes element="viewConsoleSidebar"
                       attribute="checked" />
-            <observes element="viewConsole2Sidebar"
-                      attribute="checked" />
             <observes element="viewConsoleSidebar"
                       attribute="onclick" />
         </toolbarbutton>

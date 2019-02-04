@@ -144,28 +144,3 @@ toolbox {
 *[aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #ToolbarEval {
 	-moz-appearance: none;
 }
-
-/*
- * Error Console^2 (to-be-removed-in-near-future)
- */
-#Console2Window #ConsoleBox {
-	-moz-appearance: none;
-}
-#Console2Window .console-row-number label:first-child {
-	margin-right: 5px;
-}
-#Console2Window richlistitem[selected=true] box+box {
-	-moz-box-orient: vertical;
-}
-#Console2Window richlistitem[selected=true] box+box .console-row-number {
-	margin-top: 3px;
-}
-#Console2Window .console-row[category~="CSS"] .console-row-icon box {
-	background: url("../img/console_css.png") no-repeat left center;
-}
-#Console2Window .console-row[category]:not([category~="javascript"]):not([category~="JavaScript"]):not([category~="CSS"]) .console-row-icon box {
-	background: url("../img/console_xml.png") no-repeat left center;
-}
-#Console2Window .console-row-dupes, #Console2Window .console-row-timestamp {
-	margin-left: 10px;
-}

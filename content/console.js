@@ -3,8 +3,6 @@
 var conWindow;
 if (document.getElementById("JSConsoleWindow"))
     conWindow = document.getElementById("JSConsoleWindow");
-if (document.getElementById("Console2Window"))
-    conWindow = document.getElementById("Console2Window");
 
 var AiOS_Console = {
     /*
@@ -59,8 +57,6 @@ var AiOS_Console = {
 
             // Hide labels => only if there are icons
             cStyle = document.defaultView.getComputedStyle(document.getElementById("Console:modeAll"), "");
-        } else if (conWindow.id == "Console2Window") {
-            cStyle = document.defaultView.getComputedStyle(document.getElementById("item_modeAll"), "");
         }
 
         if (cStyle && cStyle.listStyleImage && cStyle.listStyleImage != "none") {

@@ -323,12 +323,6 @@ sidebarheader #tt-toolbox-sidebarheader {
     display: none;
 }
 
-/* Console^2 */
-#console2-button,
-menuitem[observes="viewConsole2Sidebar"]:not([id="console-mitem"]) {
-    display: none !important;
-}
-
 /* MR Tech Local Install & Download Manager Tweak */
 #emSidebar,
 #tmSidebar {

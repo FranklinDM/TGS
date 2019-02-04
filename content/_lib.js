@@ -67,7 +67,7 @@ function aios_modSidebarMenu() {
     // Hide extra separator if there are no non-default sidebar panels
     // or if beside it are sidebar panels that are overriding the default panel options
     var mitemsep1 = document.getElementById("aios-sidebar-mitem-sep1");
-    if (mitemsep1.nextSibling.id == "aios-sidebar-mitem-sep0" || mitemsep1.nextSibling.getAttribute("observes") == "viewConsole2Sidebar" || mitemsep1.nextSibling.getAttribute("observes") == "viewSdDownloadsSidebar")
+    if (mitemsep1.nextSibling.id == "aios-sidebar-mitem-sep0" || mitemsep1.nextSibling.getAttribute("observes") == "viewSdDownloadsSidebar")
         mitemsep1.setAttribute("hidden", true);
 
     // Show/hide menu entries (open/close the sidebar and settings) and move
@@ -466,8 +466,6 @@ function aios_setTargets() {
 
     // Overrides for other sidebar extensions
     // Ideally in the future, it would be better to get this from the observer directly on startup
-    if (document.getElementById("viewConsole2Sidebar"))
-        targets["co"] = ["Tools:Console", "viewConsole2Sidebar", "console", "aios_openDialog('" + document.getElementById("viewConsole2Sidebar").getAttribute("sidebarurl") + "', 'Tools:Console');"];
     if (document.getElementById("viewSdDownloadsSidebar"))
         targets["dm"] = ["Tools:Downloads", "viewSdDownloadsSidebar", "downloads", "aios_openDialog('" + document.getElementById("viewSdDownloadsSidebar").getAttribute("sidebarurl") + "', 'Tools:Console');"];
 
