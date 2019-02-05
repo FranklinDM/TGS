@@ -86,24 +86,16 @@ radio[pane=aiosSbSwitch] {
 }
 .labelTipElem box {
 	width: 260px;
-	max-width: 260px;
-	height: 31px;
+	height: 30px;
 	margin-top: 10px;
 	background: url(../img/sidebarheader.gif) no-repeat;
 }
-.labelTip, .labelTip > label {
+.labelTip,
+.labelTip > label {
 	cursor: help;
 }
 .labelTip > label {
 	border-bottom: 1px dotted;
-}
-prefwindow:-moz-system-metric(windows-default-theme) .labelTipElem box {
-	height: 27px;
-	background-position: 0 -31px;
-}
-prefwindow:not([aios-appOS="WINNT"]) .labelTipElem box {
-	height: 30px;
-	background-position: -520px 0;
 }
 toolbarbutton.info {
 	-moz-appearance: none;
