@@ -284,6 +284,9 @@ var AiOS_MP = {
         }
         getPanelBrowser().setAttribute("linkedopt", document.getElementById("aios-linkedbtn").getAttribute("checked"));
         getPanelBrowser().setAttribute("syncscroll", document.getElementById("aios-syncscroll").getAttribute("checked"));
+        // Remove listeners set by synchronized scrolling feature
+        getPanelBrowser().removeEventListener("scroll", AiOS_MP.synchronizeScrollPanel);
+        AiOS_HELPER.mostRecentWindow.document.getElementById("content").removeEventListener("scroll", AiOS_MP.synchronizeScrollBrowser);
     },
 
     getPageOptions: function () {
