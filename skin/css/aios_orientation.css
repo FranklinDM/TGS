@@ -105,3 +105,15 @@ window[aiosOrient="left"] #browser[dir="reverse"] #sidebar-splitter {
 window[aiosOrient="right"] #browser[dir="reverse"] #sidebar-splitter {
   -moz-box-ordinal-group: 5;
 }
+
+/*
+ * Orientation fixes for other extensions
+ */
+
+/* Scrollbar Search Highlighter */
+#browser[dir="normal"] #highlight-grid {
+  -moz-box-ordinal-group: 51;
+}
+#browser[dir="reverse"] #highlight-grid {
+  -moz-box-ordinal-group: 49;
+}
