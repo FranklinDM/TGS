@@ -2,6 +2,7 @@
 <!ENTITY page.tooltip "Abrir la página web en éste panel">
 <!ENTITY page.ssr.label "Pantalla en Miniatura">
 <!ENTITY page.ssr100.label "Adaptar al Ancho de la Barra Lateral">
+<!ENTITY page.viewsource.label "View Page Source of Current Tab">
 <!ENTITY about.label "acerca de:">
 <!ENTITY about.tooltip "Muestra diversa información acerca del navegador">
 <!ENTITY about.config.tooltip "Presenta una interface para ver y setear una amplia variedad de variables de configuración">

@@ -2,6 +2,7 @@
 <!ENTITY page.tooltip "Open the web page in this panel">
 <!ENTITY page.ssr.label "Small Screen Rendering">
 <!ENTITY page.ssr100.label "Adapt to Sidebar Width">
+<!ENTITY page.viewsource.label "View Page Source of Current Tab">
 <!ENTITY about.label "about:">
 <!ENTITY about.tooltip "Shows different information about the browser">
 <!ENTITY about.config.tooltip "Shows an interface for viewing and setting a wide variety of configuration variables">

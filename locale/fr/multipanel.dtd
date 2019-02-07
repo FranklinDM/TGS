@@ -2,6 +2,7 @@
 <!ENTITY page.tooltip "Ouvre la page Web dans ce panneau">
 <!ENTITY page.ssr.label "Affichage pour écran réduit">
 <!ENTITY page.ssr100.label "Adapter à la largeur du panneau latéral">
+<!ENTITY page.viewsource.label "View Page Source of Current Tab">
 <!ENTITY about.label "about:">
 <!ENTITY about.tooltip "Affiche diverses informations à propos du navigateur">
 <!ENTITY about.config.tooltip "Affiche une interface d'édition et configuration pour un grand nombre de variables paramétrables">

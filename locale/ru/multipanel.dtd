@@ -2,6 +2,7 @@
 <!ENTITY page.tooltip "Открыть веб-страницу в этой панели">
 <!ENTITY page.ssr.label "Режим рендеринга для маленьких экранов">
 <!ENTITY page.ssr100.label "Адаптировать к ширине боковой панели">
+<!ENTITY page.viewsource.label "View Page Source of Current Tab">
 <!ENTITY about.label "about:">
 <!ENTITY about.tooltip "Показывает различную информацию о браузере">
 <!ENTITY about.config.tooltip "Открыть интерфейс для просмотра и настройки множества параметров">
