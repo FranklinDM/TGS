@@ -103,6 +103,10 @@
                                   label="&page.ssr100.label;"
                                   tooltiptext="&page.ssr100.label;"
                                   oncommand="aios_toggleElement(this); AiOS_MP.setSSR(); event.stopPropagation();" />
+                        <menuitem id="viewSource-button"
+                                  label="&page.viewsource.label;"
+                                  tooltiptext="&page.viewsource.label;"
+                                  oncommand="AiOS_MP.setMultiPanel('viewsource'); event.stopPropagation();" />
                         <menu id="about-button"
                               label="&about.label;"
                               tooltiptext="&about.tooltip;"

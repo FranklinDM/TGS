@@ -107,7 +107,7 @@ var AiOS_MP = {
     
     /*
      * Opens the web page displayed in the browser in the MultiPanel
-     * => Called by buttons, aios_panelTab()
+     * => Called by buttons
      */
     setMultiPanel: function (aMode) {
         let panelLoc;
@@ -136,7 +136,9 @@ var AiOS_MP = {
             panelLoc = aios_CONTENT.contentDocument.getElementById("web-panels-browser").getAttribute("cachedurl");
         }
 
-        this.URLBar.value = panelLoc;
+        if (aMode.includes("viewsource")) {
+            panelLoc = "view-source:" + panelLoc;
+        }
 
         // Open MultiPanel or load contents
         if (top.document.getElementById("sidebar") && top.toString() != "[object Window]")
