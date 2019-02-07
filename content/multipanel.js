@@ -27,12 +27,22 @@ var AiOS_MP = {
         // Set URLBar value to cached one
         AiOS_MP.URLBar.value = getPanelBrowser().getAttribute("cachedurl");
 
+        let homepage = AiOS_HELPER.prefBranchAiOS.getCharPref("mp.homepage");
+        if (homepage == "") {
+            document.getElementById("mp-home-button").hidden = true;
+        }
+
         // For CSS purposes
         AiOS_HELPER.rememberAppInfo(document.getElementById("webpanels-window"));
 
         // If URL is blank, go to about:blank
-        if (AiOS_MP.URLBar.value == "")
-            getPanelBrowser().contentDocument.location.href = "about:blank";
+        if (AiOS_MP.URLBar.value == "") {
+            if (homepage != "") {
+                getPanelBrowser().contentDocument.location.href = homepage;
+            } else {
+                getPanelBrowser().contentDocument.location.href = "about:blank";
+            }
+        }
 
         AiOS_MP.toggleSyncScroll();
     },
@@ -505,6 +515,14 @@ var panelProgressListener = {
         secbut.setAttribute("tooltiptext", sectooltip);
     }
 };
+
+function PanelBrowserHome() {
+    panelLoc = AiOS_HELPER.prefBranchAiOS.getCharPref("mp.homepage");
+    if (top.document.getElementById("sidebar") && top.toString() != "[object Window]")
+        top.openWebPanel("", panelLoc);
+    else
+        getPanelBrowser().contentDocument.location.href = panelLoc;
+}
 
 // Add automatic update listener & remove
 window.addEventListener("load", AiOS_MP.init);

@@ -50,6 +50,12 @@
                                command="Browser:ReloadOrDuplicate"
                                onclick="checkForMiddleClick(this, event);"
                                tooltiptext="&reloadButton.tooltip;"/>
+                <toolbarbutton id="mp-home-button"
+                               class="toolbarbutton-1"
+                               label="&homeButton.label;"
+                               onclick="PanelBrowserHome();"
+                               tooltiptext="&homeButton.label;"/>
+
 
                 <toolbaritem id="urlbar-container"
                              align="center"

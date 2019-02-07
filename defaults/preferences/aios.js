@@ -89,6 +89,7 @@ pref("extensions.aios.hi.sidebar", true);
 pref("extensions.aios.hi.layout", true);
 
 pref("extensions.aios.mp.sidebar", true);
+pref("extensions.aios.mp.homepage", "about:newtab");
 
 pref("extensions.aios.pi.sidebar", true);
 pref("extensions.aios.pi.layout", true);
