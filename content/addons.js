@@ -38,8 +38,15 @@ var AiOS_Addons = {
         document.getElementById("header-search").setAttribute("flex", "1");
 
         // Move toolbar with search box, etc.
-        before = document.getElementById("view-port-container");
+        before = document.getElementById("view-port-container") || document.getElementById("view-port");
         insertedElement = before.parentNode.insertBefore(document.getElementById("header"), before);
+
+        // Move the navigation bar (WebExAM)
+        if (AiOS_HELPER.usingCUI) {
+            document.getElementById("nav-header").setAttribute("modified", "true");
+            before = document.getElementById("show-all-extensions");
+            insertedElement = before.parentNode.insertBefore(document.getElementById("nav-header"), before);
+        }
 
         // Cut labels when searching without search results...
         document.getElementById("search-list-empty").childNodes[1].childNodes[0].setAttribute("crop", "end");

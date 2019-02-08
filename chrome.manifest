@@ -28,6 +28,7 @@ style       chrome://browser/content/history/history-panel.xul         chrome://
 
 overlay     about:addons                                               chrome://aios/content/addons.xul
 style       about:addons                                               chrome://browser/skin/browser.css
+style       about:addons                                               chrome://aios/skin/css/addons.css
 
 overlay     chrome://mozapps/content/xpinstall/xpinstallConfirm.xul    chrome://aios/content/addons_xpinstall.xul
 
@@ -47,7 +48,6 @@ overlay     chrome://global/content/console.xul                        chrome://
 style       chrome://aios/content/about.xul                            chrome://aios/skin/css/prefs.css
 
 # For Pale Moon
-style       about:addons                                               chrome://aios/skin/css/addons.css							application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/multipanel_fixes.xul					application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
 override    chrome://browser/content/downloads/indicatorOverlay.xul    chrome://aios/content/indicatorOverlay.xul					application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
 
@@ -56,5 +56,4 @@ overlay     chrome://browser/content/browser.xul                       chrome://
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/australis/multipanel_fixes.xul			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 override    chrome://browser/content/downloads/indicatorOverlay.xul    chrome://aios/content/australis/indicatorOverlay.xul			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_buttons_australis.css			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-style       about:addons                                               chrome://aios/skin/css/addons_australis.css					application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/css/multipanel_australis.css				application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}

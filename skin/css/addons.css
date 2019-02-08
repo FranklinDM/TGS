@@ -11,8 +11,14 @@ page[aios-inSidebar] .view-pane > .list > scrollbox {
 /*
  * Navigation
  */
-page[aios-inSidebar] #nav-header {
+page[aios-inSidebar] #nav-header:not([modified]) {
 	display: none;
+}
+page[aios-inSidebar] #nav-header {
+    background: none;
+}
+page[aios-inSidebar] .nav-button {
+    margin: 0;
 }
 page[aios-inSidebar] > hbox {
 	-moz-box-orient: vertical;
@@ -68,6 +74,7 @@ page[aios-inSidebar] #updates-container #close-btn {
 	display: block !important;
 }
 page[aios-inSidebar] .view-header {
+    margin: 0;
 	padding: 0 4px;
 	min-height: 0;
 }
@@ -78,6 +85,7 @@ page[aios-inSidebar] .search-filter-radio {
 	max-height: 18px;
 }
 page[aios-inSidebar] #search-filter {
+    margin: 0;
 	padding: 0;
 	font-size: 11px;
 }
@@ -213,6 +221,9 @@ page[aios-inSidebar] #detail-view {
 page[aios-inSidebar] #detail-view vbox {
 	font-size: 1em;
 }
+page[aios-inSidebar] #detail-view > .box-inherit {
+    margin: 0;
+}
 page[aios-inSidebar] #detail-view .detail-view-container {
 	padding: 10px;
 }
@@ -304,6 +315,7 @@ page[aios-inSidebar] #detail-view #detail-controls button {
 /*
  * Default theme styling
  */
+ 
 page[aios-inSidebar][aios-appDefTheme="true"] {
 	background-image: none;
 }
@@ -313,7 +325,7 @@ page[aios-inSidebar][aios-appDefTheme="true"] .addon:not([selected="true"]) {
 page[aios-inSidebar][aios-appDefTheme="true"] #categories {
 	border-top: none;
 	border-bottom: 1px solid ThreedShadow;
-	background-color: Menu;
+	background-color: -moz-field;
 }
 page[aios-inSidebar][aios-appDefTheme="true"] .category,
 page[aios-inSidebar][aios-appDefTheme="true"] .category:not([disabled]) {
@@ -328,10 +340,12 @@ page[aios-inSidebar][aios-appDefTheme="true"] .category:hover,
 page[aios-inSidebar][aios-appDefTheme="true"] .category:not([disabled]):hover {
 	background-color: #E0E8F6;
 }
+
 page[aios-inSidebar][aios-appDefTheme="true"] #header {
 	border-top: 1px solid ThreedHighlight;
 	border-bottom: 1px solid ThreedShadow;
 }
+/*
 page[aios-inSidebar][aios-appDefTheme="true"] #updates-container {
 	color: infotext;
 	background-color: infobackground;
@@ -422,3 +436,4 @@ page[aios-inSidebar][aios-appDefTheme="true"]:not([aios-appOS="WINNT"]):not([aio
 page[aios-inSidebar] richlistitem[type="user-script"] hbox.pending > vbox button:first-child {
 	display: none !important;
 }
+*/
