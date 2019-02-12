@@ -26,7 +26,7 @@
 <!ENTITY button.paneltab.tooltip3 "在窗口中查看当前面板">
 <!ENTITY button.paneltab.menu1.label "在侧栏打开标签页">
 <!ENTITY button.paneltab.menu2.label "在标签页打开侧栏">
-<!ENTITY button.autohide.label "侧栏自动控制">
+<!ENTITY button.autohide.label "侧栏自动隐藏">
 <!ENTITY button.autohide.tooltip "自动显示/隐藏侧栏">
 <!ENTITY button.tooltip.sidebar "在侧栏中打开">
 <!ENTITY button.tooltip.window "在新建窗口中打开">
