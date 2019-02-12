@@ -1,6 +1,9 @@
 
 # Changelog
 
+### 1.0.8.1 (02.12.2019)
+* Minor: Enable Chinese/China (zh-CN) locale
+
 ### 1.0.8 (02.12.2019)
 * Major: **Add compatibility with Basilisk and possibly other XUL applications living on the Firefox GUID**
   * Fix dysfunctional page info (opening page info in tab can't be fixed due to async changes)
