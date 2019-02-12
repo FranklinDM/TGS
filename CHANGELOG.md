@@ -1,6 +1,38 @@
 
 # Changelog
 
+### 1.0.8 (02.12.2019)
+* Major: **Add compatibility with Basilisk and possibly other XUL applications living on the Firefox GUID**
+  * Fix dysfunctional page info (opening page info in tab can't be fixed due to async changes)
+  * Fix blurred icons in the TGS toolbar
+  * Fix broken Add-ons Manager panel layout
+  * Attempt to migrate and remove duplicated preferences from AiOS
+    * AiOS had an [incorrect fix](https://github.com/FranklinDM/TGS/commit/60bd0d7d5fd564b00e61ba73f8bc2a8c060f66ab) for preferences not applying which resulted in having a double prefix (extensions.aios.extensions.aios.*)
+* Major: Several improvements to the MultiPanel
+  * Minor: Implement synchronized scrolling between panel and content
+    * Can be accessed in MultiPanel > Tools > Synchronize Scrolling
+  * Minor: Reinstate view page source action from MultiPanel ([previously implemented](http://firefox.exxile.net/aios/screenshots/aios07.gif))
+    * Can be accessed in MultiPanel > Page > View Page Source of Current Tab
+  * Minor: Allow a homepage to be set (and a button to access it)
+    * Homepage button can be hidden if you set the preference `extensions.aios.mp.homepage` to blank
+    * Homepage will be shown instead of `about:blank` on start if `Remember Last Shown Content` is unchecked
+* Minor: Fix inverted full screen behavior
+* Major: Improve compatibility with Tab Kit 2 and others
+  * (Hopefully) there are no longer any conflicts when placing both the tab pane and TGS panel on the same side
+* Minor: Functional changes to the downloads panel
+  * Stop using a mutation observer and use `Downloads.jsm` instead
+    - Negative: only downloads from current session are counted
+    - Positive: the panel now feels a bit faster
+  * Remove workaround for MR Tech Local Install
+  * Remove timeout for updating downloads list
+  * Use search box placeholder text with ellipsis
+  * Remove dm.loadall preference
+* Minor: Several bug fixes to sidebar switch functionality
+* Minor: Remove support for Console² extension
+* Ignore: Cleanup styles
+* Ignore: Implement wrapper around preferences
+* Ignore: Remove redundant try-catch statements
+
 ### 1.0.7 (08.06.2018)
 * This release is compatible with Pale Moon 28.
 * Major: Wrap AiOS' functions into a module pattern
@@ -143,7 +175,7 @@
 * Minor: Show version in about window
   * Was gone because it's searching for AiOS add-on id.
   * In previous versions, will instead show AiOS' version when installed alongside TGS
-* Ignore: Clicking on MultiPanel urlbar selects all text
+* Ignore: Clicking on MultiPanel URL bar selects all text
 * Ignore: Fix JS errors in add-ons panel
   * Remove undefined debug variable
 
@@ -165,13 +197,13 @@
 ### 1.0.1 (08.24.2017)
 * Fix #12: Use theme's icons for bookmarks and history buttons
 * Resolve #11: Change some links in about to point to our own
-* Disable other locales for the meantime since they're a pain to maintain (and we don't use any loc. platform atm)
+* Disable other locales for the meantime
 * Remove border from movable close button
 
 ### 1.0.0 (08.23.2017)
-* Intial release
+* Initial release
   * Compatibility with PM
-  * Development was reset to 736206f383f5fe8e8d04bc1b561c196345429eb6 and some commits afterwards were cherrypicked to this repository.
+  * Development was reset to 736206f383f5fe8e8d04bc1b561c196345429eb6 and some commits afterwards were cherry-picked to this repository.
   * Reverted commits that were related to FF's Australis UI and e10s stuff.
   * New cookie panel (planned feature)
   * Restore old toolbar customization UI
