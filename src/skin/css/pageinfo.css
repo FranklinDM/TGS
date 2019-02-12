@@ -1,0 +1,44 @@
+/*
+ * GUI
+ */
+#mainDeck,
+#topBar,
+#viewGroup {
+	margin: 0;
+	padding: 0;
+}
+#viewGroup {
+	padding: 0 0 1px 1px;
+}
+#viewGroup[hideLabel=true] radio {
+	min-width: 0;
+	margin: 0 2px 0 0;
+	padding: 2px;
+}
+#viewGroup[hideLabel=true] radio label {
+	display: none;
+}
+#generalPanel #titletext {
+	padding: 5px;
+}
+#permPanel > hbox {
+	padding-top: 5px;
+}
+#permPanel #permList {
+	border: none;
+}
+#permPanel #permList > vbox {
+	padding-left: 0;
+	padding-right: 0;
+}
+#permPanel #permList > vbox hbox {
+	-moz-box-orient: vertical;
+}
+#security-privacy-groupbox row {
+	margin-top: 10px;
+	padding-top: 10px;
+}
+#security-privacy-groupbox row :first-child {
+	margin-top: 0;
+	padding-top: 0;
+}

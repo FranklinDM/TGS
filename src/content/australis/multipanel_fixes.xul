@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<!-- locale -->
+<!DOCTYPE overlay [
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
+]>
+
+<overlay id="aios_MultiPanelFixesOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <page id="webpanels-window">
+        <toolbox id="commandBar">
+            <toolbar id="mini-bar">
+                <toolbaritem id="urlbar-container">
+                    <textbox id="urlbar"
+                             autocompletesearch="unifiedcomplete">
+                        <hbox id="urlbar-icons">
+                            <image id="lock-icon"
+                                   onclick="BrowserPageInfo(getPanelBrowser().contentDocument.URL, null, null, null, getPanelBrowser()); event.stopPropagation();"/>
+                        </hbox>
+                    </textbox>
+                </toolbaritem>
+            </toolbar>
+        </toolbox>
+        <commandset id="mainCommandset">
+            <!-- Undefined in Basilisk; see bug https://bugzilla.mozilla.org/show_bug.cgi?id=483919 -->
+            <command id="Browser:BackOrBackDuplicate"
+                     oncommand="getPanelBrowser().webNavigation.goBack(event);"
+                     disabled="true">
+                <observes element="Browser:Back"
+                          attribute="disabled"/>
+            </command>
+            <command id="Browser:ForwardOrForwardDuplicate"
+                     oncommand="getPanelBrowser().webNavigation.goForward(event);"
+                     disabled="true">
+                <observes element="Browser:Forward"
+                          attribute="disabled"/>
+            </command>
+            <!-- Observe hidden property so we can hide stop/reload when unused -->
+            <command id="Browser:ReloadOrDuplicate"
+                     oncommand="PanelBrowserReload(event)"
+                     disabled="true"
+                     hidden="false">
+                <observes element="Browser:Reload"
+                          attribute="disabled"/>
+                <observes element="Browser:Reload"
+                          attribute="hidden"/>
+            </command>
+            <command id="Browser:StopOrDuplicate"
+                     oncommand="PanelBrowserStop();"
+                     disabled="true"
+                     hidden="true">
+                <observes element="Browser:Stop"
+                          attribute="disabled"/>
+                <observes element="Browser:Stop"
+                          attribute="hidden"/>
+            </command>
+        </commandset>
+
+        <popupset id="mainPopupSet">
+            <menupopup id="contentAreaContextMenu">
+                <!-- Fix for reload button in context menu not doing anything, still bugged in Basilisk... -->
+                <!-- Access key seems to be gone. Causes entity error. -->
+                <menugroup id="context-navigation">
+                    <menuitem id="context-reload"
+                              class="menuitem-iconic"
+                              tooltiptext="&reloadButton.tooltip;"
+                              aria-label="&reloadCmd.label;"
+                              oncommand="PanelBrowserReload();"
+                              command="Browser:ReloadOrDuplicate"
+                              onclick="checkForMiddleClick(this, event);"/>
+                </menugroup>
+            </menupopup>
+        </popupset>
+    </page>
+
+</overlay>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!-- locale -->
+<!DOCTYPE overlay [
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
+]>
+
+<overlay id="aios_MultiPanelFixesOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <page id="webpanels-window">
+        <commandset id="mainCommandset">
+            <!-- Observe hidden property so we can hide stop/reload when unused -->
+            <command id="Browser:ReloadOrDuplicate"
+                     oncommand="PanelBrowserReload(event)"
+                     disabled="true"
+                     hidden="false">
+                <observes element="Browser:Reload"
+                          attribute="disabled"/>
+                <observes element="Browser:Reload"
+                          attribute="hidden"/>
+            </command>
+            <command id="Browser:StopOrDuplicate"
+                     oncommand="PanelBrowserStop();"
+                     disabled="true"
+                     hidden="true">
+                <observes element="Browser:Stop"
+                          attribute="disabled"/>
+                <observes element="Browser:Stop"
+                          attribute="hidden"/>
+            </command>
+        </commandset>
+
+        <popupset id="mainPopupSet">
+            <menupopup id="contentAreaContextMenu">
+                <!-- Fix for reload button in context menu not doing anything, still bugged in v27.5 -->
+                <menuitem id="context-reload"
+                          label="&reloadCmd.label;"
+                          accesskey="&reloadCmd.accesskey;"
+                          oncommand="PanelBrowserReload();"
+                          command="Browser:ReloadOrDuplicate"
+                          onclick="checkForMiddleClick(this, event);"/>
+            </menupopup>
+        </popupset>
+    </page>
+
+</overlay>

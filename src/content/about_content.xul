@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+
+<!-- locale -->
+<!DOCTYPE overlay [
+    <!ENTITY % aiosDTD SYSTEM "chrome://aios/content/aios.dtd"> %aiosDTD;
+    <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
+]>
+
+<overlay id="aiosAboutOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/javascript"
+            src="chrome://aios/content/about.js" />
+
+    <prefpane id="aiosAbout"
+              onpaneload="AiOS_About.initialize();"
+              style="min-height:310px;">
+
+        <stringbundleset>
+            <stringbundle id="bundleRegions"
+                          src="chrome://global/locale/regionNames.properties"/>
+            <stringbundle id="bundleLanguages"
+                          src="chrome://global/locale/languageNames.properties"/>
+            <stringbundle id="bundleTranslators"
+                          src="chrome://aios/content/translators.properties" />
+        </stringbundleset>
+
+        <dialogheader id="aboutHeader"
+                      title=""
+                      description="" />
+
+        <hbox id="aboutHeaderMac">
+            <label id="macTitle"
+                   value="" />
+            <label id="macVersion"
+                   value="" />
+        </hbox>
+
+        <tabbox flex="1">
+
+            <tabs>
+                <tab label="&tab.about;" />
+                <tab label="&tab.help;" />
+                <tab label="&tab.contrib;" />
+                <tab label="&tab.trans;" />
+            </tabs>
+
+            <tabpanels flex="1">
+
+<!-- ABOUT -->
+                <tabpanel orient="vertical" style="text-align: justify;">
+
+                    <description width="100%">&about.desc;</description>
+
+                    <separator class="groove" />
+
+                    <description width="100%">&create.desc;</description>
+
+                </tabpanel>
+
+<!-- HELP -->
+                <tabpanel orient="vertical">
+
+                    <description width="100%">&help.desc;</description>
+
+                    <separator class="groove" />
+
+                    <vbox class="indent websites">
+                        <toolbarbutton label="&about1.name;"
+                                       onclick="aios_addTab('&about1.link;');" />
+                        <toolbarbutton label="&about2.name;"
+                                       onclick="aios_addTab('&about2.link;');" />
+                        <toolbarbutton label="&about3.name;"
+                                       onclick="aios_addTab('&about3.link;');" />
+                        <toolbarbutton label="&about4.name;"
+                                       onclick="aios_addTab('&about4.link;');" />
+                        <toolbarbutton label="&about6.name;"
+                                       onclick="aios_addTab('&about6.link;');" />
+                        <toolbarbutton label="&about7.name;"
+                                       onclick="aios_addTab('&about7.link;');" />
+                        <toolbarbutton label="&about5.name;"
+                                       onclick="aios_addTab('&about5.link;');" />
+                    </vbox>
+
+                </tabpanel>
+
+<!-- CONTRIBUTORS -->
+                <tabpanel orient="vertical">
+
+                    <description width="100%">&contrib.desc;</description>
+
+                    <separator class="groove" />
+
+                    <grid flex="1">
+                        <columns>
+                            <column flex="1" />
+                            <column flex="1" />
+                        </columns>
+
+                        <rows>
+                            <row>
+                                <text value="&contrib1.name;" />
+                                <text value="&contrib1.ext;"
+                                      class="link"
+                                      onclick="aios_addTab('&contrib1.link;');" />
+                            </row>
+                            <row>
+                                <text value="&contrib2.name;" />
+                                <text value="&contrib2.ext;"
+                                      class="link"
+                                      onclick="aios_addTab('&contrib2.link;');" />
+                            </row>
+                            <row>
+                                <text value="&contrib3.name;" />
+                                <text value="&contrib3.ext;"
+                                      class="link"
+                                      onclick="aios_addTab('&contrib3.link;');" />
+                            </row>
+                            <row>
+                                <text value="&contrib4.name;" />
+                                <text value="&contrib4.ext;"
+                                      class="link"
+                                      onclick="aios_addTab('&contrib4.link;');" />
+                            </row>
+                            <row>
+                                <text value="&contrib5.name;" />
+                                <text value="&contrib5.ext;"
+                                      class="link"
+                                      onclick="aios_addTab('&contrib5.link;');" />
+                            </row>
+
+                            <separator class="groove" />
+
+                            <description width="100%" style="text-align: justify;">&contrib.thanks;</description>
+                        </rows>
+                    </grid>
+                </tabpanel>
+
+<!-- TRANSLATORS -->
+                <tabpanel orient="vertical">
+
+                    <description width="100%">&trans.desc;</description>
+
+                    <separator class="groove" />
+
+                    <box style="overflow: auto; height: 135px;">
+                        <grid flex="1"
+                              id="trans.grid">
+                            <columns>
+                                <column flex="1" />
+                                <column flex="1" />
+                                <column flex="1" />
+                            </columns>
+
+                            <rows>
+                            </rows>
+                        </grid>
+                    </box>
+
+                    <separator class="groove" />
+
+                    <description width="100%">&trans.thanks;</description>
+
+                </tabpanel>
+
+            </tabpanels>
+        </tabbox>
+    </prefpane>
+</overlay>

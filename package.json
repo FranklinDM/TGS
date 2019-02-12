@@ -1,0 +1,18 @@
+{
+  "name": "TGS",
+  "version": "1.0.0",
+  "description": "The Good 'ol Sidebar (TGS) - a sidebar extension for Pale Moon",
+  "dependencies": {
+    "eslint": "~5.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranklinDM/TGS.git"
+  },
+  "author": "FranklinDM",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/FranklinDM/TGS/issues"
+  },
+  "homepage": "https://github.com/FranklinDM/TGS#readme"
+}

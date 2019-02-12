@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+
+<!-- locale -->
+<!DOCTYPE overlay [
+<!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+<!ENTITY % multipanelDTD SYSTEM "chrome://aios/locale/multipanel.dtd"> %multipanelDTD;
+<!ENTITY % libDTD SYSTEM "chrome://aios/locale/lib.dtd"> %libDTD;
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
+]>
+
+<overlay id="aios_MultiPanelOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/javascript"
+            src="chrome://aios/content/_helper.js" />
+    <script type="application/javascript"
+            src="chrome://aios/content/multipanel.js" />
+
+    <page id="webpanels-window"
+          persist="width height screenX screenY"
+          title="&button.multipanel.label;"
+          windowtype="aiosGlobal:MultiPanel">
+        <toolbox id="commandBar"
+                 mode="icons"
+                 iconsize="small"
+                 position="1">
+            <toolbar id="mini-bar"
+                     mode="icons"
+                     iconsize="small"
+                     customizable="false">
+                <toolbarbutton id="mp-back-button"
+                               class="toolbarbutton-1"
+                               label="&backCmd.label;"
+                               command="Browser:BackOrBackDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&backButton.tooltip;"/>
+                <toolbarbutton id="mp-forward-button"
+                               class="toolbarbutton-1"
+                               label="&forwardCmd.label;"
+                               command="Browser:ForwardOrForwardDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&forwardButton.tooltip;"/>
+                <toolbarbutton id="mp-stop-button"
+                               class="toolbarbutton-1"
+                               label="&stopCmd.label;"
+                               command="Browser:StopOrDuplicate"
+                               tooltiptext="&stopButton.tooltip;"/>
+                <toolbarbutton id="mp-reload-button"
+                               class="toolbarbutton-1"
+                               label="&reloadCmd.label;"
+                               command="Browser:ReloadOrDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&reloadButton.tooltip;"/>
+                <toolbarbutton id="mp-home-button"
+                               class="toolbarbutton-1"
+                               label="&homeButton.label;"
+                               onclick="PanelBrowserHome();"
+                               tooltiptext="&homeButton.label;"/>
+
+
+                <toolbaritem id="urlbar-container"
+                             align="center"
+                             flex="400">
+                    <textbox id="urlbar"
+                             flex="1"
+                             placeholder=""
+                             type="autocomplete"
+                             autocompletesearch="urlinline history"
+                             autocompletesearchparam="enable-actions"
+                             autocompletepopup="PopupAutoCompleteRichResult"
+                             completeselectedindex="true"
+                             clickSelectsAll="true"
+                             showcommentcolumn="true"
+                             tabscrolling="true"
+                             enablehistory="true"
+                             ontextreverted="return AiOS_MP.onTextReverted();"
+                             ontextentered="return AiOS_MP.onTextEntered(param);"
+                             ondrop="return AiOS_MP.onTextDrop(event);">
+                        <hbox id="urlbar-icons">
+                            <!-- Throbber for out-of-sidebar situations -->
+                            <image id="sidebar-throbber"/>
+                            <!-- Supposed action: open security tab of page info. However, web panels don't have that tab. -->
+                            <image id="lock-icon"
+                                   onclick="BrowserPageInfo(getPanelBrowser().contentDocument); event.stopPropagation();"/>
+                        </hbox>
+                    </textbox>
+                </toolbaritem>
+
+                <toolbarbutton id="page-button"
+                               class="toolbarbutton-1 aios-tbutton"
+                               type="menu-button"
+                               checked="false"
+                               label="&page.label;"
+                               tooltiptext="&page.tooltip;"
+                               oncommand="AiOS_MP.setMultiPanel('page');">
+                    <menupopup onpopupshowing="AiOS_MP.getPageOptions();">
+                        <menuitem id="ssr-mitem"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&page.ssr.label;"
+                                  tooltiptext="&page.ssr.label;"
+                                  oncommand="aios_toggleElement(this); AiOS_MP.setSSR(); event.stopPropagation();" />
+                        <menuitem id="ssrSidebar-mitem"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&page.ssr100.label;"
+                                  tooltiptext="&page.ssr100.label;"
+                                  oncommand="aios_toggleElement(this); AiOS_MP.setSSR(); event.stopPropagation();" />
+                        <menuitem id="viewSource-button"
+                                  label="&page.viewsource.label;"
+                                  tooltiptext="&page.viewsource.label;"
+                                  oncommand="AiOS_MP.setMultiPanel('viewsource'); event.stopPropagation();" />
+                        <menu id="about-button"
+                              label="&about.label;"
+                              tooltiptext="&about.tooltip;"
+                              oncommand="AiOS_MP.setMultiPanel('about:config');">
+                            <menupopup id="aboutGroup">
+                                <menuitem type="radio"
+                                          label="about:config"
+                                          tooltiptext="&about.config.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:config'); event.stopPropagation();" />
+
+                                <menuseparator />
+
+                                <menuitem type="radio"
+                                          label="about:plugins"
+                                          tooltiptext="&about.plugins.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:plugins'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:support"
+                                          tooltiptext="&about.support.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:support'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache"
+                                          tooltiptext="&about.cache.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache?device=disk"
+                                          tooltiptext="&about.cache.disk.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache?device=disk'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache?device=memory"
+                                          tooltiptext="&about.cache.memory.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache?device=memory'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:cache?device=offline"
+                                          tooltiptext="&about.cache.offline.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:cache?device=offline'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:buildconfig"
+                                          tooltiptext="&about.buildconfig.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:buildconfig'); event.stopPropagation();" />
+
+                                <menuseparator />
+
+                                <menuitem type="radio"
+                                          label="about:"
+                                          tooltiptext="&about.about.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:robots"
+                                          tooltiptext="&about.robots.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:robots'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:credits"
+                                          tooltiptext="&about.credits.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:credits'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:license"
+                                          tooltiptext="&about.license.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:license'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:mozilla"
+                                          tooltiptext="&about.mozilla.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:mozilla'); event.stopPropagation();" />
+                                <menuitem type="radio"
+                                          label="about:palemoon"
+                                          tooltiptext="&about.palemoon.tooltip;"
+                                          checked="false"
+                                          oncommand="AiOS_MP.setMultiPanel('about:palemoon'); event.stopPropagation();" />
+                            </menupopup>
+                        </menu>
+                    </menupopup>
+                </toolbarbutton>
+                <toolbarbutton id="toolsButton"
+                               class="toolbarbutton-1 aios-tbutton"
+                               type="menu"
+                               label="&menu.tools.label;"
+                               tooltiptext="&menu.tools.label;">
+                    <menupopup id="toolsPopUp">
+                        <menuitem id="aios-remMultiPanel"
+                                  type="checkbox"
+                                  checked="true"
+                                  persist="checked"
+                                  autocheck="false"
+                                  label="&tools.remlast.label;"
+                                  tooltiptext="&tools.remlast.label;"
+                                  oncommand="aios_toggleElement(this); event.stopPropagation();" />
+                        <menuseparator />
+                        <menuitem id="aios-linkedbtn"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&tools.linked.label;"
+                                  tooltiptext="&tools.linked.label;"
+                                  oncommand="aios_toggleElement(this); event.stopPropagation();" />
+                        <menuitem id="aios-syncscroll"
+                                  type="checkbox"
+                                  checked="false"
+                                  autocheck="false"
+                                  persist="checked"
+                                  label="&tools.syncscroll.label;"
+                                  tooltiptext="&tools.syncscroll.label;"
+                                  oncommand="aios_toggleElement(this); AiOS_MP.toggleSyncScroll(); event.stopPropagation();" />
+                    </menupopup>
+                </toolbarbutton>
+            </toolbar>
+        </toolbox>
+    </page>
+
+    <browser id="web-panels-browser"
+             persist="cachedurl linkedopt syncscroll"
+             type="content"
+             onclick="AiOS_MP.onContentAreaClick(event, true);"/>
+</overlay>

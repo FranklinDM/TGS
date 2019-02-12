@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<overlay id="aios_installOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/javascript"
+            src="chrome://aios/content/_helper.js" />
+    <script><![CDATA[
+
+            window.addEventListener("DOMContentLoaded", aios_XPInstallConfirm);
+
+            function aios_XPInstallConfirm() {
+                var enable_sidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.sidebar");
+                var open_onInstall = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.oninstall");
+
+                /*
+                 * Open sidebar, if the manager should only be opened in the sidebar
+                 *  => enable_sidebar                               => Manager should be opened in the sidebar
+                 *  => !top.document.getElementById('sidebar')      => I am not a sidebar
+                 *  => top.toString() != "[object Window]"          => I am not a tab
+                 *  => !AiOS_HELPER.mostRecentWindow.aiosIsWindow   => not explicitly in the window (for example, by Shift + left click on Toolbarbutton)
+                 */
+                if (enable_sidebar && !top.document.getElementById('sidebar') && top.toString() != "[object Window]" && !AiOS_HELPER.mostRecentWindow.aiosIsWindow && open_onInstall) {
+                    AiOS_HELPER.mostRecentWindow.toggleSidebar("viewAddonsSidebar", true);
+                }
+
+                window.setTimeout(function () {
+                    document.documentElement.getButton("cancel").focus();
+                }, 500);
+            }
+
+    ]]>
+    </script>
+</overlay>

@@ -1,0 +1,119 @@
+/*
+ * Sidebar orientation
+ */
+
+/* Borders on both sides (invisible on Windows 10) */
+#browser-border-start {
+  -moz-box-ordinal-group: 0;
+}
+#browser-border-end {
+  -moz-box-ordinal-group: 9999;
+}
+
+/* Sidebar splitter */
+window[aiosOrient="left"] #sidebar-splitter {
+  -moz-box-ordinal-group: 5;
+}
+window[aiosOrient="right"] #sidebar-splitter {
+  -moz-box-ordinal-group: 70;
+}
+
+/* Orientation: Left Side */
+#appcontent {
+  -moz-box-ordinal-group: 50;
+}
+window[aiosOrient="left"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 1;
+}
+window[aiosOrient="left"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 2;
+}
+window[aiosOrient="left"] #sidebar-box {
+  -moz-box-ordinal-group: 3;
+}
+window[aiosOrient="left"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 4;
+}
+
+/* Orientation: Right Side */
+window[aiosOrient="right"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 74;
+}
+window[aiosOrient="right"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 73;
+}
+window[aiosOrient="right"] #sidebar-box {
+  -moz-box-ordinal-group: 72;
+}
+window[aiosOrient="right"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 71;
+}
+
+/* Fix for invisible sidebar switch */
+window[aiosOrient="right"] #aios-toggle-toolbar {
+  right: 0;
+}
+
+
+/*
+ * Orientation fixes for extensions using the direction hack
+ * Applies to: Tab Kit 2 and Vertical Tabs Reloaded
+ */
+
+/* Improperly positioned Tabs Toolbar and Splitter */
+#browser:not([dir="reverse"]) #verticaltabs-box,
+#browser #TabsToolbar {
+  -moz-box-ordinal-group: 6 !important;
+}
+#browser:not([dir="reverse"]) #verticaltabs-splitter,
+#browser #tabkit-splitter {
+  -moz-box-ordinal-group: 7 !important;
+}
+
+/* Orientation: Right Side */
+window[aiosOrient="right"] #browser[dir="reverse"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 1;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 2;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #sidebar-box {
+  -moz-box-ordinal-group: 3;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 4;
+}
+
+/* Orientation: Left Side */
+window[aiosOrient="left"] #browser[dir="reverse"] #aios-toggle-toolbox {
+  -moz-box-ordinal-group: 74;
+}
+window[aiosOrient="left"] #browser[dir="reverse"] #aios-toolbox-left {
+  -moz-box-ordinal-group: 73;
+}
+window[aiosOrient="left"] #browser[dir="reverse"] #sidebar-box {
+  -moz-box-ordinal-group: 72;
+}
+window[aiosOrient="left"] #browser[dir="reverse"] #aios-toolbox-right {
+  -moz-box-ordinal-group: 71;
+}
+
+/* TGS Splitter */
+window[aiosOrient="left"] #browser[dir="reverse"] #sidebar-splitter {
+  -moz-box-ordinal-group: 70;
+}
+window[aiosOrient="right"] #browser[dir="reverse"] #sidebar-splitter {
+  -moz-box-ordinal-group: 5;
+}
+
+/*
+ * Orientation fixes for other extensions
+ */
+
+/* Scrollbar Search Highlighter */
+#browser[dir="normal"] #highlight-grid {
+  -moz-box-ordinal-group: 51;
+}
+#browser[dir="reverse"] #highlight-grid {
+  -moz-box-ordinal-group: 49;
+}

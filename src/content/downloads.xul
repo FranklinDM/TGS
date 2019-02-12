@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE window [
+  <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+  %browserDTD;
+  <!ENTITY % downloadsDTD SYSTEM "chrome://browser/locale/downloads/downloads.dtd">
+  %downloadsDTD;
+]>
+
+<overlay id="aios_DownloadsOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/javascript"
+            src="chrome://aios/content/_helper.js" />
+    <script type="application/javascript"
+            src="chrome://aios/content/downloads.js" />
+
+    <window id="contentAreaDownloadsView">
+          <toolbox id="commandBar"
+                   position="1">
+            <toolbar id="main-bar">
+              <textbox id="searchbox"
+                       flex="1"
+                       clickSelectsAll="true"
+                       type="search"
+                       aria-controls="placeContent"
+                       oncommand="AiOS_Downloads.search(this.value);"
+                       collection="downloads"/>
+              <toolbarbutton id="clearListButton"
+                             oncommand="AiOS_Downloads.clear();"
+                             tooltiptext="&clearDownloadsButton.tooltip;"/>
+            </toolbar>
+          </toolbox>
+          <stringbundleset id="propSet">
+              <stringbundle id="propSetStrings"
+                            src="chrome://aios/locale/lib.properties" />
+          </stringbundleset>
+    </window>
+
+</overlay>
