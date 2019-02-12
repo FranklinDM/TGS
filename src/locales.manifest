@@ -8,6 +8,7 @@ locale      aios            fr              locale/fr/
 locale      aios            it              locale/it/
 locale      aios            ru              locale/ru/
 locale      aios            tl              locale/tl/
+locale      aios            zh-CN           locale/zh-CN/
 
 # unused locales (not updated)
 #locale      aios            ar-SA           locale/ar-SA/
@@ -38,5 +39,4 @@ locale      aios            tl              locale/tl/
 #locale      aios            tr              locale/tr/
 #locale      aios            uk              locale/uk/
 #locale      aios            vi              locale/vi/
-#locale      aios            zh-CN           locale/zh-CN/
 #locale      aios            zh-TW           locale/zh-TW/
