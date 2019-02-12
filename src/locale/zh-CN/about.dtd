@@ -6,7 +6,7 @@
 <!ENTITY tab.contrib "贡献者">
 <!ENTITY tab.trans "翻译人员">
 <!ENTITY about.desc "The Good 'ol Sidebar 可以让您以侧栏面板打开各式各样的窗口，并且您可以在它们之间快速切换。The Good 'ol Sidebar 终结了窗口的混乱！除了书签和历史之外，The Good 'ol Sidebar 还可以在侧栏中打开下载、附加组件等功能。">
-<!ENTITY create.desc "由Ingo Wennemaring, Hamburg [Germany]创建">
+<!ENTITY create.desc "由 FranklinDM 创建，分支自已停止开发，由 Ingo Wennemaring、Hamburg [Germany] 创建的 All-in-One Sidebar">
 <!ENTITY help.desc "您可以从以下网站获取很多关于本扩展的信息:">
 <!ENTITY about1.name "主页 - 查看更多信息">
 <!ENTITY about2.name "特性 - The Good 'ol Sidebar 的所有特性">
