@@ -2,7 +2,7 @@
 <!ENTITY page.tooltip "在侧栏打开网页">
 <!ENTITY page.ssr.label "小屏幕显示">
 <!ENTITY page.ssr100.label "适合侧栏宽度">
-<!ENTITY page.viewsource.label "View Page Source of Current Tab">
+<!ENTITY page.viewsource.label "查看当前标签页的页面源码">
 <!ENTITY about.label "关于：">
 <!ENTITY about.tooltip "显示关于浏览器的不同信息">
 <!ENTITY about.config.tooltip "显示用来查看和设置更多变量的配置界面">
