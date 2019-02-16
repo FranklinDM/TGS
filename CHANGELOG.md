@@ -1,6 +1,9 @@
 
 # Changelog
 
+### 1.0.8.2 (02.16.2019)
+* Ignore: Update install manifest to use separate target application blocks
+
 ### 1.0.8.1 (02.12.2019)
 * Minor: Enable Chinese/China (zh-CN) locale
 
