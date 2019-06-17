@@ -36,9 +36,11 @@ var AiOS_PageInfo = {
 
     sidebarLayout: function () {
         var vbox;
+        let managerWindow = document.getElementById("main-window");
 
         // Enable CSS for sidebar optimizations
-        aios_addCSS("pageinfo.css", "main-window");
+        aios_addCSS("pageinfo.css", managerWindow);
+        managerWindow.setAttribute("aios-inSidebar", "true");
 
         // Hide the label of the radio buttons => only if there are icons
         var cStyle = document.defaultView.getComputedStyle(document.getElementById("generalTab"), "");
