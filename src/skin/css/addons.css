@@ -282,9 +282,14 @@ page[aios-inSidebar] #detail-view #detail-desc,
 page[aios-inSidebar] #detail-view #detail-fulldesc,
 page[aios-inSidebar] #detail-view #detail-grid * {
 	margin: 0;
-	padding: 0;
-	min-width: 0;
-	min-height: 0;
+}
+page[aios-inSidebar] #detail-view .detail-row,
+page[aios-inSidebar] #detail-view .detail-row-complex,
+page[aios-inSidebar] #detail-view setting {
+    min-height: 0;
+}
+page[aios-inSidebar] column {
+    min-width: 0 !important;
 }
 page[aios-inSidebar] #detail-view #detail-name,
 page[aios-inSidebar] #detail-view #detail-desc {
