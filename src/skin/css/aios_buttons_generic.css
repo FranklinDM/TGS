@@ -2,11 +2,11 @@
  * Icons
  */
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
-	list-style-image: url(../icons/toolbar_windows.png);
+	list-style-image: url(../icons/toolbar_generic.png);
 }
 toolbar:-moz-lwtheme-brighttext window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button),
 toolbar[brighttext] window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
-	list-style-image: url(../icons/toolbar_windows_inverted.png);
+	list-style-image: url(../icons/toolbar_generic.png);
 }
 window:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #addons-button {
 	-moz-image-region: rect(0px,  72px,  18px,  54px);

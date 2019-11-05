@@ -2,11 +2,11 @@
  * Icons
  */
 toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
-    list-style-image: url(../icons/toolbar_windows.png);
+    list-style-image: url(../icons/toolbar.svg);
 }
 toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button),
 toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
-	list-style-image: url(../icons/toolbar_windows_inverted.png);
+	list-style-image: url(../icons/toolbar-inverted.svg);
 }
 #bookmarks-button {
     -moz-image-region: rect(0px, 18px, 18px, 0px)
