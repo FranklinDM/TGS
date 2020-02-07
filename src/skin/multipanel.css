@@ -26,9 +26,6 @@
 #page-button {
   -moz-image-region: rect(0, 80px, 16px, 64px);
 }
-#about-button {
-  -moz-image-region: rect(0, 96px, 16px, 80px);
-}
 #toolsButton {
   -moz-image-region: rect(0, 16px, 16px, 0);
 }
