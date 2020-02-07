@@ -71,6 +71,9 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
 #aios-toolbar[orient="vertical"] {
   -moz-box-orient: vertical;
 }
+#aios-toolbar[orient="vertical"] toolbarbutton {
+  -moz-box-orient: vertical !important;
+}
 #aios-toolbar[orient="horizontal"] {
   padding: 0 1px 1px 0;
 }
@@ -88,17 +91,6 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
  */
 #aios-toolbar[flexbuttons="true"] toolbarbutton {
   -moz-box-flex: 1;
-}
-
-
-/*
- * Vertical Buttons
- */
-window[aiosVButtons="false"] #aios-toolbar[orient="vertical"] toolbarbutton {
-  -moz-box-orient: horizontal !important;
-}
-window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
-  -moz-box-orient: vertical !important;
 }
 
 

@@ -395,8 +395,7 @@
 
 
     <!-- Popups & Tooltips -->
-    <window id="main-window"
-            aiosVButtons="true">
+    <window id="main-window">
         <popupset id="aiosPopupset">
             <menupopup id="aios-toolbar-contextmenu"
                        onpopupshowing="aios_onToolbarPopupShowing(this);">

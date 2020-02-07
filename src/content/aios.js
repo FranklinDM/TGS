@@ -191,14 +191,6 @@ var AiOS = {
             });
         }
 
-        // Vertical buttons?
-        var vButtons = AiOS_HELPER.prefBranchAiOS.getBoolPref("vbuttons");
-
-        AiOS_Objects.mainWindow.setAttribute("aiosVButtons", "true");
-        if (!vButtons)
-            AiOS_Objects.mainWindow.setAttribute("aiosVButtons", "false");
-        document.persist(AiOS_Objects.mainWindow.id, "aiosVButtons");
-
         // Vertical bookmarks bar?
         // Remove the attribute of the bookmarks bar. When placed on the AiOS toolbar, you can use CSS to set the orientation.
         if (document.getElementById("PlacesToolbarItems"))
