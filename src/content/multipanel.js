@@ -239,7 +239,7 @@ var AiOS_MP = {
      * Original code in parts of: Daniel Glazman <glazman@netscape.com>
      */
     setSSR: function () {
-        var ssrURL = "chrome://aios/skin/css/multipanel_ssr.css";
+        var ssrURL = "chrome://aios/skin/multipanel_ssr.css";
 
         try {
             var doc = getPanelBrowser().contentDocument;

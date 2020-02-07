@@ -187,13 +187,13 @@ window[aiosVButtons="true"] #aios-toolbar[orient="vertical"] toolbarbutton {
 #sidebar-splitter[orient="horizontal"] grippy,
 window[aiosOrient="right"][aiosOpen="false"] #aios-toggle-toolbox grippy,
 window[aiosOrient="right"][aiosOpen="false"] #sidebar-splitter[orient="horizontal"] grippy {
-    background-image: url(../img/grippy-left.gif);
+    background-image: url("img/grippy-left.gif");
 }
 window[aiosOpen="false"] #aios-toggle-toolbox grippy,
 window[aiosOpen="false"] #sidebar-splitter[orient="horizontal"] grippy,
 window[aiosOrient="right"] #aios-toggle-toolbox grippy,
 window[aiosOrient="right"] #sidebar-splitter[orient="horizontal"] grippy {
-    background-image: url(../img/grippy-right.gif);
+    background-image: url("img/grippy-right.gif");
 }
 
 
@@ -249,7 +249,7 @@ sidebarheader {
     padding-top: 2px;
     padding-bottom: 2px;
     padding-right: 10px;
-    background: url(../img/arrow.gif) no-repeat right 8px;
+    background: url("img/arrow.gif") no-repeat right 8px;
 }
 #sidebars-titlebutton > label:-moz-lwtheme {
     color: highlighttext;
@@ -280,7 +280,7 @@ sidebarheader > .close-icon.tabbable {
     padding: 1px;
 }
 #aiosPopupset tooltip box {
-    -moz-binding: url(chrome://aios/content/aios.xml#aiosTooltips);
+    -moz-binding: url("chrome://aios/content/aios.xml#aiosTooltips");
 }
 #aiosPopupset tooltip label {
     margin: 0;

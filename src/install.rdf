@@ -14,7 +14,7 @@
         <em:contributor>Ingo Wennemaring (creator of AiOS)</em:contributor>
         <em:contributor>Quicksaver (creator of OmniSidebar)</em:contributor>
 
-        <em:icon64URL>chrome://aios/skin/icons/icon64.png</em:icon64URL>
+        <em:icon64URL>chrome://aios/skin/icon64.png</em:icon64URL>
         <em:aboutURL>chrome://aios/content/about.xul</em:aboutURL>
         <em:homepageURL>https://github.com/FranklinDM/TGS/wiki/</em:homepageURL>
         <em:optionsURL>chrome://aios/content/prefs/prefs.xul</em:optionsURL>

@@ -4,41 +4,41 @@ skin        aios            global          skin/
 manifest 	locales.manifest
 
 overlay     chrome://browser/content/browser.xul                       chrome://aios/content/aios.xul
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios.css
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_orientation.css
+style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios.css
+style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_orientation.css
 
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_theme.css
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_buttons.css
+style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_theme.css
+style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_buttons.css
 
 overlay     chrome://browser/content/bookmarks/bookmarksPanel.xul      chrome://aios/content/places.xul
-style       chrome://browser/content/bookmarks/bookmarksPanel.xul      chrome://aios/skin/css/places.css
+style       chrome://browser/content/bookmarks/bookmarksPanel.xul      chrome://aios/skin/places.css
 
 overlay     chrome://global/content/customizeToolbar.xul               chrome://aios/content/aios_customize.xul
-style       chrome://global/content/customizeToolbar.xul               chrome://aios/skin/css/aios_buttons.css
+style       chrome://global/content/customizeToolbar.xul               chrome://aios/skin/aios_buttons.css
 
 overlay     chrome://browser/content/history/history-panel.xul         chrome://aios/content/places.xul
-style       chrome://browser/content/history/history-panel.xul         chrome://aios/skin/css/places.css
+style       chrome://browser/content/history/history-panel.xul         chrome://aios/skin/places.css
 
 overlay     about:addons                                               chrome://aios/content/addons.xul
 style       about:addons                                               chrome://browser/skin/browser.css
-style       about:addons                                               chrome://aios/skin/css/addons.css
+style       about:addons                                               chrome://aios/skin/addons.css
 
 overlay     chrome://mozapps/content/xpinstall/xpinstallConfirm.xul    chrome://aios/content/addons_xpinstall.xul
 
 overlay     about:downloads											   chrome://aios/content/downloads.xul
-style       about:downloads                                            chrome://aios/skin/css/downloads.css
+style       about:downloads                                            chrome://aios/skin/downloads.css
 
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/multipanel.xul
-style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/css/multipanel.css
+style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/multipanel.css
 
 overlay     chrome://browser/content/preferences/cookies.xul           chrome://aios/content/cookies.xul
 
 overlay     chrome://browser/content/pageinfo/pageInfo.xul             chrome://aios/content/pageinfo.xul
-style       chrome://browser/content/pageinfo/pageInfo.xul             chrome://aios/skin/css/pageinfo.css
+style       chrome://browser/content/pageinfo/pageInfo.xul             chrome://aios/skin/pageinfo.css
 
 overlay     chrome://global/content/console.xul                        chrome://aios/content/console.xul
 
-style       chrome://aios/content/about.xul                            chrome://aios/skin/css/prefs.css
+style       chrome://aios/content/about.xul                            chrome://aios/skin/prefs.css
 
 # For Pale Moon
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/multipanel_fixes.xul					application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
@@ -49,5 +49,5 @@ overlay     chrome://browser/content/browser.xul                       chrome://
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/australis/multipanel_fixes.xul			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 override    chrome://browser/content/downloads/indicatorOverlay.xul    chrome://aios/content/australis/indicatorOverlay.xul			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 override    chrome://aios/skin/icons/toolbar.svg                       chrome://aios/skin/icons/toolbar_australis.svg               application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/css/aios_buttons_australis.css			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/css/multipanel_australis.css				application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_buttons_australis.css			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/multipanel_australis.css				application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}

@@ -118,7 +118,7 @@ function aios_addTab(aUrl) {
  * => Called through aios_init() and aios_sidebarLayout() in the add-ons, Downloads
  */
 function aios_addCSS(aURI, aBefore) {
-    var path = "chrome://aios/skin/css/";
+    var path = "chrome://aios/skin/";
 
     var elem = (typeof aBefore == "object") ? aBefore : document.getElementById(aBefore);
 

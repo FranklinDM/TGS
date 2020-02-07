@@ -2,11 +2,11 @@
  * Icons
  */
 toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
-	list-style-image: url(../icons/toolbar.svg);
+	list-style-image: url("toolbar.svg");
 }
 toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button),
 toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
-	list-style-image: url(../icons/toolbar-inverted.svg);
+	list-style-image: url("toolbar-inverted.svg");
 }
 #addons-button {
 	-moz-image-region: rect(0px,  72px,  18px,  54px);
@@ -55,7 +55,7 @@ menuitem[key="aiosKey_panelTab2"],
 menuitem[key="aiosKey_prefs"],
 menuitem #aios-sidebar-mitem-show,
 menuitem #aios-sidebar-mitem-hide {
-	list-style-image: url("../icons/panels_menus.png");
+	list-style-image: url("panels_menus.png");
 }
 menuitem[key="aiosKey_panelTab1"] {
 	-moz-image-region: rect(16px,  16px,  32px,  0);

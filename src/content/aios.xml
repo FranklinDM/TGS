@@ -34,7 +34,7 @@
     <!-- Needed only for Darwin to prevent having a left 1px wide border -->
     <binding id="aiosGrippy">
         <resources>
-            <stylesheet src="chrome://aios/skin/css/aios_grippies.css" />
+            <stylesheet src="chrome://aios/skin/aios_grippies.css" />
         </resources>
     </binding>
 </bindings>
