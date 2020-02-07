@@ -6,15 +6,15 @@ page[aios-inSidebar] #bookmarks-view,
 page[aios-inSidebar] tree #bookmarks-view,
 page[aios-inSidebar] #history-panel,
 page[aios-inSidebar] #historyTree {
-	margin: 0;
-	padding: 0;
-	border: none;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 page[aios-inSidebar] tree {
-	-moz-appearance: none;
+  -moz-appearance: none;
 }
 page[aios-inSidebar] label[control="search-box"] {
-	display: none;
+  display: none;
 }
 
 
@@ -23,15 +23,15 @@ page[aios-inSidebar] label[control="search-box"] {
  */
 page[aios-inSidebar] #closeFolder,
 page[aios-inSidebar] #viewButton {
-	list-style-image: url("panels_menus.png");
+  list-style-image: url("panels_menus.png");
 }
 page[aios-inSidebar] #closeFolder .toolbarbutton-text,
 page[aios-inSidebar] #viewButton .toolbarbutton-text {
-	display: none;
+  display: none;
 }
 page[aios-inSidebar] #closeFolder {
-	-moz-image-region: rect(0,  32px,  16px,  16px);
+  -moz-image-region: rect(0,  32px,  16px,  16px);
 }
 page[aios-inSidebar] #viewButton {
-	-moz-image-region: rect(0,  16px,  16px,  0);
+  -moz-image-region: rect(0,  16px,  16px,  0);
 }

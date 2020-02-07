@@ -2,17 +2,17 @@
  * Icons
  */
 toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
-    list-style-image: url("toolbar.svg");
+  list-style-image: url("toolbar.svg");
 }
 toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button),
 toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button) {
-	list-style-image: url("toolbar-inverted.svg");
+  list-style-image: url("toolbar-inverted.svg");
 }
 #bookmarks-button {
-    -moz-image-region: rect(0px, 18px, 18px, 0px)
+  -moz-image-region: rect(0px, 18px, 18px, 0px);
 }
 #history-button {
-    -moz-image-region: rect(0px, 36px, 18px, 18px)
+  -moz-image-region: rect(0px, 36px, 18px, 18px);
 }
 
 
@@ -25,5 +25,5 @@ toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-bu
 }
 #aios-toolbar toolbarbutton.bookmark-item:not(.subviewbutton),
 #aios-toolbar #personal-bookmarks[cui-areatype="toolbar"]:not([overflowedItem=true]) > #bookmarks-toolbar-placeholder {
-	padding: 0;
+  padding: 0;
 }

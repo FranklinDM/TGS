@@ -4,41 +4,41 @@
 window[aios-inSidebar] #mainDeck,
 window[aios-inSidebar] #topBar,
 window[aios-inSidebar] #viewGroup {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 window[aios-inSidebar] #viewGroup {
-	padding: 0 0 1px 1px;
+  padding: 0 0 1px 1px;
 }
 window[aios-inSidebar] #viewGroup[hideLabel=true] radio {
-	min-width: 0;
-	margin: 0 2px 0 0;
-	padding: 2px;
+  min-width: 0;
+  margin: 0 2px 0 0;
+  padding: 2px;
 }
 window[aios-inSidebar] #viewGroup[hideLabel=true] radio label {
-	display: none;
+  display: none;
 }
 window[aios-inSidebar] #generalPanel #titletext {
-	padding: 5px;
+  padding: 5px;
 }
 window[aios-inSidebar] #permPanel > hbox {
-	padding-top: 5px;
+  padding-top: 5px;
 }
 window[aios-inSidebar] #permPanel #permList {
-	border: none;
+  border: none;
 }
 window[aios-inSidebar] #permPanel #permList > vbox {
-	padding-left: 0;
-	padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 window[aios-inSidebar] #permPanel #permList > vbox hbox {
-	-moz-box-orient: vertical;
+  -moz-box-orient: vertical;
 }
 window[aios-inSidebar] #security-privacy-groupbox row {
-	margin-top: 10px;
-	padding-top: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 window[aios-inSidebar] #security-privacy-groupbox row :first-child {
-	margin-top: 0;
-	padding-top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }

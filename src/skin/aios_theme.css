@@ -2,12 +2,12 @@
  * Sidebar Switch
  */
 window[aios-appDefTheme="true"] #aios-toggle-toolbar {
-	border-top: 1px solid ThreedHighlight;
-	border-right: 1px solid ThreedShadow;
+  border-top: 1px solid ThreedHighlight;
+  border-right: 1px solid ThreedShadow;
 }
 window[aios-appDefTheme="true"][aiosOrient="right"] #aios-toggle-toolbar {
-	border-left: 1px solid ThreedShadow;
-	border-right: none;
+  border-left: 1px solid ThreedShadow;
+  border-right: none;
 }
 
 
@@ -17,65 +17,65 @@ window[aios-appDefTheme="true"][aiosOrient="right"] #aios-toggle-toolbar {
 
 /* Left Beside Sidebar */
 window[aios-appDefTheme="true"] #aios-toolbar[posMode="1"] {
-	border-top: 1px solid ThreedHighlight;
-	border-left: 1px solid ThreedHighlight;
-	border-right: 1px solid ThreedShadow;
+  border-top: 1px solid ThreedHighlight;
+  border-left: 1px solid ThreedHighlight;
+  border-right: 1px solid ThreedShadow;
 }
 window[aios-appDefTheme="true"][aiosOpen="false"][aiosOrient="left"] #browser[posMode="1"] #sidebar-splitter[grippy="true"] {
-	border-left: none;
+  border-left: none;
 }
 window[aios-appDefTheme="true"][aiosOpen="false"][aiosOrient="right"] #aios-toolbar[posMode="1"] {
-	border-right: none;
-	border-left: 2px groove ThreedHighlight;
+  border-right: none;
+  border-left: 2px groove ThreedHighlight;
 }
 window[aios-appDefTheme="true"][aiosOpen="false"][aiosOrient="right"] #browser[posMode="1"] #sidebar-splitter[grippy="true"] {
-	border-right: none;
+  border-right: none;
 }
 
 /* Right Beside sidebar */
 window[aios-appDefTheme="true"] #aios-toolbar[posMode="2"] {
-	border-top: 1px solid ThreedHighlight;
-	border-left: 2px groove ThreedHighlight;
+  border-top: 1px solid ThreedHighlight;
+  border-left: 2px groove ThreedHighlight;
 }
 window[aios-appDefTheme="true"][aiosOrient="right"] #aios-toolbar[posMode="2"] {
-	border-left: 2px groove ThreedHighlight;
-	border-right: none;
+  border-left: 2px groove ThreedHighlight;
+  border-right: none;
 }
 window[aios-appDefTheme="true"][aiosOpen="false"][aiosOrient="left"] #aios-toolbar[posMode="2"] {
-	border-left: 1px solid ThreedHighlight;
-	border-right: 1px solid ThreedShadow;
+  border-left: 1px solid ThreedHighlight;
+  border-right: 1px solid ThreedShadow;
 }
 window[aios-appDefTheme="true"][aiosOpen="false"][aiosOrient="left"] #browser[posMode="2"] #sidebar-splitter[grippy="true"] {
-	border-left: none;
+  border-left: none;
 }
 window[aios-appDefTheme="true"][aiosOpen="false"][aiosOrient="right"] #browser[posMode="2"] #sidebar-splitter[grippy="true"] {
-	border-right: none;
+  border-right: none;
 }
 
 /* Above Sidebar */
 window[aios-appDefTheme="true"] #aios-toolbar[posMode="3"] {
-	border-top: 1px solid ThreedHighlight;
-	border-bottom: 1px solid ThreedShadow;
+  border-top: 1px solid ThreedHighlight;
+  border-bottom: 1px solid ThreedShadow;
 }
 
 /* Below Sidebar Header */
 window[aios-appDefTheme="true"] #aios-toolbar[posMode="4"] {
-	border-top: 1px solid ThreedHighlight;
-	border-bottom: 1px solid ThreedShadow;
+  border-top: 1px solid ThreedHighlight;
+  border-bottom: 1px solid ThreedShadow;
 }
 
 /* Below Sidebar */
 window[aios-appDefTheme="true"] #aios-toolbar[posMode="5"] {
-	border-top: 1px solid ThreedShadow;
+  border-top: 1px solid ThreedShadow;
 }
 
 window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme)[aiosOpen="true"][aiosOrient="left"] #aios-toolbar[posMode="2"] {
-	padding-right: 2px;
+  padding-right: 2px;
 }
 window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #sidebar-splitter[grippy="true"] {
-	margin: 0;
+  margin: 0;
 }
 window[aios-appDefTheme="true"]:-moz-system-metric(windows-default-theme) #sidebar-splitter[grippy="true"][orient="horizontal"] {
-	background-color: #EEF3FA;
-	border-left: 1px solid #A9B7C9;
+  background-color: #EEF3FA;
+  border-left: 1px solid #A9B7C9;
 }
