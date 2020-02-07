@@ -21,9 +21,6 @@ var AiOS_PageInfo = {
         // Hide the menu bar on Mac OS X.
         aios_hideMacMenubar();
 
-        // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(document.getElementById("main-window"));
-
         var enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layout");
         var enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("pi.layoutall");
         if ((enable_layout && aios_inSidebar()) || enable_layoutall)

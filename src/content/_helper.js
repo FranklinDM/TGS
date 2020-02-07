@@ -28,15 +28,6 @@ var AiOS_HELPER = {
         if (this.prefService.getBranch("extensions.aios.").getBoolPref("logging"))
             this.consoleService.logStringMessage("TGS: " + ex);
     },
-
-    rememberAppInfo: function (aObj) {
-        aObj.setAttribute("aios-appVendor", this.appInfo.vendor);
-        aObj.setAttribute("aios-appVersion", this.appInfo.version);
-        aObj.setAttribute("aios-appOS", this.os);
-        aObj.setAttribute("aios-appOSVersion", this.osVersion);
-        aObj.setAttribute("aios-appDefTheme", this.defTheme);
-    }
-
 };
 
 AiOS_HELPER.init();

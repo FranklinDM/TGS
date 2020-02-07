@@ -57,9 +57,6 @@ var AiOS = {
             aios_replaceKey("sidebarheader-tooltip-box", "r1c2", "shift");
         }
 
-        // Set appInfo to main browser window (needed for CSS)
-        AiOS_HELPER.rememberAppInfo(AiOS_Objects.mainWindow);
-
         // Sidebar left or right
         // Property assignment for CSS (LTR <=> RTL; sidebar left <=> right)
         AiOS.setSidebarOrient();

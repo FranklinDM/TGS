@@ -9,9 +9,6 @@ var AiOS_Cookies = {
         // Hide the menu bar under Mac OS X
         aios_hideMacMenubar();
 
-        // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(cookieWindow);
-
         // Sidebar Layout
         if ((enable_layout && aios_inSidebar) || enable_layoutall)
             AiOS_Cookies.sidebarLayout();

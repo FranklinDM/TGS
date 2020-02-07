@@ -11,8 +11,6 @@ var AiOS_About = {
             document.getElementById("macVersion").setAttribute("value", addon.version);
         });
 
-        AiOS_HELPER.rememberAppInfo(document.getElementById("aiosAbout"));
-
         // List of languages where this extension is translated
         /* let languages = ['ar-SA', 'be-BY', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-GB', 'en-US', 'es-AR', 'es-ES', 'et-EE', 'fi-FI',
             'fr-FR', 'he-IL', 'hr-HR', 'hu-HU', 'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'lt-LT', 'nb-NO', 'nl-NL', 'pl-PL',

@@ -111,9 +111,6 @@ var AiOS_Places = {
             strings = document.getElementById("propSetStrings"),
             blurText = strings.getString("bm_hi.search.blur");
 
-        // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(self.managerWindow);
-
         // Enable CSS
         self.managerWindow.setAttribute("aios-inSidebar", "true");
 

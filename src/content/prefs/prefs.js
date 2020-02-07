@@ -59,8 +59,6 @@ var AiOS_Prefs = {
     },
 
     initPane: function (mode) {
-        AiOS_HELPER.rememberAppInfo(document.getElementById("aiosPreferences"));
-
         // Reselect last selected tab
         var tabbox = null;
         switch (mode) {

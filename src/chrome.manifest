@@ -7,7 +7,6 @@ overlay     chrome://browser/content/browser.xul                       chrome://
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios.css
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_orientation.css
 
-style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_theme.css
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_buttons.css
 
 overlay     chrome://browser/content/bookmarks/bookmarksPanel.xul      chrome://aios/content/places.xul

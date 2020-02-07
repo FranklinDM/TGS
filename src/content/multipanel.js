@@ -32,9 +32,6 @@ var AiOS_MP = {
             document.getElementById("mp-home-button").hidden = true;
         }
 
-        // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(document.getElementById("webpanels-window"));
-
         // If URL is blank, go to about:blank
         if (AiOS_MP.URLBar.value == "") {
             if (homepage != "") {

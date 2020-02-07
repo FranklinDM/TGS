@@ -315,38 +315,3 @@ page[aios-inSidebar] #detail-view #detail-rating-row > hbox {
 page[aios-inSidebar] #detail-view #detail-controls button {
   margin-left: 0;
 }
-
-
-/*
- * Default theme styling
- */
-
-page[aios-inSidebar][aios-appDefTheme="true"] {
-  background-image: none;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] .addon:not([selected="true"]) {
-  background-color: ButtonFace;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] #categories {
-  border-top: none;
-  border-bottom: 1px solid ThreedShadow;
-  background-color: -moz-field;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] .category,
-page[aios-inSidebar][aios-appDefTheme="true"] .category:not([disabled]) {
-  border: none;
-  border-radius: 0;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] .category[selected="true"],
-page[aios-inSidebar][aios-appDefTheme="true"] .category:not([disabled])[selected="true"] {
-  background-color: #C1D2EE;
-}
-page[aios-inSidebar][aios-appDefTheme="true"] .category:hover,
-page[aios-inSidebar][aios-appDefTheme="true"] .category:not([disabled]):hover {
-  background-color: #E0E8F6;
-}
-
-page[aios-inSidebar][aios-appDefTheme="true"] #header {
-  border-top: 1px solid ThreedHighlight;
-  border-bottom: 1px solid ThreedShadow;
-}

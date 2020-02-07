@@ -18,9 +18,6 @@ var AiOS_Console = {
         // Hide the menu bar on Mac OS X
         aios_hideMacMenubar();
 
-        // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(conWindow);
-
         // Enable optimized layout?
         if ((enable_layout && aios_inSidebar) || enable_layoutall)
             AiOS_Console.sidebarLayout();

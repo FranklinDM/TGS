@@ -17,9 +17,6 @@ var AiOS_Downloads = {
         strings = document.getElementById("propSetStrings");
         searchBox = document.getElementById("searchbox");
 
-        // For CSS purposes
-        AiOS_HELPER.rememberAppInfo(aios_managerWindow);
-
         enable_count = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.count");
         enable_layout = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layout");
         enable_layoutall = AiOS_HELPER.prefBranchAiOS.getBoolPref("dm.layoutall");
@@ -84,7 +81,6 @@ var AiOS_Downloads = {
      * Activates the layout adapted to the sidebar
      */
     sidebarLayout: function () {
-        AiOS_HELPER.rememberAppInfo(aios_managerWindow);
         aios_managerWindow.setAttribute("aios-inSidebar", "true");
     },
 

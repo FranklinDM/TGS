@@ -29,13 +29,6 @@
                       title=""
                       description="" />
 
-        <hbox id="aboutHeaderMac">
-            <label id="macTitle"
-                   value="" />
-            <label id="macVersion"
-                   value="" />
-        </hbox>
-
         <tabbox flex="1">
 
             <tabs>

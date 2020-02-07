@@ -112,31 +112,11 @@ toolbarbutton.info label {
 /*
  * About Pane
  */
-#aiosPreferences #aiosAbout #aboutHeader,
-#aiosPreferences #aiosAbout #aboutHeaderMac,
-#aiosAbout:not([aios-appOS="Darwin"]) #aboutHeaderMac,
-#aiosAbout[aios-appOS="Darwin"] #aboutHeader {
+#aiosPreferences #aiosAbout #aboutHeader {
   display: none;
-}
-#aiosAbout[aios-appOS="Darwin"] tabpanel {
-  padding-top: 30px;
-}
-#aiosAbout[aios-appOS="Darwin"] description {
-  font-size: 13px;
 }
 #aiosAbout #aboutHeader {
   margin: 0 0 10px 0;
-}
-#aiosAbout #aboutHeaderMac {
-  margin: 10px 0 15px 0;
-}
-#aiosAbout #aboutHeaderMac #macTitle {
-  -moz-box-flex: 1;
-  font-size: 150%;
-  font-weight: bold;
-}
-#aiosAbout #aboutHeaderMac #macVersion {
-  margin-top: 6px;
 }
 #aiosAbout tabbox {
   margin-bottom: 10px;

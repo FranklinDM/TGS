@@ -1,7 +1,3 @@
-
-// For CSS purposes
-AiOS_HELPER.rememberAppInfo(document.getElementById("CustomizeToolbarWindow"));
-
 /**
  *  Redefine the width of the vertical toolbar whenever the toolbox changes (Drag 'n Drop)
  **/

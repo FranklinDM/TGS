@@ -19,9 +19,6 @@ var AiOS_Addons = {
         self.checkNotification();
         self.setTitle(true);
 
-        // Save for CSS purposes
-        AiOS_HELPER.rememberAppInfo(managerWindow);
-
         // Enable CSS
         managerWindow.setAttribute("aios-inSidebar", "true");
 
