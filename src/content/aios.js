@@ -1,9 +1,7 @@
 var AiOS_Objects = {
     get: function () {
         function getElement(elem) {
-            try {
-                return document.getElementById(elem);
-            } catch (e) { return; }
+            return document.getElementById(elem);
         }
         this.mainWindow = getElement("main-window");                            // fx_mainWindow
         this.browser = getElement("browser");                                   // fx_browser
