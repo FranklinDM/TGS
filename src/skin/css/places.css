@@ -23,20 +23,11 @@ page[aios-inSidebar] label[control="search-box"] {
  */
 page[aios-inSidebar] #closeFolder,
 page[aios-inSidebar] #viewButton {
-	list-style-image: url(../icons/panels_menus.png);
+	list-style-image: url("../icons/panels_menus.png");
 }
-page[aios-inSidebar] #closeFolder {
-	-moz-image-region: rect(64px,  32px,  80px,  16px);
-}
-page[aios-inSidebar] #closeFolder image {
-	margin-right: 2px;
-}
-page[aios-inSidebar] #closeFolder label,
+page[aios-inSidebar] #closeFolder .toolbarbutton-text,
 page[aios-inSidebar] #viewButton .toolbarbutton-text {
 	display: none;
-}
-page[aios-inSidebar] #viewButton {
-	-moz-image-region: rect(64px,  16px,  80px,  0);
 }
 page[aios-inSidebar] #closeFolder {
 	-moz-image-region: rect(0,  32px,  16px,  16px);

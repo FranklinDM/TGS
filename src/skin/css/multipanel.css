@@ -2,8 +2,8 @@
  * GUI
  */
 #commandBar .toolbarbutton-1 {
-	-moz-box-orient: horizontal;
-	list-style-image: url(../icons/panels_menus.png) !important;
+    -moz-box-orient: horizontal;
+	list-style-image: url("../icons/panels_menus.png");
 }
 #commandBar .toolbarbutton-1[disabled="true"] {
     opacity: .4;
@@ -31,15 +31,6 @@
 }
 #toolsButton {
 	-moz-image-region: rect(0,  16px,  16px,  0);
-}
-page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #page-button {
-	-moz-image-region: rect(64px,  80px,  80px,  64px);
-}
-page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #about-button {
-	-moz-image-region: rect(64px,  96px,  80px,  80px);
-}
-page:not([aios-appOS="WINNT"]):not([aios-appOS="Darwin"]) #toolsButton {
-	-moz-image-region: rect(64px,  16px,  80px,  0);
 }
 
 /* Toolbar content shouldn't be too close to the edges */
