@@ -48,6 +48,7 @@ override    chrome://browser/content/downloads/indicatorOverlay.xul    chrome://
 overlay     chrome://browser/content/browser.xul                       chrome://aios/content/australis/aios.xul						application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 overlay     chrome://browser/content/web-panels.xul                    chrome://aios/content/australis/multipanel_fixes.xul			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 override    chrome://browser/content/downloads/indicatorOverlay.xul    chrome://aios/content/australis/indicatorOverlay.xul			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-override    chrome://aios/skin/icons/toolbar.svg                       chrome://aios/skin/icons/toolbar_australis.svg               application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+override    chrome://aios/skin/toolbar.svg                             chrome://aios/skin/toolbar_australis.svg                     application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+override    chrome://aios/skin/panels_menus.svg                        chrome://aios/skin/panels_menus_australis.svg                application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 style       chrome://browser/content/browser.xul                       chrome://aios/skin/aios_buttons_australis.css			application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 style       chrome://browser/content/web-panels.xul                    chrome://aios/skin/multipanel_australis.css				application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}

@@ -15,8 +15,8 @@ window[aios-inSidebar] #downloadsRichListBox > richlistitem.download {
 
 /* Icons */
 window #clearListButton {
-  list-style-image: url("panels_menus.png");
-  -moz-image-region: rect(0, 48px, 16px, 32px);
+  list-style-image: url("panels_menus.svg");
+  -moz-image-region: rect(0, 32px, 16px, 16px);
 }
 
 /* Mark download items based on status */
