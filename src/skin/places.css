@@ -1,0 +1,37 @@
+/*
+ * GUI
+ */
+page[aios-inSidebar] #bookmarksPanel,
+page[aios-inSidebar] #bookmarks-view,
+page[aios-inSidebar] tree #bookmarks-view,
+page[aios-inSidebar] #history-panel,
+page[aios-inSidebar] #historyTree {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+page[aios-inSidebar] tree {
+  -moz-appearance: none;
+}
+page[aios-inSidebar] label[control="search-box"] {
+  display: none;
+}
+
+
+/*
+ * Icons
+ */
+page[aios-inSidebar] #closeFolder,
+page[aios-inSidebar] #viewButton {
+  list-style-image: url("panels_menus.svg");
+}
+page[aios-inSidebar] #closeFolder .toolbarbutton-text,
+page[aios-inSidebar] #viewButton .toolbarbutton-text {
+  display: none;
+}
+page[aios-inSidebar] #closeFolder {
+  -moz-image-region: rect(0,  32px,  16px,  16px);
+}
+page[aios-inSidebar] #viewButton {
+  -moz-image-region: rect(0,  16px,  16px,  0);
+}

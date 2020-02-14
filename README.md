@@ -16,13 +16,13 @@ To build an installable `.xpi` extension:
 
 1. Clone this repository
 2. Zip the contents of the repository (excluding `.git`, `.gitignore`, `build.sh`, `CHANGELOG.md`, and `README.md`) and rename the `.zip` extension to `.xpi`
-3. Open/install the resulting `.xpi` file with Pale Moon/Basilisk
+3. Install the resulting `.xpi` file with Pale Moon/Basilisk
 
 ### Mac OS X / Linux
 
 1. Clone this repository
-2. Execute `./build.sh` at the repository root
-3. Open/install the resulting `tgs_sidebar-dev-build.xpi` file with Pale Moon/Basilisk
+2. Execute `./src/build.sh` at the repository root
+3. Install the resulting `tgs_sidebar-dev-build.xpi` file with Pale Moon/Basilisk
 
 ### Windows
 

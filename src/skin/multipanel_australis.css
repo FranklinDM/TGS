@@ -1,0 +1,15 @@
+/*
+ * Padlock icons for Australis browsers
+ */
+#lock-icon[level="ev"] {
+  list-style-image: url("chrome://browser/skin/connection-secure.svg");
+}
+#lock-icon[level="high"] {
+  list-style-image: url("chrome://browser/skin/connection-secure.svg");
+}
+#lock-icon[level="low"], #lock-icon[level="mixed"] {
+  list-style-image: url("chrome://browser/skin/connection-mixed-active-loaded.svg#icon");
+}
+#lock-icon[level="broken"] {
+  list-style-image: url("chrome://browser/skin/connection-mixed-passive-loaded.svg#icon");
+}

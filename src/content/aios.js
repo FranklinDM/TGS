@@ -1,9 +1,7 @@
 var AiOS_Objects = {
     get: function () {
         function getElement(elem) {
-            try {
-                return document.getElementById(elem);
-            } catch (e) { return; }
+            return document.getElementById(elem);
         }
         this.mainWindow = getElement("main-window");                            // fx_mainWindow
         this.browser = getElement("browser");                                   // fx_browser
@@ -175,30 +173,21 @@ var AiOS = {
         else
             AiOS_Objects.sbSwitch.setAttribute("ondragenter", "");
 
-        // Show changelog?
-        var changelog = AiOS_HELPER.prefBranchAiOS.getCharPref("changelog");
-
-        // When value of changelog pref is set to 0, don't show changelog
-        if (parseFloat(changelog) != 0) {
+        // Determine if it's necessary to open the changelog link
+        var oldVersion = AiOS_HELPER.prefBranchAiOS.getCharPref("changelog");
+        if (parseFloat(oldVersion) != 0) {
             Components.utils.import("resource://gre/modules/AddonManager.jsm");
             AddonManager.getAddonByID("tgsidebar@franklindm", function (addon) {
-                var aiosVersion = addon.version;
+                var version = addon.version;
+                if (version != oldVersion) {
+                    AiOS_HELPER.prefBranchAiOS.setCharPref("changelog", version);
 
-                if (aiosVersion && (aiosVersion != changelog)) {
-                    var aiosUpdated = (changelog != "") ? true : false;
-
-                    AiOS_HELPER.prefBranchAiOS.setCharPref("changelog", aiosVersion);
-                    var changelog_new = AiOS_HELPER.prefBranchAiOS.getCharPref("changelog");
-
-                    // If saving the current version worked fine
-                    if (changelog_new === aiosVersion && gBrowser) {
-                        let aiosVersionDotless = aiosVersion.split(".").join("");
-                        var hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
-                        if (aiosUpdated)
-                            hp = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + aiosVersionDotless;
+                    if (gBrowser) {
+                        let plainVersion = version.split(".").join("");
+                        var changelogLink = "https://github.com/FranklinDM/TGS/wiki/Changelog#" + plainVersion;
 
                         window.setTimeout(function () {
-                            gBrowser.loadTabs([hp], false);
+                            gBrowser.loadTabs([changelogLink], false);
                         }, 500);
                     }
                 }

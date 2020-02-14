@@ -1,0 +1,94 @@
+/*
+ * Icons
+ */
+toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
+  list-style-image: url("toolbar.svg");
+}
+toolbar:-moz-lwtheme-brighttext toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button),
+toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-button):not(#bookmarks-button):not(#history-button) {
+  list-style-image: url("toolbar-inverted.svg");
+}
+#addons-button {
+  -moz-image-region: rect(0px, 72px, 18px, 54px);
+}
+#multipanel-button {
+  -moz-image-region: rect(0px, 90px, 18px, 72px);
+}
+#pageinfo-button {
+  -moz-image-region: rect(0px, 108px, 18px, 90px);
+}
+#console-button {
+  -moz-image-region: rect(0px, 126px, 18px, 108px);
+}
+#paneltab-button {
+  -moz-image-region: rect(0px, 144px, 18px, 126px);
+}
+#sidebars-button {
+  -moz-image-region: rect(0px, 162px, 18px, 144px);
+}
+#sidebars-button dropmarker {
+  display: none;
+}
+#nav-bar #sidebars-button.toolbarbutton-1[type=menu] > .toolbarbutton-icon,
+#nav-bar #sidebars-button.toolbarbutton-1[type=menu] > .toolbarbutton-text {
+  -moz-padding-end: 7px !important;
+}
+#sidebars-togglebutton {
+  -moz-image-region: rect(0px, 180px, 18px, 162px);
+}
+#autohide-button {
+  -moz-image-region: rect(0px, 198px, 18px, 180px);
+}
+#toolbar-button {
+  -moz-image-region: rect(0px, 216px, 18px, 198px);
+}
+#cookies-button {
+  -moz-image-region: rect(0px, 234px, 18px, 216px);
+}
+
+
+/*
+ * Menu Icons
+ */
+menuitem[key="aiosKey_panelTab1"],
+menuitem[key="aiosKey_panelTab2"],
+menuitem[key="aiosKey_prefs"],
+menuitem #aios-sidebar-mitem-show,
+menuitem #aios-sidebar-mitem-hide {
+  list-style-image: url("panels_menus.svg");
+}
+menuitem[key="aiosKey_panelTab1"] {
+  -moz-image-region: rect(16px, 16px, 32px, 0);
+}
+menuitem[key="aiosKey_panelTab2"] {
+  -moz-image-region: rect(16px, 32px, 32px, 16px);
+}
+menuitem #aios-sidebar-mitem-hide {
+  -moz-image-region: rect(16px, 48px, 32px, 32px);
+}
+menuitem #aios-sidebar-mitem-show {
+  -moz-image-region: rect(16px, 64px, 32px, 48px);
+}
+menuitem[key="aiosKey_prefs"] {
+  -moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+
+/*
+ * Button margins on vertical toolbar
+ */
+#aios-toolbar[orient="vertical"] toolbarbutton {
+  margin: 2px 1px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+#aios-toolbar[orient="vertical"] toolbarbutton toolbarbutton {
+  margin: 0;
+}
+#aios-toolbar[orient="vertical"][iconsize="small"] .toolbarbutton-icon {
+  padding: 0;
+}
+#aios-toolbar[orient="vertical"] toolbarseparator,
+#aios-toolbar[orient="vertical"] toolbarpaletteitem[id^="wrapper-separator"] {
+  margin: 4px 2px 2px 2px;
+}

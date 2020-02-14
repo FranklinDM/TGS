@@ -1,17 +1,17 @@
 /*
  * GUI
  */
- 
+
 /* Hide close button, intro message, and resizer */
 window button[oncommand="close();"],
 window resizer,
 window #cookiesIntro {
-	display: none;
+  display: none;
 }
 
 window .contentPane,
 window #cookieInfoBox,
 window #cookiesList {
-	margin: 0 !important;
-	border: none;
+  margin: 0 !important;
+  border: none;
 }
