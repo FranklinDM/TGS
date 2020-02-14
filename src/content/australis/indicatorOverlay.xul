@@ -18,7 +18,7 @@
   <!-- We dynamically add the stack with the progress meter and notification icon,
        originally loaded lazily because of performance reasons, to the existing
        downloads-button. -->
-  <toolbarbutton id="downloads-button" indicator="true" command="Tools:Downloads-tb" onmouseover="if (AiOS_HELPER.prefBranchAiOS.getBoolPref('infotips')) this.removeAttribute('tooltiptext');">
+  <toolbarbutton id="downloads-button" indicator="true" command="Tools:Downloads-tb">
     <!-- The panel's anchor area is smaller than the outer button, but must
          always be visible and must not move or resize when the indicator
          state changes, otherwise the panel could change its position or lose

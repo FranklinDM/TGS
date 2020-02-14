@@ -40,23 +40,6 @@ var AiOS = {
     initSidebar: function () {
         AiOS_Objects.get();
 
-        // MacOS X => replace keyboard shortcut (Ctrl is replaced by Command and toggle by the icon for it)
-        if (AiOS_HELPER.os == "Darwin") {
-            aios_replaceKey("switch-tooltip-box", "r2c2", "command");
-            aios_replaceKey("template-sidebar-tooltip-box", "r2c2", "command");
-            aios_replaceKey("template-window-tooltip-box", "r2c2", "command");
-            aios_replaceKey("paneltab-tooltip-box", "r2c2", "command");
-            aios_replaceKey("paneltab-tooltip-reverse-box", "r2c2", "command");
-            aios_replaceKey("sidebarheader-tooltip-box", "r3c2", "command");
-
-            aios_replaceKey("switch-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("template-sidebar-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("template-window-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("paneltab-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("paneltab-tooltip-reverse-box", "r3c2", "shift");
-            aios_replaceKey("sidebarheader-tooltip-box", "r1c2", "shift");
-        }
-
         // Sidebar left or right
         // Property assignment for CSS (LTR <=> RTL; sidebar left <=> right)
         AiOS.setSidebarOrient();

@@ -178,18 +178,6 @@ function aios_gElem(aID) {
 }
 
 /*
- * Replaces the keyboard shortcuts in the tooltips for MacOS X
- */
-function aios_replaceKey(aElem, aAttr, aKey) {
-    var strings = document.getElementById("aiosProperties");
-
-    var rep_elem = document.getElementById(aElem);
-    var rep = rep_elem.getAttribute(aAttr);
-    rep = rep.substr(rep.indexOf("+"), rep.length);
-    rep_elem.setAttribute(aAttr, strings.getString("key.mac." + aKey) + rep);
-}
-
-/*
  * Returns the boolean value of a value
  * => getAttribute (val) only returns "true" or "false" as a string
  */

@@ -27,7 +27,6 @@
          toolbar handling code could remove it from the document. -->
     <toolbarbutton id="downloads-indicator"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   tooltip="downloads-tooltip"
                    tooltiptext="&downloads.tooltip;"
                    collapsed="true"
                    command="Tools:Downloads-tb"
@@ -35,7 +34,6 @@
                    ondragover="DownloadsIndicatorView.onDragOver(event);"
                    ondragenter="DownloadsIndicatorView.onDragOver(event);"
                    ondragleave="DownloadsIndicatorView.onDragLeave(event);"
-                   onmouseover="if (AiOS_HELPER.prefBranchAiOS.getBoolPref('infotips')) this.removeAttribute('tooltiptext');"
                    skipintoolbarset="true">
       <!-- The panel's anchor area is smaller than the outer button, but must
            always be visible and must not move or resize when the indicator

@@ -469,53 +469,17 @@ function aios_setTargets() {
     if (document.getElementById("viewSdDownloadsSidebar"))
         targets["dm"] = ["Tools:Downloads", "viewSdDownloadsSidebar", "downloads", "aios_openDialog('" + document.getElementById("viewSdDownloadsSidebar").getAttribute("sidebarurl") + "', 'Tools:Console');"];
 
-    // activate informative tooltips and function reversal (PanelTab)?
-    let prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
-    let ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
     let enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-    let switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
     let inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
     let inv_noclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick");
 
-    if (prefInfotip) {
-        if (AiOS_Objects.sbSwitch)
-            AiOS_Objects.sbSwitch.removeAttribute("tooltiptext");
-
-        // in loop because there may be several buttons with the same ID
-        objects = document.getElementsByAttribute("id", "paneltab-button");
-        for (i = 0; i < objects.length; i++) {
-            objects[i].removeAttribute("tooltiptext");
-        }
-    }
-
-    // If tooltip for the switch is disabled/it's not logical to show the tooltip, remove it
-    if (!switchTip || (inv_switch && inv_noclick))
-        if (AiOS_Objects.sbSwitch)
-            AiOS_Objects.sbSwitch.removeAttribute("tooltip");
-
-    if (document.getElementById("paneltab-button")) {
-        if (ptReverse)
-            document.getElementById("paneltab-button").setAttribute("tooltip", "paneltab-tooltip-reverse");
-        else
-            document.getElementById("paneltab-button").setAttribute("tooltip", "paneltab-tooltip");
-    }
-
     // Modify the toolbar button's command set
-    aios_ModifyCommandSet(targets, prefInfotip, objects, i, false);
-    aios_ModifyCommandSet(targets, prefInfotip, objects, i, true);
+    aios_ModifyCommandSet(targets, objects, i, false);
+    aios_ModifyCommandSet(targets, objects, i, true);
 
     // Disable context menu of the PanelTab buttons if right-click is allowed
     if (enable_rightclick && document.getElementById("paneltab-button")) {
         document.getElementById("paneltab-button").setAttribute("context", "");
-        var pttt1 = document.getElementById("paneltab-tooltip").firstChild;
-        var pttt2 = document.getElementById("paneltab-tooltip-reverse").firstChild;
-
-        if (pttt1.getAttribute("r3c2").indexOf(pttt1.getAttribute("rightclick")) == -1) {
-            pttt1.setAttribute("r3c2", pttt1.getAttribute("r3c2") + pttt1.getAttribute("rightclick"));
-        }
-        if (pttt2.getAttribute("r3c2").indexOf(pttt2.getAttribute("rightclick")) == -1) {
-            pttt2.setAttribute("r3c2", pttt2.getAttribute("r3c2") + pttt2.getAttribute("rightclick"));
-        }
     }
 
     // Prevent opening the download window if the sidebar is to be used
@@ -538,7 +502,7 @@ function aios_setTargets() {
     return true;
 }
 
-function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
+function aios_ModifyCommandSet(targets, objects, i, isMain) {
     for (var obj in targets) {
         // Open in sidebar?
         var prefSidebar;
@@ -557,33 +521,22 @@ function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
 
         var ffObj = document.getElementById(targets[obj][0] + cmExt); // Original object
         var sbObj = document.getElementById(targets[obj][1]); // Sidebar object
-        var tpObj = document.getElementById(targets[obj][2] + "-tooltip"); // Tooltip
         var btObj = document.getElementById(targets[obj][2] + "-button"); // Button
 
         if (ffObj && sbObj) {
             var newObj,
-                newCmd,
-                newTp;
+                newCmd;
 
             if (prefSidebar) {
-                // Tooltip
                 newObj = sbObj;
-                newTp = document.getElementById("template-sidebar-tooltip").childNodes[0].cloneNode(true);
-
-                // Command
-                newCmd = newObj.getAttribute("oncommand");
 
                 // prevent two commands from being executed when a key is pressed
+                newCmd = newObj.getAttribute("oncommand");
                 newCmd = "if(aios_preventDblCmd(event)) " + newCmd + " return true;";
 
-                // assign command
                 ffObj.setAttribute("oncommand", newCmd);
             } else {
-                // Tooltip
                 newObj = ffObj;
-                newTp = document.getElementById("template-window-tooltip").childNodes[0].cloneNode(true);
-
-                // Command
                 ffObj.setAttribute("oncommand", "if(aios_preventDblCmd(event)) " + targets[obj][3]);
             }
             // remembering commands
@@ -599,25 +552,6 @@ function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
                 sbObj.setAttribute("aios_sbUri", sbObj.getAttribute("sidebarurl"));
                 sbObj.setAttribute("oncommand", "if(aios_preventDblCmd(event)) " + sbObj.getAttribute("oncommand"));
             }
-
-            // Remove Tooltiptext to make info tooltips visible (looped because there may be several buttons with the same ID)
-            if (prefInfotip && btObj) {
-                objects = document.getElementsByAttribute("id", btObj.id);
-                for (i = 0; i < objects.length; i++) {
-                    objects[i].removeAttribute("tooltiptext");
-                }
-            }
-
-            // remove "old" tooltip lines (otherwise they will be inserted with each function call)
-            if (tpObj.childNodes.length > 1)
-                tpObj.removeChild(tpObj.childNodes[1]);
-
-            // Activate right click in the tooltip
-            if (enable_rightclick)
-                newTp.setAttribute("r3c2", newTp.getAttribute("r3c2") + newTp.getAttribute("rightclick"));
-
-            // Assign tooltip
-            tpObj.appendChild(newTp);
 
             // Disable context menu of the toolbarbuttons, if right-click is allowed
             if (btObj && enable_rightclick)

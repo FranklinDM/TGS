@@ -267,7 +267,6 @@
         <toolbarbutton id="bookmarks-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&bookmarksButton.label;"
-                       tooltip="bookmarks-tooltip"
                        tooltiptext="&bookmarksButton.label;"
                        command="View:Bookmarks-tb">
             <observes element="viewBookmarksSidebar"
@@ -278,7 +277,6 @@
         <toolbarbutton id="history-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&historyButton.label;"
-                       tooltip="history-tooltip"
                        tooltiptext="&historyButton.label;"
                        command="View:History-tb">
             <observes element="viewHistorySidebar"
@@ -289,7 +287,6 @@
         <toolbarbutton id="downloads-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&downloads.label;"
-                       tooltip="downloads-tooltip"
                        tooltiptext="&downloads.label;"
                        command="Tools:Downloads-tb">
             <observes element="viewDownloadsSidebar"
@@ -304,7 +301,6 @@
                        command="Tools:Addons-tb"
                        ondragenter="toggleSidebar('viewAddonsSidebar', true);"
                        label="&button.addons.label;"
-                       tooltip="addons-tooltip"
                        tooltiptext="&button.addons.tooltip;">
             <observes element="viewAddonsSidebar"
                       attribute="checked" />
@@ -315,7 +311,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="Tools:MultiPanel-tb"
                        label="&button.multipanel.label;"
-                       tooltip="multipanel-tooltip"
                        tooltiptext="&button.multipanel.tooltip;">
             <observes element="viewWebPanelsSidebar"
                       attribute="checked" />
@@ -326,7 +321,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="View:PageInfo-tb"
                        label="&pageInfoCmd.label;"
-                       tooltip="pageinfo-tooltip"
                        tooltiptext="&button.pageinfo.tooltip;">
             <observes element="viewPageInfoSidebar"
                       attribute="checked" />
@@ -337,7 +331,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="View:Cookies-tb"
                        label="&button.cookies.label;"
-                       tooltip="cookies-tooltip"
                        tooltiptext="&button.cookies.tooltip;">
             <observes element="viewCookiesSidebar"
                       attribute="checked" />
@@ -348,7 +341,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="Tools:Console-tb"
                        label="&button.console.label;"
-                       tooltip="console-tooltip"
                        tooltiptext="&button.console.tooltip;">
             <observes element="viewConsoleSidebar"
                       attribute="checked" />
@@ -374,12 +366,10 @@
                        oncommand="event.stopPropagation();" />
         </toolbarbutton>
 
-        <!-- Use tooltip or tooltiptext as defined in aios_setTargets() [_lib.js] -->
         <toolbarbutton id="paneltab-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&button.paneltab.label;"
                        onclick="aios_panelTab(event);"
-                       tooltip="paneltab-tooltip"
                        tooltiptext="&button.paneltab.tooltip1; / &button.paneltab.tooltip2;" />
         <toolbarbutton id="toolbar-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
@@ -491,105 +481,6 @@
                           accesskey="&viewCustomizeToolbar.accesskey;"
                           command="cmd_CustomizeToolbars" />
             </menupopup>
-
-            <tooltip id="switch-tooltip">
-                <label value="&button.toggle.tooltip;" />
-                <box    id="switch-tooltip-box"
-                        r1c1="&button.switch.tooltip1;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.switch.tooltip2;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.switch.tooltip3;:"
-                        r3c2="&key.shift;+&leftclick; / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="template-sidebar-tooltip">
-                <box    id="template-sidebar-tooltip-box"
-                        r1c1="&button.tooltip.sidebar;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.tooltip.tab;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.tooltip.window;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="template-window-tooltip">
-                <box    id="template-window-tooltip-box"
-                        r1c1="&button.tooltip.window;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.tooltip.tab;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.tooltip.sidebar;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-
-            <!-- Tooltips for PanelTab are set in prefs.js after setting the 'Reverse' function => aios_savePrefs() -->
-            <tooltip id="paneltab-tooltip">
-                <box    id="paneltab-tooltip-box"
-                        r1c1="&button.paneltab.tooltip1;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.paneltab.tooltip2;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.paneltab.tooltip3;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="paneltab-tooltip-reverse">
-                <box    id="paneltab-tooltip-reverse-box"
-                        r1c1="&button.paneltab.tooltip2;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.paneltab.tooltip1;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.paneltab.tooltip3;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="sidebarheader-tooltip">
-                <box    id="sidebarheader-tooltip-box"
-                        r1c1="&sidebar.width.min;:"
-                        r1c2="&key.shift;+&doubleclick;"
-                        r2c1="&sidebar.width.def;:"
-                        r2c2="&doubleclick;"
-                        r3c1="&sidebar.width.max;:"
-                        r3c2="&key.ctrl;+&doubleclick;" />
-            </tooltip>
-
-            <tooltip id="bookmarks-tooltip">
-                <label value="&bookmarksButton.label;" />
-            </tooltip>
-
-            <tooltip id="history-tooltip">
-                <label value="&historyButton.label;" />
-            </tooltip>
-
-            <tooltip id="downloads-tooltip">
-                <label value="&downloads.label;" />
-            </tooltip>
-
-            <tooltip id="addons-tooltip">
-                <label value="&button.addons.tooltip;" />
-            </tooltip>
-
-            <tooltip id="multipanel-tooltip">
-                <label value="&button.multipanel.tooltip;" />
-            </tooltip>
-
-            <tooltip id="pageinfo-tooltip">
-                <label value="&button.pageinfo.tooltip;" />
-            </tooltip>
-
-            <tooltip id="cookies-tooltip">
-                <label value="&button.cookies.tooltip;" />
-            </tooltip>			
-			
-            <tooltip id="console-tooltip">
-                <label value="&button.console.tooltip;" />
-            </tooltip>
         </popupset>
     </window>
 
@@ -712,8 +603,6 @@
             <!-- The tooltip or tooltiptext is defined in aios_setTargets() [_lib.js] -->
                 <grippy flex="1"
                         id="aios-toggle-button"
-                        tooltip="switch-tooltip"
-                        tooltiptext="&button.toggle.tooltip;"
                         onclick="AiOS.controlSwitch(event, this);"
                         onmouseover="AiOS.autoShowHide('switch'); event.stopPropagation();"
                         ondragenter="AiOS.toggleSidebar('switch', true); event.stopPropagation();" />
@@ -810,8 +699,7 @@
             </toolbox>
 
             <!-- SIDEBAR HEADER -->
-            <sidebarheader id="sidebar-header"
-                           tooltip="sidebarheader-tooltip">
+            <sidebarheader id="sidebar-header">
                 <!-- Attribute is required in CSS (aios.css) -->
                 <observes element="aios-sbhtoolbar"
                           attribute="iconsize" />
@@ -820,6 +708,7 @@
                                type="menu"
                                ondblclick="this.childNodes[1].hidePopup();"
                                flex="1"
+                               tooltiptext="&button.menu.tooltip;"
                                position="1">
                     <label flex="1"
                            crop="right">

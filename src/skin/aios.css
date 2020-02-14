@@ -266,35 +266,6 @@ sidebarheader > .close-icon.tabbable {
 
 
 /*
- * Tooltips
- */
-#aiosPopupset tooltip {
-  padding: 1px;
-}
-#aiosPopupset tooltip box {
-  -moz-binding: url("chrome://aios/content/aios.xml#aiosTooltips");
-}
-#aiosPopupset tooltip label {
-  margin: 0;
-  padding: 1px 3px;
-}
-#aiosPopupset tooltip label[value=""],
-#aiosPopupset tooltip label:not([value]) {
-  display: none;
-}
-#aiosPopupset tooltip label:not([class="odd"]) {
-  border-top: 1px dotted ThreedDarkShadow;
-  border-bottom: 1px dotted ThreedDarkShadow;
-}
-#aiosPopupset tooltip > label:not([class="odd"]) {
-  margin-bottom: 5px;
-  padding: 2px 3px 4px 3px;
-  border-top: none;
-  border-bottom: 1px solid ThreedDarkShadow;
-}
-
-
-/*
  * Print Preview
  */
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toggle-toolbox,
