@@ -1,7 +1,7 @@
 
 # Changelog
 
-### 1.1.0 (02.14.2019)
+### 1.1.0 (02.14.2020)
 * Minor: Add support for Pale Moon 29
 * Minor: Use SVG for primary toolbar and sidebar panel icons
 * Minor: Update compact add-ons style for compatibility with custom themes
