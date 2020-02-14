@@ -1,6 +1,17 @@
 
 # Changelog
 
+### 1.1.0 (02.14.2019)
+* Minor: Add support for Pale Moon 29
+* Minor: Use SVG for primary toolbar and sidebar panel icons
+* Minor: Update compact add-ons style for compatibility with custom themes
+  - Certain themes (like M10) style the radio/check buttons, with the previous style destroying the appearance of the said buttons.
+  - This change reduces the scope of the selectors.
+* Minor: Update handling of page info styles
+* Minor: Remove generic toolbar/theme styles
+  - All platforms will now have the same appearance in terms of toolbar icons and default theme styles
+* Ignore: Code cleanup
+
 ### 1.0.8.2 (02.16.2019)
 * Ignore: Update install manifest to use separate target application blocks
 
