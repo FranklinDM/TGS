@@ -70,7 +70,7 @@ var AiOS_Downloads = {
     },
 
     removeCount: function () {
-        let title = strings.getString("downloads.title");
+        let title = document.getElementById("contentAreaDownloadsView").getAttribute("data-title");
         // Reset panel/window title
         if (sideSrc != null && sideSrc.includes("about:downloads")) {
             top.document.getElementById("sidebar-title").setAttribute("value", title);
@@ -106,7 +106,7 @@ var AiOS_Downloads = {
     countItems: function () {
         AiOS_HELPER.log("Count Items called!");
         // previous title
-        let title = strings.getString("downloads.title");
+        let title = document.getElementById("contentAreaDownloadsView").getAttribute("data-title");
         let newTitle;
         downloadsList.then(obj => obj.getAll()).then(function (value) {
             let list = value;

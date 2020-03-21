@@ -14,7 +14,6 @@
 <!ENTITY about.cache.offline.tooltip "List offline cache entries">
 <!ENTITY about.buildconfig.tooltip "Shows the arguments and options used to compile the build in use">
 <!ENTITY about.about.tooltip "Shows version information and copyright information">
-<!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
 <!ENTITY about.credits.tooltip "Shows a list of all those who contributed to Pale Moon">
 <!ENTITY about.license.tooltip "Shows the Mozilla Public License">
 <!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
