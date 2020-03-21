@@ -11,3 +11,4 @@
 <!ENTITY enable.autoClose.label "Zamknij automatycznie inne foldery">
 <!ENTITY enable.scrollToFolder.label "Przewiń automatycznie do wybranego folderu">
 <!ENTITY enable.rememberFolder.label "Zapamiętaj i uaktywnij ostatnio wybrany folder">
+<!ENTITY enable.duplicateTree.label "Pokaż drugi panel">

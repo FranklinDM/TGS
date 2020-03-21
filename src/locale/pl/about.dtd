@@ -6,16 +6,16 @@
 <!ENTITY tab.contrib "Współtwórcy">
 <!ENTITY tab.trans "Tłumacze">
 <!ENTITY about.desc "The Good 'ol Sidebar umożliwia otwieranie różnych okien w panelu bocznym i szybkie przełączanie się pomiędzy nimi. Koniec z chaosem okien! Oprócz zakładek i historii można teraz otwierać w panelu bocznym menedżer pobierania, dodatków i wiele innych…">
-<!ENTITY create.desc "Autor: Ingo Wennemaring, Hamburg [DE]">
+<!ENTITY create.desc "Stworzony przez FranklinDM, sforkowany z nierozwijanego już All-in-One Sidebar autorstwa Ingo Wennemaring.">
 <!ENTITY help.desc "Wiele informacji o tym dodatku znajdziesz na stronie:">
 <!ENTITY about1.name "Strona domowa - mnóstwo informacji w jednym miejscu">
 <!ENTITY about2.name "Opcje - wszystkie opcje The Good 'ol Sidebar">
 <!ENTITY about3.name "FAQ - często zadawane pytania i odpowiedzi">
 <!ENTITY about4.name "Znane problemy - opis i usuwanie ich">
-<!ENTITY about5.name "Forum - dyskusja, raportowanie o błędach, zmiany motywów i inne sprawy">
+<!ENTITY about5.name "Temat wsparcia - dyskusja, raportowanie o błędach, zmiany motywów i inne sprawy">
 <!ENTITY about6.name "Lista zmian - historia i wykonane zmiany">
 <!ENTITY about7.name "Do zrobienia - planowane nowe opcje i udoskonalenia">
 <!ENTITY contrib.desc "Dziękuję następującym twórcom za inspirację i części kodu (w porządku alfabetycznym):">
 <!ENTITY contrib.thanks "Chciałbym podziękować wszystkim użytkownikom, którzy pomagali w testowaniu i rozwoju tego wydania informując o błędach, dzieląc się swoimi uwagami i sugestiami lub pisząc piękne komentarze na forum. :-) Dziękuję bardzo!">
-<!ENTITY trans.desc "Tłumacze The Good 'ol Sidebar (w porządku alfabetycznym kodów języków):">
+<!ENTITY trans.desc "Tłumacze AiOS i TGS (w porządku alfabetycznym kodów języków):">
 <!ENTITY trans.thanks "Szczególne podziękowania dla zespołu BabelZilla.org za ich ogromną pracę!">
