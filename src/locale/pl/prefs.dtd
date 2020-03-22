@@ -82,7 +82,7 @@
 <!ENTITY keyconfig.disable "Wyłącz">
 <!ENTITY keyconfig.reset "Przywróć">
 <!ENTITY keyconfig.warn "Zmiany zostaną zastosowane w nowo otwieranych oknach">
-<!ENTITY menus.sidebar.desc "Określ elementy wyświetlane w elemencie „Panel boczny” z menu „Widok” oraz w rozwijanych menu przycisków panelu bocznego">
+<!ENTITY menus.sidebar.desc "Określ elementy wyświetlane w menu “Widok &gt; Panel boczny” oraz w rozwijanych menu przycisków panelu bocznego.">
 <!ENTITY menus.icons.label "Wyświetlaj ikony">
 <!ENTITY menus.entries.label "Wyświetlaj elementy">
 <!ENTITY menus.sidebar.entrydeac "Wyłącz elementy aktywnego paska bocznego">
