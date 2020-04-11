@@ -86,7 +86,7 @@ var AiOS_Prefs = {
 
     /*
      * Reset default settings
-     * => Called by <menuitem> in prefs.xul
+     * => Called by <menuitem> in preferences.xul
      */
     defaultSettings: function () {
         var strings = document.getElementById("aiosStrings");
@@ -112,7 +112,7 @@ var AiOS_Prefs = {
 
     /*
      * Copy settings to the clipboard or save as a text file
-     * => Called by <menuitem> in prefs.xul
+     * => Called by <menuitem> in preferences.xul
      */
     exportSettings: function (aMode) {
         var strings = document.getElementById("aiosStrings");
@@ -187,7 +187,7 @@ var AiOS_Prefs = {
 
     /*
      * Import settings from text file
-     * => Called by <menuitem> in prefs.xul
+     * => Called by <menuitem> in preferences.xul
      */
     importSettings: function () {
         var strings = document.getElementById("aiosStrings");

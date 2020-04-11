@@ -213,7 +213,7 @@ var AiOS = {
 
     /*
      * Sets the display of the sidebar
-     * => Called by aios_initSidebar() and aios_savePrefs() in prefs.js
+     * => Called by aios_initSidebar() and aios_savePrefs() in preferences.js
      * => 1 = left, 2 = right
      */
     setSidebarOrient: function () {
@@ -547,7 +547,7 @@ var AiOS = {
     /*
      * Enables/disables the narrow sidebar toggle switch
      * => Called by event listener "onresize", observer (sizemode) in tbx.xul,
-     * aios_BrowserFullScreen() and aios_savePrefs() in prefs.js
+     * aios_BrowserFullScreen() and aios_savePrefs() in preferences.js
      */
     checkSidebarSwitch: function () {
         if (!AiOS._initialized)

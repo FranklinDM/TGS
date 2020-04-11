@@ -20,9 +20,9 @@
             src="chrome://aios/content/_helper.js" />
 
     <script type="application/javascript"
-            src="chrome://aios/content/prefs/_overlay.js" />
+            src="chrome://aios/content/preferences/_overlay.js" />
     <script type="application/javascript"
-            src="chrome://aios/content/prefs/general.js" />
+            src="chrome://aios/content/preferences/general.js" />
 
     <script type="application/javascript"
             src="chrome://aios/content/_lib.js" />

@@ -213,7 +213,7 @@ function aios_openDialog(which, args) {
 
     switch (which) {
     case "prefs":
-        theUrl = "chrome://aios/content/prefs/prefs.xul";
+        theUrl = "chrome://aios/content/preferences/preferences.xul";
         theId = "aiosPrefsDialog";
         theFeatures = "chrome,titlebar,toolbar,centerscreen,";
         theFeatures += (AiOS_HELPER.os == "Darwin") ? "dialog=no" : "modal";

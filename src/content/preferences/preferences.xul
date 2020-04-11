@@ -2,7 +2,7 @@
 
 <?xml-stylesheet href="chrome://global/skin/global.css"?>
 <?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
-<?xml-stylesheet href="chrome://aios/skin/prefs.css"?>
+<?xml-stylesheet href="chrome://aios/skin/preferences.css"?>
 
 <!DOCTYPE prefwindow [
     <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
@@ -29,7 +29,7 @@
         <script type="application/javascript"
                 src="chrome://aios/content/_helper.js" />
         <script type="application/javascript"
-                src="chrome://aios/content/prefs/prefs.js" />
+                src="chrome://aios/content/preferences/preferences.js" />
 
         <stringbundleset>
             <stringbundle id="aiosStrings"
@@ -70,7 +70,7 @@
               onpaneload="AiOS_Prefs.initPane('general');">
 
         <script type="application/javascript"
-                src="chrome://aios/content/prefs/general.js"/>
+                src="chrome://aios/content/preferences/general.js"/>
 
         <preferences>
             <preference id="sidebarOrient"
@@ -1185,7 +1185,7 @@
     <prefpane id="aiosKeys"
               label="&tab.keys;"
               flex="1"
-              src="chrome://aios/content/prefs/keys.xul" />
+              src="chrome://aios/content/preferences/keys.xul" />
 
 
     <!-- A B O U T -->

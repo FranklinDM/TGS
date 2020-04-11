@@ -118,7 +118,7 @@ function aios_checkWidthVal(mode) {
 
 /*
  * Sets the size of the sidebar
- * => Called by aios_savePrefs() in prefs.js and aios_initSidebar() in aios.js
+ * => Called by aios_savePrefs() in preferences.js and aios_initSidebar() in aios.js
  */
 function aios_setConfSidebarWidth() {
     var elem,

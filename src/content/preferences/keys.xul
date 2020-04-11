@@ -12,7 +12,7 @@
         <script type="application/javascript"
                 src="chrome://aios/content/_helper.js" />
         <script type="application/javascript"
-                src="chrome://aios/content/prefs/_keyconfig.js"/>
+                src="chrome://aios/content/preferences/_keyconfig.js"/>
         
         <stringbundleset>
             <stringbundle id="platformKeys"
