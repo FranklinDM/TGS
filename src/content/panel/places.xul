@@ -12,7 +12,7 @@
     <script type="application/javascript"
             src="chrome://aios/content/_helper.js" />
     <script type="application/javascript"
-            src="chrome://aios/content/places.js" />
+            src="chrome://aios/content/panel/places.js" />
 
     <page id="bookmarksPanel"
           class="placesPanel"

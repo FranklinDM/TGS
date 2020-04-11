@@ -5,5 +5,5 @@
     <script type="application/javascript"
             src="chrome://aios/content/_helper.js" />
     <script type="application/javascript"
-            src="chrome://aios/content/console.js" />
+            src="chrome://aios/content/panel/console.js" />
 </overlay>

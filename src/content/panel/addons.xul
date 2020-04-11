@@ -11,7 +11,7 @@
 	<script type="application/javascript"
 	        src="chrome://aios/content/_helper.js" />
 	<script type="application/javascript"
-	        src="chrome://aios/content/addons.js" />
+	        src="chrome://aios/content/panel/addons.js" />
 
 	<richlistbox id="categories">
 		<observes element="categories"

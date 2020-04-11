@@ -7,7 +7,7 @@
     <script type="application/javascript"
             src="chrome://aios/content/_helper.js" />
     <script type="application/javascript"
-            src="chrome://aios/content/pageinfo.js" />
+            src="chrome://aios/content/panel/pageinfo.js" />
 
     <window id="main-window"
             persist="screenX screenY width height sizemode seltab">

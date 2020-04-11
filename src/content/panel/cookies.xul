@@ -5,7 +5,7 @@
 	<script type="application/javascript"
 	        src="chrome://aios/content/_helper.js" />
 	<script type="application/javascript"
-	        src="chrome://aios/content/cookies.js" />
+	        src="chrome://aios/content/panel/cookies.js" />
 
 	<window id="CookiesDialog">
 		<stringbundleset id="propSet">

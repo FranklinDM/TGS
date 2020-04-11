@@ -13,7 +13,7 @@
     <script type="application/javascript"
             src="chrome://aios/content/_helper.js" />
     <script type="application/javascript"
-            src="chrome://aios/content/downloads.js" />
+            src="chrome://aios/content/panel/downloads.js" />
 
     <window id="contentAreaDownloadsView">
           <toolbox id="commandBar"
