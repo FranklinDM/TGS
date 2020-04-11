@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 
-<!-- locale -->
+<?xml-stylesheet href="chrome://aios/skin/aios.css" type="text/css"?>
+<?xml-stylesheet href="chrome://aios/skin/aios_orientation.css" type="text/css"?>
+<?xml-stylesheet href="chrome://aios/skin/aios_buttons.css" type="text/css"?>
+
 <!DOCTYPE overlay [
     <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
     <!ENTITY % customizeToolbarDTD SYSTEM "chrome://global/locale/customizeToolbar.dtd"> %customizeToolbarDTD;

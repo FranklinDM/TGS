@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- locale -->
 <!DOCTYPE overlay [
     <!ENTITY % aiosDTD SYSTEM "chrome://aios/content/aios.dtd"> %aiosDTD;
     <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;

@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- locale -->
 <!DOCTYPE overlay [
 <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
 ]>

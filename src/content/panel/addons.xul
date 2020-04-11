@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 
+<?xml-stylesheet href="chrome://aios/skin/addons.css" type="text/css"?>
+
 <!-- DTD (e.g. for the "updates-restart-btn") -->
 <!DOCTYPE page [
 	<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" > %brandDTD;

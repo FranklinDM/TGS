@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 
-<!-- skin -->
 <?xml-stylesheet href="chrome://browser/skin/"?>
+<?xml-stylesheet href="chrome://aios/skin/prefs.css" type="text/css"?>
 
-<!-- locale -->
 <!DOCTYPE overlay [
     <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
 ]>

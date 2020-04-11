@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- locale -->
 <!DOCTYPE prefwindow [
     <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
 ]>

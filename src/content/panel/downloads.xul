@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 
+<?xml-stylesheet href="chrome://aios/skin/downloads.css" type="text/css"?>
+
 <!DOCTYPE window [
   <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
   %browserDTD;

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
-<!-- locale -->
+<?xml-stylesheet href="chrome://aios/skin/multipanel.css" type="text/css"?>
+
 <!DOCTYPE overlay [
 <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
 <!ENTITY % multipanelDTD SYSTEM "chrome://aios/locale/multipanel.dtd"> %multipanelDTD;
