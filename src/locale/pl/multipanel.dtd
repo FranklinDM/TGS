@@ -14,6 +14,7 @@
 <!ENTITY about.cache.offline.tooltip "Wyświetla informacje o zawartości bufora trybu &quot;offline&quot;">
 <!ENTITY about.buildconfig.tooltip "Wyświetla informacje o argumentach i opcjach użytych do kompilacji wydania">
 <!ENTITY about.about.tooltip "Wyświetla informacje o prawach autorskich i wersji wydania przeglądarki">
+<!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
 <!ENTITY about.credits.tooltip "Wyświetla listę wszystkich współtwórców Pale Moon">
 <!ENTITY about.license.tooltip "Wyświetla licencję Mozilli">
 <!ENTITY about.mozilla.tooltip "Wyświetla stronę z Księgi Mozilli">
