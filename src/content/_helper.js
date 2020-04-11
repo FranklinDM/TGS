@@ -220,7 +220,7 @@ function aios_openDialog(which, args) {
         break;
 
     case "about":
-        theUrl = "chrome://aios/content/about.xul";
+        theUrl = "chrome://aios/content/preferences/about.xul";
         theId = "aiosAboutDialog";
         theFeatures = "chrome,modal";
         break;

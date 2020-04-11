@@ -1193,6 +1193,6 @@
     <prefpane id="aiosAbout"
               label="&tab.about;"
               flex="1"
-              src="chrome://aios/content/about_content.xul" />
+              src="chrome://aios/content/preferences/about_content.xul" />
 
 </prefwindow>

@@ -15,7 +15,7 @@
         <em:contributor>Quicksaver (creator of OmniSidebar)</em:contributor>
 
         <em:icon64URL>chrome://aios/skin/icon64.png</em:icon64URL>
-        <em:aboutURL>chrome://aios/content/about.xul</em:aboutURL>
+        <em:aboutURL>chrome://aios/content/preferences/about.xul</em:aboutURL>
         <em:homepageURL>https://github.com/FranklinDM/TGS/wiki/</em:homepageURL>
         <em:optionsURL>chrome://aios/content/preferences/preferences.xul</em:optionsURL>
 
