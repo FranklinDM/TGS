@@ -31,13 +31,12 @@
 <!ENTITY button.tooltip.sidebar "Otwórz w panelu bocznym">
 <!ENTITY button.tooltip.window "Otwórz w oknie">
 <!ENTITY button.tooltip.tab "Otwórz w nowej karcie">
-<!ENTITY button.addons.label "Dodatki">
 <!ENTITY button.addons.tooltip "Wyświetla zainstalowane motywy i rozszerzenia">
 <!ENTITY button.multipanel.label "MultiPanel">
 <!ENTITY button.multipanel.tooltip "Wyświetla w panelu bocznym np. stronę, kod źródłowy, info o przeglądarce">
 <!ENTITY button.pageinfo.tooltip "Wyświetla informacje o aktywnej stronie">
-<!ENTITY button.console.label "Konsola błędów">
 <!ENTITY button.console.tooltip "Otwiera konsolę, która śledzi problemy i porównuje z kodem źródłowym">
+<!ENTITY button.cookies.tooltip "Wyświetla ciasteczka">
 <!ENTITY keys.modifiers "accel shift">
 <!ENTITY keys.sidebar "VK_F4">
 <!ENTITY keys.options "VK_F4">
@@ -46,6 +45,7 @@
 <!ENTITY keys.addons "D">
 <!ENTITY keys.multipanel "B">
 <!ENTITY keys.pageinfo "F">
+<!ENTITY keys.cookies "L">
 <!ENTITY toolbar.pos.sidebarleft.label "Po lewej stronie panelu">
 <!ENTITY toolbar.pos.sidebarright.label "Po prawej stronie panelu">
 <!ENTITY toolbar.pos.sidebartop.label "Na górze panelu bocznego">
