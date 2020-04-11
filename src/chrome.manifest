@@ -8,7 +8,6 @@ manifest    locales.manifest
 
 overlay     chrome://browser/content/browser.xul                    chrome://aios/content/aios.xul
 overlay     chrome://global/content/customizeToolbar.xul            chrome://aios/content/aios_customize.xul
-style       chrome://global/content/customizeToolbar.xul            chrome://aios/skin/aios_buttons.css
 
 #------------------------------------------------------------------------------
 # Panel overlays
