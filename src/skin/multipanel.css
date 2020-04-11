@@ -3,7 +3,7 @@
  */
 #commandBar .toolbarbutton-1 {
   -moz-box-orient: horizontal;
-  list-style-image: url("panels_menus.png");
+  list-style-image: url("panels_menus.svg");
 }
 #commandBar .toolbarbutton-1[disabled="true"] {
   opacity: .4;
