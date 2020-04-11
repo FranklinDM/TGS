@@ -2,6 +2,7 @@
 <!ENTITY page.tooltip "Otwiera tę stronę w panelu bocznym">
 <!ENTITY page.ssr.label "Renderuj w wąskim oknie">
 <!ENTITY page.ssr100.label "Dopasuj do szerokości panelu">
+<!ENTITY page.viewsource.label "Pokaż źródło strony bieżącej karty">
 <!ENTITY about.label "Info">
 <!ENTITY about.tooltip "Wyświetla różne informacje o przeglądarce">
 <!ENTITY about.config.tooltip "Wyświetla okno z ustawieniami różnych zmiennych konfiguracyjnych przeglądarki">
@@ -11,12 +12,13 @@
 <!ENTITY about.cache.disk.tooltip "Wyświetla informacje o zawartości bufora dysku">
 <!ENTITY about.cache.memory.tooltip "Wyświetla informacje o zawartości bufora pamięci">
 <!ENTITY about.cache.offline.tooltip "Wyświetla informacje o zawartości bufora trybu &quot;offline&quot;">
-<!ENTITY about.crashes.tooltip "Wyświetla wysłane raporty o awarii">
 <!ENTITY about.buildconfig.tooltip "Wyświetla informacje o argumentach i opcjach użytych do kompilacji wydania">
 <!ENTITY about.about.tooltip "Wyświetla informacje o prawach autorskich i wersji wydania przeglądarki">
 <!ENTITY about.robots.tooltip "Gort! Klaatu barada nikto!">
 <!ENTITY about.credits.tooltip "Wyświetla listę wszystkich współtwórców Pale Moon">
 <!ENTITY about.license.tooltip "Wyświetla licencję Mozilli">
-<!ENTITY about.mozilla.tooltip "Shows the Mozilla: In Memoriam page">
-<!ENTITY about.palemoon.tooltip "Shows an excerpt from the Chronicles of the Pale Moon">
+<!ENTITY about.mozilla.tooltip "Wyświetla stronę z Księgi Mozilli">
+<!ENTITY about.palemoon.tooltip "Wyświetla fragment z Kronik Pale Moon">
 <!ENTITY tools.remlast.label "Zapamiętaj ostatnio otworzoną stronę">
+<!ENTITY tools.linked.label "Otwieraj linki w bieżącej karcie">
+<!ENTITY tools.syncscroll.label "Synchronizuj przewijanie">
