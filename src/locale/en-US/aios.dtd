@@ -31,14 +31,11 @@
 <!ENTITY button.tooltip.sidebar "Open in the Sidebar">
 <!ENTITY button.tooltip.window "Open in a Window">
 <!ENTITY button.tooltip.tab "Open in a New Tab">
-<!ENTITY button.addons.label "Add-ons">
 <!ENTITY button.addons.tooltip "Display installed add-ons">
 <!ENTITY button.multipanel.label "MultiPanel">
 <!ENTITY button.multipanel.tooltip "Display websites and browser information">
 <!ENTITY button.pageinfo.tooltip "Display extensive information about a web page">
-<!ENTITY button.console.label "Error Console">
 <!ENTITY button.console.tooltip "Open the Error Console, which tracks problems with source code">
-<!ENTITY button.cookies.label "Cookies">
 <!ENTITY button.cookies.tooltip "Manage individual cookies">
 <!ENTITY keys.modifiers "accel shift">
 <!ENTITY keys.sidebar "VK_F4">

@@ -15,7 +15,7 @@
     <script type="application/javascript"
             src="chrome://aios/content/downloads.js" />
 
-    <window id="contentAreaDownloadsView">
+    <window id="contentAreaDownloadsView" data-title="&downloads.label;">
           <toolbox id="commandBar"
                    position="1">
             <toolbar id="main-bar">
