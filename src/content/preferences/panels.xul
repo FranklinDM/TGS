@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE prefwindow [
+    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
+    <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
+    <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+]>
+
+<overlay id="PanelsPaneOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <prefpane id="aiosPanels">
+        <preferences>
+            <!-- Downloads Panel -->
+            <preference id="DMOpen"
+                        type="bool"
+                        name="extensions.aios.dm.sidebar" />
+            <preference id="DMPopup"
+                        type="bool"
+                        name="extensions.aios.dm.popup" />
+            <preference id="DMLayout"
+                        type="bool"
+                        name="extensions.aios.dm.layout" />
+            <preference id="DMAutoOpen"
+                        type="bool"
+                        name="extensions.aios.dm.autoopen" />
+            <preference id="DMAutoClose"
+                        type="bool"
+                        name="extensions.aios.dm.autoclose" />
+            <preference id="DMCount"
+                        type="bool"
+                        name="extensions.aios.dm.count" />
+            <preference id="DMShading"
+                        type="bool"
+                        name="extensions.aios.dm.shading" />
+            <!-- Add-ons Manager Panel -->
+            <preference id="EMOpen"
+                        type="bool"
+                        name="extensions.aios.em.sidebar" />
+            <preference id="EMCount"
+                        type="bool"
+                        name="extensions.aios.em.count" />
+            <preference id="EMInstall"
+                        type="bool"
+                        name="extensions.aios.em.oninstall" />
+
+            <preference id="BMOpen"
+                        type="bool"
+                        name="extensions.aios.bm.sidebar" />
+            <preference id="HIOpen"
+                        type="bool"
+                        name="extensions.aios.hi.sidebar" />
+            <preference id="PIOpen"
+                        type="bool"
+                        name="extensions.aios.pi.sidebar" />
+            <preference id="PILayout"
+                        type="bool"
+                        name="extensions.aios.pi.layout" />
+
+            <preference id="MPOpen"
+                        type="bool"
+                        name="extensions.aios.mp.sidebar" />
+            <preference id="COOpen"
+                        type="bool"
+                        name="extensions.aios.co.sidebar" />
+            <preference id="COLayout"
+                        type="bool"
+                        name="extensions.aios.co.layout" />
+
+            <preference id="KSOpen"
+                        type="bool"
+                        name="extensions.aios.ks.sidebar" />
+            <preference id="KSLayout"
+                        type="bool"
+                        name="extensions.aios.ks.layout" />
+
+            <preference id="PanelTabReverse"
+                        type="bool"
+                        name="extensions.aios.paneltab.reverse" />
+            <preference id="PanelTabBMM"
+                        type="bool"
+                        name="extensions.aios.paneltab.bm" />
+        </preferences>
+
+        <tabbox flex="1" id="aiosTabboxPanels">
+            <tabs onclick="AiOS_Prefs.rememberSelectedTab(this);">
+                <tab label="&tab.panels.places;" />
+                <tab label="&downloads.label;" />
+                <tab label="&button.addons.label;" />
+                <tab label="&tab.panels.other1;" />
+                <tab label="&tab.panels.paneltab;"/>
+            </tabs>
+
+            <tabpanels flex="1">
+                <!-- TAB: Bookmarks/History -->
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox" restart="true">
+                        <groupbox>
+                            <caption label="&bookmarksButton.label;" />
+                            <checkbox preference="BMOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&historyButton.label;" />
+                            <checkbox preference="HIOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                        </groupbox>
+                    </vbox>
+                </tabpanel>
+
+                <!-- TAB: Downloads -->
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox"
+                          restart="true">
+                        <groupbox>
+                            <caption label="&tab.gen.behavior;" />
+                            <checkbox preference="DMPopup"
+                                      label="&misc.enablepopup.label;"
+                                      aiosChilds="!DMOpen"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                            <checkbox preference="DMOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="DMLayout, DMAutoOpen, DMAutoClose, !DMPopup"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                            <vbox class="indent">
+                                <checkbox preference="DMAutoOpen"
+                                          label="&misc.dm.autoopen.label;"
+                                          aiosChilds="DMAutoClose"
+                                          oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                                <vbox class="indent">
+                                    <checkbox preference="DMAutoClose"
+                                              label="&misc.dm.autoclose.label;" />
+                                </vbox>
+                            </vbox>
+                            <vbox class="indent">
+                                <checkbox preference="DMLayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&tab.gen.appearance;" />
+                            <checkbox preference="DMCount"
+                                      label="&misc.count.label;" />
+                            <checkbox preference="DMShading"
+                                      label="&misc.dm.shading.label;" />
+                        </groupbox>
+                    </vbox>
+
+                </tabpanel>
+
+                <!-- TAB: Add-ons -->
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox" restart="true">
+                        <groupbox>
+                            <caption label="&tab.gen.behavior;" />
+                            <checkbox preference="EMOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="EMInstall"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                            <vbox class="indent">
+                                <checkbox preference="EMInstall"
+                                          label="&misc.em.oninstall.label;" />
+                            </vbox>
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&tab.gen.appearance;" />
+                            <checkbox preference="EMCount"
+                                      label="&misc.count.label;" />
+                        </groupbox>
+                    </vbox>
+                </tabpanel>
+
+                <!-- TAB: Others -->
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox" restart="true">
+                        <groupbox>
+                            <caption label="&button.multipanel.label;" />
+                            <checkbox preference="MPOpen"
+                                      label="&misc.enablesidebar.label;" />
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&pageInfoCmd.label;" />
+                            <checkbox preference="PIOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="PILayout"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                            <vbox class="indent">
+                                <checkbox id="obj-PILayout"
+                                          preference="PILayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&button.console.label;" />
+                            <checkbox preference="COOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="COLayout"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+
+                            <vbox class="indent">
+                                <checkbox preference="COLayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&button.cookies.label;" />
+                            <checkbox preference="KSOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="KSLayout"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+
+                            <vbox class="indent">
+                                <checkbox id="obj-KSLayout"
+                                          preference="KSLayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+                    </vbox>
+                </tabpanel>
+
+                <!-- TAB: PanelTab -->
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox">
+                        <!-- Bookmarks - PanelTab -->
+                        <groupbox>
+                            <caption label="&tab.gen.behavior;" />
+                            <checkbox preference="PanelTabReverse"
+                                      label="&misc.paneltab.reverse;" />
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&bookmarksButton.label;" />
+
+                            <description width="100%">&misc.bm.paneltab.desc;</description>
+                            <checkbox preference="PanelTabBMM"
+                                      label="&misc.bm.paneltab;" />
+                        </groupbox>
+                    </vbox>
+                </tabpanel>
+            </tabpanels>
+        </tabbox>
+    </prefpane>
+</overlay>

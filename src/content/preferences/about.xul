@@ -5,7 +5,7 @@
     <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
 ]>
 
-<overlay id="aiosAboutOverlay"
+<overlay id="AboutPaneOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
     <script type="application/javascript"

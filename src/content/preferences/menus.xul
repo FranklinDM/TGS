@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE prefwindow [
+    <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
+    <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+]>
+
+<overlay id="MenusPaneOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <prefpane id="aiosMenus">
+        <preferences>
+            <preference id="SBEntryDeac"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.entrydeac" />
+            <preference id="SBEntries"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.entries" />
+            <preference id="SBIcons"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.icons" />
+            <preference id="SBPanelTab1"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.paneltab1" />
+            <preference id="SBPanelTab2"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.paneltab2" />
+            <preference id="SBShowHide"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.showhide" />
+            <preference id="SBOptions"
+                        type="bool"
+                        name="extensions.aios.menus.sidebar.prefs" />
+        </preferences>
+        <vbox class="aiosSizeBox">
+            <description width="100%">&menus.sidebar.desc;</description>
+            <checkbox preference="SBEntryDeac" label="&menus.sidebar.entrydeac;" />
+            <groupbox>
+                <caption>
+                    <checkbox preference="SBEntries"
+                              label="&menus.entries.label;"
+                              oncommand="AiOS_Prefs.checkboxObserver(this);"
+                              aiosChilds="SBIcons, SBPanelTab1, SBPanelTab2, SBShowHide, SBOptions" />
+                </caption>
+                <vbox class="indent">
+                    <vbox>
+                        <checkbox preference="SBIcons"
+                                  label="&menus.icons.label;" />
+                        <separator class="groove" />
+                    </vbox>
+
+                    <checkbox preference="SBPanelTab1"
+                              label="&button.paneltab.menu1.label;" />
+                    <checkbox preference="SBPanelTab2"
+                              label="&button.paneltab.menu2.label;" />
+                    <checkbox preference="SBShowHide"
+                              label="&sidebar.open.label;/&sidebar.close.label;" />
+                    <checkbox preference="SBOptions"
+                              label="&menu.prefs.label;" />
+                </vbox>
+            </groupbox>
+        </vbox>
+    </prefpane>
+</overlay>

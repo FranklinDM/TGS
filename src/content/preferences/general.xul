@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE prefwindow [
+    <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
+    <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+]>
+
+<overlay id="GeneralPaneOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <prefpane id="aiosGeneral"
+              onpaneload="AiOS_Prefs.initPane('general');">
+
+        <script type="application/javascript"
+                src="chrome://aios/content/preferences/general.js"/>
+
+        <preferences>
+            <preference id="sidebarOrient"
+                        type="int"
+                        name="extensions.aios.gen.orient" />
+
+            <preference id="minWidthVal"
+                        type="int"
+                        name="extensions.aios.gen.width.minVal" />
+            <preference id="minWidthUnit"
+                        type="string"
+                        name="extensions.aios.gen.width.minUnit" />
+
+            <preference id="defWidthVal"
+                        type="int"
+                        name="extensions.aios.gen.width.defVal" />
+            <preference id="defWidthUnit"
+                        type="string"
+                        name="extensions.aios.gen.width.defUnit" />
+
+            <preference id="maxWidthVal"
+                        type="int"
+                        name="extensions.aios.gen.width.maxVal" />
+            <preference id="maxWidthUnit"
+                        type="string"
+                        name="extensions.aios.gen.width.maxUnit" />
+
+            <preference id="sidebarInit"
+                        type="string"
+                        name="extensions.aios.gen.init" />
+            <preference id="toolbarInit"
+                        type="int"
+                        name="extensions.aios.gen.toolbar.init" />
+            <preference id="switchInit"
+                        type="int"
+                        name="extensions.aios.gen.switch.init" />
+
+            <preference id="openInit"
+                        type="string"
+                        name="extensions.aios.gen.open.init" />
+
+            <preference id="FSSidebar"
+                        type="bool"
+                        name="extensions.aios.fs.sidebar" />
+            <preference id="FSToolbar"
+                        type="bool"
+                        name="extensions.aios.fs.toolbar" />
+            <preference id="FSSwitch"
+                        type="bool"
+                        name="extensions.aios.fs.switch" />
+            <preference id="FSRestore"
+                        type="bool"
+                        name="extensions.aios.fs.restore" />
+
+            <preference id="cmodeKey"
+                        type="int"
+                        name="extensions.aios.cmode.key" />
+            <preference id="cmodeSwitch"
+                        type="int"
+                        name="extensions.aios.cmode.switch" />
+            <preference id="cmodeTbb"
+                        type="int"
+                        name="extensions.aios.cmode.tbb" />
+            <preference id="cmodeClose"
+                        type="int"
+                        name="extensions.aios.cmode.close" />
+
+            <preference id="SBCollapsing"
+                        type="bool"
+                        name="extensions.aios.collapse" />
+            <preference id="SBIntercept"
+                        type="bool"
+                        name="extensions.aios.intercept" />
+        </preferences>
+
+        <tooltip id="minWidthHint"
+                 class="labelTipElem">
+            <label value="&gen.width.min.hint;" />
+            <box />
+        </tooltip>
+
+        <tooltip id="defWidthHint"
+                 class="labelTipElem">
+            <label value="&gen.width.def.hint;" />
+            <box />
+        </tooltip>
+
+        <tooltip id="maxWidthHint"
+                 class="labelTipElem">
+            <label value="&gen.width.max.hint;" />
+            <box />
+        </tooltip>
+
+        <tabbox flex="1"
+                id="aiosTabboxGeneral">
+
+            <tabs onclick="AiOS_Prefs.rememberSelectedTab(this);">
+                <tab label="&tab.gen.appearance;" />
+                <tab label="&tab.gen.behavior;" />
+                <tab label="&tab.gen.special;" />
+            </tabs>
+
+            <tabpanels flex="1">
+
+                <!-- TAB: Appearance -->
+
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox">
+
+                        <!-- Orientation -->
+                        <groupbox>
+                            <caption label="&gen.orient.caption;" />
+
+                            <grid flex="1">
+                                <columns>
+                                    <column style="width:&gen.column1;px;" />
+                                    <column flex="1" />
+                                </columns>
+
+                                <rows>
+
+                                    <row align="center">
+                                        <label value="&gen.orient.label;:" />
+
+                                        <menulist preference="sidebarOrient">
+                                            <menupopup>
+                                                <menuitem label="&gen.orient.left;"
+                                                          value="1" />
+                                                <menuitem label="&gen.orient.right;"
+                                                          value="2" />
+                                            </menupopup>
+                                        </menulist>
+                                    </row>
+
+                                </rows>
+                            </grid>
+                        </groupbox>
+
+                        <!-- Size -->
+                        <groupbox>
+                            <caption label="&gen.width.caption;" />
+
+                            <grid flex="1">
+                                <columns>
+                                    <column style="width:&gen.column1;px;" />
+                                    <column flex="1" />
+                                </columns>
+
+                                <rows>
+
+                                    <row align="center">
+                                        <hbox tooltip="minWidthHint"
+                                              class="labelTip">
+                                            <label value="&sidebar.width.min;" />
+                                            <spacer flex="1" />
+                                            <toolbarbutton class="info" />
+                                        </hbox>
+
+                                        <hbox>
+                                            <textbox id="obj-minWidthVal"
+                                                     preference="minWidthVal"
+                                                     onblur="aios_checkWidthVal('min');"
+                                                     type="number"
+                                                     min="0" />
+
+                                            <menulist id="obj-minWidthUnit"
+                                                      preference="minWidthUnit"
+                                                      flex="1">
+                                                <menupopup>
+                                                    <menuitem label="&gen.width.px;"
+                                                              value="px" />
+                                                    <menuitem label="&gen.width.perc;"
+                                                              value="%" />
+                                                </menupopup>
+                                            </menulist>
+
+                                            <toolbarbutton label="&gen.width.current;"
+                                                           tooltiptext="&gen.width.current.tip;"
+                                                           oncommand="aios_setWidthVal('min');"
+                                                           class="arrow-lft" />
+                                        </hbox>
+                                    </row>
+
+                                    <row align="center">
+                                        <hbox tooltip="defWidthHint"
+                                              class="labelTip">
+                                            <label value="&sidebar.width.def;" />
+                                            <spacer flex="1" />
+                                            <toolbarbutton class="info" />
+                                        </hbox>
+
+                                        <hbox>
+                                            <textbox id="obj-defWidthVal"
+                                                     preference="defWidthVal"
+                                                     onblur="aios_checkWidthVal('def');"
+                                                     type="number"
+                                                     min="0" />
+
+                                            <menulist id="obj-defWidthUnit"
+                                                      preference="defWidthUnit"
+                                                      flex="1">
+                                                <menupopup>
+                                                    <menuitem label="&gen.width.px;"
+                                                              value="px" />
+                                                    <menuitem label="&gen.width.perc;"
+                                                              value="%" />
+                                                </menupopup>
+                                            </menulist>
+
+                                            <toolbarbutton label="&gen.width.current;"
+                                                           tooltiptext="&gen.width.current.tip;"
+                                                           oncommand="aios_setWidthVal('def');"
+                                                           class="arrow-lft" />
+                                        </hbox>
+                                    </row>
+
+                                    <row align="center">
+                                        <hbox tooltip="maxWidthHint"
+                                              class="labelTip">
+                                            <label value="&sidebar.width.max;" />
+                                            <spacer flex="1" />
+                                            <toolbarbutton class="info" />
+                                        </hbox>
+
+                                        <hbox>
+                                            <textbox id="obj-maxWidthVal"
+                                                     preference="maxWidthVal"
+                                                     onblur="aios_checkWidthVal('max');"
+                                                     type="number"
+                                                     min="0" />
+
+                                            <menulist id="obj-maxWidthUnit"
+                                                      preference="maxWidthUnit"
+                                                      flex="1">
+                                                <menupopup>
+                                                    <menuitem label="&gen.width.px;"
+                                                              value="px" />
+                                                    <menuitem label="&gen.width.perc;"
+                                                              value="%" />
+                                                </menupopup>
+                                            </menulist>
+
+                                            <toolbarbutton label="&gen.width.current;"
+                                                           tooltiptext="&gen.width.current.tip;"
+                                                           oncommand="aios_setWidthVal('max');"
+                                                           class="arrow-lft" />
+                                        </hbox>
+
+                                    </row>
+
+                                </rows>
+                            </grid>
+                        </groupbox>
+
+                    </vbox>
+
+                </tabpanel>
+
+                <!-- TAB: Behavior -->
+
+                <tabpanel orient="vertical">
+                    <vbox class="aiosSizeBox">
+
+                        <!-- Startup -->
+                        <checkbox preference="SBIntercept"
+                                  label="&gen.mbSeparate;" />
+
+                        <groupbox>
+                            <caption label="&gen.init.caption;" />
+
+                            <grid flex="1">
+                                <columns>
+                                    <column style="width:&gen.column1;px;" />
+                                    <column flex="1" />
+                                </columns>
+
+                                <rows>
+
+                                    <row align="center">
+                                        <label value="&gen.init.label;" />
+
+                                        <menulist preference="sidebarInit">
+                                            <menupopup id="sidebarInitPopup">
+                                                <menuitem label="&gen.init.mode1;"
+                                                          value="rem" />
+                                                <menuitem label="&sidebar.open.label;"
+                                                          value="open" />
+                                                <menuitem label="&sidebar.close.label;"
+                                                          value="close" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                    <row align="center">
+                                        <label value="&gen.init.toolbar.label;" />
+                                        <menulist preference="toolbarInit">
+                                            <menupopup>
+                                                <menuitem label="&gen.init.mode1;"
+                                                          value="2" />
+                                                <menuitem label="&gen.init.toolbar.show.label;"
+                                                          value="1" />
+                                                <menuitem label="&gen.init.toolbar.hide.label;"
+                                                          value="0" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                    <row align="center">
+                                        <label value="&menu.togglebar.label;" />
+
+                                        <menulist preference="switchInit">
+                                            <menupopup>
+                                                <menuitem label="&gen.init.mode1;"
+                                                          value="2" />
+                                                <menuitem label="&gen.init.switch.show.label;"
+                                                          value="1" />
+                                                <menuitem label="&gen.init.switch.hide.label;"
+                                                          value="0" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                </rows>
+                            </grid>
+                        </groupbox>
+
+                        <!-- Open Sidebar -->
+
+                        <groupbox>
+                            <caption label="&gen.init.sidebar;" />
+
+                            <grid flex="1">
+                                <columns>
+                                    <column style="width:&gen.column1;px;" />
+                                    <column flex="1" />
+                                </columns>
+
+                                <rows>
+
+                                    <row align="center">
+                                        <label value="&tab.gen.behavior;" />
+
+                                        <menulist preference="openInit">
+                                            <menupopup id="panelInitPopup">
+                                                <menuitem label="&gen.init.sidebar.restore;"
+                                                          value="rem" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                </rows>
+                            </grid>
+                        </groupbox>
+
+                        <!-- Fullscreen Mode -->
+
+                        <groupbox id="fullscreenGroupbox">
+                            <caption label="&tab.gen.fullscreen;" />
+
+                            <checkbox preference="FSSidebar"
+                                      label="&sidebar.close.label;" />
+                            <checkbox preference="FSToolbar"
+                                      label="&gen.init.toolbar.hide.label;" />
+                            <checkbox preference="FSSwitch"
+                                      label="&gen.init.switch.hide.label;" />
+                            <checkbox preference="FSRestore"
+                                      label="&gen.fs.off;" />
+
+                        </groupbox>
+
+                    </vbox>
+                </tabpanel>
+
+                <!-- TAB: Special -->
+
+                <tabpanel orient="vertical">
+                    <vbox>
+
+                        <!-- Open/Close Sidebar -->
+
+                        <groupbox>
+                            <caption label="&cmode.caption;" />
+
+                            <hbox>
+                                <description width="100%"
+                                             flex="1"
+                                             align="center">&cmode.desc;</description>
+
+                                <toolbarbutton style="float:right;"
+                                               class="labelTip info"
+                                               tooltiptext="&misc.enablelink.tooltip;"
+                                               oncommand="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ#what-is-operas-behavior');" />
+                            </hbox>
+
+                            <grid flex="1">
+                                <columns>
+                                    <column style="width:&gen.column1;px;" />
+                                    <column flex="1" />
+                                </columns>
+
+                                <rows>
+
+                                    <row align="center">
+                                        <label value="&cmode.key.label;" />
+
+                                        <menulist preference="cmodeKey">
+                                            <menupopup>
+                                                <menuitem label="&cmode.mode1.label;"
+                                                          value="1" />
+                                                <menuitem label="&cmode.mode2.label;"
+                                                          value="2" />
+                                                <menuitem label="&cmode.mode3.label;"
+                                                          value="3" />
+                                                <menuitem label="&cmode.mode4.label;"
+                                                          value="4" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                    <row align="center">
+                                        <label value="&menu.togglebar.label;" />
+
+                                        <menulist preference="cmodeSwitch">
+                                            <menupopup>
+                                                <menuitem label="&cmode.mode1.label;"
+                                                          value="1" />
+                                                <menuitem label="&cmode.mode2.label;"
+                                                          value="2" />
+                                                <menuitem label="&cmode.mode3.label;"
+                                                          value="3" />
+                                                <menuitem label="&cmode.mode4.label;"
+                                                          value="4" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                    <row align="center">
+                                        <label value="&cmode.tbb.label;" />
+
+                                        <menulist preference="cmodeTbb">
+                                            <menupopup>
+                                                <menuitem label="&cmode.mode1.label;"
+                                                          value="1" />
+                                                <menuitem label="&cmode.mode2.label;"
+                                                          value="2" />
+                                                <menuitem label="&cmode.mode3.label;"
+                                                          value="3" />
+                                                <menuitem label="&cmode.mode4.label;"
+                                                          value="4" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                    <row align="center">
+                                        <label value="&cmode.close.label;" />
+
+                                        <menulist preference="cmodeClose">
+                                            <menupopup>
+                                                <menuitem label="&cmode.mode1.label;"
+                                                          value="1" />
+                                                <menuitem label="&cmode.mode2.label;"
+                                                          value="2" />
+                                                <menuitem label="&cmode.mode3.label;"
+                                                          value="3" />
+                                            </menupopup>
+                                        </menulist>
+
+                                    </row>
+
+                                </rows>
+                            </grid>
+                        </groupbox>
+
+                        <!-- Sidebar Collapsing -->
+
+                        <groupbox>
+
+                            <caption label="&special.collapsing.caption;" />
+
+                            <hbox>
+                                <description width="100%"
+                                             flex="1"
+                                             align="center">&special.collapsing.desc;</description>
+
+                                <toolbarbutton style="float:right;"
+                                               class="labelTip info"
+                                               tooltiptext="&misc.enablelink.tooltip;"
+                                               oncommand="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ#what-does-sidebar-collapsing-mean');" />
+                            </hbox>
+
+                            <checkbox id="obj-SBCollapsing"
+                                      preference="SBCollapsing"
+                                      label="&special.collapsing.label;"
+                                      flex="1" />
+
+                        </groupbox>
+
+                    </vbox>
+
+                </tabpanel>
+
+            </tabpanels>
+
+        </tabbox>
+    </prefpane>
+</overlay>
