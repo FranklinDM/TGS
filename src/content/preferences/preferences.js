@@ -5,26 +5,6 @@ var AiOS_Prefs = {
      * => Called by onload in <prefwindow>
      */
     initPrefs: function () {
-        // open a special tab if one has been passed as an argument (out of the standard options)
-        if (window.arguments) {
-            if (window.arguments[0] == "dwn") {
-                // Activate panel radio button
-                var clickEvent = document.createEvent("MouseEvent");
-                clickEvent.initEvent("command", false, true);
-
-                var radiogroup = document.getAnonymousElementByAttribute(document.getElementById("aiosPreferences"), "anonid", "selector");
-                radiogroup.childNodes[1].dispatchEvent(clickEvent);
-
-                // Activate the download tab
-                var tabbox = document.getElementById("aiosTabboxPanels");
-                if (tabbox.childNodes[0].tagName == "tabs")
-                    tabbox.childNodes[0].selectedIndex = 1;
-                if (tabbox.childNodes[1].tagName == "tabs")
-                    tabbox.childNodes[1].selectedIndex = 1;
-            }
-        }
-
-        // Disable the Apply button
         AiOS_Prefs.disableApplyButton(true);
 
         // Settings button
