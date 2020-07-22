@@ -59,6 +59,7 @@
                               label="&menu.prefs.label;" />
                 </vbox>
             </groupbox>
+            <separator />
         </vbox>
     </prefpane>
 </overlay>
