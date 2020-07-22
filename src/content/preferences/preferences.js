@@ -45,6 +45,13 @@ var AiOS_Prefs = {
     initPane: function () {
         AiOS_Prefs.rememberOldPrefs();
 
+        // Restore last selected tab
+        let tabs = document.getElementsByTagName("tabs");
+        if (tabs) {
+            let previousTabIndex = AiOS_HELPER.prefBranchAiOS.getIntPref("selectedTabIndex." + tabs[0].parentNode.id);
+            tabs[0].selectedIndex = previousTabIndex;
+        }
+
         if (document.getElementById("aiosTabboxGeneral")) {
             // Monitor units of sidebar width for changes
             document.getElementById("obj-minWidthUnit").addEventListener("ValueChange", function () {
@@ -318,6 +325,14 @@ var AiOS_Prefs = {
             return "0" + aInput.toString();
         else
             return aInput;
+    },
+
+    /*
+     * Saves the index of the last selected tab into the prefpane's "seltab" attribute
+     * => Called by the onclick event of the tab containers
+     */
+    rememberSelectedTab: function (which) {
+        AiOS_HELPER.prefBranchAiOS.setIntPref("selectedTabIndex." + which.parentNode.id, which.selectedIndex);
     },
 
     /*
