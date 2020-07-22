@@ -8,15 +8,6 @@ toolboxChanged = function () {
 };
 
 /**
- *  Prevent the positioning of the dialog under Mac OS X.
- **/
-if (AiOS_HELPER.os != "Darwin")
-    repositionDialog = function (aWindow) {
-        // Always use persisted dimensions and position!
-        return;
-    };
-
-/**
  * Restore the default set of buttons to fixed toolbars,
  * remove all custom toolbars, and rebuild the palette.
  */
