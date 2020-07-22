@@ -138,39 +138,6 @@ function aios_getBrowserWidth() {
     return (ret_arr);
 }
 
-/*
- * Extends the "class" attribute of an element
- */
-function aios_appendClass(elem, appClass) {
-    if (typeof elem == "string")
-        elem = document.getElementById(elem);
-
-    var old_class = elem.getAttribute("class");
-    if (old_class.indexOf(appClass) < 0)
-        elem.setAttribute("class", old_class + " " + appClass);
-}
-
-/*
- * Deletes a class name in the "class" attribute of an element
- */
-function aios_stripClass(elem, stripClass) {
-    if (typeof elem == "string")
-        elem = document.getElementById(elem);
-
-    var old_class = elem.getAttribute("class");
-
-    if (old_class.indexOf(stripClass) >= 0) {
-        var pos = old_class.indexOf(stripClass);
-
-        var slice1 = old_class.substring(0, pos);
-        slice1 = slice1.replace(/ /, "");
-        var slice2 = old_class.substring(pos + stripClass.length, old_class.length);
-        slice2 = slice2.replace(/ /, "");
-
-        elem.setAttribute("class", slice1 + " " + slice2);
-    }
-}
-
 function aios_gElem(aID) {
     if (AiOS_HELPER.mostRecentWindow && AiOS_HELPER.mostRecentWindow.document.getElementById(aID))
         return AiOS_HELPER.mostRecentWindow.document.getElementById(aID);

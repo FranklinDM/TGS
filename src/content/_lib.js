@@ -20,12 +20,13 @@ function aios_modSidebarMenu() {
 
         // Show or hide the icons
         var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref("menus.sidebar.icons");
-        var theClass = (enable_icons) ? "" : "aios-noIcons";
+        let targetClassName = "aios-noIcons";
 
-        if (theClass != "")
-            aios_appendClass(item, theClass);
-        else
-            aios_stripClass(item, "aios-noIcons");
+        if (enable_icons) {
+            item.classList.remove(targetClassName);
+        } else {
+            item.classList.add(targetClassName);
+        }
 
         // only if there is no separator or the like
         if (item.getAttribute("observes") && document.getElementById(item.getAttribute("observes"))) {
@@ -120,7 +121,7 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
     var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "entries");
     var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "icons");
 
-    var theClass = (enable_icons) ? "" : "aios-noIcons";
+    let targetClassName = "aios-noIcons";
 
     for (var i = 0; i < entries.length; i++) {
 
@@ -150,10 +151,11 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
             if (document.getElementById(IDPre + entries[i][j])) {
                 var elem = document.getElementById(IDPre + entries[i][j]);
 
-                if (theClass != "")
-                    aios_appendClass(elem, theClass);
-                else
-                    aios_stripClass(elem, "aios-noIcons");
+                if (enable_icons) {
+                    elem.classList.remove(targetClassName);
+                } else {
+                    elem.classList.add(targetClassName);
+                }
             }
         }
 
