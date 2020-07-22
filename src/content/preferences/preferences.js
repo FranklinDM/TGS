@@ -38,50 +38,30 @@ var AiOS_Prefs = {
         // Activate/deactivate dependent elements
         AiOS_Prefs.checkDependent();
 
-        // Monitor units of sidebar width for changes
-        document.getElementById("obj-minWidthUnit").addEventListener("ValueChange", function () {
-            aios_changeWidthUnit("min");
-        }, false);
-
-        document.getElementById("obj-defWidthUnit").addEventListener("ValueChange", function () {
-            aios_changeWidthUnit("def");
-        }, false);
-
-        document.getElementById("obj-maxWidthUnit").addEventListener("ValueChange", function () {
-            aios_changeWidthUnit("max");
-        }, false);
-
-        // Remember prefs, this is required for the Apply button => aios_checkApply()
-        AiOS_Prefs.rememberOldPrefs();
-
         // Delete old prefs and migrate others (if necessary)
         AiOS_Prefs.deleteOldPrefs();
     },
 
-    initPane: function (mode) {
-        // Reselect last selected tab
-        var tabbox = null;
-        switch (mode) {
-        case "general":
-            tabbox = document.getElementById("aiosTabboxGeneral");
-            break;
-        case "sbswitch":
-            tabbox = document.getElementById("aiosTabboxSbSwitch");
-            break;
-        case "panels":
-            tabbox = document.getElementById("aiosTabboxPanels");
-            break;
-        }
+    initPane: function () {
+        AiOS_Prefs.rememberOldPrefs();
 
-        var seltab = tabbox.parentNode.getAttribute("seltab");
-        if (tabbox.childNodes[0].tagName == "tabs")
-            tabbox.childNodes[0].selectedIndex = seltab;
-        if (tabbox.childNodes[1].tagName == "tabs")
-            tabbox.childNodes[1].selectedIndex = seltab;
+        if (document.getElementById("aiosTabboxGeneral")) {
+            // Monitor units of sidebar width for changes
+            document.getElementById("obj-minWidthUnit").addEventListener("ValueChange", function () {
+                aios_changeWidthUnit("min");
+            }, false);
 
-        // Create a list of available sidebars
-        if (mode == "general")
+            document.getElementById("obj-defWidthUnit").addEventListener("ValueChange", function () {
+                aios_changeWidthUnit("def");
+            }, false);
+
+            document.getElementById("obj-maxWidthUnit").addEventListener("ValueChange", function () {
+                aios_changeWidthUnit("max");
+            }, false);
+            
+            // Create a list of available sidebars
             aios_genSidebarList();
+        }
     },
 
     /*
@@ -338,14 +318,6 @@ var AiOS_Prefs = {
             return "0" + aInput.toString();
         else
             return aInput;
-    },
-
-    /*
-     * Saves the index of the last selected tab into the prefpane's "seltab" attribute
-     * => Called by the onclick event of the tab containers
-     */
-    rememberSelectedTab: function (which) {
-        which.parentNode.parentNode.setAttribute("seltab", which.selectedIndex);
     },
 
     /*

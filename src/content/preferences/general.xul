@@ -8,11 +8,7 @@
 <overlay id="GeneralPaneOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <prefpane id="aiosGeneral"
-              onpaneload="AiOS_Prefs.initPane('general');">
-
-        <script type="application/javascript"
-                src="chrome://aios/content/preferences/general.js"/>
-
+              onpaneload="AiOS_Prefs.initPane();">
         <preferences>
             <preference id="sidebarOrient"
                         type="int"

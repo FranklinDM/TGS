@@ -8,7 +8,8 @@
 
 <overlay id="PanelsPaneOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-    <prefpane id="aiosPanels">
+    <prefpane id="aiosPanels"
+              onpaneload="AiOS_Prefs.initPane();">
         <preferences>
             <!-- Downloads Panel -->
             <preference id="DMOpen"

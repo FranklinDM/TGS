@@ -8,11 +8,7 @@
 <overlay id="SidebarSwitchPaneOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <prefpane id="aiosSbSwitch"
-              label="&menu.togglebar.label;"
-              flex="1"
-              seltab="0"
-              persist="seltab"
-              onpaneload="AiOS_Prefs.initPane('sbswitch');">
+              onpaneload="AiOS_Prefs.initPane();">
         <preferences>
             <preference id="SSAutoshow"
                         type="bool"
