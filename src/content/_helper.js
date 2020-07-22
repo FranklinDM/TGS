@@ -138,12 +138,6 @@ function aios_getBrowserWidth() {
     return (ret_arr);
 }
 
-function aios_gElem(aID) {
-    if (AiOS_HELPER.mostRecentWindow && AiOS_HELPER.mostRecentWindow.document.getElementById(aID))
-        return AiOS_HELPER.mostRecentWindow.document.getElementById(aID);
-    return false;
-}
-
 /*
  * Returns the boolean value of a value
  * => getAttribute (val) only returns "true" or "false" as a string

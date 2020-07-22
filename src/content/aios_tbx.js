@@ -1,3 +1,9 @@
+function aios_gElem(aID) {
+    if (AiOS_HELPER.mostRecentWindow && AiOS_HELPER.mostRecentWindow.document.getElementById(aID))
+        return AiOS_HELPER.mostRecentWindow.document.getElementById(aID);
+    return false;
+}
+
 /*
  * Release or set the width of the vertical toolboxes
  * => Called by aios_toggleToolbar(), aios_setToolbarView(), aios_setToolbarPos(), aios_customizeToolbar() and aios_BrowserFullScreen()
