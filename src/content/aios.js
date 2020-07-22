@@ -748,13 +748,19 @@ var AiOS = {
     },
 
     customizeEvent: function (e) {
-        if (e.type == "beforecustomization") {
+        switch (e.type) {
+        case "customizationchange":
+            AiOS_HELPER.mostRecentWindow.aios_adjustToolboxWidth();
+            break;
+        case "beforecustomization":
             AiOS.customizeStates.save();
             // Force show AiOS toolbar & sidebar
             aios_toggleToolbar(false);
             AiOS.toggleSidebar("switch", true);
-        } else {
+            break;
+        case "aftercustomization":
             AiOS.customizeStates.restore();
+            break;
         }
     },
 
@@ -810,6 +816,7 @@ window.addEventListener("fullscreen", AiOS.onFullscreen, false);
 if (!AiOS_HELPER.usingCUI) {
     window.addEventListener("beforecustomization", AiOS.customizeEvent, false);
     window.addEventListener("aftercustomization", AiOS.customizeEvent, false);
+    window.addEventListener("customizationchange", AiOS.customizeEvent, false);
 }
 
 // Otherwise newly defined shortcuts will be reset on browser restart

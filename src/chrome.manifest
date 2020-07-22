@@ -7,7 +7,6 @@ skin        aios            global          skin/
 manifest    locales.manifest
 
 overlay     chrome://browser/content/browser.xul                    chrome://aios/content/aios.xul
-overlay     chrome://global/content/customizeToolbar.xul            chrome://aios/content/aios_customize.xul
 
 #------------------------------------------------------------------------------
 # Panel overlays
@@ -30,6 +29,7 @@ overlay     chrome://global/content/console.xul                     chrome://aio
 # Pale Moon
 overlay     chrome://browser/content/web-panels.xul                 chrome://aios/content/panel/multipanel_fixes.xul     application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
 override    chrome://browser/content/downloads/indicatorOverlay.xul chrome://aios/content/indicatorOverlay.xul           application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
+style       chrome://global/content/customizeToolbar.xul            chrome://aios/skin/aios_buttons.css                  application={8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}
 
 # Australis-based browsers
 overlay     chrome://browser/content/browser.xul                    chrome://aios/content/australis/aios.xul             application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
