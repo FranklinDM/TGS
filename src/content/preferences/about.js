@@ -6,9 +6,6 @@ var AiOS_About = {
         AddonManager.getAddonByID("tgsidebar@franklindm", function (addon) {
             document.getElementById("aboutHeader").setAttribute("title", addon.name);
             document.getElementById("aboutHeader").setAttribute("description", addon.version);
-
-            document.getElementById("macTitle").setAttribute("value", addon.name);
-            document.getElementById("macVersion").setAttribute("value", addon.version);
         });
 
         // List of languages where this extension is translated
