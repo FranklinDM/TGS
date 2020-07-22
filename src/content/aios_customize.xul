@@ -4,11 +4,8 @@
 
 <overlay id="aiosOverlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-    <!-- scripts -->
     <script type="application/javascript"
             src="chrome://aios/content/_helper.js" />
     <script type="application/javascript"
             src="chrome://aios/content/aios_tbx_customize.js" />
-    <script type="application/javascript"
-            src="chrome://aios/content/aios_compatibility.js" />
 </overlay>
