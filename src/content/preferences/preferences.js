@@ -47,7 +47,7 @@ var AiOS_Prefs = {
 
         // Restore last selected tab
         let tabs = document.getElementsByTagName("tabs");
-        if (tabs) {
+        if (tabs.length > 0) {
             let previousTabIndex = AiOS_HELPER.prefBranchAiOS.getIntPref("selectedTabIndex." + tabs[0].parentNode.id);
             tabs[0].selectedIndex = previousTabIndex;
         }
