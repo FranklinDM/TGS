@@ -163,7 +163,6 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
  */
 #aios-toggle-toolbox grippy,
 #sidebar-splitter grippy {
-  -moz-binding: url("chrome://aios/content/aios.xml#aiosGrippy");
   cursor: var(--aios-grippy-cursor);
   background: transparent none no-repeat center;
 }
