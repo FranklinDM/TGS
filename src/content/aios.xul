@@ -489,14 +489,6 @@
                   position="5" />
     </menupopup>
 
-    <!-- Browser menu: View > Toolbars -->
-    <menu id="viewToolbarsMenu"
-          onpopupshowing="onViewToolbarsPopupShowing(event); aios_addToolbarMitem(this);" />
-
-    <!-- Browser menu: Toolbar context menu -->
-    <menupopup id="toolbar-context-menu"
-               onpopupshowing="onViewToolbarsPopupShowing(event); aios_addToolbarMitem(this);" />
-
     <!-- Browser menu: View > Sidebar - popupshowing monitoring in aios_initSidebar() (compatible with MenuManipulator) -->
     <menupopup id="viewSidebarMenu"
                onpopupshowing="aios_modSidebarMenu();">
@@ -632,7 +624,6 @@
                      toolbarname="&toolbar.name;"
                      context="aios-toolbar-contextmenu"
                      fullscreentoolbar="true"
-                     toolboxid="navigator-toolbox"
                      customizable="true"
                      mode="icons"
                      iconsize="large"
@@ -735,7 +726,6 @@
                              class="chromeclass-toolbar"
                              toolbarname="&sbhtoolbar.name;"
                              context="aios-sbhtoolbar-contextmenu"
-                             toolboxid="navigator-toolbox"
                              customizable="true"
                              mode="icons"
                              iconsize="small"

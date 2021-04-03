@@ -255,41 +255,34 @@ function aios_toggleToolbar(aWhich) {
 
 /*
  * Adds an option to the menu View > Toolbars and the context menu of the toolbars
- * => Called by onpopupshowing handler of the menus in aios.xul
  */
-function aios_addToolbarMitem(aWhich) {
-    AiOS_Objects.get();
-
-    var popup = document.getElementById("viewToolbarsMenu").firstChild;
-    if (aWhich.id == "toolbar-context-menu")
-        popup = document.getElementById("toolbar-context-menu");
-
-    // Generate menuitem
-    var menuItem = document.createElement("menuitem");
-    // toolbarid = TotalToolbar-Fix => Without the entry is displayed several times because the menu is not emptied correctly
-    menuItem.setAttribute("toolbarId", "aios-toolbar");
-    menuItem.setAttribute("observes", "aios-viewToolbar");
-    menuItem.setAttribute("label", AiOS_Objects.mainToolbar.getAttribute("toolbarname"));
-
-    var mitems = popup.childNodes;
-    for (var i = 0; i < mitems.length; i++) {
-        // TotalToolbar => Remove unnecessary/unwanted menu items
-        if (mitems[i].tagName == "menuitem") {
-            if (mitems[i].getAttribute("toolbarId") == "aios-toolbar")
-                mitems[i].parentNode.removeChild(mitems[i]);
-            if (mitems[i].getAttribute("toolbarId") == "aios-sbhtoolbar")
-                mitems[i].parentNode.removeChild(mitems[i]);
-            if (mitems[i].getAttribute("label") == menuItem.getAttribute("label"))
-                mitems[i].parentNode.removeChild(mitems[i]);
+function replaceViewPopupMethod() {
+    let mainToolbar = AiOS_Objects.mainToolbar;
+    var targetMenuItem = document.createElement("menuitem");
+    targetMenuItem.setAttribute("id", "toggle_" + mainToolbar.id);
+    targetMenuItem.setAttribute("label", mainToolbar.getAttribute("toolbarname"));
+    targetMenuItem.setAttribute("observes", "aios-viewToolbar");
+    
+    var _onViewToolbarsPopupShowing = onViewToolbarsPopupShowing;
+    onViewToolbarsPopupShowing = function (aEvent, aInsertPoint) {
+        var popup = aEvent.target;
+        if (popup != aEvent.currentTarget) {
+            return;
         }
 
-        // Determine the first separator to insert the menu entry directly in front of it
-        if ((mitems[i].tagName == "menuseparator" && !AiOS_HELPER.usingCUI && !aios_context_sep) ||
-            (mitems[i].id == "viewToolbarsMenuSeparator" && AiOS_HELPER.usingCUI && aWhich.id == "toolbar-context-menu" && !aios_context_sep)) {
-            var aios_context_sep = mitems[i];
+        if (popup.contains(targetMenuItem)) {
+            popup.removeChild(targetMenuItem);
         }
-    }
 
-    // Insert AiOS toolbar
-    popup.insertBefore(menuItem.cloneNode(true), aios_context_sep);
+        if (aInsertPoint) {
+            _onViewToolbarsPopupShowing.apply(this, arguments);
+        }
+                
+        var firstMenuItem = aInsertPoint || popup.firstChild;
+        popup.insertBefore(targetMenuItem, firstMenuItem);
+        
+        if (aInsertPoint == null) {
+            _onViewToolbarsPopupShowing.apply(this, arguments);
+        }
+    };
 }

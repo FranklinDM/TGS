@@ -39,7 +39,9 @@ var AiOS = {
     _initialized: false,
     initSidebar: function () {
         AiOS_Objects.get();
-
+        
+        replaceViewPopupMethod();
+        
         // Sidebar left or right
         // Property assignment for CSS (LTR <=> RTL; sidebar left <=> right)
         AiOS.setSidebarOrient();
