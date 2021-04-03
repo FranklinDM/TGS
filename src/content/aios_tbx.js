@@ -260,7 +260,7 @@ function replaceViewPopupMethod() {
     let mainToolbar = AiOS_Objects.mainToolbar;
     var targetMenuItem = document.createElement("menuitem");
     targetMenuItem.setAttribute("id", "toggle_" + mainToolbar.id);
-    targetMenuItem.setAttribute("label", mainToolbar.getAttribute("toolbarname"));
+    targetMenuItem.setAttribute("label", mainToolbar.getAttribute("toolbarlabel"));
     targetMenuItem.setAttribute("observes", "aios-viewToolbar");
     
     var _onViewToolbarsPopupShowing = onViewToolbarsPopupShowing;

@@ -1,11 +1,37 @@
 <?xml version="1.0" ?>
 
+<!DOCTYPE overlay [
+    <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+]>
+
 <overlay id="aiosOverlay-australis"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <!-- scripts -->
     <script type="application/javascript"
             src="chrome://aios/content/australis/aios.js" />
+    
+    <hbox id="customization-container">
+        <vbox id="customization-palette-container">
+            <vbox id="aios-cui-container"
+                  insertbefore="customization-footer">
+                <hbox id="aios-toolbar-cui">
+                    <label>&toolbar.name;:</label>
+                </hbox>
+                <hbox id="aios-sbhtoolbar-cui">
+                    <label>&sbhtoolbar.name;:</label>
+                </hbox>
+            </vbox>
+        </vbox>
+    </hbox>
 
-    <!-- Browser menu: Toolbar context menu -->
-    <menupopup id="toolbar-context-menu" onpopupshowing="onViewToolbarsPopupShowing(event, document.getElementById('viewToolbarsMenuSeparator')); aios_addToolbarMitem(this);" />
+    <toolbar id="aios-toolbar"
+             overflowable="false"
+             toolbarname=""
+             toolboxid="navigator-toolbox">
+    </toolbar>
+    <toolbar id="aios-sbhtoolbar"
+             overflowable="false"
+             toolbarname=""
+             toolboxid="navigator-toolbox">
+    </toolbar>
 </overlay>
