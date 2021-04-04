@@ -26,12 +26,10 @@
 
     <toolbar id="aios-toolbar"
              overflowable="false"
-             toolbarname=""
-             toolboxid="navigator-toolbox">
+             toolbarname="">
     </toolbar>
     <toolbar id="aios-sbhtoolbar"
              overflowable="false"
-             toolbarname=""
-             toolboxid="navigator-toolbox">
+             toolbarname="">
     </toolbar>
 </overlay>
