@@ -37,7 +37,6 @@ var AiOS_Places = {
             popUp.appendChild(document.getElementById("aios-enableAutoClose"));
             popUp.appendChild(document.getElementById("aios-rememberFolder"));
             popUp.appendChild(document.getElementById("aios-scrollToFolder"));
-            popUp.appendChild(document.getElementById("aios-duplicateList"));
 
             popUp.appendChild(document.getElementById("close-separator").cloneNode(true));
 
@@ -49,31 +48,6 @@ var AiOS_Places = {
 
         if (isInSidebar)
             self.setSidebarLayout();
-
-        self.toggleSecondPane();
-    },
-
-    toggleSecondPane: function () {
-        let self = AiOS_Places,
-            isHidden = !aios_getBoolean(document.getElementById("aios-duplicateList"), "checked");
-        document.getElementById("duplicateTree").hidden = isHidden;
-        document.getElementById("duplicateSplitter").hidden = isHidden;
-
-        if (self.mode == "history") {
-            let options = PlacesUtils.history.getNewQueryOptions();
-            options.resultType = Ci.nsINavHistoryQueryOptions.RESULTS_AS_DATE_QUERY;
-            options.includeHidden = false;
-
-            document.getElementById("duplicateTree").load([PlacesUtils.history.getNewQuery()], options);
-        }
-        if (self.mode == "bookmarks") {
-            document.getElementById("duplicateTree").place = "place:queryType=1&folder=" + window.top.PlacesUIUtils.allBookmarksFolderId;
-            // Modifications to be compatible with 2 Pane Bookmarks
-            if (typeof Bookmarks2PaneService == "object") {
-                isHidden = true;
-                document.getElementById("aios-duplicateList").hidden = true;
-            }
-        }
     },
 
     checkFolderOptions: function () {
