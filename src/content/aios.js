@@ -22,6 +22,7 @@ var AiOS_Objects = {
         this.toggleToolbarItem = getElement("aios-viewToolbar");
 
         this.mainToolbar = getElement("aios-toolbar");
+        this.mainToolbox = getElement("aios-toolbox");
 
         this.sbSwitch = getElement("aios-toggle-button");
         this.sbToggleButton = getElement("sidebars-togglebutton");
@@ -726,8 +727,6 @@ var AiOS = {
 
         // Decide on what mode should be applied on sidebar switch
         AiOS.checkSidebarSwitch();
-
-        aios_adjustToolboxWidth(false);
     },
 
     /*
@@ -735,9 +734,6 @@ var AiOS = {
      */
     handleCustomizationEvent: function (e) {
         switch (e.type) {
-        case "customizationchange":
-            AiOS_HELPER.mostRecentWindow.aios_adjustToolboxWidth();
-            break;
         case "beforecustomization":
             this.switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, "hidden");
             this.toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, "hidden");

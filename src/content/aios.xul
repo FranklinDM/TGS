@@ -568,8 +568,8 @@
 
     <hbox id="browser">
         <!-- Needed for CSS -->
-        <observes element="aios-toolbar"
-                  attribute="posMode" />
+        <observes element="aios-toolbox"
+                  attribute="toolboxposition" />
 
         <!-- Sidebar Switch -->
         <toolbox id="aios-toggle-toolbox"
@@ -599,13 +599,13 @@
             <toolbarset />
         </toolbox>
 
-
-        <!-- TOOLBOX LEFT SIDE OF THE SIDEBAR -->
-        <toolbox id="aios-toolbox-left"
+        <!-- TOOLBOX BESIDE SIDEBAR -->
+        <toolbox id="aios-toolbox"
                  class="chromeclass-toolbar"
                  insertbefore="sidebar-box"
                  defaultmode="icons"
-                 vertical="true">
+                 toolboxposition="1"
+                 persist="toolboxposition">
 
             <!-- mode and iconsize to keep options in the configuration dialog in sync -->
             <observes element="aios-toolbar"
@@ -629,62 +629,19 @@
                      customizable="true"
                      mode="icons"
                      iconsize="large"
-                     persist="posMode mode iconsize flexbuttons hidden"
+                     persist="mode iconsize flexbuttons hidden"
                      defaultset="bookmarks-button,history-button,downloads-button,separator,addons-button,multipanel-button,pageinfo-button,separator"
                      orient="vertical"
                      flex="1"
-                     posMode="1"
                      flexbuttons="false">
 
                 <observes element="nav-bar"
                           attribute="brighttext" />
             </toolbar>
-
-            <toolbarset />
         </toolbox>
-
-
-        <!-- TOOLBOX RIGHT SIDE OF THE SIDEBAR -->
-        <toolbox id="aios-toolbox-right"
-                 insertbefore="sidebar-splitter"
-                 defaultmode="icons"
-                 class="chromeclass-toolbar"
-                 vertical="true"
-                 palette="BrowserToolbarPalette">
-
-            <observes element="aios-toolbar"
-                      attribute="mode" />
-            <observes element="aios-toolbar"
-                      attribute="defaultmode" />
-            <observes element="aios-toolbar"
-                      attribute="iconsize" />
-
-            <!--
-                => The toolbox must not be 'hidden' at startup, otherwise the toolbar will not be filled
-                => The toolbox must not be 'collapsed', otherwise the sidebar will not be scalable
-            -->
-
-            <toolbarset />
-        </toolbox>
-
 
         <vbox id="sidebar-box"
               checked="true">
-
-            <!-- TOOLBOX ABOVE THE SIDEBAR -->
-            <toolbox id="aios-toolbox-sidebartop"
-                     position="1"
-                     defaultmode="icons"
-                     palette="BrowserToolbarPalette">
-                <observes element="aios-toolbar"
-                          attribute="mode" />
-                <observes element="aios-toolbar"
-                          attribute="defaultmode" />
-                <observes element="aios-toolbar"
-                          attribute="iconsize" />
-
-                <toolbarset />
-            </toolbox>
 
             <!-- SIDEBAR HEADER -->
             <sidebarheader id="sidebar-header">
@@ -747,36 +704,6 @@
                     <toolbarset />
                 </toolbox>
             </sidebarheader>
-
-            <!-- TOOLBOX UNDER THE SIDEBAR HEADER -->
-            <toolbox id="aios-toolbox-sidebartop2"
-                     insertafter="sidebar-header"
-                     defaultmode="icons"
-                     palette="BrowserToolbarPalette">
-                <observes element="aios-toolbar"
-                          attribute="mode" />
-                <observes element="aios-toolbar"
-                          attribute="defaultmode" />
-                <observes element="aios-toolbar"
-                          attribute="iconsize" />
-
-                <toolbarset />
-            </toolbox>
-
-            <!-- TOOLBOX UNDER THE SIDEBAR -->
-            <toolbox id="aios-toolbox-sidebarbottom"
-                     position="101"
-                     defaultmode="icons"
-                     palette="BrowserToolbarPalette">
-                <observes element="aios-toolbar"
-                          attribute="mode" />
-                <observes element="aios-toolbar"
-                          attribute="defaultmode" />
-                <observes element="aios-toolbar"
-                          attribute="iconsize" />
-
-                <toolbarset />
-            </toolbox>
         </vbox>
     </hbox>
 </overlay>

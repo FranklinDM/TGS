@@ -5,70 +5,6 @@ function aios_gElem(aID) {
 }
 
 /*
- * Release or set the width of the vertical toolboxes
- * => Called by aios_toggleToolbar(), aios_setToolbarView(), aios_setToolbarPos(), aios_customizeToolbar() and aios_BrowserFullScreen()
- * => Also called indirectly by aios_initSidebar() => aios_setSidebarOrient() triggers aios_setToolbarPos()
- * => via JS instead of CSS because it has to be dynamic because of Themes
- */
-function aios_adjustToolboxWidth(aMode) {
-    AiOS_Objects.get();
-
-    var tboxen = ["aios-toolbox-left", "aios-toolbox-right"];
-    var tbox;
-
-    // First remove width from element styles and attribute
-    for (tbox in tboxen) {
-        aios_gElem(tboxen[tbox]).style.minWidth = "";
-        aios_gElem(tboxen[tbox]).style.width = "";
-        aios_gElem(tboxen[tbox]).style.maxWidth = "";
-        aios_gElem(tboxen[tbox]).removeAttribute("width");
-    }
-
-    // If no definitions have yet to be made, initiate them by recursive call a short time later
-    // Delayed call ensures proper operation
-    if (!aMode) {
-        window.setTimeout(function () {
-            aios_adjustToolboxWidth(true);
-        }, 100);
-
-        return false;
-    }
-
-    // Set widths
-    var usedToolbox;
-    var aiosOrient = AiOS_Objects.mainWindow.getAttribute("aiosOrient");
-    var posMode = AiOS_Objects.mainToolbar.getAttribute("posMode");
-
-    // Select toolbox according to sidebar alignment
-    if ((aiosOrient == "left" && posMode == "1") || (aiosOrient == "right" && posMode == "2")) {
-        usedToolbox = "aios-toolbox-left";
-    } else if ((aiosOrient == "left" && posMode == "2") || (aiosOrient == "right" && posMode == "1")) {
-        usedToolbox = "aios-toolbox-right";
-    }
-
-    // usedToolbox is false if the toolbar is positioned inside the sidebar
-    if (usedToolbox) {
-        var cStyle = document.defaultView.getComputedStyle(aios_gElem(usedToolbox), null);
-        var myWidth = parseInt(cStyle.width) + parseInt(cStyle.paddingLeft) + parseInt(cStyle.paddingRight);
-    }
-
-    for (tbox in tboxen) {
-        // Fix the width of the toolbox used
-        if (tboxen[tbox] == usedToolbox) {
-            aios_gElem(tboxen[tbox]).style.minWidth = myWidth + "px";
-            aios_gElem(tboxen[tbox]).style.maxWidth = myWidth + "px";
-        }
-        // Set width for unused toolbox to 0px => otherwise the toolbox scales with the sidebar scaling
-        else {
-            aios_gElem(tboxen[tbox]).style.minWidth = "0px";
-            aios_gElem(tboxen[tbox]).style.maxWidth = "0px";
-        }
-    }
-
-    return true;
-}
-
-/*
  * Initialize toolbar menu options (AiOS Toolbar, Sidebar Header Toolbar)
  * => Called through onpopupshowing handler of context menus in aios.xul
  */
@@ -117,60 +53,38 @@ function aios_onToolbarPopupShowing(aWhich) {
  * Positions the AiOS and sidebar header toolbar
  * => Called through the menu options of the context menu and aios_setSidebarOrient()
  * => Also called indirectly by aios_initSidebar() => aios_setSidebarOrient() triggers aios_setToolbarPos()
- * => posMode 1 = to the left of the sidebar	(vertical)
- * => posMode 2 = right next to the sidebar	(vertical)
- * => posMode 3 = above the sidebar header		(horizontal)
- * => posMode 4 = below the sidebar header		(horizontal)
- * => posMode 5 = below the sidebar 			(horizontal)
+ * => toolboxPosition 1 = to the left of the sidebar    (vertical)
+ * => toolboxPosition 2 = right next to the sidebar     (vertical)
+ * => toolboxPosition 3 = above the sidebar header      (horizontal)
+ * => toolboxPosition 4 = below the sidebar header      (horizontal)
+ * => toolboxPosition 5 = below the sidebar             (horizontal)
  */
-function aios_setToolbarPos(posMode) {
+function aios_setToolbarPos(toolboxPosition) {
     AiOS_Objects.get();
 
-    var tbox,
-        orient,
-        button_flex,
-        separator;
-
-    if (!posMode)
-        posMode = parseInt(AiOS_Objects.mainToolbar.getAttribute("posMode"));
-
-    var sidebarOrient = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.orient");
-
-    switch (posMode) {
-    case 1:
-        tbox = (sidebarOrient == 1) ? "aios-toolbox-left" : "aios-toolbox-right";
-        orient = "vertical";
-        break;
-
-    case 2:
-        tbox = (sidebarOrient == 1) ? "aios-toolbox-right" : "aios-toolbox-left";
-        orient = "vertical";
-        break;
-
-    case 3:
-        tbox = "aios-toolbox-sidebartop";
-        orient = "horizontal";
-        break;
-
-    case 4:
-        tbox = "aios-toolbox-sidebartop2";
-        orient = "horizontal";
-        break;
-
-    case 5:
-        tbox = "aios-toolbox-sidebarbottom";
-        orient = "horizontal";
-        break;
+    // TODO: posMode migration path (persisted from toolbar)
+    if (!toolboxPosition) {
+        toolboxPosition = parseInt(AiOS_Objects.mainToolbox.getAttribute("toolboxposition"));
+    }
+    
+    // Revert to the default position if value is out of range
+    if (toolboxPosition < 1 || toolboxPosition > 5) {
+        toolboxPosition = 1;
     }
 
-    AiOS_Objects.mainToolbar.setAttribute("posMode", posMode);
-    AiOS_Objects.mainToolbar.setAttribute("orient", orient);
+    var toolboxInSidebar = (toolboxPosition > 2);
+    var toolbarOrientation = (toolboxInSidebar ? "horizontal" : "vertical");
+    
+    AiOS_Objects.mainToolbox.setAttribute("toolboxposition", toolboxPosition);
+    AiOS_Objects.mainToolbar.setAttribute("orient", toolbarOrientation);
 
-    document.getElementById(tbox).appendChild(AiOS_Objects.mainToolbar);
+    if (toolboxInSidebar) {
+        AiOS_Objects.sidebarBox.insertBefore(AiOS_Objects.mainToolbox, AiOS_Objects.sidebarHeader);
+    } else {
+        AiOS_Objects.browser.insertBefore(AiOS_Objects.mainToolbox, AiOS_Objects.sidebarBox);
+    }
 
-    aios_adjustToolboxWidth(false);
-
-    document.getElementById("aios-pos-mitem" + posMode).setAttribute("checked", true);
+    document.getElementById("aios-pos-mitem" + toolboxPosition).setAttribute("checked", true);
 }
 
 /*
@@ -232,10 +146,9 @@ function aios_setToolbarView(aViewMode, aWhich) {
 
     tbar.setAttribute(set_property, set_value);
 
-    if (tbar == aios_gElem("aios-toolbar"))
-        aios_adjustToolboxWidth(false);
-    else
+    if (tbar != aios_gElem("aios-toolbar")) {
         AiOS_Objects.sidebarHeader.setAttribute(set_property, set_value);
+    }
 }
 
 /*
@@ -249,8 +162,6 @@ function aios_toggleToolbar(aWhich) {
     var mode = (typeof aWhich == "boolean") ? aWhich : !aios_getBoolean(aWhich, "checked");
 
     AiOS_Objects.mainToolbar.hidden = mode;
-
-    aios_adjustToolboxWidth(false);
 }
 
 /*
