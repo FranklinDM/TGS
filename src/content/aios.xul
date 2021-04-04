@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
 <?xml-stylesheet href="chrome://aios/skin/aios.css" type="text/css"?>
-<?xml-stylesheet href="chrome://aios/skin/aios_orientation.css" type="text/css"?>
+<?xml-stylesheet href="chrome://aios/skin/aios_layout.css" type="text/css"?>
 <?xml-stylesheet href="chrome://aios/skin/aios_buttons.css" type="text/css"?>
 
 <!DOCTYPE overlay [
