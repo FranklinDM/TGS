@@ -212,6 +212,21 @@ var AiOS = {
 
         // Set sidebar size
         AiOS_Objects.sidebarBox.setAttribute("width", sWidthVal);
+        
+        // Set app content size
+        let browserBounds = AiOS_Objects.browser.getBoundingClientRect();
+        let appContentWidth = (browserBounds.right - browserBounds.left) - sWidthVal;
+        
+        for (let i = 0; i < AiOS_Objects.browser.childNodes.length; i++) {
+            let currentElement = AiOS_Objects.browser.childNodes[i];
+            if (currentElement.id == "appcontent" || currentElement.id == "sidebar-box") {
+                continue;
+            }
+            let elementBounds = currentElement.getBoundingClientRect();
+            appContentWidth -= (elementBounds.right - elementBounds.left);
+        }
+        
+        document.getElementById("appcontent").setAttribute("width", appContentWidth);
     },
 
     /*

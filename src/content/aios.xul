@@ -243,6 +243,8 @@
     <!-- Grippy -->
     <splitter id="sidebar-splitter"
               orient="horizontal"
+              resizebefore="flex"
+              resizeafter="flex"
               grippy="false"
               persist="grippy">
         <grippy id="aios-sidebarGrippy"
@@ -641,6 +643,7 @@
         </toolbox>
 
         <vbox id="sidebar-box"
+              flex="1"
               checked="true">
 
             <!-- SIDEBAR HEADER -->
@@ -705,5 +708,8 @@
                 </toolbox>
             </sidebarheader>
         </vbox>
+        <vbox id="appcontent"
+              flex="1"
+              persist="width" />
     </hbox>
 </overlay>
