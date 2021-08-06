@@ -13,8 +13,8 @@
  * otherwise the switch might not be styled correctly.
  */
 window[inDOMFullscreen] #aios-toggle-toolbox,
-window[inDOMFullscreen] #aios-toolbox-left,
-window[inDOMFullscreen] #aios-toolbox-right {
+window[inDOMFullscreen] #aios-toolbox[toolboxposition="1"],
+window[inDOMFullscreen] #aios-toolbox[toolboxposition="2"] {
   display: none;
 }
 window[aiosOrient="left"] toolbox #aios-toggle-toolbox,
@@ -54,11 +54,7 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
 /*
  * TGS Toolbar
  */
-#aios-toolbox-left,
-#aios-toolbox-right,
-#aios-toolbox-sidebartop,
-#aios-toolbox-sidebartop2,
-#aios-toolbox-sidebarbottom,
+#aios-toolbox,
 #aios-sbhtoolbox {
   border: none;
 }
@@ -269,8 +265,7 @@ sidebarheader > .close-icon.tabbable {
  */
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toggle-toolbox,
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #sidebar-box,
-window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox-left,
-window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox-right,
+window[onclose="PrintUtils.exitPrintPreview(); return false;"] #aios-toolbox,
 window[onclose="PrintUtils.exitPrintPreview(); return false;"] #sidebar-splitter {
   display: none;
 }
