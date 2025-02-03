@@ -103,12 +103,6 @@
                                       onclick="aios_addTab('&contrib2.link;');" />
                             </row>
                             <row>
-                                <text value="&contrib3.name;" />
-                                <text value="&contrib3.ext;"
-                                      class="link"
-                                      onclick="aios_addTab('&contrib3.link;');" />
-                            </row>
-                            <row>
                                 <text value="&contrib4.name;" />
                                 <text value="&contrib4.ext;"
                                       class="link"

@@ -61,15 +61,6 @@
 <!ENTITY cmode.mode3.label "Rubni stupac, alatne traka i preklopnik rubnog stupca">
 <!ENTITY cmode.mode4.label "Operino ponašanje">
 <!ENTITY gen.fs.off "Vrati stanje ako se izlazi i moda cijelog ekrana">
-<!ENTITY keyconfig.keyid "Ime">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Primijeni">
-<!ENTITY keyconfig.disable "Onemogući">
-<!ENTITY keyconfig.reset "Vrati izvorno">
-<!ENTITY keyconfig.warn "Promjene obuhvaćaju samo nove prozore">
-<!ENTITY keyconfig.onreset "Potrebno je ponovno pokretanje preglednika">
-<!ENTITY keyconfig.unrecognized "Neprepoznatljivo ($1)">
-<!ENTITY keyconfig.used "Ova tipka se već koristi od strane: \\n\\n\\t$1\\n\\nMoguće je da će raditi, iako…">
 <!ENTITY menus.sidebar.desc "Prilagodi unose u izborniku “Pogled &gt; Rubni stupac” i padajućim izbornicima gumba rubnog stupca">
 <!ENTITY menus.icons.label "Prikaži ikone">
 <!ENTITY menus.entries.label "Prikaži unose">

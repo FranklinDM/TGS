@@ -15,10 +15,6 @@
 <!ENTITY contrib2.ext           "Tab Mix Plus">
 <!ENTITY contrib2.link          "https://addons.mozilla.org/firefox/addon/1122">
 
-<!ENTITY contrib3.name          "Dorando">
-<!ENTITY contrib3.ext           "keyconfig">
-<!ENTITY contrib3.link          "http://forums.mozillazine.org/viewtopic.php?t=72994">
-
 <!ENTITY contrib4.name          "Leon Huang">
 <!ENTITY contrib4.ext           "POTO Sidebar">
 <!ENTITY contrib4.link          "https://addons.mozilla.org/firefox/addon/836">

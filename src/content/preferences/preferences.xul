@@ -61,8 +61,6 @@
               src="chrome://aios/content/preferences/panels.xul" />
     <prefpane id="aiosMenus" label="&tab.menus;"
               src="chrome://aios/content/preferences/menus.xul" />
-    <prefpane id="aiosKeys" label="&tab.keys;"
-              src="chrome://aios/content/preferences/keys.xul" />
     <prefpane id="aiosAbout" label="&tab.about;"
               src="chrome://aios/content/preferences/about.xul" />
 

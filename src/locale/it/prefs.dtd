@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "Barra laterale, barra degli strumenti e scambio della barra laterale">
 <!ENTITY cmode.mode4.label "Comportamento di Opera">
 <!ENTITY gen.fs.off "Ripristina la modalità precedente se si esce da quella a tutto schermo">
-<!ENTITY keyconfig.keyid "Nome">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Applica">
-<!ENTITY keyconfig.disable "Disattiva">
-<!ENTITY keyconfig.reset "Predefinita">
-<!ENTITY keyconfig.warn "I cambiamenti hanno effetto solo sulle nuove finestre">
 <!ENTITY menus.sidebar.desc "Personalizza gli elementi nel menu “Visualizza &gt; Barra laterale” e nei menu dei pulsanti nella barra laterale">
 <!ENTITY menus.icons.label "Mostra le icone">
 <!ENTITY menus.entries.label "Mostra le voci del menu">

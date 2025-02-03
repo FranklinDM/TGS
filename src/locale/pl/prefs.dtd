@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "panel boczny, pasek narzędzi i przełącznik panelu bocznego">
 <!ENTITY cmode.mode4.label "reakcja jak w Operze">
 <!ENTITY gen.fs.off "Odtwarzaj poprzedni stan przy opuszczaniu trybu pełnoekranowego">
-<!ENTITY keyconfig.keyid "Nazwa">
-<!ENTITY keyconfig.id "Identyfikator">
-<!ENTITY keyconfig.apply "Zastosuj">
-<!ENTITY keyconfig.disable "Wyłącz">
-<!ENTITY keyconfig.reset "Przywróć">
-<!ENTITY keyconfig.warn "Zmiany zostaną zastosowane w nowo otwieranych oknach">
 <!ENTITY menus.sidebar.desc "Określ elementy wyświetlane w menu “Widok &gt; Panel boczny” oraz w rozwijanych menu przycisków panelu bocznego.">
 <!ENTITY menus.icons.label "Wyświetlaj ikony">
 <!ENTITY menus.entries.label "Wyświetlaj elementy">

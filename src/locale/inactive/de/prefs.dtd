@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Sidebar, Symbolleiste und Sidebar-Umschalter">
 <!ENTITY cmode.mode4.label "Opera-Verhalten">
 <!ENTITY gen.fs.off "Beim Beenden des Vollbild-Modus den vorherigen Zustand wiederherstellen">
-<!ENTITY keyconfig.keyid "Befehl">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Übernehmen">
-<!ENTITY keyconfig.disable "Deaktivieren">
-<!ENTITY keyconfig.reset "Zurücksetzen">
-<!ENTITY keyconfig.warn "Änderungen werden erst in neuen Fenstern wirksam">
-<!ENTITY keyconfig.onreset "Erfordert einen Browser-Neustart">
-<!ENTITY keyconfig.unrecognized "Unerkannt ($1)">
-<!ENTITY keyconfig.used "Dieses Tastaturkürzel wird bereits verwendet: \n\n\t$1\n\nEs könnte dennoch funktionieren.">
 <!ENTITY menus.sidebar.desc "Passen Sie das Menü „Ansicht &gt; Sidebar” und die Klappmenüs der Sidebar-Schaltflächen an.">
 <!ENTITY menus.icons.label "Symbole anzeigen">
 <!ENTITY menus.entries.label "Menüeinträge anzeigen">

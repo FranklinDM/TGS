@@ -822,8 +822,3 @@ if (!AiOS_HELPER.usingCUI) {
     window.addEventListener("aftercustomization", AiOS.handleCustomizationEvent, false);
     window.addEventListener("customizationchange", AiOS.handleCustomizationEvent, false);
 }
-
-// Otherwise newly defined shortcuts will be reset on browser restart
-extLoad.add(30, function () {
-    aiosKeyconfig.loadkeys(aiosKeyconfig.prefService.getCharPref("extensions.aios.keyconf.profile"));
-});

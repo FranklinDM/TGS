@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "Открывать/Закрывать боковую панель, панель инструментов и переключатель панели">
 <!ENTITY cmode.mode4.label "Поведение как в браузере Opera">
 <!ENTITY gen.fs.off "Восстанавливать положение при выходе из полноэкранного режима">
-<!ENTITY keyconfig.keyid "Имя">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Применить">
-<!ENTITY keyconfig.disable "Отключить">
-<!ENTITY keyconfig.reset "Сбросить">
-<!ENTITY keyconfig.warn "Изменения затрагивают только новые окна">
 <!ENTITY menus.sidebar.desc "Настройка состава меню “Вид &gt; Боковая панель” и выпадающего меню кнопок боковой панели.">
 <!ENTITY menus.icons.label "Показывать значки">
 <!ENTITY menus.entries.label "Показывать строки">

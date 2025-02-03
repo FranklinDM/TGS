@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Barra lateral, barra de ferramentas e entalhe">
 <!ENTITY cmode.mode4.label "Mesmo comportamento do Opera">
 <!ENTITY gen.fs.off "Voltar ao estado original ao sair do modo ecrã completo">
-<!ENTITY keyconfig.keyid "Nome">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Aplicar">
-<!ENTITY keyconfig.disable "Desactivar">
-<!ENTITY keyconfig.reset "Repor">
-<!ENTITY keyconfig.warn "As mudanças afectam somente novas janelas,">
-<!ENTITY keyconfig.onreset "Reinicie o navegador">
-<!ENTITY keyconfig.unrecognized "Não reconhecido ($1)">
-<!ENTITY keyconfig.used "Esta tecla já está sendo usada por:\\n\\n\\t$1. No entanto pode funcionar.">
 <!ENTITY menus.sidebar.desc "Personalize as opções no menu &quot;Mostrar &gt; Barra Lateral&quot;; e no menu suspenso dos botões da barra lateral.">
 <!ENTITY menus.icons.label "Mostrar ícones">
 <!ENTITY menus.entries.label "Mostrar opções">

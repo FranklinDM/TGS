@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Painel, barra de ferramentas e entalhe">
 <!ENTITY cmode.mode4.label "Mesmo comportamento do Opera">
 <!ENTITY gen.fs.off "Voltar ao estado original ao sair do modo tela inteira">
-<!ENTITY keyconfig.keyid "Nome">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Aplicar">
-<!ENTITY keyconfig.disable "Desabilitar">
-<!ENTITY keyconfig.reset "Redefinir">
-<!ENTITY keyconfig.warn "As mudanças afetam somente novas janelas.">
-<!ENTITY keyconfig.onreset "Reinicie o navegador">
-<!ENTITY keyconfig.unrecognized "Não reconhecido ($1)">
-<!ENTITY keyconfig.used "Esta tecla já está sendo usada por:   t$1. No entanto, pode funcionar.">
 <!ENTITY menus.sidebar.desc "Personalize as opções no menu &quot;Exibir &gt; Painel&quot;; e no menu suspenso dos botões do painel.">
 <!ENTITY menus.icons.label "Exibir ícones">
 <!ENTITY menus.entries.label "Exibir opções">

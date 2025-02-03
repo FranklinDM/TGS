@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Бічна панель, панель інструментів та вимикач бічної панелі">
 <!ENTITY cmode.mode4.label "Поведінка як в Опері">
 <!ENTITY gen.fs.off "Відновлювати стан при скасуванні повноекранного режиму">
-<!ENTITY keyconfig.keyid "Назва">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Застосувати">
-<!ENTITY keyconfig.disable "Вимкнути">
-<!ENTITY keyconfig.reset "Скинути">
-<!ENTITY keyconfig.warn "Зміни стосуються тільки нових вікон">
-<!ENTITY keyconfig.onreset "Потрібне перезавантаження браузера">
-<!ENTITY keyconfig.unrecognized "Нерозпізнано ($1)">
-<!ENTITY keyconfig.used "Ці поєднання клавіш вже використовуються: \\n\\n\\t$1\\n\\nОднак це може все ж працювати.">
 <!ENTITY menus.sidebar.desc "Налаштувати пункти меню “Вигляд &gt; Бічна панель” та пункти меню-згорток кнопок бічної панелі.">
 <!ENTITY menus.icons.label "Показувати піктограми">
 <!ENTITY menus.entries.label "Показувати пункти">

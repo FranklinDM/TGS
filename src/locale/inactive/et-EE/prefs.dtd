@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Külgpaan, tööriistariba ja külgpaani vahetaja">
 <!ENTITY cmode.mode4.label "Opera käitumine">
 <!ENTITY gen.fs.off "Taasta olukord kui suletakse täisekraani vaates">
-<!ENTITY keyconfig.keyid "Nimi">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Rakenda">
-<!ENTITY keyconfig.disable "Keela">
-<!ENTITY keyconfig.reset "Lähtesta">
-<!ENTITY keyconfig.warn "Muudatused puudutavad ainult uusi aknaid">
-<!ENTITY keyconfig.onreset "Vajalik brauseri taaskäivitamine">
-<!ENTITY keyconfig.unrecognized "Tundamutu ($1)">
-<!ENTITY keyconfig.used "Seda klahvi kasutab juba: \\n\\n\\t$1\\n\\nIt aga võib siiski töötada">
 <!ENTITY menus.sidebar.desc "Kohanda “Vaata &gt; Külgpaan” menüü kirjeid ja külgpaani nuppude kontekstmenüüsid.">
 <!ENTITY menus.icons.label "Näita ikoone">
 <!ENTITY menus.entries.label "Näita kirjeid">

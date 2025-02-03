@@ -60,15 +60,6 @@
 <!ENTITY cmode.mode3.label "Postranní lišta, lišta nástrojů a přepínač zobrazení">
 <!ENTITY cmode.mode4.label "Po vzoru webového prohlížeče Opera">
 <!ENTITY gen.fs.off "Obnovit původní stav po návratu z celoobrazovkového režimu">
-<!ENTITY keyconfig.keyid "Událost">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Použít">
-<!ENTITY keyconfig.disable "Deaktivovat">
-<!ENTITY keyconfig.reset "Výchozí">
-<!ENTITY keyconfig.warn "Změny se projeví až v nově otevřených oknech">
-<!ENTITY keyconfig.onreset "Vyžaduje restart prohlížeče">
-<!ENTITY keyconfig.unrecognized "Nerozpoznáno ($1)">
-<!ENTITY keyconfig.used "Tato klávesová zkratka je už použita pro: \\n\\n\\t$1">
 <!ENTITY menus.sidebar.desc "Nastavení položek v nabídce „Zobrazit &gt; Nástrojové lišty“ a v místních nabídkách nástrojových lišt.">
 <!ENTITY menus.icons.label "Zobrazit ikony">
 <!ENTITY menus.entries.label "Zobrazit položky">

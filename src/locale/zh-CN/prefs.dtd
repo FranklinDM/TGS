@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "侧栏、工具栏和侧栏切换柄">
 <!ENTITY cmode.mode4.label "类似 Opera 的方式">
 <!ENTITY gen.fs.off "退出全屏时恢复侧栏状态">
-<!ENTITY keyconfig.keyid "名称">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "应用">
-<!ENTITY keyconfig.disable "禁用">
-<!ENTITY keyconfig.reset "重置">
-<!ENTITY keyconfig.warn "更改只影响新窗口">
 <!ENTITY menus.sidebar.desc "定制“查看 –&gt; 侧栏”和侧栏按钮下拉菜单项目">
 <!ENTITY menus.icons.label "显示图标">
 <!ENTITY menus.entries.label "显示项目">

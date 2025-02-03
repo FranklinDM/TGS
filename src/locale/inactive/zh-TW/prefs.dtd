@@ -62,15 +62,6 @@
 <!ENTITY cmode.mode3.label "側邊欄、工具列及彈出鈕">
 <!ENTITY cmode.mode4.label "模仿 Opera 的動作">
 <!ENTITY gen.fs.off "離開全螢幕模式時還原側邊欄">
-<!ENTITY keyconfig.keyid "名稱">
-<!ENTITY keyconfig.id "機碼">
-<!ENTITY keyconfig.apply "套用">
-<!ENTITY keyconfig.disable "停用">
-<!ENTITY keyconfig.reset "重設">
-<!ENTITY keyconfig.warn "目前所作的變更將只會影響新開啟的瀏覽器視窗">
-<!ENTITY keyconfig.onreset "需要重新啟動瀏覽器">
-<!ENTITY keyconfig.unrecognized "未經辨識 ($1)">
-<!ENTITY keyconfig.used "這組快速鍵已被下列功能所使用：\\n\\n\\t$1\\n\\n目前的設定或許仍可作用…">
 <!ENTITY menus.sidebar.desc "自訂「檢視 → 側邊欄」以及「側邊欄按鈕」下拉選單裡的選單項目">
 <!ENTITY menus.icons.label "顯示圖示">
 <!ENTITY menus.entries.label "顯示選單項目">

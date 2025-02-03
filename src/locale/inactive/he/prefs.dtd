@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "סרגל-הצד, סרגל כלים, ומפסק סרגל-הצד">
 <!ENTITY cmode.mode4.label "התנהגות כמו באופרה">
 <!ENTITY gen.fs.off "שחזור מצב המסך אם יוצאים ממסך המלא">
-<!ENTITY keyconfig.keyid "שם">
-<!ENTITY keyconfig.id "זהות">
-<!ENTITY keyconfig.apply "החלה">
-<!ENTITY keyconfig.disable "נטרול">
-<!ENTITY keyconfig.reset "איפוס">
-<!ENTITY keyconfig.warn "השינויים משפיעים רק על חלונות חדשים">
-<!ENTITY keyconfig.onreset "דורש אתחול הדפדפן">
-<!ENTITY keyconfig.unrecognized "לא מזוהה ($1)">
-<!ENTITY keyconfig.used "מפתח זה כבר בשימוש על ידי \\n\\n\\t$1\\n\\n  אולי יעבוד">
 <!ENTITY menus.sidebar.desc "התאמה אישית של הערכים בתפריט “תצוגה &gt; סרגל-הצד” ובתפריט הגלילה של סרגל-הצד">
 <!ENTITY menus.icons.label "הצגת אייקונים">
 <!ENTITY menus.entries.label "הצגת ערכים">

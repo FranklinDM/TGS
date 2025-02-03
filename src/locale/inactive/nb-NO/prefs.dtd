@@ -62,15 +62,6 @@
 <!ENTITY cmode.mode3.label "Sidestolpen, verktøylinjen og sidestolpebryteren">
 <!ENTITY cmode.mode4.label "Opera&apos;s oppførsel">
 <!ENTITY gen.fs.off "Gjenopprett tilstanden hvis fullskjermmodus avbrytes">
-<!ENTITY keyconfig.keyid "Navn">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Bruk">
-<!ENTITY keyconfig.disable "Deaktiver">
-<!ENTITY keyconfig.reset "Nullstill">
-<!ENTITY keyconfig.warn "Endringer vil kun ha virkning på nye vinduer">
-<!ENTITY keyconfig.onreset "Nettleseren må omstartes">
-<!ENTITY keyconfig.unrecognized "Ukjent (&amp;1)">
-<!ENTITY keyconfig.used "Denne nøkkelen brukes allerede av: \\n\\n\\t$1\\n\\nVil kanskje virke…">
 <!ENTITY menus.sidebar.desc "Tilpass elementene i menyen “Vis &gt; Sidestolpe” og i rullegardinmenyene i sidestolpevalgene.">
 <!ENTITY menus.icons.label "Vis ikoner">
 <!ENTITY menus.entries.label "Vis elementer">
