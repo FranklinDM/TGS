@@ -31,6 +31,7 @@ window[aiosOrient="right"] toolbox #aios-toggle-toolbox > toolbar #aios-toggle-t
 #aios-toggle-toolbar {
   padding: 0;
   border: none;
+  z-index: 9999;
 }
 #aios-toggle-toolbar {
   -moz-appearance: none;
@@ -245,7 +246,22 @@ sidebarheader > .tabs-closebutton,
 sidebarheader > .close-icon.tabbable {
   display: none;
 }
-
+#sidebar-box[floating="true"] {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background: -moz-Dialog;
+}
+#sidebar-box[floating="true"] > #sidebar {
+  height: 100%;
+}
+#sidebar-box[floating="true"] > #sidebar-header {
+  display: flex;
+  justify-content: space-between;
+}
+#sidebar-box[floating="true"] > #aios-toolbox toolbar {
+  width: 100%;
+}
 
 /*
  * Sidebar Header Toolbar

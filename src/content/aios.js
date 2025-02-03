@@ -573,26 +573,17 @@ var AiOS = {
 
         AiOS_Objects.get();
 
-        var thin_switch,
-            thinmax_switch,
-            switch_width,
-            switch_twidth,
-            athin_switch,
-            inv_switch,
-            invmax_switch,
-            invhover,
-            invmouse;
+        let thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thin");
+        let thinmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thinmax");
 
-        thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thin");
-        thinmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thinmax");
+        let switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.width");
+        let switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.twidth");
 
-        switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.width");
-        switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.twidth");
-
-        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
-        invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmax");
-        invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invhover");
-        invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmouse");
+        let inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
+        let invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmax");
+        let invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invhover");
+        let invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmouse");
+        let floating = AiOS_HELPER.prefBranchAiOS.getBoolPref("enable_floating_sidebar");
 
         switch (AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.visibility")) {
         case 0:
@@ -622,8 +613,13 @@ var AiOS = {
         var width_val = (thin) ? switch_twidth : switch_width;
         var barStyle = "min-width: " + width_val + "px; max-width: " + width_val + "px;";
 
+        const appContentHeight = document.defaultView.getComputedStyle(
+            document.getElementById("appcontent"),
+            null
+        ).getPropertyValue("height");
+
         if (inv) {
-            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById("appcontent"), null).getPropertyValue("height") + ";" + " position: fixed;";
+            barStyle += " height: " + appContentHeight + ";" + " position: fixed;";
             AiOS_Objects.toggleBox.setAttribute("style", "position: fixed;");
 
             let cursor = (!invmouse) ? "default" : "pointer";
@@ -632,10 +628,19 @@ var AiOS = {
             AiOS_Objects.sbSwitch.setAttribute("invHover", hoverState);
             document.documentElement.style.setProperty("--aios-grippy-cursor", cursor);
         } else {
-            document.documentElement.style.setProperty("--aios-grippy-cursor", "pointer");
             AiOS_Objects.toggleBar.removeAttribute("invHover");
             AiOS_Objects.sbSwitch.removeAttribute("invHover");
             AiOS_Objects.toggleBox.removeAttribute("style");
+            document.documentElement.style.setProperty("--aios-grippy-cursor", "pointer");
+        }
+
+        AiOS_Objects.sidebarBox.setAttribute("floating", floating);
+        if (floating) {
+            AiOS_Objects.sidebarBox.setAttribute("style", "height: " + appContentHeight + ";")
+            AiOS_Objects.sidebarSplitter.setAttribute("style", "display: none;");
+        } else {
+            AiOS_Objects.sidebarBox.removeAttribute("style");
+            AiOS_Objects.sidebarSplitter.removeAttribute("style");
         }
 
         if (width_val < 4 || inv)
