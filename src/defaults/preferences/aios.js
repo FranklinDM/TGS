@@ -14,6 +14,7 @@ pref("extensions.aios.gen.orient", 1);
 pref("extensions.aios.intercept", false);
 pref("extensions.aios.collapse", true);
 pref("extensions.aios.rightclick", false);
+pref("extensions.aios.enable_floating_sidebar", false);
 
 pref("extensions.aios.lw.defaultbg", true);
 pref("extensions.aios.lw.custombg", "");
