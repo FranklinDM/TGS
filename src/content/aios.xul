@@ -163,7 +163,7 @@
 	             oncommand="BrowserDownloadsUI();"/>
 		<command id="Tools:Addons-tb"
 		         oncommand="BrowserOpenAddonsMgr();"/>
-		
+
         <command id="aiosCmd_panelTab1"
                  oncommand="aios_panelTab('sidebar');" />
         <command id="aiosCmd_panelTab2"
@@ -524,7 +524,7 @@
                   observes="viewConsoleSidebar"
                   position="10"
                   key="key_errorConsole" />
-				  
+
 		<menuseparator id="aios-sidebar-mitem-sep1"
 		               position="11" />
         <!-- Menu items for non-default panels go here -->

@@ -45,7 +45,7 @@ var AiOS_Prefs = {
             document.getElementById("obj-maxWidthUnit").addEventListener("ValueChange", function () {
                 aios_changeWidthUnit("max");
             }, false);
-            
+
             // Create a list of available sidebars
             aios_genSidebarList();
         }
@@ -582,7 +582,7 @@ var AiOS_Prefs = {
             delay: ["gen.switch.delay", "gen.switch.delayshow", "gen.switch.delayhide"],
             invSwitch: ["gen.switch.invtrigger", "gen.switch.inv"]
         };
-        
+
         migratePrefsFromObject(mgPrefs, AiOS_HELPER.prefBranchAiOS);
 
         // List of old preferences

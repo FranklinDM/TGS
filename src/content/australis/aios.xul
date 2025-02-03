@@ -9,7 +9,7 @@
     <!-- scripts -->
     <script type="application/javascript"
             src="chrome://aios/content/australis/aios.js" />
-    
+
     <hbox id="customization-container">
         <vbox id="customization-palette-container">
             <vbox id="aios-cui-container"

@@ -1,7 +1,7 @@
 (function () {
     this.AREA_PANELBAR = "aios-toolbar";
     this.AREA_SBHBAR = "aios-sbhtoolbar";
-    
+
     this.initializeCUI = function () {
         let panelbarPlacements = [
             "bookmarks-button",
@@ -18,7 +18,7 @@
             "paneltab-button",
             "sidebarclose-button",
         ];
-        
+
         CustomizableUI.registerArea(AiOS.AREA_PANELBAR, {
             type: CustomizableUI.TYPE_TOOLBAR,
             defaultPlacements: panelbarPlacements,
@@ -30,7 +30,7 @@
             defaultCollapsed: false,
         }, true);
     };
-    
+
     this.beforeCustomization = function () {
         var toolbars = [document.getElementById("aios-toolbar"), document.getElementById("aios-sbhtoolbar")];
         for (var i in toolbars) {

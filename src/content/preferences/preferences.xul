@@ -33,7 +33,7 @@
         <stringbundle id="aiosStrings"
                       src="chrome://aios/locale/lib.properties" />
     </stringbundleset>
-    
+
     <popupset>
         <menupopup id="aios-settings-popup"
                    position="before_start">
@@ -52,7 +52,7 @@
                       oncommand="AiOS_Prefs.exportSettings('copy');" />
         </menupopup>
     </popupset>
-    
+
     <prefpane id="aiosGeneral" label="&tab.gen;"
               src="chrome://aios/content/preferences/general.xul" />
     <prefpane id="aiosSbSwitch" label="&menu.togglebar.label;"

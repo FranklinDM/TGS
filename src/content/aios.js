@@ -40,9 +40,9 @@ var AiOS = {
     _initialized: false,
     initSidebar: function () {
         AiOS_Objects.get();
-        
+
         replaceViewPopupMethod();
-        
+
         // Sidebar left or right
         // Property assignment for CSS (LTR <=> RTL; sidebar left <=> right)
         AiOS.setSidebarOrient();
@@ -212,11 +212,11 @@ var AiOS = {
 
         // Set sidebar size
         AiOS_Objects.sidebarBox.setAttribute("width", sWidthVal);
-        
+
         // Set app content size
         let browserBounds = AiOS_Objects.browser.getBoundingClientRect();
         let appContentWidth = (browserBounds.right - browserBounds.left) - sWidthVal;
-        
+
         for (let i = 0; i < AiOS_Objects.browser.childNodes.length; i++) {
             let currentElement = AiOS_Objects.browser.childNodes[i];
             if (currentElement.id == "appcontent" || currentElement.id == "sidebar-box") {
@@ -225,7 +225,7 @@ var AiOS = {
             let elementBounds = currentElement.getBoundingClientRect();
             appContentWidth -= (elementBounds.right - elementBounds.left);
         }
-        
+
         document.getElementById("appcontent").setAttribute("width", appContentWidth);
     },
 

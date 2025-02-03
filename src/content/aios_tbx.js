@@ -66,7 +66,7 @@ function aios_setToolbarPos(toolboxPosition) {
     if (!toolboxPosition) {
         toolboxPosition = parseInt(AiOS_Objects.mainToolbox.getAttribute("toolboxposition"));
     }
-    
+
     // Revert to the default position if value is out of range
     if (toolboxPosition < 1 || toolboxPosition > 5) {
         toolboxPosition = 1;
@@ -74,7 +74,7 @@ function aios_setToolbarPos(toolboxPosition) {
 
     var toolboxInSidebar = (toolboxPosition > 2);
     var toolbarOrientation = (toolboxInSidebar ? "horizontal" : "vertical");
-    
+
     AiOS_Objects.mainToolbox.setAttribute("toolboxposition", toolboxPosition);
     AiOS_Objects.mainToolbar.setAttribute("orient", toolbarOrientation);
 
@@ -173,7 +173,7 @@ function replaceViewPopupMethod() {
     targetMenuItem.setAttribute("id", "toggle_" + mainToolbar.id);
     targetMenuItem.setAttribute("label", mainToolbar.getAttribute("toolbarlabel"));
     targetMenuItem.setAttribute("observes", "aios-viewToolbar");
-    
+
     var _onViewToolbarsPopupShowing = onViewToolbarsPopupShowing;
     onViewToolbarsPopupShowing = function (aEvent, aInsertPoint) {
         var popup = aEvent.target;
@@ -188,10 +188,10 @@ function replaceViewPopupMethod() {
         if (aInsertPoint) {
             _onViewToolbarsPopupShowing.apply(this, arguments);
         }
-                
+
         var firstMenuItem = aInsertPoint || popup.firstChild;
         popup.insertBefore(targetMenuItem, firstMenuItem);
-        
+
         if (aInsertPoint == null) {
             _onViewToolbarsPopupShowing.apply(this, arguments);
         }

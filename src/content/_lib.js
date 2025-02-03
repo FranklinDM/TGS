@@ -299,7 +299,7 @@ function aios_panelTab(event) {
                 alert("Opening the Page Info window inside a tab is no longer possible due to async changes.");
                 return;
             }
-                
+
             aiosNewTab = aios_addTab(newSrc);
 
             if (!enable_bmm) {
