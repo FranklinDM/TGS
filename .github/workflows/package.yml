@@ -1,0 +1,33 @@
+name: Build and Release XPI Package
+
+on:
+  push:
+    branches: [main, master]
+    tags: ["v*", "*.*.*"]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build XPI
+        id: builder
+        uses: FranklinDM/build-xpi@main
+        with:
+          package-name: "tgsidebar"
+
+      - name: Create GitHub Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v3
+        with:
+          files: ${{ steps.builder.outputs.xpi-filename }}
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          prerelease: ${{ steps.builder.outputs.is-prerelease }}
