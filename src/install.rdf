@@ -3,7 +3,7 @@
     <Description about="urn:mozilla:install-manifest">
         <!-- General -->
         <em:id>tgsidebar@franklindm</em:id>
-        <em:version>dev-build</em:version>
+        <em:version>2.0.0a1</em:version>
         <em:type>2</em:type>
         <em:icon64URL>chrome://aios/skin/icon64.png</em:icon64URL>
         <em:homepageURL>https://github.com/FranklinDM/TGS/wiki/</em:homepageURL>
