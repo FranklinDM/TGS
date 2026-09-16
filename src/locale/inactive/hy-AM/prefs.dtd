@@ -63,15 +63,6 @@
 <!ENTITY cmode.mode3.label "Կողավահանակի, Գործիքաշարի և Փոխանջատիչը">
 <!ENTITY cmode.mode4.label "Opera-ի նման">
 <!ENTITY gen.fs.off "Վերականգնել վիճակը Ողջ Էկրանային ռեժիմից դուրս գալիս">
-<!ENTITY keyconfig.keyid "Անուն">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Ընդունել">
-<!ENTITY keyconfig.disable "Անջատել">
-<!ENTITY keyconfig.reset "Զրոյացնել">
-<!ENTITY keyconfig.warn "Փոփոխությունները ազդում են միայն նոր պատուհանների վրա">
-<!ENTITY keyconfig.onreset "Պետք է վերբեռնել ծրագիրը">
-<!ENTITY keyconfig.unrecognized "Չհայտնաբերված ($1)">
-<!ENTITY keyconfig.used "Այդ կոճակը օգտագործված է` \\n\\n\\t$1\\n\\nՉնայած դա կաշխատի:">
 <!ENTITY menus.sidebar.desc "Փոփոխել «Տեսք &gt; Կողավահանակ» և կողավահանակի կոճակների մենյուների պարունակությունը:">
 <!ENTITY menus.icons.label "Ցույց տալ նկարները">
 <!ENTITY menus.entries.label "Մենյուում ավելացնել կոճակներ">

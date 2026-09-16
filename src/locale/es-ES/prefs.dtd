@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "El panel lateral, la barra de herramientas y el selector del panel">
 <!ENTITY cmode.mode4.label "Comportamiento de Opera">
 <!ENTITY gen.fs.off "Restaurar el estado al salir del modo de pantalla completa">
-<!ENTITY keyconfig.keyid "Nombre">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Aplicar">
-<!ENTITY keyconfig.disable "Deshabilitar">
-<!ENTITY keyconfig.reset "Reiniciar">
-<!ENTITY keyconfig.warn "Los cambios afectan sólo a las ventanas nuevas">
 <!ENTITY menus.sidebar.desc "Permite personalizar las entradas del menú “Ver &gt; Panel lateral” y los menús de los botones del panel lateral.">
 <!ENTITY menus.icons.label "Ver iconos">
 <!ENTITY menus.entries.label "Ver entradas">

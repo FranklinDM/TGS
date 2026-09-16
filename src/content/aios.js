@@ -22,6 +22,7 @@ var AiOS_Objects = {
         this.toggleToolbarItem = getElement("aios-viewToolbar");
 
         this.mainToolbar = getElement("aios-toolbar");
+        this.mainToolbox = getElement("aios-toolbox");
 
         this.sbSwitch = getElement("aios-toggle-button");
         this.sbToggleButton = getElement("sidebars-togglebutton");
@@ -40,25 +41,7 @@ var AiOS = {
     initSidebar: function () {
         AiOS_Objects.get();
 
-        // MacOS X => replace keyboard shortcut (Ctrl is replaced by Command and toggle by the icon for it)
-        if (AiOS_HELPER.os == "Darwin") {
-            aios_replaceKey("switch-tooltip-box", "r2c2", "command");
-            aios_replaceKey("template-sidebar-tooltip-box", "r2c2", "command");
-            aios_replaceKey("template-window-tooltip-box", "r2c2", "command");
-            aios_replaceKey("paneltab-tooltip-box", "r2c2", "command");
-            aios_replaceKey("paneltab-tooltip-reverse-box", "r2c2", "command");
-            aios_replaceKey("sidebarheader-tooltip-box", "r3c2", "command");
-
-            aios_replaceKey("switch-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("template-sidebar-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("template-window-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("paneltab-tooltip-box", "r3c2", "shift");
-            aios_replaceKey("paneltab-tooltip-reverse-box", "r3c2", "shift");
-            aios_replaceKey("sidebarheader-tooltip-box", "r1c2", "shift");
-        }
-
-        // Set appInfo to main browser window (needed for CSS)
-        AiOS_HELPER.rememberAppInfo(AiOS_Objects.mainWindow);
+        replaceViewPopupMethod();
 
         // Sidebar left or right
         // Property assignment for CSS (LTR <=> RTL; sidebar left <=> right)
@@ -194,14 +177,6 @@ var AiOS = {
             });
         }
 
-        // Vertical buttons?
-        var vButtons = AiOS_HELPER.prefBranchAiOS.getBoolPref("vbuttons");
-
-        AiOS_Objects.mainWindow.setAttribute("aiosVButtons", "true");
-        if (!vButtons)
-            AiOS_Objects.mainWindow.setAttribute("aiosVButtons", "false");
-        document.persist(AiOS_Objects.mainWindow.id, "aiosVButtons");
-
         // Vertical bookmarks bar?
         // Remove the attribute of the bookmarks bar. When placed on the AiOS toolbar, you can use CSS to set the orientation.
         if (document.getElementById("PlacesToolbarItems"))
@@ -237,11 +212,26 @@ var AiOS = {
 
         // Set sidebar size
         AiOS_Objects.sidebarBox.setAttribute("width", sWidthVal);
+
+        // Set app content size
+        let browserBounds = AiOS_Objects.browser.getBoundingClientRect();
+        let appContentWidth = (browserBounds.right - browserBounds.left) - sWidthVal;
+
+        for (let i = 0; i < AiOS_Objects.browser.childNodes.length; i++) {
+            let currentElement = AiOS_Objects.browser.childNodes[i];
+            if (currentElement.id == "appcontent" || currentElement.id == "sidebar-box") {
+                continue;
+            }
+            let elementBounds = currentElement.getBoundingClientRect();
+            appContentWidth -= (elementBounds.right - elementBounds.left);
+        }
+
+        document.getElementById("appcontent").setAttribute("width", appContentWidth);
     },
 
     /*
      * Sets the display of the sidebar
-     * => Called by aios_initSidebar() and aios_savePrefs() in prefs.js
+     * => Called by aios_initSidebar() and aios_savePrefs() in preferences.js
      * => 1 = left, 2 = right
      */
     setSidebarOrient: function () {
@@ -575,7 +565,7 @@ var AiOS = {
     /*
      * Enables/disables the narrow sidebar toggle switch
      * => Called by event listener "onresize", observer (sizemode) in tbx.xul,
-     * aios_BrowserFullScreen() and aios_savePrefs() in prefs.js
+     * aios_BrowserFullScreen() and aios_savePrefs() in preferences.js
      */
     checkSidebarSwitch: function () {
         if (!AiOS._initialized)
@@ -583,26 +573,17 @@ var AiOS = {
 
         AiOS_Objects.get();
 
-        var thin_switch,
-            thinmax_switch,
-            switch_width,
-            switch_twidth,
-            athin_switch,
-            inv_switch,
-            invmax_switch,
-            invhover,
-            invmouse;
+        let thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thin");
+        let thinmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thinmax");
 
-        thin_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thin");
-        thinmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.thinmax");
+        let switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.width");
+        let switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.twidth");
 
-        switch_width = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.width");
-        switch_twidth = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.twidth");
-
-        inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
-        invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmax");
-        invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invhover");
-        invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmouse");
+        let inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
+        let invmax_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmax");
+        let invhover = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invhover");
+        let invmouse = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invmouse");
+        let floating = AiOS_HELPER.prefBranchAiOS.getBoolPref("enable_floating_sidebar");
 
         switch (AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.visibility")) {
         case 0:
@@ -632,8 +613,13 @@ var AiOS = {
         var width_val = (thin) ? switch_twidth : switch_width;
         var barStyle = "min-width: " + width_val + "px; max-width: " + width_val + "px;";
 
+        const appContentHeight = document.defaultView.getComputedStyle(
+            document.getElementById("appcontent"),
+            null
+        ).getPropertyValue("height");
+
         if (inv) {
-            barStyle += " height: " + document.defaultView.getComputedStyle(document.getElementById("appcontent"), null).getPropertyValue("height") + ";" + " position: fixed;";
+            barStyle += " height: " + appContentHeight + ";" + " position: fixed;";
             AiOS_Objects.toggleBox.setAttribute("style", "position: fixed;");
 
             let cursor = (!invmouse) ? "default" : "pointer";
@@ -642,10 +628,19 @@ var AiOS = {
             AiOS_Objects.sbSwitch.setAttribute("invHover", hoverState);
             document.documentElement.style.setProperty("--aios-grippy-cursor", cursor);
         } else {
-            document.documentElement.style.setProperty("--aios-grippy-cursor", "pointer");
             AiOS_Objects.toggleBar.removeAttribute("invHover");
             AiOS_Objects.sbSwitch.removeAttribute("invHover");
             AiOS_Objects.toggleBox.removeAttribute("style");
+            document.documentElement.style.setProperty("--aios-grippy-cursor", "pointer");
+        }
+
+        AiOS_Objects.sidebarBox.setAttribute("floating", floating);
+        if (floating) {
+            AiOS_Objects.sidebarBox.setAttribute("style", "height: " + appContentHeight + ";")
+            AiOS_Objects.sidebarSplitter.setAttribute("style", "display: none;");
+        } else {
+            AiOS_Objects.sidebarBox.removeAttribute("style");
+            AiOS_Objects.sidebarSplitter.removeAttribute("style");
         }
 
         if (width_val < 4 || inv)
@@ -752,37 +747,29 @@ var AiOS = {
 
         // Decide on what mode should be applied on sidebar switch
         AiOS.checkSidebarSwitch();
-
-        aios_adjustToolboxWidth(false);
     },
 
     /*
-     * Before & After customization event
+     * Customization event handler
      */
-    customizeStates: {
-        save: function () {
+    handleCustomizationEvent: function (e) {
+        switch (e.type) {
+        case "beforecustomization":
             this.switchHidden = aios_getBoolean(AiOS_Objects.toggleBox, "hidden");
             this.toolbarHidden = aios_getBoolean(AiOS_Objects.mainToolbar, "hidden");
             this.sidebarHidden = aios_isSidebarHidden();
-        },
-        restore: function () {
+            // Force show AiOS toolbar & sidebar
+            aios_toggleToolbar(false);
+            AiOS.toggleSidebar("switch", true);
+            break;
+        case "aftercustomization":
             if (this.toolbarHidden)
                 aios_toggleToolbar(true);
             if (this.switchHidden)
                 AiOS.toggleSidebar("switch", false);
             if (this.sidebarHidden)
                 AiOS.toggleSidebar(1, false);
-        }
-    },
-
-    customizeEvent: function (e) {
-        if (e.type == "beforecustomization") {
-            AiOS.customizeStates.save();
-            // Force show AiOS toolbar & sidebar
-            aios_toggleToolbar(false);
-            AiOS.toggleSidebar("switch", true);
-        } else {
-            AiOS.customizeStates.restore();
+            break;
         }
     },
 
@@ -836,11 +823,7 @@ window.addEventListener("resize", AiOS.checkSidebarSwitch, false);
 window.addEventListener("fullscreen", AiOS.onFullscreen, false);
 
 if (!AiOS_HELPER.usingCUI) {
-    window.addEventListener("beforecustomization", AiOS.customizeEvent, false);
-    window.addEventListener("aftercustomization", AiOS.customizeEvent, false);
+    window.addEventListener("beforecustomization", AiOS.handleCustomizationEvent, false);
+    window.addEventListener("aftercustomization", AiOS.handleCustomizationEvent, false);
+    window.addEventListener("customizationchange", AiOS.handleCustomizationEvent, false);
 }
-
-// Otherwise newly defined shortcuts will be reset on browser restart
-extLoad.add(30, function () {
-    aiosKeyconfig.loadkeys(aiosKeyconfig.prefService.getCharPref("extensions.aios.keyconf.profile"));
-});

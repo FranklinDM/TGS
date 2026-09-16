@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Sidopanelen, verktygsfältet och sidopanelsomkopplaren">
 <!ENTITY cmode.mode4.label "Som Opera">
 <!ENTITY gen.fs.off "Återgå till tidigare läge vid avslutat fullskärmsläge">
-<!ENTITY keyconfig.keyid "Namn">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Aktivera">
-<!ENTITY keyconfig.disable "Inaktivera">
-<!ENTITY keyconfig.reset "Återställ">
-<!ENTITY keyconfig.warn "Ändringarna påverkar endast nya fönster">
-<!ENTITY keyconfig.onreset "Webbläsaren måste startas om">
-<!ENTITY keyconfig.unrecognized "Okänd ($1)">
-<!ENTITY keyconfig.used "Denna tangent används redan av: \\n\\n\\t$1\\n\\nDet kan kanske fungera ändå.">
 <!ENTITY menus.sidebar.desc "Anpassa menyvalen i “Visa &gt; Sidopanel” och i sidopanelknapparnas menyer.">
 <!ENTITY menus.icons.label "Visa ikoner">
 <!ENTITY menus.entries.label "Visa menyval">

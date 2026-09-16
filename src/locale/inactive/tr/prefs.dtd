@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Kenar çubuğu, araç çubuğu ve kenar çubuğu anahtarı">
 <!ENTITY cmode.mode4.label "Opera gibi davran">
 <!ENTITY gen.fs.off "Tam ekran kipinden çıkarken eski kipdeki ayarları tekrar oluştur">
-<!ENTITY keyconfig.keyid "Komut">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Uygula">
-<!ENTITY keyconfig.disable "Etkisizleştir">
-<!ENTITY keyconfig.reset "Sıfırla">
-<!ENTITY keyconfig.warn "Değişiklikler tarayıcınızı tekrar başlattığınızda etkinleşir.">
-<!ENTITY keyconfig.onreset "Tarayıcının tekrar başlatılması gerekli">
-<!ENTITY keyconfig.unrecognized "Bilinmiyor ($1)">
-<!ENTITY keyconfig.used "Bu klavye kısayolları şuanda kullanılıyor: \\n\\n\\t$1\\n\\nBuna rağmen çalışabilir.">
 <!ENTITY menus.sidebar.desc "Customize the entries in the menu “View &gt; Sidebar” and in the dropdown menus of the sidebar buttons.">
 <!ENTITY menus.icons.label "Simgeleri göster">
 <!ENTITY menus.entries.label "Menü verilerini göster">

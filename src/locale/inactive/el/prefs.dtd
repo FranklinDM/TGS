@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Την πλευρική στήλη, την εργαλειοθήκη και το διακόπτη πλευρικής στήλης">
 <!ENTITY cmode.mode4.label "Συμπεριφορά Opera">
 <!ENTITY gen.fs.off "Ανάκτηση προηγούμενης κατάστασης όταν βγει από πλήρη οθόνη">
-<!ENTITY keyconfig.keyid "Όνομα">
-<!ENTITY keyconfig.id "Αναγνωριστικό">
-<!ENTITY keyconfig.apply "Εφαρμογή">
-<!ENTITY keyconfig.disable "Απενεργοποίηση">
-<!ENTITY keyconfig.reset "Επαναφορά">
-<!ENTITY keyconfig.warn "Οι αλλαγές αφορούν μόνο  νέα παράθυρα">
-<!ENTITY keyconfig.onreset "Απαιτείται επανεκκίνηση του περιηγητή">
-<!ENTITY keyconfig.unrecognized "Δεν αναγνωρίζεται">
-<!ENTITY keyconfig.used "Αυτό το πλήκτρο χρησιμοποιείται ήδη από το: \\n\\n\\t$1\\n\\n ίσως όμως να λειτουργήσει.">
 <!ENTITY menus.sidebar.desc "Προσαρμόστε το μενού «Προβολή&gt;Πλευρική στήλη» και τα αναδυόμενα μενού των κουμπιών πλευρικών στηλών.">
 <!ENTITY menus.icons.label "Προβολή εικόνων">
 <!ENTITY menus.entries.label "Προβολή εγγραφών">

@@ -63,15 +63,6 @@
 <!ENTITY cmode.mode3.label "サイドバー、ツールバー、サイドバースイッチ">
 <!ENTITY cmode.mode4.label "Opera と同じ">
 <!ENTITY gen.fs.off "フルスクリーンモードをやめて元の状態に戻す">
-<!ENTITY keyconfig.keyid "機能名称">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "適 用">
-<!ENTITY keyconfig.disable "無 効">
-<!ENTITY keyconfig.reset "リセット">
-<!ENTITY keyconfig.warn "新規ウィンドウで変更が反映されます">
-<!ENTITY keyconfig.onreset "ブラウザを再起動してください">
-<!ENTITY keyconfig.unrecognized "認識できません ($1)">
-<!ENTITY keyconfig.used "そのキーはすでに使われています:   \\t$1  It そのキーはまだ有効だと思われます">
 <!ENTITY menus.sidebar.desc "“ 表示 ＞ サイドバー ” メニューとサイドバーボタンのドロップダウンメニューの登録選択">
 <!ENTITY menus.icons.label "アイコンの表示">
 <!ENTITY menus.entries.label "エントリーの表示">

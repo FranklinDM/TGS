@@ -59,15 +59,6 @@
 <!ENTITY cmode.mode3.label "Адчыняць/Зачыняць бакавую панэль, панэль прылад і перамыкач панэлі">
 <!ENTITY cmode.mode4.label "Паводзіны як у браўзэры Opera">
 <!ENTITY gen.fs.off "Аднаўляць становішча пры выхадзе з поўнаэкраннага рэжыму">
-<!ENTITY keyconfig.keyid "Імя">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Ужыць">
-<!ENTITY keyconfig.disable "Адключыць">
-<!ENTITY keyconfig.reset "Скінуць">
-<!ENTITY keyconfig.warn "Змены закранаюць толькі новыя вокны">
-<!ENTITY keyconfig.onreset "Патрабуецца перазагрузка браўзэра">
-<!ENTITY keyconfig.unrecognized "Неапазнаны ($1)">
-<!ENTITY keyconfig.used "Гэты ключ ужо выкарыстоўваецца: \\n\\n\\t$1\\n\\nХотя, гэта можа ўсё жа працаваць.">
 <!ENTITY menus.sidebar.desc "Налада складу меню &amp;#8220;Выгляд &gt; Бакавая панэль&amp;#8221; і выпадальнага меню кнопак бакавой панэлі.">
 <!ENTITY menus.icons.label "Паказваць значкі">
 <!ENTITY menus.entries.label "Паказваць радкі">

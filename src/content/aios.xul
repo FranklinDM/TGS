@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 
-<!-- locale -->
+<?xml-stylesheet href="chrome://aios/skin/aios.css" type="text/css"?>
+<?xml-stylesheet href="chrome://aios/skin/aios_layout.css" type="text/css"?>
+<?xml-stylesheet href="chrome://aios/skin/aios_buttons.css" type="text/css"?>
+
 <!DOCTYPE overlay [
     <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd"> %browserDTD;
     <!ENTITY % customizeToolbarDTD SYSTEM "chrome://global/locale/customizeToolbar.dtd"> %customizeToolbarDTD;
@@ -17,9 +20,7 @@
             src="chrome://aios/content/_helper.js" />
 
     <script type="application/javascript"
-            src="chrome://aios/content/prefs/_overlay.js" />
-    <script type="application/javascript"
-            src="chrome://aios/content/prefs/general.js" />
+            src="chrome://aios/content/preferences/general.js" />
 
     <script type="application/javascript"
             src="chrome://aios/content/_lib.js" />
@@ -32,13 +33,6 @@
             src="chrome://aios/content/aios_tbx.js" />
     <script type="application/javascript"
             src="chrome://aios/content/aios_compatibility.js" />
-
-    <stringbundleset id="stringbundleset">
-        <stringbundle id="aiosPlatformStrings"
-                      src="chrome://global-platform/locale/platformKeys.properties" />
-        <stringbundle id="aiosProperties"
-                      src="chrome://aios/content/aios.properties" />
-    </stringbundleset>
 
     <!-- AiOS Broadcaster -->
     <broadcasterset id="mainBroadcasterSet">
@@ -169,7 +163,7 @@
 	             oncommand="BrowserDownloadsUI();"/>
 		<command id="Tools:Addons-tb"
 		         oncommand="BrowserOpenAddonsMgr();"/>
-		
+
         <command id="aiosCmd_panelTab1"
                  oncommand="aios_panelTab('sidebar');" />
         <command id="aiosCmd_panelTab2"
@@ -247,6 +241,8 @@
     <!-- Grippy -->
     <splitter id="sidebar-splitter"
               orient="horizontal"
+              resizebefore="flex"
+              resizeafter="flex"
               grippy="false"
               persist="grippy">
         <grippy id="aios-sidebarGrippy"
@@ -267,7 +263,6 @@
         <toolbarbutton id="bookmarks-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&bookmarksButton.label;"
-                       tooltip="bookmarks-tooltip"
                        tooltiptext="&bookmarksButton.label;"
                        command="View:Bookmarks-tb">
             <observes element="viewBookmarksSidebar"
@@ -278,7 +273,6 @@
         <toolbarbutton id="history-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&historyButton.label;"
-                       tooltip="history-tooltip"
                        tooltiptext="&historyButton.label;"
                        command="View:History-tb">
             <observes element="viewHistorySidebar"
@@ -289,7 +283,6 @@
         <toolbarbutton id="downloads-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&downloads.label;"
-                       tooltip="downloads-tooltip"
                        tooltiptext="&downloads.label;"
                        command="Tools:Downloads-tb">
             <observes element="viewDownloadsSidebar"
@@ -304,7 +297,6 @@
                        command="Tools:Addons-tb"
                        ondragenter="toggleSidebar('viewAddonsSidebar', true);"
                        label="&button.addons.label;"
-                       tooltip="addons-tooltip"
                        tooltiptext="&button.addons.tooltip;">
             <observes element="viewAddonsSidebar"
                       attribute="checked" />
@@ -315,7 +307,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="Tools:MultiPanel-tb"
                        label="&button.multipanel.label;"
-                       tooltip="multipanel-tooltip"
                        tooltiptext="&button.multipanel.tooltip;">
             <observes element="viewWebPanelsSidebar"
                       attribute="checked" />
@@ -326,7 +317,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="View:PageInfo-tb"
                        label="&pageInfoCmd.label;"
-                       tooltip="pageinfo-tooltip"
                        tooltiptext="&button.pageinfo.tooltip;">
             <observes element="viewPageInfoSidebar"
                       attribute="checked" />
@@ -337,7 +327,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="View:Cookies-tb"
                        label="&button.cookies.label;"
-                       tooltip="cookies-tooltip"
                        tooltiptext="&button.cookies.tooltip;">
             <observes element="viewCookiesSidebar"
                       attribute="checked" />
@@ -348,7 +337,6 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        command="Tools:Console-tb"
                        label="&button.console.label;"
-                       tooltip="console-tooltip"
                        tooltiptext="&button.console.tooltip;">
             <observes element="viewConsoleSidebar"
                       attribute="checked" />
@@ -374,12 +362,10 @@
                        oncommand="event.stopPropagation();" />
         </toolbarbutton>
 
-        <!-- Use tooltip or tooltiptext as defined in aios_setTargets() [_lib.js] -->
         <toolbarbutton id="paneltab-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&button.paneltab.label;"
                        onclick="aios_panelTab(event);"
-                       tooltip="paneltab-tooltip"
                        tooltiptext="&button.paneltab.tooltip1; / &button.paneltab.tooltip2;" />
         <toolbarbutton id="toolbar-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
@@ -395,8 +381,7 @@
 
 
     <!-- Popups & Tooltips -->
-    <window id="main-window"
-            aiosVButtons="true">
+    <window id="main-window">
         <popupset id="aiosPopupset">
             <menupopup id="aios-toolbar-contextmenu"
                        onpopupshowing="aios_onToolbarPopupShowing(this);">
@@ -492,105 +477,6 @@
                           accesskey="&viewCustomizeToolbar.accesskey;"
                           command="cmd_CustomizeToolbars" />
             </menupopup>
-
-            <tooltip id="switch-tooltip">
-                <label value="&button.toggle.tooltip;" />
-                <box    id="switch-tooltip-box"
-                        r1c1="&button.switch.tooltip1;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.switch.tooltip2;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.switch.tooltip3;:"
-                        r3c2="&key.shift;+&leftclick; / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="template-sidebar-tooltip">
-                <box    id="template-sidebar-tooltip-box"
-                        r1c1="&button.tooltip.sidebar;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.tooltip.tab;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.tooltip.window;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="template-window-tooltip">
-                <box    id="template-window-tooltip-box"
-                        r1c1="&button.tooltip.window;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.tooltip.tab;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.tooltip.sidebar;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-
-            <!-- Tooltips for PanelTab are set in prefs.js after setting the 'Reverse' function => aios_savePrefs() -->
-            <tooltip id="paneltab-tooltip">
-                <box    id="paneltab-tooltip-box"
-                        r1c1="&button.paneltab.tooltip1;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.paneltab.tooltip2;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.paneltab.tooltip3;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="paneltab-tooltip-reverse">
-                <box    id="paneltab-tooltip-reverse-box"
-                        r1c1="&button.paneltab.tooltip2;:"
-                        r1c2="&leftclick;"
-                        r2c1="&button.paneltab.tooltip1;:"
-                        r2c2="&key.ctrl;+&leftclick; / &middleclick;"
-                        r3c1="&button.paneltab.tooltip3;:"
-                        r3c2="&key.shift;+&leftclick;"
-                        rightclick=" / &rightclick;" />
-            </tooltip>
-
-            <tooltip id="sidebarheader-tooltip">
-                <box    id="sidebarheader-tooltip-box"
-                        r1c1="&sidebar.width.min;:"
-                        r1c2="&key.shift;+&doubleclick;"
-                        r2c1="&sidebar.width.def;:"
-                        r2c2="&doubleclick;"
-                        r3c1="&sidebar.width.max;:"
-                        r3c2="&key.ctrl;+&doubleclick;" />
-            </tooltip>
-
-            <tooltip id="bookmarks-tooltip">
-                <label value="&bookmarksButton.label;" />
-            </tooltip>
-
-            <tooltip id="history-tooltip">
-                <label value="&historyButton.label;" />
-            </tooltip>
-
-            <tooltip id="downloads-tooltip">
-                <label value="&downloads.label;" />
-            </tooltip>
-
-            <tooltip id="addons-tooltip">
-                <label value="&button.addons.tooltip;" />
-            </tooltip>
-
-            <tooltip id="multipanel-tooltip">
-                <label value="&button.multipanel.tooltip;" />
-            </tooltip>
-
-            <tooltip id="pageinfo-tooltip">
-                <label value="&button.pageinfo.tooltip;" />
-            </tooltip>
-
-            <tooltip id="cookies-tooltip">
-                <label value="&button.cookies.tooltip;" />
-            </tooltip>			
-			
-            <tooltip id="console-tooltip">
-                <label value="&button.console.tooltip;" />
-            </tooltip>
         </popupset>
     </window>
 
@@ -602,14 +488,6 @@
         <menuitem observes="aios-viewGrippy"
                   position="5" />
     </menupopup>
-
-    <!-- Browser menu: View > Toolbars -->
-    <menu id="viewToolbarsMenu"
-          onpopupshowing="onViewToolbarsPopupShowing(event); aios_addToolbarMitem(this);" />
-
-    <!-- Browser menu: Toolbar context menu -->
-    <menupopup id="toolbar-context-menu"
-               onpopupshowing="onViewToolbarsPopupShowing(event); aios_addToolbarMitem(this);" />
 
     <!-- Browser menu: View > Sidebar - popupshowing monitoring in aios_initSidebar() (compatible with MenuManipulator) -->
     <menupopup id="viewSidebarMenu"
@@ -646,7 +524,7 @@
                   observes="viewConsoleSidebar"
                   position="10"
                   key="key_errorConsole" />
-				  
+
 		<menuseparator id="aios-sidebar-mitem-sep1"
 		               position="11" />
         <!-- Menu items for non-default panels go here -->
@@ -690,8 +568,8 @@
 
     <hbox id="browser">
         <!-- Needed for CSS -->
-        <observes element="aios-toolbar"
-                  attribute="posMode" />
+        <observes element="aios-toolbox"
+                  attribute="toolboxposition" />
 
         <!-- Sidebar Switch -->
         <toolbox id="aios-toggle-toolbox"
@@ -713,8 +591,6 @@
             <!-- The tooltip or tooltiptext is defined in aios_setTargets() [_lib.js] -->
                 <grippy flex="1"
                         id="aios-toggle-button"
-                        tooltip="switch-tooltip"
-                        tooltiptext="&button.toggle.tooltip;"
                         onclick="AiOS.controlSwitch(event, this);"
                         onmouseover="AiOS.autoShowHide('switch'); event.stopPropagation();"
                         ondragenter="AiOS.toggleSidebar('switch', true); event.stopPropagation();" />
@@ -723,13 +599,13 @@
             <toolbarset />
         </toolbox>
 
-
-        <!-- TOOLBOX LEFT SIDE OF THE SIDEBAR -->
-        <toolbox id="aios-toolbox-left"
+        <!-- TOOLBOX BESIDE SIDEBAR -->
+        <toolbox id="aios-toolbox"
                  class="chromeclass-toolbar"
                  insertbefore="sidebar-box"
                  defaultmode="icons"
-                 vertical="true">
+                 toolboxposition="1"
+                 persist="toolboxposition">
 
             <!-- mode and iconsize to keep options in the configuration dialog in sync -->
             <observes element="aios-toolbar"
@@ -746,73 +622,30 @@
             <toolbar id="aios-toolbar"
                      class="chromeclass-toolbar"
                      toolbarname="&toolbar.name;"
+                     toolbarlabel="&toolbar.name;"
                      context="aios-toolbar-contextmenu"
                      fullscreentoolbar="true"
                      toolboxid="navigator-toolbox"
                      customizable="true"
                      mode="icons"
                      iconsize="large"
-                     persist="posMode mode iconsize flexbuttons hidden"
+                     persist="mode iconsize flexbuttons hidden"
                      defaultset="bookmarks-button,history-button,downloads-button,separator,addons-button,multipanel-button,pageinfo-button,separator"
                      orient="vertical"
                      flex="1"
-                     toolbarlabel="&toolbar.label;:"
-                     posMode="1"
                      flexbuttons="false">
 
                 <observes element="nav-bar"
                           attribute="brighttext" />
             </toolbar>
-
-            <toolbarset />
         </toolbox>
-
-
-        <!-- TOOLBOX RIGHT SIDE OF THE SIDEBAR -->
-        <toolbox id="aios-toolbox-right"
-                 insertbefore="sidebar-splitter"
-                 defaultmode="icons"
-                 class="chromeclass-toolbar"
-                 vertical="true"
-                 palette="BrowserToolbarPalette">
-
-            <observes element="aios-toolbar"
-                      attribute="mode" />
-            <observes element="aios-toolbar"
-                      attribute="defaultmode" />
-            <observes element="aios-toolbar"
-                      attribute="iconsize" />
-
-            <!--
-                => The toolbox must not be 'hidden' at startup, otherwise the toolbar will not be filled
-                => The toolbox must not be 'collapsed', otherwise the sidebar will not be scalable
-            -->
-
-            <toolbarset />
-        </toolbox>
-
 
         <vbox id="sidebar-box"
+              flex="1"
               checked="true">
 
-            <!-- TOOLBOX ABOVE THE SIDEBAR -->
-            <toolbox id="aios-toolbox-sidebartop"
-                     position="1"
-                     defaultmode="icons"
-                     palette="BrowserToolbarPalette">
-                <observes element="aios-toolbar"
-                          attribute="mode" />
-                <observes element="aios-toolbar"
-                          attribute="defaultmode" />
-                <observes element="aios-toolbar"
-                          attribute="iconsize" />
-
-                <toolbarset />
-            </toolbox>
-
             <!-- SIDEBAR HEADER -->
-            <sidebarheader id="sidebar-header"
-                           tooltip="sidebarheader-tooltip">
+            <sidebarheader id="sidebar-header">
                 <!-- Attribute is required in CSS (aios.css) -->
                 <observes element="aios-sbhtoolbar"
                           attribute="iconsize" />
@@ -821,6 +654,7 @@
                                type="menu"
                                ondblclick="this.childNodes[1].hidePopup();"
                                flex="1"
+                               tooltiptext="&button.menu.tooltip;"
                                position="1">
                     <label flex="1"
                            crop="right">
@@ -850,6 +684,7 @@
                     <toolbar id="aios-sbhtoolbar"
                              class="chromeclass-toolbar"
                              toolbarname="&sbhtoolbar.name;"
+                             name="&sbhtoolbar.name;"
                              context="aios-sbhtoolbar-contextmenu"
                              toolboxid="navigator-toolbox"
                              customizable="true"
@@ -857,7 +692,6 @@
                              iconsize="small"
                              persist="mode iconsize"
                              defaultset="autohide-button,paneltab-button,sidebarclose-button"
-                             toolbarlabel="&sbhtoolbar.label;:"
                              fullscreentoolbar="true"
                              flexbuttons="false">
 
@@ -871,36 +705,9 @@
                     <toolbarset />
                 </toolbox>
             </sidebarheader>
-
-            <!-- TOOLBOX UNDER THE SIDEBAR HEADER -->
-            <toolbox id="aios-toolbox-sidebartop2"
-                     insertafter="sidebar-header"
-                     defaultmode="icons"
-                     palette="BrowserToolbarPalette">
-                <observes element="aios-toolbar"
-                          attribute="mode" />
-                <observes element="aios-toolbar"
-                          attribute="defaultmode" />
-                <observes element="aios-toolbar"
-                          attribute="iconsize" />
-
-                <toolbarset />
-            </toolbox>
-
-            <!-- TOOLBOX UNDER THE SIDEBAR -->
-            <toolbox id="aios-toolbox-sidebarbottom"
-                     position="101"
-                     defaultmode="icons"
-                     palette="BrowserToolbarPalette">
-                <observes element="aios-toolbar"
-                          attribute="mode" />
-                <observes element="aios-toolbar"
-                          attribute="defaultmode" />
-                <observes element="aios-toolbar"
-                          attribute="iconsize" />
-
-                <toolbarset />
-            </toolbox>
         </vbox>
+        <vbox id="appcontent"
+              flex="1"
+              persist="width" />
     </hbox>
 </overlay>

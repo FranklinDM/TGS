@@ -20,12 +20,13 @@ function aios_modSidebarMenu() {
 
         // Show or hide the icons
         var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref("menus.sidebar.icons");
-        var theClass = (enable_icons) ? "" : "aios-noIcons";
+        let targetClassName = "aios-noIcons";
 
-        if (theClass != "")
-            aios_appendClass(item, theClass);
-        else
-            aios_stripClass(item, "aios-noIcons");
+        if (enable_icons) {
+            item.classList.remove(targetClassName);
+        } else {
+            item.classList.add(targetClassName);
+        }
 
         // only if there is no separator or the like
         if (item.getAttribute("observes") && document.getElementById(item.getAttribute("observes"))) {
@@ -120,7 +121,7 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
     var enable_entries = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "entries");
     var enable_icons = AiOS_HELPER.prefBranchAiOS.getBoolPref(prefPre + "icons");
 
-    var theClass = (enable_icons) ? "" : "aios-noIcons";
+    let targetClassName = "aios-noIcons";
 
     for (var i = 0; i < entries.length; i++) {
 
@@ -150,10 +151,11 @@ function aios_showHideEntries(entries, prefPre_tmp, IDPre) {
             if (document.getElementById(IDPre + entries[i][j])) {
                 var elem = document.getElementById(IDPre + entries[i][j]);
 
-                if (theClass != "")
-                    aios_appendClass(elem, theClass);
-                else
-                    aios_stripClass(elem, "aios-noIcons");
+                if (enable_icons) {
+                    elem.classList.remove(targetClassName);
+                } else {
+                    elem.classList.add(targetClassName);
+                }
             }
         }
 
@@ -297,7 +299,7 @@ function aios_panelTab(event) {
                 alert("Opening the Page Info window inside a tab is no longer possible due to async changes.");
                 return;
             }
-                
+
             aiosNewTab = aios_addTab(newSrc);
 
             if (!enable_bmm) {
@@ -436,9 +438,6 @@ function aios_contextEvent(event, which) {
  * => Called by aios_initSidebar()
  */
 function aios_setTargets() {
-    var objects,
-        i;
-
     // assign the respective commands to the menu elements of the error console, the page source text, and the page information
     if (document.getElementById("javascriptConsole")) {
         document.getElementById("javascriptConsole").removeAttribute("oncommand");
@@ -457,7 +456,7 @@ function aios_setTargets() {
         bm: ["View:Bookmarks", "viewBookmarksSidebar", "bookmarks", "aios_openDialog('bookmarks');"],
         hi: ["View:History", "viewHistorySidebar", "history", "aios_openDialog('history');"],
         dm: ["Tools:Downloads", "viewDownloadsSidebar", "downloads", "if (!AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.sidebar') && AiOS_HELPER.prefBranchAiOS.getBoolPref('dm.popup')) { DownloadsIndicatorView.onCommand(event); } else { BrowserDownloadsUI(); } this.setAttribute('onclick', 'aios_contextEvent(event, this)');"],
-        ad: ["Tools:Addons", "viewAddonsSidebar", "addons", "BrowserOpenAddonsMgr();"],
+        em: ["Tools:Addons", "viewAddonsSidebar", "addons", "BrowserOpenAddonsMgr();"],
         mp: ["Tools:MultiPanel", "viewWebPanelsSidebar", "multipanel", "aios_openDialog('multipanel');"],
         pi: ["View:PageInfo", "viewPageInfoSidebar", "pageinfo", "BrowserPageInfo();"],
         co: ["Tools:Console", "viewConsoleSidebar", "console", "toJavaScriptConsole();"],
@@ -469,53 +468,20 @@ function aios_setTargets() {
     if (document.getElementById("viewSdDownloadsSidebar"))
         targets["dm"] = ["Tools:Downloads", "viewSdDownloadsSidebar", "downloads", "aios_openDialog('" + document.getElementById("viewSdDownloadsSidebar").getAttribute("sidebarurl") + "', 'Tools:Console');"];
 
-    // activate informative tooltips and function reversal (PanelTab)?
-    let prefInfotip = AiOS_HELPER.prefBranchAiOS.getBoolPref("infotips");
-    let ptReverse = AiOS_HELPER.prefBranchAiOS.getBoolPref("paneltab.reverse");
-    let enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-    let switchTip = AiOS_HELPER.prefBranchAiOS.getBoolPref("switchtip");
-    let inv_switch = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv");
-    let inv_noclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick");
-
-    if (prefInfotip) {
-        if (AiOS_Objects.sbSwitch)
-            AiOS_Objects.sbSwitch.removeAttribute("tooltiptext");
-
-        // in loop because there may be several buttons with the same ID
-        objects = document.getElementsByAttribute("id", "paneltab-button");
-        for (i = 0; i < objects.length; i++) {
-            objects[i].removeAttribute("tooltiptext");
-        }
-    }
-
-    // If tooltip for the switch is disabled/it's not logical to show the tooltip, remove it
-    if (!switchTip || (inv_switch && inv_noclick))
-        if (AiOS_Objects.sbSwitch)
-            AiOS_Objects.sbSwitch.removeAttribute("tooltip");
-
-    if (document.getElementById("paneltab-button")) {
-        if (ptReverse)
-            document.getElementById("paneltab-button").setAttribute("tooltip", "paneltab-tooltip-reverse");
-        else
-            document.getElementById("paneltab-button").setAttribute("tooltip", "paneltab-tooltip");
-    }
+    let rightClickOpenInWindow = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
 
     // Modify the toolbar button's command set
-    aios_ModifyCommandSet(targets, prefInfotip, objects, i, false);
-    aios_ModifyCommandSet(targets, prefInfotip, objects, i, true);
+    let interceptKeys = AiOS_HELPER.prefBranchAiOS.getBoolPref("intercept");
+    for (var targetKey in targets) {
+        // Open in sidebar?
+        let openInSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(targetKey + ".sidebar");
+        aios_updateCommand(targets[targetKey], "-tb", openInSidebar, rightClickOpenInWindow, interceptKeys);
+        aios_updateCommand(targets[targetKey], "", openInSidebar, rightClickOpenInWindow, interceptKeys);
+    }
 
     // Disable context menu of the PanelTab buttons if right-click is allowed
-    if (enable_rightclick && document.getElementById("paneltab-button")) {
+    if (rightClickOpenInWindow && document.getElementById("paneltab-button")) {
         document.getElementById("paneltab-button").setAttribute("context", "");
-        var pttt1 = document.getElementById("paneltab-tooltip").firstChild;
-        var pttt2 = document.getElementById("paneltab-tooltip-reverse").firstChild;
-
-        if (pttt1.getAttribute("r3c2").indexOf(pttt1.getAttribute("rightclick")) == -1) {
-            pttt1.setAttribute("r3c2", pttt1.getAttribute("r3c2") + pttt1.getAttribute("rightclick"));
-        }
-        if (pttt2.getAttribute("r3c2").indexOf(pttt2.getAttribute("rightclick")) == -1) {
-            pttt2.setAttribute("r3c2", pttt2.getAttribute("r3c2") + pttt2.getAttribute("rightclick"));
-        }
     }
 
     // Prevent opening the download window if the sidebar is to be used
@@ -538,97 +504,49 @@ function aios_setTargets() {
     return true;
 }
 
-function aios_ModifyCommandSet(targets, prefInfotip, objects, i, isMain) {
-    for (var obj in targets) {
-        // Open in sidebar?
-        var prefSidebar;
-        if (obj != "ad")
-            prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref(obj + ".sidebar");
-        else
-            prefSidebar = AiOS_HELPER.prefBranchAiOS.getBoolPref("em.sidebar");
-        var enable_rightclick = AiOS_HELPER.prefBranchAiOS.getBoolPref("rightclick");
-        var mbSeparate = AiOS_HELPER.prefBranchAiOS.getBoolPref("intercept");
+function aios_updateCommand(commandInfo, commandSuffix, openInSidebar, rightClickOpenInWindow, interceptKeys) {
+    var command = document.getElementById(commandInfo[0] + commandSuffix); // Original object
+    var sidebarBroadcaster = document.getElementById(commandInfo[1]); // Sidebar object
+    var toolbarButton = document.getElementById(commandInfo[2] + "-button"); // Button
 
-        // By default, only modify the commands with the -tb suffix
-        var cmExt = "-tb";
-        // If isMain = true, modify the main commands
-        if (isMain)
-            cmExt = "";
+    if (command && sidebarBroadcaster) {
+        var newObj, newCmd;
 
-        var ffObj = document.getElementById(targets[obj][0] + cmExt); // Original object
-        var sbObj = document.getElementById(targets[obj][1]); // Sidebar object
-        var tpObj = document.getElementById(targets[obj][2] + "-tooltip"); // Tooltip
-        var btObj = document.getElementById(targets[obj][2] + "-button"); // Button
+        if (openInSidebar) {
+            newObj = sidebarBroadcaster;
 
-        if (ffObj && sbObj) {
-            var newObj,
-                newCmd,
-                newTp;
+            // prevent two commands from being executed when a key is pressed
+            newCmd = newObj.getAttribute("oncommand");
+            newCmd = "if(aios_preventDblCmd(event)) " + newCmd + " return true;";
 
-            if (prefSidebar) {
-                // Tooltip
-                newObj = sbObj;
-                newTp = document.getElementById("template-sidebar-tooltip").childNodes[0].cloneNode(true);
+            command.setAttribute("oncommand", newCmd);
+        } else {
+            newObj = command;
+            command.setAttribute("oncommand", "if(aios_preventDblCmd(event)) " + commandInfo[3]);
+        }
+        // remembering commands
+        // => for context functions - aios_contextEvent() - can be queried
+        // => if you do not want to open in Sidebar anymore
+        command.setAttribute("aios_inSidebar", openInSidebar);
+        if (!aios_getBoolean(command, "modByAIOS")) {
+            // for clicks on toolbarbuttons and menu entries
+            command.setAttribute("aios_sbUri", sidebarBroadcaster.getAttribute("sidebarurl"));
+            command.setAttribute("aios_sbCmd", commandInfo[1]);
 
-                // Command
-                newCmd = newObj.getAttribute("oncommand");
-
-                // prevent two commands from being executed when a key is pressed
-                newCmd = "if(aios_preventDblCmd(event)) " + newCmd + " return true;";
-
-                // assign command
-                ffObj.setAttribute("oncommand", newCmd);
-            } else {
-                // Tooltip
-                newObj = ffObj;
-                newTp = document.getElementById("template-window-tooltip").childNodes[0].cloneNode(true);
-
-                // Command
-                ffObj.setAttribute("oncommand", "if(aios_preventDblCmd(event)) " + targets[obj][3]);
-            }
-            // remembering commands
-            // => for context functions - aios_contextEvent() - can be queried
-            // => if you do not want to open in Sidebar anymore
-            ffObj.setAttribute("aios_inSidebar", prefSidebar);
-            if (!aios_getBoolean(ffObj, "modByAIOS")) {
-                // for clicks on toolbarbuttons and menu entries
-                ffObj.setAttribute("aios_sbUri", sbObj.getAttribute("sidebarurl"));
-                ffObj.setAttribute("aios_sbCmd", targets[obj][1]);
-
-                // for clicks on menu items in the sidebar menu => see aios_preventDblCmd()
-                sbObj.setAttribute("aios_sbUri", sbObj.getAttribute("sidebarurl"));
-                sbObj.setAttribute("oncommand", "if(aios_preventDblCmd(event)) " + sbObj.getAttribute("oncommand"));
-            }
-
-            // Remove Tooltiptext to make info tooltips visible (looped because there may be several buttons with the same ID)
-            if (prefInfotip && btObj) {
-                objects = document.getElementsByAttribute("id", btObj.id);
-                for (i = 0; i < objects.length; i++) {
-                    objects[i].removeAttribute("tooltiptext");
-                }
-            }
-
-            // remove "old" tooltip lines (otherwise they will be inserted with each function call)
-            if (tpObj.childNodes.length > 1)
-                tpObj.removeChild(tpObj.childNodes[1]);
-
-            // Activate right click in the tooltip
-            if (enable_rightclick)
-                newTp.setAttribute("r3c2", newTp.getAttribute("r3c2") + newTp.getAttribute("rightclick"));
-
-            // Assign tooltip
-            tpObj.appendChild(newTp);
-
-            // Disable context menu of the toolbarbuttons, if right-click is allowed
-            if (btObj && enable_rightclick)
-                btObj.setAttribute("context", "");
-
-            ffObj.setAttribute("modByAIOS", true);
+            // for clicks on menu items in the sidebar menu => see aios_preventDblCmd()
+            sidebarBroadcaster.setAttribute("aios_sbUri", sidebarBroadcaster.getAttribute("sidebarurl"));
+            sidebarBroadcaster.setAttribute("oncommand", "if(aios_preventDblCmd(event)) " + sidebarBroadcaster.getAttribute("oncommand"));
         }
 
-        if (cmExt == "" && ffObj && mbSeparate) {
-            ffObj.setAttribute("oncommand", targets[obj][3]);
-        }
+        // Disable context menu of the toolbarbuttons, if right-click is allowed
+        if (toolbarButton && rightClickOpenInWindow)
+            toolbarButton.setAttribute("context", "");
+
+        command.setAttribute("modByAIOS", true);
+    }
+
+    if (commandSuffix == "" && command && interceptKeys) {
+        command.setAttribute("oncommand", commandInfo[3]);
     }
 }
 

@@ -51,13 +51,6 @@
 <!ENTITY cmode.close.label "Pulla për Mbyllje">
 <!ENTITY cmode.mode1.label "Vetëm Shiriti Anësor">
 <!ENTITY cmode.mode2.label "Shirti Anësor dhe Shiriti i Mjeteve">
-<!ENTITY keyconfig.keyid "Emri">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Apliko">
-<!ENTITY keyconfig.disable "Ç\'aktivizo">
-<!ENTITY keyconfig.reset "Ribëj">
-<!ENTITY keyconfig.onreset "Kërkohet rinisje e shfletuesit">
-<!ENTITY keyconfig.unrecognized "I/E pa njohur ($1)">
 <!ENTITY menus.icons.label "Trego Ikonat">
 <!ENTITY menus.entries.label "Trego Hyrjet">
 <!ENTITY misc.enablesidebar.label "Hape në Shiritin Anësor">

@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "De zijbalk, werkbalk en de zijbalkwisselaar">
 <!ENTITY cmode.mode4.label "Gedrag van Opera">
 <!ENTITY gen.fs.off "De staat herstellen bij het sluiten van de volledig-schermmodus">
-<!ENTITY keyconfig.keyid "Naam">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Toepassen">
-<!ENTITY keyconfig.disable "Uitschakelen">
-<!ENTITY keyconfig.reset "Herinitialiseren">
-<!ENTITY keyconfig.warn "Veranderingen alleen bij nieuwe vensters">
-<!ENTITY keyconfig.onreset "Herstart van de browser is noodzakelijk">
-<!ENTITY keyconfig.unrecognized "Niet herkend ($1)">
-<!ENTITY keyconfig.used "Deze toets wordt al gebruikt door: \\n\\n\\t$1\\n\\nZou eventueel wel kunnen werken.">
 <!ENTITY menus.sidebar.desc "De items in het menu “Beeld &gt; Zijbalk” aanpassen en de keuzemenu&apos;s van de zijbalkknoppen.">
 <!ENTITY menus.icons.label "Pictogrammen tonen">
 <!ENTITY menus.entries.label "Items tonen">

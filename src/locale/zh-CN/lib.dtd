@@ -11,4 +11,3 @@
 <!ENTITY enable.autoClose.label "自动关闭其他文件夹">
 <!ENTITY enable.scrollToFolder.label "滚动显示选择的文件夹">
 <!ENTITY enable.rememberFolder.label "记住最后选择的文件夹">
-<!ENTITY enable.duplicateTree.label "显示第二树型面板">

@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Oldalsáv, Eszköztár és az Oldalsáv váltó">
 <!ENTITY cmode.mode4.label "Opera-szerű viselkedés">
 <!ENTITY gen.fs.off "Kilépve a teljesképernyős módból állítsa vissza az előző állapotot">
-<!ENTITY keyconfig.keyid "Név">
-<!ENTITY keyconfig.id "Azonosító">
-<!ENTITY keyconfig.apply "Alkalmazás">
-<!ENTITY keyconfig.disable "Letiltás">
-<!ENTITY keyconfig.reset "Visszaállítás">
-<!ENTITY keyconfig.warn "A változtatások csak az új ablakokat érintik">
-<!ENTITY keyconfig.onreset "A böngésző újraindítását igényli">
-<!ENTITY keyconfig.unrecognized "Ismeretlen ($1)">
-<!ENTITY keyconfig.used "Ezt a billentyűkombinációt már használja a következő: \\n\\n\\t$1\\n\\nBár ettől még működhet.">
 <!ENTITY menus.sidebar.desc "Testreszabhatja az elemeket a böngésző “Nézet &gt; Oldalsáv” menüjében és az Oldalsáv gombok legördülő menüiben is.">
 <!ENTITY menus.icons.label "Ikonok megjelenítése">
 <!ENTITY menus.entries.label "Menüelemek megjelenítése">

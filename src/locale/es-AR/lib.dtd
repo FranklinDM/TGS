@@ -11,4 +11,3 @@
 <!ENTITY enable.autoClose.label "Cerrar Automáticamente Otras Carpetas">
 <!ENTITY enable.scrollToFolder.label "Desplazar Automáticamente a la Carpeta Selecionada">
 <!ENTITY enable.rememberFolder.label "Recordar y Enfocar la Última Carpeta Seleccionada">
-<!ENTITY enable.duplicateTree.label "Show second tree pane">

@@ -27,3 +27,18 @@ toolbar[brighttext] toolbarbutton.toolbarbutton-1.aios-tbutton:not(#downloads-bu
 #aios-toolbar #personal-bookmarks[cui-areatype="toolbar"]:not([overflowedItem=true]) > #bookmarks-toolbar-placeholder {
   padding: 0;
 }
+
+#aios-cui-container {
+  margin: 0 5px;
+}
+
+#aios-toolbar-cui,
+#aios-sbhtoolbar-cui {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid ThreeDLightShadow;
+  background-color: -moz-Dialog;
+  margin-bottom: 5px;
+}

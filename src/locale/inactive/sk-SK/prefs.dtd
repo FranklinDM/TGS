@@ -62,15 +62,6 @@
 <!ENTITY cmode.mode3.label "Bočný panel, panel nástrojov a prepínač zobrazenia">
 <!ENTITY cmode.mode4.label "Ako v prehliadači Opera">
 <!ENTITY gen.fs.off "Obnoviť pôvodný stav po vypnutí režimu na celú obrazovku">
-<!ENTITY keyconfig.keyid "Udalosť">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Použiť">
-<!ENTITY keyconfig.disable "Zakázať">
-<!ENTITY keyconfig.reset "Predvolené">
-<!ENTITY keyconfig.warn "Zmeny sa prejavia až na nových oknách">
-<!ENTITY keyconfig.onreset "Zmeny si vyžadujú reštart prehliadača">
-<!ENTITY keyconfig.unrecognized "Nerozpoznané ($1)">
-<!ENTITY keyconfig.used "Táto klávesová skratka už je používaná pre: \\n\\n\\t$1\\n\\n">
 <!ENTITY menus.sidebar.desc "Nastavenie položiek v ponuke &quot;Zobraziť &gt; Bočný panel&quot; a v miestnych ponukách líšt s nástrojmi.">
 <!ENTITY menus.icons.label "Zobraziť ikony">
 <!ENTITY menus.entries.label "Zobraziť položky">

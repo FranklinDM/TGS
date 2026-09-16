@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "Ang Sidebar, ang Toolbar, at ang Sidebar Switch">
 <!ENTITY cmode.mode4.label "Behavior ng Opera">
 <!ENTITY gen.fs.off "Ibalik sa Dati kung aalis sa Mode ng Buong Screen">
-<!ENTITY keyconfig.keyid "Pangalan">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Ilapat">
-<!ENTITY keyconfig.disable "Huwag Paganahin">
-<!ENTITY keyconfig.reset "I-reset">
-<!ENTITY keyconfig.warn "Ang mga pagbabago ay nakaaapekto lamang sa mga bagong window">
 <!ENTITY menus.sidebar.desc "I-customize ang mga entri sa menu na “Tanaw &gt; Sidebar” at sa mga dropdown menu ng iba-ibang mga sidebar button.">
 <!ENTITY menus.icons.label "Ipakita ang mga Icon">
 <!ENTITY menus.entries.label "Ipakita ang mga Entri">

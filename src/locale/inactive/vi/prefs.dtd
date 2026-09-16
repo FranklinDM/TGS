@@ -63,15 +63,6 @@
 <!ENTITY cmode.mode3.label "Thanh lề, Thanh công cụ và Công tắc Thanh lề">
 <!ENTITY cmode.mode4.label "Hành vi của Opera">
 <!ENTITY gen.fs.off "Phục hồi Tình trạng khi thoát Chế độ Toàn màn hình">
-<!ENTITY keyconfig.keyid "Tên">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Áp dụng">
-<!ENTITY keyconfig.disable "Vô hiệu hóa">
-<!ENTITY keyconfig.reset "Thiết lập lại">
-<!ENTITY keyconfig.warn "Các thay đổi chỉ ảnh hưởng đến các cửa sổ mới">
-<!ENTITY keyconfig.onreset "Yêu cầu khởi động lại trình duyệt">
-<!ENTITY keyconfig.unrecognized "Không nhận ra ($1)">
-<!ENTITY keyconfig.used "Phím này đã được sử dụng bởi: \\n\\n\\t$1\\n\\nDù vậy, nó có thể vẫn hoạt động.">
 <!ENTITY menus.sidebar.desc "Tùy chỉnh các mục trong trình đơn “Hiển thị &gt; Thanh lề” và trong trình đơn thả xuống của các nút trên thanh lề.">
 <!ENTITY menus.icons.label "Hiện biểu tượng">
 <!ENTITY menus.entries.label "Hiện các mục">

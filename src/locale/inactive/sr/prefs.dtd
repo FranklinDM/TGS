@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Бочна трака, трака са алаткама и прекидач бочне траке">
 <!ENTITY cmode.mode4.label "Понашање Опере">
 <!ENTITY gen.fs.off "Врати стање ако се излази из приказа преко целог екрана">
-<!ENTITY keyconfig.keyid "Име">
-<!ENTITY keyconfig.id "Број">
-<!ENTITY keyconfig.apply "Примени">
-<!ENTITY keyconfig.disable "Онемогући">
-<!ENTITY keyconfig.reset "Поништи">
-<!ENTITY keyconfig.warn "Промене утичу само на нове прозоре">
-<!ENTITY keyconfig.onreset "Потребно је поново покренути претраживач">
-<!ENTITY keyconfig.unrecognized "Непрепознатљиво ($1)">
-<!ENTITY keyconfig.used "Овај кључ се користи од стране: \\n\\n\\t$1\\n\\nМогуће да ће радити, иако…">
 <!ENTITY menus.sidebar.desc "Прилагоди уносе у менију „Преглед &gt; Бочна трака” и падајућим менијима на дугмадима бочне траке.">
 <!ENTITY menus.icons.label "Прикажи иконе">
 <!ENTITY menus.entries.label "Прикажи уносе">

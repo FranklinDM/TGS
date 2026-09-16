@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "The Sidebar, the Toolbar, and the Sidebar Switch">
 <!ENTITY cmode.mode4.label "Opera&apos;s Behavior">
 <!ENTITY gen.fs.off "Restore the State if Quitting the Full Screen Mode">
-<!ENTITY keyconfig.keyid "Name">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Apply">
-<!ENTITY keyconfig.disable "Disable">
-<!ENTITY keyconfig.reset "Reset">
-<!ENTITY keyconfig.warn "Changes affect only new windows">
 <!ENTITY menus.sidebar.desc "Customize the entries in the menu “View &gt; Sidebar” and in the dropdown menus of the sidebar buttons.">
 <!ENTITY menus.icons.label "Show Icons">
 <!ENTITY menus.entries.label "Show Entries">

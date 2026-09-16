@@ -11,4 +11,3 @@
 <!ENTITY enable.autoClose.label "Автоматически закрывать другие папки">
 <!ENTITY enable.scrollToFolder.label "Автоматически переходить к выделенной папке">
 <!ENTITY enable.rememberFolder.label "Запоминать и переходить к последней выделенной папке">
-<!ENTITY enable.duplicateTree.label "Show second tree pane">

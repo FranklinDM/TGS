@@ -62,15 +62,6 @@
 <!ENTITY cmode.mode3.label "الشريط الجانبي, شريط الأدوات, وتبديل الشريط الجانبي">
 <!ENTITY cmode.mode4.label "Opera&apos;s سلوك">
 <!ENTITY gen.fs.off "استعادة الحالة في حال الخروج من ملء الشاشة">
-<!ENTITY keyconfig.keyid "الاسم">
-<!ENTITY keyconfig.id "العنوان">
-<!ENTITY keyconfig.apply "تطبيق">
-<!ENTITY keyconfig.disable "تعطيل">
-<!ENTITY keyconfig.reset "إعادة تعيين">
-<!ENTITY keyconfig.warn "تأثير التغيرات في نافذة جديدة فقط">
-<!ENTITY keyconfig.onreset "إعادة تشغيل المتصغح مطلوبة">
-<!ENTITY keyconfig.unrecognized "غير معرف ($1)">
-<!ENTITY keyconfig.used "المفتاح مستقدم بالفعل من قبل: \\n\\n\\t$1\\n\\nIt قد يعمل, بالرغم من ذلك.">
 <!ENTITY menus.sidebar.desc "تخصيص المدخلات في القائمة “عرض &gt; الشريط الجانبي” والقوائم المنسدلة في الشريط الجانبي للأزرار.">
 <!ENTITY menus.icons.label "اظهر الأيقونات">
 <!ENTITY menus.entries.label "عرض المدخلات">

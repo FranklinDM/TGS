@@ -64,15 +64,6 @@
 <!ENTITY cmode.mode3.label "Panoul lateral, bara de unelte și comutatorul panoului">
 <!ENTITY cmode.mode4.label "Comportament asemănător navigatorului „Opera”">
 <!ENTITY gen.fs.off "Se restaurează starea dacă se părăsește modul „Ecran complet“">
-<!ENTITY keyconfig.keyid "Denumiri">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Aplică">
-<!ENTITY keyconfig.disable "Dezactivează">
-<!ENTITY keyconfig.reset "Reinițializează">
-<!ENTITY keyconfig.warn "Modificările sunt efective numai în noile ferestre.">
-<!ENTITY keyconfig.onreset "Este necesară repornirea navigatorului.">
-<!ENTITY keyconfig.unrecognized "Necunoscut ($1)">
-<!ENTITY keyconfig.used "Această tastă este deja utilizată de: \\n\\n\\t$1\\n\\nTotuși, este posibil să funcționeze.">
 <!ENTITY menus.sidebar.desc "Particularizează opțiunile meniului „Vizualizare | Bară laterală (panou lateral!)“ și ale listelor derulante aferente butoanelor panoului lateral.">
 <!ENTITY menus.icons.label "Se afișează pictogramele">
 <!ENTITY menus.entries.label "Se afișează opțiunile">

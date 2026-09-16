@@ -4,9 +4,6 @@
  **/
 pref("extensions.tgsidebar@franklindm.description", "chrome://aios/locale/lib.properties");
 pref("extensions.aios.changelog", "");
-pref("extensions.aios.infotips", true);
-pref("extensions.aios.switchtip", true);
-pref("extensions.aios.vbuttons", true);
 pref("extensions.aios.logging", false);
 
 
@@ -17,6 +14,7 @@ pref("extensions.aios.gen.orient", 1);
 pref("extensions.aios.intercept", false);
 pref("extensions.aios.collapse", true);
 pref("extensions.aios.rightclick", false);
+pref("extensions.aios.enable_floating_sidebar", false);
 
 pref("extensions.aios.lw.defaultbg", true);
 pref("extensions.aios.lw.custombg", "");
@@ -103,6 +101,7 @@ pref("extensions.aios.ks.sidebar", true);
 pref("extensions.aios.ks.layout", true);
 pref("extensions.aios.ks.layoutall", false);
 
+
 /*
  *  Menus
  **/
@@ -113,16 +112,6 @@ pref("extensions.aios.menus.sidebar.paneltab1", false);
 pref("extensions.aios.menus.sidebar.paneltab2", false);
 pref("extensions.aios.menus.sidebar.showhide", true);
 pref("extensions.aios.menus.sidebar.prefs", true);
-
-
-/*
- *  Shortcuts - by Dorando
- **/
-pref("extensions.aios.keyconf.devmode", false);
-pref("extensions.aios.keyconf.nicenames.reverse_order", false);
-pref("extensions.aios.keyconf.profile", "main");
-pref("extensions.aios.keyconf.warnOnClose", false);
-pref("extensions.aios.keyconf.warnOnDuplicate", true);
 
 
 /*

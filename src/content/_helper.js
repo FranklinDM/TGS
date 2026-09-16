@@ -28,15 +28,6 @@ var AiOS_HELPER = {
         if (this.prefService.getBranch("extensions.aios.").getBoolPref("logging"))
             this.consoleService.logStringMessage("TGS: " + ex);
     },
-
-    rememberAppInfo: function (aObj) {
-        aObj.setAttribute("aios-appVendor", this.appInfo.vendor);
-        aObj.setAttribute("aios-appVersion", this.appInfo.version);
-        aObj.setAttribute("aios-appOS", this.os);
-        aObj.setAttribute("aios-appOSVersion", this.osVersion);
-        aObj.setAttribute("aios-appDefTheme", this.defTheme);
-    }
-
 };
 
 AiOS_HELPER.init();
@@ -148,57 +139,6 @@ function aios_getBrowserWidth() {
 }
 
 /*
- * Extends the "class" attribute of an element
- */
-function aios_appendClass(elem, appClass) {
-    if (typeof elem == "string")
-        elem = document.getElementById(elem);
-
-    var old_class = elem.getAttribute("class");
-    if (old_class.indexOf(appClass) < 0)
-        elem.setAttribute("class", old_class + " " + appClass);
-}
-
-/*
- * Deletes a class name in the "class" attribute of an element
- */
-function aios_stripClass(elem, stripClass) {
-    if (typeof elem == "string")
-        elem = document.getElementById(elem);
-
-    var old_class = elem.getAttribute("class");
-
-    if (old_class.indexOf(stripClass) >= 0) {
-        var pos = old_class.indexOf(stripClass);
-
-        var slice1 = old_class.substring(0, pos);
-        slice1 = slice1.replace(/ /, "");
-        var slice2 = old_class.substring(pos + stripClass.length, old_class.length);
-        slice2 = slice2.replace(/ /, "");
-
-        elem.setAttribute("class", slice1 + " " + slice2);
-    }
-}
-
-function aios_gElem(aID) {
-    if (AiOS_HELPER.mostRecentWindow && AiOS_HELPER.mostRecentWindow.document.getElementById(aID))
-        return AiOS_HELPER.mostRecentWindow.document.getElementById(aID);
-    return false;
-}
-
-/*
- * Replaces the keyboard shortcuts in the tooltips for MacOS X
- */
-function aios_replaceKey(aElem, aAttr, aKey) {
-    var strings = document.getElementById("aiosProperties");
-
-    var rep_elem = document.getElementById(aElem);
-    var rep = rep_elem.getAttribute(aAttr);
-    rep = rep.substr(rep.indexOf("+"), rep.length);
-    rep_elem.setAttribute(aAttr, strings.getString("key.mac." + aKey) + rep);
-}
-
-/*
  * Returns the boolean value of a value
  * => getAttribute (val) only returns "true" or "false" as a string
  */
@@ -234,7 +174,7 @@ function aios_openDialog(which, args) {
 
     switch (which) {
     case "prefs":
-        theUrl = "chrome://aios/content/prefs/prefs.xul";
+        theUrl = "chrome://aios/content/preferences/preferences.xul";
         theId = "aiosPrefsDialog";
         theFeatures = "chrome,titlebar,toolbar,centerscreen,";
         theFeatures += (AiOS_HELPER.os == "Darwin") ? "dialog=no" : "modal";

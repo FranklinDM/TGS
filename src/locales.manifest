@@ -6,6 +6,7 @@ locale      aios            es-AR           locale/es-AR/
 locale      aios            es-ES           locale/es-ES/
 locale      aios            fr              locale/fr/
 locale      aios            it              locale/it/
+locale      aios            pl              locale/pl/
 locale      aios            ru              locale/ru/
 locale      aios            tl              locale/tl/
 locale      aios            zh-CN           locale/zh-CN/
@@ -28,7 +29,6 @@ locale      aios            zh-CN           locale/zh-CN/
 #locale      aios            lt-LT           locale/lt-LT/
 #locale      aios            nb-NO           locale/nb-NO/
 #locale      aios            nl              locale/nl/
-#locale      aios            pl              locale/pl/
 #locale      aios            pt-BR           locale/pt-BR/
 #locale      aios            pt-PT           locale/pt-PT/
 #locale      aios            ro              locale/ro/

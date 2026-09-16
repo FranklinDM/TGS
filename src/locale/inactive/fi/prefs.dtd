@@ -63,15 +63,6 @@
 <!ENTITY cmode.mode3.label "Sivupaneeli, työkalupalkki, ja sivupaneelin kytkin">
 <!ENTITY cmode.mode4.label "Operan tapa">
 <!ENTITY gen.fs.off "Palauta tila jos lopetetaan kokoruututila">
-<!ENTITY keyconfig.keyid "Nimi">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Hyväksy">
-<!ENTITY keyconfig.disable "Poista käytöstä">
-<!ENTITY keyconfig.reset "Palauta">
-<!ENTITY keyconfig.warn "Muutokset vaikuttavat ainoastaan uusiin ikkunoihin">
-<!ENTITY keyconfig.onreset "Tarvitaan selaimen uudelleenkäynnistys">
-<!ENTITY keyconfig.unrecognized "ei tunnisteta ($1)">
-<!ENTITY keyconfig.used "Tätä näppäintä käyttää jo: \\n\\n\\t$1\\n\\nIt saattaa silti tomia, ehkä.">
 <!ENTITY menus.sidebar.desc "Muokkaa valikon kohteita “Näytä &gt; Sivupaneeli” ja sivupaneelin painikkeiden pudotusvalikoissa.">
 <!ENTITY menus.icons.label "Näytä kuvakkeet">
 <!ENTITY menus.entries.label "Näytä valinnat">

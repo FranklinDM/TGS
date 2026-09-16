@@ -76,12 +76,6 @@
 <!ENTITY cmode.mode3.label "La Barra Lateral, la Barra de Herramientas y el Selector de Barra Lateral">
 <!ENTITY cmode.mode4.label "Comportamiento de Opera">
 <!ENTITY gen.fs.off "Recuperar el Estado si sale del Modo Pantalla Completa">
-<!ENTITY keyconfig.keyid "Nombre">
-<!ENTITY keyconfig.id "ID">
-<!ENTITY keyconfig.apply "Aplicar">
-<!ENTITY keyconfig.disable "Deshabilitar">
-<!ENTITY keyconfig.reset "Resetear">
-<!ENTITY keyconfig.warn "Los cambios sólo afectarán a las nuevas ventanas">
 <!ENTITY menus.sidebar.desc "Personalizar las entradas en el menú &quot;Ver&gt;Barra Lateral&quot;y en los menues desplegables de los botoner de la barra lateral.">
 <!ENTITY menus.icons.label "Mostrar Íconos">
 <!ENTITY menus.entries.label "Mostrar Entradas">
