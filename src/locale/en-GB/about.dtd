@@ -1,11 +1,11 @@
-<!ENTITY title "About The Good 'ol Sidebar">
-<!ENTITY settings "Settings…">
+<!ENTITY about.desc "The Good 'ol Sidebar lets you open various windows as sidebar panels, and quickly switch between them. So it put an end to the window chaos! In addition to bookmarks and history it opens dialogues such as downloads, add-ons and more in the sidebar.">
 <!ENTITY close "Close">
+<!ENTITY contrib.desc "I thank the following developers for inspiration and snippets (in alphabetical order):">
+<!ENTITY contrib.thanks "Special thanks to everyone who tested development builds, reported bugs on the forums, shared feedback and ideas, or simply dropped a kind note. Thank you!">
+<!ENTITY create.desc "Created by FranklinDM, forked from the now defunct All-in-One Sidebar which was created by Ingo Wennemaring, Hamburg [Germany]">
+<!ENTITY settings "Settings…">
 <!ENTITY tab.about "About">
 <!ENTITY tab.contrib "Contributors">
 <!ENTITY tab.trans "Translators">
-<!ENTITY about.desc "The Good 'ol Sidebar lets you open various windows as sidebar panels, and quickly switch between them. So it put an end to the window chaos! In addition to bookmarks and history it opens dialogues such as downloads, add-ons and more in the sidebar.">
-<!ENTITY create.desc "Created by FranklinDM, forked from the now defunct All-in-One Sidebar which was created by Ingo Wennemaring, Hamburg [Germany]">
-<!ENTITY contrib.desc "I thank the following developers for inspiration and snippets (in alphabetical order):">
-<!ENTITY contrib.thanks "Special thanks to everyone who tested development builds, reported bugs on the forums, shared feedback and ideas, or simply dropped a kind note. Thank you!">
+<!ENTITY title "About The Good 'ol Sidebar">
 <!ENTITY trans.desc "The translators of the AiOS and TGS (alphabetically by language code):">

@@ -1,11 +1,11 @@
-<!ENTITY title "About The Good 'ol Sidebar">
-<!ENTITY settings "Settings…">
+<!ENTITY about.desc "The Good 'ol Sidebar lets you open various windows as sidebar panels and quickly switch between them, putting an end to window clutter. In addition to bookmarks and history, it lets you view downloads, add-ons, and custom pages directly in the sidebar.">
 <!ENTITY close "Close">
+<!ENTITY contrib.desc "Credits and code contributions:">
+<!ENTITY contrib.thanks "Thanks to everyone who tested dev builds, reported bugs, shared feedback, or left kind words along the way.">
+<!ENTITY create.desc "Created by FranklinDM. Forked from the discontinued All-in-One Sidebar extension by Ingo Wennemaring (Hamburg, Germany).">
+<!ENTITY settings "Settings…">
 <!ENTITY tab.about "About">
 <!ENTITY tab.contrib "Contributors">
 <!ENTITY tab.trans "Translators">
-<!ENTITY about.desc "The Good 'ol Sidebar lets you open various windows as sidebar panels and quickly switch between them, putting an end to window clutter. In addition to bookmarks and history, it lets you view downloads, add-ons, and custom pages directly in the sidebar.">
-<!ENTITY create.desc "Created by FranklinDM. Forked from the discontinued All-in-One Sidebar extension by Ingo Wennemaring (Hamburg, Germany).">
-<!ENTITY contrib.desc "Credits and code contributions:">
-<!ENTITY contrib.thanks "Thanks to everyone who tested dev builds, reported bugs, shared feedback, or left kind words along the way.">
+<!ENTITY title "About The Good 'ol Sidebar">
 <!ENTITY trans.desc "Translations for AiOS and TGS provided by:">

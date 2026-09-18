@@ -1,11 +1,11 @@
-<!ENTITY title "Acerca de The Good 'ol Sidebar">
-<!ENTITY settings "Opciones">
+<!ENTITY about.desc "The Good 'ol Sidebar le permite abrir varias ventanas como paneles laterales, y cambiar rápidamente entre ellos. De este modo acaba con el caos de las ventanas. Además de marcadores o historial, abre otras ventanas como descargas, complementos y más en el panel lateral.">
 <!ENTITY close "Cerrar">
+<!ENTITY contrib.desc "Agradezco a los siguientes desarrolladores por la inspiración y ayuda (orden alfabético):">
+<!ENTITY contrib.thanks "Agradecer por último a todos los usuarios que han colaborado en las pruebas de las versiones de desarrollo, informando de errores en los foros, compartiendo sus ideas y sugerencias, y a todos aquellos que han escrito comentarios :-) Muchas gracias a todos.">
+<!ENTITY create.desc "Creada por FranklinDM, bifurcado desde el ahora difunto All-in-One Sidebar cual es creada por Ingo Wennemaring, Hamburgo [Alemania]">
+<!ENTITY settings "Opciones">
 <!ENTITY tab.about "Acerca de">
 <!ENTITY tab.contrib "Colaboradores">
 <!ENTITY tab.trans "Traductores">
-<!ENTITY about.desc "The Good 'ol Sidebar le permite abrir varias ventanas como paneles laterales, y cambiar rápidamente entre ellos. De este modo acaba con el caos de las ventanas. Además de marcadores o historial, abre otras ventanas como descargas, complementos y más en el panel lateral.">
-<!ENTITY create.desc "Creada por FranklinDM, bifurcado desde el ahora difunto All-in-One Sidebar cual es creada por Ingo Wennemaring, Hamburgo [Alemania]">
-<!ENTITY contrib.desc "Agradezco a los siguientes desarrolladores por la inspiración y ayuda (orden alfabético):">
-<!ENTITY contrib.thanks "Agradecer por último a todos los usuarios que han colaborado en las pruebas de las versiones de desarrollo, informando de errores en los foros, compartiendo sus ideas y sugerencias, y a todos aquellos que han escrito comentarios :-) Muchas gracias a todos.">
+<!ENTITY title "Acerca de The Good 'ol Sidebar">
 <!ENTITY trans.desc "Agradezco a los siguientes traductores:">

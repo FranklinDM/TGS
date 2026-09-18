@@ -1,11 +1,11 @@
-<!ENTITY title "Tungkol sa The Good 'ol Sidebar">
-<!ENTITY settings "Mga Setting…">
+<!ENTITY about.desc "Ang Good 'ol Sidebar ay tumutulong sa iyo na buksan ang iba't ibang mga window bilang mga sidebar panel, at agarang magpapalit-palit sa ng mga panel. At tinapos nito ang kaguluhan ng mga window! Hindi lang mga bookmark at kasaysayan ang iyong mabubuksan, puwede rin nitong buksan ang mga diyalogong tulad ng mga download, add-on at iba pa sa loob ng sidebar.">
 <!ENTITY close "Isara">
+<!ENTITY contrib.desc "Pinasasalamatan ko ang mga sumusunod na developer para sa inspirasyon at mga snippet (nasa ordeng alpabetiko):">
+<!ENTITY contrib.thanks "Bilang kahulihulihan, pinasasalamatan ko rin ang lahat ng mga user na tumulong sa pamamagitan ng pag-test ng mga development builds, pag-ulat ng mga bug sa forum, at pagbabahagi ng kanilang mga idea at suhestiyon o sa pagsulat ng positibong komentaryo. :-) Maraming salamat!">
+<!ENTITY create.desc "Nilikha ni FranklinDM, na-fork niya ito mula sa All-in-One Sidebar na nilikha ni Ingo Wennemaring, mula sa Hamburg [Germany]">
+<!ENTITY settings "Mga Setting…">
 <!ENTITY tab.about "Tungkol Dito">
 <!ENTITY tab.contrib "Mga Nag-ambag">
 <!ENTITY tab.trans "Mga Nagsalin">
-<!ENTITY about.desc "Ang Good 'ol Sidebar ay tumutulong sa iyo na buksan ang iba't ibang mga window bilang mga sidebar panel, at agarang magpapalit-palit sa ng mga panel. At tinapos nito ang kaguluhan ng mga window! Hindi lang mga bookmark at kasaysayan ang iyong mabubuksan, puwede rin nitong buksan ang mga diyalogong tulad ng mga download, add-on at iba pa sa loob ng sidebar.">
-<!ENTITY create.desc "Nilikha ni FranklinDM, na-fork niya ito mula sa All-in-One Sidebar na nilikha ni Ingo Wennemaring, mula sa Hamburg [Germany]">
-<!ENTITY contrib.desc "Pinasasalamatan ko ang mga sumusunod na developer para sa inspirasyon at mga snippet (nasa ordeng alpabetiko):">
-<!ENTITY contrib.thanks "Bilang kahulihulihan, pinasasalamatan ko rin ang lahat ng mga user na tumulong sa pamamagitan ng pag-test ng mga development builds, pag-ulat ng mga bug sa forum, at pagbabahagi ng kanilang mga idea at suhestiyon o sa pagsulat ng positibong komentaryo. :-) Maraming salamat!">
+<!ENTITY title "Tungkol sa The Good 'ol Sidebar">
 <!ENTITY trans.desc "Ang mga nagsalin ng AiOS at TGS (nasa ordeng alpabetiko ayon sa language code):">

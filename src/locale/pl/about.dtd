@@ -1,11 +1,11 @@
-<!ENTITY title "O The Good 'ol Sidebar">
-<!ENTITY settings "Ustawienia">
+<!ENTITY about.desc "The Good 'ol Sidebar umożliwia otwieranie różnych okien w panelu bocznym i szybkie przełączanie się pomiędzy nimi. Koniec z chaosem okien! Oprócz zakładek i historii można teraz otwierać w panelu bocznym menedżer pobierania, dodatków i wiele innych…">
 <!ENTITY close "Zamknij">
+<!ENTITY contrib.desc "Dziękuję następującym twórcom za inspirację i części kodu (w porządku alfabetycznym):">
+<!ENTITY contrib.thanks "Chciałbym podziękować wszystkim użytkownikom, którzy pomagali w testowaniu i rozwoju tego wydania informując o błędach, dzieląc się swoimi uwagami i sugestiami lub pisząc piękne komentarze na forum. :-) Dziękuję bardzo!">
+<!ENTITY create.desc "Stworzony przez FranklinDM, sforkowany z nierozwijanego już All-in-One Sidebar autorstwa Ingo Wennemaring.">
+<!ENTITY settings "Ustawienia">
 <!ENTITY tab.about "O TGS">
 <!ENTITY tab.contrib "Współtwórcy">
 <!ENTITY tab.trans "Tłumacze">
-<!ENTITY about.desc "The Good 'ol Sidebar umożliwia otwieranie różnych okien w panelu bocznym i szybkie przełączanie się pomiędzy nimi. Koniec z chaosem okien! Oprócz zakładek i historii można teraz otwierać w panelu bocznym menedżer pobierania, dodatków i wiele innych…">
-<!ENTITY create.desc "Stworzony przez FranklinDM, sforkowany z nierozwijanego już All-in-One Sidebar autorstwa Ingo Wennemaring.">
-<!ENTITY contrib.desc "Dziękuję następującym twórcom za inspirację i części kodu (w porządku alfabetycznym):">
-<!ENTITY contrib.thanks "Chciałbym podziękować wszystkim użytkownikom, którzy pomagali w testowaniu i rozwoju tego wydania informując o błędach, dzieląc się swoimi uwagami i sugestiami lub pisząc piękne komentarze na forum. :-) Dziękuję bardzo!">
+<!ENTITY title "O The Good 'ol Sidebar">
 <!ENTITY trans.desc "Tłumacze AiOS i TGS (w porządku alfabetycznym kodów języków):">

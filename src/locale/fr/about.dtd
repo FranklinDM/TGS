@@ -1,11 +1,11 @@
-<!ENTITY title "À propos d'The Good 'ol Sidebar">
-<!ENTITY settings "Paramètres…">
+<!ENTITY about.desc "L'extension The Good 'ol Sidebar vous permet d'ouvrir diverses fenêtres dans des panneaux latéraux et de basculer rapidement de l'une à l'autre. C'est donc la fin des fenêtres en vrac ! Outre les marque-pages et l'historique, l'extension ouvre des fenêtres comme celle des téléchargements, des modules complémentaires et d'autres encore dans un panneau latéral.">
 <!ENTITY close "Fermer">
+<!ENTITY contrib.desc "Je remercie les développeurs qui suivent de m'avoir inspiré et prêté leur code :">
+<!ENTITY contrib.thanks "Et enfin, je remercie tous les utilisateurs qui ont aidé à tester les versions en développement, rapporté des bogues, partagé idées et suggestions, ou qui ont un écrit un commentaire sympa :-). Merci beaucoup !">
+<!ENTITY create.desc "Créé par FranklinDM, bifurqué à partir de la barre latérale All-in-One maintenant disparu qui a été créé par Ingo Wennemaring, Hambourg [Allemagne]">
+<!ENTITY settings "Paramètres…">
 <!ENTITY tab.about "À propos">
 <!ENTITY tab.contrib "Contributeurs">
 <!ENTITY tab.trans "Traducteurs">
-<!ENTITY about.desc "L'extension The Good 'ol Sidebar vous permet d'ouvrir diverses fenêtres dans des panneaux latéraux et de basculer rapidement de l'une à l'autre. C'est donc la fin des fenêtres en vrac ! Outre les marque-pages et l'historique, l'extension ouvre des fenêtres comme celle des téléchargements, des modules complémentaires et d'autres encore dans un panneau latéral.">
-<!ENTITY create.desc "Créé par FranklinDM, bifurqué à partir de la barre latérale All-in-One maintenant disparu qui a été créé par Ingo Wennemaring, Hambourg [Allemagne]">
-<!ENTITY contrib.desc "Je remercie les développeurs qui suivent de m'avoir inspiré et prêté leur code :">
-<!ENTITY contrib.thanks "Et enfin, je remercie tous les utilisateurs qui ont aidé à tester les versions en développement, rapporté des bogues, partagé idées et suggestions, ou qui ont un écrit un commentaire sympa :-). Merci beaucoup !">
+<!ENTITY title "À propos d'The Good 'ol Sidebar">
 <!ENTITY trans.desc "Les traducteurs d'The Good 'ol Sidebar (par ordre alphabétique d'abréviation de langue) :">

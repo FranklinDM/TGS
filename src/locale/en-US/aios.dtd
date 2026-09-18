@@ -1,58 +1,58 @@
-<!ENTITY loading.label "loading panel…">
-<!ENTITY menu.prefs.label "The Good 'ol Sidebar Options…">
-<!ENTITY menu.togglebar.label "Panel Toggle">
-<!ENTITY menu.grippy.label "Sidebar Grippy">
-<!ENTITY toolbar.name "The Good 'ol Sidebar Toolbar">
-<!ENTITY toolbar.label "The Good 'ol Sidebar">
-<!ENTITY sbhtoolbar.name "Sidebar Header Toolbar">
-<!ENTITY sbhtoolbar.label "Sidebar Header">
-<!ENTITY button.toggle.label "TGS">
-<!ENTITY button.toggle.tooltip "Toggle elements controlled by The Good 'ol Sidebar">
-<!ENTITY button.switch.tooltip1 "Toggle sidebar and toolbar">
-<!ENTITY button.switch.tooltip2 "Toggle toolbar">
-<!ENTITY button.switch.tooltip3 "Toggle sidebar">
-<!ENTITY sidebar.open.label "Open sidebar">
-<!ENTITY sidebar.close.label "Close sidebar">
-<!ENTITY sidebar.width.min "Minimum width">
-<!ENTITY sidebar.width.def "Standard width">
-<!ENTITY sidebar.width.max "Maximum width">
-<!ENTITY button.menu.label "Sidebar panels">
-<!ENTITY button.menu.tooltip "All available sidebar panels">
-<!ENTITY button.toolbar.label "TGS Toolbar">
-<!ENTITY button.toolbar.tooltip "Toggle TGS Toolbar">
-<!ENTITY button.paneltab.label "Page Transfer">
-<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
-<!ENTITY button.paneltab.tooltip1 "Open Content of Tab in Sidebar">
-<!ENTITY button.paneltab.tooltip2 "Open Content of Sidebar in a New Tab">
-<!ENTITY button.paneltab.tooltip3 "Open Content of Sidebar in a Window">
-<!ENTITY button.paneltab.menu1.label "Open Tab in Sidebar">
-<!ENTITY button.paneltab.menu2.label "Open Sidebar in Tab">
-<!ENTITY button.autohide.label "Sidebar Auto-hide">
-<!ENTITY button.autohide.tooltip "Toggle Sidebar automatically">
-<!ENTITY button.tooltip.sidebar "Open in the Sidebar">
-<!ENTITY button.tooltip.window "Open in a window">
-<!ENTITY button.tooltip.tab "Open in a new tab">
 <!ENTITY button.addons.label "Add-ons">
 <!ENTITY button.addons.tooltip "Display installed add-ons">
-<!ENTITY button.multipanel.label "Web Panel">
-<!ENTITY button.multipanel.tooltip "Display websites and browser information">
-<!ENTITY button.pageinfo.tooltip "Display extensive information about a web page">
+<!ENTITY button.autohide.label "Sidebar Auto-hide">
+<!ENTITY button.autohide.tooltip "Toggle Sidebar automatically">
 <!ENTITY button.console.label "Error Console">
 <!ENTITY button.console.tooltip "Open the Error Console, which tracks problems with source code">
 <!ENTITY button.cookies.label "Cookies">
 <!ENTITY button.cookies.tooltip "Manage individual cookies">
+<!ENTITY button.menu.label "Sidebar panels">
+<!ENTITY button.menu.tooltip "All available sidebar panels">
+<!ENTITY button.multipanel.label "Web Panel">
+<!ENTITY button.multipanel.tooltip "Display websites and browser information">
+<!ENTITY button.pageinfo.tooltip "Display extensive information about a web page">
+<!ENTITY button.paneltab.label "Page Transfer">
+<!ENTITY button.paneltab.menu1.label "Open Tab in Sidebar">
+<!ENTITY button.paneltab.menu2.label "Open Sidebar in Tab">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
+<!ENTITY button.paneltab.tooltip1 "Open Content of Tab in Sidebar">
+<!ENTITY button.paneltab.tooltip2 "Open Content of Sidebar in a New Tab">
+<!ENTITY button.paneltab.tooltip3 "Open Content of Sidebar in a Window">
+<!ENTITY button.switch.tooltip1 "Toggle sidebar and toolbar">
+<!ENTITY button.switch.tooltip2 "Toggle toolbar">
+<!ENTITY button.switch.tooltip3 "Toggle sidebar">
+<!ENTITY button.toggle.label "TGS">
+<!ENTITY button.toggle.tooltip "Toggle elements controlled by The Good 'ol Sidebar">
+<!ENTITY button.toolbar.label "TGS Toolbar">
+<!ENTITY button.toolbar.tooltip "Toggle TGS Toolbar">
+<!ENTITY button.tooltip.sidebar "Open in the Sidebar">
+<!ENTITY button.tooltip.tab "Open in a new tab">
+<!ENTITY button.tooltip.window "Open in a window">
+<!ENTITY keys.addons "A">
+<!ENTITY keys.cookies "L">
 <!ENTITY keys.modifiers "accel shift">
-<!ENTITY keys.sidebar "VK_F4">
+<!ENTITY keys.multipanel "M">
 <!ENTITY keys.options "VK_F4">
+<!ENTITY keys.pageinfo "E">
 <!ENTITY keys.paneltab1 "X">
 <!ENTITY keys.paneltab2 "Y">
-<!ENTITY keys.addons "A">
-<!ENTITY keys.multipanel "M">
-<!ENTITY keys.pageinfo "E">
-<!ENTITY keys.cookies "L">
+<!ENTITY keys.sidebar "VK_F4">
+<!ENTITY loading.label "loading panel…">
+<!ENTITY menu.grippy.label "Sidebar Grippy">
+<!ENTITY menu.prefs.label "The Good 'ol Sidebar Options…">
+<!ENTITY menu.togglebar.label "Panel Toggle">
+<!ENTITY sbhtoolbar.label "Sidebar Header">
+<!ENTITY sbhtoolbar.name "Sidebar Header Toolbar">
+<!ENTITY sidebar.close.label "Close sidebar">
+<!ENTITY sidebar.open.label "Open sidebar">
+<!ENTITY sidebar.width.def "Standard width">
+<!ENTITY sidebar.width.max "Maximum width">
+<!ENTITY sidebar.width.min "Minimum width">
+<!ENTITY toolbar.label "The Good 'ol Sidebar">
+<!ENTITY toolbar.mode.flexbuttons.label "Flexible Buttons">
+<!ENTITY toolbar.name "The Good 'ol Sidebar Toolbar">
+<!ENTITY toolbar.pos.headerbottom.label "Below Sidebar Header">
+<!ENTITY toolbar.pos.sidebarbottom.label "Below Sidebar">
 <!ENTITY toolbar.pos.sidebarleft.label "Left Beside Sidebar">
 <!ENTITY toolbar.pos.sidebarright.label "Right Beside Sidebar">
 <!ENTITY toolbar.pos.sidebartop.label "Above Sidebar">
-<!ENTITY toolbar.pos.headerbottom.label "Below Sidebar Header">
-<!ENTITY toolbar.pos.sidebarbottom.label "Below Sidebar">
-<!ENTITY toolbar.mode.flexbuttons.label "Flexible Buttons">
