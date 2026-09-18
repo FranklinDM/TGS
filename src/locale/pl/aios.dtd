@@ -1,7 +1,10 @@
+<!ENTITY button.addons.label "Add-ons">
 <!ENTITY button.addons.tooltip "Wyświetla zainstalowane motywy i rozszerzenia">
 <!ENTITY button.autohide.label "Kontrola panelu">
 <!ENTITY button.autohide.tooltip "Włącza/wyłącza automatyczne wyświetlanie/ukrywanie panelu bocznego">
+<!ENTITY button.console.label "Error Console">
 <!ENTITY button.console.tooltip "Otwiera konsolę, która śledzi problemy i porównuje z kodem źródłowym">
+<!ENTITY button.cookies.label "Cookies">
 <!ENTITY button.cookies.tooltip "Wyświetla ciasteczka">
 <!ENTITY button.menu.label "Panele boczne">
 <!ENTITY button.menu.tooltip "Wyświetla listę wszystkich dostępnych paneli bocznych">

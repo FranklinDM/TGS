@@ -61,6 +61,7 @@
 <!ENTITY menus.sidebar.desc "Określ elementy wyświetlane w menu “Widok &gt; Panel boczny” oraz w rozwijanych menu przycisków panelu bocznego.">
 <!ENTITY menus.sidebar.entrydeac "Wyłącz elementy aktywnego paska bocznego">
 <!ENTITY misc.bm.paneltab "Otwieraj menedżera zakładek w nowej karcie">
+<!ENTITY misc.colors.label "Enable colored backgrounds based on current state">
 <!ENTITY misc.count.label "Wyświetlaj ilość elementów">
 <!ENTITY misc.dm.autoclose.label "Zamknij po zakończeniu pobierania">
 <!ENTITY misc.dm.autoopen.label "Wyświetlaj panel pobierania podczas pobierania pliku">
