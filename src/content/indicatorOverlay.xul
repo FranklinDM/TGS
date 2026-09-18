@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <!-- -*- Mode: HTML; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- -->
 <!-- vim: set ts=2 et sw=2 tw=80: -->
-
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this file,
    - You can obtain one at http://mozilla.org/MPL/2.0/. -->
-
 <?xml-stylesheet href="chrome://browser/content/downloads/downloads.css"?>
 <?xml-stylesheet href="chrome://browser/skin/downloads/downloads.css"?>
 
@@ -43,20 +41,24 @@
              class="toolbarbutton-icon">
         <vbox id="downloads-indicator-progress-area"
               pack="center">
-          <description id="downloads-indicator-counter"/>
+          <description id="downloads-indicator-counter" />
           <progressmeter id="downloads-indicator-progress"
                          class="plain"
                          min="0"
-                         max="100"/>
+                         max="100" />
         </vbox>
-        <vbox id="downloads-indicator-icon"/>
-        <vbox id="downloads-indicator-notification"/>
+        <vbox id="downloads-indicator-icon" />
+        <vbox id="downloads-indicator-notification" />
       </stack>
-      <label class="toolbarbutton-text" crop="right" flex="1"
-             value="&downloads.label;"/>
+      <label class="toolbarbutton-text"
+             crop="right"
+             flex="1"
+             value="&downloads.label;" />
       <!-- Additions to have checked state -->
-      <observes element="viewDownloadsSidebar" attribute="checked" />
-      <observes element="viewSdDownloadsSidebar" attribute="checked" />
+      <observes element="viewDownloadsSidebar"
+                attribute="checked" />
+      <observes element="viewSdDownloadsSidebar"
+                attribute="checked" />
     </toolbarbutton>
   </popupset>
 </overlay>

@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-
 <?xml-stylesheet href="chrome://global/skin/global.css"?>
 <?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
 <?xml-stylesheet href="chrome://aios/skin/preferences.css"?>
 
 <!DOCTYPE prefwindow [
-    <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
-    <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
+  <!ENTITY % prefsDTD SYSTEM "chrome://aios/locale/prefs.dtd"> %prefsDTD;
+  <!ENTITY % aiosDTD SYSTEM "chrome://aios/locale/aios.dtd"> %aiosDTD;
 ]>
 
 <prefwindow id="aiosPreferences"
@@ -21,47 +20,47 @@
             ondialogaccept="AiOS_Prefs.savePrefs();"
             ondialogextra1="AiOS_Prefs.applyPrefs();"
             ondialogdisclosure="aios_addTab('https://github.com/FranklinDM/TGS/wiki/FAQ');">
-
-    <script type="application/javascript"
-            src="chrome://aios/content/_helper.js" />
-    <script type="application/javascript"
-            src="chrome://aios/content/preferences/general.js"/>
-    <script type="application/javascript"
-            src="chrome://aios/content/preferences/preferences.js" />
-
-    <stringbundleset>
-        <stringbundle id="aiosStrings"
-                      src="chrome://aios/locale/lib.properties" />
-    </stringbundleset>
-
-    <popupset>
-        <menupopup id="aios-settings-popup"
-                   position="before_start">
-            <menuitem id="aios-defaults"
-                      label="&settings.default;"
-                      oncommand="AiOS_Prefs.defaultSettings();" />
-            <menuseparator />
-            <menuitem id="aios-export"
-                      label="&settings.export;"
-                      oncommand="AiOS_Prefs.exportSettings('save');" />
-            <menuitem id="aios-import"
-                      label="&settings.import;"
-                      oncommand="AiOS_Prefs.importSettings();" />
-            <menuitem id="aios-copy"
-                      label="&settings.copy;"
-                      oncommand="AiOS_Prefs.exportSettings('copy');" />
-        </menupopup>
-    </popupset>
-
-    <prefpane id="aiosGeneral" label="&tab.gen;"
-              src="chrome://aios/content/preferences/general.xul" />
-    <prefpane id="aiosSbSwitch" label="&menu.togglebar.label;"
-              src="chrome://aios/content/preferences/sidebarswitch.xul" />
-    <prefpane id="aiosPanels" label="&tab.panels;"
-              src="chrome://aios/content/preferences/panels.xul" />
-    <prefpane id="aiosMenus" label="&tab.menus;"
-              src="chrome://aios/content/preferences/menus.xul" />
-    <prefpane id="aiosAbout" label="&tab.about;"
-              src="chrome://aios/content/preferences/about.xul" />
-
+  <script type="application/javascript"
+          src="chrome://aios/content/_helper.js" />
+  <script type="application/javascript"
+          src="chrome://aios/content/preferences/general.js" />
+  <script type="application/javascript"
+          src="chrome://aios/content/preferences/preferences.js" />
+  <stringbundleset>
+    <stringbundle id="aiosStrings"
+                  src="chrome://aios/locale/lib.properties" />
+  </stringbundleset>
+  <popupset>
+    <menupopup id="aios-settings-popup"
+               position="before_start">
+      <menuitem id="aios-defaults"
+                label="&settings.default;"
+                oncommand="AiOS_Prefs.defaultSettings();" />
+      <menuseparator />
+      <menuitem id="aios-export"
+                label="&settings.export;"
+                oncommand="AiOS_Prefs.exportSettings('save');" />
+      <menuitem id="aios-import"
+                label="&settings.import;"
+                oncommand="AiOS_Prefs.importSettings();" />
+      <menuitem id="aios-copy"
+                label="&settings.copy;"
+                oncommand="AiOS_Prefs.exportSettings('copy');" />
+    </menupopup>
+  </popupset>
+  <prefpane id="aiosGeneral"
+            label="&tab.gen;"
+            src="chrome://aios/content/preferences/general.xul" />
+  <prefpane id="aiosSbSwitch"
+            label="&menu.togglebar.label;"
+            src="chrome://aios/content/preferences/sidebarswitch.xul" />
+  <prefpane id="aiosPanels"
+            label="&tab.panels;"
+            src="chrome://aios/content/preferences/panels.xul" />
+  <prefpane id="aiosMenus"
+            label="&tab.menus;"
+            src="chrome://aios/content/preferences/menus.xul" />
+  <prefpane id="aiosAbout"
+            label="&tab.about;"
+            src="chrome://aios/content/preferences/about.xul" />
 </prefwindow>

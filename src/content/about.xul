@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
-
 <?xml-stylesheet href="chrome://browser/skin/"?>
 <?xml-stylesheet href="chrome://aios/skin/preferences.css" type="text/css"?>
 
 <!DOCTYPE overlay [
-    <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
+  <!ENTITY % aboutDTD SYSTEM "chrome://aios/locale/about.dtd"> %aboutDTD;
 ]>
 
 <prefwindow id="aiosAboutWindow"
@@ -16,11 +15,9 @@
             buttonlabelextra1="&close;"
             buttonlabelextra2="&settings;"
             ondialogextra1="window.close();"
-            ondialogextra2="aios_openDialog('prefs');" >
-
-    <script type="application/javascript"
-            src="chrome://aios/content/_helper.js" />
-
-    <prefpane id="aiosAbout"
-              src="chrome://aios/content/preferences/about.xul" />
+            ondialogextra2="aios_openDialog('prefs');">
+  <script type="application/javascript"
+          src="chrome://aios/content/_helper.js" />
+  <prefpane id="aiosAbout"
+            src="chrome://aios/content/preferences/about.xul" />
 </prefwindow>
