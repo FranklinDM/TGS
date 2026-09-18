@@ -1,6 +1,6 @@
 <!ENTITY loading.label "nilo-load ang panel…">
 <!ENTITY menu.prefs.label "Mga Opsiyon ng The Good 'ol Sidebar…">
-<!ENTITY menu.togglebar.label "Sidebar Switch">
+<!ENTITY menu.togglebar.label "Panel Toggle">
 <!ENTITY menu.grippy.label "Sidebar Grippy">
 <!ENTITY toolbar.name "Halang ng The Good 'ol Sidebar">
 <!ENTITY toolbar.label "The Good 'ol Sidebar">
@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "Halang ng TGS">
 <!ENTITY button.toolbar.tooltip "I-toggle ang Halang ng TGS">
 <!ENTITY button.paneltab.label "PanelTab">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Buksan ang Nilalaman ng Tab sa Sidebar">
 <!ENTITY button.paneltab.tooltip2 "Buksan ang Nilalaman ng Sidebar sa New Tab">
 <!ENTITY button.paneltab.tooltip3 "Buksan ang Nilalaman ng Sidebar sa Window">
@@ -33,7 +34,7 @@
 <!ENTITY button.tooltip.tab "Buksan sa Bagong Tab">
 <!ENTITY button.addons.label "Mga Add-on">
 <!ENTITY button.addons.tooltip "Ipakita ang mga naka-install na add-on">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Ipakita ang mga website at impormasyon ng browser">
 <!ENTITY button.pageinfo.tooltip "Ipakita ang masaklaw na impormasyon tungkol sa isang pahina">
 <!ENTITY button.console.label "Error Console">

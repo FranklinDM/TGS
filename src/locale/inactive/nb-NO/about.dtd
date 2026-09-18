@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "Bidragsytere">
 <!ENTITY tab.trans "Oversettere">
 <!ENTITY create.desc "laget av Ingo Wennemaring, Hamburg [Tyskland]">
-<!ENTITY about1.name "Hjemmeside - masse informasjon på ett sted">
-<!ENTITY about2.name "Muligheter - alle mulighetene som The Good 'ol Sidebar har">
-<!ENTITY about3.name "OSP - ofte stilte spørsmål og svar">
-<!ENTITY about4.name "Kjente problemer - beskrivelse og feilsøking">
-<!ENTITY about5.name "Forum - diskusjon, feilrapporter og temafikser blant mange andre ting">
-<!ENTITY about6.name "Endringslogg - historie og endringer">
-<!ENTITY about7.name "To-do - planlagte muligheter og forbedringer">
 <!ENTITY contrib.desc "Jeg takker følgende utviklere for inspirasjon og kodebiter [alfabetisk rekkefølge]:">
 <!ENTITY contrib.thanks "Sist, men ikke minst vil jeg takke alle brukerne som har hjulpet med testing av prøveversjoner, feilrapportering i forumet, deling av ideer og forslag eller de som kun skrev en hyggelig kommentar. :-) Tusen takk skal du ha!">
 <!ENTITY trans.desc "The Good 'ol Sidebars oversettere [alfabetisk rekkefølge etter landskode]:">
-<!ENTITY trans.thanks "Jeg takker selvfølgelig gjengen på BabelZilla.org for deres flotte arbeid!">

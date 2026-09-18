@@ -112,7 +112,7 @@ var AiOS = {
             document.persist(AiOS_Objects.sidebarBox.id, "aiosLastPanel");
         }
 
-        // Initialize Sidebar, Toolbar and Sidebar Switch at start using user settings
+        // Initialize Sidebar, Toolbar and Panel Toggle at start using user settings
         var sidebarInit = AiOS_HELPER.prefBranchAiOS.getCharPref("gen.init");
         var toolbarInit = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.toolbar.init");
         var switchInit = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.init");
@@ -146,7 +146,7 @@ var AiOS = {
             AiOS.setSidebarWidth(e);
         }, false);
 
-        // Determine if we should disable/enable the sidebar switch's drag and drop feature and
+        // Determine if we should disable/enable the panel toggle's drag and drop feature and
         // set the delay on how long an item should be on top of the switch if necessary
         var switchDrag = AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.drag");
         var switchDragDelay = AiOS_HELPER.prefBranchAiOS.getIntPref("gen.switch.dragdelay");
@@ -446,7 +446,7 @@ var AiOS = {
                 window.clearTimeout(AiOS._autoTimeout);
             }, true);
 
-            // If the invisible sidebar switch is enabled and no click is true, don't remove the timeout
+            // If the invisible panel toggle is enabled and no click is true, don't remove the timeout
             if (AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv") && AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick"))
                 return true;
 
@@ -654,11 +654,11 @@ var AiOS = {
     },
 
     /*
-     * Control the mouse actions of the sidebar switcher
+     * Control the mouse actions of the panel toggler
      * => Called by onClick() of the switcher
      */
     controlSwitch: function (ev, which) {
-        // If the invisible sidebar switch is enabled and no click is true, reject any click interactions
+        // If the invisible panel toggle is enabled and no click is true, reject any click interactions
         if (AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.inv") && AiOS_HELPER.prefBranchAiOS.getBoolPref("gen.switch.invnoclick"))
             return;
         // Left click => metaKey = Mac
@@ -745,7 +745,7 @@ var AiOS = {
             break;
         }
 
-        // Decide on what mode should be applied on sidebar switch
+        // Decide on what mode should be applied on panel toggle
         AiOS.checkSidebarSwitch();
     },
 

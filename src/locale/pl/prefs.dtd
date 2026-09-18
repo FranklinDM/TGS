@@ -89,8 +89,8 @@
 <!ENTITY misc.em.oninstall.label "Wyświetlaj panel boczny z dodatkami podczas instalowania dodatku">
 <!ENTITY misc.count.label "Wyświetlaj ilość elementów">
 <!ENTITY misc.enablelink.tooltip "Kliknij tutaj, aby uzyskać więcej informacji (odnośnik do FAQ-ów)">
+<!ENTITY misc.paneltab.headerdesc "Configure how the Page Transfer button handles tabs, sidebar panels, and click actions.">
 <!ENTITY misc.paneltab.reverse "Zamień działanie kliknięcia l.p.m. z p.p.m.">
-<!ENTITY misc.bm.paneltab.desc "Przycisk „PanelTab” może otwierać menedżera zakładek w nowej karcie zamiast w panelu bocznym.">
 <!ENTITY misc.bm.paneltab "Otwieraj menedżera zakładek w nowej karcie">
 <!ENTITY special.collapsing.caption "Zwijanie panelu bocznego">
 <!ENTITY special.collapsing.label "Włącz zwijanie panelu bocznego">

@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "Pagalbininkai">
 <!ENTITY tab.trans "Vertėjai">
 <!ENTITY create.desc "sukūrė Ingo Wennemaring, Hamburgas (Vokietija)">
-<!ENTITY about1.name "Pradžios tinklalapis - daug informacijos">
-<!ENTITY about2.name "Savybės - visos „The Good 'ol Sidebar“ savybės">
-<!ENTITY about3.name "DUK - dažnai užduodami klausimai ir atsakymai">
-<!ENTITY about4.name "Žinomos problemos - aprašymai ir problemų sprendimas">
-<!ENTITY about5.name "Forumas - diskusijos, pranešimai apie klaidas, grafinių apvalkalų pataisymai ir t.t.">
-<!ENTITY about6.name "Pakeitimų sąrašas - istorija ir pakeitimai">
-<!ENTITY about7.name "To-do - planuojamos savybės bei patobulinimai">
 <!ENTITY contrib.desc "Dėkoju šiems žmonėms už įkvėpimą ir kodo fragmentus (abėcėlės tvarka):">
 <!ENTITY contrib.thanks "Taip pat dėkoju visiems, padėjusiems testuoti priedą, pranešusiems apie klaidas forume, besidalijusiems savo idėjomis ir pasiūlymais ar tiesiog rašiusiems gražius komentarus. :-) Labai ačiū Jums!">
 <!ENTITY trans.desc "„The Good 'ol Sidebar“ vertėjai (abėcėlės tvarka pagal kalbos trumpinį):">
-<!ENTITY trans.thanks "Taip pat dėkoju BabelZilla.org komandai už jų nuostabų darbą!">

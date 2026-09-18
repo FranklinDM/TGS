@@ -2,20 +2,10 @@
 <!ENTITY settings "Ayarlar">
 <!ENTITY close "Kapat">
 <!ENTITY tab.about "Hakkında">
-<!ENTITY tab.help "Yardım">
 <!ENTITY tab.contrib "Destekleyenler">
 <!ENTITY tab.trans "Çevirmenler">
 <!ENTITY about.desc "The Good 'ol Sidebar çeşitli pencelerleri kenar çubuğu panellerinde açmanızı ve birbirleri arasında gezinmenizi sağlar. Böylece pencere karmaşasına bir nokta koyar. Yer imleri ve geçmiş yanında indirilenler, eklentiler ve diğer pencereleri de kenar çubuğunda açar.">
 <!ENTITY create.desc "Ingo Wennemaring, Hamburg [Almanya] tarafından yapılmıstır.">
-<!ENTITY help.desc "Bu eklentiyle ilgili birçok bilgiyi şu ağ sayfasında bulabilirsiniz:">
-<!ENTITY about1.name "Web sayfası - Detaylı bilgiler">
-<!ENTITY about2.name "Özellikler- The Good 'ol Sidebar eklentisinin bütün özellikler">
-<!ENTITY about3.name "SSS - Sık sorulan sorular ve cevaplar">
-<!ENTITY about4.name "Bilinen hatalar - Bilinen hatalar hakkında açıklamalar">
-<!ENTITY about5.name "Forum - Hata raporları, düzeltmeler diğer konular">
-<!ENTITY about6.name "Değişiklikler - Sürümlerde yapılan değişiklikler">
-<!ENTITY about7.name "Yapılacaklar - Yapılması düşünülen yenilikler">
 <!ENTITY contrib.desc "Kod desteği ve yaptıkları öneriler ile aşağıdaki ismi geçen herkese teşekkür ederim:">
 <!ENTITY contrib.thanks "Tüm kullanıcılara,gelitirmede yardım etmiş ve test etmiş herkese teşekkürler.Hataları forumda bildirin,fikirlerinizi ve görmek istediklerinizi paylaşın.Kimler güzel yorumlar yazdıysa :-) Çok çok teşekkürler!">
 <!ENTITY trans.desc "The Good 'ol Sidebar çeviricileri (Dil kodlarıyla alfabedik sırada)">
-<!ENTITY trans.thanks "Büyük çalışmalarından dolayı BabelZilla.org Takımına teşekkürler.">

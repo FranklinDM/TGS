@@ -10,16 +10,16 @@
 <!ENTITY tab.gen "General">
 <!ENTITY tab.gen.appearance "Appearance">
 <!ENTITY tab.gen.behavior "Behavior">
-<!ENTITY tab.gen.fullscreen "Full Screen Mode">
-<!ENTITY tab.gen.special "Special">
+<!ENTITY tab.gen.fullscreen "In full screen mode">
+<!ENTITY tab.gen.special "Advanced">
 <!ENTITY tab.panels "Panels">
-<!ENTITY tab.panels.places "Bookmarks/History">
-<!ENTITY tab.panels.other1 "Others">
-<!ENTITY tab.panels.paneltab "PanelTab">
+<!ENTITY tab.panels.places "Library">
+<!ENTITY tab.panels.other1 "General">
+<!ENTITY tab.panels.paneltab "Page Transfer">
 <!ENTITY tab.menus "Menus">
 <!ENTITY tab.menus.sidebar "Sidebar">
 <!ENTITY tab.keys "Shortcuts">
-<!ENTITY tab.about "About/Help">
+<!ENTITY tab.about "About">
 <!ENTITY gen.orient.caption "Orientation">
 <!ENTITY gen.orient.label "Show sidebar on">
 <!ENTITY gen.orient.left "Left side">
@@ -32,67 +32,67 @@
 <!ENTITY gen.width.min.hint "[Shift+double-click] on the sidebar title">
 <!ENTITY gen.width.def.hint "[Double-click] on the sidebar title">
 <!ENTITY gen.width.max.hint "[Ctrl+double-click] or [Alt+double-click] on the sidebar title">
-<!ENTITY gen.init.caption "Browser Startup">
+<!ENTITY gen.init.caption "When browser starts">
 <!ENTITY gen.init.label "Sidebar">
 <!ENTITY gen.init.toolbar.label "Toolbar">
-<!ENTITY gen.init.toolbar.show.label "Show Toolbar">
-<!ENTITY gen.init.toolbar.hide.label "Hide Toolbar">
-<!ENTITY gen.init.switch.show.label "Show Sidebar Switch">
-<!ENTITY gen.init.switch.hide.label "Hide Sidebar Switch">
-<!ENTITY gen.init.mode1 "Restore the Remembered State">
-<!ENTITY gen.init.sidebar "Open Sidebar (Sidebar Switch, Toggle Button, Shortcut)">
-<!ENTITY gen.init.sidebar.restore "Restore the Remembered Panel">
-<!ENTITY gen.switch.autoshow "Show/hide Sidebar automatically (mouse contact instead of mouse click)">
-<!ENTITY gen.switch.drag "Show the Sidebar automatically when dragging something over the sidebar switch">
-<!ENTITY gen.switch.onlymax "Only if Browser is Maximized or in Full Screen Mode">
-<!ENTITY gen.switch.invtrigger "Enable Invisible Sidebar Switch">
-<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.init.toolbar.show.label "Show toolbar">
+<!ENTITY gen.init.toolbar.hide.label "Hide toolbar">
+<!ENTITY gen.init.switch.show.label "Show panel toggle">
+<!ENTITY gen.init.switch.hide.label "Hide panel toggle">
+<!ENTITY gen.init.mode1 "Restore previous state">
+<!ENTITY gen.init.sidebar "When opening the sidebar">
+<!ENTITY gen.init.sidebar.restore "Open last used panel">
+<!ENTITY gen.switch.autoshow "Toggle the sidebar by hovering instead of clicking">
+<!ENTITY gen.switch.drag "Show the Sidebar automatically when dragging something over the panel toggle">
+<!ENTITY gen.switch.onlymax "Only when the browser is maximized or in full screen mode">
+<!ENTITY gen.switch.invtrigger "Enable invisible panel toggle">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible panel toggle:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
-<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the panel toggle">
 <!ENTITY gen.switch.delayshow "Show Delay">
 <!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Delay">
 <!ENTITY gen.switch.delayUnit "milliseconds">
 <!ENTITY gen.switch.hide "Hide Sidebar if the mouse cursor:">
 <!ENTITY gen.switch.hideBar "is moved back to the webpage">
-<!ENTITY gen.switch.hidePage "is held on the Sidebar Switch">
+<!ENTITY gen.switch.hidePage "is held on the Panel Toggle">
 <!ENTITY gen.switch.hideNone "don't hide automatically">
-<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility "Hide the panel toggle when:">
 <!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
 <!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
 <!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
-<!ENTITY gen.switch.thin "Enable Thin Sidebar Switch">
-<!ENTITY gen.switch.width "Width of the Sidebar Switch">
-<!ENTITY gen.switch.twidth "Width of the Thin Sidebar Switch">
-<!ENTITY gen.mbSeparate "Don't open in sidebar panel when opened from menu/key shortcuts">
+<!ENTITY gen.switch.thin "Enable thin panel toggle">
+<!ENTITY gen.switch.width "Width of the panel toggle">
+<!ENTITY gen.switch.twidth "Width of the thin panel toggle">
+<!ENTITY gen.mbSeparate "Open in a separate window when triggered by menus or keyboard shortcuts">
 <!ENTITY cmode.caption "Toggle Sidebar">
-<!ENTITY cmode.desc "Customize which elements should be affected if opening or closing the sidebar with different methods.">
+<!ENTITY cmode.desc "Choose which elements toggle when using each shortcut or button.">
 <!ENTITY cmode.key.label "Shortcut (F4)">
 <!ENTITY cmode.tbb.label "TGS Button">
 <!ENTITY cmode.close.label "Close Button">
-<!ENTITY cmode.mode1.label "Only the Sidebar">
-<!ENTITY cmode.mode2.label "The Sidebar and the Toolbar">
-<!ENTITY cmode.mode3.label "The Sidebar, the Toolbar, and the Sidebar Switch">
-<!ENTITY cmode.mode4.label "Opera&apos;s Behavior">
-<!ENTITY gen.fs.off "Restore the State if Quitting the Full Screen Mode">
-<!ENTITY menus.sidebar.desc "Customize the entries in the menu “View &gt; Sidebar” and in the dropdown menus of the sidebar buttons.">
+<!ENTITY cmode.mode1.label "Sidebar only">
+<!ENTITY cmode.mode2.label "Sidebar and toolbar">
+<!ENTITY cmode.mode3.label "Sidebar, toolbar, and panel toggle">
+<!ENTITY cmode.mode4.label "Classic Opera behavior">
+<!ENTITY gen.fs.off "Restore previous state when exiting full screen">
+<!ENTITY menus.sidebar.desc "Customize items in the &quot;View &gt; Sidebar&quot; menu and the sidebar buttons' dropdown menus.">
 <!ENTITY menus.icons.label "Show Icons">
 <!ENTITY menus.entries.label "Show Entries">
-<!ENTITY menus.sidebar.entrydeac "Disable the Entry of the Active Sidebar">
-<!ENTITY misc.enablesidebar.label "Open in Sidebar">
-<!ENTITY misc.enablepopup.label "Open in Popup">
-<!ENTITY misc.layout.label "Optimize Layout for the Sidebar">
-<!ENTITY misc.dm.autoopen.label "Show the Downloads sidebar when downloading a file">
-<!ENTITY misc.dm.autoclose.label "Close it when all downloads are finished">
-<!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
-<!ENTITY misc.em.oninstall.label "Show the Add-ons sidebar when installing an add-on">
+<!ENTITY menus.sidebar.entrydeac "Disable menu item for the currently active panel">
+<!ENTITY misc.enablesidebar.label "Open in the sidebar">
+<!ENTITY misc.enablepopup.label "Open in a pop-up">
+<!ENTITY misc.layout.label "Optimize for sidebar layout">
+<!ENTITY misc.dm.autoopen.label "Show the sidebar when downloading a file">
+<!ENTITY misc.dm.autoclose.label "Close the sidebar when all downloads are finished">
+<!ENTITY misc.dm.shading.label "Highlight items based on download status">
+<!ENTITY misc.em.oninstall.label "Show the sidebar when installing an add-on">
 <!ENTITY misc.colors.label "Enable colored backgrounds based on current state">
-<!ENTITY misc.count.label "Show Number of Items">
+<!ENTITY misc.count.label "Show the number of items">
 <!ENTITY misc.enablelink.tooltip "Click here for more information (link to the FAQs)">
-<!ENTITY misc.paneltab.reverse "Swap Left-click and Middle-click Actions">
-<!ENTITY misc.bm.paneltab.desc "The button “PanelTab” can open the Bookmark Manager in a new tab instead of the Bookmark Panel.">
-<!ENTITY misc.bm.paneltab "Enable Bookmark Manager in New Tab">
-<!ENTITY special.collapsing.caption "Sidebar Collapsing">
-<!ENTITY special.collapsing.label "Enable Sidebar Collapsing">
-<!ENTITY special.collapsing.desc "The sidebar can collapse instead of closing. The advantage is that the sidebar content doesn&apos;t have to reload after re-opening so it responds faster.">
+<!ENTITY misc.paneltab.headerdesc "Configure how the Page Transfer button handles tabs, sidebar panels, and click actions.">
+<!ENTITY misc.paneltab.reverse "Swap left-click and middle-click behavior">
+<!ENTITY misc.bm.paneltab "Open the Library in a new tab instead of the sidebar panel">
+<!ENTITY special.collapsing.caption "Sidebar collapsing">
+<!ENTITY special.collapsing.label "Collapse sidebar instead of closing">
+<!ENTITY special.collapsing.desc "Keeps sidebar content loaded in memory when hidden so it reopens instantly.">

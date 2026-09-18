@@ -31,7 +31,7 @@
 <!ENTITY button.tooltip.tab "Hape në Fletë të Re">
 <!ENTITY button.addons.label "Shtesat">
 <!ENTITY button.addons.tooltip "Paraqit shtesat dhe motivet e instaluara">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Paraqit p.sh. faqen, burimin e kodit dhe informata mbi shfletuesin">
 <!ENTITY button.pageinfo.tooltip "Paraqit informata të zgjeruara mbi faqen">
 <!ENTITY button.console.label "Konzola e Gabimeve">

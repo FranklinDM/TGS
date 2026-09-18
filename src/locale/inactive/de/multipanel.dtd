@@ -1,5 +1,5 @@
 <!ENTITY page.label "Seite">
-<!ENTITY page.tooltip "Öffnet die Webseite im MultiPanel">
+<!ENTITY page.tooltip "Öffnet die Webseite im Web Panel">
 <!ENTITY page.ssr.label "Darstellung für kleine Bildschirme">
 <!ENTITY page.ssr100.label "An Breite der Sidebar anpassen">
 <!ENTITY about.label "about:">

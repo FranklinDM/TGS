@@ -72,7 +72,6 @@
 <!ENTITY misc.count.label "顯示目前的 套件／主題／下載 數量">
 <!ENTITY misc.enablelink.tooltip "點此以獲得更多資訊（連到FAQ&apos;s）">
 <!ENTITY misc.paneltab.reverse "滑鼠左右鍵之功能互換。">
-<!ENTITY misc.bm.paneltab.desc "允許使用「面板分頁」按鈕將「書籤管理員」開啟在新分頁中，以取代開啟標準的書籤列表。">
 <!ENTITY misc.bm.paneltab "在新分頁開啟「書籤管理員」">
 <!ENTITY special.collapsing.caption "折疊側邊欄">
 <!ENTITY special.collapsing.label "啟用「折疊側邊欄」功能">

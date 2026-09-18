@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "TGS - Barra de Herramientas">
 <!ENTITY button.toolbar.tooltip "Alternar TGS - Barra de Herramientas">
 <!ENTITY button.paneltab.label "Panel de Pestañas">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Abrir el Contenido de la Pestaña en la Barra Lateral">
 <!ENTITY button.paneltab.tooltip2 "Abrir el Contenido de la Barra Lateral en una Nueva Pestaña">
 <!ENTITY button.paneltab.tooltip3 "Abrir el Contenodo de la Barra Lateral en una Ventana">
@@ -33,7 +34,7 @@
 <!ENTITY button.tooltip.tab "Abrir en una Pestaña Nueva">
 <!ENTITY button.addons.label "Agregados">
 <!ENTITY button.addons.tooltip "Mostrar las extensiones y temas instalados">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Mostrar por ejemplo un sitio web, el código fuente y la información del navegador">
 <!ENTITY button.pageinfo.tooltip "Ver informaciones, Formularios, Enlaces, Contenido y Seguridad">
 <!ENTITY button.console.label "Consola de Errores">

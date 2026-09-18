@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "貢獻者">
 <!ENTITY tab.trans "翻譯人員">
 <!ENTITY create.desc "套件作者為：Ingo Wennemaring, Hamburg [Germany]">
-<!ENTITY about1.name "產品首頁 - 您可以在這裡找到 AIO-Sidebar 所有的相關資訊">
-<!ENTITY about2.name "軟體介紹 - The Good 'ol Sidebar 產品特色、功能的說明">
-<!ENTITY about3.name "常見問題 - 經常被詢問到的問題及其解答">
-<!ENTITY about4.name "已知問題 - 已知的問題及其相關解決方案">
-<!ENTITY about5.name "用戶論壇 - 軟體使用相關討論、錯誤回報、佈景主題修正…">
-<!ENTITY about6.name "更新紀錄 - 各個版本間的變動、改進項目以及版本歷史">
-<!ENTITY about7.name "未來展望 - 計畫加入的新功能與改善項目">
 <!ENTITY contrib.desc "感謝下列人士的啟發與貢獻程式碼（依姓名字順序排列）：">
 <!ENTITY contrib.thanks "最後（但並非最不重要），我感謝所有協助測試開發版本的使用者，除了在論壇回報 bugs 之外，也分享他們的意見與建議（或是只寫了一些不錯的評語），總之非常感謝你們！">
 <!ENTITY trans.desc "感謝以下人士的翻譯（依語系英文字順序排列）：">
-<!ENTITY trans.thanks "我也感謝這個翻譯團隊在 BabelZilla.org 所作的努力。">

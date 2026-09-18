@@ -70,7 +70,7 @@ window[aiosOrient="right"] #aios-toolbox[toolboxposition="2"] {
   -moz-box-ordinal-group: 5;
 }
 
-/* Fix for invisible sidebar switch */
+/* Fix for invisible panel toggle */
 window[aiosOrient="right"] #aios-toggle-toolbar {
   right: 0;
 }

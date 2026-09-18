@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Visa antal objekt">
 <!ENTITY misc.enablelink.tooltip "Klicka här för mera information (FAQ)">
 <!ENTITY misc.paneltab.reverse "Växla vänsterklicks- och mellanklicksfunktion">
-<!ENTITY misc.bm.paneltab.desc "Knappen &quot;Panel-Flik&quot; kan öppna bokmärkeshanteraren i en ny flik i stället för i bokmärkespanelen.">
 <!ENTITY misc.bm.paneltab "Öppna bokmärkeshanteraren i en ny flik">
 <!ENTITY special.collapsing.caption "Sidopanelskomprimering">
 <!ENTITY special.collapsing.label "Aktivera komprimering av sidopanelen">

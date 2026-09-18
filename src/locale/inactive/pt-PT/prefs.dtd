@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Mostrar o número de itens">
 <!ENTITY misc.enablelink.tooltip "Clique aqui para mais informação (ligação para a FAQ)">
 <!ENTITY misc.paneltab.reverse "Swap das Acções clique-esquerdo e meio-clique">
-<!ENTITY misc.bm.paneltab.desc "O botão “Painel de Separadores” pode abrir o Gestor de Marcadores num novo separador em vez do painel de favoritos.">
 <!ENTITY misc.bm.paneltab "Activar o Gestor de Marcadores num Novo Separador">
 <!ENTITY special.collapsing.caption "Colapso da Barra lateral">
 <!ENTITY special.collapsing.label "Activar Colapso da barra lateral">

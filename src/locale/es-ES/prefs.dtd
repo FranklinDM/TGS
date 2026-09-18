@@ -46,10 +46,10 @@
 <!ENTITY gen.switch.drag "Mostrar/Ocultar el panel lateral automáticamente al arrastrar algo sobre el selector del panel lateral">
 <!ENTITY gen.switch.onlymax "Sólo si el navegador está maximizado en el modo de pantalla completa">
 <!ENTITY gen.switch.invtrigger "Habilitar el selector invisible del panel lateral">
-<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible panel toggle:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
-<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the panel toggle">
 <!ENTITY gen.switch.delayshow "Show Delay">
 <!ENTITY gen.switch.delayhide "Hide Delay">
 <!ENTITY gen.switch.delay "Retraso">
@@ -58,7 +58,7 @@
 <!ENTITY gen.switch.hideBar "vuelva a la página web">
 <!ENTITY gen.switch.hidePage "se mantenga en el selector del panel">
 <!ENTITY gen.switch.hideNone "no te escondas automáticamente">
-<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility "Hide the panel toggle when:">
 <!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
 <!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
 <!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
@@ -85,13 +85,13 @@
 <!ENTITY misc.layout.label "Optimización del panel lateral">
 <!ENTITY misc.dm.autoopen.label "Mostrar el panel lateral de descargas al descargar un archivo">
 <!ENTITY misc.dm.autoclose.label "Cerrarlo cuando todas las descargas hayan terminado">
-<!ENTITY misc.dm.shading.label "Shade the items in the downloads list depending on their state">
+<!ENTITY misc.dm.shading.label "Highlight items based on download status">
 <!ENTITY misc.em.oninstall.label "Show the Add-ons sidebar when installing an add-on">
 <!ENTITY misc.colors.label "Habilitar los fondos de colores basados en el estado actual">
 <!ENTITY misc.count.label "Mostrar número de elementos">
 <!ENTITY misc.enablelink.tooltip "Pulse aquí para más información (enlace a las FAQs)">
+<!ENTITY misc.paneltab.headerdesc "Configure how the Page Transfer button handles tabs, sidebar panels, and click actions.">
 <!ENTITY misc.paneltab.reverse "Intercambiar las acciones de los botones izquierdo y central">
-<!ENTITY misc.bm.paneltab.desc "El botón PanelTab puede abrir el administrador de marcaodres en una nueva pestaña en lugar de del panel de marcadores.">
 <!ENTITY misc.bm.paneltab "Habilitar administrador de marcadores en nueva pestaña">
 <!ENTITY special.collapsing.caption "Colapso del panel lateral">
 <!ENTITY special.collapsing.label "Habilitar el colapso del panel lateral">

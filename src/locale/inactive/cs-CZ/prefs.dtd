@@ -70,7 +70,6 @@
 <!ENTITY misc.count.label "Zobrazit počet položek">
 <!ENTITY misc.enablelink.tooltip "Pro zobrazení dalších informací klepněte zde (odkaz na FAQ)">
 <!ENTITY misc.paneltab.reverse "Zaměnit akce pro levé a pravé tlačítko myši">
-<!ENTITY misc.bm.paneltab.desc "Pomocí tlačítka „Postranní lištu do panelu“ otevítat v panelu pokročilého správce záložek.">
 <!ENTITY misc.bm.paneltab "V panelu otevírat pokročilého správce záložek">
 <!ENTITY special.collapsing.caption "Odsouvání postranních lišt">
 <!ENTITY special.collapsing.label "Použít odsouvání postranních lišt">

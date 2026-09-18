@@ -72,7 +72,6 @@
 <!ENTITY misc.count.label "Zobraziť počet položiek">
 <!ENTITY misc.enablelink.tooltip "Kliknite sem pre viac informácií">
 <!ENTITY misc.paneltab.reverse "Zameniť akcie pre ľavé a pravé tlačidlo myši">
-<!ENTITY misc.bm.paneltab.desc "Tlačidlom &quot;Otvoriť bočný panel v novej karte&quot; otvárať v paneli pokročilého správcu záložiek">
 <!ENTITY misc.bm.paneltab "Otvárať správcu záložiek do novej karty">
 <!ENTITY special.collapsing.caption "Odsúvanie bočného panela">
 <!ENTITY special.collapsing.label "Povoliť odsúvanie bočného panela">

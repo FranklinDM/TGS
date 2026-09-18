@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "Vývoj">
 <!ENTITY tab.trans "Lokalizace">
 <!ENTITY create.desc "vytvořil Ingo Wennemaring v Hamburku [Německo]">
-<!ENTITY about1.name "Domovská stránkka - mnoho informací na jednom místě">
-<!ENTITY about2.name "Vlastnosti - popis vlastností rozšíření The Good 'ol Sidebar">
-<!ENTITY about3.name "FAQ - často kladené dotazy a odpovědi">
-<!ENTITY about4.name "Zjištěné problémy - popis zjištěných problémů a jejich řešení">
-<!ENTITY about5.name "Fórum - diskuze, hlášení chyb, atd.">
-<!ENTITY about6.name "Přehled změn - co, kdy a jak se změnilo v průběhu vývoje">
-<!ENTITY about7.name "Úkolník - seznam plánovaných dovedností a vylepšení">
 <!ENTITY contrib.desc "Děkuji těmto vývojářům za inspiraci a ústřižky kódu (abecední řazení):">
 <!ENTITY contrib.thanks "Děkuji i všem uživatelům, kteří pomáhali s testováním vývojových verzí, odhalovali jejich chyby, sdíleli své nápady či jen do fóra psali komentáře :-). Děkuji vám všem!">
 <!ENTITY trans.desc "Děkuji těmto lokalizátorům (abecední řazení dle zkráceného značení jazyka):">
-<!ENTITY trans.thanks "Děkuji samozřejmě i týmu překladatelů z BabelZilla.org za jejich skvělou práci!">

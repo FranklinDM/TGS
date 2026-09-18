@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "Barre d'TGS">
 <!ENTITY button.toolbar.tooltip "Afficher/cacher la barre d'TGS">
 <!ENTITY button.paneltab.label "Onglet du panneau">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Ouvre le contenu de l'onglet dans le panneau latéral">
 <!ENTITY button.paneltab.tooltip2 "Ouvre le contenu du panneau latéral dans un nouvel onglet">
 <!ENTITY button.paneltab.tooltip3 "Ouvre le contenu du panneau latéral dans une fenêtre">

@@ -76,7 +76,6 @@
 <!ENTITY misc.count.label "Näytä merkintöjen määrä">
 <!ENTITY misc.enablelink.tooltip "Napsauta täältä saadaksesi lisätietoja (linkki UKK:hon&apos;s)">
 <!ENTITY misc.paneltab.reverse "Vaihda napsautuksen ja keskinapsautuksen toiminnot keskenään">
-<!ENTITY misc.bm.paneltab.desc "“Paneelivälilehti” painike voi avata kirjanmerkki hallinnan uuteen välilehteen kirjanmerkkipaneelin sijaan.">
 <!ENTITY misc.bm.paneltab "Ota käyttön kirjanmerkki hallinta uudessa välilehdessä">
 <!ENTITY special.collapsing.caption "Sivupaneelin pienennys">
 <!ENTITY special.collapsing.label "Ota käyttöön sivupaneelin pienennys">

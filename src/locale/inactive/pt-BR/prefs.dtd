@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Exibir número de itens">
 <!ENTITY misc.enablelink.tooltip "Clique para mais informações (link para as perguntas frequentes)">
 <!ENTITY misc.paneltab.reverse "Trocar ações do clique esquerdo e direito">
-<!ENTITY misc.bm.paneltab.desc "O botão PainelAba pode abrir em uma nova aba o gerenciador de favoritos ao invés do painel de favoritos.">
 <!ENTITY misc.bm.paneltab "Abrir gerenciador de favoritos em nova aba">
 <!ENTITY special.collapsing.caption "Ocultar painel lateral">
 <!ENTITY special.collapsing.label "Habilitar ocultamento do painel lateral">

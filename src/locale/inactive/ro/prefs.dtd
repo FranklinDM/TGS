@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Se afișează numărul de elemente">
 <!ENTITY misc.enablelink.tooltip "Faceți clic aici pentru mai multe informații (legătură la „Întrebări și răspunsuri“)">
 <!ENTITY misc.paneltab.reverse "Se inversează acțiunile pentru clic-stânga și clic-mijloc">
-<!ENTITY misc.bm.paneltab.desc "Butonul „File în panoul lateral“ poate deschide gestionarul semnelor de carte într-o filă nouă în loc de panoul semnelor de carte.">
 <!ENTITY misc.bm.paneltab "Se deschide gestionarul semnelor de carte într-o filă nouă">
 <!ENTITY special.collapsing.caption "Ascundere panou lateral">
 <!ENTITY special.collapsing.label "Se activează ascunderea panoului lateral">

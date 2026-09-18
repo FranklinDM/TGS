@@ -14,7 +14,7 @@
             title="&title;"
             persist="screenX screenY"
             buttons="accept,cancel,extra2,extra1,disclosure"
-            style="min-width: 45em; max-width: 780px;"
+            style="width: 45.5em; min-height: 40.5em;"
             buttonlabelextra2="&settings;"
             buttonlabelextra1="&apply;"
             onload="AiOS_Prefs.initPrefs();"

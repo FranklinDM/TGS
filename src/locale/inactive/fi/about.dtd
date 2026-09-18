@@ -6,14 +6,6 @@
 <!ENTITY tab.trans "Kääntäjät">
 <!ENTITY about.desc "TGS -sivupalkki mahdollistaa erinäisten ikkunoitten avaamisen paneeleina sivupalkissa ja nopean siirtymisen niiden välillä. Se on siis piste ikkunakaaokselle! Kirjanmerkkien ja sivuhistorian lisäksi voidaan avata esimerkiksi lataukset ja laajennukset ikkuna.">
 <!ENTITY create.desc "luonut Ingo Wennemaring, Hampuri [Saksa]">
-<!ENTITY about1.name "Kotisivu - paljon tietoa yhdessä paikassa">
-<!ENTITY about2.name "Ominaisuudet - kaikki The Good 'ol Sidebarin ominaisuudet">
-<!ENTITY about3.name "UKK - usein kysyttyjä kysymyksiä ja vastauksia">
-<!ENTITY about4.name "Tunnetut viat - kuvaukset ja ongelmanratkaisu">
-<!ENTITY about5.name "Foorumi - keskusteluja, vika raportteja, ja teema korjauksia muitten asioiden lisäksi">
-<!ENTITY about6.name "Muutosloki - historia ja muutokset">
-<!ENTITY about7.name "Tehtävänä - suunnitellut ominaisuudet ja parannukset">
 <!ENTITY contrib.desc "Kiitän seuraavia ohjemoijia innoituksesta ja tilkuista [aakkos järjestys]:">
 <!ENTITY contrib.thanks "Viimeisenä muttei vähäisimpinä kiitän kaikkia käyttäjiä jotka auttoivat testaamalla kehitysversioita, vikojen raportoinnista foorumilla, ideoittensa jakamisesta tai mukavien kommenttien kirjoittamisesta :-) Kiitos paljon teille!">
 <!ENTITY trans.desc "The Good 'ol Sidebarin kääntäjät [aakkosjärjestyksessä kieli koodin mukaan]">
-<!ENTITY trans.thanks "Kiitän ehdottomasti myös BabelZilla.org tiimiä mahtavasta työstä!">

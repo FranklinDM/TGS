@@ -2,20 +2,10 @@
 <!ENTITY settings "Settings…">
 <!ENTITY close "Close">
 <!ENTITY tab.about "About">
-<!ENTITY tab.help "Help">
 <!ENTITY tab.contrib "Contributors">
 <!ENTITY tab.trans "Translators">
-<!ENTITY about.desc "The Good 'ol Sidebar lets you open various windows as sidebar panels, and quickly switch between them. So it put an end to the window chaos! In addition to bookmarks and history it opens dialogs such as downloads, add-ons and more in the sidebar.">
-<!ENTITY create.desc "Created by FranklinDM, forked from the now defunct All-in-One Sidebar which was created by Ingo Wennemaring, Hamburg [Germany]">
-<!ENTITY help.desc "You will find many information about this add-on on the website:">
-<!ENTITY about1.name "Homepage - plenty of information in one place">
-<!ENTITY about2.name "Features - all the features of The Good 'ol Sidebar">
-<!ENTITY about3.name "FAQ - frequently asked questions and answers">
-<!ENTITY about4.name "Known issues - descriptions and troubleshooting">
-<!ENTITY about5.name "Support topic - discussions, bug reports, and theme fixes among other things">
-<!ENTITY about6.name "Changelog - history and changes">
-<!ENTITY about7.name "To-do - planned features and improvements">
-<!ENTITY contrib.desc "I thank the following developers for inspiration and snippets (in alphabetical order):">
-<!ENTITY contrib.thanks "Last but not least I thank all users who helped by testing the development builds, reporting bugs in the forum, sharing their ideas and suggestions or who writes just a nice comment. :-) Thank you very much!">
-<!ENTITY trans.desc "The translators of the AiOS and TGS (alphabetically by language code):">
-<!ENTITY trans.thanks "I also obviously thank the team at BabelZilla.org for their great work!">
+<!ENTITY about.desc "The Good 'ol Sidebar lets you open various windows as sidebar panels and quickly switch between them, putting an end to window clutter. In addition to bookmarks and history, it lets you view downloads, add-ons, and custom pages directly in the sidebar.">
+<!ENTITY create.desc "Created by FranklinDM. Forked from the discontinued All-in-One Sidebar extension by Ingo Wennemaring (Hamburg, Germany).">
+<!ENTITY contrib.desc "Credits and code contributions:">
+<!ENTITY contrib.thanks "Thanks to everyone who tested dev builds, reported bugs, shared feedback, or left kind words along the way.">
+<!ENTITY trans.desc "Translations for AiOS and TGS provided by:">

@@ -72,7 +72,6 @@
 <!ENTITY misc.count.label "Vis nummer på elementene">
 <!ENTITY misc.enablelink.tooltip "Klikk her for mer informasjon (lenke til FAQ&apos;s)">
 <!ENTITY misc.paneltab.reverse "Bytt venstreklikk og midtklikk handling">
-<!ENTITY misc.bm.paneltab.desc "Knappen “Paneltab” kan åpne bokmerkehåndtereren i en ny fane istedenfor i bokmerkepanelet.">
 <!ENTITY misc.bm.paneltab "Aktiver bokmerkehåndtereren i ny fane">
 <!ENTITY special.collapsing.caption "Sidestolpesammenslåing">
 <!ENTITY special.collapsing.label "Aktiver Sidestolpesammenslåing">

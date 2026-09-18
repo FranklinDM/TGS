@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "הצגת מספר הפריטים">
 <!ENTITY misc.enablelink.tooltip "לחיצה כאן למידע נוסף (קישור לשאלות נפוצות)">
 <!ENTITY misc.paneltab.reverse "החלפת התפקוד בין לחצן שמאלי ולחצן אמצעי">
-<!ENTITY misc.bm.paneltab.desc "הכפתור “לוח לשונית” יכול לפתוח את מנהל הסימניות בלשונית חדשה במקום בלוח הסימניות">
 <!ENTITY misc.bm.paneltab "אפשור מנהל הסימניות בלשונית חדשה">
 <!ENTITY special.collapsing.caption "מזעור/סגירת סרגל-הצד">
 <!ENTITY special.collapsing.label "אפשור מזעור/סגירת סרגל-הצד">

@@ -71,7 +71,6 @@
 <!ENTITY misc.count.label "Prikaži brojeve stavki">
 <!ENTITY misc.enablelink.tooltip "Kliknite ovdje za više informacija (poveznica na FAQ)">
 <!ENTITY misc.paneltab.reverse "Promijeni akcije lijevog i desnog klika">
-<!ENTITY misc.bm.paneltab.desc "Gumb “Kartica panoa” može u novoj kartici otvoriti Upravitelja Zabilješkama umjesto panoa Zabilješki.">
 <!ENTITY misc.bm.paneltab "Omogući upravitelja zabolješkama u novoj kartici">
 <!ENTITY special.collapsing.caption "Smanjivanje rubnog stupca">
 <!ENTITY special.collapsing.label "Omogući smanjivanje rubnog stupca">

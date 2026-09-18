@@ -76,7 +76,6 @@
 <!ENTITY misc.count.label "アイテム数の表示">
 <!ENTITY misc.enablelink.tooltip "より詳しい情報を得るにはここをクリックしてください (FAQ&apos;s にリンク)">
 <!ENTITY misc.paneltab.reverse "左クリックと中クリックの動作を入れ替える">
-<!ENTITY misc.bm.paneltab.desc "“ パネルタブ ”アイコンでブックマークパネルの代わりに新規タブにブックマークマネージャを開くことができます">
 <!ENTITY misc.bm.paneltab "タブにブックマークマネージャを移動する">
 <!ENTITY special.collapsing.caption "サイドバーを折りたたむ">
 <!ENTITY special.collapsing.label "サイドバーの折りたたみを有効にする">

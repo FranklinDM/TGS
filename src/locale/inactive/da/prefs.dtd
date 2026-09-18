@@ -72,7 +72,6 @@
 <!ENTITY misc.count.label "Vis antal emner">
 <!ENTITY misc.enablelink.tooltip "Klik her for mere information (link til FAQ&apos;s)">
 <!ENTITY misc.paneltab.reverse "Ombyt venstreklik- og midterklik-handlinger">
-<!ENTITY misc.bm.paneltab.desc "Knappen &amp;#8220;PanelFane&amp;#8221; kan åbne i Bogmærke-Manageren i et nyt faneblad i stedet for i Bogmærke-panelet">
 <!ENTITY misc.bm.paneltab "Slå Bogmærke-Manager til i nyt faneblad">
 <!ENTITY special.collapsing.caption "Sidebjælke sammenfoldning">
 <!ENTITY special.collapsing.label "Slå sidebjælke sammenfoldning til">

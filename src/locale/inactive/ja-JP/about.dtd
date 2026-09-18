@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "貢献者">
 <!ENTITY tab.trans "翻訳者">
 <!ENTITY create.desc "作成者： Ingo Wennemaring, ハンブルク [ドイツ]">
-<!ENTITY about1.name "ホームページ - あらゆる情報を掲載">
-<!ENTITY about2.name "特徴 - The Good 'ol Sidebar のすべて">
-<!ENTITY about3.name "FAQ - よくある質問と回答">
-<!ENTITY about4.name "既知の問題 - 問題解説とトラブルシューティング">
-<!ENTITY about5.name "フォーラム - 質疑応答、バグレポート、テーマフィックス、その他">
-<!ENTITY about6.name "更新履歴 - 更新とその履歴">
-<!ENTITY about7.name "プランニング - 新機能と改良の計画">
 <!ENTITY contrib.desc "インスピレーションとコード部分について以下の開発者に感謝します (アルファベット順)">
 <!ENTITY contrib.thanks "フォーラムに開発版のテスト結果やバグ報告をして助けてくれたり、アイデアや提案を共有したり、楽しいコメントを寄せてくれる多くのユーザに感謝します。ありがとうございます！">
 <!ENTITY trans.desc "The Good 'ol Sidebar の言語翻訳者の皆さん (アルファベット順/英語表記名)">
-<!ENTITY trans.thanks "BabelZilla.org チームの偉大な功績に感謝します！">

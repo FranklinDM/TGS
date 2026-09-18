@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "Oni koji su pridonijeli">
 <!ENTITY tab.trans "Prevoditelji">
 <!ENTITY create.desc "kreirao Ingo Wennemaring, Hamburg [Njemačka]">
-<!ENTITY about1.name "Početna stranica">
-<!ENTITY about2.name "Osobine - sve osobine proširenja The Good 'ol Sidebar">
-<!ENTITY about3.name "FAQ - učestalo postavljena pitanja i odgovori">
-<!ENTITY about4.name "Znani problemi - opisi i pitanja">
-<!ENTITY about5.name "Forum - rasprave, prijave greški i popravke tema između ostalih stvari">
-<!ENTITY about6.name "Popis promjena - povijest i promjene">
-<!ENTITY about7.name "Za napraviti - planirane osobine i unaprijeđenja">
 <!ENTITY contrib.desc "Zahvaljujem se slijedećim programerima za inspiraciju i odlomke [abecednim redom]:">
 <!ENTITY contrib.thanks "Zadnje, ali ne manje važno, zahvaljujem svim korisnicima koji su pomogli testiranjem razvojnih izdanja, prijavljivanjem greški na forumu, dijeljenjem njihovih ideja i prijedloga ili jednostavo pisanjem lijepog komentara :-) Puno vam hvala!">
 <!ENTITY trans.desc "The Good 'ol Sidebar prevoditelji [abecedno prema jezičnom kodu]:">
-<!ENTITY trans.thanks "Također, očito, zahvaljujem timu na BabelZilla.org na njihovom odličnom radu!">

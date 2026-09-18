@@ -84,10 +84,9 @@
 
         <tabbox flex="1" id="aiosTabboxPanels">
             <tabs onclick="AiOS_Prefs.rememberSelectedTab(this);">
-                <tab label="&tab.panels.places;" />
+                <tab label="&tab.panels.other1;" />
                 <tab label="&downloads.label;" />
                 <tab label="&button.addons.label;" />
-                <tab label="&tab.panels.other1;" />
                 <tab label="&tab.panels.paneltab;"/>
             </tabs>
 
@@ -106,6 +105,48 @@
                             <checkbox preference="HIOpen"
                                       label="&misc.enablesidebar.label;"
                                       oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                        </groupbox>
+                                                <groupbox>
+                            <caption label="&button.multipanel.label;" />
+                            <checkbox preference="MPOpen"
+                                      label="&misc.enablesidebar.label;" />
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&pageInfoCmd.label;" />
+                            <checkbox preference="PIOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="PILayout"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+                            <vbox class="indent">
+                                <checkbox id="obj-PILayout"
+                                          preference="PILayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&button.console.label;" />
+                            <checkbox preference="COOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="COLayout"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+
+                            <vbox class="indent">
+                                <checkbox preference="COLayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
+                        </groupbox>
+                        <groupbox>
+                            <caption label="&button.cookies.label;" />
+                            <checkbox preference="KSOpen"
+                                      label="&misc.enablesidebar.label;"
+                                      aiosChilds="KSLayout"
+                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
+
+                            <vbox class="indent">
+                                <checkbox id="obj-KSLayout"
+                                          preference="KSLayout"
+                                          label="&misc.layout.label;" />
+                            </vbox>
                         </groupbox>
                     </vbox>
                 </tabpanel>
@@ -172,57 +213,11 @@
                     </vbox>
                 </tabpanel>
 
-                <!-- TAB: Others -->
-                <tabpanel orient="vertical">
-                    <vbox class="aiosSizeBox" restart="true">
-                        <groupbox>
-                            <caption label="&button.multipanel.label;" />
-                            <checkbox preference="MPOpen"
-                                      label="&misc.enablesidebar.label;" />
-                        </groupbox>
-                        <groupbox>
-                            <caption label="&pageInfoCmd.label;" />
-                            <checkbox preference="PIOpen"
-                                      label="&misc.enablesidebar.label;"
-                                      aiosChilds="PILayout"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
-                            <vbox class="indent">
-                                <checkbox id="obj-PILayout"
-                                          preference="PILayout"
-                                          label="&misc.layout.label;" />
-                            </vbox>
-                        </groupbox>
-                        <groupbox>
-                            <caption label="&button.console.label;" />
-                            <checkbox preference="COOpen"
-                                      label="&misc.enablesidebar.label;"
-                                      aiosChilds="COLayout"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
-
-                            <vbox class="indent">
-                                <checkbox preference="COLayout"
-                                          label="&misc.layout.label;" />
-                            </vbox>
-                        </groupbox>
-                        <groupbox>
-                            <caption label="&button.cookies.label;" />
-                            <checkbox preference="KSOpen"
-                                      label="&misc.enablesidebar.label;"
-                                      aiosChilds="KSLayout"
-                                      oncommand="AiOS_Prefs.checkboxObserver(this);" />
-
-                            <vbox class="indent">
-                                <checkbox id="obj-KSLayout"
-                                          preference="KSLayout"
-                                          label="&misc.layout.label;" />
-                            </vbox>
-                        </groupbox>
-                    </vbox>
-                </tabpanel>
-
                 <!-- TAB: PanelTab -->
                 <tabpanel orient="vertical">
                     <vbox class="aiosSizeBox">
+                        <description class="header-description" value="&misc.paneltab.headerdesc;" />
+                        
                         <!-- Bookmarks - PanelTab -->
                         <groupbox>
                             <caption label="&tab.gen.behavior;" />
@@ -231,8 +226,6 @@
                         </groupbox>
                         <groupbox>
                             <caption label="&bookmarksButton.label;" />
-
-                            <description width="100%">&misc.bm.paneltab.desc;</description>
                             <checkbox preference="PanelTabBMM"
                                       label="&misc.bm.paneltab;" />
                         </groupbox>

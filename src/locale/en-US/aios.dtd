@@ -1,6 +1,6 @@
 <!ENTITY loading.label "loading panel…">
 <!ENTITY menu.prefs.label "The Good 'ol Sidebar Options…">
-<!ENTITY menu.togglebar.label "Sidebar Switch">
+<!ENTITY menu.togglebar.label "Panel Toggle">
 <!ENTITY menu.grippy.label "Sidebar Grippy">
 <!ENTITY toolbar.name "The Good 'ol Sidebar Toolbar">
 <!ENTITY toolbar.label "The Good 'ol Sidebar">
@@ -8,19 +8,20 @@
 <!ENTITY sbhtoolbar.label "Sidebar Header">
 <!ENTITY button.toggle.label "TGS">
 <!ENTITY button.toggle.tooltip "Toggle elements controlled by The Good 'ol Sidebar">
-<!ENTITY button.switch.tooltip1 "Toggle Sidebar and Toolbar">
-<!ENTITY button.switch.tooltip2 "Toggle Toolbar">
-<!ENTITY button.switch.tooltip3 "Toggle Sidebar">
-<!ENTITY sidebar.open.label "Open Sidebar">
-<!ENTITY sidebar.close.label "Close Sidebar">
+<!ENTITY button.switch.tooltip1 "Toggle sidebar and toolbar">
+<!ENTITY button.switch.tooltip2 "Toggle toolbar">
+<!ENTITY button.switch.tooltip3 "Toggle sidebar">
+<!ENTITY sidebar.open.label "Open sidebar">
+<!ENTITY sidebar.close.label "Close sidebar">
 <!ENTITY sidebar.width.min "Minimum width">
 <!ENTITY sidebar.width.def "Standard width">
 <!ENTITY sidebar.width.max "Maximum width">
-<!ENTITY button.menu.label "Sidebar Panels">
-<!ENTITY button.menu.tooltip "All available Sidebar Panels">
+<!ENTITY button.menu.label "Sidebar panels">
+<!ENTITY button.menu.tooltip "All available sidebar panels">
 <!ENTITY button.toolbar.label "TGS Toolbar">
 <!ENTITY button.toolbar.tooltip "Toggle TGS Toolbar">
-<!ENTITY button.paneltab.label "PanelTab">
+<!ENTITY button.paneltab.label "Page Transfer">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Open Content of Tab in Sidebar">
 <!ENTITY button.paneltab.tooltip2 "Open Content of Sidebar in a New Tab">
 <!ENTITY button.paneltab.tooltip3 "Open Content of Sidebar in a Window">
@@ -29,11 +30,11 @@
 <!ENTITY button.autohide.label "Sidebar Auto-hide">
 <!ENTITY button.autohide.tooltip "Toggle Sidebar automatically">
 <!ENTITY button.tooltip.sidebar "Open in the Sidebar">
-<!ENTITY button.tooltip.window "Open in a Window">
-<!ENTITY button.tooltip.tab "Open in a New Tab">
+<!ENTITY button.tooltip.window "Open in a window">
+<!ENTITY button.tooltip.tab "Open in a new tab">
 <!ENTITY button.addons.label "Add-ons">
 <!ENTITY button.addons.tooltip "Display installed add-ons">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Display websites and browser information">
 <!ENTITY button.pageinfo.tooltip "Display extensive information about a web page">
 <!ENTITY button.console.label "Error Console">

@@ -31,7 +31,7 @@
 <!ENTITY button.tooltip.tab "Åbn i nyt faneblad">
 <!ENTITY button.addons.label "Tilføjelser">
 <!ENTITY button.addons.tooltip "Vis installerede udvidelser og temaer">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Viser f.eks. et website, kildekode og browserinformation">
 <!ENTITY button.pageinfo.tooltip "Viser informationer, formularer, links, medier og sikkerhed">
 <!ENTITY button.console.label "Fejlkonsol">

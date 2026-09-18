@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Прикажи бројеве ставки">
 <!ENTITY misc.enablelink.tooltip "Кликните овде за више информација (веза према НПП)">
 <!ENTITY misc.paneltab.reverse "Замени улоге левог и средњег клика">
-<!ENTITY misc.bm.paneltab.desc "Дугме “Језичак панела” може отворити управљача забелешки у новом језичку уместо у панелу забелешки.">
 <!ENTITY misc.bm.paneltab "Омогући управљача забелешки у новом језичку">
 <!ENTITY special.collapsing.caption "Умањивање бочне траке">
 <!ENTITY special.collapsing.label "Омогући умањивање бочне траке">

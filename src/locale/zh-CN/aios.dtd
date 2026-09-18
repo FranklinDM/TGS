@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "TGS 工具栏">
 <!ENTITY button.toolbar.tooltip "切换 TGS 工具栏">
 <!ENTITY button.paneltab.label "面板标签页">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "在侧栏查看当前标签页">
 <!ENTITY button.paneltab.tooltip2 "使用新标签页查看当前面板">
 <!ENTITY button.paneltab.tooltip3 "在窗口中查看当前面板">

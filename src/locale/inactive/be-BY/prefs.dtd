@@ -69,7 +69,6 @@
 <!ENTITY misc.count.label "Паказваць лік элементаў">
 <!ENTITY misc.enablelink.tooltip "Націсніце тут, каб атрымаць больш інфармацыі (спасылка на FAQ)">
 <!ENTITY misc.paneltab.reverse "Змяняць месцамі дзеянне левай і сярэдняй кнопак мышы">
-<!ENTITY misc.bm.paneltab.desc "Кнопка &amp;#8220;Адкрыць ва ўкладцы&amp;#8221; можа адчыняць у новай укладцы Мэнэджэр закладак замест спісу закладак.">
 <!ENTITY misc.bm.paneltab "Адчыняць у новай укладцы Мэнэджэр закладак">
 <!ENTITY special.collapsing.caption "Згортванне бакавой панэлі">
 <!ENTITY special.collapsing.label "Выкарыстаць згортванне бакавой панэлі">

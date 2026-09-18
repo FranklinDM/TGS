@@ -2,20 +2,10 @@
 <!ENTITY settings "Beállítások…">
 <!ENTITY close "Bezárás">
 <!ENTITY tab.about "Névjegy">
-<!ENTITY tab.help "Súgó">
 <!ENTITY tab.contrib "Hozzájárulók">
 <!ENTITY tab.trans "Fordítók">
 <!ENTITY about.desc "Az The Good 'ol Sidebar számos ablakot oldalsávként nyit meg és lehetőséget biztosít a gyors váltásra. Ezzel vet véget az ablakok káoszának. A könyvjelzők és az előzmények továbbra is ablakban jelenhet meg, míg a letöltések, a bővítmények és a további ablakok oldalsávként.">
 <!ENTITY create.desc "Készítette: Ingo Wennemaring, Hamburg [Németország]">
-<!ENTITY help.desc "Erről a kiterjesztésről további információkat a következő weboldalon találhat:">
-<!ENTITY about1.name "Honlap - rengeteg információ">
-<!ENTITY about2.name "Szolgáltatások - az The Good 'ol Sidebar összes szolgáltatása">
-<!ENTITY about3.name "GYIK - Gyakran Ismételt Kérdések és a válaszok">
-<!ENTITY about4.name "Ismert problémák - leírások és hibajavítások">
-<!ENTITY about5.name "Fórum - eszmecserék, hibajelentések valamint beszélgetések egyéb témákról is">
-<!ENTITY about6.name "Változások - verziótörténet és változások">
-<!ENTITY about7.name "Tennivalók - tervezett szolgáltatások és fejlesztések">
 <!ENTITY contrib.desc "Köszönöm a következő fejlesztőknek az ötletekért és a forráskódokért (ábécé sorrendben):">
 <!ENTITY contrib.thanks "Végül, de nem utolsósorban szeretném megköszönni az összes felhasználónak a tesztelési munkát, akik tesztelték a fejlesztői változatokat, hibákat jelentettek be a fórumban, megosztották ötleteiket és javaslataikat és azoknak is akik remek hozzászólásokat írtak. :o) Nagyon szépen köszönöm!">
 <!ENTITY trans.desc "Az The Good 'ol Sidebar fordítói (nyelvkód szerinti ábécé sorrendben):">
-<!ENTITY trans.thanks "Köszönöm továbbá a BabelZilla.org csapatának remek munkáját.">

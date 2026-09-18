@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Показувати кількість елементів">
 <!ENTITY misc.enablelink.tooltip "Натисніть тут для детальної інформації (посилання на FAQ)">
 <!ENTITY misc.paneltab.reverse "Поміняти місцями дії лівої та правої кнопок миші">
-<!ENTITY misc.bm.paneltab.desc "Кнопка “Вкладка панелей” може відкрити менеджер закладок у новій вкладці замість панелі закладок.">
 <!ENTITY misc.bm.paneltab "Відкривати менеджер закладок у новій вкладці">
 <!ENTITY special.collapsing.caption "Згортання бічної панелі">
 <!ENTITY special.collapsing.label "Увімкнути згортання бічної панелі">

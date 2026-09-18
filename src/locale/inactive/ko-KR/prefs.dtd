@@ -76,7 +76,6 @@
 <!ENTITY misc.count.label "항목의 수 보이기">
 <!ENTITY misc.enablelink.tooltip "더 많은 정보를 보려면 여기를 클릭하십시오 (FAQ로 가는 링크)">
 <!ENTITY misc.paneltab.reverse "왼쪽 클릭과 가운데 클릭의 동작을 서로 바꾸기">
-<!ENTITY misc.bm.paneltab.desc "\'패널탭\' 버튼으로 북마크 패널 대신 북마크 관리자를 새 탭으로 열 수 있습니다.">
 <!ENTITY misc.bm.paneltab "새 탭에 북마크 관리자를 여는 것을 허용">
 <!ENTITY special.collapsing.caption "탐색 창 접기">
 <!ENTITY special.collapsing.label "탐색 창 접기 쓰기">

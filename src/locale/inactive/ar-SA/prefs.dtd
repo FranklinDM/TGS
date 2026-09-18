@@ -75,7 +75,6 @@
 <!ENTITY misc.count.label "عرض عدد الأصناف">
 <!ENTITY misc.enablelink.tooltip "إضغط هنا لمعلومات أكثر (رابط FAQs)">
 <!ENTITY misc.paneltab.reverse "بدل إجرائات Left-click و Middle-click">
-<!ENTITY misc.bm.paneltab.desc "“تبويب اللوحة” فتح مدير العلامات في تبويب جديد ، بدلا من لوحة مدير العلامات.">
 <!ENTITY misc.bm.paneltab "تمكين مدير العلامات في تبويب جديد">
 <!ENTITY special.collapsing.caption "تصغير الشريط الجانبي">
 <!ENTITY special.collapsing.label "تفعيل تصغير الشريط الجانبي">

@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "Barra de herramientas de TGS">
 <!ENTITY button.toolbar.tooltip "Activar barra de herramientas de TGS">
 <!ENTITY button.paneltab.label "PanelTab">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Abre el contenido de la pestaña en el panel lateral">
 <!ENTITY button.paneltab.tooltip2 "Abre el contenido del panel lateral en una pestaña">
 <!ENTITY button.paneltab.tooltip3 "Abre el contenido del panel lateral en una ventana">

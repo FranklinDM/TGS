@@ -32,7 +32,6 @@
 
             <tabs>
                 <tab label="&tab.about;" />
-                <tab label="&tab.help;" />
                 <tab label="&tab.contrib;" />
                 <tab label="&tab.trans;" />
             </tabs>
@@ -47,32 +46,6 @@
                     <separator class="groove" />
 
                     <description width="100%">&create.desc;</description>
-
-                </tabpanel>
-
-<!-- HELP -->
-                <tabpanel orient="vertical">
-
-                    <description width="100%">&help.desc;</description>
-
-                    <separator class="groove" />
-
-                    <vbox class="indent websites">
-                        <toolbarbutton label="&about1.name;"
-                                       onclick="aios_addTab('&about1.link;');" />
-                        <toolbarbutton label="&about2.name;"
-                                       onclick="aios_addTab('&about2.link;');" />
-                        <toolbarbutton label="&about3.name;"
-                                       onclick="aios_addTab('&about3.link;');" />
-                        <toolbarbutton label="&about4.name;"
-                                       onclick="aios_addTab('&about4.link;');" />
-                        <toolbarbutton label="&about6.name;"
-                                       onclick="aios_addTab('&about6.link;');" />
-                        <toolbarbutton label="&about7.name;"
-                                       onclick="aios_addTab('&about7.link;');" />
-                        <toolbarbutton label="&about5.name;"
-                                       onclick="aios_addTab('&about5.link;');" />
-                    </vbox>
 
                 </tabpanel>
 
@@ -92,27 +65,19 @@
                         <rows>
                             <row>
                                 <text value="&contrib1.name;" />
-                                <text value="&contrib1.ext;"
-                                      class="link"
-                                      onclick="aios_addTab('&contrib1.link;');" />
+                                <text value="&contrib1.ext;" />
                             </row>
                             <row>
                                 <text value="&contrib2.name;" />
-                                <text value="&contrib2.ext;"
-                                      class="link"
-                                      onclick="aios_addTab('&contrib2.link;');" />
+                                <text value="&contrib2.ext;" />
                             </row>
                             <row>
                                 <text value="&contrib4.name;" />
-                                <text value="&contrib4.ext;"
-                                      class="link"
-                                      onclick="aios_addTab('&contrib4.link;');" />
+                                <text value="&contrib4.ext;" />
                             </row>
                             <row>
                                 <text value="&contrib5.name;" />
-                                <text value="&contrib5.ext;"
-                                      class="link"
-                                      onclick="aios_addTab('&contrib5.link;');" />
+                                <text value="&contrib5.ext;" />
                             </row>
 
                             <separator class="groove" />
@@ -129,7 +94,7 @@
 
                     <separator class="groove" />
 
-                    <box style="overflow: auto; height: 135px;">
+                    <box style="overflow: auto;">
                         <grid flex="1"
                               id="trans.grid">
                             <columns>
@@ -142,13 +107,7 @@
                             </rows>
                         </grid>
                     </box>
-
-                    <separator class="groove" />
-
-                    <description width="100%">&trans.thanks;</description>
-
                 </tabpanel>
-
             </tabpanels>
         </tabbox>
     </prefpane>

@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Aantal items tonen">
 <!ENTITY misc.enablelink.tooltip "Klik hier voor meer informatie (koppeling naar de FAQ&apos;s)">
 <!ENTITY misc.paneltab.reverse "Linker- en middelklikacties omwisselen">
-<!ENTITY misc.bm.paneltab.desc "De paneeltabbladknop kan de bladwijzerbeheerder in een nieuw tabblad openen in plaats van het bladwijzerpaneel.">
 <!ENTITY misc.bm.paneltab "Bladwijzerbeheerder in nieuw tabblad inschakelen">
 <!ENTITY special.collapsing.caption "Zijbalkinschuiven">
 <!ENTITY special.collapsing.label "Zijbalkinschuiven inschakelen">

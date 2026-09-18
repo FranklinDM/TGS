@@ -17,7 +17,7 @@
 <!ENTITY tab.panels.places "Yer İmleri/Geçmiş">
 <!ENTITY tab.panels.other1 "Diğer 1">
 <!ENTITY tab.panels.other2 "Diğer 2">
-<!ENTITY tab.panels.paneltab "Panel tab">
+<!ENTITY tab.panels.paneltab "Page Transfer">
 <!ENTITY tab.menus "Menüler">
 <!ENTITY tab.menus.sidebar "Kenar çubuğu">
 <!ENTITY tab.keys "Kısayollar">
@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Parça numaralarını göster">
 <!ENTITY misc.enablelink.tooltip "Daha fazla bilgi için tıkla">
 <!ENTITY misc.paneltab.reverse "Sol tıklama ve orta tıklama hareketlerini değiştir">
-<!ENTITY misc.bm.paneltab.desc "&quot;Panel Sekmesi&quot; düğmesini yer imleri kenar çubuğu yerine yer imleri yöneticisi olarak yeni sekmede açılabilir.">
 <!ENTITY misc.bm.paneltab "Yer imleri yöneticisini yeni sekme olarak etkinleştir">
 <!ENTITY special.collapsing.caption "Kenar çubuğu katlamaları">
 <!ENTITY special.collapsing.label "Kenar çubuğu katlamarı aktif">

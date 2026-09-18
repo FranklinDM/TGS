@@ -77,7 +77,6 @@
 <!ENTITY misc.count.label "Elemek számának megjelenítése">
 <!ENTITY misc.enablelink.tooltip "További információkért kattintson ide (Gyakran Ismételt Kérdések)">
 <!ENTITY misc.paneltab.reverse "Bal- és jobbkattintás műveleteinek felcserélése">
-<!ENTITY misc.bm.paneltab.desc "A Panellap gombbal meg lehet nyitni a Könyvjelzőkezelőt új böngészőlapon a Könyvjelző oldalsáv helyett.">
 <!ENTITY misc.bm.paneltab "Könyvjelzőkezelő megnyitása új böngészőlapon">
 <!ENTITY special.collapsing.caption "Oldalsáv összezárás">
 <!ENTITY special.collapsing.label "Oldalsáv összezárás engedélyezése">

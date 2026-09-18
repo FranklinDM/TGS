@@ -76,7 +76,6 @@
 <!ENTITY misc.count.label "Hiện số lượng danh mục">
 <!ENTITY misc.enablelink.tooltip "Nhấp vào đây để biết thêm thông tin (liên kết đến FAQ)">
 <!ENTITY misc.paneltab.reverse "Hoán đổi Thao tác Nhấp chuột trái và Nhấp chuột giữa">
-<!ENTITY misc.bm.paneltab.desc "Nút “ThẻBảng” có thể mở Quản lí Trang đánh dấu trong một thẻ mới, thay cho khung Bảng Đánh Dấu.">
 <!ENTITY misc.bm.paneltab "Kích hoạt Quản lí Trang đánh dấu trong Thẻ Mới">
 <!ENTITY special.collapsing.caption "Thu gọn Thanh lề">
 <!ENTITY special.collapsing.label "Kích hoạt Thu gọn Thanh lề">

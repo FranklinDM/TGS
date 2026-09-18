@@ -6,14 +6,6 @@
 <!ENTITY tab.trans "Người dịch">
 <!ENTITY about.desc "TGS cho phép bạn mở nhiều cửa sổ dưới dạng thanh lề, và nhanh chóng chuyển đổi qua lại. Nó đã đặt dấu chấm hết cho thời kì cửa sổ lộn xộn! Ngoài đánh dấu và lược sử, nó còn mở các hộp thoại tải xuống, tiện ích và nhiều thứ khác trong thanh lề.">
 <!ENTITY create.desc "tạo bởi Ingo Wennemaring, Hamburg [Đức]">
-<!ENTITY about1.name "Trang chủ - nhiều thông tin được liệt kê ở một nơi">
-<!ENTITY about2.name "Tính năng - tất cả tính năng của The Good 'ol Sidebar">
-<!ENTITY about3.name "FAQ - các câu hỏi và trả lời thường gặp">
-<!ENTITY about4.name "Vấn đề đã biết - mô tả và gỡ rối">
-<!ENTITY about5.name "Diễn đang - thảo luận, báo cáo lỗi, và sửa giao diện cùng các thứ khác">
-<!ENTITY about6.name "Lưu kí thay đổi - lược sử và các thay đổi">
-<!ENTITY about7.name "Cần làm - các tính năng và cải tiến dự tính">
 <!ENTITY contrib.desc "Tôi xin cảm ơn các nhà phát triển sau vì đã đem lại cảm hứng và kiến thức cho tôi [thứ tự ABC]:">
 <!ENTITY contrib.thanks "Cuối cùng nhưng chưa phải là hết, tôi xin cảm ơn tất cả những người dùng đã giúp đỡ bằng việc thử các phiên bản đang phát triển, báo cáo lỗi trong diễn đàn, chia sẻ ý kiến và đề nghị, cũng như đã viết các bình luận tốt. :-) Cảm ơn mọi người rất nhiều!">
 <!ENTITY trans.desc "Những người dịch The Good 'ol Sidebar [theo thứ tự ABC của mã ngôn ngữ]:">
-<!ENTITY trans.thanks "Tôi cũng cảm ơn nhóm BabelZilla.org vì những việc làm tuyệt vời của họ!">

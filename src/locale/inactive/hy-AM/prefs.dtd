@@ -76,7 +76,6 @@
 <!ENTITY misc.count.label "Ցույց տալ հերթական համարները">
 <!ENTITY misc.enablelink.tooltip "Սեղմել ավելի շատ իմանալու համար (հղում դեպի անգլերեն ՀՏՀ)">
 <!ENTITY misc.paneltab.reverse "Մկնիկի ձախ և միջին կոճակների գործողությունները տեղերով փոխել">
-<!ENTITY misc.bm.paneltab.desc "«Վահանակից Tab» կոճակը կարող է նոր Tabում բացել Էջադիրների Խմբագիրը ոչ թե ցուցակը">
 <!ENTITY misc.bm.paneltab "Թույլատրել Էջադիրների Խմբագիրը նոր Tabում">
 <!ENTITY special.collapsing.caption "Կողավահանակի Սառեցում">
 <!ENTITY special.collapsing.label "Թույլատրել Կողավահանակի Սառեցումը">

@@ -76,7 +76,6 @@
 <!ENTITY misc.count.label "Anzahl der Elemente anzeigen">
 <!ENTITY misc.enablelink.tooltip "Klicken Sie hier um mehr Informationen zu erhalten (Link zu den FAQs)">
 <!ENTITY misc.paneltab.reverse "Funktionen für Links- und Mittelklick vertauschen">
-<!ENTITY misc.bm.paneltab.desc "Die Schaltfläche &quot;PanelTab&quot; kann anstatt der Lesezeichen-Sidebar auch den Lesezeichen- Manager in einem neuen Tab öffnen.">
 <!ENTITY misc.bm.paneltab "Lesezeichen-Manager als Tab aktivieren">
 <!ENTITY special.collapsing.caption "Sidebar-Ausblendung">
 <!ENTITY special.collapsing.label "Sidebar-Ausblendung verwenden">

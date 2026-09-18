@@ -2,20 +2,10 @@
 <!ENTITY settings "אפשרויות…">
 <!ENTITY close "סגירה">
 <!ENTITY tab.about "אודות">
-<!ENTITY tab.help "עזרה">
 <!ENTITY tab.contrib "תורמים">
 <!ENTITY tab.trans "מתרגמים">
 <!ENTITY about.desc "The Good 'ol Sidebar מאפשר פתיחת מגוון חלונות כלוח בסרגל-הצד ומעבר מהיר ביניהם. כך שנגמר הבלגן עם החלונות. בנוסף לסימניות וההיסטוריה ניתן לפתוח בסרגל-הצד דיאלוגים כמו ההורדות, ההרחבות ועוד.">
 <!ENTITY create.desc "נוצר על ידי: Ingo Wennemaring, המבורג  [גרמניה]">
-<!ENTITY help.desc "ניתן למצוא מידע רב אודות הרחבה זו באתר:">
-<!ENTITY about1.name "דף הבית - מידע רב במקום אחד">
-<!ENTITY about2.name "מאפיינים - כל המאפיינים של The Good 'ol Sidebar">
-<!ENTITY about3.name "שאלות ותשובות נפוצות אודות ההרחבה">
-<!ENTITY about4.name "בעיות ידועות - תיאור, איתור וטיפול בבעיות">
-<!ENTITY about5.name "פורום - דיונים, דיווח באגים, ותיקון ערכות נושא ונושאים רבים אחרים">
-<!ENTITY about6.name "שינויים - ההיסטוריה של השינויים">
-<!ENTITY about7.name "לעשות - אפשרויות ושיפורים מתוכננים">
 <!ENTITY contrib.desc "אני מודה למפתחים הבאים על ההשראה ועל פיסות הקוד  [לפי סדר אלפביתי]:">
 <!ENTITY contrib.thanks "דבר אחרון חביב, אני מודה לכל המשתמשים שעזרו ובדקו את גרסאות הניסיון והפיתוח, שדיווחו על באגים  בפורום, וחלקו את רעיונותיהם ועצותיהם או סתם כתבו תגובה חביבה . תודה רבה לכם! (-:">
 <!ENTITY trans.desc "המתרגמים של The Good 'ol Sidebar  [בסדר אלפביתי, לפי קוד השפה]:">
-<!ENTITY trans.thanks "אני כמובן מודה לצוות BabelZilla.org על עבודתו המצוינת!">

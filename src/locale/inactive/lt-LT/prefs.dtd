@@ -71,8 +71,7 @@
 <!ENTITY misc.colors.label "Įjungti spalvotus fonus pagal dabartinę būseną">
 <!ENTITY misc.count.label "Rodyti elementų skaičių">
 <!ENTITY misc.enablelink.tooltip "Spragtelkite čia norėdami gauti daugiau informacijos (nuoroda į DUK)">
-<!ENTITY misc.paneltab.reverse "Swap Left-click and Middle-click Actions">
-<!ENTITY misc.bm.paneltab.desc "„PanelTab“ mygtukas gali atverti adresyno tvarkytuvą naujoje kortelėje, o ne adresyno skydelyje.">
+<!ENTITY misc.paneltab.reverse "Swap left-click and middle-click behavior">
 <!ENTITY misc.bm.paneltab "Įjungti adresyno tvarkytuvą naujoje kortelėje">
 <!ENTITY special.collapsing.caption "Parankinės sutraukimas">
 <!ENTITY special.collapsing.label "Įjungti parankinės sutraukimą">

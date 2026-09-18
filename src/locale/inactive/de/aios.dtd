@@ -33,7 +33,7 @@
 <!ENTITY button.tooltip.tab "In neuem Tab öffnen">
 <!ENTITY button.addons.label "Add-ons">
 <!ENTITY button.addons.tooltip "Zeigt die installierten Erweiterungen und Themes an">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Zeigt Webseiten und Browser-Informationen an">
 <!ENTITY button.pageinfo.tooltip "Zeigt verschiedene Seiteninformationen an">
 <!ENTITY button.console.label "Fehler-Konsole">

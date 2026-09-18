@@ -90,8 +90,8 @@
 <!ENTITY misc.colors.label "基于当前状态启用彩色背景">
 <!ENTITY misc.count.label "显示项目数量">
 <!ENTITY misc.enablelink.tooltip "点击这里获得更多信息">
+<!ENTITY misc.paneltab.headerdesc "Configure how the Page Transfer button handles tabs, sidebar panels, and click actions.">
 <!ENTITY misc.paneltab.reverse "交换左键与右键的功能">
-<!ENTITY misc.bm.paneltab.desc "您可以使用“面板标签页”按钮在新标签页中打开书签管理器而不是打开书签面板。">
 <!ENTITY misc.bm.paneltab "在新标签页中打开书签管理器">
 <!ENTITY special.collapsing.caption "侧栏折叠">
 <!ENTITY special.collapsing.label "启用侧栏折叠">

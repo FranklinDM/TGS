@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "Панель TGS">
 <!ENTITY button.toolbar.tooltip "Показать/Скрыть панель инструментов TGS">
 <!ENTITY button.paneltab.label "Открыть во вкладке">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Открыть содержимое вкладки в боковой панели">
 <!ENTITY button.paneltab.tooltip2 "Открыть содержимое боковой панели в новой вкладке">
 <!ENTITY button.paneltab.tooltip3 "Открыть содержимое боковой панели в отдельном окне">

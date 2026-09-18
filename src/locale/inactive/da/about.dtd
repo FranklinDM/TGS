@@ -5,14 +5,6 @@
 <!ENTITY tab.contrib "Bidragydere">
 <!ENTITY tab.trans "Oversættere">
 <!ENTITY create.desc "skabt af Ingo Wennemaring, Hamburg [Tyskland]">
-<!ENTITY about1.name "Hjemmeside - mange informationer i en side">
-<!ENTITY about2.name "Faciliteter - alle Alt-I-En Sidebjælkens faciliteter">
-<!ENTITY about3.name "OSS - Ofte stillede spørgsmål og svar">
-<!ENTITY about4.name "Kendte emner - beskrivelser og problemknusning">
-<!ENTITY about5.name "Forum - diskussioner, fejlrapporter og tema-rettelser blandt andre ting">
-<!ENTITY about6.name "Ændringslog - historik og ændringer">
-<!ENTITY about7.name "Skal-gøres - planlagte features og forbedringer">
 <!ENTITY contrib.desc "Tak til følgende udviklere for inspiration og kodestumper (alfabetisk orden):">
 <!ENTITY contrib.thanks "Sidst men ikke mindst, en stor tak til alle brugere der har hjulpet med test af udviklingsversioner, fejlrapporteret i forummet, delt deres idéer og forslag eller blot skrevet en venlig hilsen. :-) Mange tak!">
 <!ENTITY trans.desc "Oversætterne af Alt-I-En Sidebjælke (alfabetisk orden efter sprogakronym):">
-<!ENTITY trans.thanks "Og selvfølgelig tak til Babelzilla-teamet for deres store arbejde!">

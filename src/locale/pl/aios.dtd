@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "Pasek TGS">
 <!ENTITY button.toolbar.tooltip "Wyświetla/ukrywa pasek narzędzi TGS">
 <!ENTITY button.paneltab.label "Panel kart">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Otwórz zawartość karty w panelu bocznym">
 <!ENTITY button.paneltab.tooltip2 "Otwórz zawartość panelu bocznego w nowej karcie">
 <!ENTITY button.paneltab.tooltip3 "Otwórz zawartość panelu bocznego w oknie">
@@ -32,7 +33,7 @@
 <!ENTITY button.tooltip.window "Otwórz w oknie">
 <!ENTITY button.tooltip.tab "Otwórz w nowej karcie">
 <!ENTITY button.addons.tooltip "Wyświetla zainstalowane motywy i rozszerzenia">
-<!ENTITY button.multipanel.label "MultiPanel">
+<!ENTITY button.multipanel.label "Web Panel">
 <!ENTITY button.multipanel.tooltip "Wyświetla w panelu bocznym np. stronę, kod źródłowy, info o przeglądarce">
 <!ENTITY button.pageinfo.tooltip "Wyświetla informacje o aktywnej stronie">
 <!ENTITY button.console.tooltip "Otwiera konsolę, która śledzi problemy i porównuje z kodem źródłowym">

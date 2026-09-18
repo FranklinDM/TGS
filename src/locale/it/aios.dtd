@@ -21,6 +21,7 @@
 <!ENTITY button.toolbar.label "Barra di TGS">
 <!ENTITY button.toolbar.tooltip "Attiva/Disattiva la barra di TGS">
 <!ENTITY button.paneltab.label "Contenuto">
+<!ENTITY button.paneltab.tooltip "Transfer pages between tabs, sidebar, and pop-up windows">
 <!ENTITY button.paneltab.tooltip1 "Apre il contenuto della scheda nella barra laterale">
 <!ENTITY button.paneltab.tooltip2 "Apre il contenuto della barra laterale in una nuova scheda">
 <!ENTITY button.paneltab.tooltip3 "Apre il contenuto della barra laterale in una finestra">

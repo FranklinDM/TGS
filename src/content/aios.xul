@@ -366,7 +366,7 @@
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&button.paneltab.label;"
                        onclick="aios_panelTab(event);"
-                       tooltiptext="&button.paneltab.tooltip1; / &button.paneltab.tooltip2;" />
+                       tooltiptext="&button.paneltab.tooltip;" />
         <toolbarbutton id="toolbar-button"
                        class="toolbarbutton-1 chromeclass-toolbar-additional aios-tbutton"
                        label="&button.toolbar.label;"
@@ -571,7 +571,7 @@
         <observes element="aios-toolbox"
                   attribute="toolboxposition" />
 
-        <!-- Sidebar Switch -->
+        <!-- Panel Toggle -->
         <toolbox id="aios-toggle-toolbox"
                  insertafter="browser-border-start"
                  class="chromeclass-toolbar"

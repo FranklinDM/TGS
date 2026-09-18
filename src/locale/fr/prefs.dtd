@@ -46,10 +46,10 @@
 <!ENTITY gen.switch.drag "Afficher la barre latérale automatiquement lorsque vous faites glisser quelque chose sur l'interrupteur de la barre latérale">
 <!ENTITY gen.switch.onlymax "Seulement si le navigateur est au plus large ou en mode plein écran">
 <!ENTITY gen.switch.invtrigger "Activer le commutateur de barre latérale invisible">
-<!ENTITY gen.switch.onhover "When the mouse is above the invisible sidebar switch:">
+<!ENTITY gen.switch.onhover "When the mouse is above the invisible panel toggle:">
 <!ENTITY gen.switch.invhover "Show visual feedback or highlight">
 <!ENTITY gen.switch.invmouse "Show a hand cursor">
-<!ENTITY gen.switch.invnoclick "Reject click interactions with the sidebar switch">
+<!ENTITY gen.switch.invnoclick "Reject click interactions with the panel toggle">
 <!ENTITY gen.switch.delayshow "Afficher Délai">
 <!ENTITY gen.switch.delayhide "Masquer Délai">
 <!ENTITY gen.switch.delay "Délai">
@@ -58,7 +58,7 @@
 <!ENTITY gen.switch.hideBar "est ramené vers la page web">
 <!ENTITY gen.switch.hidePage "est maintenu sur l&apos;interrupteur du panneau">
 <!ENTITY gen.switch.hideNone "don't hide automatically">
-<!ENTITY gen.switch.ssvisibility "Hide the sidebar switch when:">
+<!ENTITY gen.switch.ssvisibility "Hide the panel toggle when:">
 <!ENTITY gen.switch.ssvisibility.auto "Automatic (Hidden when useless)">
 <!ENTITY gen.switch.ssvisibility.open "Sidebar is visible">
 <!ENTITY gen.switch.ssvisibility.closed "Sidebar is closed">
@@ -90,8 +90,8 @@
 <!ENTITY misc.colors.label "Autorise les fonds en couleur selon l&apos;état courant">
 <!ENTITY misc.count.label "Afficher le nombre d&apos;éléments">
 <!ENTITY misc.enablelink.tooltip "Cliquer ici pour en savoir plus (lien vers la FAQ)">
+<!ENTITY misc.paneltab.headerdesc "Configure how the Page Transfer button handles tabs, sidebar panels, and click actions.">
 <!ENTITY misc.paneltab.reverse "Intervertir les comportements du clic gauche et du clic-milieu (molette)">
-<!ENTITY misc.bm.paneltab.desc "Le bouton d&apos;onglet pour le panneau peut ouvrir le gestionnaire de marque-pages dans un nouvel onglet et non plus dans le panneau de marque-pages.">
 <!ENTITY misc.bm.paneltab "Activer le gestionnaire de marque-pages dans un nouvel onglet">
 <!ENTITY special.collapsing.caption "Repli du panneau latéral">
 <!ENTITY special.collapsing.label "Active le repli du panneau latéral">

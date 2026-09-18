@@ -2,20 +2,10 @@
 <!ENTITY settings "Opțiuni…">
 <!ENTITY close "Închide">
 <!ENTITY tab.about "Despre TGS">
-<!ENTITY tab.help "Ajutor">
 <!ENTITY tab.contrib "Colaboratori">
 <!ENTITY tab.trans "Traducători">
 <!ENTITY about.desc "The Good 'ol Sidebar vă permite să deschideți diferite ferestre ca panouri laterale și să comutați rapid între ele. Astfel s-a pus capăt haosului ferestrelor deschise! În plus față de Semnele de carte și Istoric, TGS deschide casete de dialog cum ar fi Descărcările, Suplimentele și altele.">
 <!ENTITY create.desc "Supliment creat de Ingo Wennemaring, Hamburg, Germania">
-<!ENTITY help.desc "Găsiţi mai multe informaţii despre acest supliment pe saitul web:">
-<!ENTITY about1.name "Pagina principală - o mulțime de informații într-un singur loc">
-<!ENTITY about2.name "Caracteristici - toate caracteristicile TGS">
-<!ENTITY about3.name "Întrebări frecvente - „FAQ“">
-<!ENTITY about4.name "Probleme cunoscute - descrieri și rezolvări">
-<!ENTITY about5.name "Forum - discuții, raportarea erorilor și rezolvări (printre alte chestiuni)">
-<!ENTITY about6.name "Jurnal - istoric și modificări">
-<!ENTITY about7.name "De făcut - noi caracteristici și îmbunătățiri planificate">
 <!ENTITY contrib.desc "Mulțumesc următorilor programatori pentru că mi-au inspirat părți din cod (în ordine alfabetică):">
 <!ENTITY contrib.thanks "În final dar nu în ultimul rând, mulțumesc tuturor utilizatorilor care m-au ajutat testând versiunile în dezvoltare, care au raportat în forum erori, care mi-au împărtășit ideile și sugestiile lor sau doar pentru că au făcut comentarii drăguțe. ☺ Vă mulțumesc foarte mult!">
 <!ENTITY trans.desc "Traducători ai TGS (în ordinea alabetică a codurilor de limbă):">
-<!ENTITY trans.thanks "Evident, mulțumesc echipei BabelZilla.org pentru importanta lor muncă!">
